@@ -1,0 +1,20 @@
+{
+  "name": "abis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dump": "npm run --silent build && node dist/cli.js",
+    "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
+    "test": "npm run --silent build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
