@@ -8,6 +8,29 @@ const registry = await loadAbiRegistry();
 const files = await writeTolkTypesFiles(registry, outDir);
 
 process.stdout.write(`Generated ${files.length} Tolk type files into ${outDir}\n`);
+for (const diagnostic of collectDiagnostics(files)) {
+  process.stdout.write(`${diagnostic}\n`);
+}
+
+function collectDiagnostics(
+  files: Awaited<ReturnType<typeof writeTolkTypesFiles>>,
+): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const file of files) {
+    for (const diagnostic of file.diagnostics) {
+      const line = `${file.fileName}: ${diagnostic}`;
+      if (seen.has(line)) {
+        continue;
+      }
+      seen.add(line);
+      result.push(line);
+    }
+  }
+
+  return result;
+}
 
 function resolveOutDir(args: string[]): string {
   const outIndex = args.findIndex((arg) => arg === "--out" || arg === "-o");
