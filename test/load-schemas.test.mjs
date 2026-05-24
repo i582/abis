@@ -1,8 +1,12 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
-import { generateTolkTypesFiles } from "../dist/generate-tolk.js";
+import {
+  generateContractCodeHashesMap,
+  generateTolkTypesFiles,
+} from "../dist/generate-tolk.js";
 import { loadAbiRegistry } from "../dist/load-schemas.js";
 
 test("loads every XML schema into the typed registry", async () => {
@@ -28,17 +32,26 @@ test("loads every XML schema into the typed registry", async () => {
 });
 
 test("prints Tolk generation diagnostics to stdout", () => {
+  const outDir = "/tmp/abis-tolk-test-cli";
   const result = spawnSync(
     process.execPath,
-    ["dist/generate-tolk-cli.js", "--out", "/tmp/abis-tolk-test-cli"],
+    ["dist/generate-tolk-cli.js", "--out", outDir],
     { encoding: "utf8" },
   );
 
   assert.equal(result.status, 0);
+  assert.match(result.stdout, /Generated contract code hash map/);
   assert.match(
     result.stdout,
     /bidask_pool\.types\.tolk: incomingMessages: not added to contract header because bidask_swap_fallback and bidask_swap_fallback_v2 share opcode/,
   );
+
+  const codeHashes = JSON.parse(
+    readFileSync(`${outDir}/contract-code-hashes.json`, "utf8"),
+  );
+  assert.deepEqual(codeHashes.MoonBooster, [
+    "ce84c382c8b6ac0d05212bbaa34d05e54e1e30e2cc9289f2d9c9d64726a112a8",
+  ]);
 });
 
 test("generates first-pass Tolk type files from loaded schemas", async () => {
@@ -98,4 +111,17 @@ test("generates first-pass Tolk type files from loaded schemas", async () => {
     moonBooster.source,
     /type MoonBoosterOutgoingMessage = MoonBoostPool\n\nget fun get_status/,
   );
+});
+
+test("generates contract name to code hashes map", async () => {
+  const registry = await loadAbiRegistry();
+  const codeHashes = generateContractCodeHashesMap(registry);
+
+  assert.deepEqual(codeHashes.MoonBooster, [
+    "ce84c382c8b6ac0d05212bbaa34d05e54e1e30e2cc9289f2d9c9d64726a112a8",
+  ]);
+  assert.deepEqual(codeHashes.WalletV5r1, [
+    "20834b7b72b112147e1b2fb457b84e74d1a30f04f737d4f62a668e9552d2b72f",
+  ]);
+  assert.equal(codeHashes.DedustVault, undefined);
 });

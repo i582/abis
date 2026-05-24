@@ -33,6 +33,9 @@ import type {
 
 const ZERO_ADDRESS =
   'address("0:0000000000000000000000000000000000000000000000000000000000000000")';
+export const CONTRACT_CODE_HASHES_FILE_NAME = "contract-code-hashes.json";
+
+export type ContractCodeHashesMap = Record<string, string[]>;
 
 export interface GeneratedTolkFile {
   schemaId: string;
@@ -132,12 +135,20 @@ export async function writeTolkTypesFiles(
   outDir: string,
 ): Promise<GeneratedTolkFile[]> {
   const files = generateTolkTypesFiles(registry, outDir);
+  const codeHashesJson = generateContractCodeHashesJson(registry);
 
   await mkdir(outDir, { recursive: true });
   await Promise.all(
-    files.map(async (file) => {
-      await writeFile(file.path, file.source, "utf8");
-    }),
+    [
+      ...files.map(async (file) => {
+        await writeFile(file.path, file.source, "utf8");
+      }),
+      writeFile(
+        path.join(outDir, CONTRACT_CODE_HASHES_FILE_NAME),
+        codeHashesJson,
+        "utf8",
+      ),
+    ],
   );
 
   return files;
@@ -148,6 +159,30 @@ export function generateTolkTypesFiles(
   outDir: string,
 ): GeneratedTolkFile[] {
   return registry.schemas.flatMap((schema) => generateSchemaFiles(schema, outDir));
+}
+
+export function generateContractCodeHashesJson(registry: AbiRegistry): string {
+  return `${JSON.stringify(generateContractCodeHashesMap(registry), null, 2)}\n`;
+}
+
+export function generateContractCodeHashesMap(
+  registry: AbiRegistry,
+): ContractCodeHashesMap {
+  const entries = new Map<string, string[]>();
+
+  for (const schema of registry.schemas) {
+    for (const abiInterface of schema.interfaces) {
+      const codeHashes = unique(resolveInterface(schema, abiInterface).codeHashes);
+      if (codeHashes.length === 0) {
+        continue;
+      }
+      entries.set(toPascalCase(abiInterface.name), codeHashes);
+    }
+  }
+
+  return Object.fromEntries(
+    [...entries.entries()].sort(([left], [right]) => left.localeCompare(right)),
+  );
 }
 
 function generateSchemaFiles(schema: AbiSchema, outDir: string): GeneratedTolkFile[] {

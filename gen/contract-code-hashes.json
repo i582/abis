@@ -1,0 +1,151 @@
+{
+  "AffluentBatch": [
+    "0432bae477ebbfe5c75ebfa7db38c6cd6c1f96d40227de6838f7007e5c503f94"
+  ],
+  "AirdropInterlockerV1": [
+    "acd2b8ec4db7414396fa53698653ecc04a416ee3649d8f5b20b41f176ad833f0"
+  ],
+  "AirdropInterlockerV2": [
+    "0ff44a96fc2481111236d8d9920fd6e29b6108215e3ec5ba761ead9602adada4"
+  ],
+  "CoffeeCrossDex": [
+    "fea9c6a1ef5eab2c5ca94d6bef1e33994c5786abeb5264760e150da33bfb3677"
+  ],
+  "CoffeeMevProtector": [
+    "58fbc2dba2684d38b80bfce3dc5a9ffce00af9b464c7b4dc21cf57e3aae11f1c"
+  ],
+  "GramMiner": [
+    "ccae6ffb603c7d3e779ab59ec267ffc22dc1ebe0af9839902289a7a83e4c00f1"
+  ],
+  "JettonWalletCoffeeLp": [
+    "d7c38fa994a8282657209f93ebc5dfe908a5f06d2e41f0c085e917bc4f54a2b3"
+  ],
+  "JettonWalletGoverned": [
+    "89468f02c78e570802e39979c8516fc38df07ea76a48357e0536f2ba7b3ee37b"
+  ],
+  "JettonWalletRegulated": [
+    "e9aa0c02aafd5b38a295cc489019882439cf35c9738cc6dbeece4403dd066a5a"
+  ],
+  "JettonWalletV1": [
+    "beb0683ebeb8927fe9fc8ec0a18bc7dd17899689825a121eab46c5a3a860d0ce"
+  ],
+  "JettonWalletV2": [
+    "8d28ea421b77e805fea52acf335296499f03aec8e9fd21ddb5f2564aa65c48de"
+  ],
+  "MoonBooster": [
+    "ce84c382c8b6ac0d05212bbaa34d05e54e1e30e2cc9289f2d9c9d64726a112a8"
+  ],
+  "MoonOrder": [
+    "88c38d29586b5d748badbc7b4dbfe239c25cb85ca9c4586a44e05507a6edf6a6",
+    "ee07140b3ccfe261ed28580f60a16bda4c4b9c6d7da7ae05f5b7c7e2b1dfe226"
+  ],
+  "MoonOrderFactory": [
+    "d04737d6f678103a9e448c22109919d0f9cbe05ef1b1a83c5e7b886683a54704"
+  ],
+  "MultisigOrderV2": [
+    "a01e057fbd4288402b9898d78d67bd4e90254c93c5866879bc2d1d12865436bc"
+  ],
+  "MultisigV2": [
+    "d3d14da9a627f0ec3533341829762af92b9540b21bf03665fac09c2b46eabbac"
+  ],
+  "NftAuctionGetgemsV3": [
+    "1bd9c5a39bffb7a0f341588b5dd92b813a842bf65ef14109382200ceaf8f72df",
+    "6668872fa79705443ffd47523e8e9ea9f76ab99f9a0b59d27de8f81a1c27b9d4"
+  ],
+  "NftAuctionGetgemsV4": [
+    "ce5a78534eaaa6ceed8dafd486d076eb60a9b0d6dbfb53676f662649c0689956"
+  ],
+  "NftItemSimple": [
+    "4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42"
+  ],
+  "NftOfferGetgemsV1": [
+    "6e5d667fa6efa8187c6d029efd4015601232fd2e36c291dbc346dedab6dc8024"
+  ],
+  "NftSaleGetgemsV2": [
+    "8278f4c5233de6fbedc969af519344a7a9bffc544856dba986a95c0bcf8571c9"
+  ],
+  "NftSaleGetgemsV3": [
+    "24221fa571e542e055c77bedfdbf527c7af460cfdc7f344c450787b4cfa1eb4d",
+    "deb53b6c5765c1e6cd238bf47bc5e83ba596bdcc04b0b84cd50ab1e474a08f31",
+    "32050dfac44f64866bcc86f2cd9e1305fe9dcadb3959c002237cfb0902d44323"
+  ],
+  "NftSaleGetgemsV4": [
+    "6b95a6418b9c9d2359045d1e7559b8d549ae0e506f24caab58fa30c8fb1feb86"
+  ],
+  "OmnistonReferral": [
+    "edcc62f1752297fbda2408c09ca420b3af9528102e33b9e0a0ebe38553c18fec",
+    "6cda351c3c0ee368873a5ea10f53b9a47a55aacdc8deb3fd103c2f968c952527",
+    "e82ca5b820228565747a837c7634bef30bb48f5297937b2141fe5f6118ffaa4c",
+    "fc8df8be21d83d3876984d7859c078c916dfd7654bc465bf9cd64602eeb4c587"
+  ],
+  "SubscriptionV2": [
+    "48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"
+  ],
+  "ToncoPool": [
+    "bc947d16346c2fdc845b7a446382f59c86acb075e2a31dbfa956cd0c9e54678e"
+  ],
+  "ToncoRouter": [
+    "9b9891eaa7db7becc6ccdda1bd9a8d25dc3df2817d57e4b27ec003daf81a4439"
+  ],
+  "Tonkeeper2fa": [
+    "c5ef19df22aee8b707bd7a181174e400a4225223c5ae40d8320f5ddd707d34a1"
+  ],
+  "WalletHighloadV1r1": [
+    "d8cdbbb79f2c5caa677ac450770be0351be21e1250486de85cc52aa33dd16484"
+  ],
+  "WalletHighloadV1r2": [
+    "0dceed21269d66013e95b19fbb5c55a6f01adad40837baa8e521cde3a02aa46c"
+  ],
+  "WalletHighloadV2": [
+    "9494d1cc8edf12f05671a1a9ba09921096eb50811e1924ec65c3c629fbb80812"
+  ],
+  "WalletHighloadV2r1": [
+    "8ceb45b3cd4b5cc60eaae1c13b9c092392677fe536b2e9b2d801b62eff931fe1"
+  ],
+  "WalletHighloadV2r2": [
+    "203dd4f358adb49993129aa925cac39916b68a0e4f78d26e8f2c2b69eafa5679"
+  ],
+  "WalletHighloadV3r1": [
+    "11acad7955844090f283bf238bc1449871f783e7cc0979408d3f4859483e8525"
+  ],
+  "WalletPreprocessedV2": [
+    "45ebbce9b5d235886cb6bfe1c3ad93b708de058244892365c9ee0dfe439cb7b5"
+  ],
+  "WalletV1r1": [
+    "a0cfc2c48aee16a271f2cfc0b7382d81756cecb1017d077faaab3bb602f6868c"
+  ],
+  "WalletV1r2": [
+    "d4902fcc9fad74698fa8e353220a68da0dcf72e32bcb2eb9ee04217c17d3062c"
+  ],
+  "WalletV1r3": [
+    "587cc789eff1c84f46ec3797e45fc809a14ff5ae24f1e0c7a6a99cc9dc9061ff"
+  ],
+  "WalletV2r1": [
+    "5c9a5e68c108e18721a07c42f9956bfb39ad77ec6d624b60c576ec88eee65329"
+  ],
+  "WalletV2r2": [
+    "fe9530d3243853083ef2ef0b4c2908c0abf6fa1c31ea243aacaa5bf8c7d753f1"
+  ],
+  "WalletV3r1": [
+    "b61041a58a7980b946e8fb9e198e3c904d24799ffa36574ea4251c41a566f581"
+  ],
+  "WalletV3r2": [
+    "84dafa449f98a6987789ba232358072bc0f76dc4524002a5d0918b9a75d2d599"
+  ],
+  "WalletV4r1": [
+    "64dd54805522c5be8a9db59cea0105ccf0d08786ca79beb8cb79e880a8d7322d"
+  ],
+  "WalletV4r2": [
+    "feb5ff6820e2ff0d9483e7e0d62c817d846789fb4ae580c878866d959dabd5c0"
+  ],
+  "WalletV5Beta": [
+    "f3d7ca53493deedac28b381986a849403cbac3d2c584779af081065af0ac4b93",
+    "e4cf3b2f4c6d6a61ea0f2b5447d266785b26af3637db2deee6bcd1aa826f3412"
+  ],
+  "WalletV5r1": [
+    "20834b7b72b112147e1b2fb457b84e74d1a30f04f737d4f62a668e9552d2b72f"
+  ],
+  "WalletVesting": [
+    "b48b531abec3b714638291f7d77ed6dc9f6a2729efca20477137374d4ae8b590"
+  ]
+}

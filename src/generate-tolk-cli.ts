@@ -1,6 +1,9 @@
 import path from "node:path";
 
-import { writeTolkTypesFiles } from "./generate-tolk.js";
+import {
+  CONTRACT_CODE_HASHES_FILE_NAME,
+  writeTolkTypesFiles,
+} from "./generate-tolk.js";
 import { loadAbiRegistry } from "./load-schemas.js";
 
 const outDir = resolveOutDir(process.argv.slice(2));
@@ -8,6 +11,9 @@ const registry = await loadAbiRegistry();
 const files = await writeTolkTypesFiles(registry, outDir);
 
 process.stdout.write(`Generated ${files.length} Tolk type files into ${outDir}\n`);
+process.stdout.write(
+  `Generated contract code hash map into ${path.join(outDir, CONTRACT_CODE_HASHES_FILE_NAME)}\n`,
+);
 for (const diagnostic of collectDiagnostics(files)) {
   process.stdout.write(`${diagnostic}\n`);
 }
