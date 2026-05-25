@@ -1,11 +1,7 @@
-// Generated from XML ABI schemas.
-// Source schema: schemas/affluent.xml
-// TL-B message bodies are generated from @ton-community/tlb-parser.
-
 contract AffluentPool {
-    author: "Generated from ABI XML"
-    version: "0.1"
-    description: "Generated interface for schemas/affluent.xml"
+    author: "Affluent"
+    version: "1.0"
+    description: "Curated Affluent pool interface"
 }
 
 struct GetPoolDataAssets {

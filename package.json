@@ -8,13 +8,15 @@
     "dump": "npm run --silent build && node dist/cli.js",
     "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
     "test": "npm run --silent build && node --test test/**/*.test.mjs",
-    "compile:gen-abis": "node scripts/compile-gen-abis.mjs"
+    "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
+    "method-ids": "node scripts/method-ids.mjs"
   },
   "dependencies": {
     "@ton-community/tlb-codegen": "^2.0.0-beta.3",
     "@ton-community/tlb-parser": "^0.1.5",
     "@ton-community/tlb-runtime": "^1.0.0-alpha.3",
-    "fast-xml-parser": "^5.8.0"
+    "fast-xml-parser": "^5.8.0",
+    "ton-assembly": "^0.6.1"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
