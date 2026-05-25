@@ -16,13 +16,16 @@ defillama_yield = "https://github.com/DefiLlama/yield-server/blob/8f39857589e747
 api_strategy_vaults = "https://api.affluent.org/v2/api/strategyvaults"
 api_share_vaults = "https://api.affluent.org/v2/api/sharevaults"
 api_assets = "https://api.affluent.org/v2/api/assets"
+docs_concept = "https://docs.affluent.org/concept"
+docs_strategy_roles = "https://docs.affluent.org/strategy-vault/roles"
+docs_strategy_rfq = "https://docs.affluent.org/strategy-vault/oracle-verified-rfq"
+docs_legacy_vault = "https://docs.affluent.org/factorial-legacy/vault-overview"
 
 [contracts.Pool]
 types = "types/affluent_pool.types.tolk"
 hashes = [
   "1b16962d99bd8a72bf63d6d136f13459b30215aabd3c3f89283c1b77273353f1",
   "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40",
-  "44ce8cafb3e2127d883fc94a9c237e918f9d12a6c65fcc8146339156d11c3fb9",
 ]
 known_addresses = [
   "EQCrEHHG4Ff8TD3PzuH5tFSwHBD3zxeXaosz48jGLebwiiNx",
@@ -33,9 +36,9 @@ known_addresses = [
   "EQBQMDjWVLeX0vAUNDTRL-aA665EItLzSvONywKDHXJRCuxB",
   "EQCNgBmHVBRWpMeZE7E92RM-Gecnv88LJaXAlmqn4WAfJIA9",
   "EQA9iTdgsPxvk08idCXQoefGqJGLTDQFy4W34AtEj7Z_25iT",
-  "EQBoHvPL1cR3WzzNYoGvWdbcz4aE-n2mHjV0mFXwkWnAP-Cd",
 ]
-notes = "Pool contracts expose get_pool_data. Toncenter labels most of them as daolama_vault, but Affluent and DefiLlama identify them as Affluent/Factorial markets."
+observed_method_ids = [68369, 81689, 88360, 113417, 117047]
+notes = "Pool contracts expose get_pool_data (method id 81689). Toncenter labels most of them as daolama_vault, but Affluent and DefiLlama identify them as Affluent/Factorial markets."
 
 [[contracts.Pool.instances]]
 name = "BasicPool"
@@ -85,18 +88,27 @@ address = "EQA9iTdgsPxvk08idCXQoefGqJGLTDQFy4W34AtEj7Z_25iT"
 hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Ethena Market"
 
-[[contracts.Pool.instances]]
-name = "UnknownPool"
+[contracts.Account]
+types = "types/affluent_account.types.tolk"
+hashes = ["44ce8cafb3e2127d883fc94a9c237e918f9d12a6c65fcc8146339156d11c3fb9"]
+known_addresses = ["EQBoHvPL1cR3WzzNYoGvWdbcz4aE-n2mHjV0mFXwkWnAP-Cd"]
+observed_method_ids = [72156, 86329, 113417]
+compiler_helper_method_ids = [0, 56, 58, 60, 72, 73, 148, 149]
+notes = "Previously grouped with Pool by label proximity. The live/decompiled code exposes get_account_data (method id 86329) rather than get_pool_data (method id 81689), so this code hash is cataloged as Account instead of Pool. The getter returns two addresses and two dict cells; dictionary semantics remain low confidence."
+
+[[contracts.Account.instances]]
+name = "Unlabelled Affluent account"
 address = "EQBoHvPL1cR3WzzNYoGvWdbcz4aE-n2mHjV0mFXwkWnAP-Cd"
 hash = "44ce8cafb3e2127d883fc94a9c237e918f9d12a6c65fcc8146339156d11c3fb9"
-label = "Unlabelled Affluent pool from ton-labels"
+label = "Unlabelled Affluent address from ton-labels"
 
 [contracts.Batch]
 types = "types/affluent_batch.types.tolk"
 hashes = ["0432bae477ebbfe5c75ebfa7db38c6cd6c1f96d40227de6838f7007e5c503f94"]
 known_addresses = ["EQA2zgb-gK0JBknK5aN63dora40GmO2wRpQDhkL2cz1H2ZKq"]
-observed_method_ids = [0, 60, 61, 63, 64, 76, 100, 104, 121, 157, 243, 244, 251, 253, 88360, 113417]
-notes = "Tongo XML only provides code_hash for this contract. Toncenter exposes method ids, but not method names, argument types, return types, messages, or storage."
+observed_method_ids = [88360, 113417]
+compiler_helper_method_ids = [0, 60, 61, 63, 64, 76, 100, 104, 121, 157, 243, 244, 251, 253]
+notes = "Tongo XML only provides code_hash for this contract, but decompiled code exposes the internal message surface. Curated ABI now includes wallet-address discovery, jetton notifications, queue/execution messages, aggregator callbacks, standard outgoing jetton transfers, and storage helper structs. Method ids 88360 and 113417 are impure/internal in decompiled code, so no public getter was added."
 
 [[contracts.Batch.instances]]
 name = "AffluentBatch"
@@ -110,19 +122,26 @@ known_addresses = [
   "EQBowXTtxDTSMEJbrIIcYzIvSXZ9V5HW2Oo2iSW0chUzod3d",
   "EQD3F7Ex_uxBjxEub8FgeDoYYUSIbAUVyehCb_JSiCVL369T",
 ]
-notes = "Older multiply vault shape from schemas/affluent.xml."
+observed_method_ids = [73179, 88360, 103289, 106029, 113417, 120297, 127184]
+notes = "Older multiply vault shape from schemas/affluent.xml. Decompile confirms jetton master get methods, get_vault_data, get_rfq_address, and is_strategy_vault returning true."
 
 [[contracts.MultiplyVault.instances]]
 name = "Gold Multiply Vault"
 symbol = "affGOLDm"
+decimals = 8
 address = "EQBowXTtxDTSMEJbrIIcYzIvSXZ9V5HW2Oo2iSW0chUzod3d"
 hash = "f66c149de251ffd031bdb34b79abe43a062ba16b815433691e3ec40a77f01d71"
+related_asset_symbols = ["XAUt0", "tsTON", "USDT", "FactorialTON", "tsUSDe"]
+pools = ["EthenaPool", "AdvancedPool", "BasicPool"]
 
 [[contracts.MultiplyVault.instances]]
 name = "Ethena Vault"
 symbol = "affUSDe"
+decimals = 8
 address = "EQD3F7Ex_uxBjxEub8FgeDoYYUSIbAUVyehCb_JSiCVL369T"
 hash = "f66c149de251ffd031bdb34b79abe43a062ba16b815433691e3ec40a77f01d71"
+related_asset_symbols = ["VAULT7", "USDT", "tsUSDe"]
+pools = ["EthenaPool"]
 
 [contracts.MultiplyVaultV2]
 types = "types/affluent_multiply_vault_v2.types.tolk"
@@ -134,10 +153,13 @@ known_addresses = [
   "EQBjpfG5fzFESWJb6K5EdjvY_yhFa6fxhcwkVff0jlK1za82",
   "EQD5O4qzJmVwuKDIfDcuM6HI7fUf1AOolgF2oiPGyqr_WZsp",
 ]
+observed_method_ids = [71107, 73179, 88360, 103289, 106029, 110223, 113417, 120297, 127184]
+notes = "Strategy vault v2 shape from schemas/affluent.xml and Affluent API. Decompile confirms jetton master get methods, get_vault_data, get_rfq_address, and is_strategy_vault returning true; extra high ids 71107 and 110223 remain unnamed."
 
 [[contracts.MultiplyVaultV2.instances]]
 name = "Affluent/Strategy-Vault/TON-Multiply-1"
 symbol = "affTONm"
+decimals = 8
 address = "EQDtxQqkgIRQQR5hWlrQxiJMtLwjR3rEYNUBbEcvPDwCs1Ng"
 hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 related_asset_symbols = ["tsTON", "FactorialTON"]
@@ -146,6 +168,7 @@ pools = ["AdvancedPool", "BasicPool"]
 [[contracts.MultiplyVaultV2.instances]]
 name = "Affluent/Strategy-Vault/USDT-Multiply-1"
 symbol = "affUSDTm"
+decimals = 8
 address = "EQBzSItiC1vpDUEftDeWDyjgMutf6CIzme16gzn9iNlolpcY"
 hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 related_asset_symbols = ["VAULT7", "tsTON", "USDT", "FactorialTON"]
@@ -154,6 +177,7 @@ pools = ["AdvancedPool", "LendingVaultPool", "BasicPool"]
 [[contracts.MultiplyVaultV2.instances]]
 name = "Affluent/Strategy-Vault/Ethena-Multiply-1"
 symbol = "affETHENAm"
+decimals = 8
 address = "EQDXmtbt1-WSP00tSh6N6FH-4lX7LbnrjORClmtmuZqg4Ymm"
 hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 related_asset_symbols = ["USDe", "USDT", "tsUSDe"]
@@ -162,14 +186,18 @@ pools = ["EthenaPool"]
 [[contracts.MultiplyVaultV2.instances]]
 name = "Sentora Vault in Affluent"
 symbol = "affSENTORA"
+decimals = 8
 address = "EQBjpfG5fzFESWJb6K5EdjvY_yhFa6fxhcwkVff0jlK1za82"
 hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
+related_asset_symbols = ["morphoRLUSD", "morphoPYUSD", "eulerRLUSD", "eulerPYUSD", "USDT"]
 
 [[contracts.MultiplyVaultV2.instances]]
 name = "Sentora Vault for Wallet"
 symbol = "affSENTORAent"
+decimals = 8
 address = "EQD5O4qzJmVwuKDIfDcuM6HI7fUf1AOolgF2oiPGyqr_WZsp"
 hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
+related_asset_symbols = ["affSENTORA", "USDT"]
 
 [contracts.LendingVault]
 types = "types/affluent_lending_vault.types.tolk"
@@ -182,10 +210,13 @@ known_addresses = [
   "EQADQ6JcK0NMuNM5uwCcS9bjcn2RTvcxYIZjNlhIhywUrfBN",
   "EQAc65JgiTwcoC3M1VYnQcM2Ivq4DTWOtyY2k2EaBuXsKRAZ",
 ]
+observed_method_ids = [75634, 103289, 106029, 113417, 127184]
+notes = "Lending vaults are jetton masters. Affluent sharevaults API supplies names/symbols/underlying assets; decompile confirms get_vault_data plus get_jetton_data and get_wallet_address."
 
 [[contracts.LendingVault.instances]]
 name = "Factorial/Lending-Vault/USDT"
 symbol = "VAULT7"
+decimals = 6
 address = "EQAGtgnr1G0XDilGURcOB3pUhl-Lo__J-TaJP0K4ey8cuSaW"
 hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
@@ -194,6 +225,7 @@ underlying_symbol = "USDT"
 [[contracts.LendingVault.instances]]
 name = "Factorial/Lending-Vault/TON"
 symbol = "VAULT6"
+decimals = 9
 address = "EQADQ6JcK0NMuNM5uwCcS9bjcn2RTvcxYIZjNlhIhywUrfBN"
 hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQDIKEz2BYLnTRWo5W5a6moZ9PXNtyOVOFF7noi8Ufv3axz_"
@@ -202,6 +234,7 @@ underlying_symbol = "FactorialTON"
 [[contracts.LendingVault.instances]]
 name = "Affluent USDT Lending Vault"
 symbol = "affUSDTlv"
+decimals = 6
 address = "EQAc65JgiTwcoC3M1VYnQcM2Ivq4DTWOtyY2k2EaBuXsKRAZ"
 hash = "af8bf62a1cc6e9ffb08253b9be58c83d1939f0b2d2a0aeb8b5ede513968da2ef"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
@@ -211,6 +244,9 @@ underlying_symbol = "USDT"
 types = "types/jetton_master.types.tolk"
 hashes = ["c991d0a895644e9a3daad853f4366270e8be25bb026de6e7493db57f4b256999"]
 known_addresses = ["EQDIKEz2BYLnTRWo5W5a6moZ9PXNtyOVOFF7noi8Ufv3axz_"]
+observed_method_ids = [103289, 106029]
+compiler_helper_method_ids = [0]
+notes = "Live FactorialTON minter hash matches the catalog. Public getters are standard jetton get_wallet_address and get_jetton_data; low id 0 is treated as an internal helper."
 
 [[contracts.FactorialTonMinter.instances]]
 name = "Factorial TON"
@@ -229,7 +265,9 @@ known_addresses = [
   "EQDkyPd9kJVZa90StDWtvmsY1LWCWSssLxpDQjsg8tys9Rwv",
   "EQB4dsOX_DJy9lQoh7nuL_Ah2nj8tEtRkb48_EDuE3cKpMuD",
 ]
-notes = "FactorialTON jetton wallets holding TON for Affluent markets, from ton-labels."
+observed_method_ids = [97026]
+compiler_helper_method_ids = [0, 2, 13, 14, 15, 16, 17]
+notes = "FactorialTON jetton wallets holding TON for Affluent markets, from ton-labels. All listed wallet addresses were live-checked and expose standard get_wallet_data; low ids are treated as internal helpers."
 
 [[contracts.FactorialTonWallet.instances]]
 name = "Basic market FactorialTON wallet"
