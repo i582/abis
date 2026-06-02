@@ -1,0 +1,180 @@
+[package]
+name = "abis"
+description = "ABI schema experiments"
+version = "0.1.0"
+
+[contracts.Locker]
+display-name = "Locker"
+src = "data/locker/testdata/Locker.boc"
+types = "data/locker/types/locker.types.tolk"
+depends = []
+
+[contracts.LockerBill]
+display-name = "LockerBill"
+src = "data/locker/testdata/LockerBill.boc"
+types = "data/locker/types/locker_bill.types.tolk"
+depends = []
+
+[contracts.LockupVesting]
+display-name = "LockupVesting"
+src = "data/wallets/lockup_vesting/testdata/LockupVesting.boc"
+types = "data/wallets/lockup_vesting/types/lockup_vesting.types.tolk"
+depends = []
+
+[contracts.LockupUniversal]
+display-name = "LockupUniversal"
+src = "data/wallets/lockup_universal/testdata/LockupUniversal.boc"
+types = "data/wallets/lockup_universal/types/lockup_universal.types.tolk"
+depends = []
+
+[contracts.WalletVesting]
+display-name = "WalletVesting"
+src = "data/wallets/wallet_vesting/testdata/WalletVesting.boc"
+types = "data/wallets/wallet_vesting/types/wallet_vesting.types.tolk"
+depends = []
+
+[contracts.WalletV1r1]
+display-name = "WalletV1r1"
+src = "data/wallets/w1r1/testdata/WalletV1r1.boc"
+types = "data/wallets/w1r1/types/wallet_v1r1.types.tolk"
+depends = []
+
+[contracts.WalletV1r2]
+display-name = "WalletV1r2"
+src = "data/wallets/w1r2/testdata/WalletV1r2.boc"
+types = "data/wallets/w1r2/types/wallet_v1r2.types.tolk"
+depends = []
+
+[contracts.WalletV1r3]
+display-name = "WalletV1r3"
+src = "data/wallets/w1r3/testdata/WalletV1r3.boc"
+types = "data/wallets/w1r3/types/wallet_v1r3.types.tolk"
+depends = []
+
+[contracts.WalletV2r1]
+display-name = "WalletV2r1"
+src = "data/wallets/w2r1/testdata/WalletV2r1.boc"
+types = "data/wallets/w2r1/types/wallet_v2r1.types.tolk"
+depends = []
+
+[contracts.WalletV2r2]
+display-name = "WalletV2r2"
+src = "data/wallets/w2r2/testdata/WalletV2r2.boc"
+types = "data/wallets/w2r2/types/wallet_v2r2.types.tolk"
+depends = []
+
+[contracts.WalletV3r1]
+display-name = "WalletV3r1"
+src = "data/wallets/w3r1/testdata/WalletV3r1.boc"
+types = "data/wallets/w3r1/types/wallet_v3r1.types.tolk"
+depends = []
+
+[contracts.WalletV3r2]
+display-name = "WalletV3r2"
+src = "data/wallets/w3r2/testdata/WalletV3r2.boc"
+types = "data/wallets/w3r2/types/wallet_v3r2.types.tolk"
+depends = []
+
+[contracts.WalletV4r1]
+display-name = "WalletV4r1"
+src = "data/wallets/w4r1/testdata/WalletV4r1.boc"
+types = "data/wallets/w4r1/types/wallet_v4r1.types.tolk"
+depends = []
+
+[contracts.WalletV4r2]
+display-name = "WalletV4r2"
+src = "data/wallets/w4r2/testdata/WalletV4r2.boc"
+types = "data/wallets/w4r2/types/wallet_v4r2.types.tolk"
+depends = []
+
+[contracts.WalletV5r1]
+display-name = "WalletV5r1"
+src = "data/wallets/w5r1/testdata/WalletV5r1.boc"
+types = "data/wallets/w5r1/types/wallet_v5r1.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV2]
+display-name = "WalletHighloadV2"
+src = "data/wallets/highload_v2/testdata/WalletHighloadV2.boc"
+types = "data/wallets/highload_v2/types/wallet_highload_v2.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV1r1]
+display-name = "WalletHighloadV1r1"
+src = "data/wallets/highload_v1r1/testdata/WalletHighloadV1r1.boc"
+types = "data/wallets/highload_v1r1/types/wallet_highload_v1r1.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV1r2]
+display-name = "WalletHighloadV1r2"
+src = "data/wallets/highload_v1r2/testdata/WalletHighloadV1r2.boc"
+types = "data/wallets/highload_v1r2/types/wallet_highload_v1r2.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV2r1]
+display-name = "WalletHighloadV2r1"
+src = "data/wallets/highload_v2r1/testdata/WalletHighloadV2r1.boc"
+types = "data/wallets/highload_v2r1/types/wallet_highload_v2r1.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV2r2]
+display-name = "WalletHighloadV2r2"
+src = "data/wallets/highload_v2r2/testdata/WalletHighloadV2r2.boc"
+types = "data/wallets/highload_v2r2/types/wallet_highload_v2r2.types.tolk"
+depends = []
+
+[contracts.WalletHighloadV3r1]
+display-name = "WalletHighloadV3r1"
+src = "data/wallets/highload_v3r1/testdata/WalletHighloadV3r1.boc"
+types = "data/wallets/highload_v3r1/types/wallet_highload_v3r1.types.tolk"
+depends = []
+
+[contracts.WalletPreprocessedV2]
+display-name = "WalletPreprocessedV2"
+src = "data/wallets/wallet_preprocessed_v2/testdata/WalletPreprocessedV2.boc"
+types = "data/wallets/wallet_preprocessed_v2/types/wallet_preprocessed_v2.types.tolk"
+depends = []
+
+[contracts.MultisigV2]
+display-name = "MultisigV2"
+src = "data/wallets/multisig_v2/testdata/MultisigV2.boc"
+types = "data/wallets/multisig_v2/types/multisig_v2.types.tolk"
+depends = []
+
+[contracts.MultisigOrderV2]
+display-name = "MultisigOrderV2"
+src = "data/wallets/multisig_v2/testdata/MultisigOrderV2.boc"
+types = "data/wallets/multisig_v2/types/multisig_order_v2.types.tolk"
+depends = []
+
+[scripts]
+dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
+dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
+dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
+stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
+locker-mainnet-test = "acton test data/locker/tests/locker_mainnet.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+lockup-vesting-test = "acton test data/wallets/lockup_vesting/tests/lockup_vesting.test.tolk --show-bodies"
+lockup-universal-mainnet-test = "acton test data/wallets/lockup_universal/tests/lockup_universal.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-vesting-mainnet-test = "acton test data/wallets/wallet_vesting/tests/wallet_vesting.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v1r1-mainnet-test = "acton test data/wallets/w1r1/tests/wallet_v1r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v1r2-mainnet-test = "acton test data/wallets/w1r2/tests/wallet_v1r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v1r3-mainnet-test = "acton test data/wallets/w1r3/tests/wallet_v1r3.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v2r1-mainnet-test = "acton test data/wallets/w2r1/tests/wallet_v2r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v2r2-mainnet-test = "acton test data/wallets/w2r2/tests/wallet_v2r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v3r1-mainnet-test = "acton test data/wallets/w3r1/tests/wallet_v3r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v3r2-mainnet-test = "acton test data/wallets/w3r2/tests/wallet_v3r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v4r1-mainnet-test = "acton test data/wallets/w4r1/tests/wallet_v4r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v4r2-mainnet-test = "acton test data/wallets/w4r2/tests/wallet_v4r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-v5r1-mainnet-test = "acton test data/wallets/w5r1/tests/wallet_v5r1.test.tolk --fork-net mainnet --fork-block-number 70781329 --show-bodies"
+wallet-highload-v1r1-test = "acton test data/wallets/highload_v1r1/tests/wallet_highload_v1r1.test.tolk --show-bodies"
+wallet-highload-v1r2-test = "acton test data/wallets/highload_v1r2/tests/wallet_highload_v1r2.test.tolk --show-bodies"
+wallet-highload-v2-mainnet-test = "acton test data/wallets/highload_v2/tests/wallet_highload_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-highload-v2r1-mainnet-test = "acton test data/wallets/highload_v2r1/tests/wallet_highload_v2r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-highload-v2r2-mainnet-test = "acton test data/wallets/highload_v2r2/tests/wallet_highload_v2r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-highload-v3r1-mainnet-test = "acton test data/wallets/highload_v3r1/tests/wallet_highload_v3r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-preprocessed-v2-mainnet-test = "acton test data/wallets/wallet_preprocessed_v2/tests/wallet_preprocessed_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+wallet-multisig-v2-mainnet-test = "acton test data/wallets/multisig_v2/tests/multisig_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+
+[import-mappings]
+acton = ".acton"
+gen = "gen"
