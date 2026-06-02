@@ -1,0 +1,20 @@
+[project]
+name = "wallets/w4r1"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_wallet_v4 = "https://docs.ton.org/standard/wallets/v4"
+ton_wallet_contract_v4 = "https://github.com/ton-blockchain/wallet-contract"
+ton_wallet_contract_v4_func = "https://raw.githubusercontent.com/ton-blockchain/wallet-contract/main/func/wallet-v4-code.fc"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes_tlb = "source/toncenter-schemes.tlb"
+local_contracts_catalog = "contracts.json"
+toncenter_v3_wallet_states = "https://toncenter.com/api/v3/walletStates"
+toncenter_v3_account_states = "https://toncenter.com/api/v3/accountStates"
+
+[contracts.WalletV4r1]
+types = "types/wallet_v4r1.types.tolk"
+hashes = ["64dd54805522c5be8a9db59cea0105ccf0d08786ca79beb8cb79e880a8d7322d"]
+known_addresses = ["UQA9Xxv6Ig-SvxM_j_Xde6XTOG3ftJfEYUFFLauvq5wyHMru"]
