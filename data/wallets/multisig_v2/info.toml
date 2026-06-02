@@ -1,0 +1,65 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON multisig wallets"
+
+[sources]
+ton_multisig_v2_repo = "https://github.com/ton-blockchain/multisig-contract-v2"
+ton_multisig_v2_tlb = "data/wallets/multisig_v2/research/source/multisig.tlb"
+local_schema = "schemas/multisig.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+contracts_catalog = "contracts.json"
+
+[contracts.MultisigV2]
+types = "types/multisig_v2.types.tolk"
+hashes = ["d3d14da9a627f0ec3533341829762af92b9540b21bf03665fac09c2b46eabbac"]
+code_hash_base64 = "09FNqaYn8Ow1MzQYKXYq+SuVQLIb8DZl+sCcK0bqu6w="
+known_addresses = ["EQDBiZgqlvtO7yyHUU-W76fFAMq_DNa0_usZYgcpjNIfRVFI"]
+observed_method_ids = [0, 93855, 107307, 111399]
+public_get_method_ids = { get_order_estimate = 93855, get_multisig_data = 107307, get_order_address = 111399 }
+notes = "Official source exposes get_order_estimate; local XML omitted it. Method id 0 is observed but not treated as public ABI."
+
+[contracts.MultisigV2.instances.mainnet_catalog]
+address = "EQDBiZgqlvtO7yyHUU-W76fFAMq_DNa0_usZYgcpjNIfRVFI"
+raw_address = "0:C189982A96FB4EEF2C87514F96EFA7C500CABF0CD6B4FEEB196207298CD21F45"
+non_bounceable_address = "UQDBiZgqlvtO7yyHUU-W76fFAMq_DNa0_usZYgcpjNIfRQyN"
+network = "mainnet"
+catalog_tx_count = 885077
+catalog_first_tx = "2024-03-28"
+toncenter_status = "active"
+toncenter_interfaces = ["multisig_v2"]
+toncenter_last_transaction_lt = "45534917000005"
+toncenter_last_transaction_hash = "1BVI4s6ezyjhE4byhN6Scc1zJ5jCW3ksXUE2xNLGxQ0="
+
+[contracts.MultisigOrderV2]
+types = "types/multisig_order_v2.types.tolk"
+hashes = ["a01e057fbd4288402b9898d78d67bd4e90254c93c5866879bc2d1d12865436bc"]
+code_hash_base64 = "oB4Ff71CiEArmJjXjWe9TpAlTJPFhmh5vC0dEoZUNrw="
+known_addresses = ["EQC9p_dC5dRmLnrV8fl5sRXrbWAqGoPa37ROSvjurK60dUFN", "EQDeUoVbOj1vNM-TtnZ31wu0E6CSl1j-G3RsKVz4T3VLPF35"]
+observed_method_ids = []
+public_get_method_ids = { get_order_data = 123832 }
+notes = "Live account code is an exotic library-reference cell; source and generated ABI prove get_order_data, while local method-id extraction cannot expand the library. Found live order accounts are deployment-only, so initialized get_order_data is validated through a local fork init scenario."
+
+[contracts.MultisigOrderV2.instances.mainnet_order_from_multisig_history]
+address = "EQC9p_dC5dRmLnrV8fl5sRXrbWAqGoPa37ROSvjurK60dUFN"
+raw_address = "0:BDA7F742E5D4662E7AD5F1F979B115EB6D602A1A83DADFB44E4AF8EEACAEB475"
+non_bounceable_address = "UQC9p_dC5dRmLnrV8fl5sRXrbWAqGoPa37ROSvjurK60dRyI"
+network = "mainnet"
+toncenter_status = "active"
+toncenter_interfaces = ["multisig_order_v2"]
+toncenter_last_transaction_lt = "45534894000003"
+toncenter_last_transaction_hash = "tAMMZPwWM+GNywA5RvkTxllHtVc0kvP2MzHEMckB/1A="
+notes = "Deployment-only order account discovered from MultisigV2 transaction out_msg and address_book; deterministic address relation is verified in fork tests."
+
+[contracts.MultisigOrderV2.instances.mainnet_catalog]
+address = "EQDeUoVbOj1vNM-TtnZ31wu0E6CSl1j-G3RsKVz4T3VLPF35"
+raw_address = "0:DE52855B3A3D6F34CF93B67677D70BB413A0929758FE1B746C295CF84F754B3C"
+non_bounceable_address = "UQDeUoVbOj1vNM-TtnZ31wu0E6CSl1j-G3RsKVz4T3VLPAA8"
+network = "mainnet"
+catalog_tx_count = 18044
+catalog_first_tx = "2024-03-28"
+toncenter_status = "active"
+toncenter_interfaces = ["multisig_order_v2"]
+toncenter_last_transaction_lt = "45534722000001"
+toncenter_last_transaction_hash = "J4Ze1GrY7od4gVnwVJ9WhXtxp/R4+tdqQZwy30yQmOg="
