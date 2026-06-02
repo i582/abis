@@ -1,0 +1,32 @@
+[project]
+name = "locker"
+
+[metadata]
+repository = "https://github.com/ton-blockchain/locker-contract"
+audit = "https://github.com/ton-blockchain/locker-contract#quantstamp-audit"
+
+[sources]
+locker_contract_repo = "https://github.com/ton-blockchain/locker-contract"
+locker_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker.fc"
+locker_bill_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker_bill.fc"
+common_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/common.fc"
+stdlib_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/imports/stdlib.fc"
+tongo_schema = "schemas/locker.xml"
+
+[contracts.Locker]
+types = "types/locker.types.tolk"
+hashes = [
+  "830c99a447d0974db6d86ed7d89fe4f2d2ec22358cb64287e2d31e563ebde547",
+  "6a05d82d45c933dd2ddf7b338db7f6fbce6d5e2ec3b142e5fc53a94395dca252",
+]
+known_addresses = [
+  "EQDtFpEwcFAEcRe5mLVh2N6C0x-_hJEM7W61_JLnSF74p4q2",
+  "EQCxTD5GdQ3IVw830nrOEfT9k8c2k1Wqm7rcCTny-cW2Kvyo",
+]
+
+[contracts.LockerBill]
+types = "types/locker_bill.types.tolk"
+hashes = ["bb9ba6dafd7372b81ee66d7dbfca388e7384998a3ae1790b871ce672185c7829"]
+known_addresses = ["EQAMOAT3OoX8weD8Z4IlkEL-M2WQxg3Dz4KFeMBoWjkgSykt"]
+observed_method_ids = [118274]
+notes = "Official per-user bill contract for Locker. Code hash was compiled locally from current upstream FunC with local FunC v0.4.6 and verified against a live Toncenter locker_bill account."
