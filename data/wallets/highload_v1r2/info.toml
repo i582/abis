@@ -1,0 +1,20 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_highload = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+official_func = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet-code.fc"
+official_fift_send = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet.fif"
+official_fift_new = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/new-highload-wallet.fif"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+anton_catalog = "source/anton.json"
+
+[contracts.WalletHighloadV1r2]
+types = "types/wallet_highload_v1r2.types.tolk"
+hashes = ["0dceed21269d66013e95b19fbb5c55a6f01adad40837baa8e521cde3a02aa46c"]
+code_hash_base64 = "Dc7tISadZgE+lbGfu1xVpvAa2tQIN7qo5SHN46AqpGw="
+known_addresses = []
