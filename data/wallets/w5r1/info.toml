@@ -1,0 +1,18 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_wallet_v5 = "https://docs.ton.org/blockchain-basics/standard/wallets/v5"
+ton_docs_wallet_v5_api = "https://docs.ton.org/blockchain-basics/standard/wallets/v5-api"
+ton_wallet_contract_v5 = "https://github.com/ton-blockchain/wallet-contract-v5"
+ton_wallet_contract_v5_types_tlb = "https://github.com/ton-blockchain/wallet-contract-v5/blob/main/types.tlb"
+ton_wallet_contract_v5_func = "https://github.com/ton-blockchain/wallet-contract-v5/blob/main/contracts/wallet_v5.fc"
+tongo_wallets_xml = "schemas/wallets.xml"
+
+[contracts.WalletV5r1]
+types = "types/wallet_v5r1.types.tolk"
+hashes = ["20834b7b72b112147e1b2fb457b84e74d1a30f04f737d4f62a668e9552d2b72f"]
+known_addresses = ["UQBuPuy0bnowA2cukDKw__YVX04CsUpXprpzM39CgFPTmePf"]
