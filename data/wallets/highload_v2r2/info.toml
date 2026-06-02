@@ -1,0 +1,32 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_highload = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+anton_catalog = "source/anton.json"
+
+[contracts.WalletHighloadV2r2]
+types = "types/wallet_highload_v2r2.types.tolk"
+hashes = ["203dd4f358adb49993129aa925cac39916b68a0e4f78d26e8f2c2b69eafa5679"]
+code_hash_base64 = "ID3U81ittJmTEpqpJcrDmRa2ig5PeNJujywraer6Vnk="
+known_addresses = ["EQBYIB9xax6l7ibZhofm5BfiILbz2rH2PMNrSSShSwC5NvaU"]
+public_get_method_ids = { get_public_key = 78748, "processed?" = 117746 }
+compiler_helper_method_ids = [-1, 0, 524287]
+notes = "Older Highload Wallet V2 R2 code from local Anton catalog and live/decompiled code. It exposes get_public_key and processed?. Negative external wrapper probes on the selected fork are not accepted but report VM exit 0, so tests assert non-acceptance rather than a specific throw code."
+
+[contracts.WalletHighloadV2r2.instances.mainnet_catalog]
+address = "EQBYIB9xax6l7ibZhofm5BfiILbz2rH2PMNrSSShSwC5NvaU"
+raw_address = "0:58201F716B1EA5EE26D98687E6E417E220B6F3DAB1F63CC36B4924A14B00B936"
+non_bounceable_address = "UQBYIB9xax6l7ibZhofm5BfiILbz2rH2PMNrSSShSwC5NqtR"
+network = "mainnet"
+catalog_tx_count = 9675299
+catalog_first_tx = "2022-08-01"
+toncenter_status = "active"
+toncenter_interfaces = ["wallet_highload_v2r2"]
+toncenter_last_transaction_lt = "31320839000037"
+toncenter_last_transaction_hash = "pxUBNquc+RqJ5J7xycCwMfiuPyJhjSMfT8P/vKd9by4="

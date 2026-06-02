@@ -1,0 +1,33 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_highload = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+official_func = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet-v2-code.fc"
+official_stdlib = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/stdlib.fc"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+
+[contracts.WalletHighloadV2]
+types = "types/wallet_highload_v2.types.tolk"
+hashes = ["9494d1cc8edf12f05671a1a9ba09921096eb50811e1924ec65c3c629fbb80812"]
+code_hash_base64 = "lJTRzI7fEvBWcaGpugmSEJbrUIEeGSTsZcPGKfu4CBI="
+known_addresses = ["Ef-WItEX0pfwHyNd06nWHiSXwSzWt35aDaBUmayotxKgKZJu"]
+public_get_method_ids = { get_public_key = 78748, "processed?" = 117746 }
+compiler_helper_method_ids = [-1, 0, 524287]
+notes = "Official highload-wallet-v2-code.fc compiled with stdlib.fc to the same code hash as the live masterchain fixture."
+
+[contracts.WalletHighloadV2.instances.mainnet_catalog]
+address = "Ef-WItEX0pfwHyNd06nWHiSXwSzWt35aDaBUmayotxKgKZJu"
+raw_address = "-1:9622D117D297F01F235DD3A9D61E2497C12CD6B77E5A0DA05499ACA8B712A029"
+non_bounceable_address = "Uf-WItEX0pfwHyNd06nWHiSXwSzWt35aDaBUmayotxKgKc-r"
+network = "mainnet"
+catalog_tx_count = 6960478
+catalog_first_tx = "2020-04-05"
+toncenter_status = "active"
+toncenter_interfaces = ["wallet_highload_v2"]
+toncenter_last_transaction_lt = "20127635000001"
+toncenter_last_transaction_hash = "JPK/yuqBttuxMEzD+JinEuEWmPaHHVEThCCPz+7AQf4="

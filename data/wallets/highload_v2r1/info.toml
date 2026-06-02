@@ -1,0 +1,32 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_highload = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+anton_catalog = "source/anton.json"
+
+[contracts.WalletHighloadV2r1]
+types = "types/wallet_highload_v2r1.types.tolk"
+hashes = ["8ceb45b3cd4b5cc60eaae1c13b9c092392677fe536b2e9b2d801b62eff931fe1"]
+code_hash_base64 = "jOtFs81LXMYOquHBO5wJI5Jnf+U2sumy2AG2Lv+TH+E="
+known_addresses = ["EQCKGLtpkfSv0K23DH0MgguDcpWi-qUGo-Ro9znr7GT-DWlV"]
+public_get_method_ids = { "processed?" = 117746 }
+compiler_helper_method_ids = [-1, 0, 524287]
+notes = "Older Highload Wallet V2 R1 code from local Anton catalog and live/decompiled code. It exposes processed? but no get_public_key."
+
+[contracts.WalletHighloadV2r1.instances.mainnet_catalog]
+address = "EQCKGLtpkfSv0K23DH0MgguDcpWi-qUGo-Ro9znr7GT-DWlV"
+raw_address = "0:8A18BB6991F4AFD0ADB70C7D0C820B837295A2FAA506A3E468F739EBEC64FE0D"
+non_bounceable_address = "UQCKGLtpkfSv0K23DH0MgguDcpWi-qUGo-Ro9znr7GT-DTSQ"
+network = "mainnet"
+catalog_tx_count = 271
+catalog_first_tx = "2019-12-23"
+toncenter_status = "active"
+toncenter_interfaces = ["wallet_highload_v2r1"]
+toncenter_last_transaction_lt = "65974634000020"
+toncenter_last_transaction_hash = "ItUZqmAXxgrt7CXq9UcQrIdmAVCm0+DiksqoIwsIWcI="
