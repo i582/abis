@@ -1,0 +1,32 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_preprocessed_v2_spec = "https://docs.ton.org/blockchain-basics/standard/wallets/preprocessed-v2/specification"
+ton_docs_preprocessed_v2_interact = "https://docs.ton.org/standard/wallets/preprocessed-v2/interact"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+contracts_catalog = "contracts.json"
+
+[contracts.WalletPreprocessedV2]
+types = "types/wallet_preprocessed_v2.types.tolk"
+hashes = ["45ebbce9b5d235886cb6bfe1c3ad93b708de058244892365c9ee0dfe439cb7b5"]
+code_hash_base64 = "Reu86bXSNYhstr/hw62TtwjeBYJEiSNlye4N/kOct7U="
+known_addresses = ["EQAMRL88dnltkH0DNpkt5MsPBYuQ_yagvC75uV5c0poWVMzZ"]
+public_get_method_ids = {}
+notes = "Live method-id extraction found no public get method dictionary; seqNo/publicKey are exposed through storage parsing, not getters."
+
+[contracts.WalletPreprocessedV2.instances.mainnet_catalog]
+address = "EQAMRL88dnltkH0DNpkt5MsPBYuQ_yagvC75uV5c0poWVMzZ"
+raw_address = "0:0C44BF3C76796D907D0336992DE4CB0F058B90FF26A0BC2EF9B95E5CD29A1654"
+non_bounceable_address = "UQAMRL88dnltkH0DNpkt5MsPBYuQ_yagvC75uV5c0poWVJEc"
+network = "mainnet"
+catalog_tx_count = 532674
+catalog_first_tx = "2023-04-26"
+toncenter_status = "active"
+toncenter_interfaces = ["wallet_preprocessed_v2"]
+toncenter_last_transaction_lt = "37154523000001"
+toncenter_last_transaction_hash = "kM2+nOsnmpb/N8ifU3KMusBMO6vcWwYHOfRhvd9OATw="
