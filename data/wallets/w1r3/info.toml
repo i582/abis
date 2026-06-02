@@ -1,0 +1,20 @@
+[project]
+name = "wallets/w1r3"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_wallet_history = "https://docs.ton.org/blockchain-basics/standard/wallets/history"
+ton_wallet_v1_fift = "https://raw.githubusercontent.com/ton-blockchain/ton/master/crypto/smartcont/new-wallet.fif"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes_tlb = "source/toncenter-schemes.tlb"
+anton_catalog = "source/anton.json"
+local_contracts_catalog = "contracts.json"
+toncenter_v3_wallet_states = "https://toncenter.com/api/v3/walletStates"
+toncenter_v3_account_states = "https://toncenter.com/api/v3/accountStates"
+
+[contracts.WalletV1r3]
+types = "types/wallet_v1r3.types.tolk"
+hashes = ["587cc789eff1c84f46ec3797e45fc809a14ff5ae24f1e0c7a6a99cc9dc9061ff"]
+known_addresses = ["UQAHazzNn-Otdsdwm2Xz7-EYwZcehzkz5P0bRlUBiaZBQGmL"]
