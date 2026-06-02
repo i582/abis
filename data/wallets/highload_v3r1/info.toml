@@ -1,0 +1,20 @@
+[project]
+name = "wallets"
+
+[metadata]
+category = "standard TON wallets"
+
+[sources]
+ton_docs_highload_overview = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+ton_docs_highload_v3_spec = "https://docs.ton.org/standard/wallets/highload/v3/specification"
+official_repo = "https://github.com/ton-blockchain/highload-wallet-contract-v3"
+official_func = "https://github.com/ton-blockchain/highload-wallet-contract-v3/blob/main/contracts/highload-wallet-v3.func"
+official_tlb = "https://github.com/ton-blockchain/highload-wallet-contract-v3/blob/main/contracts/scheme.tlb"
+tongo_wallets_xml = "schemas/wallets.xml"
+toncenter_schemes = "source/toncenter-schemes.tlb"
+
+[contracts.WalletHighloadV3r1]
+types = "types/wallet_highload_v3r1.types.tolk"
+hashes = ["11acad7955844090f283bf238bc1449871f783e7cc0979408d3f4859483e8525"]
+code_hash_base64 = "EayteVWEQJDyg78ji8FEmHH3g+fMCXlAjT9IWUg+hSU="
+known_addresses = ["EQDTku4sK8aSw3x8mGogsXSHgbHfZ4Ld781sMYuL1qPJGQc_"]
