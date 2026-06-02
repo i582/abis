@@ -1,0 +1,19 @@
+[project]
+name = "wallets/lockup_universal"
+
+[metadata]
+category = "standard TON lockup wallets"
+
+[sources]
+ton_docs_lockup_wallet = "https://docs.ton.org/blockchain-basics/standard/wallets/lockup"
+lockup_wallet_contract = "https://github.com/ton-blockchain/lockup-wallet-contract"
+lockup_universal_func = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/universal/uni-lockup-wallet.fc"
+lockup_universal_readme = "https://github.com/ton-blockchain/lockup-wallet-contract/tree/main/universal"
+lockup_sender_ui = "https://toncenter.github.io/lockup-sender/"
+tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
+local_contracts_catalog = "contracts.json"
+
+[contracts.LockupUniversal]
+types = "types/lockup_universal.types.tolk"
+hashes = ["88fbf818e47d5f328f7dc34bad4323bb28a12ec6c75ce9ec25d77746c56e1ded"]
+known_addresses = ["UQCp5d6J6Wp0HEvRpH3we8th9rs59A0EWczIlv6nIBYA5A6R"]

@@ -1,0 +1,18 @@
+[project]
+name = "wallets/wallet_vesting"
+
+[metadata]
+category = "standard TON vesting wallets"
+
+[sources]
+ton_docs_vesting = "https://docs.ton.org/standard/vesting"
+ton_docs_vesting_blockchain_basics = "https://docs.ton.org/blockchain-basics/standard/vesting"
+vesting_contract = "https://github.com/ton-blockchain/vesting-contract"
+vesting_wallet_func = "https://raw.githubusercontent.com/ton-blockchain/vesting-contract/main/contracts/vesting_wallet.fc"
+tongo_wallets_xml = "schemas/wallets.xml"
+local_contracts_catalog = "contracts.json"
+
+[contracts.WalletVesting]
+types = "types/wallet_vesting.types.tolk"
+hashes = ["b48b531abec3b714638291f7d77ed6dc9f6a2729efca20477137374d4ae8b590"]
+known_addresses = ["UQCufmEfMOiP1SFMCZwKXpKEWn34vei9EYT2f0YNPqhdOe0o"]

@@ -1,0 +1,20 @@
+[project]
+name = "wallets/lockup_vesting"
+
+[metadata]
+category = "standard TON lockup wallets"
+
+[sources]
+ton_docs_lockup_wallet = "https://docs.ton.org/blockchain-basics/standard/wallets/lockup"
+ton_docs_vesting = "https://docs.ton.org/blockchain-basics/standard/vesting"
+lockup_wallet_contract = "https://github.com/ton-blockchain/lockup-wallet-contract"
+lockup_vesting_func = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/vesting/vesting-lockup-wallet.fc"
+lockup_vesting_fift = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/vesting/vesting-lockup-wallet-code.fif"
+lockup_vesting_readme = "https://github.com/ton-blockchain/lockup-wallet-contract/tree/main/vesting"
+tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
+local_contracts_catalog = "contracts.json"
+
+[contracts.LockupVesting]
+types = "types/lockup_vesting.types.tolk"
+hashes = ["2d2611ebab89d61853842312f38f836af817415071227102eb4aa1bb8dfd3ce7"]
+known_addresses = []
