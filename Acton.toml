@@ -149,20 +149,20 @@ depends = []
 
 [contracts.JettonV1Master]
 display-name = "JettonV1Master"
-src = "data/jettons/v1/testdata/JettonV1Master.boc"
-types = "data/jettons/v1/types/jetton_v1_master.types.tolk"
+src = "data/jettons/jetton_1/testdata/JettonV1Master.boc"
+types = "data/jettons/jetton_1/types/jetton_v1_master.types.tolk"
 depends = []
 
 [contracts.JettonV100Master]
 display-name = "JettonV100Master"
-src = "data/jettons/v1/testdata/JettonV100Master.boc"
-types = "data/jettons/v1/types/jetton_v1_00_master.types.tolk"
+src = "data/jettons/jetton_1/testdata/JettonV100Master.boc"
+types = "data/jettons/jetton_1/types/jetton_v1_00_master.types.tolk"
 depends = []
 
 [contracts.JettonV1Wallet]
 display-name = "JettonV1Wallet"
-src = "data/jettons/v1/testdata/JettonV1Wallet.boc"
-types = "data/jettons/v1/types/jetton_v1_wallet.types.tolk"
+src = "data/jettons/jetton_1/testdata/JettonV1Wallet.boc"
+types = "data/jettons/jetton_1/types/jetton_v1_wallet.types.tolk"
 depends = []
 
 [contracts.DiscoverableJettonMaster]
@@ -258,7 +258,7 @@ wallet-highload-v2r2-mainnet-test = "acton test data/wallets/highload_v2r2/tests
 wallet-highload-v3r1-mainnet-test = "acton test data/wallets/highload_v3r1/tests/wallet_highload_v3r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 wallet-preprocessed-v2-mainnet-test = "acton test data/wallets/wallet_preprocessed_v2/tests/wallet_preprocessed_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 wallet-multisig-v2-mainnet-test = "acton test data/wallets/multisig_v2/tests/multisig_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
-jetton-v1-mainnet-test = "acton test data/jettons/v1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+jetton-1-mainnet-test = "acton test data/jettons/jetton_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 discoverable-jetton-mainnet-test = "acton test data/jettons/discoverable_jetton/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 stablecoin-mainnet-test = "acton test data/jettons/stablecoin_1_04/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 jetton-notcoin-mainnet-test = "acton test data/jettons/jetton_1_2_notcoin/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"

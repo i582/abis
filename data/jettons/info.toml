@@ -25,17 +25,17 @@ local_generated_abis = "gen_abis/jetton_*.json"
 contracts_catalog = "contracts.json"
 
 [contracts.JettonV1Master]
-types = "v1/types/jetton_v1_master.types.tolk"
+types = "jetton_1/types/jetton_v1_master.types.tolk"
 hashes = ["f95ba0330b38cdf3459b1e811e5fc6fa6cfee566d7b764455c0468140365a737"]
 known_addresses = ["EQALtan2kEPuvdpa0ulG65UyQr2PYD_nldkGmM7sa_xgoCwr"]
 
 [contracts.JettonV100Master]
-types = "v1/types/jetton_v1_00_master.types.tolk"
+types = "jetton_1/types/jetton_v1_00_master.types.tolk"
 hashes = ["e0b78e8e9112a385aeb509c98324333a4f9e5cebfacc5042b95c72373c4d7d39"]
 known_addresses = []
 
 [contracts.JettonV1Wallet]
-types = "v1/types/jetton_v1_wallet.types.tolk"
+types = "jetton_1/types/jetton_v1_wallet.types.tolk"
 hashes = [
   "b8b2fb226e29921f3c1b8860075d38e53b0bec2981676f2bd199569fef25f203",
   "4adf48135cb575adbaed476799c87ff2904269b1f949ada4d0479e9104b6f217",
