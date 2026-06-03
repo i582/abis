@@ -249,6 +249,42 @@ src = "data/nfts/nft_1/testdata/NftV1EditableItem.boc"
 types = "data/nfts/nft_1/types/nft_v1_editable_item.types.tolk"
 depends = []
 
+[contracts.NftV2Collection]
+display-name = "NftV2Collection"
+src = "data/nfts/nft_2_0/testdata/NftV2Collection.boc"
+types = "data/nfts/nft_2_0/types/nft_v2_collection.types.tolk"
+depends = []
+
+[contracts.NftV2Item]
+display-name = "NftV2Item"
+src = "data/nfts/nft_2_0/testdata/NftV2Item.boc"
+types = "data/nfts/nft_2_0/types/nft_v2_item.types.tolk"
+depends = []
+
+[contracts.NftV2EditableItem]
+display-name = "NftV2EditableItem"
+src = "data/nfts/nft_2_0/testdata/NftV2EditableItem.boc"
+types = "data/nfts/nft_2_0/types/nft_v2_editable_item.types.tolk"
+depends = []
+
+[contracts.GetgemsNftCollectionV2]
+display-name = "GetgemsNftCollectionV2"
+src = "data/nfts/getgems_nft_2_0/testdata/GetgemsNftCollectionV2.boc"
+types = "data/nfts/getgems_nft_2_0/types/getgems_nft_v2_collection.types.tolk"
+depends = []
+
+[contracts.GetgemsNftItemV2]
+display-name = "GetgemsNftItemV2"
+src = "data/nfts/getgems_nft_2_0/testdata/GetgemsNftItemV2.boc"
+types = "data/nfts/getgems_nft_2_0/types/getgems_nft_v2_item.types.tolk"
+depends = []
+
+[contracts.GetgemsNftEditableItemV2]
+display-name = "GetgemsNftEditableItemV2"
+src = "data/nfts/getgems_nft_2_0/testdata/GetgemsNftEditableItemV2.boc"
+types = "data/nfts/getgems_nft_2_0/types/getgems_nft_v2_editable_item.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
@@ -283,6 +319,8 @@ jetton-notcoin-mainnet-test = "acton test data/jettons/jetton_1_2_notcoin/tests 
 jetton-2-test = "acton test data/jettons/jetton_2_0/tests --show-bodies"
 mintless-mainnet-test = "acton test data/jettons/mintless_1_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 nft-1-mainnet-test = "acton test data/nfts/nft_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+nft-2-mainnet-test = "acton test data/nfts/nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 
 [import-mappings]
 acton = ".acton"

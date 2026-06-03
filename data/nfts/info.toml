@@ -1,0 +1,217 @@
+[project]
+name = "nfts"
+
+[metadata]
+category = "TON non-fungible token contracts"
+description = "TEP-62, TEP-64, and TEP-66 NFT contracts with curated variant metadata"
+
+[sources]
+tep_62 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0062-nft-standard.md"
+tep_64 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0064-token-data-standard.md"
+tep_66 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0066-nft-royalty-standard.md"
+ton_docs_nft_api = "https://docs.ton.org/blockchain-basics/standard/tokens/nft/api"
+ton_docs_nft_reference = "https://docs.ton.org/standard/tokens/nft/nft-reference"
+ton_docs_nft_2_0 = "https://docs.ton.org/standard/tokens/nft/nft-2.0"
+ton_nft_contract = "https://github.com/ton-blockchain/nft-contract"
+getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
+local_schema = "schemas/nfts.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+local_generated_types = "gen/nft_*.types.tolk"
+local_generated_abis = "gen_abis/nft_*.json"
+contracts_catalog = "contracts.json"
+
+[contracts.NftV1Collection]
+types = "nft_1/types/nft_v1_collection.types.tolk"
+hashes = [
+  "8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780",
+  "64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca",
+]
+known_addresses = [
+  "EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw",
+  "EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF",
+]
+
+[contracts.NftV1Collection.variants.standard]
+source_file = "nft/nft-collection.fc"
+hashes = ["8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780"]
+known_addresses = ["EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw"]
+
+[contracts.NftV1Collection.variants.editable]
+source_file = "nft/nft-collection-editable.fc"
+hashes = ["64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca"]
+known_addresses = ["EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF"]
+
+[contracts.NftV1Item]
+types = "nft_1/types/nft_v1_item.types.tolk"
+hashes = [
+  "77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211",
+  "28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071",
+  "ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c",
+  "4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42",
+]
+known_addresses = [
+  "EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V",
+  "EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n",
+  "EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq",
+  "EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty",
+]
+
+[contracts.NftV1Item.variants.standard_v1_00_01]
+source_file = "nft/nft-item.fc"
+hashes = ["77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211"]
+known_addresses = ["EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V"]
+
+[contracts.NftV1Item.variants.standard_v1_02]
+source_file = "nft/nft-item.fc"
+hashes = ["28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071"]
+known_addresses = ["EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n"]
+
+[contracts.NftV1Item.variants.standard_v1_03]
+source_file = "nft/nft-item.fc"
+hashes = ["ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c"]
+known_addresses = ["EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq"]
+
+[contracts.NftV1Item.variants.simple_schema]
+source_file = "data/nfts/research/func/nft_item_simple_schema.fc"
+hashes = ["4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42"]
+known_addresses = ["EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty"]
+
+[contracts.NftV1EditableItem]
+types = "nft_1/types/nft_v1_editable_item.types.tolk"
+hashes = [
+  "7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb",
+  "e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc",
+]
+known_addresses = [
+  "EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0",
+  "EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA",
+]
+
+[contracts.NftV1EditableItem.variants.editable_v1_00_01]
+source_file = "nft/nft-item-editable-DRAFT.fc"
+hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
+known_addresses = ["EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0"]
+
+[contracts.NftV1EditableItem.variants.editable_v1_02_03]
+source_file = "nft/nft-item-editable-DRAFT.fc"
+hashes = ["e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc"]
+known_addresses = ["EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA"]
+
+[contracts.NftV2Collection]
+types = "nft_2_0/types/nft_v2_collection.types.tolk"
+hashes = [
+  "8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780",
+  "64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca",
+]
+known_addresses = [
+  "EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw",
+  "EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF",
+]
+profile = "ton_docs_nft_2_0"
+
+[contracts.NftV2Collection.variants.standard]
+source_file = "nft/nft-collection.fc"
+hashes = ["8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780"]
+known_addresses = ["EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw"]
+
+[contracts.NftV2Collection.variants.editable]
+source_file = "nft/nft-collection-editable.fc"
+hashes = ["64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca"]
+known_addresses = ["EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF"]
+
+[contracts.NftV2Item]
+types = "nft_2_0/types/nft_v2_item.types.tolk"
+hashes = [
+  "77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211",
+  "28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071",
+  "ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c",
+  "4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42",
+]
+known_addresses = [
+  "EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V",
+  "EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n",
+  "EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq",
+  "EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty",
+]
+profile = "ton_docs_nft_2_0"
+
+[contracts.NftV2Item.variants.standard_v1_00_01]
+source_file = "nft/nft-item.fc"
+hashes = ["77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211"]
+known_addresses = ["EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V"]
+
+[contracts.NftV2Item.variants.standard_v1_02]
+source_file = "nft/nft-item.fc"
+hashes = ["28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071"]
+known_addresses = ["EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n"]
+
+[contracts.NftV2Item.variants.standard_v1_03]
+source_file = "nft/nft-item.fc"
+hashes = ["ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c"]
+known_addresses = ["EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq"]
+
+[contracts.NftV2Item.variants.simple_schema]
+source_file = "data/nfts/research/func/nft_item_simple_schema.fc"
+hashes = ["4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42"]
+known_addresses = ["EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty"]
+
+[contracts.NftV2EditableItem]
+types = "nft_2_0/types/nft_v2_editable_item.types.tolk"
+hashes = [
+  "7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb",
+  "e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc",
+]
+known_addresses = [
+  "EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0",
+  "EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA",
+]
+profile = "ton_docs_nft_2_0"
+
+[contracts.NftV2EditableItem.variants.editable_v1_00_01]
+source_file = "nft/nft-item-editable-DRAFT.fc"
+hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
+known_addresses = ["EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0"]
+
+[contracts.NftV2EditableItem.variants.editable_v1_02_03]
+source_file = "nft/nft-item-editable-DRAFT.fc"
+hashes = ["e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc"]
+known_addresses = ["EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA"]
+
+[contracts.GetgemsNftCollectionV2]
+types = "getgems_nft_2_0/types/getgems_nft_v2_collection.types.tolk"
+hashes = ["0b84497ccefe297d00beebb08a544cc6ef6230eab762692ca053fa9811399836"]
+known_addresses = ["EQCoXMPfScPFpyeBJWAwJDTGt0IedtnvUCglIQphe1KAf62u"]
+profile = "getgems_nft_2_0"
+
+[contracts.GetgemsNftCollectionV2.variants.editable]
+source_file = "packages/contracts/sources/nft-collection-editable-v2.fc"
+hashes = ["0b84497ccefe297d00beebb08a544cc6ef6230eab762692ca053fa9811399836"]
+known_addresses = ["EQCoXMPfScPFpyeBJWAwJDTGt0IedtnvUCglIQphe1KAf62u"]
+
+[contracts.GetgemsNftItemV2]
+types = "getgems_nft_2_0/types/getgems_nft_v2_item.types.tolk"
+hashes = ["02e3a2370ea36b24eabff810cd84ef63dc180443d0b51adb9d3be4c0ea8f7319"]
+known_addresses = ["EQDciKcA85857MsCuXuD_kXL2My8V1Log5ZvbAw_J4VC5keQ"]
+profile = "getgems_nft_2_0"
+
+[contracts.GetgemsNftItemV2.variants.standard]
+source_file = "packages/contracts/sources/nft-item-v2.fc"
+hashes = ["02e3a2370ea36b24eabff810cd84ef63dc180443d0b51adb9d3be4c0ea8f7319"]
+known_addresses = ["EQDciKcA85857MsCuXuD_kXL2My8V1Log5ZvbAw_J4VC5keQ"]
+
+[contracts.GetgemsNftEditableItemV2]
+types = "getgems_nft_2_0/types/getgems_nft_v2_editable_item.types.tolk"
+hashes = ["585913bfeb388db1997d2befb1806f2c79f1821337e1b0e8fb182bdec40e28c2"]
+known_addresses = [
+  "EQCQxUrLeVpeXtVQA1KDCMoPHLTsiXmHkeg4mBbePGmhudGY",
+  "EQAp_sKu81P7AC678ANV3KqmK_cZ96KymZsPC7jg6QOqiHof",
+]
+profile = "getgems_nft_2_0"
+
+[contracts.GetgemsNftEditableItemV2.variants.editable]
+source_file = "packages/contracts/sources/nft-item-editable-v2.fc"
+hashes = ["585913bfeb388db1997d2befb1806f2c79f1821337e1b0e8fb182bdec40e28c2"]
+known_addresses = [
+  "EQCQxUrLeVpeXtVQA1KDCMoPHLTsiXmHkeg4mBbePGmhudGY",
+  "EQAp_sKu81P7AC678ANV3KqmK_cZ96KymZsPC7jg6QOqiHof",
+]

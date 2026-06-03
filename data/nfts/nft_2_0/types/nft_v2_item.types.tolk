@@ -1,0 +1,138 @@
+/// TON NFT 2.0 item interface for standard and simple-schema variants.
+contract NftV2Item {
+    author: "TON Core"
+    version: "2.0"
+    description: "Curated TON NFT 2.0 item profile; on-chain ABI matches the TEP-62 NFT v1 item"
+    storage: NftV2ItemStorage
+    storageAtDeployment: NftV2ItemDeploymentStorage
+    incomingMessages: NftV2ItemIncomingMessage
+    outgoingMessages: NftV2ItemOutgoingMessage
+}
+
+/// Deployment storage present before the collection initializes the item.
+struct NftV2ItemDeploymentStorage {
+    /// NFT item index stored as uint64 in the data cell.
+    itemIndex: uint64
+    /// Collection address authorized to initialize this item.
+    collectionAddress: address
+}
+
+/// Initialized storage for the standard NFT item variant.
+struct NftV2ItemStorage {
+    /// NFT item index stored as uint64 in the data cell.
+    itemIndex: uint64
+    /// Collection address used for static-data reports.
+    collectionAddress: address
+    /// Current owner address authorized to transfer this item.
+    ownerAddress: address
+    /// Referenced individual item content cell.
+    content: cell
+}
+
+/// Collection-to-item initialization body used while storage is uninitialized.
+struct NftV2ItemInit {
+    /// Initial owner address stored by the item.
+    ownerAddress: address
+    /// Referenced individual item content cell.
+    content: cell
+}
+
+/// Owner-originated TEP-62 ownership transfer request.
+struct (0x5fcc3d14) NftV2Transfer {
+    /// Caller-selected query id copied into outgoing responses.
+    queryId: uint64
+    /// New owner address; source restricts it to basechain.
+    newOwnerAddress: address
+    /// Optional response destination for `excesses`; `addr_none` means no response.
+    responseDestination: address?
+    /// Optional referenced custom payload parsed for TEP-62 layout compatibility.
+    customPayload: cell?
+    /// Nanotons forwarded to the new owner notification.
+    forwardTonAmount: coins
+    /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
+    forwardPayload: RemainingBitsAndRefs
+}
+
+/// Request for static item data emitted back to the caller.
+struct (0x2fcb26a2) NftV2GetStaticData {
+    /// Caller-selected query id copied into `report_static_data`.
+    queryId: uint64
+}
+
+/// Ownership assignment notification sent to the new owner.
+struct (0x05138d91) NftV2OwnershipAssigned {
+    /// Query id copied from the transfer request.
+    queryId: uint64
+    /// Previous owner address.
+    previousOwnerAddress: address
+    /// Raw forwarded payload copied from the transfer request.
+    forwardPayload: RemainingBitsAndRefs
+}
+
+/// Static-data response sent to the requester.
+struct (0x8b771735) NftV2ReportStaticData {
+    /// Query id copied from `get_static_data`.
+    queryId: uint64
+    /// NFT item index encoded as uint256 by the reference source.
+    itemIndex: uint256
+    /// Collection address stored by this item.
+    collectionAddress: address
+}
+
+/// Excess-value response sent after transfer or editorship transfer.
+struct (0xd53276db) NftV2Excesses {
+    /// Query id copied from the request that produced the refund.
+    queryId: uint64
+}
+
+/// Internal message bodies accepted by standard NFT 2.0 item variants.
+type NftV2ItemIncomingMessage =
+    | NftV2Transfer
+    | NftV2GetStaticData
+
+/// Internal message bodies emitted by standard NFT 2.0 item variants.
+type NftV2ItemOutgoingMessage =
+    | NftV2OwnershipAssigned
+    | NftV2ReportStaticData
+    | NftV2Excesses
+
+/// Structured result returned by `get_nft_data`.
+struct GetNftV2DataReply {
+    /// True when runtime storage includes owner and content fields.
+    isInitialized: bool
+    /// NFT item index returned as a TVM stack integer.
+    itemIndex: int
+    /// Collection address stored by the item.
+    collectionAddress: address
+    /// Current owner address; null while storage is uninitialized.
+    ownerAddress: address?
+    /// Referenced individual content cell; null while storage is uninitialized.
+    content: cell?
+}
+
+/// NFT 2.0 item exit-code catalog from the reference FunC sources.
+enum NftV2ItemErrors {
+    /// Address workchain is not basechain.
+    InvalidWorkchain = 333
+    /// Transfer sender is not the current owner.
+    UnauthorizedOwner = 401
+    /// Remaining balance after storage, forward amount, and fees would be negative.
+    InsufficientRestAmount = 402
+    /// Initialization sender is not the stored collection address.
+    UnauthorizedCollectionInit = 405
+    /// Forward payload does not contain the required TEP-62 `Either` tag in the reused v1.03 source.
+    InvalidForwardPayload = 708
+    /// Incoming internal message opcode is not supported by the initialized item.
+    UnsupportedOperation = 65535
+}
+
+/// Return item initialization flag, index, collection, owner, and content.
+get fun get_nft_data(): GetNftV2DataReply {
+    return {
+        isInitialized: false,
+        itemIndex: 0,
+        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
+        ownerAddress: null,
+        content: null,
+    };
+}
