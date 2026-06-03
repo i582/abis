@@ -207,6 +207,18 @@ src = "data/jettons/jetton_1_2_notcoin/testdata/JettonNotcoinWallet.boc"
 types = "data/jettons/jetton_1_2_notcoin/types/jetton_notcoin_wallet.types.tolk"
 depends = []
 
+[contracts.Jetton2Master]
+display-name = "Jetton2Master"
+src = "data/jettons/jetton_2_0/testdata/Jetton2Master.boc"
+types = "data/jettons/jetton_2_0/types/jetton_2_master.types.tolk"
+depends = []
+
+[contracts.Jetton2Wallet]
+display-name = "Jetton2Wallet"
+src = "data/jettons/jetton_2_0/testdata/Jetton2Wallet.boc"
+types = "data/jettons/jetton_2_0/types/jetton_2_wallet.types.tolk"
+depends = []
+
 [contracts.MintlessJettonMaster]
 display-name = "MintlessJettonMaster"
 src = "data/jettons/mintless_1_0/testdata/MintlessJettonMaster.boc"
@@ -250,6 +262,7 @@ jetton-v1-mainnet-test = "acton test data/jettons/v1/tests --fork-net mainnet --
 discoverable-jetton-mainnet-test = "acton test data/jettons/discoverable_jetton/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 stablecoin-mainnet-test = "acton test data/jettons/stablecoin_1_04/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 jetton-notcoin-mainnet-test = "acton test data/jettons/jetton_1_2_notcoin/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+jetton-2-test = "acton test data/jettons/jetton_2_0/tests --show-bodies"
 mintless-mainnet-test = "acton test data/jettons/mintless_1_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 
 [import-mappings]
