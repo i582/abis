@@ -303,6 +303,120 @@ src = "data/sbts/sbt_1/testdata/SbtV1Single.boc"
 types = "data/sbts/sbt_1/types/sbt_v1_single.types.tolk"
 depends = []
 
+[contracts.GetgemsDeployer]
+display-name = "Getgems Deployer"
+src = "data/getgems/getgems_deployer/testdata/GetgemsDeployer.boc"
+types = "data/getgems/getgems_deployer/types/getgems_deployer.types.tolk"
+depends = []
+
+[contracts.GetgemsNftAuctionV1]
+display-name = "Getgems NFT Auction V1"
+src = "data/getgems/getgems_nft_auction_v1/testdata/GetgemsNftAuctionV1.boc"
+types = "data/getgems/getgems_nft_auction_v1/types/getgems_nft_auction_v1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftAuctionV2]
+display-name = "Getgems NFT Auction V2"
+src = "data/getgems/getgems_nft_auction_v2/testdata/GetgemsNftAuctionV2.boc"
+types = "data/getgems/getgems_nft_auction_v2/types/getgems_nft_auction_v2.types.tolk"
+depends = []
+
+[contracts.GetgemsNftAuctionV3R2]
+display-name = "Getgems NFT Auction V3R2"
+src = "data/getgems/getgems_nft_auction_v3r2/testdata/GetgemsNftAuctionV3R2.boc"
+types = "data/getgems/getgems_nft_auction_v3r2/types/getgems_nft_auction_v3r2.types.tolk"
+depends = []
+
+[contracts.GetgemsNftAuctionV3R3]
+display-name = "Getgems NFT Auction V3R3"
+src = "data/getgems/getgems_nft_auction_v3r3/testdata/GetgemsNftAuctionV3R3.boc"
+types = "data/getgems/getgems_nft_auction_v3r3/types/getgems_nft_auction_v3r3.types.tolk"
+depends = []
+
+[contracts.GetgemsNftAuctionV4R1]
+display-name = "Getgems NFT Auction V4R1"
+src = "data/getgems/getgems_nft_auction_v4r1/testdata/GetgemsNftAuctionV4R1.boc"
+types = "data/getgems/getgems_nft_auction_v4r1/types/getgems_nft_auction_v4r1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV1]
+display-name = "Getgems NFT Fixprice Sale V1"
+src = "data/getgems/getgems_nft_fixprice_sale_v1/testdata/GetgemsNftFixpriceSaleV1.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v1/types/getgems_nft_fixprice_sale_v1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftSaleLegacy]
+display-name = "Getgems NFT Sale Legacy"
+src = "data/getgems/getgems_nft_sale_legacy/testdata/GetgemsNftSaleLegacy.boc"
+types = "data/getgems/getgems_nft_sale_legacy/types/getgems_nft_sale_legacy.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV2]
+display-name = "Getgems NFT Fixprice Sale V2"
+src = "data/getgems/getgems_nft_fixprice_sale_v2/testdata/GetgemsNftFixpriceSaleV2.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v2/types/getgems_nft_fixprice_sale_v2.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV3]
+display-name = "Getgems NFT Fixprice Sale V3"
+src = "data/getgems/getgems_nft_fixprice_sale_v3/testdata/GetgemsNftFixpriceSaleV3.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v3/types/getgems_nft_fixprice_sale_v3.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV3R2]
+display-name = "Getgems NFT Fixprice Sale V3R2"
+src = "data/getgems/getgems_nft_fixprice_sale_v3r2/testdata/GetgemsNftFixpriceSaleV3R2.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v3r2/types/getgems_nft_fixprice_sale_v3r2.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV3R3]
+display-name = "Getgems NFT Fixprice Sale V3R3"
+src = "data/getgems/getgems_nft_fixprice_sale_v3r3/testdata/GetgemsNftFixpriceSaleV3R3.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v3r3/types/getgems_nft_fixprice_sale_v3r3.types.tolk"
+depends = []
+
+[contracts.GetgemsNftFixpriceSaleV4R1]
+display-name = "Getgems NFT Fixprice Sale V4R1"
+src = "data/getgems/getgems_nft_fixprice_sale_v4r1/testdata/GetgemsNftFixpriceSaleV4R1.boc"
+types = "data/getgems/getgems_nft_fixprice_sale_v4r1/types/getgems_nft_fixprice_sale_v4r1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftMarketplaceV1]
+display-name = "Getgems NFT Marketplace V1"
+src = "data/getgems/getgems_nft_marketplace_v1/testdata/GetgemsNftMarketplaceV1.boc"
+types = "data/getgems/getgems_nft_marketplace_v1/types/getgems_nft_marketplace_v1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftMarketplaceV2]
+display-name = "Getgems NFT Marketplace V2"
+src = "data/getgems/getgems_nft_marketplace_v2/testdata/GetgemsNftMarketplaceV2.boc"
+types = "data/getgems/getgems_nft_marketplace_v2/types/getgems_nft_marketplace_v2.types.tolk"
+depends = []
+
+[contracts.GetgemsNftOfferV1]
+display-name = "Getgems NFT Offer V1"
+src = "data/getgems/getgems_nft_offer_v1/testdata/GetgemsNftOfferV1.boc"
+types = "data/getgems/getgems_nft_offer_v1/types/getgems_nft_offer_v1.types.tolk"
+depends = []
+
+[contracts.GetgemsNftOfferV1R3]
+display-name = "Getgems NFT Offer V1R3"
+src = "data/getgems/getgems_nft_offer_v1r3/testdata/GetgemsNftOfferV1R3.boc"
+types = "data/getgems/getgems_nft_offer_v1r3/types/getgems_nft_offer_v1r3.types.tolk"
+depends = []
+
+[contracts.GetgemsNftRaffle]
+display-name = "Getgems NFT Raffle"
+src = "data/getgems/getgems_nft_raffle/testdata/GetgemsNftRaffle.boc"
+types = "data/getgems/getgems_nft_raffle/types/getgems_nft_raffle.types.tolk"
+depends = []
+
+[contracts.GetgemsNftSwap]
+display-name = "Getgems NFT Swap"
+src = "data/getgems/getgems_nft_swap/testdata/GetgemsNftSwap.boc"
+types = "data/getgems/getgems_nft_swap/types/getgems_nft_swap.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
@@ -341,6 +455,7 @@ nft-2-mainnet-test = "acton test data/nfts/nft_2_0/tests --fork-net mainnet --fo
 getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 telemint-mainnet-test = "acton test data/telemint/tests --fork-net mainnet --fork-block-number 71005889 --show-bodies"
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
 
 [import-mappings]
 acton = ".acton"

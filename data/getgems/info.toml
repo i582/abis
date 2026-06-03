@@ -1,0 +1,129 @@
+[project]
+name = "getgems"
+
+[metadata]
+category = "TON NFT marketplace contracts"
+description = "Getgems marketplace, sale, auction, offer, raffle, swap, and deployer contracts"
+
+[sources]
+getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
+local_nft_sale_schema = "schemas/nft_sale.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+contracts_catalog = "contracts.json"
+
+[contracts.GetgemsDeployer]
+display_name = "Getgems Deployer"
+types = "getgems_deployer/types/getgems_deployer.types.tolk"
+hashes = ["6a79e3f355ddf28c80ec701584fba628a582942f59621e93a3b43d3e8a0b761f"]
+known_addresses = [
+  "EQAIFunALREOeQ99syMbO6sSzM_Fa1RsPD5TBoS0qVeKQ-AR",
+  "EQDZwUjVjK__PvChXCvtCMshBT1hrPKMwzRhyTAtonUbL2M3",
+]
+
+[contracts.GetgemsNftAuctionV1]
+display_name = "Getgems NFT Auction V1"
+types = "getgems_nft_auction_v1/types/getgems_nft_auction_v1.types.tolk"
+hashes = ["fc00a29dd0205bcdcc0d3ffb9ca38cc3c8c159ec60d8aa543240a92f10592d40"]
+known_addresses = ["EQC7XGlsctb-Z7nyZn3lwEwHxeCtY2A8JlXh_BfE0LfuvvH_"]
+
+[contracts.GetgemsNftAuctionV2]
+display_name = "Getgems NFT Auction V2"
+types = "getgems_nft_auction_v2/types/getgems_nft_auction_v2.types.tolk"
+hashes = ["6668872fa79705443ffd47523e8e9ea9f76ab99f9a0b59d27de8f81a1c27b9d4"]
+known_addresses = ["EQBNuknMQASMChLilIzdGKc8mDApF-ZRNtGJN4qbe_z2klfF"]
+
+[contracts.GetgemsNftAuctionV3R2]
+display_name = "Getgems NFT Auction V3R2"
+types = "getgems_nft_auction_v3r2/types/getgems_nft_auction_v3r2.types.tolk"
+hashes = ["1bd9c5a39bffb7a0f341588b5dd92b813a842bf65ef14109382200ceaf8f72df"]
+known_addresses = ["EQAaZQJxXZyIvM-EFKojUx9m9eklJAA8igVMu948RIgqwWeh"]
+
+[contracts.GetgemsNftAuctionV3R3]
+display_name = "Getgems NFT Auction V3R3"
+types = "getgems_nft_auction_v3r3/types/getgems_nft_auction_v3r3.types.tolk"
+hashes = ["bb6f62ade0feb2d79fab3b8aebf0930af98553df60093b2027f0a8bf169bfcec"]
+known_addresses = ["EQDD4HW7_gDHSqWCWWdnqBe1W9YZ_S_fpb2lhaDb0zvqipFU"]
+
+[contracts.GetgemsNftAuctionV4R1]
+display_name = "Getgems NFT Auction V4R1"
+types = "getgems_nft_auction_v4r1/types/getgems_nft_auction_v4r1.types.tolk"
+hashes = ["ce5a78534eaaa6ceed8dafd486d076eb60a9b0d6dbfb53676f662649c0689956"]
+known_addresses = []
+
+[contracts.GetgemsNftFixpriceSaleV1]
+display_name = "Getgems NFT Fixprice Sale V1"
+types = "getgems_nft_fixprice_sale_v1/types/getgems_nft_fixprice_sale_v1.types.tolk"
+hashes = ["da9b9fce22e87c496572d20365259579bccef91a720357ccbe8c052efc9be08f"]
+known_addresses = []
+
+[contracts.GetgemsNftSaleLegacy]
+display_name = "Getgems NFT Sale Legacy"
+types = "getgems_nft_sale_legacy/types/getgems_nft_sale_legacy.types.tolk"
+hashes = ["dd24e54caaa1a2b8e70514fc39bfc4cbc4b1543ca74d2cc6fc0eb35429e1b9d5"]
+known_addresses = ["EQCPNbnESQwg0tOQymumgXcPpsGCnxNQuh3e6OVLR0iAWaQE"]
+
+[contracts.GetgemsNftFixpriceSaleV2]
+display_name = "Getgems NFT Fixprice Sale V2"
+types = "getgems_nft_fixprice_sale_v2/types/getgems_nft_fixprice_sale_v2.types.tolk"
+hashes = ["8278f4c5233de6fbedc969af519344a7a9bffc544856dba986a95c0bcf8571c9"]
+known_addresses = ["EQDvcDAh-9Dr_C6Md-9NvoDmObEHm04363TcsNgE1Tm48feX"]
+
+[contracts.GetgemsNftFixpriceSaleV3]
+display_name = "Getgems NFT Fixprice Sale V3"
+types = "getgems_nft_fixprice_sale_v3/types/getgems_nft_fixprice_sale_v3.types.tolk"
+hashes = ["32050dfac44f64866bcc86f2cd9e1305fe9dcadb3959c002237cfb0902d44323"]
+known_addresses = ["EQC5jtWNb7d6kBK_AZZJ-VhTpQqKRmKz-x3dtVCjJ6pb2amz"]
+
+[contracts.GetgemsNftFixpriceSaleV3R2]
+display_name = "Getgems NFT Fixprice Sale V3R2"
+types = "getgems_nft_fixprice_sale_v3r2/types/getgems_nft_fixprice_sale_v3r2.types.tolk"
+hashes = ["deb53b6c5765c1e6cd238bf47bc5e83ba596bdcc04b0b84cd50ab1e474a08f31"]
+known_addresses = ["EQDKXtnA6NMRRn1iRxmK30gY_xc0xXZjJBRyxsADC54iarMT"]
+
+[contracts.GetgemsNftFixpriceSaleV3R3]
+display_name = "Getgems NFT Fixprice Sale V3R3"
+types = "getgems_nft_fixprice_sale_v3r3/types/getgems_nft_fixprice_sale_v3r3.types.tolk"
+hashes = ["24221fa571e542e055c77bedfdbf527c7af460cfdc7f344c450787b4cfa1eb4d"]
+known_addresses = ["EQCUn-X9Uhe1EkNRhHGT-Jx0y5RX5nj7MB9WgHi7c04wYNZw"]
+
+[contracts.GetgemsNftFixpriceSaleV4R1]
+display_name = "Getgems NFT Fixprice Sale V4R1"
+types = "getgems_nft_fixprice_sale_v4r1/types/getgems_nft_fixprice_sale_v4r1.types.tolk"
+hashes = ["6b95a6418b9c9d2359045d1e7559b8d549ae0e506f24caab58fa30c8fb1feb86"]
+known_addresses = ["EQA51TGedQ5nhKqKA-3lvJ5_dovuBRP5QUIM0zfYHjjxZhBm"]
+
+[contracts.GetgemsNftMarketplaceV1]
+display_name = "Getgems NFT Marketplace V1"
+types = "getgems_nft_marketplace_v1/types/getgems_nft_marketplace_v1.types.tolk"
+hashes = ["76c11e701480f7a66d6368d0e7b570f4f9119f2338568f9d63ff8d12ebf8a0f7"]
+known_addresses = ["EQB-zPGEJ4FA2fG0DOQhYBziP4RVr5y7w14DnmAQ9aG0lwyp"]
+
+[contracts.GetgemsNftMarketplaceV2]
+display_name = "Getgems NFT Marketplace V2"
+types = "getgems_nft_marketplace_v2/types/getgems_nft_marketplace_v2.types.tolk"
+hashes = ["cbd73dced5b4e113234e5b3da1b933f6aad9205b5b8250964bee7a261507de6a"]
+known_addresses = ["EQBYTuYbLf8INxFtD8tQeNk5ZLy-nAX9ahQbG_yl1qQ-GEMS"]
+
+[contracts.GetgemsNftOfferV1]
+display_name = "Getgems NFT Offer V1"
+types = "getgems_nft_offer_v1/types/getgems_nft_offer_v1.types.tolk"
+hashes = ["7aa13161df5469acb9daab5ad3b9cb14a2c9754395e6355ccdb8dded6482092b"]
+known_addresses = ["EQA8t5MDB-nkuaivEe6GBHpPCP_tA8r5RORQUzI-XhVWWwFt"]
+
+[contracts.GetgemsNftOfferV1R3]
+display_name = "Getgems NFT Offer V1R3"
+types = "getgems_nft_offer_v1r3/types/getgems_nft_offer_v1r3.types.tolk"
+hashes = ["6e5d667fa6efa8187c6d029efd4015601232fd2e36c291dbc346dedab6dc8024"]
+known_addresses = ["EQBtEe4JkKx0zSMFRZsSkWH8m7x7YmHPn6fvRa_4GwVERj0x"]
+
+[contracts.GetgemsNftRaffle]
+display_name = "Getgems NFT Raffle"
+types = "getgems_nft_raffle/types/getgems_nft_raffle.types.tolk"
+hashes = ["4e8e3fc99d6c9b444df6c490521c8912fc772d6571b066ec61fe2ced1c7e6104"]
+known_addresses = []
+
+[contracts.GetgemsNftSwap]
+display_name = "Getgems NFT Swap"
+types = "getgems_nft_swap/types/getgems_nft_swap.types.tolk"
+hashes = ["4a9e4a547710a4a5edcb56369aaab36b0bfc1461914702923d9947f1f1de5c72"]
+known_addresses = ["EQCYG4hVBS9E8qPaCfKWLfSrOUW1ZVCVoJ-kWbcxkJHMri7L"]

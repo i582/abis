@@ -8,6 +8,7 @@
     "dump": "npm run --silent build && node dist/cli.js",
     "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
     "bundle:data-abis": "npm run --silent build && node dist/bundle-data-abis.js",
+    "toncenter:message-bodies": "npm run --silent build && node dist/toncenter-message-bodies.js",
     "test": "npm run --silent build && node --test test/**/*.test.mjs",
     "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
     "find:contracts-by-hash": "node scripts/find-contracts-by-hash.mjs",
