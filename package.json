@@ -9,6 +9,7 @@
     "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
     "test": "npm run --silent build && node --test test/**/*.test.mjs",
     "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
+    "find:contracts-by-hash": "node scripts/find-contracts-by-hash.mjs",
     "method-ids": "node scripts/method-ids.mjs"
   },
   "dependencies": {

@@ -100,3 +100,45 @@ function convertEntry(entry: unknown): XmlNode | null {
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
+
+/*
+Decompiled FunC written to data/tonco/research/func/tonco_pool.fc
+warning: decompile-func generated 37 warnings
+  line 214: ;; unhandled UBITSIZE
+  line 5513: ;; unhandled ISNAN
+  line 5579: ;; unhandled UNPACKEDCONFIGTUPLE
+  line 5612: ;; unhandled DICTIGET
+  line 5613: ;; unhandled NULLSWAPIFNOT
+  line 5618: ;; unhandled DICTIGET
+  line 5619: ;; unhandled NULLSWAPIFNOT
+  line 5719: ;; unhandled QMUL
+  line 5721: ;; unhandled ISNAN
+  line 5735: ;; unhandled QADD
+  line 5736: ;; unhandled ISNAN
+  line 5739: ;; unhandled UBITSIZE
+  line 5742: ;; unhandled ISNAN
+  line 5751: ;; unhandled UBITSIZE
+  line 5759: ;; unhandled QMULDIV
+  line 5760: ;; unhandled ISNAN
+  line 5763: ;; unhandled UBITSIZE
+  line 5766: ;; unhandled QMULDIVMOD
+  line 5767: ;; unhandled ISNAN
+  line 5776: ;; unhandled UBITSIZE
+  line 6544: ;; unhandled DICTIGET
+  line 6545: ;; unhandled NULLSWAPIFNOT
+  line 6550: ;; unhandled DICTIGET
+  line 6551: ;; unhandled NULLSWAPIFNOT
+  line 6569: ;; unhandled DICTIDEL
+  line 6581: ;; unhandled DICTIDEL
+  line 6613: ;; unhandled GASCONSUMED
+  line 6617: ;; unhandled DICTIGETPREVEQ
+  line 6618: ;; unhandled NULLSWAPIFNOT2
+  line 6620: ;; unhandled DICTIGETNEXT
+  line 6621: ;; unhandled NULLSWAPIFNOT2
+  line 6815: ;; unhandled LSHIFT#DIV 128
+  line 6870: ;; unhandled UBITSIZE
+  line 8018: ;; unhandled DICTIGETNEXT
+  line 8019: ;; unhandled NULLSWAPIFNOT2
+  line 8021: ;; unhandled DICTIGETPREV
+  line 8022: ;; unhandled NULLSWAPIFNOT2
+Error: decompile-func generated 37 warnings*/
