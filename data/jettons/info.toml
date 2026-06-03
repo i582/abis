@@ -1,0 +1,127 @@
+[project]
+name = "jettons"
+
+[metadata]
+category = "TON fungible token contracts"
+description = "TEP-74 and TEP 89 Jetton masters and wallets"
+
+[sources]
+tep_74 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+tep_89 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
+ton_docs_comparison = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/comparison"
+ton_docs_usdt_example = "https://docs.ton.org/ecosystem/appkit/jettons"
+jetton_2_version_history = "https://github.com/ton-blockchain/jetton-contract/blob/jetton-2.0/VERSION_HISTORY.md"
+jetton_2_repo = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
+jetton_1_2_repo = "https://github.com/ton-blockchain/jetton-contract/tree/main"
+notcoin_upstream_repo = "https://github.com/OpenBuilders/notcoin-contract"
+token_contract = "https://github.com/ton-blockchain/token-contract"
+minter_contract = "https://github.com/ton-blockchain/minter-contract"
+stablecoin_contract = "https://github.com/ton-blockchain/stablecoin-contract"
+mintless_contract = "https://github.com/ton-blockchain/mintless-jetton-contract"
+local_schema = "schemas/jettons.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+local_generated_types = "gen/jetton_*.types.tolk"
+local_generated_abis = "gen_abis/jetton_*.json"
+contracts_catalog = "contracts.json"
+
+[contracts.JettonV1Master]
+types = "v1/types/jetton_v1_master.types.tolk"
+hashes = ["f95ba0330b38cdf3459b1e811e5fc6fa6cfee566d7b764455c0468140365a737"]
+known_addresses = ["EQALtan2kEPuvdpa0ulG65UyQr2PYD_nldkGmM7sa_xgoCwr"]
+
+[contracts.JettonV100Master]
+types = "v1/types/jetton_v1_00_master.types.tolk"
+hashes = ["e0b78e8e9112a385aeb509c98324333a4f9e5cebfacc5042b95c72373c4d7d39"]
+known_addresses = []
+
+[contracts.JettonV1Wallet]
+types = "v1/types/jetton_v1_wallet.types.tolk"
+hashes = [
+  "b8b2fb226e29921f3c1b8860075d38e53b0bec2981676f2bd199569fef25f203",
+  "4adf48135cb575adbaed476799c87ff2904269b1f949ada4d0479e9104b6f217",
+  "42945230abfb0f98b197445c3880faf26a164455fe8f93b6425786b3e2889c8b",
+  "cd2705487b1848dd5731a4b6533606c407a33ad82925216908ad2c87c543294a",
+  "d1b97ebd0e1b1b038dbe8af9c87e77ca1773eb699131dc12c7979cced9dd00fc",
+  "a760d629d5343e76d045017d9dc216fc8a307a8377815feb2b0a5c490e733486",
+]
+known_addresses = ["EQA_wAw2-rhLg-kCypeJW8dcrPKWcHZ9VccrZd_6RPjqYpfR"]
+
+[contracts.DiscoverableJettonMaster]
+types = "discoverable_jetton/types/discoverable_jetton_master.types.tolk"
+hashes = [
+  "9a0f98dd6fbf225eef8165e4e64417ee931f7eea000653439e7b5dcdc0644cd6",
+  "c067301dc89e3dd4eb227cdca8d6d5492c1be62429eb937f5cd759af0072d446",
+  "0571976c63ec1b7550230a2609dbedb36e1b64ef8d022a16b34ea57063185b2f",
+]
+known_addresses = ["EQDOxsDBUkJYfX2musuy4yG-7o6VSMIMdqEsktTjI3HX3vUb"]
+
+[contracts.DiscoverableJettonWallet]
+types = "discoverable_jetton/types/discoverable_jetton_wallet.types.tolk"
+hashes = [
+  "73d255a3c1d9f81566dcdc598ee4d5aa137c2c5d800f30f76df1457846c85d00",
+  "beb0683ebeb8927fe9fc8ec0a18bc7dd17899689825a121eab46c5a3a860d0ce",
+  "cd2705487b1848dd5731a4b6533606c407a33ad82925216908ad2c87c543294a",
+  "d1b97ebd0e1b1b038dbe8af9c87e77ca1773eb699131dc12c7979cced9dd00fc",
+  "a760d629d5343e76d045017d9dc216fc8a307a8377815feb2b0a5c490e733486",
+]
+known_addresses = ["EQDt0qeoHwip8CtuUeNsaKjK-g0rwL7zUunKAnv0NCTZDSs3"]
+
+[contracts.JettonDiscovery]
+types = "discoverable_jetton/types/jetton_discovery.types.tolk"
+hashes = [
+  "06afd2454f5bfd3ac201aba05f84fa5ffed3db11f226aa967b6dc712d3a65e6e",
+  "1fa42ee0c59461a08fe7aaf60cffdea6dde203e3ff5aa435e6352e36f6f3a416",
+]
+known_addresses = []
+
+[contracts.StablecoinMaster]
+types = "stablecoin_1_04/types/stablecoin_master.types.tolk"
+hashes = ["18d5b6e780ff0bb451254c2c760d09d6e485638cd1407abb97078752c3c1c9ee"]
+known_addresses = ["EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"]
+
+[contracts.StablecoinWallet]
+types = "stablecoin_1_04/types/stablecoin_wallet.types.tolk"
+hashes = [
+  "8f452d7a4dfd74066b682365177259ed05734435be76b5fd4bd5d8af2b7c3d68",
+  "89468f02c78e570802e39979c8516fc38df07ea76a48357e0536f2ba7b3ee37b",
+]
+known_addresses = ["EQAmJs8wtwK93thF78iD76RQKf9Z3v2sxM57iwpZZtdQAiVM"]
+
+[contracts.JettonNotcoinMaster]
+types = "jetton_1_2_notcoin/types/jetton_notcoin_master.types.tolk"
+hashes = ["f83d05490af7c9cc58019488c7b253c9492d49c25d12d09383e52e81537e343a"]
+known_addresses = ["EQAvlWFDxGF2lXm67y4yzC17wYKD9A0guwPkMs1gOsM__NOT"]
+
+[contracts.JettonNotcoinWallet]
+types = "jetton_1_2_notcoin/types/jetton_notcoin_wallet.types.tolk"
+hashes = [
+  "ba2918c8947e9b25af9ac1b883357754173e5812f807a3d6e642a14709595395",
+  "8d28ea421b77e805fea52acf335296499f03aec8e9fd21ddb5f2564aa65c48de",
+]
+known_addresses = ["EQAtRMiPzUFf6--gle-_Z2WGl0XH8To-r5hHk_B8JPCqTjcD"]
+
+[contracts.Jetton2Master]
+types = "jetton_2_0/types/jetton_2_master.types.tolk"
+hashes = ["6eb01cd370f25445b7c9b598928e444009c31737334835a956b90bdd92228895"]
+known_addresses = []
+
+[contracts.Jetton2Wallet]
+types = "jetton_2_0/types/jetton_2_wallet.types.tolk"
+hashes = [
+  "346250c205f56acfb6afa6fe7b76550805d256c6d8e47dd4f94ff672b47d19d3",
+  "7602922348e199739f56d7a063c37e30f1cf1450ab86efb06ed048c0ca74e8a1",
+]
+known_addresses = []
+
+[contracts.MintlessJettonMaster]
+types = "mintless_1_0/types/mintless_master.types.tolk"
+hashes = ["84d0ae717efd23eecceb3a565e25fc5fb2e066f03bcf3672a7dd69aefa389db2"]
+known_addresses = ["EQAJ8uWd7EBqsmpSWaRdf_I-8R8-XHwh3gsNKhy-UrdrPcUo"]
+
+[contracts.MintlessJettonWallet]
+types = "mintless_1_0/types/mintless_wallet.types.tolk"
+hashes = [
+  "0f1ad3d8a46bd283321dde639195fb72602e9b31b1727fecc25e2edc10966df4",
+  "431e1485b326a1c600baf02dc3e4cb6339a1538a92ebc4e3ce5daa7100f6c79b",
+]
+known_addresses = ["EQD1MISQQCRISJVAyLVdwEo8WiFAxSX173eUHTFPz2FdfJ42"]
