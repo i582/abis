@@ -1,0 +1,30 @@
+[project]
+name = "telemint"
+
+[metadata]
+category = "Telegram Fragment NFT contracts"
+description = "Telegram TeleMint NFT item contracts used by Fragment username and anonymous-number NFTs"
+website = "https://fragment.com/"
+
+[sources]
+telegram_telemint_repo = "https://github.com/TelegramMessenger/telemint"
+telegram_telemint_tlb = "https://github.com/TelegramMessenger/telemint/blob/main/telemint.tlb"
+telegram_telemint_common_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/common.fc"
+telegram_telemint_item_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-item.fc"
+telegram_telemint_collection_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-collection.fc"
+local_schema = "schemas/telegram.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+local_generated_types = "gen/teleitem.types.tolk"
+local_generated_abi = "gen_abis/teleitem.json"
+contracts_catalog = "contracts.json"
+
+[contracts.TelemintNftItem]
+display_name = "Telemint NFT Item"
+types = "types/telemint_nft_item.types.tolk"
+hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
+known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
+
+[contracts.TelemintNftItem.variants.dns_item]
+source_file = "func/nft-item.fc"
+hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
+known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
