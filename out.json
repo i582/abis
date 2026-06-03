@@ -27540,8 +27540,8 @@
           "attributes": {
             "name": "pay_to"
           },
-          "rawTlb": "routerv3_pay_to#a1daa96d query_id:uint64 reciever0:MsgAddress reciever1:MsgAddress pay_to:PayTo = InMsgBody;",
-          "tlb": "routerv3_pay_to#a1daa96d query_id:uint64 reciever0:MsgAddress reciever1:MsgAddress pay_to:PayTo = InMsgBody;"
+          "rawTlb": "routerv3_pay_to#a1daa96d query_id:uint64 receiver0:MsgAddress receiver1:MsgAddress pay_to:PayTo = InMsgBody;",
+          "tlb": "routerv3_pay_to#a1daa96d query_id:uint64 receiver0:MsgAddress receiver1:MsgAddress pay_to:PayTo = InMsgBody;"
         }
       ]
     },

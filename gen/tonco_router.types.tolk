@@ -140,8 +140,8 @@ type PayTo =
 // TL-B message bodies.
 struct (0xa1daa96d) PayTo2 {
     queryId: uint64
-    reciever0: address
-    reciever1: address
+    receiver0: address
+    receiver1: address
     payTo: cell
 }
 

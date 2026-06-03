@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.json",
     "dump": "npm run --silent build && node dist/cli.js",
     "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
+    "bundle:data-abis": "npm run --silent build && node dist/bundle-data-abis.js",
     "test": "npm run --silent build && node --test test/**/*.test.mjs",
     "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
     "find:contracts-by-hash": "node scripts/find-contracts-by-hash.mjs",
@@ -17,6 +18,7 @@
     "@ton-community/tlb-parser": "^0.1.5",
     "@ton-community/tlb-runtime": "^1.0.0-alpha.3",
     "fast-xml-parser": "^5.8.0",
+    "smol-toml": "^1.6.1",
     "ton-assembly": "^0.6.1"
   },
   "devDependencies": {

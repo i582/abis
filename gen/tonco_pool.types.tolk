@@ -157,8 +157,8 @@ struct (0xa7fb58f8) Poolv3Swap {
 
 struct (0xa1daa96d) PayTo2 {
     queryId: uint64
-    reciever0: address
-    reciever1: address
+    receiver0: address
+    receiver1: address
     payTo: cell
 }
 
