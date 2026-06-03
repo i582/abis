@@ -165,6 +165,24 @@ src = "data/jettons/v1/testdata/JettonV1Wallet.boc"
 types = "data/jettons/v1/types/jetton_v1_wallet.types.tolk"
 depends = []
 
+[contracts.DiscoverableJettonMaster]
+display-name = "DiscoverableJettonMaster"
+src = "data/jettons/discoverable_jetton/testdata/DiscoverableJettonMaster.boc"
+types = "data/jettons/discoverable_jetton/types/discoverable_jetton_master.types.tolk"
+depends = []
+
+[contracts.DiscoverableJettonWallet]
+display-name = "DiscoverableJettonWallet"
+src = "data/jettons/discoverable_jetton/testdata/DiscoverableJettonWallet.boc"
+types = "data/jettons/discoverable_jetton/types/discoverable_jetton_wallet.types.tolk"
+depends = []
+
+[contracts.JettonDiscovery]
+display-name = "JettonDiscovery"
+src = "data/jettons/discoverable_jetton/testdata/JettonDiscovery.boc"
+types = "data/jettons/discoverable_jetton/types/jetton_discovery.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
@@ -193,6 +211,7 @@ wallet-highload-v3r1-mainnet-test = "acton test data/wallets/highload_v3r1/tests
 wallet-preprocessed-v2-mainnet-test = "acton test data/wallets/wallet_preprocessed_v2/tests/wallet_preprocessed_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 wallet-multisig-v2-mainnet-test = "acton test data/wallets/multisig_v2/tests/multisig_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 jetton-v1-mainnet-test = "acton test data/jettons/v1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+discoverable-jetton-mainnet-test = "acton test data/jettons/discoverable_jetton/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 
 [import-mappings]
 acton = ".acton"

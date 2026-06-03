@@ -1,15 +1,15 @@
-/// Jetton v1 wallet implementing the TEP-74 transfer, receive, burn, notify, and excesses flows.
-contract JettonV1Wallet {
+/// Discoverable Jetton wallet implementing the TEP-74 transfer, receive, burn, notify, and excesses flows.
+contract DiscoverableJettonWallet {
     author: "TON Core"
-    version: "1"
-    description: "Curated interface for the ton-blockchain/token-contract Jetton v1 wallet"
-    storage: JettonV1WalletStorage
-    incomingMessages: JettonV1WalletIncomingMessage
-    outgoingMessages: JettonV1WalletOutgoingMessage
+    version: "1.05M"
+    description: "Curated interface for discoverable Jetton wallets from minter-contract and token-contract minor variants"
+    storage: DiscoverableJettonWalletStorage
+    incomingMessages: DiscoverableJettonWalletIncomingMessage
+    outgoingMessages: DiscoverableJettonWalletOutgoingMessage
 }
 
 /// Persistent wallet state stored in the root data cell.
-struct JettonV1WalletStorage {
+struct DiscoverableJettonWalletStorage {
     /// Jetton balance encoded as TL-B `Coins` in storage.
     balance: coins
     /// Owner address authorized to initiate outgoing transfers and burns.
@@ -30,7 +30,7 @@ struct (0x0f8a7ea5) JettonTransfer {
     destination: address
     /// Optional response address for an `Excesses` refund.
     responseDestination: address
-    /// Optional referenced custom payload; v1 wallets parse it for layout compatibility.
+    /// Optional referenced custom payload; source parses it for layout compatibility.
     customPayload: cell?
     /// Nanotons forwarded to the destination owner notification.
     forwardTonAmount: coins
@@ -62,7 +62,7 @@ struct (0x595f07bc) JettonBurn {
     amount: coins
     /// Optional response address for the minter's `Excesses` refund.
     responseDestination: address
-    /// Optional referenced custom payload; v1 wallets keep it as a TEP-74 field.
+    /// Optional referenced custom payload; source keeps it as a TEP-74 field.
     customPayload: cell?
 }
 
@@ -96,21 +96,21 @@ struct (0xd53276db) JettonExcesses {
     queryId: uint64
 }
 
-/// Internal message bodies accepted by the Jetton v1 wallet.
-type JettonV1WalletIncomingMessage =
+/// Internal message bodies accepted by the discoverable Jetton wallet.
+type DiscoverableJettonWalletIncomingMessage =
     | JettonTransfer
     | JettonInternalTransfer
     | JettonBurn
 
-/// Internal message bodies emitted by the Jetton v1 wallet.
-type JettonV1WalletOutgoingMessage =
+/// Internal message bodies emitted by the discoverable Jetton wallet.
+type DiscoverableJettonWalletOutgoingMessage =
     | JettonInternalTransfer
     | JettonBurnNotification
     | JettonTransferNotification
     | JettonExcesses
 
 /// Structured result returned by `get_wallet_data`.
-struct GetJettonV1WalletDataReply {
+struct GetDiscoverableJettonWalletDataReply {
     /// Jetton balance returned as a TVM stack integer.
     balance: int
     /// Wallet owner address.
@@ -121,15 +121,15 @@ struct GetJettonV1WalletDataReply {
     jettonWalletCode: cell
 }
 
-/// Jetton v1 wallet exit-code catalog from the official FunC source.
-enum JettonV1WalletErrors {
+/// Discoverable Jetton wallet exit-code catalog from source variants.
+enum DiscoverableJettonWalletErrors {
     /// Sender is not the stored owner for transfer or burn requests.
     UnauthorizedOwner = 705
     /// Transfer or burn would make the stored jetton balance negative.
     InsufficientJettonBalance = 706
     /// Internal transfer sender is not authenticated, or burn funding is below the required gas/forward-fee budget.
     InvalidSenderOrBurnFunding = 707
-    /// v1.03+ transfer body does not contain the required TEP-74 `Either` tag for `forward_payload`.
+    /// Transfer body does not contain the required TEP-74 `Either` tag for `forward_payload`.
     MissingForwardPayloadTag = 708
     /// Transfer funding is below the required forward-fee/storage/gas budget, or a bounced body is not recognized.
     TransferFundingOrBounce = 709
@@ -138,14 +138,14 @@ enum JettonV1WalletErrors {
 }
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
-get fun get_wallet_data(): GetJettonV1WalletDataReply {
+get fun get_wallet_data(): GetDiscoverableJettonWalletDataReply {
     // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw JettonV1WalletErrors.UnauthorizedOwner;
-    assert (true) throw JettonV1WalletErrors.InsufficientJettonBalance;
-    assert (true) throw JettonV1WalletErrors.InvalidSenderOrBurnFunding;
-    assert (true) throw JettonV1WalletErrors.MissingForwardPayloadTag;
-    assert (true) throw JettonV1WalletErrors.TransferFundingOrBounce;
-    assert (true) throw JettonV1WalletErrors.UnsupportedOperation;
+    assert (true) throw DiscoverableJettonWalletErrors.UnauthorizedOwner;
+    assert (true) throw DiscoverableJettonWalletErrors.InsufficientJettonBalance;
+    assert (true) throw DiscoverableJettonWalletErrors.InvalidSenderOrBurnFunding;
+    assert (true) throw DiscoverableJettonWalletErrors.MissingForwardPayloadTag;
+    assert (true) throw DiscoverableJettonWalletErrors.TransferFundingOrBounce;
+    assert (true) throw DiscoverableJettonWalletErrors.UnsupportedOperation;
     return {
         balance: 0,
         ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
