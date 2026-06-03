@@ -285,6 +285,18 @@ src = "data/nfts/getgems_nft_2_0/testdata/GetgemsNftEditableItemV2.boc"
 types = "data/nfts/getgems_nft_2_0/types/getgems_nft_v2_editable_item.types.tolk"
 depends = []
 
+[contracts.SbtV1Item]
+display-name = "SbtV1Item"
+src = "data/sbts/sbt_1/testdata/SbtV1Item.boc"
+types = "data/sbts/sbt_1/types/sbt_v1_item.types.tolk"
+depends = []
+
+[contracts.SbtV1Single]
+display-name = "SbtV1Single"
+src = "data/sbts/sbt_1/testdata/SbtV1Single.boc"
+types = "data/sbts/sbt_1/types/sbt_v1_single.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
@@ -321,6 +333,7 @@ mintless-mainnet-test = "acton test data/jettons/mintless_1_0/tests --fork-net m
 nft-1-mainnet-test = "acton test data/nfts/nft_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 nft-2-mainnet-test = "acton test data/nfts/nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 
 [import-mappings]
 acton = ".acton"

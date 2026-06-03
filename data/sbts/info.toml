@@ -1,0 +1,41 @@
+[project]
+name = "sbts"
+
+[metadata]
+category = "TON soul-bound token contracts"
+description = "TEP-85 SBT item contracts with curated Getgems source variants"
+
+[sources]
+tep_85 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0085-sbt-standard.md"
+tep_62 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0062-nft-standard.md"
+ton_docs_sbt = "https://docs.ton.org/standard/tokens/nft/sbt"
+ton_docs_nft_api = "https://docs.ton.org/blockchain-basics/standard/tokens/nft/api"
+getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
+getgems_sbt_doc = "https://github.com/getgems-io/nft-contracts/blob/main/sbt.md"
+local_schema = "schemas/nfts.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+local_generated_types = "gen/sbt.types.tolk"
+local_generated_abis = "gen_abis/sbt.json"
+contracts_catalog = "contracts.json"
+
+[contracts.SbtV1Item]
+types = "sbt_1/types/sbt_v1_item.types.tolk"
+hashes = ["2ffbf52beaf816157bfc9726dc2548327fa87ebfd2696eed27a9c2cda25c9edc"]
+known_addresses = ["EQCeAQzHYeZ4qLnXYevsOOElwxTuNdZfzwxF6vy4wegbSq5h"]
+profile = "tep_85"
+
+[contracts.SbtV1Item.variants.collection_item]
+source_file = "packages/contracts/sources/sbt-item.fc"
+hashes = ["2ffbf52beaf816157bfc9726dc2548327fa87ebfd2696eed27a9c2cda25c9edc"]
+known_addresses = ["EQCeAQzHYeZ4qLnXYevsOOElwxTuNdZfzwxF6vy4wegbSq5h"]
+
+[contracts.SbtV1Single]
+types = "sbt_1/types/sbt_v1_single.types.tolk"
+hashes = ["68550b3df306e709935f2d3d97e226454a409ad7965c87163845ba56b0745f93"]
+known_addresses = ["EQBamoka0hrsZjwRa1qedfufUcaapBfxyQiLdRbTMDH7H1sq"]
+profile = "tep_85"
+
+[contracts.SbtV1Single.variants.single]
+source_file = "packages/contracts/sources/sbt-single.fc"
+hashes = ["68550b3df306e709935f2d3d97e226454a409ad7965c87163845ba56b0745f93"]
+known_addresses = ["EQBamoka0hrsZjwRa1qedfufUcaapBfxyQiLdRbTMDH7H1sq"]
