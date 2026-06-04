@@ -1,0 +1,42 @@
+[project]
+name = "dns"
+
+[metadata]
+category = "TON DNS"
+description = "Standard TON DNS resolver and official .ton domain item contracts"
+
+[sources]
+ton_docs_dns = "https://docs.ton.org/blockchain-basics/primitives/web3/ton-dns"
+tep_81_dns_standard = "https://github.com/ton-blockchain/TEPs/blob/master/text/0081-dns-standard.md"
+reference_dns_contracts = "https://github.com/ton-blockchain/dns-contract"
+reference_root_dns_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/root-dns.fc"
+reference_collection_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-collection.fc"
+reference_domain_item_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-item.fc"
+local_schema = "schemas/dns.xml"
+local_toncenter_tlb = "source/toncenter-schemes.tlb"
+local_generated_types = "gen/dns.types.tolk"
+local_generated_abi = "gen_abis/dns.json"
+local_anton_interfaces = "source/anton.json"
+
+[contracts.DnsRootResolver]
+display_name = "TON DNS Root Resolver"
+types = "types/dns_root_resolver.types.tolk"
+hashes = ["9ffe14989a82dd5e0ec22a6f2a14f784a72c347d7552c6f220d9c3e13b7e2778"]
+known_addresses = ["Ef_lZ1T4NCb2mwkme9h2rJfESCE0W34ma9lWp7-_uY3zXDvq"]
+
+[contracts.DnsDomainItem]
+display_name = "TON DNS Domain Item"
+types = "types/dns_domain_item.types.tolk"
+hashes = ["8b5ffc9ebfd39064d8d5f56e4659c826bb7593923f5ca48728be4d60af6f51f9"]
+known_addresses = [
+  "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e",
+  "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1",
+]
+
+[contracts.DnsDomainItem.instances.foundation_ton]
+address = "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e"
+domain = "foundation.ton"
+
+[contracts.DnsDomainItem.instances.wallet_ton]
+address = "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1"
+domain = "wallet.ton"

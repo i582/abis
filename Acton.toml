@@ -291,6 +291,18 @@ src = "data/telemint/testdata/TelemintNftItem.boc"
 types = "data/telemint/types/telemint_nft_item.types.tolk"
 depends = []
 
+[contracts.DnsRootResolver]
+display-name = "DnsRootResolver"
+src = "data/dns/testdata/DnsRootResolver.boc"
+types = "data/dns/types/dns_root_resolver.types.tolk"
+depends = []
+
+[contracts.DnsDomainItem]
+display-name = "DnsDomainItem"
+src = "data/dns/testdata/DnsDomainItem.boc"
+types = "data/dns/types/dns_domain_item.types.tolk"
+depends = []
+
 [contracts.SbtV1Item]
 display-name = "SbtV1Item"
 src = "data/sbts/sbt_1/testdata/SbtV1Item.boc"
@@ -454,6 +466,7 @@ nft-1-mainnet-test = "acton test data/nfts/nft_1/tests --fork-net mainnet --fork
 nft-2-mainnet-test = "acton test data/nfts/nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 telemint-mainnet-test = "acton test data/telemint/tests --fork-net mainnet --fork-block-number 71005889 --show-bodies"
+dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
 
