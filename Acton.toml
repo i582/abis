@@ -477,10 +477,50 @@ src = "data/stonfi/vault_v2/testdata/StonfiVaultV2.boc"
 types = "data/stonfi/vault_v2/types/stonfi_vault_v2.types.tolk"
 depends = []
 
+[contracts.DedustFactoryV2]
+display-name = "DeDust Factory V2"
+src = "data/dedust/factory/testdata/DedustFactoryV2.boc"
+types = "data/dedust/factory/types/dedust_factory_v2.types.tolk"
+depends = []
+
+[contracts.DedustVaultNativeV2]
+display-name = "DeDust Native Vault V2"
+src = "data/dedust/vault_native/testdata/DedustVaultNativeV2.boc"
+types = "data/dedust/vault_native/types/dedust_vault_native_v2.types.tolk"
+depends = []
+
+[contracts.DedustVaultJettonV2]
+display-name = "DeDust Jetton Vault V2"
+src = "data/dedust/vault_jetton/testdata/DedustVaultJettonV2.boc"
+types = "data/dedust/vault_jetton/types/dedust_vault_jetton_v2.types.tolk"
+depends = []
+
+[contracts.DedustPoolV2]
+display-name = "DeDust Pool V2"
+src = "data/dedust/pool_v2/testdata/DedustPoolV2.boc"
+types = "data/dedust/pool_v2/types/dedust_pool_v2.types.tolk"
+depends = []
+
+[contracts.DedustLiquidityDepositV2]
+display-name = "DeDust Liquidity Deposit V2"
+src = "data/dedust/liquidity_deposit/testdata/DedustLiquidityDepositV2.boc"
+types = "data/dedust/liquidity_deposit/types/dedust_liquidity_deposit_v2.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
+dedust-factory-v2-mainnet-test = "acton test data/dedust/factory/tests/dedust_factory_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71185104 --show-bodies"
+dedust-factory-v2-storage-test = "acton test data/dedust/factory/tests/dedust_factory_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71185104 --show-bodies"
+dedust-vault-native-v2-mainnet-test = "acton test data/dedust/vault_native/tests/dedust_vault_native_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71186170 --show-bodies"
+dedust-vault-native-v2-storage-test = "acton test data/dedust/vault_native/tests/dedust_vault_native_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71186170 --show-bodies"
+dedust-vault-jetton-v2-mainnet-test = "acton test data/dedust/vault_jetton/tests/dedust_vault_jetton_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71186135 --show-bodies"
+dedust-vault-jetton-v2-message-bodies-test = "acton test data/dedust/vault_jetton/tests/dedust_vault_jetton_v2_message_bodies.test.tolk --show-bodies"
+dedust-pool-v2-mainnet-test = "acton test data/dedust/pool_v2/tests/dedust_pool_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71186170 --show-bodies"
+dedust-pool-v2-message-bodies-test = "acton test data/dedust/pool_v2/tests/dedust_pool_v2_message_bodies.test.tolk --show-bodies"
+dedust-liquidity-deposit-v2-storage-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71184765 --show-bodies"
+dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_message_bodies.test.tolk --show-bodies"
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 locker-mainnet-test = "acton test data/locker/tests/locker_mainnet.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"

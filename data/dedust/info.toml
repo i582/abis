@@ -1,0 +1,95 @@
+[project]
+name = "dedust"
+
+[metadata]
+category = "TON DEX contracts"
+description = "DeDust Protocol v2 Factory, Pool, Vault, and Liquidity Deposit contracts"
+
+[sources]
+dedust_docs = "https://docs.dedust.io"
+dedust_tlb_docs = "https://docs.dedust.io/reference/tlb-schemes"
+dedust_factory_docs = "https://docs.dedust.io/reference/factory"
+dedust_pool_docs = "https://docs.dedust.io/reference/pool"
+dedust_sdk = "https://github.com/dedust-io/sdk"
+dedust_api_pools = "https://api.dedust.io/v2/pools"
+local_research_plan = "data/dedust/research/plan.md"
+local_research_results = "data/dedust/research/results.md"
+local_shared_research = "data/dedust/research/shared.md"
+local_docs_snapshot = "data/dedust/research/docs"
+local_sdk_snapshot = "data/dedust/research/source/sdk"
+local_schema = "data/dedust/research/source/local/dedust.xml"
+local_toncenter_tlb = "data/dedust/research/source/local/toncenter_dedust_v2.tlb"
+local_anton_interfaces = "source/anton.json"
+local_generated_types = "gen"
+local_generated_abis = "gen_abis"
+
+[contracts.DedustFactoryV2]
+display_name = "DeDust Factory V2"
+types = "factory/types/dedust_factory_v2.types.tolk"
+hashes = ["e64d0059486e3cbe14bd70572295d06d79e847cb4017eac1aa65d82009eaa20c"]
+known_addresses = ["EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"]
+
+[contracts.DedustFactoryV2.instances.mainnet]
+address = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
+network = "mainnet"
+
+[contracts.DedustVaultNativeV2]
+display_name = "DeDust Native Vault V2"
+types = "vault_native/types/dedust_vault_native_v2.types.tolk"
+hashes = ["875fac5e08e5062f0f7c5c9f4c989607108e35a9ad88dc563e3e4fc7a3d3e75c"]
+known_addresses = ["EQDa4VOnTYlLvDJ0gZjNYm5PXfSmmtL6Vs6A_CZEtXCNICq_"]
+
+[contracts.DedustVaultNativeV2.instances.ton]
+address = "EQDa4VOnTYlLvDJ0gZjNYm5PXfSmmtL6Vs6A_CZEtXCNICq_"
+asset = "TON"
+factory = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
+network = "mainnet"
+
+[contracts.DedustVaultJettonV2]
+display_name = "DeDust Jetton Vault V2"
+types = "vault_jetton/types/dedust_vault_jetton_v2.types.tolk"
+hashes = ["a30f0486b813dfe55f549fa986272349a96335e1e44e7276d4878c870083306f"]
+known_addresses = ["EQAYqo4u7VF0fa4DPAebk4g9lBytj2VFny7pzXR0trjtXQaO"]
+
+[contracts.DedustVaultJettonV2.instances.usdt]
+address = "EQAYqo4u7VF0fa4DPAebk4g9lBytj2VFny7pzXR0trjtXQaO"
+asset = "USDT"
+jetton_minter = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
+jetton_wallet = "EQCI2sZ8zq25yub6rHEY8FwPqV3zbCqS5oasOdljENCjh0bs"
+factory = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
+network = "mainnet"
+
+[contracts.DedustPoolV2]
+display_name = "DeDust Pool V2"
+types = "pool_v2/types/dedust_pool_v2.types.tolk"
+hashes = ["1275095b6da3911292406f4f4386f9e780099b854c6dee9ee2895ddce70927c1"]
+known_addresses = [
+  "EQA-X_yo3fzzbDbJ_0bzFWKqtRuZFIRa1sJsveZJ1YpViO3r",
+  "EQABt8YegyD7VJnZdFVwom8wwqp0E0X8tN2Y6NhrDmbrnSXP",
+]
+
+[contracts.DedustPoolV2.instances.volatile_ton_usdt]
+address = "EQA-X_yo3fzzbDbJ_0bzFWKqtRuZFIRa1sJsveZJ1YpViO3r"
+pool_type = "volatile"
+asset0 = "TON"
+asset1 = "USDT"
+network = "mainnet"
+
+[contracts.DedustPoolV2.instances.stable_ton_wston]
+address = "EQABt8YegyD7VJnZdFVwom8wwqp0E0X8tN2Y6NhrDmbrnSXP"
+pool_type = "stable"
+asset0 = "TON"
+asset1 = "wsTON"
+network = "mainnet"
+
+[contracts.DedustLiquidityDepositV2]
+display_name = "DeDust Liquidity Deposit V2"
+types = "liquidity_deposit/types/dedust_liquidity_deposit_v2.types.tolk"
+hashes = ["80edc8d7bbbb6526c3b06ccb7c2d02a82c20d8ccdf431bf4088b1f1470cc94cc"]
+known_addresses = []
+
+[contracts.DedustLiquidityDepositV2.instances.trace_yudq]
+address = "EQCDfi69jD02bImrXQGB_PXAOq3UO95ywF1-6Bnxkh90uU9Q"
+status = "destroyed_same_trace"
+trace_hash = "yudqNJUTA3R9/i1p5htaeLs5UkzI+MrR+Qzzo5JIPsA="
+network = "mainnet"
