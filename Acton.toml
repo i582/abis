@@ -429,11 +429,60 @@ src = "data/getgems/getgems_nft_swap/testdata/GetgemsNftSwap.boc"
 types = "data/getgems/getgems_nft_swap/types/getgems_nft_swap.types.tolk"
 depends = []
 
+[contracts.StonfiRouterV2]
+display-name = "STON.fi Router V2"
+src = "data/stonfi/router_v2/testdata/StonfiRouterV2.boc"
+types = "data/stonfi/router_v2/types/stonfi_router_v2.types.tolk"
+depends = []
+
+[contracts.StonfiPoolV2ConstProduct]
+display-name = "STON.fi Pool V2 ConstantProduct"
+src = "data/stonfi/pool_v2_const_product/testdata/StonfiPoolV2ConstProduct.boc"
+types = "data/stonfi/pool_v2_const_product/types/stonfi_pool_v2_const_product.types.tolk"
+depends = []
+
+[contracts.StonfiPoolV2Stableswap]
+display-name = "STON.fi Pool V2 StableSwap"
+src = "data/stonfi/pool_v2_stableswap/testdata/StonfiPoolV2Stableswap.boc"
+types = "data/stonfi/pool_v2_stableswap/types/stonfi_pool_v2_stableswap.types.tolk"
+depends = []
+
+[contracts.StonfiPoolV2WeightedStableswap]
+display-name = "STON.fi Pool V2 WeightedStableSwap"
+src = "data/stonfi/pool_v2_weighted_stableswap/testdata/StonfiPoolV2WeightedStableswap.boc"
+types = "data/stonfi/pool_v2_weighted_stableswap/types/stonfi_pool_v2_weighted_stableswap.types.tolk"
+depends = []
+
+[contracts.StonfiPoolV2WeightedConstProduct]
+display-name = "STON.fi Pool V2 WeightedConstProduct"
+src = "data/stonfi/pool_v2_weighted_const_product/testdata/StonfiPoolV2WeightedConstProduct.boc"
+types = "data/stonfi/pool_v2_weighted_const_product/types/stonfi_pool_v2_weighted_const_product.types.tolk"
+depends = []
+
+[contracts.StonfiLpAccountV2]
+display-name = "STON.fi LP Account V2"
+src = "data/stonfi/lp_account_v2/testdata/StonfiLpAccountV2.boc"
+types = "data/stonfi/lp_account_v2/types/stonfi_lp_account_v2.types.tolk"
+depends = []
+
+[contracts.StonfiLpWalletV2]
+display-name = "STON.fi LP Wallet V2"
+src = "data/stonfi/lp_wallet_v2/testdata/StonfiLpWalletV2.boc"
+types = "data/stonfi/lp_wallet_v2/types/stonfi_lp_wallet_v2.types.tolk"
+depends = []
+
+[contracts.StonfiVaultV2]
+display-name = "STON.fi Vault V2"
+src = "data/stonfi/vault_v2/testdata/StonfiVaultV2.boc"
+types = "data/stonfi/vault_v2/types/stonfi_vault_v2.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
+stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 locker-mainnet-test = "acton test data/locker/tests/locker_mainnet.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 lockup-vesting-test = "acton test data/wallets/lockup_vesting/tests/lockup_vesting.test.tolk --show-bodies"
 lockup-universal-mainnet-test = "acton test data/wallets/lockup_universal/tests/lockup_universal.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"

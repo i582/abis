@@ -1,0 +1,80 @@
+[project]
+name = "stonfi"
+
+[metadata]
+category = "TON DEX contracts"
+description = "STON.fi DEX core v2 Router, Pool, LP Account, LP Wallet, and Vault contracts"
+
+[sources]
+stonfi_docs_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2"
+stonfi_docs_router_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/router"
+stonfi_docs_pool_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
+stonfi_docs_lp_account_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/lpaccount"
+stonfi_docs_lp_wallet_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/lpwallet"
+stonfi_docs_vault_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/vault"
+stonfi_docs_op_codes_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/op-codes"
+stonfi_dex_core_v2 = "https://github.com/ston-fi/dex-core-v2"
+local_source_snapshot = "data/stonfi/research/source/dex-core-v2"
+local_schema = "schemas/ston-fi.xml"
+local_research_plan = "data/stonfi/research/plan.md"
+local_shared_research = "data/stonfi/research/shared.md"
+
+[contracts.StonfiRouterV2]
+display_name = "STON.fi Router V2"
+types = "router_v2/types/stonfi_router_v2.types.tolk"
+hashes = [
+  "a7e2f92c4bccbdbaaa0c083aa1da9762b52023134234adeb3b7bc8e72dbd1182",
+  "4895b7fc5908648bcc77aad2373eae0526c4780a426ffd444c249230116791ce",
+  "f451dd294a06530b6e4ec99790a595c1ac421829f78b9231245f8b51cba72556",
+  "29a542d36e4196a8719faf33e58e855c8f07bdb0b25897bf3a283ca017c97965",
+]
+known_addresses = [
+  "EQCS4UEa5UaJLzOyyKieqQOQ2P9M-7kXpkO5HnP3Bv250cN3",
+  "EQDh5oHPvfRwPu2bORBGCoLEO4WQZKL4fk5DD1gydeNG9oEH",
+  "EQDkncuJ267Py3EmL2XAN7YsSNQMUu8u-GHsW9jVljcH8fr5",
+  "EQBjK_kjY5R_DoyTRff109VzFrSlKFCC_gOOWIMtyEvCcv2J",
+  "EQAiLV677BgHNXEUuDJ3Cw8K5WOiJSO86xh8YQq2LthJEoED",
+  "EQACn16m9OrZ-mw186M4NlIpVP8Tb3q6SV9aX8NjSgVfJTo9",
+]
+
+[contracts.StonfiPoolV2ConstProduct]
+display_name = "STON.fi Pool V2 ConstantProduct"
+types = "pool_v2_const_product/types/stonfi_pool_v2_const_product.types.tolk"
+hashes = ["ec614ea4aaea3f7768606f1c1632b3374d3de096a1e7c4ba43c8009c487fee9d"]
+known_addresses = ["EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4"]
+
+[contracts.StonfiPoolV2Stableswap]
+display_name = "STON.fi Pool V2 StableSwap"
+types = "pool_v2_stableswap/types/stonfi_pool_v2_stableswap.types.tolk"
+hashes = ["fbc7e8fcca72c2b9c078b359ffa936f46384491b895b6577b0a6cb3f569040bc"]
+known_addresses = ["EQDmFQFfmQHA2zril2F3yQswZAYc-k1hN6CK0il1izLe2892"]
+
+[contracts.StonfiPoolV2WeightedStableswap]
+display_name = "STON.fi Pool V2 WeightedStableSwap"
+types = "pool_v2_weighted_stableswap/types/stonfi_pool_v2_weighted_stableswap.types.tolk"
+hashes = ["dac47636ae899081ebd4f47dc90ef9de98456b1000591069773f683c6d601fa9"]
+known_addresses = ["EQBjiBVhFLQVCMS8mKMA3gS823m9Xeu9aXiZUYD4TP8GDvui"]
+
+[contracts.StonfiPoolV2WeightedConstProduct]
+display_name = "STON.fi Pool V2 WeightedConstProduct"
+types = "pool_v2_weighted_const_product/types/stonfi_pool_v2_weighted_const_product.types.tolk"
+hashes = ["f04a14c3231221056c3499965e4604417e324f8e9121d840120d803288715594"]
+known_addresses = ["EQACLNvkL_2D2XBW_XKqGybPRkeb5URZntsEI6vFxzcHC_YK"]
+
+[contracts.StonfiLpAccountV2]
+display_name = "STON.fi LP Account V2"
+types = "lp_account_v2/types/stonfi_lp_account_v2.types.tolk"
+hashes = ["3f1bb3192caaaa1ab7ae7474de50e2e3625fe2757aed4be4f4e9c3fc85ac0b9a"]
+known_addresses = []
+
+[contracts.StonfiLpWalletV2]
+display_name = "STON.fi LP Wallet V2"
+types = "lp_wallet_v2/types/stonfi_lp_wallet_v2.types.tolk"
+hashes = ["bf13041750f2beeb688859c75689e2c18b9c90bd78e97b197aad7ad6bc520c84"]
+known_addresses = ["EQBtRf9VN6DK5IDOejdA53RhahjLCpAL5lwE_riSiCVymAEU"]
+
+[contracts.StonfiVaultV2]
+display_name = "STON.fi Vault V2"
+types = "vault_v2/types/stonfi_vault_v2.types.tolk"
+hashes = ["e2ade46f07c5a715a13f949236df452a5267385ce9af42efcdac2bfc883fb2d2"]
+known_addresses = ["EQBCFLAnWCc_heRtp78zmT_1h2XhyX7wcEwaiNHry27Mtxw6"]
