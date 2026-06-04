@@ -11,16 +11,26 @@ contract DedustVaultNativeV2 {
 
 /// Runtime storage loaded by the verified native vault code root data cell.
 struct DedustVaultNativeV2Storage {
-    /// Raw vault proof reference forwarded to Pool and Factory messages.
-    vaultProof: cell
+    /// Cached proof data reference forwarded to Pool and Factory messages.
+    cachedProof: Cell<DedustVaultNativeV2ProofData>
     /// Factory address authenticated by proof checks and returned by `get_factory_addr`.
     factoryAddr: address
-    /// Raw stored reference used by proof/address derivation; nested semantics remain uncurated.
-    proofCodeOrParams: cell
+    /// Blank code cell used with `cachedProof` for deterministic StateInit derivation.
+    blankCode: cell
     /// Code/interface version returned by `get_version`.
     version: uint16
     /// Native TON balance tracked by the vault for routed deposits and payouts.
     nativeBalance: coins
+}
+
+/// Cached DeDust proof data stored by the Native Vault.
+struct DedustVaultNativeV2ProofData {
+    /// Factory address committed into the deterministic proof data.
+    factoryAddr: address
+    /// DeDust contract type tag; live Native Vault storage stores `1` for vault.
+    contractType: uint8
+    /// Native asset parameter for this vault.
+    asset: DedustAsset
 }
 
 /// Native asset tag used by DeDust SDK and live `get_asset`.

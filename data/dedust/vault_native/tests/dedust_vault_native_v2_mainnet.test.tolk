@@ -22,6 +22,12 @@ fun mainnetDedustVaultNativeV2(): DedustVaultNativeV2 {
     return DedustVaultNativeV2.fromAddress(address(MAINNET_DEDUST_NATIVE_VAULT_V2_ADDRESS));
 }
 
+fun nativeAssetCell(): cell {
+    return beginCell()
+        .storeUint(0, 4)
+        .endCell();
+}
+
 fun hasBocMagic(bytes: slice): bool {
     if (bytes.remainingBitsCount() < 32) {
         return false;
@@ -65,12 +71,17 @@ get fun `test dedust native vault v2 code boc fixture is real and hash verified`
 get fun `test dedust native vault v2 mainnet safe getters and storage`() {
     val vault = mainnetDedustVaultNativeV2();
     val storage = loadDedustVaultNativeV2StorageFromFork(vault);
+    val proof = storage.cachedProof.load();
     var assetSlice = vault.getAsset();
 
     expect(scripts.isContractDeployed(vault.address)).toBeTrue();
     expect(storage.version).toEqual(EXPECTED_VERSION);
     expect(storage.factoryAddr).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
     expect(storage.nativeBalance).toBeGreater(0);
+    expect(proof.factoryAddr).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
+    expect(proof.contractType).toEqual(1);
+    expect(proof.asset.toCell().hash()).toEqual(nativeAssetCell().hash());
+    expect(storage.blankCode.hash()).toBeGreater(0);
 
     expect(vault.getVersion()).toEqual(EXPECTED_VERSION);
     expect(vault.getFactoryAddr()).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
@@ -81,4 +92,5 @@ get fun `test dedust native vault v2 mainnet safe getters and storage`() {
     println("DEDUST_NATIVE_VAULT_V2_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("DEDUST_NATIVE_VAULT_V2_ADDRESS={}", vault.address);
     println("DEDUST_NATIVE_VAULT_V2_STORAGE={}", storage);
+    println("DEDUST_NATIVE_VAULT_V2_CACHED_PROOF={}", proof);
 }

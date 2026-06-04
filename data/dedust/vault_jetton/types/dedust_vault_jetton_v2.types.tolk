@@ -11,13 +11,13 @@ contract DedustVaultJettonV2 {
 
 /// Runtime storage loaded by the verified Jetton Vault code root data cell.
 struct DedustVaultJettonV2Storage {
-    /// Proof data ref containing Factory address, DeDust contract type, and the vaulted asset.
-    vaultProof: Cell<DedustVaultJettonV2ProofData>
-    /// Code cell used with `vaultProof` to reconstruct the deterministic proof StateInit hash.
-    proofCode: cell
+    /// Cached proof data ref containing Factory address, DeDust contract type, and the vaulted asset.
+    cachedProof: Cell<DedustVaultJettonV2ProofData>
+    /// Blank code cell used with `cachedProof` to reconstruct the deterministic StateInit hash.
+    blankCode: cell
     /// Readiness bit returned by `is_ready`; false before the Jetton wallet address is synced.
     isReady: bool
-    /// Jetton minter address for the vaulted asset, also duplicated in `vaultProof.asset`.
+    /// Jetton minter address for the vaulted asset, also duplicated in `cachedProof.asset`.
     jettonMinterAddr: address
     /// Vault-owned Jetton wallet address; stored as `addr_none` until readiness sync completes.
     jettonWalletAddr: address?

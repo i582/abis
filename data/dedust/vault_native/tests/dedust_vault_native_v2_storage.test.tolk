@@ -23,6 +23,12 @@ fun mainnetDedustVaultNativeV2(): DedustVaultNativeV2 {
     return DedustVaultNativeV2.fromAddress(address(MAINNET_DEDUST_NATIVE_VAULT_V2_ADDRESS));
 }
 
+fun nativeAssetCell(): cell {
+    return beginCell()
+        .storeUint(0, 4)
+        .endCell();
+}
+
 fun hasBocMagic(bytes: slice): bool {
     if (bytes.remainingBitsCount() < 32) {
         return false;
@@ -74,6 +80,7 @@ get fun `test dedust native vault v2 storage fixtures are real`() {
 get fun `test dedust native vault v2 mainnet storage and getters`() {
     val vault = mainnetDedustVaultNativeV2();
     val storage = loadDedustVaultNativeV2StorageFromFork(vault);
+    val proof = storage.cachedProof.load();
     val version = vault.getVersion();
     val factory = vault.getFactoryAddr();
     var asset = vault.getAsset();
@@ -86,8 +93,10 @@ get fun `test dedust native vault v2 mainnet storage and getters`() {
     expect(factory).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
     expect(storage.factoryAddr).toEqual(factory);
     expect(storage.nativeBalance).toBeGreater(0);
-    expect(storage.vaultProof.hash()).toBeGreater(0);
-    expect(storage.proofCodeOrParams.hash()).toBeGreater(0);
+    expect(proof.factoryAddr).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
+    expect(proof.contractType).toEqual(1);
+    expect(proof.asset.toCell().hash()).toEqual(nativeAssetCell().hash());
+    expect(storage.blankCode.hash()).toBeGreater(0);
     expectNativeAssetSlice(mutate asset);
 
     println("DEDUST_NATIVE_VAULT_V2_STORAGE_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
@@ -95,6 +104,6 @@ get fun `test dedust native vault v2 mainnet storage and getters`() {
     println("DEDUST_NATIVE_VAULT_V2_STORAGE_VERSION={}", storage.version);
     println("DEDUST_NATIVE_VAULT_V2_STORAGE_FACTORY={}", storage.factoryAddr);
     println("DEDUST_NATIVE_VAULT_V2_STORAGE_NATIVE_BALANCE={}", storage.nativeBalance);
-    println("DEDUST_NATIVE_VAULT_V2_STORAGE_VAULT_PROOF_HASH={}", storage.vaultProof.hash());
-    println("DEDUST_NATIVE_VAULT_V2_STORAGE_PROOF_CODE_OR_PARAMS_HASH={}", storage.proofCodeOrParams.hash());
+    println("DEDUST_NATIVE_VAULT_V2_STORAGE_CACHED_PROOF={}", proof);
+    println("DEDUST_NATIVE_VAULT_V2_STORAGE_BLANK_CODE_HASH={}", storage.blankCode.hash());
 }

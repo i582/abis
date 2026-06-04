@@ -76,7 +76,7 @@ get fun `test dedust jetton vault v2 code boc fixture is real and hash verified`
 get fun `test dedust jetton vault v2 mainnet getters and storage`() {
     val vault = mainnetDedustVaultJettonV2();
     val storage = loadDedustVaultJettonV2StorageFromFork(vault);
-    val proof = storage.vaultProof.load();
+    val proof = storage.cachedProof.load();
     val expectedAsset = usdtAssetCell();
     var asset = vault.getAsset();
     val walletAddr = vault.getWalletAddr();
@@ -93,6 +93,7 @@ get fun `test dedust jetton vault v2 mainnet getters and storage`() {
     expect(proof.factoryAddr).toEqual(address(MAINNET_DEDUST_FACTORY_V2_ADDRESS));
     expect(proof.contractType).toEqual(1);
     expect(proof.asset.toCell().hash()).toEqual(expectedAsset.hash());
+    expect(storage.blankCode.hash()).toBeGreater(0);
 
     expect(vault.getVersion()).toEqual(EXPECTED_VERSION);
     expect(vault.isReady()).toBeTrue();
