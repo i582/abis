@@ -1,0 +1,86 @@
+[project]
+name = "tonco"
+
+[metadata]
+website = "https://tonco.io"
+app = "https://app.tonco.io"
+docs = "https://docs.tonco.io"
+x = "https://x.com/Tonco_io"
+telegram = "https://t.me/tonco_welcome"
+
+[sources]
+local_schema = "schemas/tonco.xml"
+docs_overview = "https://docs.tonco.io/"
+docs_router = "https://docs.tonco.io/technical-reference/contracts/router.md"
+docs_pool = "https://docs.tonco.io/technical-reference/contracts/pool.md"
+docs_account = "https://docs.tonco.io/technical-reference/contracts/account.md"
+docs_position_nft = "https://docs.tonco.io/technical-reference/contracts/position_nft.md"
+docs_pool_factory = "https://docs.tonco.io/technical-reference/contracts/pool_factory.md"
+docs_integration_faq = "https://docs.tonco.io/technical-reference/integration-faq.md"
+docs_router_payloads = "https://docs.tonco.io/contracts-v1.6-forthcoming/router_payloads.md"
+docs_v16_pool_factory = "https://docs.tonco.io/contracts-v1.6-forthcoming/pool_factory.md"
+docs_v16_position_nft = "https://docs.tonco.io/contracts-v1.6-forthcoming/position_nft.md"
+sdk_commit = "https://github.com/cryptoalgebra/tonco-sdk/tree/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee"
+sdk_pool = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/PoolV3Contract.ts"
+sdk_router = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/RouterV3Contract.ts"
+sdk_account = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/AccountV3Contract.ts"
+sdk_pool_factory = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/PoolFactoryContract.ts"
+sdk_position_nft = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/PositionNFTV3Contract.ts"
+sdk_opcodes = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a941da1a5ea4ca4b786e1a48ee/src/contracts/opCodes.ts"
+tonviewer_router = "https://tonviewer.com/EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"
+tonviewer_pool = "https://tonviewer.com/EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"
+
+[contracts.Router]
+types = "router/types/tonco_router.types.tolk"
+hashes = ["9b9891eaa7db7becc6ccdda1bd9a8d25dc3df2817d57e4b27ec003daf81a4439"]
+known_addresses = ["EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"]
+
+[[contracts.Router.instances]]
+name = "TONCO mainnet router"
+address = "EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"
+hash = "9b9891eaa7db7becc6ccdda1bd9a8d25dc3df2817d57e4b27ec003daf81a4439"
+network = "mainnet"
+
+[contracts.Pool]
+types = "pool/types/tonco_pool.types.tolk"
+hashes = ["bc947d16346c2fdc845b7a446382f59c86acb075e2a31dbfa956cd0c9e54678e"]
+known_addresses = ["EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"]
+
+[[contracts.Pool.instances]]
+name = "TONCO pool sample from local schema"
+address = "EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"
+hash = "bc947d16346c2fdc845b7a446382f59c86acb075e2a31dbfa956cd0c9e54678e"
+network = "mainnet"
+
+[contracts.Account]
+types = "account/types/tonco_account.types.tolk"
+hashes = ["a820f670f18a3afa05c5acb0f85e248c97b01b4d846aeeac4730622b832a8c20"]
+known_addresses = ["EQAZ8g6UM2EXWMFxpFcXtrAFHCY9PFbnbHKoQt7pHH9ps5w4"]
+
+[[contracts.Account.instances]]
+name = "TONCO AccountV3 derived from sample pool PositionNFT #0 owner"
+address = "EQAZ8g6UM2EXWMFxpFcXtrAFHCY9PFbnbHKoQt7pHH9ps5w4"
+hash = "a820f670f18a3afa05c5acb0f85e248c97b01b4d846aeeac4730622b832a8c20"
+network = "mainnet"
+
+[contracts.PoolFactory]
+types = "pool_factory/types/tonco_pool_factory.types.tolk"
+hashes = ["b5b46a506af6a118fe1a1853f43dc3d53d65c36a3c2ad5722feef343ecb7b857"]
+known_addresses = ["EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"]
+
+[[contracts.PoolFactory.instances]]
+name = "TONCO mainnet PoolFactory from router state"
+address = "EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"
+hash = "b5b46a506af6a118fe1a1853f43dc3d53d65c36a3c2ad5722feef343ecb7b857"
+network = "mainnet"
+
+[contracts.PositionNFT]
+types = "position_nft_v3/types/tonco_position_nft_v3.types.tolk"
+hashes = ["23091475641789bbbd415b0396a1f0a7a22701086c99dab178a353fc04ce7983"]
+known_addresses = ["EQAFaimkHZz_KorlOZ1UbdRGjfZnvHJW2cNZff4GdswrCIHp"]
+
+[[contracts.PositionNFT.instances]]
+name = "TONCO sample pool PositionNFT #0"
+address = "EQAFaimkHZz_KorlOZ1UbdRGjfZnvHJW2cNZff4GdswrCIHp"
+hash = "23091475641789bbbd415b0396a1f0a7a22701086c99dab178a353fc04ce7983"
+network = "mainnet"

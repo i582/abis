@@ -489,6 +489,36 @@ src = "data/pton/wallet_v2/testdata/PtonWalletV2.boc"
 types = "data/pton/wallet_v2/types/pton_wallet_v2.types.tolk"
 depends = []
 
+[contracts.ToncoRouter]
+display-name = "TONCO Router"
+src = "data/tonco/router/testdata/ToncoRouter.boc"
+types = "data/tonco/router/types/tonco_router.types.tolk"
+depends = []
+
+[contracts.ToncoPool]
+display-name = "TONCO Pool"
+src = "data/tonco/pool/testdata/ToncoPool.boc"
+types = "data/tonco/pool/types/tonco_pool.types.tolk"
+depends = []
+
+[contracts.ToncoAccount]
+display-name = "TONCO Account"
+src = "data/tonco/account/testdata/ToncoAccount.boc"
+types = "data/tonco/account/types/tonco_account.types.tolk"
+depends = []
+
+[contracts.ToncoPoolFactory]
+display-name = "TONCO PoolFactory"
+src = "data/tonco/pool_factory/testdata/ToncoPoolFactory.boc"
+types = "data/tonco/pool_factory/types/tonco_pool_factory.types.tolk"
+depends = []
+
+[contracts.ToncoPositionNftV3]
+display-name = "TONCO Position NFT V3"
+src = "data/tonco/position_nft_v3/testdata/ToncoPositionNftV3.boc"
+types = "data/tonco/position_nft_v3/types/tonco_position_nft_v3.types.tolk"
+depends = []
+
 [contracts.DedustFactoryV2]
 display-name = "DeDust Factory V2"
 src = "data/dedust/factory/testdata/DedustFactoryV2.boc"
@@ -536,6 +566,17 @@ dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquid
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"
+tonco-router-mainnet-test = "acton test data/tonco/router/tests/tonco_router_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-pool-mainnet-test = "acton test data/tonco/pool/tests/tonco_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-account-mainnet-test = "acton test data/tonco/account/tests/tonco_account_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-pool-factory-mainnet-test = "acton test data/tonco/pool_factory/tests/tonco_pool_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-position-nft-v3-mainnet-test = "acton test data/tonco/position_nft_v3/tests/tonco_position_nft_v3_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-mainnet-test = "acton test data/tonco --fork-net mainnet --fork-block-number 71245765 --show-bodies"
+tonco-router-message-bodies-test = "acton test data/tonco/router/tests/tonco_router_message_bodies.test.tolk --show-bodies"
+tonco-pool-message-bodies-test = "acton test data/tonco/pool/tests/tonco_pool_message_bodies.test.tolk --show-bodies"
+tonco-account-message-bodies-test = "acton test data/tonco/account/tests/tonco_account_message_bodies.test.tolk --show-bodies"
+tonco-pool-factory-message-bodies-test = "acton test data/tonco/pool_factory/tests/tonco_pool_factory_message_bodies.test.tolk --show-bodies"
+tonco-position-nft-v3-message-bodies-test = "acton test data/tonco/position_nft_v3/tests/tonco_position_nft_v3_message_bodies.test.tolk --show-bodies"
 locker-mainnet-test = "acton test data/locker/tests/locker_mainnet.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 lockup-vesting-test = "acton test data/wallets/lockup_vesting/tests/lockup_vesting.test.tolk --show-bodies"
 lockup-universal-mainnet-test = "acton test data/wallets/lockup_universal/tests/lockup_universal.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
