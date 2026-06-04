@@ -1,0 +1,35 @@
+[project]
+name = "pton"
+
+[metadata]
+category = "TON fungible token contracts"
+description = "pTON v2.1 proxy TON minter and wallet contracts"
+
+[sources]
+pton_contracts = "https://github.com/ston-fi/pton-contracts"
+pton_specs = "https://github.com/ston-fi/pton-contracts/blob/main/docs/specs.tlb"
+pton_reference_commit = "https://github.com/ston-fi/pton-contracts/tree/fbc4bfc7636356011bf249e0a90e91851a39db12"
+tep_74 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+tep_89 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
+tep_161_pr = "https://github.com/ton-blockchain/TEPs/pull/161"
+ton_docs_jetton_api = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/api"
+ton_docs_jetton_wallet_data = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/wallet-data"
+ton_docs_jetton_supply_data = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/supply-data"
+stonfi_api_routers_snapshot = "data/stonfi/research/docs/stonfi_api_routers_2026-06-04.json"
+local_schema = "schemas/ston-fi.xml"
+local_research = "data/pton/research"
+
+[contracts.PtonMinterV2]
+display_name = "pTON Minter V2"
+types = "minter_v2/types/pton_minter_v2.types.tolk"
+hashes = ["faf8bb63fe7c20f8468c1cda6981998eb1fdfb86571bf6e592e141f30f8e4461"]
+known_addresses = ["EQBnGWMCf3-FZZq1W4IWcWiGAc3PHuZ0_H-7sad2oY00o83S"]
+
+[contracts.PtonWalletV2]
+display_name = "pTON Wallet V2"
+types = "wallet_v2/types/pton_wallet_v2.types.tolk"
+hashes = ["ed91066ad36ee3aaaff29e78db287acb51376292ea0e01bca1b92c97cdf0421b"]
+known_addresses = [
+  "EQCSIMGBps_qzRG3uPYhON8bucyCtu0mYdL1-u4gSz77IBa3",
+  "EQBTYCx7TGgVgaIr3tuJ3r_91E6FUBBWLtT73lTYYmrIc5gb",
+]

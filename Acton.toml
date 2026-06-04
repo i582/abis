@@ -477,6 +477,18 @@ src = "data/stonfi/vault_v2/testdata/StonfiVaultV2.boc"
 types = "data/stonfi/vault_v2/types/stonfi_vault_v2.types.tolk"
 depends = []
 
+[contracts.PtonMinterV2]
+display-name = "pTON Minter V2"
+src = "data/pton/minter_v2/testdata/PtonMinterV2.boc"
+types = "data/pton/minter_v2/types/pton_minter_v2.types.tolk"
+depends = []
+
+[contracts.PtonWalletV2]
+display-name = "pTON Wallet V2"
+src = "data/pton/wallet_v2/testdata/PtonWalletV2.boc"
+types = "data/pton/wallet_v2/types/pton_wallet_v2.types.tolk"
+depends = []
+
 [contracts.DedustFactoryV2]
 display-name = "DeDust Factory V2"
 src = "data/dedust/factory/testdata/DedustFactoryV2.boc"
@@ -523,6 +535,7 @@ dedust-liquidity-deposit-v2-storage-test = "acton test data/dedust/liquidity_dep
 dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_message_bodies.test.tolk --show-bodies"
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
+pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"
 locker-mainnet-test = "acton test data/locker/tests/locker_mainnet.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 lockup-vesting-test = "acton test data/wallets/lockup_vesting/tests/lockup_vesting.test.tolk --show-bodies"
 lockup-universal-mainnet-test = "acton test data/wallets/lockup_universal/tests/lockup_universal.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
