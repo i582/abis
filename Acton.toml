@@ -549,6 +549,96 @@ src = "data/dedust/liquidity_deposit/testdata/DedustLiquidityDepositV2.boc"
 types = "data/dedust/liquidity_deposit/types/dedust_liquidity_deposit_v2.types.tolk"
 depends = []
 
+[contracts.CoffeeFactory]
+display-name = "Coffee Swap Factory"
+src = "data/coffee/factory/testdata/CoffeeFactory.boc"
+types = "data/coffee/factory/types/coffee_factory.types.tolk"
+depends = []
+
+[contracts.CoffeeInit]
+display-name = "Coffee Swap Init"
+src = "data/coffee/init/testdata/CoffeeInit.boc"
+types = "data/coffee/init/types/coffee_init.types.tolk"
+depends = []
+
+[contracts.CoffeeVaultNative]
+display-name = "Coffee Swap Native Vault"
+src = "data/coffee/vault_native/testdata/CoffeeVaultNative.boc"
+types = "data/coffee/vault_native/types/coffee_vault_native.types.tolk"
+depends = []
+
+[contracts.CoffeeVaultJetton]
+display-name = "Coffee Swap Jetton Vault"
+src = "data/coffee/vault_jetton/testdata/CoffeeVaultJetton.boc"
+types = "data/coffee/vault_jetton/types/coffee_vault_jetton.types.tolk"
+depends = []
+
+[contracts.CoffeeVaultExtra]
+display-name = "Coffee Swap Extra Vault"
+src = "data/coffee/vault_extra/testdata/CoffeeVaultExtra.boc"
+types = "data/coffee/vault_extra/types/coffee_vault_extra.types.tolk"
+depends = []
+
+[contracts.CoffeePoolConstantProduct]
+display-name = "Coffee Swap Pool Constant Product"
+src = "data/coffee/pool_constant_product/testdata/CoffeePoolConstantProduct.boc"
+types = "data/coffee/pool_constant_product/types/coffee_pool_constant_product.types.tolk"
+depends = []
+
+[contracts.CoffeePoolCurveFiStable]
+display-name = "Coffee Swap Pool Curve.fi Stable"
+src = "data/coffee/pool_curve_fi_stable/testdata/CoffeePoolCurveFiStable.boc"
+types = "data/coffee/pool_curve_fi_stable/types/coffee_pool_curve_fi_stable.types.tolk"
+depends = []
+
+[contracts.CoffeePoolCreator]
+display-name = "Coffee Swap Pool Creator"
+src = "data/coffee/pool_creator/testdata/CoffeePoolCreator.boc"
+types = "data/coffee/pool_creator/types/coffee_pool_creator.types.tolk"
+depends = []
+
+[contracts.CoffeeLiquidityDepository]
+display-name = "Coffee Swap Liquidity Depository"
+src = "data/coffee/liquidity_depository/testdata/CoffeeLiquidityDepository.boc"
+types = "data/coffee/liquidity_depository/types/coffee_liquidity_depository.types.tolk"
+depends = []
+
+[contracts.JettonWalletCoffeeLp]
+display-name = "Coffee Swap LP Jetton Wallet"
+src = "data/coffee/lp_wallet/testdata/JettonWalletCoffeeLp.boc"
+types = "data/coffee/lp_wallet/types/jetton_wallet_coffee_lp.types.tolk"
+depends = []
+
+[contracts.CoffeeStakingMaster]
+display-name = "Coffee Swap Staking Master"
+src = "data/coffee/staking_master/testdata/CoffeeStakingMaster.boc"
+types = "data/coffee/staking_master/types/coffee_staking_master.types.tolk"
+depends = []
+
+[contracts.CoffeeStakingVault]
+display-name = "Coffee Swap Staking Vault"
+src = "data/coffee/staking_vault/testdata/CoffeeStakingVault.boc"
+types = "data/coffee/staking_vault/types/coffee_staking_vault.types.tolk"
+depends = []
+
+[contracts.CoffeeStakingItem]
+display-name = "Coffee Swap Staking Item"
+src = "data/coffee/staking_item/testdata/CoffeeStakingItem.boc"
+types = "data/coffee/staking_item/types/coffee_staking_item.types.tolk"
+depends = []
+
+[contracts.CoffeeCrossDex]
+display-name = "Coffee CrossDex"
+src = "data/coffee/cross_dex/testdata/CoffeeCrossDex.boc"
+types = "data/coffee/cross_dex/types/coffee_cross_dex.types.tolk"
+depends = []
+
+[contracts.CoffeeMevProtector]
+display-name = "Coffee MEV Protector"
+src = "data/coffee/mev_protector/testdata/CoffeeMevProtector.boc"
+types = "data/coffee/mev_protector/types/coffee_mev_protector.types.tolk"
+depends = []
+
 [contracts.BidaskPoolFactory]
 display-name = "Bidask DLMM Pool Factory"
 src = "data/bidask/pool_factory/testdata/BidaskPoolFactory.boc"
