@@ -549,6 +549,48 @@ src = "data/dedust/liquidity_deposit/testdata/DedustLiquidityDepositV2.boc"
 types = "data/dedust/liquidity_deposit/types/dedust_liquidity_deposit_v2.types.tolk"
 depends = []
 
+[contracts.BidaskPoolFactory]
+display-name = "Bidask DLMM Pool Factory"
+src = "data/bidask/pool_factory/testdata/BidaskPoolFactory.boc"
+types = "data/bidask/pool_factory/types/bidask_pool_factory.types.tolk"
+depends = []
+
+[contracts.BidaskPool]
+display-name = "Bidask DLMM Pool"
+src = "data/bidask/pool/testdata/BidaskPool.boc"
+types = "data/bidask/pool/types/bidask_pool.types.tolk"
+depends = []
+
+[contracts.BidaskRange]
+display-name = "Bidask DLMM Range"
+src = "data/bidask/range/testdata/BidaskRange.boc"
+types = "data/bidask/range/types/bidask_range.types.tolk"
+depends = []
+
+[contracts.BidaskLpMultitoken]
+display-name = "Bidask DLMM LP Multitoken"
+src = "data/bidask/lp_multitoken/testdata/BidaskLpMultitoken.boc"
+types = "data/bidask/lp_multitoken/types/bidask_lp_multitoken.types.tolk"
+depends = []
+
+[contracts.BidaskInternalLiquidityVault]
+display-name = "Bidask DLMM Internal Liquidity Vault"
+src = "data/bidask/internal_liquidity_vault/testdata/BidaskInternalLiquidityVault.boc"
+types = "data/bidask/internal_liquidity_vault/types/bidask_internal_liquidity_vault.types.tolk"
+depends = []
+
+[contracts.BidaskDammPool]
+display-name = "Bidask DAMM Pool"
+src = "data/bidask/damm_pool/testdata/BidaskDammPool.boc"
+types = "data/bidask/damm_pool/types/bidask_damm_pool.types.tolk"
+depends = []
+
+[contracts.BidaskDammLpWallet]
+display-name = "Bidask DAMM LP Wallet"
+src = "data/bidask/damm_lp_wallet/testdata/BidaskDammLpWallet.boc"
+types = "data/bidask/damm_lp_wallet/types/bidask_damm_lp_wallet.types.tolk"
+depends = []
+
 [scripts]
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
@@ -566,6 +608,17 @@ dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquid
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"
+bidask-pool-factory-local-test = "acton test data/bidask/pool_factory/tests/bidask_pool_factory_local.test.tolk --show-bodies"
+bidask-pool-storage-test = "acton test data/bidask/pool/tests/bidask_pool_storage.test.tolk --show-bodies"
+bidask-pool-mainnet-test = "acton test data/bidask/pool/tests/bidask_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 65012329 --show-bodies"
+bidask-range-local-test = "acton test data/bidask/range/tests/bidask_range_mainnet.test.tolk --show-bodies"
+bidask-lp-multitoken-local-test = "acton test data/bidask/lp_multitoken/tests/bidask_lp_multitoken_local.test.tolk --show-bodies"
+bidask-internal-liquidity-vault-storage-test = "acton test data/bidask/internal_liquidity_vault/tests/bidask_internal_liquidity_vault_storage.test.tolk --show-bodies"
+bidask-internal-liquidity-vault-mainnet-test = "acton test data/bidask/internal_liquidity_vault/tests/bidask_internal_liquidity_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71186170 --show-bodies"
+bidask-damm-pool-storage-test = "acton test data/bidask/damm_pool/tests/bidask_damm_pool_storage.test.tolk --show-bodies"
+bidask-damm-pool-mainnet-test = "acton test data/bidask/damm_pool/tests/bidask_damm_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 57889573 --show-bodies"
+bidask-damm-lp-wallet-storage-test = "acton test data/bidask/damm_lp_wallet/tests/bidask_damm_lp_wallet_storage.test.tolk --show-bodies"
+bidask-damm-lp-wallet-message-bodies-test = "acton test data/bidask/damm_lp_wallet/tests/bidask_damm_lp_wallet_message_bodies.test.tolk --show-bodies"
 tonco-router-mainnet-test = "acton test data/tonco/router/tests/tonco_router_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
 tonco-pool-mainnet-test = "acton test data/tonco/pool/tests/tonco_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"
 tonco-account-mainnet-test = "acton test data/tonco/account/tests/tonco_account_mainnet.test.tolk --fork-net mainnet --fork-block-number 71245765 --show-bodies"

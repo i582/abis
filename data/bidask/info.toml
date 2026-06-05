@@ -1,0 +1,111 @@
+[project]
+name = "bidask"
+
+[metadata]
+category = "TON DEX contracts"
+description = "Bidask Protocol DLMM and DAMM Pool Factory, Pool, Range, LP Multitoken, Internal Liquidity Vault, DAMM Pool, and DAMM LP Wallet contracts"
+
+[sources]
+bidask_docs = "https://docs.bidask.finance"
+bidask_architecture = "https://docs.bidask.finance/Architecture"
+bidask_dlmm_pool_factory_docs = "https://docs.bidask.finance/contracts/dlmm/Pool_factory"
+bidask_dlmm_pool_docs = "https://docs.bidask.finance/contracts/dlmm/Pool"
+bidask_dlmm_range_docs = "https://docs.bidask.finance/contracts/dlmm/range"
+bidask_dlmm_lp_multitoken_docs = "https://docs.bidask.finance/contracts/dlmm/Lp_multitoken"
+bidask_damm_pool_docs = "https://docs.bidask.finance/contracts/damm/pool"
+bidask_damm_lp_wallet_docs = "https://docs.bidask.finance/contracts/damm/lp_wallet"
+bidask_sdk_docs = "https://docs.bidask.finance/sdk/globals"
+bidask_sdk = "https://github.com/bidask-protocol/bidask-sdk"
+local_research_plan = "data/bidask/research/plan.md"
+local_research_results = "data/bidask/research/results.md"
+local_shared_research = "data/bidask/research/shared.md"
+local_docs_snapshot = "data/bidask/research/docs"
+local_sdk_snapshot = "data/bidask/research/source/bidask-sdk"
+local_schema = "data/bidask/research/source/local/bidask.xml"
+local_toncenter_tlb = "data/bidask/research/source/local/toncenter-schemes.tlb"
+local_generated_types = "gen"
+local_generated_abis = "gen_abis"
+
+[contracts.BidaskPoolFactory]
+display_name = "Bidask DLMM Pool Factory"
+types = "pool_factory/types/bidask_pool_factory.types.tolk"
+hashes = ["b33092253781e2c698c578ce83e26d254316c495cefaf84fc600278778ae1a49"]
+known_addresses = ["EQAuBZGak9BdkxuCC9gWUsY4Em3jog94BI4eRzX-3_Bidask"]
+
+[contracts.BidaskPoolFactory.instances.mainnet]
+address = "EQAuBZGak9BdkxuCC9gWUsY4Em3jog94BI4eRzX-3_Bidask"
+network = "mainnet"
+
+[contracts.BidaskPool]
+display_name = "Bidask DLMM Pool"
+types = "pool/types/bidask_pool.types.tolk"
+hashes = ["b1215034b293853339110766cdc83626a147787ec15d0c571cb53a8c8c2e7e12"]
+known_addresses = ["EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"]
+
+[contracts.BidaskPool.instances.recent_factory_deploy]
+address = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
+factory = "EQAuBZGak9BdkxuCC9gWUsY4Em3jog94BI4eRzX-3_Bidask"
+network = "mainnet"
+
+[contracts.BidaskRange]
+display_name = "Bidask DLMM Range"
+types = "range/types/bidask_range.types.tolk"
+hashes = ["4bd7191b24823ced9a44089739a58213cd5bc562f8980289855af9626646b91e"]
+known_addresses = ["EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"]
+
+[contracts.BidaskRange.instances.pool_active_range]
+address = "EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"
+pool = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
+network = "mainnet"
+
+[contracts.BidaskLpMultitoken]
+display_name = "Bidask DLMM LP Multitoken"
+types = "lp_multitoken/types/bidask_lp_multitoken.types.tolk"
+hashes = ["a2ce96a1b2e4985d9070c0bc05b97d3e5cc56edb83f4e15b052a60f0ed235a54"]
+known_addresses = [
+  "EQDW-sWKZPwoMucVoSKSIproQoVWG4aEy-Bvtbk8cDmuvAFw",
+  "EQDWhSlpMSzLsCBhYLLwbZYEE2Z3Jbj4QreGcR2Hhf9O_0H_",
+]
+
+[contracts.BidaskLpMultitoken.instances.range_mint_a]
+address = "EQDW-sWKZPwoMucVoSKSIproQoVWG4aEy-Bvtbk8cDmuvAFw"
+range = "EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"
+network = "mainnet"
+
+[contracts.BidaskLpMultitoken.instances.range_mint_b]
+address = "EQDWhSlpMSzLsCBhYLLwbZYEE2Z3Jbj4QreGcR2Hhf9O_0H_"
+range = "EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"
+network = "mainnet"
+
+[contracts.BidaskInternalLiquidityVault]
+display_name = "Bidask DLMM Internal Liquidity Vault"
+types = "internal_liquidity_vault/types/bidask_internal_liquidity_vault.types.tolk"
+hashes = ["5b80fb2241c901e8288d1b72c9720366daca00f7daf019a49fa6995bb630d495"]
+known_addresses = ["EQDW_6A6NcARhuLMhP419XpPDCTqlx_dzaZ_lBcdwp4YHjYQ"]
+
+[contracts.BidaskInternalLiquidityVault.instances.pool_save_liquidity]
+address = "EQDW_6A6NcARhuLMhP419XpPDCTqlx_dzaZ_lBcdwp4YHjYQ"
+pool = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
+network = "mainnet"
+
+[contracts.BidaskDammPool]
+display_name = "Bidask DAMM Pool"
+types = "damm_pool/types/bidask_damm_pool.types.tolk"
+hashes = ["760f60fe228f87c709ec85690bf592904c20386f06cbe4c478faf9453eded124"]
+known_addresses = ["EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"]
+
+[contracts.BidaskDammPool.instances.mainnet]
+address = "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"
+network = "mainnet"
+
+[contracts.BidaskDammLpWallet]
+display_name = "Bidask DAMM LP Wallet"
+types = "damm_lp_wallet/types/bidask_damm_lp_wallet.types.tolk"
+hashes = ["9644004d43aa9f982d99d16cf9677a4bec77bbcec0d1e8e6487b2b76c2261182"]
+known_addresses = []
+
+[contracts.BidaskDammLpWallet.instances.historical_mint_trace]
+address = "UQAQgXFtrRR75df--xawoNTSgaNZkb3YYMXveeslFSBt4Blc"
+status = "nonexist"
+pool = "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"
+network = "mainnet"
