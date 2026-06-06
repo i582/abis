@@ -795,6 +795,48 @@ src = "data/bemo/unstake_request/testdata/BemoUnstakeRequest.boc"
 types = "data/bemo/unstake_request/types/bemo_unstake_request.types.tolk"
 depends = []
 
+[contracts.HipoTreasury]
+display-name = "Hipo Finance Treasury"
+src = "data/hipo/treasury/testdata/HipoTreasury.boc"
+types = "data/hipo/treasury/types/hipo_treasury.types.tolk"
+depends = []
+
+[contracts.HipoParent]
+display-name = "Hipo Finance hTON Parent"
+src = "data/hipo/parent/testdata/HipoParent.boc"
+types = "data/hipo/parent/types/hipo_parent.types.tolk"
+depends = []
+
+[contracts.HipoWallet]
+display-name = "Hipo Finance hTON Wallet"
+src = "data/hipo/wallet/testdata/HipoWallet.boc"
+types = "data/hipo/wallet/types/hipo_wallet.types.tolk"
+depends = []
+
+[contracts.HipoCollection]
+display-name = "Hipo Finance Bill Collection"
+src = "data/hipo/collection/testdata/HipoCollection.boc"
+types = "data/hipo/collection/types/hipo_collection.types.tolk"
+depends = []
+
+[contracts.HipoBill]
+display-name = "Hipo Finance Bill Item"
+src = "data/hipo/bill/testdata/HipoBill.boc"
+types = "data/hipo/bill/types/hipo_bill.types.tolk"
+depends = []
+
+[contracts.HipoLoan]
+display-name = "Hipo Finance Loan"
+src = "data/hipo/loan/testdata/HipoLoan.boc"
+types = "data/hipo/loan/types/hipo_loan.types.tolk"
+depends = []
+
+[contracts.HipoLibrarian]
+display-name = "Hipo Finance Librarian"
+src = "data/hipo/librarian/testdata/HipoLibrarian.boc"
+types = "data/hipo/librarian/types/hipo_librarian.types.tolk"
+depends = []
+
 [scripts]
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
@@ -817,6 +859,20 @@ bemo-financial-mainnet-test = "acton test data/bemo/financial/tests/bemo_financi
 bemo-financial-message-bodies-test = "acton test data/bemo/financial/tests/bemo_financial_message_bodies.test.tolk --show-bodies"
 bemo-unstake-request-mainnet-test = "acton test data/bemo/unstake_request/tests/bemo_unstake_request_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
 bemo-unstake-request-message-bodies-test = "acton test data/bemo/unstake_request/tests/bemo_unstake_request_message_bodies.test.tolk --show-bodies"
+hipo-treasury-mainnet-test = "acton test data/hipo/treasury/tests/hipo_treasury_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
+hipo-treasury-message-bodies-test = "acton test data/hipo/treasury/tests/hipo_treasury_message_bodies.test.tolk --show-bodies"
+hipo-parent-mainnet-test = "acton test data/hipo/parent/tests/hipo_parent_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+hipo-parent-message-bodies-test = "acton test data/hipo/parent/tests/hipo_parent_message_bodies.test.tolk --show-bodies"
+hipo-wallet-mainnet-test = "acton test data/hipo/wallet/tests/hipo_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
+hipo-wallet-message-bodies-test = "acton test data/hipo/wallet/tests/hipo_wallet_message_bodies.test.tolk --show-bodies"
+hipo-collection-mainnet-test = "acton test data/hipo/collection/tests/hipo_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 71599021 --show-bodies"
+hipo-collection-message-bodies-test = "acton test data/hipo/collection/tests/hipo_collection_message_bodies.test.tolk --show-bodies"
+hipo-bill-mainnet-test = "acton test data/hipo/bill/tests/hipo_bill_mainnet.test.tolk --fork-net mainnet --fork-block-number 71630478 --show-bodies"
+hipo-bill-message-bodies-test = "acton test data/hipo/bill/tests/hipo_bill_message_bodies.test.tolk --show-bodies"
+hipo-loan-mainnet-test = "acton test data/hipo/loan/tests/hipo_loan_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
+hipo-loan-message-bodies-test = "acton test data/hipo/loan/tests/hipo_loan_message_bodies.test.tolk --show-bodies"
+hipo-librarian-mainnet-test = "acton test data/hipo/librarian/tests/hipo_librarian_mainnet.test.tolk --fork-net mainnet --fork-block-number 71631031 --show-bodies"
+hipo-librarian-message-bodies-test = "acton test data/hipo/librarian/tests/hipo_librarian_message_bodies.test.tolk --show-bodies"
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"

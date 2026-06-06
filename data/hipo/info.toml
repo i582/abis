@@ -1,0 +1,114 @@
+[project]
+name = "hipo"
+
+[metadata]
+category = "TON liquid staking contracts"
+description = "Hipo Finance hTON liquid-staking Treasury, Parent, Wallet, Loan, Bill, Collection, and Librarian contracts"
+
+[sources]
+hipo_contract_repo = "https://github.com/HipoFinance/contract"
+hipo_integration_guide = "https://github.com/HipoFinance/contract/blob/main/Integration.md"
+local_research_plan = "data/hipo/research/plan.md"
+local_research_results = "data/hipo/research/results.md"
+local_source_snapshot = "data/hipo/research/source/HipoFinance-contract"
+local_schema = "data/hipo/research/source/hipo_finance.xml"
+local_generated_types = "data/hipo/research/source/gen_hipo_finance.types.tolk"
+local_generated_abis = "data/hipo/research/source/gen_abis_hipo_finance.json"
+local_toncenter_snapshot = "data/hipo/research/source/toncenter"
+
+[contracts.HipoTreasury]
+display_name = "Hipo Finance Treasury"
+types = "treasury/types/hipo_treasury.types.tolk"
+hashes = ["234682616b70138cb6d55be146ac0456ba79c2fad788f224b63058ddb5057bf2"]
+known_addresses = ["EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"]
+related_asset_symbols = ["hTON"]
+
+[contracts.HipoTreasury.instances.mainnet]
+address = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
+raw_address = "0:8BC991CFE177BC7E9721433EFA3BEFD199485A55CFFD040A06C89AF026B71BCF"
+code_hash_base64 = "I0aCYWtwE4y21VvhRqwEVrp5wvrXiPIktjBY3bUFe/I="
+network = "mainnet"
+
+[contracts.HipoParent]
+display_name = "Hipo Finance hTON Parent"
+types = "parent/types/hipo_parent.types.tolk"
+hashes = ["44377ca68af877b8f26f47f153d6a2d2de134f120348d10d016cf51c00aaf019"]
+known_addresses = ["EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"]
+related_asset_symbols = ["hTON"]
+
+[contracts.HipoParent.instances.mainnet]
+address = "EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"
+raw_address = "0:CF76AF318C0872B58A9F1925FC29C156211782B9FB01F56760D292E56123BF87"
+code_hash_base64 = "RDd8por4d7jyb0fxU9ai0t4TTxIDSNENAWz1HACq8Bk="
+treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
+network = "mainnet"
+
+[contracts.HipoWallet]
+display_name = "Hipo Finance hTON Wallet"
+types = "wallet/types/hipo_wallet.types.tolk"
+hashes = ["50b917d9fd5b95760993287677d04812a15aa55e6b71d0f9226ecd7c20c3d82a"]
+known_addresses = ["EQBwh1XGDsEongigw0iz-s-3pkkeMrpIKioELjbmGB9BDMbo"]
+related_asset_symbols = ["hTON"]
+
+[contracts.HipoWallet.instances.representative_active]
+address = "EQBwh1XGDsEongigw0iz-s-3pkkeMrpIKioELjbmGB9BDMbo"
+raw_address = "0:708755C60EC1289E08A0C348B3FACFB7A6491E32BA482A2A042E36E6181F410C"
+code_hash_base64 = "ULkX2f1blXYJkyh2d9BIEqFapV5rcdD5Im7NfCDD2Co="
+parent = "EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"
+network = "mainnet"
+
+[contracts.HipoCollection]
+display_name = "Hipo Finance Bill Collection"
+types = "collection/types/hipo_collection.types.tolk"
+hashes = ["9f1b492a4f05be6526d01cc3498b94961e1415e4c8ca196273fe389001da4ed6"]
+known_addresses = ["EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"]
+
+[contracts.HipoCollection.instances.round_1780764424]
+address = "EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"
+raw_address = "0:8B09273038DF797AB4912A11EE0437FD3BC853F04446C023636D2D70D09CEA1C"
+code_hash_base64 = "nxtJKk8FvmUm0BzDSYuUlh4UFeTIyhlic/44kAHaTtY="
+treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
+round_since = 1780764424
+network = "mainnet"
+
+[contracts.HipoBill]
+display_name = "Hipo Finance Bill Item"
+types = "bill/types/hipo_bill.types.tolk"
+hashes = ["9e2923274fd83860d5b9ad4bb34f2a6da3c93f0b25f0ae973abf27c6df359f8f"]
+known_addresses = ["EQDBJw5nOR8APrGY-qRcO2_9NOJvI0PXoXIphoKrYZIc9oHg"]
+
+[contracts.HipoBill.instances.collection_round_1780764424_item_0]
+address = "EQDBJw5nOR8APrGY-qRcO2_9NOJvI0PXoXIphoKrYZIc9oHg"
+raw_address = "0:C1270E67391F003EB198FAA45C3B6FFD34E26F2343D7A172298682AB61921CF6"
+code_hash_base64 = "nikjJ0/YOGDVua1Ls08qbaPJPwsl8K6XOr8nxt81n48="
+collection = "EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"
+index = 0
+network = "mainnet"
+
+[contracts.HipoLoan]
+display_name = "Hipo Finance Loan"
+types = "loan/types/hipo_loan.types.tolk"
+hashes = ["56fb96fc4b9051deecfce8b04ce3c888990ba80fe6bd07154e351506ee9907a0"]
+known_addresses = ["Ef_gcmy3Zh_YLOToiutmYF4nqZqohmr4OIowk-QjKQdG6bV9"]
+
+[contracts.HipoLoan.instances.round_1780764424_borrower_sample]
+address = "Ef_gcmy3Zh_YLOToiutmYF4nqZqohmr4OIowk-QjKQdG6bV9"
+raw_address = "-1:E0726CB7661FD82CE4E88AEB66605E27A99AA8866AF8388A3093E423290746E9"
+code_hash_base64 = "VvuW/EuQUd7s/OiwTOPIiJkLqA/mvQcVTjUVBu6ZB6A="
+treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
+borrower_raw = "0:9C9B4CE7DE3773C2A5F905F6F72C90392F0D79E149E8886DF0AAA95BBE2B0FFF"
+round_since = 1780764424
+network = "mainnet"
+
+[contracts.HipoLibrarian]
+display_name = "Hipo Finance Librarian"
+types = "librarian/types/hipo_librarian.types.tolk"
+hashes = ["cb1cdae5c512e6b1ca17d1b14514d20ec9dc91e6ba0591cd28a3eb071627f628"]
+known_addresses = ["Ef-KhrzdZChlJiLZj2e1noxqrZ1rL6kGA4FWfW0SNhIfWKVV"]
+
+[contracts.HipoLibrarian.instances.mainnet]
+address = "Ef-KhrzdZChlJiLZj2e1noxqrZ1rL6kGA4FWfW0SNhIfWKVV"
+raw_address = "-1:8A86BCDD6428652622D98F67B59E8C6AAD9D6B2FA9060381567D6D1236121F58"
+code_hash_base64 = "yxza5cUS5rHKF9GxRRTSDsnckea6BZHNKKPrBxYn9ig="
+treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
+network = "mainnet"
