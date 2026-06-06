@@ -1,0 +1,236 @@
+[project]
+name = "storm"
+
+[metadata]
+category = "TON perpetual DEX contracts"
+description = "Storm Trade perpetual DEX vault, vAMM, smart account, position, referral, and executor contracts"
+
+[sources]
+storm_docs = "https://docs.storm.tg"
+storm_sdk_docs = "https://docs.storm.tg/for-developers/sdk"
+storm_audit_docs = "https://docs.storm.tg/introduction/auditreports"
+storm_sdk_js = "https://github.com/storm-trade/sdk-js"
+storm_api_config = "https://api5.storm.tg/api/config"
+local_research_plan = "data/storm/research/plan.md"
+local_research_results = "data/storm/research/results.md"
+local_shared_research = "data/storm/research/shared.md"
+local_schema = "data/storm/research/source/local/storm.xml"
+local_toncenter_tlb = "data/storm/research/source/local/toncenter-schemes.tlb"
+local_api_snapshot = "data/storm/research/source/api"
+local_sdk_snapshot = "data/storm/research/source/sdk-js"
+local_legacy_sdk_snapshot = "data/storm/research/source/storm-sdk-rc4"
+local_proxy_sender_source = "data/storm/research/source/proxy-sender"
+local_library_deployer_source = "data/storm/research/source/library_deployer"
+local_pwallet_source = "data/storm/research/source/pwallet"
+local_decompile_snapshot = "data/storm/research/func"
+local_generated_types = "gen"
+local_generated_abis = "gen_abis"
+
+[contracts.StormVault]
+display_name = "Storm Trade Jetton Vault"
+types = "vault/types/storm_vault.types.tolk"
+hashes = ["fbe19f9572b8acf2420c12fe186a781928f07a5406817f5e76dce11330de433b"]
+known_addresses = ["EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"]
+
+[contracts.StormVault.instances.usdt]
+address = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
+raw_address = "0:33E9E84D7CBEFFF0D23B395875420E3A1ECB82E241692BE89C7EA2BD27716B77"
+asset = "USDT"
+network = "mainnet"
+
+[contracts.StormVaultNative]
+display_name = "Storm Trade Native Vault"
+types = "vault_native/types/storm_vault_native.types.tolk"
+hashes = ["e80e571be23ba6e274ab9fb919cc2acd80eb2ef4741f42af6fe6b718a5fd6956"]
+known_addresses = ["EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"]
+
+[contracts.StormVaultNative.instances.ton]
+address = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
+raw_address = "0:E926764FF3D272C73DDEB836975C5521C025AD68E7919A25094E2DE3198805F1"
+asset = "TON"
+network = "mainnet"
+
+[contracts.StormVamm]
+display_name = "Storm Trade vAMM"
+types = "vamm/types/storm_vamm.types.tolk"
+hashes = ["ea4749d902f12bed57b61b8c5531167d10aa015b628b0592852fd2b69ef7ba27"]
+known_addresses = ["EQA8kxbUovK2p21p55S9iZA0mbX3mPZus6_rAkHioW9iNjeZ"]
+
+[contracts.StormVamm.instances.ton_usdt]
+address = "EQA8kxbUovK2p21p55S9iZA0mbX3mPZus6_rAkHioW9iNjeZ"
+raw_address = "0:3C9316D4A2F2B6A76D69E794BD89903499B5F798F66EB3AFEB0241E2A16F6236"
+base_asset = "TON"
+settlement_asset = "USDT"
+vault = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
+network = "mainnet"
+
+[contracts.StormVammCoinm]
+display_name = "Storm Trade Coin-Margined vAMM"
+types = "vamm_coinm/types/storm_vamm_coinm.types.tolk"
+hashes = ["bdaa69d9ab41b0c3635359a6b3d7cdd0fd2dbeb2b23c745e304e64e06a21f3ff"]
+known_addresses = ["EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"]
+
+[contracts.StormVammCoinm.instances.ton_ton]
+address = "EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"
+raw_address = "0:241E480E9ADB0CDF40E2E3EC3BB0CF524FB520CCA02B2E292E734817BC291FFB"
+base_asset = "TON"
+settlement_asset = "TON"
+vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
+network = "mainnet"
+
+[contracts.SmartAccount]
+display_name = "Storm Trade Smart Account"
+types = "smart_account/types/smart_account.types.tolk"
+hashes = ["91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b1157106091886f56"]
+known_addresses = ["EQAlEeKROSs9N0UbTw2lWgns8EKjaNs7HmAwVpHc-L_MMjBd"]
+
+[contracts.SmartAccount.instances.factory_deploy_sample]
+address = "EQAlEeKROSs9N0UbTw2lWgns8EKjaNs7HmAwVpHc-L_MMjBd"
+raw_address = "0:2511E291392B3D37451B4F0DA55A09ECF042A368DB3B1E60305691DCF8BFCC32"
+source = "SmartAccountFactory deploy trace"
+network = "mainnet"
+
+[contracts.SmartAccountBlank]
+display_name = "Storm Trade Smart Account Blank"
+types = "smart_account_blank/types/smart_account_blank.types.tolk"
+hashes = ["f1e54b12525577d408cb2a5a0ff8770c92f8a5be75497cf80247bfec4f66eaa9"]
+known_addresses = []
+
+[contracts.SmartAccountFactory]
+display_name = "Storm Trade Smart Account Factory"
+types = "smart_account_factory/types/smart_account_factory.types.tolk"
+hashes = ["80f6ccfa2bb13f3914f510e793c651585e5d8d83f80c6bd55869c92524db32c0"]
+known_addresses = ["EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"]
+
+[contracts.SmartAccountFactory.instances.main]
+address = "EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"
+raw_address = "0:37E25DB2C2215DBBF91BF8764CA8B9E01550E3C340C9647A35681A2439AA7CC5"
+source = "vault whitelist"
+network = "mainnet"
+
+[contracts.StormPositionManager]
+display_name = "Storm Trade Position Manager"
+types = "position_manager/types/storm_position_manager.types.tolk"
+hashes = ["18c7ed8bf5d65996f0a19ec48e93c5f674cc0fbad210ca5b8e06ff7e03c7589e"]
+known_addresses = ["EQCoTFvejJcAm5J0gZYLS88Ce0PATCRV4hF5MEdfGaLZuAPm"]
+
+[contracts.StormPositionManager.instances.ton_usdt_trader_sample]
+address = "EQCoTFvejJcAm5J0gZYLS88Ce0PATCRV4hF5MEdfGaLZuAPm"
+raw_address = "0:A84C5BDE8C97009B927481960B4BCF027B43C04C2455E2117930475F19A2D9B8"
+trader = "0:D831EDF7B738514F7C7783719E1F3775BA5AF00BD08226F737BB58C63DB945D1"
+vault = "0:33E9E84D7CBEFFF0D23B395875420E3A1ECB82E241692BE89C7EA2BD27716B77"
+vamm = "0:3C9316D4A2F2B6A76D69E794BD89903499B5F798F66EB3AFEB0241E2A16F6236"
+network = "mainnet"
+
+[contracts.StormReferral]
+display_name = "Storm Trade Referral Item"
+types = "referral/types/storm_referral.types.tolk"
+hashes = ["7e0385a57658333b65697a2caef5d781ad040e89dd5b22b8e9977cdd96730211"]
+known_addresses = ["EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"]
+
+[contracts.StormReferral.instances.item_0]
+address = "EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"
+raw_address = "0:F17FFB19DFA9B395208ED27BE0006567A3C85443C058E4D06AEE2571C65207F4"
+collection = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
+index = 0
+network = "mainnet"
+
+[contracts.StormReferralCollection]
+display_name = "Storm Trade Referral Collection"
+types = "referral_collection/types/storm_referral_collection.types.tolk"
+hashes = ["0fc0943198f1cbd0dc3128ce70db40dd43cc4135ae533f04294c4e5060619c3c"]
+known_addresses = ["EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"]
+
+[contracts.StormReferralCollection.instances.main]
+address = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
+raw_address = "0:50C24E2E123325079E2D926548B834194998AF377013F28CDCA1AD842EA7F622"
+source = "api_config.referralCollectionAddress"
+network = "mainnet"
+
+[contracts.StormExecutor]
+display_name = "Storm Trade Executor Item"
+types = "executor/types/storm_executor.types.tolk"
+hashes = ["3f79c29d69f353bb65ee15930ac143cb244f780f59a3e56ceb9b8c9c3490be24"]
+known_addresses = ["EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"]
+
+[contracts.StormExecutor.instances.item_0]
+address = "EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"
+raw_address = "0:DE03C693B7E831CB99CD6DBAACA17450B41623E4D0FB2CB3AB383754B2E666FD"
+collection = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
+index = 0
+network = "mainnet"
+
+[contracts.StormExecutorCollection]
+display_name = "Storm Trade Executor Collection"
+types = "executor_collection/types/storm_executor_collection.types.tolk"
+hashes = ["bed395e1e32650955d3323dc8769e461f39b6f5215fa7c57084ce9b254a7c213"]
+known_addresses = ["EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"]
+
+[contracts.StormExecutorCollection.instances.main]
+address = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
+raw_address = "0:11D5C355CBA2BA3D5D9FFE476B8D5CE2269599516EFF1D6415F65E2913B6014A"
+source = "vault.get_executor_collection_address"
+network = "mainnet"
+
+[contracts.StormPrelaunch]
+display_name = "Storm Trade Prelaunch Vault"
+types = "prelaunch/types/storm_prelaunch.types.tolk"
+hashes = ["6599be05b28905753aced8acf1dd21d40371702a3af5d6e8275a2ad3021a0478"]
+known_addresses = ["EQB-ayedPowUtiEAIfdNBdp_1J_VlbdvedfRyp8-3yrAhtMC"]
+
+[contracts.StormPrelaunch.instances.pre_ico]
+address = "EQB-ayedPowUtiEAIfdNBdp_1J_VlbdvedfRyp8-3yrAhtMC"
+raw_address = "0:7E6B279D3E8C14B6210021F74D05DA7FD49FD595B76F79D7D1CA9F3EDF2AC086"
+source = "api_config.preIcoAddress"
+network = "mainnet"
+
+[contracts.StormLpMinter]
+display_name = "Storm Trade LP Jetton Minter"
+types = "lp_minter/types/storm_lp_minter.types.tolk"
+hashes = ["5d01684bdf1d5c9be2682c4e36074202432628bd3477d77518d66b0976b78cca"]
+known_addresses = [
+  "EQCNY2AQ3ZDYwJAqx_nzl9i9Xhd_Ex7izKJM6JTxXRnO6n1F",
+  "EQCup4xxCulCcNwmOocM9HtDYPU8xe0449tQLp6a-5BLEegW",
+]
+
+[contracts.StormLpMinter.instances.ton]
+address = "EQCNY2AQ3ZDYwJAqx_nzl9i9Xhd_Ex7izKJM6JTxXRnO6n1F"
+raw_address = "0:8D636010DD90D8C0902AC7F9F397D8BD5E177F131EE2CCA24CE894F15D19CEEA"
+vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
+asset = "TON"
+network = "mainnet"
+
+[contracts.StormLpMinter.instances.usdt]
+address = "EQCup4xxCulCcNwmOocM9HtDYPU8xe0449tQLp6a-5BLEegW"
+raw_address = "0:AEA78C710AE94270DC263A870CF47B4360F53CC5ED38E3DB502E9E9AFB904B11"
+vault = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
+asset = "USDT"
+network = "mainnet"
+
+[contracts.StormLpWallet]
+display_name = "Storm Trade LP Jetton Wallet"
+types = "lp_wallet/types/storm_lp_wallet.types.tolk"
+hashes = ["02ae100484cfd15161d16dd4fec955b6b550678567ceea62b1db84eee35d0ccd"]
+known_addresses = ["EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"]
+
+[contracts.StormLpWallet.instances.catalog_candidate]
+address = "EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"
+raw_address = "0:2518198125D9904F2F67CB7FA3BDF7063DD835BDC5F74C4160376B5D6F5E2C91"
+source = "contracts.json hash lookup for LP wallet code hash"
+network = "mainnet"
+
+[contracts.StormLibraryDeployer]
+display_name = "Storm Trade Library Deployer"
+hashes = []
+known_addresses = []
+
+[contracts.StormPWallet]
+display_name = "Storm Trade PWallet"
+hashes = []
+known_addresses = []
+
+[contracts.StormProxySender]
+display_name = "Storm Trade Proxy Sender"
+types = "proxy_sender/types/storm_proxy_sender.types.tolk"
+hashes = []
+known_addresses = []

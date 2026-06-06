@@ -681,7 +681,110 @@ src = "data/bidask/damm_lp_wallet/testdata/BidaskDammLpWallet.boc"
 types = "data/bidask/damm_lp_wallet/types/bidask_damm_lp_wallet.types.tolk"
 depends = []
 
+[contracts.StormVault]
+display-name = "Storm Trade Jetton Vault"
+src = "data/storm/vault/testdata/StormVault.boc"
+types = "data/storm/vault/types/storm_vault.types.tolk"
+depends = []
+
+[contracts.StormVaultNative]
+display-name = "Storm Trade Native Vault"
+src = "data/storm/vault_native/testdata/StormVaultNative.boc"
+types = "data/storm/vault_native/types/storm_vault_native.types.tolk"
+depends = []
+
+[contracts.StormVamm]
+display-name = "Storm Trade vAMM"
+src = "data/storm/vamm/testdata/StormVamm.boc"
+types = "data/storm/vamm/types/storm_vamm.types.tolk"
+depends = []
+
+[contracts.StormVammCoinm]
+display-name = "Storm Trade Coin-Margined vAMM"
+src = "data/storm/vamm_coinm/testdata/StormVammCoinm.boc"
+types = "data/storm/vamm_coinm/types/storm_vamm_coinm.types.tolk"
+depends = []
+
+[contracts.SmartAccountFactory]
+display-name = "Storm Trade Smart Account Factory"
+src = "data/storm/smart_account_factory/testdata/SmartAccountFactory.boc"
+types = "data/storm/smart_account_factory/types/smart_account_factory.types.tolk"
+depends = []
+
+[contracts.SmartAccount]
+display-name = "Storm Trade Smart Account"
+src = "data/storm/smart_account/testdata/SmartAccount.boc"
+types = "data/storm/smart_account/types/smart_account.types.tolk"
+depends = []
+
+[contracts.SmartAccountBlank]
+display-name = "Storm Trade Smart Account Blank"
+src = "data/storm/smart_account_blank/testdata/SmartAccountBlank.boc"
+types = "data/storm/smart_account_blank/types/smart_account_blank.types.tolk"
+depends = []
+
+[contracts.StormPositionManager]
+display-name = "Storm Trade Position Manager"
+src = "data/storm/position_manager/testdata/storm_position_manager_library.boc"
+types = "data/storm/position_manager/types/storm_position_manager.types.tolk"
+depends = []
+
+[contracts.StormReferralCollection]
+display-name = "Storm Trade Referral Collection"
+src = "data/storm/referral_collection/testdata/StormReferralCollection.boc"
+types = "data/storm/referral_collection/types/storm_referral_collection.types.tolk"
+depends = []
+
+[contracts.StormReferral]
+display-name = "Storm Trade Referral Item"
+src = "data/storm/referral/testdata/StormReferral.boc"
+types = "data/storm/referral/types/storm_referral.types.tolk"
+depends = []
+
+[contracts.StormExecutorCollection]
+display-name = "Storm Trade Executor Collection"
+src = "data/storm/executor_collection/testdata/StormExecutorCollection.boc"
+types = "data/storm/executor_collection/types/storm_executor_collection.types.tolk"
+depends = []
+
+[contracts.StormExecutor]
+display-name = "Storm Trade Executor Item"
+src = "data/storm/executor/testdata/StormExecutor.boc"
+types = "data/storm/executor/types/storm_executor.types.tolk"
+depends = []
+
+[contracts.StormLpMinter]
+display-name = "Storm Trade LP Jetton Minter"
+src = "data/storm/lp_minter/testdata/StormLpMinter.boc"
+types = "data/storm/lp_minter/types/storm_lp_minter.types.tolk"
+depends = []
+
+[contracts.StormLpWallet]
+display-name = "Storm Trade LP Jetton Wallet"
+src = "data/storm/lp_wallet/testdata/storm_lp_wallet_code.boc"
+types = "data/storm/lp_wallet/types/storm_lp_wallet.types.tolk"
+depends = []
+
+[contracts.StormPrelaunch]
+display-name = "Storm Trade Prelaunch Vault"
+src = "data/storm/prelaunch/testdata/StormPrelaunch.boc"
+types = "data/storm/prelaunch/types/storm_prelaunch.types.tolk"
+depends = []
+
 [scripts]
+storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-vamm-mainnet-test = "acton test data/storm/vamm/tests/storm_vamm_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-vamm-coinm-mainnet-test = "acton test data/storm/vamm_coinm/tests/storm_vamm_coinm_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-smart-account-factory-mainnet-test = "acton test data/storm/smart_account_factory/tests/smart_account_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 71591177 --show-bodies"
+storm-position-manager-mainnet-test = "acton test data/storm/position_manager/tests/storm_position_manager_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588633 --show-bodies"
+storm-referral-collection-mainnet-test = "acton test data/storm/referral_collection/tests/storm_referral_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
+storm-referral-mainnet-test = "acton test data/storm/referral/tests/storm_referral_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
+storm-executor-collection-mainnet-test = "acton test data/storm/executor_collection/tests/storm_executor_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
+storm-executor-mainnet-test = "acton test data/storm/executor/tests/storm_executor_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
+storm-lp-minter-mainnet-test = "acton test data/storm/lp_minter/tests/storm_lp_minter_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-lp-wallet-mainnet-test = "acton test data/storm/lp_wallet/tests/storm_lp_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storm-prelaunch-mainnet-test = "acton test data/storm/prelaunch/tests/storm_prelaunch_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
