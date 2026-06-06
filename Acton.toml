@@ -771,6 +771,18 @@ src = "data/storm/prelaunch/testdata/StormPrelaunch.boc"
 types = "data/storm/prelaunch/types/storm_prelaunch.types.tolk"
 depends = []
 
+[contracts.StorageProvider]
+display-name = "TON Storage Provider"
+src = "data/storages/provider/testdata/StorageProvider.boc"
+types = "data/storages/provider/types/storage_provider.types.tolk"
+depends = []
+
+[contracts.StorageContract]
+display-name = "TON Storage Contract"
+src = "data/storages/storage_contract/testdata/StorageContract.boc"
+types = "data/storages/storage_contract/types/storage_contract.types.tolk"
+depends = []
+
 [scripts]
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
@@ -785,6 +797,10 @@ storm-executor-mainnet-test = "acton test data/storm/executor/tests/storm_execut
 storm-lp-minter-mainnet-test = "acton test data/storm/lp_minter/tests/storm_lp_minter_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-lp-wallet-mainnet-test = "acton test data/storm/lp_wallet/tests/storm_lp_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-prelaunch-mainnet-test = "acton test data/storm/prelaunch/tests/storm_prelaunch_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storage-provider-mainnet-test = "acton test data/storages/provider/tests/storage_provider_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storage-provider-message-bodies-test = "acton test data/storages/provider/tests/storage_provider_message_bodies.test.tolk --show-bodies"
+storage-contract-mainnet-test = "acton test data/storages/storage_contract/tests/storage_contract_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
+storage-contract-message-bodies-test = "acton test data/storages/storage_contract/tests/storage_contract_message_bodies.test.tolk --show-bodies"
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"

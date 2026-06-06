@@ -1,0 +1,51 @@
+[project]
+name = "storages"
+
+[metadata]
+category = "TON Storage contracts"
+description = "Official TON Storage provider and per-file storage agreement contracts"
+
+[sources]
+ton_storage_overview = "https://docs.ton.org/blockchain-basics/primitives/web3/ton-storage"
+ton_storage_provider_docs = "https://old-docs.ton.org/v3/guidelines/web3/ton-storage/storage-provider"
+ton_blockchain_source = "https://github.com/ton-blockchain/ton/tree/master/storage/storage-daemon/smartcont"
+local_research_plan = "data/storages/research/plan.md"
+local_research_results = "data/storages/research/results.md"
+local_provider_research = "data/storages/research/storage_provider.md"
+local_storage_contract_research = "data/storages/research/storage_contract.md"
+local_address_search = "data/storages/research/address_search.md"
+local_source_snapshot = "data/storages/research/source/ton-blockchain"
+local_schema_snapshot = "data/storages/research/source/local"
+
+[contracts.StorageProvider]
+display_name = "TON Storage Provider"
+types = "provider/types/storage_provider.types.tolk"
+hashes = ["91befe944b1d974aea0fb6a215ac3404633e3230ad963fe9ae9d249111b52aea"]
+known_addresses = ["EQDEYkZr7HrYewkv1amJwkfMyrrNcZqVSAEPuOg3nr6d8FT7"]
+
+[contracts.StorageProvider.instances.mainnet_sample]
+address = "EQDEYkZr7HrYewkv1amJwkfMyrrNcZqVSAEPuOg3nr6d8FT7"
+raw_address = "0:C462466BEC7AD87B092FD5A989C247CCCABACD719A9548010FB8E8379EBE9DF0"
+network = "mainnet"
+source = "verified active account with matching code hash"
+
+[contracts.StorageContract]
+display_name = "TON Storage Contract"
+types = "storage_contract/types/storage_contract.types.tolk"
+hashes = ["b4f9d928599d2f9be748f8a04af86a3cb2ff2053634df62b275545f6152b1d1a"]
+known_addresses = [
+  "EQCdNyptyckH9K9numWAaQIlwBq3rl1GLelUeQUYJucpC2XE",
+  "EQAM3RWVQ18gX-b5iVxh1IT-g2qfaa12vZyYd8JDXTj1JznW",
+]
+
+[contracts.StorageContract.instances.mainnet_sample]
+address = "EQCdNyptyckH9K9numWAaQIlwBq3rl1GLelUeQUYJucpC2XE"
+raw_address = "0:9D372A6DC9C907F4AF67BA6580690225C01AB7AE5D462DE95479051826E7290B"
+network = "mainnet"
+source = "verified active account with matching code hash"
+
+[contracts.StorageContract.instances.historical_message_sample]
+address = "EQAM3RWVQ18gX-b5iVxh1IT-g2qfaa12vZyYd8JDXTj1JznW"
+raw_address = "0:0CDD1595435F205FE6F9895C61D484FE836A9F69AD76BD9C9877C2435D38F527"
+network = "mainnet"
+source = "historical active account with deploy, accept, proof, and close transaction bodies"
