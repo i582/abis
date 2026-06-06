@@ -2,7 +2,7 @@
 contract DedustVaultNativeV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Native Vault ABI for native swaps, liquidity deposit routing, payout callbacks, storage, and safe getters."
+    description: "Curated DeDust v2 Native Vault ABI for native swaps, liquidity deposit routing, payout callbacks, storage, safe getters, and exit codes."
     storage: DedustVaultNativeV2Storage
     incomingMessages: DedustVaultNativeV2IncomingMessage
     outgoingMessages: DedustVaultNativeV2OutgoingMessage
@@ -281,8 +281,42 @@ type DedustVaultNativeV2OutgoingMessage =
     | DedustVaultNativeV2Payout
     | DedustVaultNativeV2TakeVaultState
 
+/// DeDust Native Vault v2 exit-code catalog.
+enum DedustVaultNativeV2Errors {
+    /// Factory message sender is not the stored Factory.
+    InvalidFactorySender = 259
+    /// Asset tag, user payload, or proof shape is invalid for this Vault.
+    InvalidAssetOrPayload = 261
+    /// Attached value cannot cover the required downstream fee budget.
+    InsufficientValue = 263
+    /// Pool payout sender is not the authenticated Pool.
+    InvalidPoolSender = 265
+    /// Liquidity-deposit payout sender is not the authenticated Liquidity Deposit.
+    InvalidLiquidityDepositSender = 272
+    /// Liquidity-deposit target amounts must be positive.
+    InvalidDepositAmounts = 276
+    /// Routed swap path exceeds the accepted depth.
+    SwapPathTooLong = 278
+    /// Liquidity-deposit asset does not match the vault asset side.
+    InvalidDepositAsset = 291
+    /// Reset-gas sender is not the deterministic Operator contract.
+    InvalidOperatorSender = 296
+    /// Incoming internal message opcode is unsupported.
+    UnsupportedOperation = 65535
+}
+
 /// Return the DeDust vault version stored as a 16-bit field.
 get fun get_version(): uint16 {
+    assert (true) throw DedustVaultNativeV2Errors.InvalidFactorySender;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidAssetOrPayload;
+    assert (true) throw DedustVaultNativeV2Errors.InsufficientValue;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidPoolSender;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidLiquidityDepositSender;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidDepositAmounts;
+    assert (true) throw DedustVaultNativeV2Errors.SwapPathTooLong;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidDepositAsset;
+    assert (true) throw DedustVaultNativeV2Errors.InvalidOperatorSender;
+    assert (true) throw DedustVaultNativeV2Errors.UnsupportedOperation;
     return 0;
 }
 

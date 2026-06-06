@@ -2,7 +2,7 @@
 contract DedustPoolV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Pool ABI for swaps, liquidity deposit callbacks, LP Jetton getters, and public pool getters."
+    description: "Curated DeDust v2 Pool ABI for swaps, liquidity deposit callbacks, LP Jetton getters, public pool getters, and exit codes."
     storage: DedustPoolV2Storage
     incomingMessages: DedustPoolV2IncomingMessage
     outgoingMessages: DedustPoolV2OutgoingMessage
@@ -451,8 +451,69 @@ struct DedustPoolV2JettonDataReply {
     jettonWalletCode: cell
 }
 
+/// DeDust Pool v2 exit-code catalog.
+enum DedustPoolV2Errors {
+    /// LP burn notification sender is not the deterministic LP wallet.
+    InvalidLpWalletSender = 257
+    /// Control message sender is not the stored Factory/proof address.
+    InvalidControlSender = 259
+    /// Asset tag or proof shape is invalid for this Pool.
+    InvalidAssetOrProof = 261
+    /// Attached value cannot cover the required downstream fee budget.
+    InsufficientValue = 263
+    /// Swap-external sender is not the authenticated Vault.
+    InvalidVaultSender = 264
+    /// Swap-peer sender is not the authenticated Pool.
+    InvalidPoolSender = 265
+    /// Liquidity-deposit callback sender is not the authenticated deposit contract.
+    InvalidLiquidityDepositSender = 272
+    /// Trade fee is outside the accepted range.
+    InvalidTradeFee = 279
+    /// Message token wallet does not match either Pool asset wallet.
+    InvalidTokenWallet = 288
+    /// Payout target address is absent.
+    MissingPayoutTarget = 289
+    /// Withdrawal branch does not match the requested asset side.
+    InvalidWithdrawalAsset = 290
+    /// Requested asset does not match either Pool asset.
+    InvalidRequestAsset = 291
+    /// Requested amount must be positive.
+    InvalidAmount = 292
+    /// Protocol-fee withdrawal exceeds accumulated fees.
+    ProtocolFeeExceeded = 293
+    /// Pool has no LP supply for swap pricing.
+    EmptyLiquidity = 294
+    /// Deterministic child-contract sender does not match the expected address.
+    InvalidChildSender = 296
+    /// Swap output is below the requested minimum.
+    SlippageExceeded = 304
+    /// Swap deadline has passed.
+    DeadlineExceeded = 305
+    /// Incoming internal message opcode is unsupported.
+    UnsupportedOperation = 65535
+}
+
 /// Return the DeDust Pool code/interface version.
 get fun get_version(): uint16 {
+    assert (true) throw DedustPoolV2Errors.InvalidLpWalletSender;
+    assert (true) throw DedustPoolV2Errors.InvalidControlSender;
+    assert (true) throw DedustPoolV2Errors.InvalidAssetOrProof;
+    assert (true) throw DedustPoolV2Errors.InsufficientValue;
+    assert (true) throw DedustPoolV2Errors.InvalidVaultSender;
+    assert (true) throw DedustPoolV2Errors.InvalidPoolSender;
+    assert (true) throw DedustPoolV2Errors.InvalidLiquidityDepositSender;
+    assert (true) throw DedustPoolV2Errors.InvalidTradeFee;
+    assert (true) throw DedustPoolV2Errors.InvalidTokenWallet;
+    assert (true) throw DedustPoolV2Errors.MissingPayoutTarget;
+    assert (true) throw DedustPoolV2Errors.InvalidWithdrawalAsset;
+    assert (true) throw DedustPoolV2Errors.InvalidRequestAsset;
+    assert (true) throw DedustPoolV2Errors.InvalidAmount;
+    assert (true) throw DedustPoolV2Errors.ProtocolFeeExceeded;
+    assert (true) throw DedustPoolV2Errors.EmptyLiquidity;
+    assert (true) throw DedustPoolV2Errors.InvalidChildSender;
+    assert (true) throw DedustPoolV2Errors.SlippageExceeded;
+    assert (true) throw DedustPoolV2Errors.DeadlineExceeded;
+    assert (true) throw DedustPoolV2Errors.UnsupportedOperation;
     return 0;
 }
 

@@ -2,7 +2,7 @@
 contract DedustLiquidityDepositV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust Protocol v2 Liquidity Deposit interface with trace-proven lifecycle messages, outgoing pool/vault messages, and installed-code getter ids"
+    description: "Curated DeDust Protocol v2 Liquidity Deposit interface with trace-proven lifecycle messages, outgoing pool/vault messages, installed-code getter ids, and exit codes."
     storage: DedustLiquidityDepositV2Storage
     incomingMessages: DedustLiquidityDepositV2IncomingMessage
     outgoingMessages: DedustLiquidityDepositV2OutgoingMessage
@@ -251,8 +251,30 @@ struct DedustLiquidityDepositV2MinLpAmountReply {
     minLpAmount: int
 }
 
+/// DeDust Liquidity Deposit v2 exit-code catalog.
+enum DedustLiquidityDepositV2Errors {
+    /// Cancellation sender is not the stored deposit owner.
+    InvalidOwnerSender = 257
+    /// Asset-deposit sender is not the Factory.
+    InvalidFactorySender = 259
+    /// Asset tag or proof shape is invalid for this Liquidity Deposit.
+    InvalidAssetOrProof = 261
+    /// Pool callback sender is not the authenticated Pool.
+    InvalidPoolSender = 265
+    /// Deposit lifecycle state is invalid for the requested operation.
+    InvalidProcessingState = 276
+    /// Incoming internal message opcode is unsupported.
+    UnsupportedOperation = 65535
+}
+
 /// Returns the Factory address stored by the installed Liquidity Deposit code.
 get fun get_factory_addr(): DedustLiquidityDepositV2AddressReply {
+    assert (true) throw DedustLiquidityDepositV2Errors.InvalidOwnerSender;
+    assert (true) throw DedustLiquidityDepositV2Errors.InvalidFactorySender;
+    assert (true) throw DedustLiquidityDepositV2Errors.InvalidAssetOrProof;
+    assert (true) throw DedustLiquidityDepositV2Errors.InvalidPoolSender;
+    assert (true) throw DedustLiquidityDepositV2Errors.InvalidProcessingState;
+    assert (true) throw DedustLiquidityDepositV2Errors.UnsupportedOperation;
     return {
         addr: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
     };

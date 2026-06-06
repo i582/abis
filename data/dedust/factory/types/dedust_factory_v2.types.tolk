@@ -2,7 +2,7 @@
 contract DedustFactoryV2 {
     author: "DeDust"
     version: "2.0"
-    description: "DeDust Protocol v2 Factory ABI for deterministic Vault, Pool, Operator, and Liquidity Deposit derivation plus verified factory administration messages."
+    description: "DeDust Protocol v2 Factory ABI for deterministic Vault, Pool, Operator, and Liquidity Deposit derivation, verified factory administration messages, and exit codes."
     storage: DedustFactoryV2Storage
     incomingMessages: DedustFactoryV2IncomingMessage
     outgoingMessages: DedustFactoryV2OutgoingMessage
@@ -55,7 +55,7 @@ struct (0b0001) DedustFactoryV2JettonAsset {
     address: bits256
 }
 
-/// Asset variants proven by SDK serialization and live factory decompile.
+/// Asset variants accepted by Factory asset cells.
 type DedustFactoryV2Asset =
     | DedustFactoryV2NativeAsset
     | DedustFactoryV2JettonAsset
@@ -336,6 +336,32 @@ type DedustFactoryV2OutgoingMessage =
     | DedustFactoryV2Install
     | DedustFactoryV2DepositAsset
 
+/// DeDust Factory v2 exit-code catalog.
+enum DedustFactoryV2Errors {
+    /// Incoming administration message sender is not the current Factory owner.
+    InvalidOwnerSender = 256
+    /// Ownership acceptance sender is not the pending owner.
+    InvalidPendingOwnerSender = 257
+    /// Ownership acceptance delay has not elapsed.
+    OwnershipDelayNotElapsed = 258
+    /// Requested child implementation code is not installed.
+    MissingChildCode = 260
+    /// Asset tag or proof shape is invalid for this Factory.
+    InvalidAssetOrProof = 261
+    /// Pool asset order is invalid.
+    InvalidAssetOrder = 262
+    /// Attached value cannot cover the required deployment budget.
+    InsufficientValue = 263
+    /// Liquidity-deposit creation sender is not the authenticated Vault.
+    InvalidVaultSender = 264
+    /// Replacement code version is not the next version.
+    InvalidCodeVersion = 275
+    /// Operator-only request sender is not the deterministic Operator contract.
+    InvalidOperatorSender = 296
+    /// Incoming internal message opcode is unsupported.
+    UnsupportedOperation = 65535
+}
+
 /// Structured result returned by `get_ownership`.
 struct DedustFactoryV2Ownership {
     /// Current owner stack address; expected to be an internal address on live mainnet.
@@ -357,6 +383,17 @@ get fun get_ownership(): DedustFactoryV2Ownership {
 
 /// Return the live Factory code/storage version.
 get fun get_version(): uint16 {
+    assert (true) throw DedustFactoryV2Errors.InvalidOwnerSender;
+    assert (true) throw DedustFactoryV2Errors.InvalidPendingOwnerSender;
+    assert (true) throw DedustFactoryV2Errors.OwnershipDelayNotElapsed;
+    assert (true) throw DedustFactoryV2Errors.MissingChildCode;
+    assert (true) throw DedustFactoryV2Errors.InvalidAssetOrProof;
+    assert (true) throw DedustFactoryV2Errors.InvalidAssetOrder;
+    assert (true) throw DedustFactoryV2Errors.InsufficientValue;
+    assert (true) throw DedustFactoryV2Errors.InvalidVaultSender;
+    assert (true) throw DedustFactoryV2Errors.InvalidCodeVersion;
+    assert (true) throw DedustFactoryV2Errors.InvalidOperatorSender;
+    assert (true) throw DedustFactoryV2Errors.UnsupportedOperation;
     return 0;
 }
 

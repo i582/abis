@@ -2,7 +2,7 @@
 contract DedustVaultJettonV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Jetton Vault ABI for Jetton transfer notifications, swap/deposit forward payloads, common vault callbacks, storage, and live-proven getters."
+    description: "Curated DeDust v2 Jetton Vault ABI for Jetton transfer notifications, swap/deposit forward payloads, common vault callbacks, storage, live-proven getters, and exit codes."
     storage: DedustVaultJettonV2Storage
     incomingMessages: DedustVaultJettonV2IncomingMessage
     outgoingMessages: DedustVaultJettonV2OutgoingMessage
@@ -316,8 +316,48 @@ type DedustVaultJettonV2OutgoingMessage =
     | DedustVaultJettonV2TakeVaultState
     | DedustVaultJettonV2ProvideWalletAddress
 
+/// DeDust Jetton Vault v2 exit-code catalog.
+enum DedustVaultJettonV2Errors {
+    /// Jetton notification sender is not the stored vault wallet.
+    InvalidJettonWalletSender = 257
+    /// Factory message sender is not the stored Factory.
+    InvalidFactorySender = 259
+    /// Asset tag, forward payload, or proof shape is invalid for this Vault.
+    InvalidAssetOrPayload = 261
+    /// Attached value cannot cover the required downstream fee budget.
+    InsufficientValue = 263
+    /// Pool payout sender is not the authenticated Pool.
+    InvalidPoolSender = 265
+    /// Liquidity-deposit payout sender is not the authenticated Liquidity Deposit.
+    InvalidLiquidityDepositSender = 272
+    /// Vault is not ready for code upgrade.
+    VaultNotReady = 273
+    /// Vault readiness state does not match the requested operation.
+    InvalidReadinessState = 274
+    /// Liquidity-deposit target amounts must be positive.
+    InvalidDepositAmounts = 276
+    /// Liquidity-deposit asset does not match the vault asset side.
+    InvalidDepositAsset = 291
+    /// Reset-gas sender is not the deterministic Operator contract.
+    InvalidOperatorSender = 296
+    /// Incoming internal or forward-payload opcode is unsupported.
+    UnsupportedOperation = 65535
+}
+
 /// Return the DeDust vault version stored as a 16-bit field.
 get fun get_version(): uint16 {
+    assert (true) throw DedustVaultJettonV2Errors.InvalidJettonWalletSender;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidFactorySender;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidAssetOrPayload;
+    assert (true) throw DedustVaultJettonV2Errors.InsufficientValue;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidPoolSender;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidLiquidityDepositSender;
+    assert (true) throw DedustVaultJettonV2Errors.VaultNotReady;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidReadinessState;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidDepositAmounts;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidDepositAsset;
+    assert (true) throw DedustVaultJettonV2Errors.InvalidOperatorSender;
+    assert (true) throw DedustVaultJettonV2Errors.UnsupportedOperation;
     return 0;
 }
 
