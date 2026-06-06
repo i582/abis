@@ -1,0 +1,107 @@
+[project]
+name = "tonstakers"
+
+[metadata]
+category = "TON liquid staking contracts"
+description = "Tonstakers liquid staking pool, tsTON jetton, validator controller, and payout NFT contracts"
+
+[sources]
+tonstakers_sdk = "https://github.com/tonstakers/tonstakers-sdk"
+liquid_staking_contract_repo = "https://github.com/ton-blockchain/liquid-staking-contract"
+jetton_dao_submodule = "https://github.com/EmelyanenkoK/jetton_dao/tree/02fed5d124effd57ea50be77044b209ad800a621"
+local_research_plan = "data/tonstakers/research/plan.md"
+local_research_results = "data/tonstakers/research/results.md"
+local_sdk_snapshot = "data/tonstakers/research/source/sdk"
+local_source_snapshot = "data/tonstakers/research/source/liquid-staking-contract"
+local_decompile_snapshot = "data/tonstakers/research/func"
+local_toncenter_snapshot = "data/tonstakers/research"
+local_schema = "schemas/liquid_stacking.xml"
+local_generated_pool_types = "gen/tonstake_pool.types.tolk"
+local_generated_controller_types = "gen/validator_controller.types.tolk"
+local_generated_pool_abi = "gen_abis/tonstake_pool.json"
+local_generated_controller_abi = "gen_abis/validator_controller.json"
+
+[contracts.TonstakersPool]
+display_name = "Tonstakers Staking Pool"
+types = "pool/types/tonstakers_pool.types.tolk"
+hashes = ["192535677eed65c20ac387efe4dd7415ad9ebb9349103e87c60e592538c9dcf3"]
+known_addresses = ["EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"]
+related_asset_symbols = ["tsTON", "TON"]
+
+[contracts.TonstakersPool.instances.mainnet]
+address = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
+raw_address = "0:A45B17F28409229B78360E3290420F13E4FE20F90D7E2BF8C4AC6703259E22FA"
+code_hash_base64 = "GSU1Z37tZcIKw4fv5N10Fa2eu5NJED6Hxg5ZJTjJ3PM="
+network = "mainnet"
+
+[contracts.TonstakersValidatorController]
+display_name = "Tonstakers Validator Controller"
+types = "controller/types/tonstakers_validator_controller.types.tolk"
+hashes = ["dd3ce98db487c7585803933bffba7a57eb4e663099059d08b83db0b4ce060793"]
+known_addresses = ["Ef9bdRWdEwl7HRbeoUgbze1ZBw-SLXkl74f8roPiwZtX6NB1"]
+related_asset_symbols = ["tsTON", "TON"]
+
+[contracts.TonstakersValidatorController.instances.catalog_verified_sample]
+address = "Ef9bdRWdEwl7HRbeoUgbze1ZBw-SLXkl74f8roPiwZtX6NB1"
+raw_address = "-1:5B75159D13097B1D16DEA1481BCDED59070F922D7925EF87FCAE83E2C19B57E8"
+code_hash_base64 = "3TzpjbSHx1hYA5M7/7p6V+tOZjCZBZ0IuD2wtM4GB5M="
+pool = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
+network = "mainnet"
+
+[contracts.TsTonMinter]
+display_name = "Tonstakers tsTON Minter"
+types = "ts_ton_minter/types/ts_ton_minter.types.tolk"
+hashes = ["93b438a335eebb4f152bedc0cf5b0650612b8219b53f23560c47c09f37bccaba"]
+known_addresses = ["EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"]
+related_asset_symbols = ["tsTON"]
+
+[contracts.TsTonMinter.instances.ts_ton_mainnet]
+address = "EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"
+raw_address = "0:BDF3FA8098D129B54B4F73B5BAC5D1E1FD91EB054169C3916DFC8CCD536D1000"
+code_hash_base64 = "k7Q4ozXuu08VK+3Az1sGUGErghm1PyNWDEfAnze8yro="
+asset_symbol = "tsTON"
+network = "mainnet"
+
+[contracts.TsTonWallet]
+display_name = "Tonstakers tsTON Wallet"
+types = "ts_ton_wallet/types/ts_ton_wallet.types.tolk"
+hashes = ["12bebb0dc8e202b7e26f721e2547e16bb9ebaec934f657d19f22e76d62bec878"]
+known_addresses = ["EQCjxjmpElPdBwrLwMwkNV0XrvHQf5DGNtToiz2nz1oZITA6"]
+related_asset_symbols = ["tsTON"]
+
+[contracts.TsTonWallet.instances.pool_wallet]
+address = "EQCjxjmpElPdBwrLwMwkNV0XrvHQf5DGNtToiz2nz1oZITA6"
+raw_address = "0:A3C639A91253DD070ACBC0CC24355D17AEF1D07F90C636D4E88B3DA7CF5A1921"
+code_hash_base64 = "Er67DcjiArfib3IeJUfha7nrrsk09lfRnyLnbWK+yHg="
+minter = "EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"
+owner = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
+network = "mainnet"
+
+[contracts.TonstakersPayoutCollection]
+display_name = "Tonstakers Payout NFT Collection"
+types = "payout_collection/types/tonstakers_payout_collection.types.tolk"
+hashes = ["06174e58f067ca46c87fa65efe574ea0becb217cda36e351f4a979370d720ee2"]
+known_addresses = ["EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"]
+related_asset_symbols = ["tsTON", "TON"]
+
+[contracts.TonstakersPayoutCollection.instances.active_withdrawal_payout]
+address = "EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"
+raw_address = "0:72DAEB40666237975DD2FB96480C6442B0289F7690E01A86AC0E6159069FCF56"
+code_hash_base64 = "BhdOWPBnykbIf6Ze/ldOoL7LIXzaNuNR9Kl5Nw1yDuI="
+pool = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
+network = "mainnet"
+
+[contracts.TonstakersPayoutItem]
+display_name = "Tonstakers Payout NFT Item"
+types = "payout_item/types/tonstakers_payout_item.types.tolk"
+hashes = ["6acd958dceb085713fd3f2657993d446c238fa01dcd3c550b8f6216c79f67032"]
+known_addresses = ["EQB-R7mcrW1mSrHFxPtBxvI96YwyUU3R9_nkv8vMGS-zrZSH"]
+related_asset_symbols = ["tsTON", "TON"]
+
+[contracts.TonstakersPayoutItem.instances.active_withdrawal_payout_item_70]
+address = "EQB-R7mcrW1mSrHFxPtBxvI96YwyUU3R9_nkv8vMGS-zrZSH"
+raw_address = "0:7E47B99CAD6D664AB1C5C4FB41C6F23DE98C32514DD1F7F9E4BFCBCC192FB3AD"
+code_hash_base64 = "as2Vjc6whXE/0/JleZPURsI4+gHc08VQuPYhbHn2cDI="
+collection = "EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"
+index = 70
+network = "mainnet"

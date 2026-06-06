@@ -837,6 +837,42 @@ src = "data/hipo/librarian/testdata/HipoLibrarian.boc"
 types = "data/hipo/librarian/types/hipo_librarian.types.tolk"
 depends = []
 
+[contracts.TonstakersPool]
+display-name = "Tonstakers Staking Pool"
+src = "data/tonstakers/pool/testdata/TonstakersPool.boc"
+types = "data/tonstakers/pool/types/tonstakers_pool.types.tolk"
+depends = []
+
+[contracts.TonstakersValidatorController]
+display-name = "Tonstakers Validator Controller"
+src = "data/tonstakers/controller/testdata/TonstakersValidatorController.boc"
+types = "data/tonstakers/controller/types/tonstakers_validator_controller.types.tolk"
+depends = []
+
+[contracts.TsTonMinter]
+display-name = "Tonstakers tsTON Minter"
+src = "data/tonstakers/ts_ton_minter/testdata/TsTonMinter.boc"
+types = "data/tonstakers/ts_ton_minter/types/ts_ton_minter.types.tolk"
+depends = []
+
+[contracts.TsTonWallet]
+display-name = "Tonstakers tsTON Wallet"
+src = "data/tonstakers/ts_ton_wallet/testdata/TsTonWallet.boc"
+types = "data/tonstakers/ts_ton_wallet/types/ts_ton_wallet.types.tolk"
+depends = []
+
+[contracts.TonstakersPayoutCollection]
+display-name = "Tonstakers Payout NFT Collection"
+src = "data/tonstakers/payout_collection/testdata/TonstakersPayoutCollection.boc"
+types = "data/tonstakers/payout_collection/types/tonstakers_payout_collection.types.tolk"
+depends = []
+
+[contracts.TonstakersPayoutItem]
+display-name = "Tonstakers Payout NFT Item"
+src = "data/tonstakers/payout_item/testdata/TonstakersPayoutItem.boc"
+types = "data/tonstakers/payout_item/types/tonstakers_payout_item.types.tolk"
+depends = []
+
 [scripts]
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
@@ -873,6 +909,18 @@ hipo-loan-mainnet-test = "acton test data/hipo/loan/tests/hipo_loan_mainnet.test
 hipo-loan-message-bodies-test = "acton test data/hipo/loan/tests/hipo_loan_message_bodies.test.tolk --show-bodies"
 hipo-librarian-mainnet-test = "acton test data/hipo/librarian/tests/hipo_librarian_mainnet.test.tolk --fork-net mainnet --fork-block-number 71631031 --show-bodies"
 hipo-librarian-message-bodies-test = "acton test data/hipo/librarian/tests/hipo_librarian_message_bodies.test.tolk --show-bodies"
+tonstakers-pool-mainnet-test = "acton test data/tonstakers/pool/tests/tonstakers_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-pool-message-bodies-test = "acton test data/tonstakers/pool/tests/tonstakers_pool_message_bodies.test.tolk --show-bodies"
+tonstakers-controller-mainnet-test = "acton test data/tonstakers/controller/tests/tonstakers_validator_controller_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-controller-message-bodies-test = "acton test data/tonstakers/controller/tests/tonstakers_validator_controller_message_bodies.test.tolk --show-bodies"
+tonstakers-ts-ton-minter-mainnet-test = "acton test data/tonstakers/ts_ton_minter/tests/ts_ton_minter_storage.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-ts-ton-minter-message-bodies-test = "acton test data/tonstakers/ts_ton_minter/tests/ts_ton_minter_message_bodies.test.tolk --show-bodies"
+tonstakers-ts-ton-wallet-mainnet-test = "acton test data/tonstakers/ts_ton_wallet/tests/ts_ton_wallet_storage.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-ts-ton-wallet-message-bodies-test = "acton test data/tonstakers/ts_ton_wallet/tests/ts_ton_wallet_message_bodies.test.tolk --show-bodies"
+tonstakers-payout-collection-mainnet-test = "acton test data/tonstakers/payout_collection/tests/tonstakers_payout_collection_storage.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-payout-collection-message-bodies-test = "acton test data/tonstakers/payout_collection/tests/tonstakers_payout_collection_message_bodies.test.tolk --show-bodies"
+tonstakers-payout-item-mainnet-test = "acton test data/tonstakers/payout_item/tests/tonstakers_payout_item_storage.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+tonstakers-payout-item-message-bodies-test = "acton test data/tonstakers/payout_item/tests/tonstakers_payout_item_message_bodies.test.tolk --show-bodies"
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
