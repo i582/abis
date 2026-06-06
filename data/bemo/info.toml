@@ -1,0 +1,59 @@
+[project]
+name = "bemo"
+
+[metadata]
+category = "TON liquid staking contracts"
+description = "Bemo v2 liquid staking Financial jetton master and Unstake Request contracts"
+
+[sources]
+bemo_docs_v2 = "https://docs.bemo.fi/developers/bemo-v2"
+bemo_docs_stake = "https://docs.bemo.fi/developers/bemo-v2/stake"
+bemo_docs_unstake = "https://docs.bemo.fi/developers/bemo-v2/unstake"
+bemo_docs_rate = "https://docs.bemo.fi/developers/bemo-v2/how-to-get-ton-bmton-rate"
+bemo_docs_tracking_unstake_requests = "https://docs.bemo.fi/developers/bemo-v2/tracking-unstake-requests"
+local_research_plan = "data/bemo/research/plan.md"
+local_research_results = "data/bemo/research/results.md"
+local_financial_research = "data/bemo/research/bemo_financial.md"
+local_unstake_request_research = "data/bemo/research/bemo_unstake_request.md"
+local_schema = "data/bemo/research/source/local/bemo.xml"
+local_docs_snapshot = "data/bemo/research/source/docs"
+local_toncenter_snapshot = "data/bemo/research/source/toncenter"
+local_decompile_snapshot = "data/bemo/research/func"
+local_disasm_snapshot = "data/bemo/research/disasm"
+
+[contracts.BemoFinancial]
+display_name = "Bemo v2 Financial"
+types = "financial/types/bemo_financial.types.tolk"
+hashes = ["56e134340de7ad043631ffa618095badb0da8472159e9cf6421d69efdb61c2d3"]
+known_addresses = ["EQCSxGZPHqa3TtnODgMan8CEM0jf6HpY-uon_NMeFgjKqkEY"]
+related_asset_symbols = ["bmTON"]
+
+[contracts.BemoFinancial.instances.bmton_mainnet]
+address = "EQCSxGZPHqa3TtnODgMan8CEM0jf6HpY-uon_NMeFgjKqkEY"
+raw_address = "0:92C4664F1EA6B74ED9CE0E031A9FC0843348DFE87A58FAEA27FCD31E1608CAAA"
+network = "mainnet"
+asset_symbol = "bmTON"
+
+[contracts.BemoUnstakeRequest]
+display_name = "Bemo v2 Unstake Request"
+types = "unstake_request/types/bemo_unstake_request.types.tolk"
+hashes = [
+  "5b7a8516a9df1e8c9ffbeda43405223e3ba1696ee104465c5aa36b4a630a7e8c",
+  "91a9ae5c8016d778a11e1a1647813b8eb95d5b44b5a7881fb44961d89528337a",
+]
+known_addresses = [
+  "EQB8if4poFsD7UKWnYIESQs2tN83Oe1CKqPAxnOeA-5O_CqF",
+  "EQDt2MQ5dh6bVljcStR7Rgr1p6DWIRZ8sMCb3qd9zdKVlBh-",
+]
+
+[contracts.BemoUnstakeRequest.instances.active_sample]
+address = "EQB8if4poFsD7UKWnYIESQs2tN83Oe1CKqPAxnOeA-5O_CqF"
+raw_address = "0:7C89FE29A05B03ED42969D8204490B36B4DF3739ED422AA3C0C6739E03EE4EFC"
+financial = "EQCSxGZPHqa3TtnODgMan8CEM0jf6HpY-uon_NMeFgjKqkEY"
+network = "mainnet"
+
+[contracts.BemoUnstakeRequest.instances.outgoing_unstake_sample]
+address = "EQDt2MQ5dh6bVljcStR7Rgr1p6DWIRZ8sMCb3qd9zdKVlBh-"
+raw_address = "0:EDD8C439761E9B5658DC4AD47B460AF5A7A0D621167CB0C09BDEA77DCDD29594"
+financial = "EQCSxGZPHqa3TtnODgMan8CEM0jf6HpY-uon_NMeFgjKqkEY"
+network = "mainnet"

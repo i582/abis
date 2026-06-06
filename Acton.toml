@@ -783,6 +783,18 @@ src = "data/storages/storage_contract/testdata/StorageContract.boc"
 types = "data/storages/storage_contract/types/storage_contract.types.tolk"
 depends = []
 
+[contracts.BemoFinancial]
+display-name = "Bemo v2 Financial"
+src = "data/bemo/financial/testdata/BemoFinancial.boc"
+types = "data/bemo/financial/types/bemo_financial.types.tolk"
+depends = []
+
+[contracts.BemoUnstakeRequest]
+display-name = "Bemo v2 Unstake Request"
+src = "data/bemo/unstake_request/testdata/BemoUnstakeRequest.boc"
+types = "data/bemo/unstake_request/types/bemo_unstake_request.types.tolk"
+depends = []
+
 [scripts]
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
@@ -801,6 +813,10 @@ storage-provider-mainnet-test = "acton test data/storages/provider/tests/storage
 storage-provider-message-bodies-test = "acton test data/storages/provider/tests/storage_provider_message_bodies.test.tolk --show-bodies"
 storage-contract-mainnet-test = "acton test data/storages/storage_contract/tests/storage_contract_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storage-contract-message-bodies-test = "acton test data/storages/storage_contract/tests/storage_contract_message_bodies.test.tolk --show-bodies"
+bemo-financial-mainnet-test = "acton test data/bemo/financial/tests/bemo_financial_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
+bemo-financial-message-bodies-test = "acton test data/bemo/financial/tests/bemo_financial_message_bodies.test.tolk --show-bodies"
+bemo-unstake-request-mainnet-test = "acton test data/bemo/unstake_request/tests/bemo_unstake_request_mainnet.test.tolk --fork-net mainnet --fork-block-number 71622046 --show-bodies"
+bemo-unstake-request-message-bodies-test = "acton test data/bemo/unstake_request/tests/bemo_unstake_request_message_bodies.test.tolk --show-bodies"
 dedust-pool-info = "acton script --fork-net mainnet scripts/dedust-pool-info.tolk"
 dedust-pool-swap-probe = "acton script --fork-net mainnet scripts/dedust-pool-swap-probe.tolk"
 dedust-vault-swap = "acton script --fork-net mainnet scripts/dedust-vault-swap.tolk"
