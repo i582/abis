@@ -879,7 +879,38 @@ src = "data/tonstakers/payout_item/testdata/TonstakersPayoutItem.boc"
 types = "data/tonstakers/payout_item/types/tonstakers_payout_item.types.tolk"
 depends = []
 
+[contracts.EvaaMasterPyth]
+display-name = "EVAA Master Pyth"
+src = "data/evaa/master_pyth/testdata/EvaaMasterPyth.boc"
+types = "data/evaa/master_pyth/types/evaa_master_pyth.types.tolk"
+depends = []
+
+[contracts.EvaaMasterClassic]
+display-name = "EVAA Master Classic"
+src = "data/evaa/master_classic/testdata/EvaaMasterClassic.boc"
+types = "data/evaa/master_classic/types/evaa_master_classic.types.tolk"
+depends = []
+
+[contracts.EvaaUser]
+display-name = "EVAA User"
+src = "data/evaa/user/testdata/EvaaUser.boc"
+types = "data/evaa/user/types/evaa_user.types.tolk"
+depends = []
+
+[contracts.EvaaBlank]
+display-name = "EVAA Blank"
+src = "data/evaa/blank/testdata/EvaaBlank.boc"
+types = "data/evaa/blank/types/evaa_blank.types.tolk"
+depends = []
+
 [scripts]
+evaa-master-pyth-mainnet-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+evaa-master-pyth-message-bodies-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_message_bodies.test.tolk --show-bodies"
+evaa-master-classic-mainnet-test = "acton test data/evaa/master_classic/tests/evaa_master_classic_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
+evaa-master-classic-message-bodies-test = "acton test data/evaa/master_classic/tests/evaa_master_classic_message_bodies.test.tolk --show-bodies"
+evaa-user-storage-test = "acton test data/evaa/user/tests/evaa_user_storage.test.tolk --show-bodies"
+evaa-blank-code-test = "acton test data/evaa/blank/tests/evaa_blank_code.test.tolk --show-bodies"
+evaa-blank-message-bodies-test = "acton test data/evaa/blank/tests/evaa_blank_message_bodies.test.tolk --show-bodies"
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vamm-mainnet-test = "acton test data/storm/vamm/tests/storm_vamm_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"

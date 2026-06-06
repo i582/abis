@@ -1,0 +1,87 @@
+[project]
+name = "evaa"
+
+[metadata]
+category = "TON lending contracts"
+description = "EVAA lending protocol Master and User contracts"
+
+[sources]
+evaa_contracts = "https://github.com/evaafi/contracts"
+evaa_contracts_v9_commit = "https://github.com/evaafi/contracts/commit/d9138cb24f03b53522774351aceb38c51a047eee"
+tonkeeper_tongo_evaa_schemas = "https://github.com/tonkeeper/tongo/tree/00e0cd96509b49cf9b77222e6111115b3fea76b6/abi-tolk/schemas/evaa"
+evaa_sdk = "https://github.com/evaafi/sdk"
+evaa_sdk_commit = "https://github.com/evaafi/sdk/commit/f29ea811075823b4749247fa78f9fdd23e721a9f"
+evaa_liquidator_bot = "https://github.com/evaafi/liquidator-bot-v2-pub"
+local_research_plan = "data/evaa/research/plan.md"
+local_research_results = "data/evaa/research/results.md"
+local_shared_research = "data/evaa/research/shared.md"
+local_live_evidence = "data/evaa/research/live_evidence.md"
+local_contract_source = "data/evaa/research/source/evaafi-contracts"
+local_tongo_schema = "data/evaa/research/source/tongo"
+local_sdk_snapshot = "data/evaa/research/source/evaafi-sdk"
+local_pyth_message_body_evidence = "data/evaa/research/evaa_pyth_master_message_bodies.md"
+local_classic_message_body_evidence = "data/evaa/research/evaa_stable_master_message_bodies.md"
+local_user_message_body_scan = "data/evaa/research/evaa_user_message_bodies.md"
+
+[contracts.EvaaMasterPyth]
+display_name = "EVAA Master Pyth"
+types = "master_pyth/types/evaa_master_pyth.types.tolk"
+hashes = ["b90881c4dc48b08dd92e51510f80ff93cf789c7bb5f868c65b198838b8f9d6a6"]
+known_addresses = ["EQC8rUZqR_pWV1BylWUlPNBzyiTYVoBEmQkMIQDZXICfnuRr"]
+
+[contracts.EvaaMasterPyth.instances.main_pool]
+address = "EQC8rUZqR_pWV1BylWUlPNBzyiTYVoBEmQkMIQDZXICfnuRr"
+raw_address = "0:bcad466a47fa565750729565253cd073ca24d856804499090c2100d95c809f9e"
+network = "mainnet"
+pool = "main"
+oracle = "pyth"
+
+[contracts.EvaaMasterClassic]
+display_name = "EVAA Master Classic"
+types = "master_classic/types/evaa_master_classic.types.tolk"
+hashes = ["7789fdc983efa458e1c6ba276a69836dacb70e35a1544df1b5d17ef827725407"]
+known_addresses = [
+  "EQCdIdXf1kA_2Hd9mbGzSFDEPA-Px-et8qTWHEXgRGo0K3zd",
+  "EQBIlZX2URWkXCSg3QF2MJZU-wC5XkBoLww-hdWk2G37Jc6N",
+  "EQANURVS3fhBO9bivig34iyJQi97FhMbpivo1aUEAS2GYSu-",
+]
+
+[contracts.EvaaMasterClassic.instances.stable_pool]
+address = "EQCdIdXf1kA_2Hd9mbGzSFDEPA-Px-et8qTWHEXgRGo0K3zd"
+raw_address = "0:9d21d5dfd6403fd8777d99b1b34850c43c0f8fc7e7adf2a4d61c45e0446a342b"
+network = "mainnet"
+pool = "stable"
+oracle = "classic"
+
+[contracts.EvaaMasterClassic.instances.lp_pool]
+address = "EQBIlZX2URWkXCSg3QF2MJZU-wC5XkBoLww-hdWk2G37Jc6N"
+raw_address = "0:489595f65115a45c24a0dd0176309654fb00b95e40682f0c3e85d5a4d86dfb25"
+network = "mainnet"
+pool = "lp"
+oracle = "classic"
+
+[contracts.EvaaMasterClassic.instances.alts_pool]
+address = "EQANURVS3fhBO9bivig34iyJQi97FhMbpivo1aUEAS2GYSu-"
+raw_address = "0:0d511552ddf8413bd6e2be2837e22c89422f7b16131ba62be8d5a504012d8661"
+network = "mainnet"
+pool = "alts"
+oracle = "classic"
+
+[contracts.EvaaUser]
+display_name = "EVAA User"
+types = "user/types/evaa_user.types.tolk"
+hashes = ["19fe8804c2c449c857b4c5478d9794dead72ce9b4eed00963fc27d0b95b4ad81"]
+known_addresses = ["EQBZ3ggC0hHj79lomn8cTBhHVC6ZCr7_lairaXs9pS_k4Lpy"]
+
+[contracts.EvaaUser.instances.stable_supply_sample]
+address = "EQBZ3ggC0hHj79lomn8cTBhHVC6ZCr7_lairaXs9pS_k4Lpy"
+raw_address = "0:59de0802d211e3efd9689a7f1c4c1847542e990abeff95a8ab697b3da52fe4e0"
+network = "mainnet"
+master = "EQCdIdXf1kA_2Hd9mbGzSFDEPA-Px-et8qTWHEXgRGo0K3zd"
+pool = "stable"
+
+[contracts.EvaaBlank]
+display_name = "EVAA Blank"
+types = "blank/types/evaa_blank.types.tolk"
+hashes = ["e2f78a44f379cc7b03628d7d9c1a044e58eff0e87fea97944d29202263c68c20"]
+known_addresses = []
