@@ -21,8 +21,10 @@ mintless_contract = "https://github.com/ton-blockchain/mintless-jetton-contract"
 local_schema = "schemas/jettons.xml"
 local_toncenter_tlb = "source/toncenter-schemes.tlb"
 local_generated_types = "gen/jetton_*.types.tolk"
+local_generated_scaled_ui_types = "gen/scaled_ui.types.tolk"
 local_generated_abis = "gen_abis/jetton_*.json"
 contracts_catalog = "contracts.json"
+tep_526 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-ui-jettons.md"
 
 [contracts.JettonV1Master]
 types = "jetton_1/types/jetton_v1_master.types.tolk"
@@ -125,3 +127,12 @@ hashes = [
   "431e1485b326a1c600baf02dc3e4cb6339a1538a92ebc4e3ce5daa7100f6c79b",
 ]
 known_addresses = ["EQD1MISQQCRISJVAyLVdwEo8WiFAxSX173eUHTFPz2FdfJ42"]
+
+[contracts.ScaledUiJettonMaster]
+display_name = "Scaled UI Jetton Master Interface"
+types = "scaled_ui/types/scaled_ui_jetton_master.types.tolk"
+hashes = ["33170bf263b90f9f289d66250b8db0b8e0205601ba50713f05e94d506d2ddfe6"]
+known_addresses = [
+  "EQAlL7fOykivkEefblcB3bkqn4HMwP8jQNDNVzo9-RkKZNJx",
+  "EQCpSKh0bO8zr5M6Qnk5lVUaUKwEsSsjE-X29PxYhhnEj48I",
+]

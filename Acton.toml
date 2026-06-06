@@ -231,6 +231,12 @@ src = "data/jettons/mintless_1_0/testdata/MintlessJettonWallet.boc"
 types = "data/jettons/mintless_1_0/types/mintless_wallet.types.tolk"
 depends = []
 
+[contracts.ScaledUiJettonMaster]
+display-name = "ScaledUiJettonMaster"
+src = "data/jettons/scaled_ui/testdata/ScaledUiJettonMaster.boc"
+types = "data/jettons/scaled_ui/types/scaled_ui_jetton_master.types.tolk"
+depends = []
+
 [contracts.NftV1Collection]
 display-name = "NftV1Collection"
 src = "data/nfts/nft_1/testdata/NftV1Collection.boc"
@@ -987,6 +993,7 @@ stablecoin-mainnet-test = "acton test data/jettons/stablecoin_1_04/tests --fork-
 jetton-notcoin-mainnet-test = "acton test data/jettons/jetton_1_2_notcoin/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 jetton-2-test = "acton test data/jettons/jetton_2_0/tests --show-bodies"
 mintless-mainnet-test = "acton test data/jettons/mintless_1_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
+scaled-ui-mainnet-test = "acton test data/jettons/scaled_ui/tests --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 nft-1-mainnet-test = "acton test data/nfts/nft_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 nft-2-mainnet-test = "acton test data/nfts/nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
