@@ -1,0 +1,29 @@
+[project]
+name = "nominator_pool"
+
+[metadata]
+category = "TON validator staking contracts"
+description = "TON Validators Nominator Pool contracts"
+
+[sources]
+nominator_pool_repo = "https://github.com/ton-blockchain/nominator-pool/tree/2f35c36b5ad662f10fd7b01ef780c3f1949c399d"
+local_source_snapshot = "data/nominator_pool/research/source"
+local_research_plan = "data/nominator_pool/research/plan.md"
+local_research_results = "data/nominator_pool/research/results.md"
+
+[contracts.NominatorPool]
+display_name = "TON Validators Nominator Pool"
+types = "pool/types/nominator_pool.types.tolk"
+description = "Validator-managed TON nominator pool with deposits, withdrawals, validator operations, Elector stake messages, and config-proposal voting."
+known_addresses = ["Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4"]
+hashes = ["9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf"]
+related_asset_symbols = ["TON"]
+
+[contracts.NominatorPool.instances.representative_mainnet]
+address = "Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4"
+raw_address = "-1:8E6F889BDDD23A4B2BA045C6472F02C4CA1B13CF45218BD456F80B33A8BD7147"
+network = "mainnet"
+code_hash_hex = "9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf"
+code_hash_base64 = "mj7BS8CY9rRAZMMFIiyuooAPF92oXuaoGYpwle3hDc8="
+data_hash_hex = "b5c02ed5f2c2c957b1b96cb5a2461075adc739df6efb29f75d56278734be3a31"
+data_hash_base64 = "tcAu1fLCyVexuWy1okYQda3HOd9u+yn3XVYnhzS+OjE="

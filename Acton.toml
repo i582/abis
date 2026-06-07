@@ -903,6 +903,48 @@ src = "data/evaa/blank/testdata/EvaaBlank.boc"
 types = "data/evaa/blank/types/evaa_blank.types.tolk"
 depends = []
 
+[contracts.NominatorPool]
+display-name = "TON Validators Nominator Pool"
+src = "data/nominator_pool/pool/testdata/NominatorPool.boc"
+types = "data/nominator_pool/pool/types/nominator_pool.types.tolk"
+depends = []
+
+[contracts.SingleNominatorV10]
+display-name = "Single Nominator Pool v1.0"
+src = "data/single_nominator/v1_0/testdata/SingleNominatorV10.boc"
+types = "data/single_nominator/v1_0/types/single_nominator_v1_0.types.tolk"
+depends = []
+
+[contracts.SingleNominatorV11]
+display-name = "Single Nominator Pool v1.1"
+src = "data/single_nominator/v1_1/testdata/SingleNominatorV11.boc"
+types = "data/single_nominator/v1_1/types/single_nominator_v1_1.types.tolk"
+depends = []
+
+[contracts.WhalesPool]
+display-name = "Ton Whales Nominators Pool"
+src = "data/whales/pool/testdata/WhalesPool.boc"
+types = "data/whales/pool/types/whales_pool.types.tolk"
+depends = []
+
+[contracts.WhalesProxy]
+display-name = "Ton Whales Nominators Proxy"
+src = "data/whales/proxy/testdata/WhalesProxy.boc"
+types = "data/whales/proxy/types/whales_proxy.types.tolk"
+depends = []
+
+[contracts.AirdropInterlockerV1]
+display-name = "Airdrop Interlocker v1"
+src = "data/airdrop/interlocker_v1/testdata/AirdropInterlockerV1.boc"
+types = "data/airdrop/interlocker_v1/types/airdrop_interlocker_v1.types.tolk"
+depends = []
+
+[contracts.AirdropInterlockerV2]
+display-name = "Airdrop Interlocker v2"
+src = "data/airdrop/interlocker_v2/testdata/AirdropInterlockerV2.boc"
+types = "data/airdrop/interlocker_v2/types/airdrop_interlocker_v2.types.tolk"
+depends = []
+
 [scripts]
 evaa-master-pyth-mainnet-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
 evaa-master-pyth-message-bodies-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_message_bodies.test.tolk --show-bodies"
@@ -911,6 +953,20 @@ evaa-master-classic-message-bodies-test = "acton test data/evaa/master_classic/t
 evaa-user-storage-test = "acton test data/evaa/user/tests/evaa_user_storage.test.tolk --show-bodies"
 evaa-blank-code-test = "acton test data/evaa/blank/tests/evaa_blank_code.test.tolk --show-bodies"
 evaa-blank-message-bodies-test = "acton test data/evaa/blank/tests/evaa_blank_message_bodies.test.tolk --show-bodies"
+nominator-pool-mainnet-test = "acton test data/nominator_pool/pool/tests/nominator_pool_storage.test.tolk --fork-net mainnet --fork-block-number 71810991 --show-bodies"
+nominator-pool-message-bodies-test = "acton test data/nominator_pool/pool/tests/nominator_pool_message_bodies.test.tolk --show-bodies"
+single-nominator-v1-0-mainnet-test = "acton test data/single_nominator/v1_0/tests/single_nominator_v1_0_storage.test.tolk --fork-net mainnet --fork-block-number 71810979 --show-bodies"
+single-nominator-v1-0-message-bodies-test = "acton test data/single_nominator/v1_0/tests/single_nominator_v1_0_message_bodies.test.tolk --show-bodies"
+single-nominator-v1-1-mainnet-test = "acton test data/single_nominator/v1_1/tests/single_nominator_v1_1_storage.test.tolk --fork-net mainnet --fork-block-number 71810979 --show-bodies"
+single-nominator-v1-1-message-bodies-test = "acton test data/single_nominator/v1_1/tests/single_nominator_v1_1_message_bodies.test.tolk --show-bodies"
+whales-pool-mainnet-test = "acton test data/whales/pool/tests/whales_pool_storage.test.tolk --fork-net mainnet --fork-block-number 71810991 --show-bodies"
+whales-pool-message-bodies-test = "acton test data/whales/pool/tests/whales_pool_message_bodies.test.tolk --show-bodies"
+whales-proxy-mainnet-test = "acton test data/whales/proxy/tests/whales_proxy_storage.test.tolk --fork-net mainnet --fork-block-number 71810991 --show-bodies"
+whales-proxy-message-bodies-test = "acton test data/whales/proxy/tests/whales_proxy_message_bodies.test.tolk --show-bodies"
+airdrop-interlocker-v1-mainnet-test = "acton test data/airdrop/interlocker_v1/tests/airdrop_interlocker_v1_storage.test.tolk --fork-net mainnet --fork-block-number 71810991 --show-bodies"
+airdrop-interlocker-v1-message-bodies-test = "acton test data/airdrop/interlocker_v1/tests/airdrop_interlocker_v1_message_bodies.test.tolk --show-bodies"
+airdrop-interlocker-v2-mainnet-test = "acton test data/airdrop/interlocker_v2/tests/airdrop_interlocker_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71810991 --show-bodies"
+airdrop-interlocker-v2-message-bodies-test = "acton test data/airdrop/interlocker_v2/tests/airdrop_interlocker_v2_message_bodies.test.tolk --show-bodies"
 storm-vault-mainnet-test = "acton test data/storm/vault/tests/storm_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vault-native-mainnet-test = "acton test data/storm/vault_native/tests/storm_vault_native_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-vamm-mainnet-test = "acton test data/storm/vamm/tests/storm_vamm_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"

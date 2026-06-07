@@ -1,0 +1,57 @@
+[project]
+name = "single_nominator"
+
+[metadata]
+category = "TON validator staking pool contracts"
+description = "Orbs Network Simple/Single Nominator Pool contracts for one owner and one validator wallet"
+
+[sources]
+upstream_main = "https://github.com/orbs-network/single-nominator/tree/656696b4840d9226da3d98410f0103ee4efb0402"
+upstream_v1_0_tag = "https://github.com/orbs-network/single-nominator/releases/tag/v1.0.0"
+local_research_plan = "data/single_nominator/research/plan.md"
+local_research_results = "data/single_nominator/research/results.md"
+local_v1_0_research = "data/single_nominator/research/v1_0.md"
+local_v1_1_research = "data/single_nominator/research/v1_1.md"
+local_source_snapshot = "data/single_nominator/research/source"
+local_v1_0_account_state = "data/single_nominator/research/single_nominator_v1_0_account_state.json"
+local_v1_1_account_state = "data/single_nominator/research/single_nominator_v1_1_account_state.json"
+local_v1_0_message_bodies = "data/single_nominator/research/single_nominator_v1_0_message_bodies.json"
+local_v1_1_message_bodies = "data/single_nominator/research/single_nominator_v1_1_message_bodies.json"
+
+[contracts.SingleNominatorV10]
+display_name = "Single Nominator Pool v1.0"
+types = "v1_0/types/single_nominator_v1_0.types.tolk"
+description = "Orbs Single Nominator Pool v1.0 with one owner, one validator, Elector staking messages, and pool-compatible getters."
+hashes = ["a42ae69eac76ffe0e452d3d4f13d387a14e46c01a5aadba5fc1d893e6c71f5ba"]
+code_hash_base64 = "pCrmnqx2/+DkUtPU8T04ehTkbAGlqtul/B2JPmxx9bo="
+known_addresses = ["Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"]
+related_asset_symbols = ["TON"]
+
+[contracts.SingleNominatorV10.instances.mainnet_sample]
+address = "Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"
+raw_address = "-1:1E5A9099ED4D165B10851275EC69EFF71933E7016CA894CA7A2A458059EB5072"
+network = "mainnet"
+source = "Toncenter v3 account state and Orbs v1.0.0 tag"
+code_hash_hex = "a42ae69eac76ffe0e452d3d4f13d387a14e46c01a5aadba5fc1d893e6c71f5ba"
+code_hash_base64 = "pCrmnqx2/+DkUtPU8T04ehTkbAGlqtul/B2JPmxx9bo="
+data_hash_hex = "2b0e14111ecf5372c9f7d9e6b6d6eb9462e769652e72902cff3533939de970e4"
+data_hash_base64 = "Kw4UER7PU3LJ99nmttbrlGLnaWUucpAs/zUzk53pcOQ="
+
+[contracts.SingleNominatorV11]
+display_name = "Single Nominator Pool v1.1"
+types = "v1_1/types/single_nominator_v1_1.types.tolk"
+description = "Orbs Single Nominator Pool v1.1 with text-comment withdraw, one owner, one validator, Elector staking messages, and pool-compatible getters."
+hashes = ["cc0d39589eb2c0cfe0fde28456657a3bdd3d953955ae3f98f25664ab3c904fbd"]
+code_hash_base64 = "zA05WJ6ywM/g/eKEVmV6O909lTlVrj+Y8lZkqzyQT70="
+known_addresses = ["Ef_blSQgiTZmBp9nTBTFFiluQ7tICOB_ZybvEv-YrXi_R7tG"]
+related_asset_symbols = ["TON"]
+
+[contracts.SingleNominatorV11.instances.mainnet_sample]
+address = "Ef_blSQgiTZmBp9nTBTFFiluQ7tICOB_ZybvEv-YrXi_R7tG"
+raw_address = "-1:DB952420893666069F674C14C516296E43BB4808E07F6726EF12FF98AD78BF47"
+network = "mainnet"
+source = "Toncenter v3 account state and Orbs main commit 656696b4840d9226da3d98410f0103ee4efb0402"
+code_hash_hex = "cc0d39589eb2c0cfe0fde28456657a3bdd3d953955ae3f98f25664ab3c904fbd"
+code_hash_base64 = "zA05WJ6ywM/g/eKEVmV6O909lTlVrj+Y8lZkqzyQT70="
+data_hash_hex = "9f2bb399f70ea7540ff4421ec4f10b8e8bc4e64e1a06214f8db4af769ae14869"
+data_hash_base64 = "nyuzmfcOp1QP9EIexPELjovE5k4aBiFPjbSvdprhSGk="

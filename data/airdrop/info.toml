@@ -1,0 +1,46 @@
+[project]
+name = "airdrop"
+
+[metadata]
+category = "TON airdrop contracts"
+description = "Airdrop Interlocker v1 and v2 claim contracts"
+
+[sources]
+local_schema = "data/airdrop/research/source/airdrop.xml"
+local_generated_v1_types = "data/airdrop/research/source/airdrop_interlocker_v1.generated.types.tolk"
+local_generated_v2_types = "data/airdrop/research/source/airdrop_interlocker_v2.generated.types.tolk"
+local_research_plan = "data/airdrop/research/plan.md"
+local_research_results = "data/airdrop/research/results.md"
+local_decompile_snapshot = "data/airdrop/research/func"
+local_v1_account_state = "data/airdrop/research/airdrop_interlocker_v1_account_state.json"
+local_v2_account_state = "data/airdrop/research/airdrop_interlocker_v2_account_state.json"
+
+[contracts.AirdropInterlockerV1]
+display_name = "Airdrop Interlocker v1"
+types = "interlocker_v1/types/airdrop_interlocker_v1.types.tolk"
+hashes = ["acd2b8ec4db7414396fa53698653ecc04a416ee3649d8f5b20b41f176ad833f0"]
+known_addresses = ["EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"]
+
+[contracts.AirdropInterlockerV1.instances.claimed_sample]
+address = "EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"
+raw_address = "0:0426E44E0115DDE4D78FB2BE8D26E8C3EBB990B255B9288D34E1DAD4681B7620"
+code_hash_base64 = "rNK47E23QUOW+lNphlPswEpBbuNknY9bILQfF2rYM/A="
+last_transaction_hash = "eYMUmlAgJPk0bV0leBD8jbrKXYz81A1L6DrLiXnH+AA="
+last_transaction_lt = "57453075000003"
+last_transaction_time_utc = "2025-05-22T14:29:17Z"
+network = "mainnet"
+
+[contracts.AirdropInterlockerV2]
+display_name = "Airdrop Interlocker v2"
+types = "interlocker_v2/types/airdrop_interlocker_v2.types.tolk"
+hashes = ["0ff44a96fc2481111236d8d9920fd6e29b6108215e3ec5ba761ead9602adada4"]
+known_addresses = ["EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"]
+
+[contracts.AirdropInterlockerV2.instances.active_sample]
+address = "EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"
+raw_address = "0:006E7A32EF113CEAAF47C3A5F936128874514D1A128B5A1CEDEB77F60F0F8A8C"
+code_hash_base64 = "D/RKlvwkgRESNtjZkg/W4pthCCFePsW6dh6tlgKtraQ="
+last_transaction_hash = "K3pSiJzOSHXycZ0uSMVWicgJpDSNp74CvIrY17SsTxo="
+last_transaction_lt = "82025063000003"
+last_transaction_time_utc = "2026-06-06T23:36:54Z"
+network = "mainnet"
