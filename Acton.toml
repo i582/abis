@@ -1122,9 +1122,7 @@ dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-nu
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
 
-compile-all-contracts = """
-acton build
-"""
+compile-all-contracts = "acton build"
 
 run-mainnet-block-tests = """
 set -e

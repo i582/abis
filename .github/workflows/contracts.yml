@@ -1,0 +1,62 @@
+name: Contracts
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Acton
+        uses: ton-blockchain/setup-acton@2d38fd579e1bf8753a3e0cff9ad695612b98a676 # v1.0.0
+        with:
+          version: "1.1.0"
+
+      - name: Restore Acton build directory
+        id: acton-build-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: build/
+          key: acton-build-${{ runner.os }}-${{ hashFiles('Acton.toml', '.acton/**', 'data/**/*.tolk', 'data/**/*.boc') }}
+          restore-keys: |
+            acton-build-${{ runner.os }}-
+
+      - name: Build contracts
+        run: acton run compile-all-contracts
+
+      - name: Save Acton build directory
+        if: steps.acton-build-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: build/
+          key: ${{ steps.acton-build-cache.outputs.cache-primary-key }}
+
+      - name: Run mainnet block tests
+        env:
+          TONCENTER_API_KEY: ${{ secrets.TONCENTER_API_KEY }}
+        run: acton run run-mainnet-block-tests
