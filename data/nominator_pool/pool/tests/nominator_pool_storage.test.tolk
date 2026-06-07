@@ -140,6 +140,9 @@ fun expectNominatorPoolGettersMatchStorage(
     expect(data.validatorSetChangesCount).toEqual(storage.validatorSetChangesCount);
     expect(data.validatorSetChangeTime).toEqual(storage.validatorSetChangeTime);
     expect(data.stakeHeldFor).toEqual(storage.stakeHeldFor);
+    expect(data.nominators).toHaveLength(storage.nominatorsCount);
+    expect(data.withdrawRequests.isEmpty()).toEqual(storage.withdrawRequests.isEmpty());
+    expect(data.configProposalVotings.isEmpty()).toEqual(storage.configProposalVotings.isEmpty());
     expect(hasWithdrawRequests).toEqual(!storage.withdrawRequests.isEmpty());
     expect(nominators.calculateSize()).toEqual(storage.nominatorsCount);
     expect(votes.calculateSize()).toBeGreaterOrEqual(0);

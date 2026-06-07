@@ -260,10 +260,10 @@ struct NominatorPoolDataReply {
     minValidatorStake: int
     /// Minimum nominator stake required by the Pool.
     minNominatorStake: int
-    /// Raw nominators dictionary returned by the getter.
-    nominators: cell?
-    /// Raw withdrawal-request dictionary returned by the getter.
-    withdrawRequests: cell?
+    /// Nominator records returned by the getter.
+    nominators: map<uint256, NominatorPoolNominator>
+    /// Pending withdrawal requests returned by the getter.
+    withdrawRequests: map<uint256, NominatorPoolEmpty>
     /// Validation round start timestamp used for the active or pending stake.
     stakeAt: uint32
     /// Saved current validator-set hash.
@@ -274,8 +274,8 @@ struct NominatorPoolDataReply {
     validatorSetChangeTime: uint32
     /// Stake hold period saved from network config.
     stakeHeldFor: uint32
-    /// Raw config-proposal voting dictionary returned by the getter.
-    configProposalVotings: cell?
+    /// Config-proposal votings returned by the getter.
+    configProposalVotings: map<uint256, NominatorPoolVoting>
 }
 
 /// Entry returned by `list_nominators`.
@@ -436,14 +436,14 @@ fun emptyNominatorPoolDataReply(): NominatorPoolDataReply {
         maxNominatorsCount: 0,
         minValidatorStake: 0,
         minNominatorStake: 0,
-        nominators: null,
-        withdrawRequests: null,
+        nominators: [],
+        withdrawRequests: [],
         stakeAt: 0,
         savedValidatorSetHash: 0,
         validatorSetChangesCount: 0,
         validatorSetChangeTime: 0,
         stakeHeldFor: 0,
-        configProposalVotings: null,
+        configProposalVotings: [],
     };
 }
 
