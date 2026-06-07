@@ -5,24 +5,14 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dump": "npm run --silent build && node dist/cli.js",
-    "generate:tolk": "npm run --silent build && node dist/generate-tolk-cli.js",
     "bundle:data-abis": "npm run --silent build && node dist/bundle-data-abis.js",
     "toncenter:message-bodies": "npm run --silent build && node dist/toncenter-message-bodies.js",
-    "test": "npm run --silent build && node --test test/**/*.test.mjs",
-    "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
     "find:contracts-by-hash": "node scripts/find-contracts-by-hash.mjs",
     "tonscan:contracts": "node scripts/fetch-tonscan-contracts.mjs",
     "tonscan:interfaces": "node scripts/tonscan-interface-summary.mjs",
-    "method-ids": "node scripts/method-ids.mjs",
-    "app:build": "npm --prefix app run build",
-    "app:dev": "npm --prefix app run dev",
-    "app:start": "npm --prefix app run start"
+    "method-ids": "node scripts/method-ids.mjs"
   },
   "dependencies": {
-    "@ton-community/tlb-codegen": "^2.0.0-beta.3",
-    "@ton-community/tlb-parser": "^0.1.5",
-    "@ton-community/tlb-runtime": "^1.0.0-alpha.3",
     "fast-xml-parser": "^5.8.0",
     "smol-toml": "^1.6.1",
     "ton-assembly": "^0.6.1"
