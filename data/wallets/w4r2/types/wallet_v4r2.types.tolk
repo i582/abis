@@ -95,7 +95,7 @@ struct (0x706c7567) WalletV4r2PaymentRequest {
 }
 
 /// External-in request authenticated by Ed25519 signature over the unsigned trailing payload.
-struct (0xd26b2518) WalletV4r2SignedExternal {
+struct WalletV4r2SignedExternal {
     /// Ed25519 signature over subwalletId, validUntil, seqno, and payload.
     signature: bits512
     /// Wallet id expected to match storage.subwalletId.
