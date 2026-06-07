@@ -1,0 +1,53 @@
+[project]
+name = "subscriptions"
+
+[metadata]
+project = "Tonkeeper Subscriptions"
+website = "https://tonkeeper.com"
+
+[sources]
+specification = "research/source/ton_subscriptions_SPECIFICATION.md"
+subscription_v2_source = "research/source/nativeSub.tolk"
+subscription_v2_state = "research/source/state.tolk"
+subscription_v2_in_messages = "research/source/inMessages.tolk"
+subscription_v2_out_messages = "research/source/outMessages.tolk"
+subscription_v2_errors = "research/source/errors.tolk"
+subscription_v2_sdk = "research/source/NativeSubExt.ts"
+subscription_v2_compiled = "research/source/NativeSubExt.compiled.json"
+tongo_subscription_v1 = "research/source/tongo_subscriptions_v1.xml"
+tongo_subscription_v2 = "research/source/tongo_subscriptions_v2.xml"
+decompiled_subscription_v1 = "research/func/subscription_v1.fc"
+
+[contracts.SubscriptionV1]
+types = "types/subscription_v1.types.tolk"
+hashes = ["52161446bb3e6f811f3ceb163c8be33710fe41086c3a047ee928c2d94743fc2d"]
+known_addresses = ["EQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihei2s"]
+
+[[contracts.SubscriptionV1.instances]]
+name = "Verified Subscription V1 plugin"
+address = "EQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihei2s"
+non_bounceable_address = "UQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihenBp"
+raw_address = "0:9899EC0DEBE89917F47E8387FE03246DDD131210F0C04FCC2F2A029232A8A17A"
+hash = "52161446bb3e6f811f3ceb163c8be33710fe41086c3a047ee928c2d94743fc2d"
+
+[contracts.SubscriptionV2]
+types = "types/subscription_v2.types.tolk"
+hashes = ["48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"]
+known_addresses = [
+  "EQCPpDopkQKPVHTlTDgbIjyFfCU8k9_yuHT_-8osbMGcnDfC",
+  "EQATE41fW6ln2woQd6QQ_oILO97JLiVLjNtxPz8cCmXiqglY",
+]
+
+[[contracts.SubscriptionV2.instances]]
+name = "Active Subscription V2 fixture"
+address = "EQCPpDopkQKPVHTlTDgbIjyFfCU8k9_yuHT_-8osbMGcnDfC"
+non_bounceable_address = "UQCPpDopkQKPVHTlTDgbIjyFfCU8k9_yuHT_-8osbMGcnGoH"
+raw_address = "0:8FA43A2991028F5474E54C381B223C857C253C93DFF2B874FFFBCA2C6CC19C9C"
+hash = "48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"
+
+[[contracts.SubscriptionV2.instances]]
+name = "Subscription V2 deploy/destruct fixture"
+address = "EQATE41fW6ln2woQd6QQ_oILO97JLiVLjNtxPz8cCmXiqglY"
+non_bounceable_address = "UQATE41fW6ln2woQd6QQ_oILO97JLiVLjNtxPz8cCmXiqlSd"
+raw_address = "0:13138D5F5BA967DB0A1077A410FE820B3BDEC92E254B8CDB713F3F1C0A65E2AA"
+hash = "48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"

@@ -1,0 +1,53 @@
+[project]
+name = "cron"
+
+[metadata]
+category = "TON scheduler interfaces"
+description = "TON cron interface implementations exposing get_cron_info and cron_trigger external messages"
+
+[sources]
+local_schema = "schemas/cron.xml"
+local_generated_types = "gen/cron.types.tolk"
+local_tongo_schema = "data/cron/research/source/tongo_cron.xml"
+local_toncenter_tlb = "data/cron/research/source/toncenter_schemes.tlb"
+local_primary_account_state = "data/cron/research/source/toncenter_account_state.json"
+local_trigger_variant_account_state = "data/cron/research/source/toncenter_account_state_trigger_variant.json"
+local_decompile_snapshot = "data/cron/research/func/cron.fc"
+local_disasm_snapshot = "data/cron/research/disasm/cron.tasm"
+local_message_body_evidence = "data/cron/research/cron_message_bodies.md"
+local_full_message_body_scan = "data/cron/research/cron_trigger_message_bodies.md"
+local_research_plan = "data/cron/research/plan.md"
+local_research_results = "data/cron/research/results.md"
+dune_cron_trigger_candidates = "https://dune.com/queries/7671804"
+
+[contracts.Cron]
+display_name = "TON Cron interface"
+types = "types/cron.types.tolk"
+hashes = [
+  "aab1db63f193a4aecaa3e3a959fc1784f1412b191a66ae870958405ba88114c7",
+  "0dff4ded62eb31a772b6c9060317fad9aa52ae42a9eb0ae14df3c322c2473f79",
+]
+known_addresses = [
+  "EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf",
+  "EQBHR_AgOg4GJ1CDr_L2N8MO0rYNDL2jcZCmWriJhXiuBw3c",
+]
+
+[contracts.Cron.instances.primary_verified]
+address = "EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"
+raw_address = "0:1A29644BA5E9A9B8FAE8FE25902F154C04E9B2EF113EC01FD31E4A45D09F7ED1"
+code_hash_base64 = "qrHbY/GTpK7Ko+OpWfwXhPFBKxkaZq6HCVhAW6iBFMc="
+data_hash_base64 = "0416Vg4wu5O5MGmWc1cDEVUgPuTLaExnwLrVg0RzfcA="
+balance_nanotons = 388143213
+last_transaction_hash = "wP0nesWxPNC/6zoChPr0usH++GWtBfZBvdiSf8Mnm0E="
+last_transaction_lt = "76126430000003"
+network = "mainnet"
+
+[contracts.Cron.instances.trigger_body_variant]
+address = "EQBHR_AgOg4GJ1CDr_L2N8MO0rYNDL2jcZCmWriJhXiuBw3c"
+raw_address = "0:4747F0203A0E06275083AFF2F637C30ED2B60D0CBDA37190A65AB8898578AE07"
+code_hash_base64 = "Df9N7WLrMadytskGAxf62apSrkKp6wrhTfPDIsJHP3k="
+data_hash_base64 = "1d0crYUp1IzpPvNAomZ0FQe0wS1K7p8wdiYb/+tcHAc="
+balance_nanotons = 1000000
+last_transaction_hash = "UgqiuESvrmL8OjCmmzQX+mv/4OQ1f2quGMjh5qjEuIE="
+last_transaction_lt = "82015997000001"
+network = "mainnet"

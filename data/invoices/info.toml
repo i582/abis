@@ -1,0 +1,12 @@
+[project]
+name = "invoices"
+
+[sources]
+tongo_schema = "https://github.com/tonkeeper/tongo/blob/master/abi/schemas/invoices.xml"
+tongo_messages = "https://github.com/tonkeeper/tongo/blob/master/abi/messages.md"
+tongo_abi_package = "https://pkg.go.dev/github.com/tonkeeper/tongo/abi#InvoicePayloadMsgBody"
+
+[contracts.InvoicesPayloadInterface]
+types = "types/invoices.types.tolk"
+hashes = []
+known_addresses = []

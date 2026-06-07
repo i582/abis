@@ -1,0 +1,18 @@
+[package]
+name = "cron-abi"
+description = "Local Cron ABI fixture manifest"
+version = "0.1.0"
+
+[contracts.Cron]
+display-name = "Cron"
+src = "data/cron/testdata/Cron.boc"
+types = "data/cron/types/cron.types.tolk"
+depends = []
+
+[import-mappings]
+acton = ".acton"
+gen = "gen"
+
+[scripts]
+cron-message-bodies-test = "acton test data/cron/tests/cron_message_bodies.test.tolk --manifest-path data/cron/Acton.cron.toml"
+cron-mainnet-test = "acton test data/cron/tests/cron_storage.test.tolk --manifest-path data/cron/Acton.cron.toml --fork-net mainnet --fork-block-number 71819864 --show-bodies"

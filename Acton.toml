@@ -945,7 +945,40 @@ src = "data/airdrop/interlocker_v2/testdata/AirdropInterlockerV2.boc"
 types = "data/airdrop/interlocker_v2/types/airdrop_interlocker_v2.types.tolk"
 depends = []
 
+[contracts.Cron]
+display-name = "TON Cron"
+src = "data/cron/testdata/Cron.boc"
+types = "data/cron/types/cron.types.tolk"
+depends = []
+
+[contracts.SubscriptionV2]
+display-name = "Tonkeeper Subscription V2"
+src = "data/subscriptions/testdata/SubscriptionV2.boc"
+types = "data/subscriptions/types/subscription_v2.types.tolk"
+depends = []
+
+[contracts.SubscriptionV1]
+display-name = "Tonkeeper Subscription V1"
+src = "data/subscriptions/testdata/SubscriptionV1.boc"
+types = "data/subscriptions/types/subscription_v1.types.tolk"
+depends = []
+
+[contracts.Tonkeeper2fa]
+display-name = "Tonkeeper 2FA Extension"
+src = "data/tonkeeper_2fa/testdata/Tonkeeper2fa.boc"
+types = "data/tonkeeper_2fa/types/tonkeeper_2fa.types.tolk"
+depends = []
+
 [scripts]
+invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
+cron-mainnet-test = "acton test data/cron/tests/cron_storage.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+cron-message-bodies-test = "acton test data/cron/tests/cron_message_bodies.test.tolk --show-bodies"
+subscription-v1-mainnet-test = "acton test data/subscriptions/tests/subscription_v1_storage.test.tolk --fork-net mainnet --fork-block-number 16895880 --show-bodies"
+subscription-v1-message-bodies-test = "acton test data/subscriptions/tests/subscription_v1_message_bodies.test.tolk --show-bodies"
+subscription-v2-mainnet-test = "acton test data/subscriptions/tests/subscription_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+subscription-v2-message-bodies-test = "acton test data/subscriptions/tests/subscription_v2_message_bodies.test.tolk --show-bodies"
+tonkeeper-2fa-mainnet-test = "acton test data/tonkeeper_2fa/tests/tonkeeper_2fa_mainnet.test.tolk --fork-net mainnet --fork-block-number 65947764 --show-bodies"
+tonkeeper-2fa-message-bodies-test = "acton test data/tonkeeper_2fa/tests/tonkeeper_2fa_message_bodies.test.tolk --show-bodies"
 evaa-master-pyth-mainnet-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
 evaa-master-pyth-message-bodies-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_message_bodies.test.tolk --show-bodies"
 evaa-master-classic-mainnet-test = "acton test data/evaa/master_classic/tests/evaa_master_classic_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"

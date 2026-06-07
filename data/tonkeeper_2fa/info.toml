@@ -1,0 +1,27 @@
+[project]
+name = "tonkeeper_2fa"
+
+[metadata]
+category = "wallet extension"
+description = "Tonkeeper 2FA wallet extension contract"
+
+[sources]
+local_specification = "data/tonkeeper_2fa/research/source/2fa_SPECIFICATION.md"
+local_extension_func = "data/tonkeeper_2fa/research/source/tfa_extension.fc"
+local_shared_func = "data/tonkeeper_2fa/research/source/shared.fc"
+local_extension_wrapper = "data/tonkeeper_2fa/research/source/TFAExtension.ts"
+local_extension_tests = "data/tonkeeper_2fa/research/source/TFAExtension.spec.ts"
+local_compiled_boc = "data/tonkeeper_2fa/research/source/TFAExtension.compiled.json"
+local_tongo_schema = "data/tonkeeper_2fa/research/source/tongo_tonkeeper_2fa.xml"
+local_generated_types = "gen/tonkeeper_2fa.types.tolk"
+local_schema = "schemas/tonkeeper_2fa.xml"
+
+[contracts.Tonkeeper2fa]
+display_name = "Tonkeeper 2FA Extension"
+types = "types/tonkeeper_2fa.types.tolk"
+hashes = ["c5ef19df22aee8b707bd7a181174e400a4225223c5ae40d8320f5ddd707d34a1"]
+known_addresses = ["EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"]
+
+[contracts.Tonkeeper2fa.instances.canonical_toncenter]
+address = "EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"
+raw_address = "0:213CBA861C854F558839FA56EFA3707AB52146DEAB4ECF530721EC3761D175A0"
