@@ -6,7 +6,8 @@ contract TonstakersValidatorController {
     storage: TonstakersValidatorControllerStorage
     incomingMessages: TonstakersValidatorControllerIncomingMessage
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage
-    forceAbiExport: TonstakersValidatorControllerEmptyBody | TonstakersValidatorControllerBouncedKnownBody
+    forceAbiExport: TonstakersValidatorControllerEmptyBody
+        | TonstakersValidatorControllerBouncedKnownBody
     thrownErrors: TonstakersValidatorControllerErrors
 }
 
@@ -264,8 +265,7 @@ struct (0x30026327) TonstakersValidatorControllerValidatorWithdrawal {
 }
 
 /// Empty body emitted for value-only excess or bounty transfers.
-struct TonstakersValidatorControllerEmptyBody {
-}
+struct TonstakersValidatorControllerEmptyBody {}
 
 /// Protocol bounce body observed from failed controller requests.
 struct (0xffffffff) TonstakersValidatorControllerBouncedKnownBody {

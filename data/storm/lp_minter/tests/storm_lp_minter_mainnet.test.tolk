@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -69,7 +69,10 @@ fun loadStormLpMinterStorageFromFork(minter: StormLpMinter): LoadedStormLpMinter
     }
 }
 
-fun expectStormLpMinterGettersMatchStorage(minter: StormLpMinter, loaded: LoadedStormLpMinterStorage): void {
+fun expectStormLpMinterGettersMatchStorage(
+    minter: StormLpMinter,
+    loaded: LoadedStormLpMinterStorage,
+): void {
     val storage = loaded.storage;
     val jettonData = minter.getJettonData();
     val walletAddress = minter.getWalletAddress(storage.vaultAddress);

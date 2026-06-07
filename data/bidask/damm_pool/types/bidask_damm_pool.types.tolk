@@ -827,7 +827,13 @@ get fun get_farming_info(): GetBidaskDammFarmingInfoReply {
 }
 
 /// Return the quote tuple for a hypothetical swap.
-get fun get_expected_swap_result(amount: int, exactOut: int, tokenWallet: address, refFee: int, timestamp: int): GetBidaskDammExpectedSwapResultReply {
+get fun get_expected_swap_result(
+    amount: int,
+    exactOut: int,
+    tokenWallet: address,
+    refFee: int,
+    timestamp: int,
+): GetBidaskDammExpectedSwapResultReply {
     throw 0;
 }
 

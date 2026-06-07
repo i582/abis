@@ -1,6 +1,6 @@
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -10,8 +10,7 @@ import "../wrappers/StormExecutor.gen"
 const PINNED_MAINNET_BLOCK = 71588122
 const MAINNET_EXECUTOR_ADDRESS = "EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"
 const MAINNET_EXECUTOR_COLLECTION_ADDRESS = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
-const EXPECTED_EXECUTOR_CODE_HASH =
-    0x3f79c29d69f353bb65ee15930ac143cb244f780f59a3e56ceb9b8c9c3490be24
+const EXPECTED_EXECUTOR_CODE_HASH = 0x3f79c29d69f353bb65ee15930ac143cb244f780f59a3e56ceb9b8c9c3490be24
 
 fun mainnetStormExecutor(): StormExecutor {
     return StormExecutor.fromAddress(address(MAINNET_EXECUTOR_ADDRESS));

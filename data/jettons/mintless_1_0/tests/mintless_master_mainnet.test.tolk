@@ -3,10 +3,10 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
-import "../types/mintless_master.types"
-import "../wrappers/MintlessJettonMaster.gen"
 import "./master_test_utils"
 import "./wallet_test_utils"
+import "../types/mintless_master.types"
+import "../wrappers/MintlessJettonMaster.gen"
 
 get fun `test mintless master public getters work on mainnet`() {
     val master = mainnetMintlessMaster();

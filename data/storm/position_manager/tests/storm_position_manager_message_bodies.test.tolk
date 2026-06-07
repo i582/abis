@@ -172,7 +172,9 @@ get fun `test storm position manager decodes toncenter provide position body`() 
     expect(decoded.gasToAddress).toBeNull();
     expect(decoded.originOpcode).toEqual(3118993634);
     expect(decoded.amount).toEqual(196490790000);
-    expect(decoded.oraclePayload.hash()).toEqual(61045562962740894906395299002492927231807835105386931801520770094655276827100);
+    expect(
+        decoded.oraclePayload.hash(),
+    ).toEqual(61045562962740894906395299002492927231807835105386931801520770094655276827100);
 
     println("STORM_PM_PROVIDE_POSITION_TX={} LT={}", txHash, txLt);
 }

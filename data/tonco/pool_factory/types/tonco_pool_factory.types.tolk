@@ -241,7 +241,10 @@ get fun getPoolFactoryData(): ToncoPoolFactoryDataReply {
 }
 
 /// Return the deterministic order address for a pair of pool Jetton wallets.
-get fun getOrderAddress(jetton0Wallet: address, jetton1Wallet: address): ToncoPoolFactoryOrderAddressReply {
+get fun getOrderAddress(
+    jetton0Wallet: address,
+    jetton1Wallet: address,
+): ToncoPoolFactoryOrderAddressReply {
     throw 0;
 }
 

@@ -3,7 +3,6 @@ import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
 import "../types/dns_domain_item.types"
-import "../types/dns_root_resolver.types"
 import "../wrappers/DnsDomainItem.gen"
 import "../wrappers/DnsRootResolver.gen"
 

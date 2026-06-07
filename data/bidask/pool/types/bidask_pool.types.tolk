@@ -5,7 +5,9 @@ contract BidaskPool {
     description: "Curated Bidask DLMM Pool ABI for storage, direct and Jetton-forward swap/provide flows, range callbacks, and public pool getters"
     storage: BidaskPoolStorage
     outgoingMessages: BidaskPoolOutgoingMessage
-    forceAbiExport: BidaskPoolIncomingMessage | BidaskPoolForwardPayloadMessage | BidaskPoolExtraExport
+    forceAbiExport: BidaskPoolIncomingMessage
+        | BidaskPoolForwardPayloadMessage
+        | BidaskPoolExtraExport
 }
 
 /// Runtime Pool storage for the current versioned DLMM data cell.

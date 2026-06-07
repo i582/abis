@@ -7,8 +7,7 @@ import "../types/evaa_user.types"
 
 const CODE_FIXTURE_BOC_PATH = "data/evaa/user/testdata/EvaaUser.boc"
 const DATA_FIXTURE_BOC_PATH = "data/evaa/user/testdata/EvaaUser.data.boc"
-const LIVE_DATA_BOC =
-    "te6ccgEBAwEAsQACmRAYATpDq7+sgH+w7vszY2aQoYh4Hx+Pz1vlSaw4i8CI1GhXAA/csMDLQHOPaW77sl58pHnbPspKp8Is94ySwxjwAsRaYAAAAAAAAAASAQIAU6AbKS3zZPNJxNiT1suriPjzbb+9Qtk3XfUisU+/d3lYCUAAAAAACKzo8ABjoBspLfNk80nE2JPWy6uI+PNtv71C2Tdd9SKxT793eVgJQAAAAAAAAAAAAAAAAAAAABA="
+const LIVE_DATA_BOC = "te6ccgEBAwEAsQACmRAYATpDq7+sgH+w7vszY2aQoYh4Hx+Pz1vlSaw4i8CI1GhXAA/csMDLQHOPaW77sl58pHnbPspKp8Is94ySwxjwAsRaYAAAAAAAAAASAQIAU6AbKS3zZPNJxNiT1suriPjzbb+9Qtk3XfUisU+/d3lYCUAAAAAACKzo8ABjoBspLfNk80nE2JPWy6uI+PNtv71C2Tdd9SKxT793eVgJQAAAAAAAAAAAAAAAAAAAABA="
 
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0x19fe8804c2c449c857b4c5478d9794dead72ce9b4eed00963fc27d0b95b4ad81
@@ -30,7 +29,7 @@ fun liveDataCell(): cell {
     return parseCellFromBase64(LIVE_DATA_BOC);
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

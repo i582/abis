@@ -1,7 +1,6 @@
-import "@acton/emulation/network"
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -25,7 +24,9 @@ fun expectEmptyCell(cellValue: cell): void {
     expect(cellValue.hash()).toEqual(createEmptyCell().hash());
 }
 
-fun loadStormPositionManagerStorageFromFork(pm: StormPositionManagerLibrary): StormPositionManagerStorage {
+fun loadStormPositionManagerStorageFromFork(
+    pm: StormPositionManagerLibrary,
+): StormPositionManagerStorage {
     val account = testing.getAccountState(pm.address);
     expect(account).toBeNotNull();
 

@@ -451,8 +451,7 @@ type BidaskRangeOutgoingMessage =
     | BidaskMultitokenMint
 
 /// Extra exported bodies that cannot be placed in outgoingMessages because of opcode ambiguity.
-type BidaskRangeForceExport =
-    | BidaskSwapFallback
+type BidaskRangeForceExport = BidaskSwapFallback
 
 /// Reply returned by XML-derived `get_bin_assets`.
 struct GetBinAssetsReply {

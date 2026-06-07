@@ -53,10 +53,7 @@ fun localJetton2WalletInitial(master: Jetton2Master, owner: address): Jetton2Wal
             ownerAddress: owner,
             jettonMasterAddress: master.address,
         },
-        {
-            fixedPrefixLength: JETTON_2_SHARD_DEPTH as uint5,
-            closeTo: owner,
-        },
+        { fixedPrefixLength: JETTON_2_SHARD_DEPTH as uint5, closeTo: owner },
     );
 }
 

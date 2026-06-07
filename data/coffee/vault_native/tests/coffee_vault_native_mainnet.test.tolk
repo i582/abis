@@ -1,9 +1,9 @@
 import "@acton/build"
+import "@acton/fs"
+import "@acton/io"
 import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/fs"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -36,9 +36,7 @@ fun CoffeeVaultNative.isActive(self): bool {
 }
 
 fun coffeeNativeAssetCell(): cell {
-    return beginCell()
-        .storeUint(0, 2)
-        .endCell();
+    return beginCell().storeUint(0, 2).endCell();
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -48,7 +46,7 @@ fun hasBocMagic(bytes: slice): bool {
     return bytes.preloadUint(32) == EXPECTED_BOC_MAGIC;
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

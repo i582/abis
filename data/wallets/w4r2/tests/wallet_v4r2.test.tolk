@@ -1,3 +1,4 @@
+import "@stdlib/lisp-lists"
 import "@acton/io"
 import "@acton/emulation/network"
 import "@acton/emulation/scripts"
@@ -5,7 +6,6 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "@stdlib/lisp-lists"
 import "../types/wallet_v4r2.types"
 import "../wrappers/WalletV4r2.gen"
 
@@ -18,18 +18,12 @@ fun walletV4r2(): WalletV4r2 {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 
 fun emptySimpleSendPayload(): WalletV4r2Payload {
-    return WalletV4r2SimpleSend {
-        messages: createEmptyCell().beginParse(),
-    };
+    return WalletV4r2SimpleSend { messages: createEmptyCell().beginParse() };
 }
 
 fun loadWalletV4r2StorageFromFork(wallet: WalletV4r2): WalletV4r2Storage {

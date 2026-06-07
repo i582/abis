@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -66,7 +66,11 @@ fun expectRoundReplyMatchesStorage(reply: tuple, storage: TonstakersPoolRoundDat
     expect(storage.borrowersDict).toHaveLength(storage.activeBorrowers);
 }
 
-fun expectGetterPayoutMatchesStorage(payout: TonstakersPoolMaybePayout, getterAddress: address?, getterAmount: int): void {
+fun expectGetterPayoutMatchesStorage(
+    payout: TonstakersPoolMaybePayout,
+    getterAddress: address?,
+    getterAmount: int,
+): void {
     match (payout) {
         TonstakersPoolPayoutAbsent => {
             expect(getterAddress).toBeNull();
@@ -147,7 +151,10 @@ fun loadTonstakersPoolStorageFromFork(pool: TonstakersPool): LoadedTonstakersPoo
     }
 }
 
-fun expectTonstakersPoolGettersMatchStorage(pool: TonstakersPool, loaded: LoadedTonstakersPoolStorage): void {
+fun expectTonstakersPoolGettersMatchStorage(
+    pool: TonstakersPool,
+    loaded: LoadedTonstakersPoolStorage,
+): void {
     val storage = loaded.storage;
     val minters = loaded.mintersData;
     val roles = loaded.roles;
@@ -157,7 +164,11 @@ fun expectTonstakersPoolGettersMatchStorage(pool: TonstakersPool, loaded: Loaded
     val fullData = pool.getPoolFullData();
     val loan = pool.getLoan(0, address(MAINNET_SAMPLE_VALIDATOR_ADDRESS), false, false);
     val controllerAddress = pool.getControllerAddress(0, address(MAINNET_SAMPLE_VALIDATOR_ADDRESS));
-    val legacyControllerAddress = pool.getControllerAddressLegacy(0, 0, MAINNET_SAMPLE_VALIDATOR_HASH);
+    val legacyControllerAddress = pool.getControllerAddressLegacy(
+        0,
+        0,
+        MAINNET_SAMPLE_VALIDATOR_HASH,
+    );
     val calculatedLoan = pool.calculateLoanAmount(0, 1000000000, rawFullData.interestRate);
 
     expect(scripts.isContractDeployed(pool.address)).toBeTrue();
@@ -175,8 +186,16 @@ fun expectTonstakersPoolGettersMatchStorage(pool: TonstakersPool, loaded: Loaded
     expect(rawFullData.governanceFee).toEqual(storage.governanceFee);
     expect(rawFullData.jettonMinter).toEqual(minters.jettonMinter);
     expect(rawFullData.supply).toEqual(minters.supply);
-    expectGetterPayoutMatchesStorage(minters.depositPayout, rawFullData.depositPayout, rawFullData.requestedForDeposit);
-    expectGetterPayoutMatchesStorage(minters.withdrawalPayout, rawFullData.withdrawalPayout, rawFullData.requestedForWithdrawal);
+    expectGetterPayoutMatchesStorage(
+        minters.depositPayout,
+        rawFullData.depositPayout,
+        rawFullData.requestedForDeposit,
+    );
+    expectGetterPayoutMatchesStorage(
+        minters.withdrawalPayout,
+        rawFullData.withdrawalPayout,
+        rawFullData.requestedForWithdrawal,
+    );
     expect(rawFullData.sudoer).toEqual(roles.sudoer);
     expect(rawFullData.sudoerSetAt).toEqual(roles.sudoerSetAt);
     expect(rawFullData.governor).toEqual(roles.governor);

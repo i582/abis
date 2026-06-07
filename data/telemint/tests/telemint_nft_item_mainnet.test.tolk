@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/telemint_nft_item.types"
 import "../wrappers/TelemintNftItem.gen"
-import "./test_utils"
 
 get fun `test telemint nft item mainnet getters and storage`() {
     val item = mainnetTelemintNftItem();

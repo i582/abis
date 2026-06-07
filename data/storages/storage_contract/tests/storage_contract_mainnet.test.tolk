@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -66,7 +66,10 @@ fun loadStorageContractStorageFromFork(contract: StorageContract): LoadedStorage
     }
 }
 
-fun expectStorageContractGettersMatchStorage(contract: StorageContract, loaded: LoadedStorageContractStorage): void {
+fun expectStorageContractGettersMatchStorage(
+    contract: StorageContract,
+    loaded: LoadedStorageContractStorage,
+): void {
     val storage = loaded.storage;
     val clientData = loaded.clientData;
     val contractData = contract.getStorageContractData();

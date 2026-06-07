@@ -9,7 +9,7 @@ const LP_BURN_RESPONSE = "0:26D0494E869C50BC9683EAD46ED7891073DB6C97C6A89D820738
 const LP_DISCOVERY_OWNER = "0:1AD8854A8B369CE472901BCCF8C201FDEA9C8851557E7C81C40430E58500DD3F"
 const LP_DISCOVERY_WALLET = "0:7ABBA74347EEF5278EC8645D918371E0B5F9E78D6B07B44A9983252C36856E75"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

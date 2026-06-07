@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/nft_v1_collection.types"
 import "../wrappers/NftV1Collection.gen"
-import "./test_utils"
 
 fun assertNftV1CollectionGetters(collection: NftV1Collection, label: string) {
     val storage = loadNftV1CollectionStorageFromFork(collection);
@@ -87,10 +87,7 @@ get fun `test nft v1 editable collection rejects unauthorized content change`() 
     val txs = collection.sendNftV1ChangeContent(
         sender.address,
         3,
-        {
-            collectionMetadata: before.collectionMetadata,
-            commonContent: createEmptyCell(),
-        },
+        { collectionMetadata: before.collectionMetadata, commonContent: createEmptyCell() },
         royalty,
         { value: ton("0.05"), bounce: false },
     );
@@ -100,5 +97,7 @@ get fun `test nft v1 editable collection rejects unauthorized content change`() 
         to: collection.address,
         exitCode: NftV1CollectionErrors.UnauthorizedAdmin,
     });
-    expect(collection.getCollectionData().collectionMetadata.hash()).toEqual(before.collectionMetadata.hash());
+    expect(collection.getCollectionData().collectionMetadata.hash()).toEqual(
+        before.collectionMetadata.hash(),
+    );
 }

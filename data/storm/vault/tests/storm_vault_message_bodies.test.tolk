@@ -7,7 +7,7 @@ const STORM_USDT_MINTER = "0:B113A994B5024A16719F69139328EB759596C38A25F59028B14
 const STORM_ORIGIN = "0:9E7E69CD0D8CA689A61F3EBBA57E5DC855484A4C435D878C58B6ED8522A75F48"
 const STORM_VAULT_TRADE_SA = "0:0FDC7DADDC7009BAD5E313CAC3FDE98D3502E3415B5DCCA314BD8390F951B451"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

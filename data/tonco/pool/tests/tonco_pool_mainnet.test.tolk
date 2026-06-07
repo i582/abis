@@ -109,8 +109,12 @@ get fun `test tonco pool mainnet storage getters children and derived accounts`(
     expect(poolData.currentLiquidity).toEqual(state.liquidity as int);
     expect(poolData.feeGrowsGlobal0).toEqual(feesAndReserves.feeGrowthGlobal0X128 as int);
     expect(poolData.feeGrowsGlobal1).toEqual(feesAndReserves.feeGrowthGlobal1X128 as int);
-    expect(poolData.collectedToken0ProtocolFee).toEqual(feesAndReserves.collectedProtocolFee0 as int);
-    expect(poolData.collectedToken1ProtocolFee).toEqual(feesAndReserves.collectedProtocolFee1 as int);
+    expect(poolData.collectedToken0ProtocolFee).toEqual(
+        feesAndReserves.collectedProtocolFee0 as int,
+    );
+    expect(poolData.collectedToken1ProtocolFee).toEqual(
+        feesAndReserves.collectedProtocolFee1 as int,
+    );
     expect(poolData.mintedNftPositions).toEqual(state.nftv3itemCounter as int);
     expect(poolData.reserve0).toEqual(feesAndReserves.reserve0 as int);
     expect(poolData.reserve1).toEqual(feesAndReserves.reserve1 as int);
@@ -124,8 +128,12 @@ get fun `test tonco pool mainnet storage getters children and derived accounts`(
     expect(childReply.nftItemMetadata.hash()).toEqual(childContracts.nftv3itemContent.hash());
     expect(childReply.accountCode.hash()).toEqual(EXPECTED_ACCOUNT_CODE_HASH);
     expect(childReply.positionNftCode.hash()).toEqual(EXPECTED_POSITION_NFT_CODE_HASH);
-    expect(childReply.accountCode.hash()).toEqual(build("ToncoAccount", ACCOUNT_FIXTURE_BOC_PATH).hash());
-    expect(childReply.positionNftCode.hash()).toEqual(build("ToncoPositionNftV3", POSITION_NFT_FIXTURE_BOC_PATH).hash());
+    expect(childReply.accountCode.hash()).toEqual(
+        build("ToncoAccount", ACCOUNT_FIXTURE_BOC_PATH).hash(),
+    );
+    expect(childReply.positionNftCode.hash()).toEqual(
+        build("ToncoPositionNftV3", POSITION_NFT_FIXTURE_BOC_PATH).hash(),
+    );
 
     expect(collectionData.nextItemIndex).toEqual(state.nftv3itemCounter as int);
     expect(collectionData.collectionContent.hash()).toEqual(childContracts.nftv3Content.hash());
@@ -190,10 +198,20 @@ get fun `test tonco pool mainnet estimate getters`() {
     val collectedFees = pool.getCollectedFees(-887200, 887200, 234403615468, 0, 0);
     val mintEstimate = pool.getMintEstimate(-887200, 887200, 1);
     val swapEstimate = pool.getSwapEstimate(0, 1000000, MAX_SQRT_RATIO_MINUS_ONE);
-    val swapEstimateGas = pool.getSwapEstimateGas(0, 1000000, MAX_SQRT_RATIO_MINUS_ONE, 0, 1000000000);
+    val swapEstimateGas = pool.getSwapEstimateGas(
+        0,
+        1000000,
+        MAX_SQRT_RATIO_MINUS_ONE,
+        0,
+        1000000000,
+    );
 
-    expect(feeGrowthInside.feeGrowthInside0X128).toEqual(feesAndReserves.feeGrowthGlobal0X128 as int);
-    expect(feeGrowthInside.feeGrowthInside1X128).toEqual(feesAndReserves.feeGrowthGlobal1X128 as int);
+    expect(feeGrowthInside.feeGrowthInside0X128).toEqual(
+        feesAndReserves.feeGrowthGlobal0X128 as int,
+    );
+    expect(feeGrowthInside.feeGrowthInside1X128).toEqual(
+        feesAndReserves.feeGrowthGlobal1X128 as int,
+    );
     expect(collectedFees.amount0).toBeGreater(0);
     expect(collectedFees.amount1).toBeGreater(0);
     expect(mintEstimate.amount0).toEqual(230);

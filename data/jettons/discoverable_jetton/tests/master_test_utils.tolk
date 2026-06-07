@@ -10,7 +10,9 @@ const MAINNET_DISCOVERABLE_JETTON_OWNER_ADDRESS = "EQDerEPTIh0O8lBdjWc6aLaJs5HYq
 const MAINNET_DISCOVERABLE_JETTON_WALLET_ADDRESS = "EQDt0qeoHwip8CtuUeNsaKjK-g0rwL7zUunKAnv0NCTZDSs3"
 
 fun mainnetDiscoverableJettonMaster(): DiscoverableJettonMaster {
-    return DiscoverableJettonMaster.fromAddress(address(MAINNET_DISCOVERABLE_JETTON_MASTER_ADDRESS));
+    return DiscoverableJettonMaster.fromAddress(
+        address(MAINNET_DISCOVERABLE_JETTON_MASTER_ADDRESS),
+    );
 }
 
 fun mainnetDiscoverableJettonOwner(): address {

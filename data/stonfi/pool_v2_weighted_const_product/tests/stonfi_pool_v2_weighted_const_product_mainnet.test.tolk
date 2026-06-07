@@ -53,7 +53,9 @@ fun loadStonfiPoolV2WeightedConstProductStorageFromFork(
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("StonfiPoolV2WeightedConstProduct", FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("StonfiPoolV2WeightedConstProduct", FIXTURE_BOC_PATH).hash(),
+            );
             return StonfiPoolV2WeightedConstProductStorage.fromCell(data!);
         }
         TlbAccountStateUninit => {
@@ -104,8 +106,14 @@ get fun `test stonfi pool v2 weighted const product mainnet getters match fork s
     expect(poolData.collectedToken1ProtocolFee).toEqual(storage.collectedToken1ProtocolFee as int);
     expect(poolData.w0).toEqual(storage.w0);
 
-    expectNonZeroDerivedAddress(lpAccountAddress, "Expected non-zero derived WeightedConstProduct LP account address");
-    expectNonZeroDerivedAddress(lpWalletAddress, "Expected non-zero derived WeightedConstProduct LP wallet address");
+    expectNonZeroDerivedAddress(
+        lpAccountAddress,
+        "Expected non-zero derived WeightedConstProduct LP account address",
+    );
+    expectNonZeroDerivedAddress(
+        lpWalletAddress,
+        "Expected non-zero derived WeightedConstProduct LP wallet address",
+    );
 
     expect(jettonData.totalSupply).toEqual(storage.totalSupplyLp as int);
     expect(jettonData.mintable).toBeTrue();

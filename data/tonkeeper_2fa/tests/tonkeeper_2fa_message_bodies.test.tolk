@@ -14,7 +14,7 @@ const WALLET_REQUEST_OUT_ACTION_HASH = 0xb2e6bd50d37b0dbc61df698a543671b75bf68ad
 const WALLET_REQUEST_NESTED_MSG_HASH = 0x5e6ec94321e708f34b5fa668b799d7f5df10c31cc045519c13e3ca8287241cd2
 const SEND_ACTIONS_NESTED_DESTINATION = "0:1016DA0F532FB85CD568656850C6D371C48A9F2080A144007F43B836FD36C5F7"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

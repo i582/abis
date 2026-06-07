@@ -58,8 +58,7 @@ type HipoLibrarianIncomingMessage =
     | HipoLibrarianTopUp
 
 /// Internal message bodies emitted by the Hipo Librarian.
-type HipoLibrarianOutgoingMessage =
-    | HipoLibrarianGasExcess
+type HipoLibrarianOutgoingMessage = HipoLibrarianGasExcess
 
 /// Hipo Librarian exit-code catalog documented from shared source constants.
 enum HipoLibrarianErrors {

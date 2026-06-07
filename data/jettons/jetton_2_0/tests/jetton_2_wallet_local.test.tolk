@@ -2,11 +2,11 @@ import "@acton/io"
 import "@acton/emulation/network"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/jetton_2_master.types"
 import "../types/jetton_2_wallet.types"
 import "../wrappers/Jetton2Master.gen"
 import "../wrappers/Jetton2Wallet.gen"
-import "./test_utils"
 
 get fun `test jetton v2 wallet transfer and burn update balances`() {
     val admin = testing.treasury("jetton-2-wallet-flow-admin");

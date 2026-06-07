@@ -14,12 +14,12 @@ const STORM_PRELAUNCH_JETTON_WALLET_HASH = 0xb8d2d2f4c80c8fae6b3e0ab940634f5e826
 const STORM_PRELAUNCH_FIRST_USER_HASH = 0xd373935da0e574264ef456a3865f279771e2c41ed71d6c850a71f6d2649dd6af
 const STORM_PRELAUNCH_CHANGE_CODE_HASH = 0xe3bb855bb5fa6756650c619ba551762817f8ff39b46437582514dfb3ab2f6aa3
 
-fun expectEmptySlice(mutate stream: slice): void {
+fun expectEmptySlice(stream: slice): void {
     expect(stream.remainingBitsCount()).toEqual(0);
     expect(stream.remainingRefsCount()).toEqual(0);
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -64,7 +64,12 @@ get fun `test storm prelaunch decodes toncenter provide wallet address body`() {
     expect(decoded.includeAddress).toBeFalse();
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("STORM_PRELAUNCH_PROVIDE_WALLET_ADDRESS_TX={} LT={} QUERY_ID={}", txHash, txLt, decoded.queryId);
+    println(
+        "STORM_PRELAUNCH_PROVIDE_WALLET_ADDRESS_TX={} LT={} QUERY_ID={}",
+        txHash,
+        txLt,
+        decoded.queryId,
+    );
 }
 
 get fun `test storm prelaunch decodes toncenter take wallet address body`() {
@@ -112,7 +117,12 @@ get fun `test storm prelaunch decodes toncenter set participants body`() {
     expect(participant.targetAmount).toBeGreater(0);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("STORM_PRELAUNCH_SET_PARTICIPANTS_TX={} LT={} PARTICIPANT={}", txHash, txLt, participant);
+    println(
+        "STORM_PRELAUNCH_SET_PARTICIPANTS_TX={} LT={} PARTICIPANT={}",
+        txHash,
+        txLt,
+        participant,
+    );
 }
 
 get fun `test storm prelaunch decodes toncenter set reward notifier body`() {
@@ -140,7 +150,12 @@ get fun `test storm prelaunch decodes toncenter change code body`() {
     expect(decoded.code.hash()).toEqual(STORM_PRELAUNCH_CHANGE_CODE_HASH);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("STORM_PRELAUNCH_CHANGE_CODE_TX={} LT={} CODE_HASH={}", txHash, txLt, decoded.code.hash());
+    println(
+        "STORM_PRELAUNCH_CHANGE_CODE_TX={} LT={} CODE_HASH={}",
+        txHash,
+        txLt,
+        decoded.code.hash(),
+    );
 }
 
 get fun `test storm prelaunch decodes toncenter set end time body`() {

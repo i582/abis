@@ -34,7 +34,12 @@ get fun `test tonco position nft v3 decodes real transfer body`() {
     expectEmptyForwardPayload(decoded.forwardPayload);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_TRANSFER_TX={} LT={} NFT={}", txHash, txLt, TONCO_POSITION_NFT_786);
+    println(
+        "TONCO_POSITION_NFT_V3_TRANSFER_TX={} LT={} NFT={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+    );
 }
 
 get fun `test tonco position nft v3 decodes real ownership assigned body`() {
@@ -49,7 +54,12 @@ get fun `test tonco position nft v3 decodes real ownership assigned body`() {
     expectEmptyForwardPayload(decoded.forwardPayload);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_OWNERSHIP_ASSIGNED_TX={} LT={} NFT={}", txHash, txLt, TONCO_POSITION_NFT_786);
+    println(
+        "TONCO_POSITION_NFT_V3_OWNERSHIP_ASSIGNED_TX={} LT={} NFT={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+    );
 }
 
 get fun `test tonco position nft v3 decodes real excesses body`() {
@@ -62,7 +72,12 @@ get fun `test tonco position nft v3 decodes real excesses body`() {
     expect(decoded.queryId).toEqual(0);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_EXCESSES_TX={} LT={} NFT={}", txHash, txLt, TONCO_POSITION_NFT_786);
+    println(
+        "TONCO_POSITION_NFT_V3_EXCESSES_TX={} LT={} NFT={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+    );
 }
 
 get fun `test tonco position nft v3 decodes real position init body`() {
@@ -87,7 +102,12 @@ get fun `test tonco position nft v3 decodes real position init body`() {
     expect(oldFeeCell.tick).toEqual(-63352);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_POSITION_INIT_TX={} LT={} NFT={}", txHash, txLt, TONCO_POSITION_NFT_786);
+    println(
+        "TONCO_POSITION_NFT_V3_POSITION_INIT_TX={} LT={} NFT={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+    );
 }
 
 get fun `test tonco position nft v3 decodes real position burn body`() {
@@ -107,7 +127,12 @@ get fun `test tonco position nft v3 decodes real position burn body`() {
     expect(oldFeeCell.feeGrowthInside1LastX128).toEqual(74586984024329031990309934209058872);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_POSITION_BURN_TX={} LT={} NFT={}", txHash, txLt, TONCO_POSITION_NFT_786);
+    println(
+        "TONCO_POSITION_NFT_V3_POSITION_BURN_TX={} LT={} NFT={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+    );
 }
 
 get fun `test tonco position nft v3 decodes real pool burn body`() {
@@ -132,5 +157,11 @@ get fun `test tonco position nft v3 decodes real pool burn body`() {
     expect(newFeeCell.feeGrowthInside1CurrentX128).toEqual(74586984024329031990309934209058872);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_POSITION_NFT_V3_POOL_BURN_TX={} LT={} NFT={} POOL={}", txHash, txLt, TONCO_POSITION_NFT_786, TONCO_POOL_TSTON_USDT);
+    println(
+        "TONCO_POSITION_NFT_V3_POOL_BURN_TX={} LT={} NFT={} POOL={}",
+        txHash,
+        txLt,
+        TONCO_POSITION_NFT_786,
+        TONCO_POOL_TSTON_USDT,
+    );
 }

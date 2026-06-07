@@ -5,10 +5,10 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "../types/multisig_v2.types"
 import "../types/multisig_order_v2.types"
-import "../wrappers/MultisigV2.gen"
+import "../types/multisig_v2.types"
 import "../wrappers/MultisigOrderV2.gen"
+import "../wrappers/MultisigV2.gen"
 
 const MAINNET_MULTISIG_V2_ADDRESS = "EQDBiZgqlvtO7yyHUU-W76fFAMq_DNa0_usZYgcpjNIfRVFI"
 const MAINNET_MULTISIG_ORDER_V2_ADDRESS = "EQC9p_dC5dRmLnrV8fl5sRXrbWAqGoPa37ROSvjurK60dUFN"
@@ -34,10 +34,7 @@ fun emptyTextCommentTail(): RemainingBitsAndRefs {
 }
 
 fun unknownBodyWithQuery(): cell {
-    return beginCell()
-        .storeUint(0x12345678, 32)
-        .storeUint(0, 64)
-        .endCell();
+    return beginCell().storeUint(0x12345678, 32).storeUint(0, 64).endCell();
 }
 
 fun loadMultisigV2StorageFromFork(multisig: MultisigV2): MultisigV2Storage {
@@ -80,7 +77,9 @@ fun loadMultisigOrderV2StorageFromFork(order: MultisigOrderV2): MultisigOrderV2S
     }
 }
 
-fun loadMultisigOrderV2DeploymentStorageFromFork(order: MultisigOrderV2): MultisigOrderV2DeploymentStorage {
+fun loadMultisigOrderV2DeploymentStorageFromFork(
+    order: MultisigOrderV2,
+): MultisigOrderV2DeploymentStorage {
     val account = testing.getAccountState(order.address);
     expect(account).toBeNotNull();
 

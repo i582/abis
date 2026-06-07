@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -39,7 +39,9 @@ fun hasBocMagic(bytes: slice): bool {
     return bytes.preloadUint(32) == EXPECTED_BOC_MAGIC;
 }
 
-fun loadBemoUnstakeRequestStorageFromFork(request: BemoUnstakeRequest): LoadedBemoUnstakeRequestStorage {
+fun loadBemoUnstakeRequestStorageFromFork(
+    request: BemoUnstakeRequest,
+): LoadedBemoUnstakeRequestStorage {
     val account = testing.getAccountState(request.address);
     expect(account).toBeNotNull();
 
@@ -54,7 +56,10 @@ fun loadBemoUnstakeRequestStorageFromFork(request: BemoUnstakeRequest): LoadedBe
             expect(code!.hash()).toEqual(build("BemoUnstakeRequest", FIXTURE_BOC_PATH).hash());
             expect(data!.hash()).toEqual(EXPECTED_DATA_HASH);
             val storage = BemoUnstakeRequestStorage.fromCell(data!);
-            return LoadedBemoUnstakeRequestStorage { data: data!, storage };
+            return LoadedBemoUnstakeRequestStorage {
+                data: data!,
+                storage,
+            };
         }
         TlbAccountStateUninit => {
             Assert.fail("Bemo Unstake Request mainnet fixture account is uninitialized");

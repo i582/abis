@@ -74,7 +74,9 @@ get fun `test coffee factory mainnet code hash storage and getters`() {
 
     expect(getterCodeCells.lpWalletCode.hash()).toEqual(codeCells.lpWalletCode.hash());
     expect(getterCodeCells.initCode.hash()).toEqual(codeCells.initCode.hash());
-    expect(getterCodeCells.liquidityDepositoryCode.hash()).toEqual(codeCells.liquidityDepositoryCode.hash());
+    expect(getterCodeCells.liquidityDepositoryCode.hash()).toEqual(
+        codeCells.liquidityDepositoryCode.hash(),
+    );
     expect(getterCodeCells.poolCreatorCode.hash()).toEqual(codeCells.poolCreatorCode.hash());
 
     expect(codeCells.lpWalletCode.hash()).toBeGreater(0);

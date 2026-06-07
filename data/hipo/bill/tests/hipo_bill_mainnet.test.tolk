@@ -1,7 +1,6 @@
-import "@acton/emulation/network"
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -43,7 +42,10 @@ fun loadHipoBillStorageFromFork(): LoadedHipoBillStorage {
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
             expect(data!.hash()).toEqual(EXPECTED_DATA_HASH);
             val storage = HipoBillStorage.fromCell(data!);
-            return LoadedHipoBillStorage { data: data!, storage };
+            return LoadedHipoBillStorage {
+                data: data!,
+                storage,
+            };
         }
         TlbAccountStateUninit => {
             Assert.fail("Hipo Bill mainnet fixture account is uninitialized");

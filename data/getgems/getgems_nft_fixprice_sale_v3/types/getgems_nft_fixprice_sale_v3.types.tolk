@@ -44,8 +44,7 @@ struct GetgemsNftFixpriceSaleV3Storage {
 }
 
 /// Empty internal message body; when initialized, source treats it as a buy request with query id zero.
-struct GetgemsNftFixpriceSaleV3EmptyBuy {
-}
+struct GetgemsNftFixpriceSaleV3EmptyBuy {}
 
 /// Opcode-zero internal body also reaches the buy branch; source ignores the parsed query id.
 struct (0x00000000) GetgemsNftFixpriceSaleV3ZeroOpcodeBuy {

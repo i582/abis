@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -16,13 +16,10 @@ const MAINNET_SMART_ACCOUNT_ADDRESS = "EQAlEeKROSs9N0UbTw2lWgns8EKjaNs7HmAwVpHc-
 const MAINNET_FACTORY_ADDRESS = "EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"
 const MAINNET_OWNER_ADDRESS = "EQDrkP0Gm0ZIiTC744Xhd4fFLt560Q6NjwqtqESUuw_KQqnh"
 const MAINNET_NATIVE_VAULT_ADDRESS = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
-const EXPECTED_CODE_HASH =
-    0x91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b1157106091886f56
+const EXPECTED_CODE_HASH = 0x91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b1157106091886f56
 const EXPECTED_NATIVE_VAULT_BALANCE = 106127368
-const EXPECTED_HOT_PUBLIC_KEY =
-    87239587847142616048295798838787664456457434067972149231226244021718341634210
-const EXPECTED_COLD_PUBLIC_KEY =
-    77954538618246219238076980304107513279290426602386175610114018503125127500440
+const EXPECTED_HOT_PUBLIC_KEY = 87239587847142616048295798838787664456457434067972149231226244021718341634210
+const EXPECTED_COLD_PUBLIC_KEY = 77954538618246219238076980304107513279290426602386175610114018503125127500440
 
 fun mainnetSmartAccount(): SmartAccount {
     return SmartAccount.fromAddress(address(MAINNET_SMART_ACCOUNT_ADDRESS));
@@ -36,11 +33,7 @@ fun hasBocMagic(bytes: slice): bool {
 }
 
 fun zeroPositionKey(): bits268 {
-    var key = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 12)
-        .endCell()
-        .beginParse();
+    var key = beginCell().storeUint(0, 256).storeUint(0, 12).endCell().beginParse();
     return key.loadBits(268) as bits268;
 }
 

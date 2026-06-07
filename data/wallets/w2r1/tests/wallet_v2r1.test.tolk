@@ -16,11 +16,7 @@ fun walletV2r1(): WalletV2r1 {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 

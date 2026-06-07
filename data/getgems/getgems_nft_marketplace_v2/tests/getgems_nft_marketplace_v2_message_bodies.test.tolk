@@ -4,7 +4,7 @@ import "@acton/testing/expect"
 import "@acton/types/message"
 import "../types/getgems_nft_marketplace_v2.types"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -38,7 +38,7 @@ fun loadAndCheckInternalMessageBody(
     expect(message.info.dest).toEqual(expectedDestination);
     expect(message.info.value.grams).toEqual(expectedValue);
 
-    var body = message.loadBody();
+    val body = message.loadBody();
     expect(body.remainingBitsCount()).toEqual(expectedBodyBits);
     expect(body.remainingRefsCount()).toEqual(expectedBodyRefs);
     expect(body.preloadUint(32)).toEqual(expectedOpcode);
@@ -162,7 +162,11 @@ get fun `test getgems marketplace v2 decodes toncenter signed external emergency
     expectEmergencyProxyBody(mutate forwardedBody);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_SIGNED_EMERGENCY_PROXY_TX={} LT={}", txHash, txLt);
+    println(
+        "GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_SIGNED_EMERGENCY_PROXY_TX={} LT={}",
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test getgems marketplace v2 decodes toncenter signed external stop text body`() {

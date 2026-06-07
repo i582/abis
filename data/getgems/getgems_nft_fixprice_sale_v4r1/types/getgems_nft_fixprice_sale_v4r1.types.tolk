@@ -78,8 +78,7 @@ struct GetgemsNftFixpriceSaleV4R1JettonPrice {
 }
 
 /// Empty internal message body; when initialized, source treats it as a TON buy with query id zero.
-struct GetgemsNftFixpriceSaleV4R1EmptyTonBuy {
-}
+struct GetgemsNftFixpriceSaleV4R1EmptyTonBuy {}
 
 /// Explicit zero-op body; a text tail equal to `cancel` is treated as cancellation, otherwise as TON buy.
 struct (0x00000000) GetgemsNftFixpriceSaleV4R1ZeroOpcodeBuyOrTextCancel {

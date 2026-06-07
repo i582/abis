@@ -14,7 +14,7 @@ const EXPECTED_VAULT_PROOF_HASH = 0x8930570816a375a5842b789274be53e37476a1bbcce7
 const SWAP_SENDER = "EQB6LiLct5nw3HiBU1WcjOUNdOcnl62QUyrNC394S2Pi7aSS"
 const PAYOUT_RECIPIENT = "EQCM9RQP6iuZLTE0kYbz6Xk0jUsxKy4ehJhFNZdTJCQ_fCwW"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

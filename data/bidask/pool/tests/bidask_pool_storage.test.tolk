@@ -1,9 +1,9 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/expect"
 import "../types/bidask_pool.types"
 import "../wrappers/BidaskPool.gen"
@@ -15,8 +15,7 @@ const EXPECTED_CODE_HASH = 0xb1215034b293853339110766cdc83626a147787ec15d0c571cb
 const EXPECTED_DATA_HASH = 0xd47a1f11d60c253c0b8a12e8498be1b723e7c89437945405213b18685e26e70a
 
 const MAINNET_BIDASK_POOL_ADDRESS = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
-const DATA_FIXTURE_BOC =
-    "te6ccgECCAEAAXgAAlsAASChQwb3SwAAAAAAAAAAAAAAAAAAAAAck6GZTByvFvTi30Pj6PtjGQAAAqEkAQIE+YAdatsTeuiOAQQeE0qNzusFYhpq8KYKhSwRkMUPKqGVyGAAoAAAAAAAAAAAAAAAIACgAKAAAAyAADADeGcsxrWwyUBisoRxTf9ZapiwQjlNB5F4ah1Fm4vUgYYAbF4iDTU6Gc2vq3mT74jjGWCMEXajzH48sIrqZ4k+vTxAAwQFBgFjAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAHCEICBSdYlaiO0SjKdSgKS1q2rlmfzLmbM2gGf8hghGhdrPsIQgLi2jTTG2IKMbJwIquwxf81vE2XtKQxDD+3g6HBKkRqgwhCAqMEPSg62gIQjerUUc+z28ckr5qZpUHT6Z9WAUMzExhZCEICOC0Axn751Dk8CWe9f0j5dvcF2GQVbjKPCgoIZxBpC4oAAA=="
+const DATA_FIXTURE_BOC = "te6ccgECCAEAAXgAAlsAASChQwb3SwAAAAAAAAAAAAAAAAAAAAAck6GZTByvFvTi30Pj6PtjGQAAAqEkAQIE+YAdatsTeuiOAQQeE0qNzusFYhpq8KYKhSwRkMUPKqGVyGAAoAAAAAAAAAAAAAAAIACgAKAAAAyAADADeGcsxrWwyUBisoRxTf9ZapiwQjlNB5F4ah1Fm4vUgYYAbF4iDTU6Gc2vq3mT74jjGWCMEXajzH48sIrqZ4k+vTxAAwQFBgFjAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAHCEICBSdYlaiO0SjKdSgKS1q2rlmfzLmbM2gGf8hghGhdrPsIQgLi2jTTG2IKMbJwIquwxf81vE2XtKQxDD+3g6HBKkRqgwhCAqMEPSg62gIQjerUUc+z28ckr5qZpUHT6Z9WAUMzExhZCEICOC0Axn751Dk8CWe9f0j5dvcF2GQVbjKPCgoIZxBpC4oAAA=="
 
 fun expectBocMagic(mutate bytes: slice): void {
     expect(bytes.remainingBitsCount()).toBeGreater(24);
@@ -96,7 +95,9 @@ fun expectBidaskPoolGettersMatchStorage(pool: BidaskPool, storage: BidaskPoolSto
     expect(poolInfo.lpFee).toEqual(staticData.lpFee as int);
 
     expect(feesInfo.refFee).toEqual(staticData.refFee as int);
-    expect(feesInfo.protocolFeeReductionFactor).toEqual(staticData.protocolFeeReductionFactor as int);
+    expect(feesInfo.protocolFeeReductionFactor).toEqual(
+        staticData.protocolFeeReductionFactor as int,
+    );
     expect(poolTokens.jettonWalletX).toEqual(staticData.jettonWalletX);
     expect(poolTokens.jettonWalletY).toEqual(staticData.jettonWalletY);
 
@@ -107,8 +108,12 @@ fun expectBidaskPoolGettersMatchStorage(pool: BidaskPool, storage: BidaskPoolSto
 
     expect(tvl.tokenXAmount).toEqual(storage.tokenXAmount as int);
     expect(tvl.tokenYAmount).toEqual(storage.tokenYAmount as int);
-    expect(protocolFees.collectedTokenXProtocolFee).toEqual(storage.collectedTokenXProtocolFee as int);
-    expect(protocolFees.collectedTokenYProtocolFee).toEqual(storage.collectedTokenYProtocolFee as int);
+    expect(protocolFees.collectedTokenXProtocolFee).toEqual(
+        storage.collectedTokenXProtocolFee as int,
+    );
+    expect(protocolFees.collectedTokenYProtocolFee).toEqual(
+        storage.collectedTokenYProtocolFee as int,
+    );
 
     if (storage.farmingData == null) {
         expect(farmingInfo.distributedXAmount).toEqual(0);

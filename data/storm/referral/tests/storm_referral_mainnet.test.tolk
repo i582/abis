@@ -1,6 +1,6 @@
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -10,8 +10,7 @@ import "../wrappers/StormReferral.gen"
 const PINNED_MAINNET_BLOCK = 71588122
 const MAINNET_REFERRAL_ADDRESS = "EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"
 const MAINNET_REFERRAL_COLLECTION_ADDRESS = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
-const EXPECTED_REFERRAL_CODE_HASH =
-    0x7e0385a57658333b65697a2caef5d781ad040e89dd5b22b8e9977cdd96730211
+const EXPECTED_REFERRAL_CODE_HASH = 0x7e0385a57658333b65697a2caef5d781ad040e89dd5b22b8e9977cdd96730211
 
 fun mainnetStormReferral(): StormReferral {
     return StormReferral.fromAddress(address(MAINNET_REFERRAL_ADDRESS));

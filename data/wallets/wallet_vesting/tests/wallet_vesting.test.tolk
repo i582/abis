@@ -1,3 +1,4 @@
+import "@stdlib/lisp-lists"
 import "@acton/io"
 import "@acton/emulation/network"
 import "@acton/emulation/scripts"
@@ -5,7 +6,6 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "@stdlib/lisp-lists"
 import "../types/wallet_vesting.types"
 import "../wrappers/WalletVesting.gen"
 
@@ -16,11 +16,7 @@ fun walletVesting(): WalletVesting {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 

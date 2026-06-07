@@ -8,13 +8,10 @@ const HISTORICAL_POOL_ADDRESS = "0:EA4D5179EEA4574301E70F9663F9F335232E3457CBF60
 const HISTORICAL_JETTON_WALLET_ADDRESS = "0:E452CC810BEB0608A4A1D7C46009C27AB962793C01B443D6A7EFE447C6A00FDF"
 
 fun emptyInlineForwardPayload(): RemainingBitsAndRefs {
-    return beginCell()
-        .storeBool(false)
-        .endCell()
-        .beginParse();
+    return beginCell().storeBool(false).endCell().beginParse();
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -37,10 +34,7 @@ fun expectRefForwardPayload(mutate payload: RemainingBitsAndRefs): cell {
 }
 
 fun zeroTransferFees(): BidaskDammLpWalletTransferFees {
-    return {
-        feesPerLpXLast: 0,
-        feesPerLpYLast: 0,
-    };
+    return { feesPerLpXLast: 0, feesPerLpYLast: 0 };
 }
 
 fun zeroBurnFees(): BidaskDammLpWalletBurnFees {
@@ -230,9 +224,7 @@ get fun `test bidask damm lp wallet synthetic internal transfer and claim bodies
 }
 
 get fun `test bidask damm lp wallet synthetic excesses body roundtrip`() {
-    val excesses = BidaskDammLpWalletExcesses {
-        queryId: 3001,
-    };
+    val excesses = BidaskDammLpWalletExcesses { queryId: 3001 };
     val decoded = BidaskDammLpWalletExcesses.fromCell(excesses.toCell());
 
     expect(decoded.queryId).toEqual(3001);

@@ -35,8 +35,7 @@ struct GetgemsNftSaleLegacyStorage {
 }
 
 /// Empty internal message body; when initialized, source treats it as a buy request with query id zero.
-struct GetgemsNftSaleLegacyEmptyBuy {
-}
+struct GetgemsNftSaleLegacyEmptyBuy {}
 
 /// NFT ownership callback accepted only from the configured NFT address before sale initialization.
 struct (0x05138d91) GetgemsNftSaleLegacyOwnershipAssigned {
@@ -96,8 +95,7 @@ type GetgemsNftSaleLegacyIncomingMessage =
     | GetgemsNftSaleLegacyCancelSale
 
 /// Outgoing message bodies emitted by Getgems legacy NFT sale.
-type GetgemsNftSaleLegacyOutgoingMessage =
-    | GetgemsNftSaleLegacyNftTransfer
+type GetgemsNftSaleLegacyOutgoingMessage = GetgemsNftSaleLegacyNftTransfer
 
 /// Structured result returned by `get_sale_data`.
 struct GetgemsNftSaleLegacySaleDataReply {

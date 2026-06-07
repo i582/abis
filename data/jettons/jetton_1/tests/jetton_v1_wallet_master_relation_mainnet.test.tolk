@@ -1,7 +1,6 @@
 import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/testing/expect"
-import "../types/jetton_v1_master.types"
 import "../wrappers/JettonV1Master.gen"
 
 const MAINNET_JETTON_V1_RELATION_MASTER_ADDRESS = "EQBlU_tKISgpepeMFT9t3xTDeiVmo25dW_4vUOl6jId_BNIj"

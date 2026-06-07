@@ -12,7 +12,9 @@ const MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3R2_ADDRESS = "EQDKXtnA6NMRRn1iRxmK30gY
 const GETGEMS_NFT_FIXPRICE_SALE_V3R2_BOC = "data/getgems/getgems_nft_fixprice_sale_v3r2/testdata/GetgemsNftFixpriceSaleV3R2.boc"
 
 fun mainnetGetgemsNftFixpriceSaleV3R2(): GetgemsNftFixpriceSaleV3R2 {
-    return GetgemsNftFixpriceSaleV3R2.fromAddress(address(MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3R2_ADDRESS));
+    return GetgemsNftFixpriceSaleV3R2.fromAddress(
+        address(MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3R2_ADDRESS),
+    );
 }
 
 fun loadGetgemsNftFixpriceSaleV3R2StorageFromFork(

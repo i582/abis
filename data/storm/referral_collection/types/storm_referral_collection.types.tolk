@@ -6,7 +6,9 @@ contract StormReferralCollection {
     storage: StormReferralCollectionStorage
     incomingMessages: StormReferralCollectionIncomingMessage
     outgoingMessages: StormReferralCollectionOutgoingMessage
-    forceAbiExport: StormReferralCollectionContent | StormReferralCollectionConfig | StormMintReferral
+    forceAbiExport: StormReferralCollectionContent
+        | StormReferralCollectionConfig
+        | StormMintReferral
     thrownErrors: StormReferralCollectionErrors
 }
 

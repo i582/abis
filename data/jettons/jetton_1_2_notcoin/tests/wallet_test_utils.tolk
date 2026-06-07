@@ -2,9 +2,9 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
+import "./master_test_utils"
 import "../types/jetton_notcoin_wallet.types"
 import "../wrappers/JettonNotcoinWallet.gen"
-import "./master_test_utils"
 
 fun mainnetJettonNotcoinWallet(): JettonNotcoinWallet {
     return JettonNotcoinWallet.fromAddress(mainnetJettonNotcoinWalletAddress());

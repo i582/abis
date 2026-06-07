@@ -20,7 +20,7 @@ fun bits256FromUint(value: uint256): bits256 {
     return bits.loadBits(256) as bits256;
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -71,8 +71,18 @@ get fun `test whales pool decodes real user deposit withdraw and text bodies`() 
     expectNoTail(mutate textTail);
     expect(text.toCell().hash()).toEqual(textBody.hash());
 
-    println("WHALES_POOL_WITHDRAW_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, withdrawTx, withdrawLt);
-    println("WHALES_POOL_DEPOSIT_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, depositTx, depositLt);
+    println(
+        "WHALES_POOL_WITHDRAW_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        withdrawTx,
+        withdrawLt,
+    );
+    println(
+        "WHALES_POOL_DEPOSIT_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        depositTx,
+        depositLt,
+    );
     println("WHALES_POOL_TEXT_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, textTx, textLt);
 }
 
@@ -106,9 +116,24 @@ get fun `test whales pool decodes real controller stake and pending-operation bo
     expect(acceptWithdraws.members!.hash()).toEqual(ACCEPT_WITHDRAWS_MEMBERS_HASH);
     expect(acceptWithdraws.toCell().hash()).toEqual(acceptWithdrawsBody.hash());
 
-    println("WHALES_POOL_STAKE_SEND_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, stakeSendTx, stakeSendLt);
-    println("WHALES_POOL_ACCEPT_STAKES_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, acceptStakesTx, acceptStakesLt);
-    println("WHALES_POOL_ACCEPT_WITHDRAWS_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, acceptWithdrawsTx, acceptWithdrawsLt);
+    println(
+        "WHALES_POOL_STAKE_SEND_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        stakeSendTx,
+        stakeSendLt,
+    );
+    println(
+        "WHALES_POOL_ACCEPT_STAKES_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        acceptStakesTx,
+        acceptStakesLt,
+    );
+    println(
+        "WHALES_POOL_ACCEPT_WITHDRAWS_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        acceptWithdrawsTx,
+        acceptWithdrawsLt,
+    );
 }
 
 get fun `test whales pool decodes real controller recover finalize and unowned bodies`() {
@@ -136,9 +161,24 @@ get fun `test whales pool decodes real controller recover finalize and unowned b
     expect(unowned.gasLimit).toEqual(100000);
     expect(unowned.toCell().hash()).toEqual(unownedBody.hash());
 
-    println("WHALES_POOL_RECOVER_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, recoverTx, recoverLt);
-    println("WHALES_POOL_FINALIZE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, finalizeTx, finalizeLt);
-    println("WHALES_POOL_WITHDRAW_UNOWNED_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, unownedTx, unownedLt);
+    println(
+        "WHALES_POOL_RECOVER_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        recoverTx,
+        recoverLt,
+    );
+    println(
+        "WHALES_POOL_FINALIZE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        finalizeTx,
+        finalizeLt,
+    );
+    println(
+        "WHALES_POOL_WITHDRAW_UNOWNED_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        unownedTx,
+        unownedLt,
+    );
 }
 
 get fun `test whales pool decodes real receipt and response bodies`() {
@@ -180,11 +220,36 @@ get fun `test whales pool decodes real receipt and response bodies`() {
     expect(receiptTail.loadUint(64)).toEqual(0x5769746864726177);
     expect(textReceipt.toCell().hash()).toEqual(textReceiptBody.hash());
 
-    println("WHALES_POOL_DEPOSIT_RESPONSE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, depositResponseTx, depositResponseLt);
-    println("WHALES_POOL_WITHDRAW_RESPONSE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, withdrawResponseTx, withdrawResponseLt);
-    println("WHALES_POOL_WITHDRAW_DELAYED_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, withdrawDelayedTx, withdrawDelayedLt);
-    println("WHALES_POOL_WITHDRAW_UNOWNED_RESPONSE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, unownedResponseTx, unownedResponseLt);
-    println("WHALES_POOL_TEXT_RECEIPT_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, textReceiptTx, textReceiptLt);
+    println(
+        "WHALES_POOL_DEPOSIT_RESPONSE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        depositResponseTx,
+        depositResponseLt,
+    );
+    println(
+        "WHALES_POOL_WITHDRAW_RESPONSE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        withdrawResponseTx,
+        withdrawResponseLt,
+    );
+    println(
+        "WHALES_POOL_WITHDRAW_DELAYED_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        withdrawDelayedTx,
+        withdrawDelayedLt,
+    );
+    println(
+        "WHALES_POOL_WITHDRAW_UNOWNED_RESPONSE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        unownedResponseTx,
+        unownedResponseLt,
+    );
+    println(
+        "WHALES_POOL_TEXT_RECEIPT_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        textReceiptTx,
+        textReceiptLt,
+    );
 }
 
 get fun `test whales pool decodes real elector request and response bodies`() {
@@ -218,8 +283,28 @@ get fun `test whales pool decodes real elector request and response bodies`() {
     expect(recoverResponse.queryId).toEqual(0);
     expect(recoverResponse.toCell().hash()).toEqual(recoverResponseBody.hash());
 
-    println("WHALES_POOL_ELECTOR_NEW_STAKE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, newStakeOutTx, newStakeOutLt);
-    println("WHALES_POOL_ELECTOR_RECOVER_REQUEST_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, recoverRequestTx, recoverRequestLt);
-    println("WHALES_POOL_ELECTOR_NEW_STAKE_OK_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, newStakeOkTx, newStakeOkLt);
-    println("WHALES_POOL_ELECTOR_RECOVER_RESPONSE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, recoverResponseTx, recoverResponseLt);
+    println(
+        "WHALES_POOL_ELECTOR_NEW_STAKE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        newStakeOutTx,
+        newStakeOutLt,
+    );
+    println(
+        "WHALES_POOL_ELECTOR_RECOVER_REQUEST_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        recoverRequestTx,
+        recoverRequestLt,
+    );
+    println(
+        "WHALES_POOL_ELECTOR_NEW_STAKE_OK_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        newStakeOkTx,
+        newStakeOkLt,
+    );
+    println(
+        "WHALES_POOL_ELECTOR_RECOVER_RESPONSE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        recoverResponseTx,
+        recoverResponseLt,
+    );
 }

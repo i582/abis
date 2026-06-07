@@ -26,7 +26,9 @@ fun expectAnyAddressEqualsNullable(actual: any_address, expected: address?): voi
     }
 }
 
-fun loadGetgemsNftSaleLegacyStorageFromFork(sale: GetgemsNftSaleLegacy): GetgemsNftSaleLegacyStorage {
+fun loadGetgemsNftSaleLegacyStorageFromFork(
+    sale: GetgemsNftSaleLegacy,
+): GetgemsNftSaleLegacyStorage {
     val account = testing.getAccountState(sale.address);
     expect(account).toBeNotNull();
 

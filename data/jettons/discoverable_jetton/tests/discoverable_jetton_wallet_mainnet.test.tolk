@@ -3,18 +3,22 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./wallet_test_utils"
 import "../types/discoverable_jetton_wallet.types"
 import "../wrappers/DiscoverableJettonWallet.gen"
-import "./wallet_test_utils"
 
 get fun `test discoverable jetton wallet public getter works on mainnet`() {
     val wallet = mainnetDiscoverableJettonWallet();
     val data = wallet.getWalletData();
 
     expect(scripts.isContractDeployed(wallet.address)).toBeTrue();
-    expect(data.jettonMasterAddress).toEqual(address("EQDOxsDBUkJYfX2musuy4yG-7o6VSMIMdqEsktTjI3HX3vUb"));
+    expect(data.jettonMasterAddress).toEqual(
+        address("EQDOxsDBUkJYfX2musuy4yG-7o6VSMIMdqEsktTjI3HX3vUb"),
+    );
     expect(data.ownerAddress).toEqual(address("EQDerEPTIh0O8lBdjWc6aLaJs5HYqlfBN2Ruj1lJQH_6vcaZ"));
-    expect(data.jettonWalletCode.hash()).toEqual(loadDiscoverableJettonWalletStorageFromFork(wallet).jettonWalletCode.hash());
+    expect(data.jettonWalletCode.hash()).toEqual(
+        loadDiscoverableJettonWalletStorageFromFork(wallet).jettonWalletCode.hash(),
+    );
 
     println("DISCOVERABLE_JETTON_WALLET_GET_WALLET_DATA={}", data);
 }

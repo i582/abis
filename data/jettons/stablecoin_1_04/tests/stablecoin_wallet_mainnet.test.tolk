@@ -3,12 +3,12 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./master_test_utils"
+import "./wallet_test_utils"
 import "../types/stablecoin_master.types"
 import "../types/stablecoin_wallet.types"
 import "../wrappers/StablecoinMaster.gen"
 import "../wrappers/StablecoinWallet.gen"
-import "./master_test_utils"
-import "./wallet_test_utils"
 
 get fun `test stablecoin wallet public getters work on mainnet`() {
     val master = mainnetStablecoinMaster();

@@ -4,7 +4,6 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "../types/coffee_cross_dex.types"
 import "../wrappers/CoffeeCrossDex.gen"
 
 const FIXTURE_BOC_PATH = "data/coffee/cross_dex/testdata/CoffeeCrossDex.boc"

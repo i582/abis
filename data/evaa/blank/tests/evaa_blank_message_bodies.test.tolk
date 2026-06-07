@@ -17,17 +17,13 @@ fun blankUpgradeHeaderWithoutInfo(): EvaaBlankUpgradeHeader {
 }
 
 fun blankMissingUpgradeInfoBody(): cell {
-    return beginCell()
-        .storeCoins(1)
-        .storeMaybeRef(null)
-        .storeInt(0, 2)
-        .endCell();
+    return beginCell().storeCoins(1).storeMaybeRef(null).storeInt(0, 2).endCell();
 }
 
 get fun `test evaa blank decodes missing upgrade info body`() {
     val body = blankMissingUpgradeInfoBody();
     val decoded = EvaaBlankIncomingUpgrade.fromCell(body);
-    var commandTail = decoded.commandTail;
+    val commandTail = decoded.commandTail;
 
     expect(decoded.header.userCodeVersion).toEqual(1);
     expect(decoded.header.upgradeInfo).toBeNull();

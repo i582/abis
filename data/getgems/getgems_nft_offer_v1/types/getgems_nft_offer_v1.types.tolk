@@ -7,7 +7,9 @@ contract GetgemsNftOfferV1 {
     incomingMessages: GetgemsNftOfferV1IncomingMessage
     incomingExternal: GetgemsNftOfferV1IncomingExternalMessage
     outgoingMessages: GetgemsNftOfferV1OutgoingMessage
-    forceAbiExport: GetgemsNftOfferV1InitialFunding | GetgemsNftOfferV1MarketplaceCancelPayload | GetgemsNftOfferV1RawSendAction
+    forceAbiExport: GetgemsNftOfferV1InitialFunding
+        | GetgemsNftOfferV1MarketplaceCancelPayload
+        | GetgemsNftOfferV1RawSendAction
     thrownErrors: GetgemsNftOfferV1Errors
 }
 

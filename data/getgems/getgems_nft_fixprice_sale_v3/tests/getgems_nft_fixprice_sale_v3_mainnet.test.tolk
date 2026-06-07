@@ -3,9 +3,9 @@ import "@acton/fs"
 import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/getgems_nft_fixprice_sale_v3.types"
 import "../wrappers/GetgemsNftFixpriceSaleV3.gen"
-import "./test_utils"
 
 const FIXTURE_BOC_PATH = "data/getgems/getgems_nft_fixprice_sale_v3/testdata/GetgemsNftFixpriceSaleV3.boc"
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72

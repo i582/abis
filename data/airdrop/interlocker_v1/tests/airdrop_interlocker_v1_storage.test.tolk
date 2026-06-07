@@ -1,9 +1,9 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -20,8 +20,7 @@ const EXPECTED_RECEIVER = "0:15dad65f227da08fdba7c5b640e503d6a5774f50d305b5c3788
 const EXPECTED_DISTRIBUTOR = "0:349e60be368c6ea09adaa773c99f701fd4c9ac50e05c4f27bc57243fe6b93512"
 const EXPECTED_MIN_COMMISSION = 150000000
 const MAINNET_AIRDROP_INTERLOCKER_V1_ADDRESS = "EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"
-const DATA_FIXTURE_BOC =
-    "te6ccgEBAQEAagAAz4ZJTaLcn7HnnKbWJYcMyf+YZMYLVF6TiBrGUcjxc3gZwAFdrWXyJ9oI/bp8W2QOUD1qV3T1DTBbXDeInijY4QcO+ABpPMF8bRjdQTW1TueTPuA/qZNYocC4nk94rkh/zXJqJIEeGjAQ"
+const DATA_FIXTURE_BOC = "te6ccgEBAQEAagAAz4ZJTaLcn7HnnKbWJYcMyf+YZMYLVF6TiBrGUcjxc3gZwAFdrWXyJ9oI/bp8W2QOUD1qV3T1DTBbXDeInijY4QcO+ABpPMF8bRjdQTW1TueTPuA/qZNYocC4nk94rkh/zXJqJIEeGjAQ"
 
 struct LoadedAirdropInterlockerV1Storage {
     data: cell

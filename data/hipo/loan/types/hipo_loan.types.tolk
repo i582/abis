@@ -114,8 +114,7 @@ struct (0x0fca4c86) HipoLoanRecoverStakeResult {
 }
 
 /// Value-only top-up body accepted as a no-op by Loan.
-struct (0x5372158c) HipoLoanTopUp {
-}
+struct (0x5372158c) HipoLoanTopUp {}
 
 /// Internal message bodies accepted by Hipo Loan.
 type HipoLoanIncomingMessage =

@@ -8,7 +8,9 @@ import "../wrappers/DiscoverableJettonWallet.gen"
 const MAINNET_DISCOVERABLE_JETTON_WALLET_ADDRESS = "EQDt0qeoHwip8CtuUeNsaKjK-g0rwL7zUunKAnv0NCTZDSs3"
 
 fun mainnetDiscoverableJettonWallet(): DiscoverableJettonWallet {
-    return DiscoverableJettonWallet.fromAddress(address(MAINNET_DISCOVERABLE_JETTON_WALLET_ADDRESS));
+    return DiscoverableJettonWallet.fromAddress(
+        address(MAINNET_DISCOVERABLE_JETTON_WALLET_ADDRESS),
+    );
 }
 
 fun emptyForwardPayload(): RemainingBitsAndRefs {

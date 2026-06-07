@@ -3,7 +3,7 @@ import "@acton/io"
 import "@acton/testing/expect"
 import "../types/storage_provider.types"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -41,7 +41,9 @@ get fun `test storage provider decodes toncenter signed external body`() {
     expect(messages.remainingRefsCount()).toEqual(1);
     expect(messages.loadUint(8)).toEqual(3);
     val outbound = messages.loadRef();
-    expect(outbound.hash()).toEqual(68775244706494241510735699739358728299814528923069484497345553015400313282628);
+    expect(
+        outbound.hash(),
+    ).toEqual(68775244706494241510735699739358728299814528923069484497345553015400313282628);
     expectNoTail(mutate messages);
 
     println("STORAGE_PROVIDER_SIGNED_EXTERNAL_TX={} LT={}", txHash, txLt);

@@ -1,7 +1,7 @@
 import "@acton/build"
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -16,7 +16,9 @@ const PINNED_MAINNET_BLOCK = 71186170
 const MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS = "EQDW_6A6NcARhuLMhP419XpPDCTqlx_dzaZ_lBcdwp4YHjYQ"
 
 fun mainnetBidaskInternalLiquidityVault(): BidaskInternalLiquidityVault {
-    return BidaskInternalLiquidityVault.fromAddress(address(MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS));
+    return BidaskInternalLiquidityVault.fromAddress(
+        address(MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS),
+    );
 }
 
 fun loadBidaskInternalLiquidityVaultStorageFromFork(
@@ -33,7 +35,9 @@ fun loadBidaskInternalLiquidityVaultStorageFromFork(
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("BidaskInternalLiquidityVault", FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("BidaskInternalLiquidityVault", FIXTURE_BOC_PATH).hash(),
+            );
             expect(data!.hash()).toEqual(EXPECTED_DATA_HASH);
             return BidaskInternalLiquidityVaultStorage.fromCell(data!);
         }

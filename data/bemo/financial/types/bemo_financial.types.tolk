@@ -52,8 +52,7 @@ struct BemoFinancialStorage {
 }
 
 /// Empty incoming body treated as a simple TON stake with query id zero.
-struct BemoFinancialEmptyStake {
-}
+struct BemoFinancialEmptyStake {}
 
 /// Explicit stake request accepted by Financial.
 struct (0x4253c4d5) BemoFinancialStake {
@@ -164,16 +163,13 @@ struct (0x13f22452) BemoFinancialOperationalTransfer {
 }
 
 /// Admin command that withdraws accumulated protocol commission.
-struct (0x7e4d3ce7) BemoFinancialWithdrawCommission {
-}
+struct (0x7e4d3ce7) BemoFinancialWithdrawCommission {}
 
 /// No-op maintenance body accepted and ignored by Financial.
-struct (0x73273971) BemoFinancialNoop {
-}
+struct (0x73273971) BemoFinancialNoop {}
 
 /// Maintenance command that refreshes lockup epoch accounting.
-struct (0x75339d14) BemoFinancialRefreshLockupEpoch {
-}
+struct (0x75339d14) BemoFinancialRefreshLockupEpoch {}
 
 /// Admin command that replaces contract code with a referenced code cell.
 struct (0x60c248ef) BemoFinancialSetCode {

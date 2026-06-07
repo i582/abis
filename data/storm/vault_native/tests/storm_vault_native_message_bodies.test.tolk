@@ -6,7 +6,7 @@ import "../types/storm_vault_native.types"
 const STORM_ORIGIN = "0:9E7E69CD0D8CA689A61F3EBBA57E5DC855484A4C435D878C58B6ED8522A75F48"
 const STORM_NATIVE_TRADE_SA = "0:021D96782F8CE9C9A44917F48ACF87EA613D5B0CB06A61E244D9542826CD738E"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

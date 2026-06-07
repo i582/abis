@@ -204,7 +204,9 @@ get fun get_wallet_address(ownerAddress: address): address {
 }
 
 /// Return the wallet state init and selected salt for `ownerAddress`.
-get fun get_wallet_state_init_and_salt(ownerAddress: address): GetMintlessWalletStateInitAndSaltReply {
+get fun get_wallet_state_init_and_salt(
+    ownerAddress: address,
+): GetMintlessWalletStateInitAndSaltReply {
     throw 0;
 }
 

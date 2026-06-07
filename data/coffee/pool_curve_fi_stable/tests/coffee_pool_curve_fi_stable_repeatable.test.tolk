@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -19,7 +19,9 @@ const PINNED_MAINNET_BLOCK = 71349505
 const MAINNET_COFFEE_POOL_CURVE_FI_STABLE_ADDRESS = "EQA7fZK6kuU_6qfrJFqzMZ7hqEJwKvrzT6Xu24eu0xRDp4uv"
 
 fun mainnetCoffeePoolCurveFiStable(): CoffeePoolCurveFiStable {
-    return CoffeePoolCurveFiStable.fromAddress(address(MAINNET_COFFEE_POOL_CURVE_FI_STABLE_ADDRESS));
+    return CoffeePoolCurveFiStable.fromAddress(
+        address(MAINNET_COFFEE_POOL_CURVE_FI_STABLE_ADDRESS),
+    );
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -74,7 +76,9 @@ fun expectBmtonAssetSlice(mutate asset: slice): void {
     expect(asset.remainingRefsCount()).toEqual(0);
 }
 
-fun loadCoffeePoolCurveFiStableStorageFromFork(pool: CoffeePoolCurveFiStable): CoffeePoolCurveFiStableStorage {
+fun loadCoffeePoolCurveFiStableStorageFromFork(
+    pool: CoffeePoolCurveFiStable,
+): CoffeePoolCurveFiStableStorage {
     val account = testing.getAccountState(pool.address);
     expect(account).toBeNotNull();
 

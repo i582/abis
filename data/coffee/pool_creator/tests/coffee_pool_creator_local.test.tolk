@@ -1,9 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/network"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -168,10 +167,14 @@ get fun `test coffee pool creator deploy message parses real storage`() {
     expect(deploy.code.hash()).toEqual(EXPECTED_CODE_HASH);
     expect(deploy.code.hash()).toEqual(codeCells.poolCreatorCode.hash());
     expect(codeCells.poolCreatorCode.hash()).toEqual(EXPECTED_CODE_HASH);
-    expect(codeCells.poolCreatorCode.hash()).toEqual(build("CoffeePoolCreator", FIXTURE_BOC_PATH).hash());
+    expect(codeCells.poolCreatorCode.hash()).toEqual(
+        build("CoffeePoolCreator", FIXTURE_BOC_PATH).hash(),
+    );
 
     expect(derivedFromFactory.address).toEqual(address(HISTORICAL_POOL_CREATOR_ADDRESS));
-    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(derivedFromFactory.address);
+    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(
+        derivedFromFactory.address,
+    );
 
     expect(decodedStorage.toCell().hash()).toEqual(deploy.data.hash());
     expect(decodedStorage.initCodeCell.hash()).toEqual(codeCells.initCode.hash());

@@ -4,7 +4,6 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "../types/coffee_mev_protector.types"
 import "../wrappers/CoffeeMevProtector.gen"
 
 const FIXTURE_BOC_PATH = "data/coffee/mev_protector/testdata/CoffeeMevProtector.boc"

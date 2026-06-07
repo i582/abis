@@ -6,7 +6,10 @@ contract GetgemsNftCollectionV2 {
     storage: GetgemsNftCollectionV2Storage
     incomingMessages: GetgemsNftCollectionV2IncomingMessage
     outgoingMessages: GetgemsNftCollectionV2OutgoingMessage
-    forceAbiExport: GetgemsNftCollectionV2LegacyStorage | GetgemsNftCollectionV2ItemMintInit | GetgemsNftCollectionV2BatchDeployItem | GetgemsNftCollectionV2BatchAutoIndexFlag
+    forceAbiExport: GetgemsNftCollectionV2LegacyStorage
+        | GetgemsNftCollectionV2ItemMintInit
+        | GetgemsNftCollectionV2BatchDeployItem
+        | GetgemsNftCollectionV2BatchAutoIndexFlag
     thrownErrors: GetgemsNftCollectionV2Errors
 }
 

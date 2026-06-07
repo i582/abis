@@ -40,7 +40,9 @@ fun loadStonfiPoolV2ConstProductStorageFromFork(
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("StonfiPoolV2ConstProduct", FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("StonfiPoolV2ConstProduct", FIXTURE_BOC_PATH).hash(),
+            );
             return StonfiPoolV2ConstProductStorage.fromCell(data!);
         }
         TlbAccountStateUninit => {

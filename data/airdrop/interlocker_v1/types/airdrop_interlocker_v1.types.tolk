@@ -42,12 +42,10 @@ struct (0x013a3ca6) AirdropInterlockerV1ClaimNotification {
 }
 
 /// Internal message bodies accepted by Airdrop Interlocker v1.
-type AirdropInterlockerV1IncomingMessage =
-    | AirdropInterlockerV1LockAndClaim
+type AirdropInterlockerV1IncomingMessage = AirdropInterlockerV1LockAndClaim
 
 /// Internal message bodies emitted by Airdrop Interlocker v1.
-type AirdropInterlockerV1OutgoingMessage =
-    | AirdropInterlockerV1ClaimNotification
+type AirdropInterlockerV1OutgoingMessage = AirdropInterlockerV1ClaimNotification
 
 /// Structured result returned by `get_contract_data`.
 struct GetContractDataReply {

@@ -24,7 +24,9 @@ fun expectBocMagic(mutate bytes: slice): void {
     expect(bytes.loadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
 }
 
-fun loadGetgemsNftMarketplaceV1StorageFromFork(marketplace: GetgemsNftMarketplaceV1): GetgemsNftMarketplaceV1Storage {
+fun loadGetgemsNftMarketplaceV1StorageFromFork(
+    marketplace: GetgemsNftMarketplaceV1,
+): GetgemsNftMarketplaceV1Storage {
     val account = testing.getAccountState(marketplace.address);
     expect(account).toBeNotNull();
 

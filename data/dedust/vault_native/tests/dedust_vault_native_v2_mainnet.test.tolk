@@ -23,9 +23,7 @@ fun mainnetDedustVaultNativeV2(): DedustVaultNativeV2 {
 }
 
 fun nativeAssetCell(): cell {
-    return beginCell()
-        .storeUint(0, 4)
-        .endCell();
+    return beginCell().storeUint(0, 4).endCell();
 }
 
 fun hasBocMagic(bytes: slice): bool {

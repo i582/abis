@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -19,7 +19,9 @@ const PINNED_MAINNET_BLOCK = 71349505
 const MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS = "EQA5NdnaYUsyg0E7MZuIRdvdCFfstdBr7CQoppfvhqqGkYnJ"
 
 fun mainnetCoffeePoolConstantProduct(): CoffeePoolConstantProduct {
-    return CoffeePoolConstantProduct.fromAddress(address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS));
+    return CoffeePoolConstantProduct.fromAddress(
+        address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS),
+    );
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -74,7 +76,9 @@ fun expectCesAssetSlice(mutate asset: slice): void {
     expect(asset.remainingRefsCount()).toEqual(0);
 }
 
-fun loadCoffeePoolConstantProductStorageFromFork(pool: CoffeePoolConstantProduct): CoffeePoolConstantProductStorage {
+fun loadCoffeePoolConstantProductStorageFromFork(
+    pool: CoffeePoolConstantProduct,
+): CoffeePoolConstantProductStorage {
     val account = testing.getAccountState(pool.address);
     expect(account).toBeNotNull();
 
@@ -86,7 +90,9 @@ fun loadCoffeePoolConstantProductStorageFromFork(pool: CoffeePoolConstantProduct
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("CoffeePoolConstantProduct", FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("CoffeePoolConstantProduct", FIXTURE_BOC_PATH).hash(),
+            );
             return CoffeePoolConstantProductStorage.fromCell(data!);
         }
         TlbAccountStateUninit => {

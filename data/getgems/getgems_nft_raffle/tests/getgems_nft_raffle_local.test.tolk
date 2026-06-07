@@ -42,11 +42,7 @@ fun getgemsNftRaffleStorage(
             leftNftsCount: 0,
             leftNftsReceived: 0,
         }.toCell(),
-        addresses: GetgemsNftRaffleAddresses {
-            leftUser,
-            rightUser,
-            superUser,
-        }.toCell(),
+        addresses: GetgemsNftRaffleAddresses { leftUser, rightUser, superUser }.toCell(),
         commissions: GetgemsNftRaffleCommissions {
             leftCommission: 0,
             rightCommission: 0,

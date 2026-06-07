@@ -15,7 +15,7 @@ const TONCO_ROUTER_SWAP_SOURCE_WALLET = "0:34D27AF3B8CE40EFE6346804C369B109AF6D8
 const TONCO_ROUTER_SWAP_TARGET_WALLET = "0:871DA9215B14902166F0EA2A16DB56278D528108377F8158C5F4CCFDFDD22E17"
 const TONCO_ROUTER_FUND_OWNER = "0:C82D3A87108A2ED440FEE6763EB9CB6BD7BA8A9DC433D01FBB2476FC9B0A216E"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -49,7 +49,11 @@ get fun `test tonco router decodes toncenter swap jetton notification body`() {
     expect(swapPayload.toCell().hash()).toEqual(payloadCell.hash());
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_ROUTER_SWAP_JETTON_NOTIFY_TX={} LT={}", TONCO_ROUTER_SWAP_TX, TONCO_ROUTER_SWAP_LT);
+    println(
+        "TONCO_ROUTER_SWAP_JETTON_NOTIFY_TX={} LT={}",
+        TONCO_ROUTER_SWAP_TX,
+        TONCO_ROUTER_SWAP_LT,
+    );
 }
 
 get fun `test tonco router decodes toncenter pay to body`() {
@@ -144,7 +148,11 @@ get fun `test tonco router decodes toncenter fund account jetton notification bo
     expect(fundPayload.toCell().hash()).toEqual(payloadCell.hash());
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_ROUTER_FUND_JETTON_NOTIFY_TX={} LT={}", TONCO_ROUTER_FUND_TX, TONCO_ROUTER_FUND_LT);
+    println(
+        "TONCO_ROUTER_FUND_JETTON_NOTIFY_TX={} LT={}",
+        TONCO_ROUTER_FUND_TX,
+        TONCO_ROUTER_FUND_LT,
+    );
 }
 
 get fun `test tonco router decodes toncenter outgoing pool fund account body`() {
@@ -163,5 +171,9 @@ get fun `test tonco router decodes toncenter outgoing pool fund account body`() 
     expect(decoded.tickUpper).toEqual(-60720);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("TONCO_ROUTER_POOL_FUND_ACCOUNT_TX={} LT={}", TONCO_ROUTER_FUND_TX, TONCO_ROUTER_FUND_LT);
+    println(
+        "TONCO_ROUTER_POOL_FUND_ACCOUNT_TX={} LT={}",
+        TONCO_ROUTER_FUND_TX,
+        TONCO_ROUTER_FUND_LT,
+    );
 }

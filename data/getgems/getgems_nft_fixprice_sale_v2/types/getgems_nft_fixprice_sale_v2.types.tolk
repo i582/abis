@@ -41,8 +41,7 @@ struct GetgemsNftFixpriceSaleV2Storage {
 }
 
 /// Empty internal message body; when initialized, source treats it as a buy request with query id zero.
-struct GetgemsNftFixpriceSaleV2EmptyBuy {
-}
+struct GetgemsNftFixpriceSaleV2EmptyBuy {}
 
 /// NFT ownership callback accepted only from the configured NFT address before sale initialization.
 struct (0x05138d91) GetgemsNftFixpriceSaleV2OwnershipAssigned {
@@ -96,8 +95,7 @@ type GetgemsNftFixpriceSaleV2IncomingMessage =
     | GetgemsNftFixpriceSaleV2CancelSale
 
 /// Outgoing message bodies emitted by Getgems fixed-price sale v2.
-type GetgemsNftFixpriceSaleV2OutgoingMessage =
-    | GetgemsNftFixpriceSaleV2NftTransfer
+type GetgemsNftFixpriceSaleV2OutgoingMessage = GetgemsNftFixpriceSaleV2NftTransfer
 
 /// Structured result returned by `get_sale_data`.
 struct GetgemsNftFixpriceSaleV2SaleDataReply {

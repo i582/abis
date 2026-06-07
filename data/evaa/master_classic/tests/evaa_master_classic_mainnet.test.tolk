@@ -1,9 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
-import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -108,7 +107,10 @@ fun expectStorageCore(loaded: LoadedEvaaMasterClassicStorage): void {
     expect(oraclesInfo.oracles!.hash()).toEqual(EXPECTED_ORACLE_DICT_HASH);
 }
 
-fun expectGettersMatchStorage(master: EvaaMasterClassic, loaded: LoadedEvaaMasterClassicStorage): void {
+fun expectGettersMatchStorage(
+    master: EvaaMasterClassic,
+    loaded: LoadedEvaaMasterClassicStorage,
+): void {
     val storage = loaded.storage;
     val upgrade = storage.upgradeConfig.load();
     val config = storage.masterConfig.load();

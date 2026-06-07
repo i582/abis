@@ -1,9 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/network"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -173,7 +172,9 @@ get fun `test coffee liquidity depository deploy message parses real storage`() 
     );
 
     expect(derivedFromFactory.address).toEqual(address(HISTORICAL_LIQUIDITY_DEPOSITORY_ADDRESS));
-    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(derivedFromFactory.address);
+    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(
+        derivedFromFactory.address,
+    );
 
     expect(decodedStorage.toCell().hash()).toEqual(deploy.data.hash());
     expect(decodedStorage.initCodeCell.hash()).toEqual(codeCells.initCode.hash());
@@ -182,7 +183,9 @@ get fun `test coffee liquidity depository deploy message parses real storage`() 
 
     expect(decodedInitData.factoryAddress).toEqual(address(MAINNET_COFFEE_FACTORY_ADDRESS));
     expect(decodedInitData.contractType).toEqual(2);
-    expect(decodedInitData.ownerAddress).toEqual(address(HISTORICAL_LIQUIDITY_DEPOSITORY_OWNER_ADDRESS));
+    expect(decodedInitData.ownerAddress).toEqual(
+        address(HISTORICAL_LIQUIDITY_DEPOSITORY_OWNER_ADDRESS),
+    );
     expectNativeAsset(decodedParams.asset1);
     expectHistoricalJettonAsset(decodedParams.asset2);
     expectConstantProductAmm(decodedParams.amm);

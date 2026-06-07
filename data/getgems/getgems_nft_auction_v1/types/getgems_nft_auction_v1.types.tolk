@@ -78,8 +78,7 @@ struct GetgemsNftAuctionV1Storage {
 }
 
 /// Empty internal body used for plain TON bids; bid amount is the attached message value.
-struct GetgemsNftAuctionV1EmptyBid {
-}
+struct GetgemsNftAuctionV1EmptyBid {}
 
 /// NFT ownership callback accepted only from the configured NFT address before initialization.
 struct (0x05138d91) GetgemsNftAuctionV1OwnershipAssigned {

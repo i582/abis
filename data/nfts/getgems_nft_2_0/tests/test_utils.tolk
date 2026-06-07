@@ -22,14 +22,18 @@ fun mainnetGetgemsNftItemV2(): GetgemsNftItemV2 {
 }
 
 fun mainnetGetgemsNftEditableItemV2(): GetgemsNftEditableItemV2 {
-    return GetgemsNftEditableItemV2.fromAddress(address(MAINNET_GETGEMS_NFT_EDITABLE_ITEM_V2_ADDRESS));
+    return GetgemsNftEditableItemV2.fromAddress(
+        address(MAINNET_GETGEMS_NFT_EDITABLE_ITEM_V2_ADDRESS),
+    );
 }
 
 fun getgemsNftV2InlineEmptyForwardPayload(): RemainingBitsAndRefs {
     return beginCell().storeUint(0, 1).endCell().beginParse();
 }
 
-fun loadGetgemsNftCollectionV2StorageFromFork(collection: GetgemsNftCollectionV2): GetgemsNftCollectionV2Storage {
+fun loadGetgemsNftCollectionV2StorageFromFork(
+    collection: GetgemsNftCollectionV2,
+): GetgemsNftCollectionV2Storage {
     val account = testing.getAccountState(collection.address);
     expect(account).toBeNotNull();
 
@@ -69,7 +73,9 @@ fun loadGetgemsNftItemV2StorageFromFork(item: GetgemsNftItemV2): GetgemsNftItemV
     }
 }
 
-fun loadGetgemsNftEditableItemV2StorageFromFork(item: GetgemsNftEditableItemV2): GetgemsNftEditableItemV2Storage {
+fun loadGetgemsNftEditableItemV2StorageFromFork(
+    item: GetgemsNftEditableItemV2,
+): GetgemsNftEditableItemV2Storage {
     val account = testing.getAccountState(item.address);
     expect(account).toBeNotNull();
 

@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -75,7 +75,9 @@ fun expectCesAssetSlice(mutate asset: slice): void {
     expect(asset.remainingRefsCount()).toEqual(0);
 }
 
-fun loadCoffeeVaultJettonActiveStorageFromFork(vault: CoffeeVaultJetton): CoffeeVaultJettonActiveStorage {
+fun loadCoffeeVaultJettonActiveStorageFromFork(
+    vault: CoffeeVaultJetton,
+): CoffeeVaultJettonActiveStorage {
     val account = testing.getAccountState(vault.address);
     expect(account).toBeNotNull();
 

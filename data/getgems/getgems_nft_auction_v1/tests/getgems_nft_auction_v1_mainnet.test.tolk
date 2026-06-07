@@ -1,9 +1,9 @@
 import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/getgems_nft_auction_v1.types"
 import "../wrappers/GetgemsNftAuctionV1.gen"
-import "./test_utils"
 
 get fun `test getgems nft auction v1 mainnet code getters and storage`() {
     val auction = mainnetGetgemsNftAuctionV1();

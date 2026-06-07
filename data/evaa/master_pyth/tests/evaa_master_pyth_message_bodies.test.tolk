@@ -23,7 +23,7 @@ get fun `test evaa master pyth decodes toncenter pyth_parse body`() {
     val nested = decoded.operationPayload.load();
     val operationPayload = nested.operationPayload;
     val operationPayloadHash = operationPayload.hash();
-    var operationTail = operationPayload.beginParse();
+    val operationTail = operationPayload.beginParse();
 
     expectOpcode(body, 0x00000005);
     expect(decoded.numPriceFeeds).toEqual(3);

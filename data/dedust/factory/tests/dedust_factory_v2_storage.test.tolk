@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -131,7 +131,10 @@ get fun `test dedust factory v2 mainnet storage and getters`() {
     println("DEDUST_FACTORY_V2_STORAGE_CONFIG_HASH={}", storage.config.hash());
     println("DEDUST_FACTORY_V2_POOL_CODE_VERSION={}", config.poolCodeVersion);
     println("DEDUST_FACTORY_V2_POOL_CODE_HASH={}", config.poolCode.hash());
-    println("DEDUST_FACTORY_V2_LIQUIDITY_DEPOSIT_CODE_VERSION={}", config.liquidityDepositCodeVersion);
+    println(
+        "DEDUST_FACTORY_V2_LIQUIDITY_DEPOSIT_CODE_VERSION={}",
+        config.liquidityDepositCodeVersion,
+    );
     println("DEDUST_FACTORY_V2_LIQUIDITY_DEPOSIT_CODE_HASH={}", config.liquidityDepositCode.hash());
     println("DEDUST_FACTORY_V2_OPERATOR_CODE_VERSION={}", storage.operatorCodeVersion);
     println("DEDUST_FACTORY_V2_OPERATOR_CODE_HASH={}", storage.operatorCode!.hash());

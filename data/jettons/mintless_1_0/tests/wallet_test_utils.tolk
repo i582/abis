@@ -2,9 +2,9 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
+import "./master_test_utils"
 import "../types/mintless_wallet.types"
 import "../wrappers/MintlessJettonWallet.gen"
-import "./master_test_utils"
 
 fun mainnetMintlessWallet(): MintlessJettonWallet {
     return MintlessJettonWallet.fromAddress(mainnetMintlessWalletAddress());
@@ -15,10 +15,7 @@ fun emptyMintlessForwardPayload(): RemainingBitsAndRefs {
 }
 
 fun unknownMintlessWalletBody(): cell {
-    return beginCell()
-        .storeUint(0x12345678, 32)
-        .storeUint(0, 64)
-        .endCell();
+    return beginCell().storeUint(0x12345678, 32).storeUint(0, 64).endCell();
 }
 
 fun loadMintlessWalletStorageFromFork(

@@ -1,5 +1,4 @@
 import "@acton/io"
-import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/assert"
@@ -14,7 +13,9 @@ fun mainnetGetgemsNftAuctionV3R3(): GetgemsNftAuctionV3R3 {
     return GetgemsNftAuctionV3R3.fromAddress(address(MAINNET_GETGEMS_NFT_AUCTION_V3R3_ADDRESS));
 }
 
-fun loadGetgemsNftAuctionV3R3StorageFromFork(auction: GetgemsNftAuctionV3R3): GetgemsNftAuctionV3R3Storage {
+fun loadGetgemsNftAuctionV3R3StorageFromFork(
+    auction: GetgemsNftAuctionV3R3,
+): GetgemsNftAuctionV3R3Storage {
     val account = testing.getAccountState(auction.address);
     expect(account).toBeNotNull();
 

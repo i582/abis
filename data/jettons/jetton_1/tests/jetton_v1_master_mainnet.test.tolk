@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./master_test_utils"
 import "../types/jetton_v1_master.types"
 import "../wrappers/JettonV1Master.gen"
-import "./master_test_utils"
 
 get fun `test jetton v1 master mainnet getters and storage`() {
     val master = mainnetJettonV1Master();

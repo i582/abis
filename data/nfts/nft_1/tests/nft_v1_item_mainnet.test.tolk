@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/nft_v1_item.types"
 import "../wrappers/NftV1Item.gen"
-import "./test_utils"
 
 fun assertNftV1ItemGetters(item: NftV1Item, label: string) {
     val storage = loadNftV1ItemStorageFromFork(item);

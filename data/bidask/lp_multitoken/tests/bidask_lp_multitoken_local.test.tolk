@@ -88,10 +88,12 @@ get fun `test bidask lp multitoken parses saved nonempty storage token dictionar
     val tokenChunksCell = storage.tokenChunks;
     expect(tokenChunksCell).toBeNotNull();
 
-    val tokenChunks = createMapFromLowLevelDict<int32, BidaskLpMultitokenTokenChunk>(tokenChunksCell);
+    val tokenChunks = createMapFromLowLevelDict<int32, BidaskLpMultitokenTokenChunk>(
+        tokenChunksCell,
+    );
     var firstGroup = tokenChunks.mustGet(165) as slice;
     val secondGroup = tokenChunks.mustGet(166);
-    var lastGroup = tokenChunks.mustGet(170) as slice;
+    val lastGroup = tokenChunks.mustGet(170) as slice;
 
     expect(dataCell.hash()).toEqual(EXPECTED_NONEMPTY_DATA_HASH);
     expect(storage.rangeAddress).toEqual(address(EXPECTED_RANGE_ADDRESS));
@@ -115,8 +117,12 @@ get fun `test bidask lp multitoken generated wrapper local surface`() {
     val dataCell = parseCellFromBase64(DATA_FIXTURE_BOC);
     val storage = BidaskLpMultitokenStorage.fromCell(dataCell);
     val fromStorage = BidaskLpMultitoken.fromStorage(storage);
-    val emptyMainnet = BidaskLpMultitoken.fromAddress(address(MAINNET_BIDASK_LP_MULTITOKEN_EMPTY_ADDRESS));
-    val nonemptyMainnet = BidaskLpMultitoken.fromAddress(address(MAINNET_BIDASK_LP_MULTITOKEN_NONEMPTY_ADDRESS));
+    val emptyMainnet = BidaskLpMultitoken.fromAddress(
+        address(MAINNET_BIDASK_LP_MULTITOKEN_EMPTY_ADDRESS),
+    );
+    val nonemptyMainnet = BidaskLpMultitoken.fromAddress(
+        address(MAINNET_BIDASK_LP_MULTITOKEN_NONEMPTY_ADDRESS),
+    );
 
     expect(fromStorage.stateInit).toBeNotNull();
     expect(fromStorage.stateInit!.code.hash()).toEqual(EXPECTED_CODE_HASH);

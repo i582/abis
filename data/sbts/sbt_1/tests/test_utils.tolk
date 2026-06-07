@@ -23,7 +23,11 @@ fun sbtV1InlineEmptyForwardPayload(): RemainingBitsAndRefs {
     return beginCell().storeUint(0, 1).endCell().beginParse();
 }
 
-fun localSbtV1SingleStorage(owner: address, editor: address, authority: address): SbtV1SingleStorage {
+fun localSbtV1SingleStorage(
+    owner: address,
+    editor: address,
+    authority: address,
+): SbtV1SingleStorage {
     return {
         ownerAddress: owner,
         editorAddress: editor,

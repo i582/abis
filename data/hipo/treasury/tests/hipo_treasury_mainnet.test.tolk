@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -75,7 +75,10 @@ fun expectInternalAddress(actual: address): void {
     expect((actual as any_address).castToInternal()).toEqual(actual);
 }
 
-fun expectTreasuryStateMatchesStorage(treasury: HipoTreasury, loaded: LoadedHipoTreasuryStorage): void {
+fun expectTreasuryStateMatchesStorage(
+    treasury: HipoTreasury,
+    loaded: LoadedHipoTreasuryStorage,
+): void {
     val storage = loaded.storage;
     val extension = storage.extension.load();
     val state = treasury.getTreasuryState();

@@ -6,7 +6,9 @@ contract EvaaMasterClassic {
     storage: EvaaMasterClassicStorage
     incomingMessages: EvaaMasterClassicIncomingMessage
     outgoingMessages: EvaaMasterClassicOutgoingMessage
-    forceAbiExport: EvaaMasterClassicGetConfigReply | EvaaMasterClassicGetUIVariablesReply | EvaaMasterClassicGetOraclesInfoReply
+    forceAbiExport: EvaaMasterClassicGetConfigReply
+        | EvaaMasterClassicGetUIVariablesReply
+        | EvaaMasterClassicGetOraclesInfoReply
     thrownErrors: EvaaMasterClassicErrors
 }
 
@@ -1219,17 +1221,25 @@ enum EvaaMasterClassicErrors {
     UnsupportedOperation = 0xffff
 }
 
-fun exportEvaaMasterClassicErrors(): void {
-
-}
+fun exportEvaaMasterClassicErrors(): void {}
 
 /// Return collateral quote for a borrow/collateral liquidation pair.
-get fun getCollateralQuote(borrowAssetId: int, borrowLiquidateAmount: int, collateralAssetId: int, pricesPacked: cell): int {
+get fun getCollateralQuote(
+    borrowAssetId: int,
+    borrowLiquidateAmount: int,
+    collateralAssetId: int,
+    pricesPacked: cell,
+): int {
     throw 0;
 }
 
 /// Return updated rates for one asset and elapsed time.
-get fun getUpdatedRates(assetConfigCollection: cell, assetDynamicsCollection: cell, assetId: int, timeElapsed: int): EvaaMasterClassicAssetRate {
+get fun getUpdatedRates(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    assetId: int,
+    timeElapsed: int,
+): EvaaMasterClassicAssetRate {
     throw 0;
 }
 

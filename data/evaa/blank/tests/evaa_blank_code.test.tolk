@@ -42,7 +42,7 @@ get fun `test evaa blank state init storage fixture is deterministic`() {
     };
     val blank = EvaaBlank.fromStorage(storage);
     val liveStorage = EvaaBlankStorage.fromCell(blank.stateInit!.data);
-    var liveTail = liveStorage.tail;
+    val liveTail = liveStorage.tail;
 
     expect(blank.stateInit).toBeNotNull();
     expect(blank.stateInit!.code.hash()).toEqual(EXPECTED_CODE_HASH);

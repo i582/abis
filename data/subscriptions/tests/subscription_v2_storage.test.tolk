@@ -1,9 +1,9 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -12,8 +12,7 @@ import "../wrappers/SubscriptionV2.gen"
 
 const FIXTURE_BOC_PATH = "data/subscriptions/testdata/SubscriptionV2.boc"
 const DATA_FIXTURE_BOC_PATH = "data/subscriptions/testdata/SubscriptionV2.data.boc"
-const LIVE_DATA_BOC =
-    "te6ccgECDAEAAiYAA70AAAAANSX+TkAAfpABACp9YK4+eu2Fy2kafPbAy+etF14vDbm9h3MkOhjhQSuRDOABF5QKyPfyZE8ZrPPdEtjG+7D6dbgpn18jwfNi3Q2Eh/rF04ZKgNBRd8AAE8aAQAECAwEHMK0YmAQBQ4AWLUDDDBk+cTqd6D+/tU8il4Eiz7c+pu9r1SuKCdrtbvAJAUgBjkYLXcusnvRl4PNzaEgiTFZW19wacVt9rdQd7DFsanBjQHoKAgoOw8htAAkFAWZiAFT6wVx89dsLltI0+e2Bl89aLrxeG3N7DuZIdDHCglciGFaMSAAAAAAAAAAAAAAAAAEGARlleHRuAAAAAAAAAACgBwIKDsPIbUIJCACCYgAJicavrdSz7YUIO9IIf0EFne9klxKlxm24n5+OBTLxVSgNBRd8AAAAAAAAAAAAAAAAAADwbHVnAAAAAAAAAAAAAAH+625PWVm4O0ROFLEdJ+6AgyrAScl4iL0THgmUuPQvhPJoikwr5/tNXjnbObLT882SbJTxnyYau06kGklryPbYYxBB/on9hmuymY7fTE54d0InkyYRk82RGh/woYnidWRp6u5o9ApVdme66VEagUXwHsB/bDwHQfnRwhVwoX3oTQsAnGqnoHZnCXu0CD7XEbRVPPNcGOdK+RAdYVUk3W6iGb6WSr/dp5k4XeUYzzmI7cU6PEBiGIOS53dp+IzkmWze/ii4bKv66ynS2vSiDXoftA=="
+const LIVE_DATA_BOC = "te6ccgECDAEAAiYAA70AAAAANSX+TkAAfpABACp9YK4+eu2Fy2kafPbAy+etF14vDbm9h3MkOhjhQSuRDOABF5QKyPfyZE8ZrPPdEtjG+7D6dbgpn18jwfNi3Q2Eh/rF04ZKgNBRd8AAE8aAQAECAwEHMK0YmAQBQ4AWLUDDDBk+cTqd6D+/tU8il4Eiz7c+pu9r1SuKCdrtbvAJAUgBjkYLXcusnvRl4PNzaEgiTFZW19wacVt9rdQd7DFsanBjQHoKAgoOw8htAAkFAWZiAFT6wVx89dsLltI0+e2Bl89aLrxeG3N7DuZIdDHCglciGFaMSAAAAAAAAAAAAAAAAAEGARlleHRuAAAAAAAAAACgBwIKDsPIbUIJCACCYgAJicavrdSz7YUIO9IIf0EFne9klxKlxm24n5+OBTLxVSgNBRd8AAAAAAAAAAAAAAAAAADwbHVnAAAAAAAAAAAAAAH+625PWVm4O0ROFLEdJ+6AgyrAScl4iL0THgmUuPQvhPJoikwr5/tNXjnbObLT882SbJTxnyYau06kGklryPbYYxBB/on9hmuymY7fTE54d0InkyYRk82RGh/woYnidWRp6u5o9ApVdme66VEagUXwHsB/bDwHQfnRwhVwoX3oTQsAnGqnoHZnCXu0CD7XEbRVPPNcGOdK+RAdYVUk3W6iGb6WSr/dp5k4XeUYzzmI7cU6PEBiGIOS53dp+IzkmWze/ii4bKv66ynS2vSiDXoftA=="
 
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0x48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a
@@ -70,7 +69,10 @@ fun loadSubscriptionStorageFromFork(subscription: SubscriptionV2): LoadedSubscri
     }
 }
 
-fun expectGettersMatchStorage(subscription: SubscriptionV2, loaded: LoadedSubscriptionV2Storage): void {
+fun expectGettersMatchStorage(
+    subscription: SubscriptionV2,
+    loaded: LoadedSubscriptionV2Storage,
+): void {
     val storage = loaded.storage;
     val withdrawInfo = storage.withdrawInfo.load();
     val subscriptionInfo = subscription.getSubscriptionInfo();

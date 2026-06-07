@@ -3,12 +3,12 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./master_test_utils"
+import "./wallet_test_utils"
 import "../types/jetton_notcoin_master.types"
 import "../types/jetton_notcoin_wallet.types"
 import "../wrappers/JettonNotcoinMaster.gen"
 import "../wrappers/JettonNotcoinWallet.gen"
-import "./master_test_utils"
-import "./wallet_test_utils"
 
 get fun `test jetton notcoin wallet public getters work on mainnet`() {
     val master = mainnetJettonNotcoinMaster();

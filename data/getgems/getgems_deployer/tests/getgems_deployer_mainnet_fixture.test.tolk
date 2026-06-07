@@ -6,9 +6,7 @@ const MAINNET_GETGEMS_DEPLOYER_ADDRESS = "EQAIFunALREOeQ99syMbO6sSzM_Fa1RsPD5TBo
 const MAINNET_GETGEMS_DEPLOYER_OWNER_ADDRESS = "EQBYTuYbLf8INxFtD8tQeNk5ZLy-nAX9ahQbG_yl1qQ-GEMS"
 
 fun mainnetGetgemsDeployerStorageFixture(): GetgemsDeployerStorage {
-    return GetgemsDeployerStorage {
-        ownerAddress: address(MAINNET_GETGEMS_DEPLOYER_OWNER_ADDRESS),
-    };
+    return GetgemsDeployerStorage { ownerAddress: address(MAINNET_GETGEMS_DEPLOYER_OWNER_ADDRESS) };
 }
 
 get fun `test getgems deployer mainnet storage fixture derives address`() {

@@ -6,7 +6,15 @@ contract StonfiRouterV2 {
     storage: StonfiRouterV2Storage
     incomingMessages: StonfiRouterV2IncomingMessage
     outgoingMessages: StonfiRouterV2OutgoingMessage
-    forceAbiExport: StonfiRouterV2SwapForwardPayload | StonfiRouterV2CrossSwapForwardPayload | StonfiRouterV2ProvideLpForwardPayload | StonfiRouterV2SetStableSwapParams | StonfiRouterV2SetWeightedStableSwapParams | StonfiRouterV2SetWeightedConstProductParams | StonfiRouterV2PoolInternalSetStableSwapParams | StonfiRouterV2PoolInternalSetWeightedStableSwapParams | StonfiRouterV2PoolInternalSetWeightedConstProductParams
+    forceAbiExport: StonfiRouterV2SwapForwardPayload
+        | StonfiRouterV2CrossSwapForwardPayload
+        | StonfiRouterV2ProvideLpForwardPayload
+        | StonfiRouterV2SetStableSwapParams
+        | StonfiRouterV2SetWeightedStableSwapParams
+        | StonfiRouterV2SetWeightedConstProductParams
+        | StonfiRouterV2PoolInternalSetStableSwapParams
+        | StonfiRouterV2PoolInternalSetWeightedStableSwapParams
+        | StonfiRouterV2PoolInternalSetWeightedConstProductParams
 }
 
 /// Persistent Router state stored in the root data cell and exposed by `get_router_data`.

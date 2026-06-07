@@ -108,7 +108,9 @@ get fun `test tonco pool factory decodes real router create pool body`() {
     expect(decoded.lpFeeBase).toEqual(30);
     expect(decoded.lpFeeCurrent).toEqual(30);
     expect(decoded.nftv3Content.hash()).toEqual(TONCO_POOL_FACTORY_ROUTER_NFTV3_CONTENT_HASH);
-    expect(decoded.nftv3itemContent.hash()).toEqual(TONCO_POOL_FACTORY_ROUTER_NFTV3ITEM_CONTENT_HASH);
+    expect(decoded.nftv3itemContent.hash()).toEqual(
+        TONCO_POOL_FACTORY_ROUTER_NFTV3ITEM_CONTENT_HASH,
+    );
     expect(minterCell.jetton0Minter).toEqual(address(TONCO_POOL_FACTORY_JETTON0_MINTER));
     expect(minterCell.jetton1Minter).toEqual(address(TONCO_POOL_FACTORY_JETTON1_MINTER));
     expect(minterCell.controllerAddress).toEqual(address(TONCO_POOL_FACTORY_ADMIN_ADDRESS));

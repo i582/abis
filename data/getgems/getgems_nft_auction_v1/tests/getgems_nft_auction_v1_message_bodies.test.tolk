@@ -99,7 +99,11 @@ get fun `test getgems auction v1 decodes toncenter rejected bid text notificatio
     expect(text.remainingBitsCount()).toEqual(0);
     expect(text.remainingRefsCount()).toEqual(0);
 
-    println("GETGEMS_NFT_AUCTION_V1_TONCENTER_REJECTED_TEXT_NOTIFICATION_TX={} LT={}", txHash, txLt);
+    println(
+        "GETGEMS_NFT_AUCTION_V1_TONCENTER_REJECTED_TEXT_NOTIFICATION_TX={} LT={}",
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test getgems auction v1 decodes toncenter previous owner text notification body`() {
@@ -118,5 +122,9 @@ get fun `test getgems auction v1 decodes toncenter previous owner text notificat
     expect(text.remainingBitsCount()).toEqual(0);
     expect(text.remainingRefsCount()).toEqual(0);
 
-    println("GETGEMS_NFT_AUCTION_V1_TONCENTER_PREVIOUS_OWNER_TEXT_NOTIFICATION_TX={} LT={}", txHash, txLt);
+    println(
+        "GETGEMS_NFT_AUCTION_V1_TONCENTER_PREVIOUS_OWNER_TEXT_NOTIFICATION_TX={} LT={}",
+        txHash,
+        txLt,
+    );
 }

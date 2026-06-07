@@ -34,7 +34,9 @@ fun expectOptionalCellHash(expected: cell?, actual: cell): void {
     }
 }
 
-fun loadCoffeeStakingMasterStorageFromFork(master: CoffeeStakingMaster): CoffeeStakingMasterStorage {
+fun loadCoffeeStakingMasterStorageFromFork(
+    master: CoffeeStakingMaster,
+): CoffeeStakingMasterStorage {
     val account = testing.getAccountState(master.address);
     expect(account).toBeNotNull();
 

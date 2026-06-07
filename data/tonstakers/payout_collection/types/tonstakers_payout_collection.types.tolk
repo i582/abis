@@ -7,7 +7,11 @@ contract TonstakersPayoutCollection {
     storageAtDeployment: TonstakersPayoutCollectionDeploymentStorage
     incomingMessages: TonstakersPayoutCollectionIncomingMessage
     outgoingMessages: TonstakersPayoutCollectionOutgoingMessage
-    forceAbiExport: TonstakersPayoutCollectionContent | TonstakersPayoutCollectionPendingTonDistribution | TonstakersPayoutCollectionPendingJettonDistribution | TonstakersPayoutCollectionStartedTonDistribution | TonstakersPayoutCollectionStartedJettonDistribution
+    forceAbiExport: TonstakersPayoutCollectionContent
+        | TonstakersPayoutCollectionPendingTonDistribution
+        | TonstakersPayoutCollectionPendingJettonDistribution
+        | TonstakersPayoutCollectionStartedTonDistribution
+        | TonstakersPayoutCollectionStartedJettonDistribution
     thrownErrors: TonstakersPayoutCollectionErrors
 }
 

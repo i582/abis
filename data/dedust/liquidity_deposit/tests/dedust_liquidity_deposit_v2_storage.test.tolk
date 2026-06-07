@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -20,7 +20,9 @@ const MAINNET_DEDUST_OWNER_ADDRESS = "EQCwhpDIOXevtrSRj6MTnR-flPM_EDH-AziwiP4uAJ
 const MAINNET_USDT_ASSET_HASH = 0xb113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe
 
 fun mainnetDedustLiquidityDepositV2(): DedustLiquidityDepositV2 {
-    return DedustLiquidityDepositV2.fromAddress(address(MAINNET_DEDUST_LIQUIDITY_DEPOSIT_V2_ADDRESS));
+    return DedustLiquidityDepositV2.fromAddress(
+        address(MAINNET_DEDUST_LIQUIDITY_DEPOSIT_V2_ADDRESS),
+    );
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -77,7 +79,9 @@ fun expectUsdtAsset(asset: DedustAsset): void {
     }
 }
 
-fun loadDedustLiquidityDepositV2StorageFromFork(deposit: DedustLiquidityDepositV2): DedustLiquidityDepositV2Storage {
+fun loadDedustLiquidityDepositV2StorageFromFork(
+    deposit: DedustLiquidityDepositV2,
+): DedustLiquidityDepositV2Storage {
     val account = testing.getAccountState(deposit.address);
     expect(account).toBeNotNull();
 
@@ -89,7 +93,9 @@ fun loadDedustLiquidityDepositV2StorageFromFork(deposit: DedustLiquidityDepositV
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("DedustLiquidityDepositV2", FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("DedustLiquidityDepositV2", FIXTURE_BOC_PATH).hash(),
+            );
             return DedustLiquidityDepositV2Storage.fromCell(data!);
         }
         TlbAccountStateUninit => {

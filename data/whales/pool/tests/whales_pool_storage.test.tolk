@@ -1,13 +1,12 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "@stdlib/lisp-lists"
 import "../types/whales_pool.types"
 import "../wrappers/WhalesPool.gen"
 
@@ -76,13 +75,7 @@ fun loadFromDataCell(data: cell): LoadedWhalesPoolStorage {
     val balance = storage.balance.load();
     val proxyState = storage.proxyState.load();
     val extras = loadExtras(mutate compatibilityTail);
-    return LoadedWhalesPoolStorage {
-        data,
-        storage,
-        balance,
-        proxyState,
-        extras,
-    };
+    return LoadedWhalesPoolStorage { data, storage, balance, proxyState, extras };
 }
 
 fun loadFromDataFixture(): LoadedWhalesPoolStorage {

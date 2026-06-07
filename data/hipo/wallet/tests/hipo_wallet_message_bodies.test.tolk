@@ -6,7 +6,7 @@ import "../types/hipo_wallet.types"
 const HIPO_OWNER = "0:7F2BEB264EBBD6A81F8BB96737394F380A3B75F0C20EB550DC4C1312DD60E0CC"
 const HIPO_PARENT = "0:CF76AF318C0872B58A9F1925FC29C156211782B9FB01F56760D292E56123BF87"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -44,7 +44,9 @@ get fun `test hipo wallet decodes toncenter owner send_tokens and outgoing recei
 
     expect(send.queryId).toEqual(1299740111371286);
     expect(send.tokens).toEqual(1000000000);
-    expect(send.recipient).toEqual(address("0:779DCC815138D9500E449C5291E7F12738C23D575B5310000F6A253BD607384E"));
+    expect(send.recipient).toEqual(
+        address("0:779DCC815138D9500E449C5291E7F12738C23D575B5310000F6A253BD607384E"),
+    );
     expect(send.returnExcess).toBeNull();
     expect(send.customPayload).toBeNull();
     expect(send.forwardTonAmount).toEqual(240000000);
@@ -81,7 +83,9 @@ get fun `test hipo wallet decodes toncenter receive_tokens with ref payload, not
 
     expect(receive.queryId).toEqual(0);
     expect(receive.tokens).toEqual(6853725);
-    expect(receive.sender).toEqual(address("0:E31556ED0EBE54EE0E4D830A4497E36B5BC2507AB4D83A6644E3E50A5B51D6C7"));
+    expect(receive.sender).toEqual(
+        address("0:E31556ED0EBE54EE0E4D830A4497E36B5BC2507AB4D83A6644E3E50A5B51D6C7"),
+    );
     expect(receive.returnExcess).toBeNotNull();
     expect(receive.returnExcess!).toEqual(address(HIPO_OWNER));
     expect(receive.forwardTonAmount).toEqual(40000000);

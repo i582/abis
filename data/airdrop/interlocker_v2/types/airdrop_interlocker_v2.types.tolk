@@ -56,12 +56,10 @@ struct (0x013a3ca6) AirdropInterlockerV2ClaimNotification {
 }
 
 /// Internal message bodies accepted by Airdrop Interlocker v2.
-type AirdropInterlockerV2IncomingMessage =
-    | AirdropInterlockerV2LockAndClaim
+type AirdropInterlockerV2IncomingMessage = AirdropInterlockerV2LockAndClaim
 
 /// Internal message bodies emitted by Airdrop Interlocker v2.
-type AirdropInterlockerV2OutgoingMessage =
-    | AirdropInterlockerV2ClaimNotification
+type AirdropInterlockerV2OutgoingMessage = AirdropInterlockerV2ClaimNotification
 
 /// Structured result returned by `get_distribution_info`.
 struct GetDistributionInfoReply {

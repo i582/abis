@@ -11,7 +11,7 @@ const EXPECTED_FORWARD_PAYLOAD_HASH = 0x63c4f04284a13139588be6cc1b60d940e0e60c9a
 const EXPECTED_EMPTY_PAYLOAD_HASH = 0x96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
 const EXPECTED_SENDER_ADDRESS = "0:3f72c3032d01ce3da5bbeec979f291e76cfb292a9f08b3de324b0c63c00b1169"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -57,5 +57,9 @@ get fun `test evaa master classic decodes real jetton transfer notification body
 
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("EVAA_MASTER_CLASSIC_TRANSFER_NOTIFY_TX={} LT={}", TRANSFER_NOTIFY_TX_HASH, TRANSFER_NOTIFY_LT);
+    println(
+        "EVAA_MASTER_CLASSIC_TRANSFER_NOTIFY_TX={} LT={}",
+        TRANSFER_NOTIFY_TX_HASH,
+        TRANSFER_NOTIFY_LT,
+    );
 }

@@ -102,8 +102,7 @@ type GetgemsNftFixpriceSaleV1IncomingMessage =
     | GetgemsNftFixpriceSaleV1Cancel
 
 /// Internal message bodies emitted by the fixed-price sale.
-type GetgemsNftFixpriceSaleV1OutgoingMessage =
-    | GetgemsNftFixpriceSaleV1NftTransfer
+type GetgemsNftFixpriceSaleV1OutgoingMessage = GetgemsNftFixpriceSaleV1NftTransfer
 
 /// Structured result returned by `get_sale_data`.
 struct GetgemsNftFixpriceSaleV1SaleDataReply {

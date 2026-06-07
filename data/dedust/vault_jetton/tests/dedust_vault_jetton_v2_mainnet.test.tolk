@@ -102,7 +102,9 @@ get fun `test dedust jetton vault v2 mainnet getters and storage`() {
     expect(walletAddr!).toEqual(address(MAINNET_USDT_VAULT_WALLET_ADDRESS));
     expect(asset.loadUint(4)).toEqual(1);
     expect(asset.loadInt(8)).toEqual(0);
-    expect(asset.loadUint(256)).toEqual(0xb113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe);
+    expect(
+        asset.loadUint(256),
+    ).toEqual(0xb113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe);
     expect(asset.remainingBitsCount()).toEqual(0);
     expect(asset.remainingRefsCount()).toEqual(0);
 

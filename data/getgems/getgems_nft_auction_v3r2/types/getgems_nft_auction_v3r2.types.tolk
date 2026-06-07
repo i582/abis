@@ -7,7 +7,9 @@ contract GetgemsNftAuctionV3R2 {
     incomingMessages: GetgemsNftAuctionV3R2IncomingMessage
     incomingExternal: GetgemsNftAuctionV3R2IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV3R2OutgoingMessage
-    forceAbiExport: GetgemsNftAuctionV3R2Bid | GetgemsNftAuctionV3R2ExternalActivation | GetgemsNftAuctionV3R2EmergencyRelayBox
+    forceAbiExport: GetgemsNftAuctionV3R2Bid
+        | GetgemsNftAuctionV3R2ExternalActivation
+        | GetgemsNftAuctionV3R2EmergencyRelayBox
     thrownErrors: GetgemsNftAuctionV3R2Errors
 }
 

@@ -6,13 +6,17 @@ contract NominatorPool {
     storage: NominatorPoolStorage
     incomingMessages: NominatorPoolIncomingMessage
     outgoingMessages: NominatorPoolOutgoingMessage
-    forceAbiExport: NominatorPoolConfig | NominatorPoolEmpty | NominatorPoolVote | NominatorPoolVoting | NominatorPoolElectorNewStake | NominatorPoolEmptyBody
+    forceAbiExport: NominatorPoolConfig
+        | NominatorPoolEmpty
+        | NominatorPoolVote
+        | NominatorPoolVoting
+        | NominatorPoolElectorNewStake
+        | NominatorPoolEmptyBody
     thrownErrors: NominatorPoolErrors
 }
 
 /// Empty dictionary value used as a set marker.
-struct NominatorPoolEmpty {
-}
+struct NominatorPoolEmpty {}
 
 /// Immutable Pool configuration stored in the root storage reference.
 struct NominatorPoolConfig {
@@ -212,8 +216,7 @@ struct (0xfffffffe) NominatorPoolRecoverStakeError {
 }
 
 /// Empty body emitted for plain TON withdrawals and excess transfers.
-struct NominatorPoolEmptyBody {
-}
+struct NominatorPoolEmptyBody {}
 
 /// Internal message bodies accepted by the Pool.
 type NominatorPoolIncomingMessage =
@@ -444,6 +447,4 @@ fun emptyNominatorPoolDataReply(): NominatorPoolDataReply {
     };
 }
 
-fun assertNominatorPoolKnownErrors(): void {
-
-}
+fun assertNominatorPoolKnownErrors(): void {}

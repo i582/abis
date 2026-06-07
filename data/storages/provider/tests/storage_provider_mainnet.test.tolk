@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -68,7 +68,10 @@ fun loadStorageProviderStorageFromFork(provider: StorageProvider): LoadedStorage
     }
 }
 
-fun expectStorageProviderGettersMatchStorage(provider: StorageProvider, loaded: LoadedStorageProviderStorage): void {
+fun expectStorageProviderGettersMatchStorage(
+    provider: StorageProvider,
+    loaded: LoadedStorageProviderStorage,
+): void {
     val storage = loaded.storage;
     val walletParams = provider.getWalletParams();
     val storageParams = provider.getStorageParams();

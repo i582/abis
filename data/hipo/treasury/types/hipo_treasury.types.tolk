@@ -7,13 +7,19 @@ contract HipoTreasury {
     incomingMessages: HipoTreasuryIncomingMessage
     incomingExternal: HipoTreasuryIncomingExternalMessage
     outgoingMessages: HipoTreasuryOutgoingMessage
-    forceAbiExport: HipoTreasuryNewStakeMsg | HipoTreasuryLoanRequest | HipoTreasuryParticipation | HipoTreasuryExtension | HipoTreasuryLoanLog | HipoTreasuryRepaymentLog | HipoTreasuryFinishLog | HipoTreasuryFailedBurningTokensLog
+    forceAbiExport: HipoTreasuryNewStakeMsg
+        | HipoTreasuryLoanRequest
+        | HipoTreasuryParticipation
+        | HipoTreasuryExtension
+        | HipoTreasuryLoanLog
+        | HipoTreasuryRepaymentLog
+        | HipoTreasuryFinishLog
+        | HipoTreasuryFailedBurningTokensLog
     thrownErrors: HipoTreasuryErrors
 }
 
 /// Empty dictionary value used where the FunC source stores an empty builder as a set marker.
-struct HipoTreasuryEmpty {
-}
+struct HipoTreasuryEmpty {}
 
 /// Proposed-governor cell stored as `Maybe ^Cell` in the treasury extension.
 struct HipoTreasuryProposedGovernor {

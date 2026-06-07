@@ -15,11 +15,7 @@ fun walletHighloadV3r1(): WalletHighloadV3r1 {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 
@@ -28,10 +24,7 @@ fun invalidSignedInner(wallet: WalletHighloadV3r1): HighloadV3MsgInner {
         subwalletId: wallet.getSubwalletId(),
         messageToSend: createEmptyCell(),
         sendMode: 0,
-        queryId: {
-            shift: 0 as uint13,
-            bitNumber: 0 as uint10,
-        },
+        queryId: { shift: 0 as uint13, bitNumber: 0 as uint10 },
         createdAt: blockchain.now() as uint64,
         timeout: wallet.getTimeout() as uint22,
     };

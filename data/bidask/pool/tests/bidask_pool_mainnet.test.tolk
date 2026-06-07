@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -82,7 +82,9 @@ fun expectBidaskPoolForkGettersMatchStorage(pool: BidaskPool, storage: BidaskPoo
     expect(poolInfo.lpFee).toEqual(staticData.lpFee as int);
 
     expect(feesInfo.refFee).toEqual(staticData.refFee as int);
-    expect(feesInfo.protocolFeeReductionFactor).toEqual(staticData.protocolFeeReductionFactor as int);
+    expect(feesInfo.protocolFeeReductionFactor).toEqual(
+        staticData.protocolFeeReductionFactor as int,
+    );
     expect(poolTokens.jettonWalletX).toEqual(staticData.jettonWalletX);
     expect(poolTokens.jettonWalletY).toEqual(staticData.jettonWalletY);
 
@@ -93,8 +95,12 @@ fun expectBidaskPoolForkGettersMatchStorage(pool: BidaskPool, storage: BidaskPoo
 
     expect(tvl.tokenXAmount).toEqual(storage.tokenXAmount as int);
     expect(tvl.tokenYAmount).toEqual(storage.tokenYAmount as int);
-    expect(protocolFees.collectedTokenXProtocolFee).toEqual(storage.collectedTokenXProtocolFee as int);
-    expect(protocolFees.collectedTokenYProtocolFee).toEqual(storage.collectedTokenYProtocolFee as int);
+    expect(protocolFees.collectedTokenXProtocolFee).toEqual(
+        storage.collectedTokenXProtocolFee as int,
+    );
+    expect(protocolFees.collectedTokenYProtocolFee).toEqual(
+        storage.collectedTokenYProtocolFee as int,
+    );
 
     if (storage.farmingData == null) {
         expect(farmingInfo.distributedXAmount).toEqual(0);

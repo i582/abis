@@ -692,8 +692,7 @@ struct EvaaUserSupplyWithdrawUnsatisfiedSupply {
 }
 
 /// Empty withdraw leg for an unsatisfied supply-withdraw response.
-struct EvaaUserSupplyWithdrawEmptyWithdraw {
-}
+struct EvaaUserSupplyWithdrawEmptyWithdraw {}
 
 /// Unsatisfied supply-withdraw response general data.
 struct EvaaUserSupplyWithdrawUnsatisfiedGeneral {
@@ -841,22 +840,38 @@ get fun getAccountBalances(assetDynamicsCollection: cell): cell {
 }
 
 /// Return account health for supplied config, dynamics, and price dictionaries.
-get fun getAccountHealth(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
+get fun getAccountHealth(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    pricesPacked: cell,
+): int {
     throw 0;
 }
 
 /// Return available borrow amount for supplied config, dynamics, and price dictionaries.
-get fun getAvailableToBorrow(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
+get fun getAvailableToBorrow(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    pricesPacked: cell,
+): int {
     throw 0;
 }
 
 /// Return whether the account is liquidatable for supplied config, dynamics, and price dictionaries.
-get fun getIsLiquidable(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
+get fun getIsLiquidable(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    pricesPacked: cell,
+): int {
     throw 0;
 }
 
 /// Return aggregate supplied and borrowed values.
-get fun getAggregatedBalances(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): EvaaUserAggregatedBalances {
+get fun getAggregatedBalances(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    pricesPacked: cell,
+): EvaaUserAggregatedBalances {
     throw 0;
 }
 
@@ -881,6 +896,11 @@ get fun getAllUserScData(): EvaaUserScData {
 }
 
 /// Return maximum withdraw amount for one asset with supplied market state.
-get fun get_maximum_withdraw_amount(assetId: int, pricesPacked: cell, assetConfigCollection: cell, assetDynamicsCollection: cell): int {
+get fun get_maximum_withdraw_amount(
+    assetId: int,
+    pricesPacked: cell,
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+): int {
     throw 0;
 }

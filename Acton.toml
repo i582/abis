@@ -1122,5 +1122,114 @@ dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-nu
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
 
+compile-all-contracts = """
+acton build
+"""
+
+run-mainnet-block-tests = """
+set -e
+acton run cron-mainnet-test
+acton run subscription-v1-mainnet-test
+acton run subscription-v2-mainnet-test
+acton run tonkeeper-2fa-mainnet-test
+acton run evaa-master-pyth-mainnet-test
+acton run evaa-master-classic-mainnet-test
+acton run nominator-pool-mainnet-test
+acton run single-nominator-v1-0-mainnet-test
+acton run single-nominator-v1-1-mainnet-test
+acton run whales-pool-mainnet-test
+acton run whales-proxy-mainnet-test
+acton run airdrop-interlocker-v1-mainnet-test
+acton run airdrop-interlocker-v2-mainnet-test
+acton run storm-vault-mainnet-test
+acton run storm-vault-native-mainnet-test
+acton run storm-vamm-mainnet-test
+acton run storm-vamm-coinm-mainnet-test
+acton run storm-smart-account-factory-mainnet-test
+acton run storm-position-manager-mainnet-test
+acton run storm-referral-collection-mainnet-test
+acton run storm-referral-mainnet-test
+acton run storm-executor-collection-mainnet-test
+acton run storm-executor-mainnet-test
+acton run storm-lp-minter-mainnet-test
+acton run storm-lp-wallet-mainnet-test
+acton run storm-prelaunch-mainnet-test
+acton run storage-provider-mainnet-test
+acton run storage-contract-mainnet-test
+acton run bemo-financial-mainnet-test
+acton run bemo-unstake-request-mainnet-test
+acton run hipo-treasury-mainnet-test
+acton run hipo-parent-mainnet-test
+acton run hipo-wallet-mainnet-test
+acton run hipo-collection-mainnet-test
+acton run hipo-bill-mainnet-test
+acton run hipo-loan-mainnet-test
+acton run hipo-librarian-mainnet-test
+acton run tonstakers-pool-mainnet-test
+acton run tonstakers-controller-mainnet-test
+acton run tonstakers-ts-ton-minter-mainnet-test
+acton run tonstakers-ts-ton-wallet-mainnet-test
+acton run tonstakers-payout-collection-mainnet-test
+acton run tonstakers-payout-item-mainnet-test
+acton run dedust-factory-v2-mainnet-test
+acton run dedust-factory-v2-storage-test
+acton run dedust-vault-native-v2-mainnet-test
+acton run dedust-vault-native-v2-storage-test
+acton run dedust-vault-jetton-v2-mainnet-test
+acton run dedust-pool-v2-mainnet-test
+acton run dedust-liquidity-deposit-v2-storage-test
+acton run stonfi-mainnet-test
+acton run pton-mainnet-test
+acton run bidask-pool-mainnet-test
+acton run bidask-internal-liquidity-vault-mainnet-test
+acton run bidask-damm-pool-mainnet-test
+acton run tonco-router-mainnet-test
+acton run tonco-pool-mainnet-test
+acton run tonco-account-mainnet-test
+acton run tonco-pool-factory-mainnet-test
+acton run tonco-position-nft-v3-mainnet-test
+acton run tonco-mainnet-test
+acton run locker-mainnet-test
+acton run lockup-universal-mainnet-test
+acton run wallet-vesting-mainnet-test
+acton run wallet-v1r1-mainnet-test
+acton run wallet-v1r2-mainnet-test
+acton run wallet-v1r3-mainnet-test
+acton run wallet-v2r1-mainnet-test
+acton run wallet-v2r2-mainnet-test
+acton run wallet-v3r1-mainnet-test
+acton run wallet-v3r2-mainnet-test
+acton run wallet-v4r1-mainnet-test
+acton run wallet-v4r2-mainnet-test
+acton run wallet-v5r1-mainnet-test
+acton run wallet-highload-v2-mainnet-test
+acton run wallet-highload-v2r1-mainnet-test
+acton run wallet-highload-v2r2-mainnet-test
+acton run wallet-highload-v3r1-mainnet-test
+acton run wallet-preprocessed-v2-mainnet-test
+acton run wallet-multisig-v2-mainnet-test
+acton run jetton-1-mainnet-test
+acton run discoverable-jetton-mainnet-test
+acton run stablecoin-mainnet-test
+acton run jetton-notcoin-mainnet-test
+acton run mintless-mainnet-test
+acton run scaled-ui-mainnet-test
+acton run nft-1-mainnet-test
+acton run nft-2-mainnet-test
+acton run getgems-nft-2-mainnet-test
+acton run telemint-mainnet-test
+acton run dns-mainnet-test
+acton run sbt-1-mainnet-test
+"""
+
+[lint]
+exclude = ["scripts/**"]
+
+[lint.rules]
+unused-variable = "allow"
+write-only-variable = "allow"
+name-case-checker = "allow"
+dict-type-use = "allow"
+
 [import-mappings]
 acton = ".acton"

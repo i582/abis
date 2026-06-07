@@ -51,6 +51,9 @@ get fun `test stonfi lp account v2 generated wrapper builds from storage fixture
     expect(byAddress.stateInit).toBeNull();
 
     println("STONFI_LP_ACCOUNT_V2_CODE_HASH={}", EXPECTED_CODE_HASH);
-    println("STONFI_LP_ACCOUNT_V2_TRACE_DERIVED_UNINITIALIZED_ADDRESS={}", TRACE_DERIVED_UNINITIALIZED_ADDRESS);
+    println(
+        "STONFI_LP_ACCOUNT_V2_TRACE_DERIVED_UNINITIALIZED_ADDRESS={}",
+        TRACE_DERIVED_UNINITIALIZED_ADDRESS,
+    );
     println("STONFI_LP_ACCOUNT_V2_CATALOG_NONEXISTENT_ADDRESS={}", CATALOG_NONEXISTENT_ADDRESS);
 }

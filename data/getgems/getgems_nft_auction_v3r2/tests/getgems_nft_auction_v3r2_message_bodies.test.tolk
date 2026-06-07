@@ -14,7 +14,7 @@ get fun `test getgems auction v3r2 decodes toncenter empty bid body`() {
     expect(parsed.remainingRefsCount()).toEqual(0);
 
     val bid = GetgemsNftAuctionV3R2Bid.fromCell(body);
-    var payload = bid.payload;
+    val payload = bid.payload;
     expect(payload.remainingBitsCount()).toEqual(0);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(bid.toCell().hash()).toEqual(body.hash());

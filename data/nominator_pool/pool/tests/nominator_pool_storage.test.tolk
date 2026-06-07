@@ -1,20 +1,19 @@
+import "@stdlib/lisp-lists"
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "@stdlib/lisp-lists"
 import "../types/nominator_pool.types"
 import "../wrappers/NominatorPool.gen"
 
 const FIXTURE_BOC_PATH = "data/nominator_pool/pool/testdata/NominatorPool.boc"
 const DATA_FIXTURE_BOC_PATH = "data/nominator_pool/pool/testdata/NominatorPool.data.boc"
-const LIVE_DATA_BOC =
-    "te6ccgEBAwEAogACfQIAAXCEWfoCLjD2ClkGhNY6molTwhEzPSTR3kA0AoBIAbmVwhrm3Oj28qicyfCDcRRjDQkeQFqJU+3AACAAEAECAGIg2yiIUbcJT60ET05YOpIz0ILEWpjryMEoCg5JMx2Pdgu4AAFekQP9oAcBENkxbsAAAFOgBUjwiw1dV3TvHUUNOH88kwqHQcE1J7B4zYkaqOR6+9eOEHXYnZkHlBA="
+const LIVE_DATA_BOC = "te6ccgEBAwEAogACfQIAAXCEWfoCLjD2ClkGhNY6molTwhEzPSTR3kA0AoBIAbmVwhrm3Oj28qicyfCDcRRjDQkeQFqJU+3AACAAEAECAGIg2yiIUbcJT60ET05YOpIz0ILEWpjryMEoCg5JMx2Pdgu4AAFekQP9oAcBENkxbsAAAFOgBUjwiw1dV3TvHUUNOH88kwqHQcE1J7B4zYkaqOR6+9eOEHXYnZkHlBA="
 
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0x9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf
@@ -55,11 +54,7 @@ fun loadNominatorPoolStorageFromData(data: cell): LoadedNominatorPoolStorage {
     val config = storage.config.load();
 
     expect(storage.toCell().hash()).toEqual(data.hash());
-    return LoadedNominatorPoolStorage {
-        data,
-        storage,
-        config,
-    };
+    return LoadedNominatorPoolStorage { data, storage, config };
 }
 
 fun loadNominatorPoolStorageFromFork(pool: NominatorPool): LoadedNominatorPoolStorage {
@@ -119,7 +114,10 @@ fun expectNominatorPoolStorageCore(loaded: LoadedNominatorPoolStorage): void {
     expect(storage.validatorSetChangesCount).toBeLessOrEqual(3);
 }
 
-fun expectNominatorPoolGettersMatchStorage(pool: NominatorPool, loaded: LoadedNominatorPoolStorage): void {
+fun expectNominatorPoolGettersMatchStorage(
+    pool: NominatorPool,
+    loaded: LoadedNominatorPoolStorage,
+): void {
     val storage = loaded.storage;
     val config = loaded.config;
     val data = nominatorPoolGetData(pool);

@@ -6,7 +6,10 @@ contract CoffeeFactory {
     storage: CoffeeFactoryStorage
     incomingMessages: CoffeeFactoryIncomingMessage
     outgoingMessages: CoffeeFactoryOutgoingMessage
-    forceAbiExport: CoffeeFactoryDeployAction | CoffeeFactoryVaultProof | CoffeeFactoryPoolCreatorProof | CoffeeFactoryPoolUpdateParams
+    forceAbiExport: CoffeeFactoryDeployAction
+        | CoffeeFactoryVaultProof
+        | CoffeeFactoryPoolCreatorProof
+        | CoffeeFactoryPoolUpdateParams
 }
 
 /// Root Factory storage loaded by `factory.fc`.
@@ -585,32 +588,63 @@ get fun get_vault_address(asset: slice): CoffeeFactoryAddressWithHash {
 }
 
 /// Return deterministic Pool address and hash for serialized Coffee assets, AMM, and settings.
-get fun get_pool_address(asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
+get fun get_pool_address(
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+    ammSettings: cell,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 
 /// Return deterministic Pool address and hash without AMM settings.
-get fun get_pool_address_no_settings(asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
+get fun get_pool_address_no_settings(
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 
 /// Return deterministic Pool Creator address and hash for owner and Pool identity.
-get fun get_pool_creator_address(owner: address, asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
+get fun get_pool_creator_address(
+    owner: address,
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+    ammSettings: cell,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 
 /// Return deterministic Pool Creator address and hash without AMM settings.
-get fun get_pool_creator_address_no_settings(owner: address, asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
+get fun get_pool_creator_address_no_settings(
+    owner: address,
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 
 /// Return deterministic Liquidity Depository address and hash for owner and Pool identity.
-get fun get_liquidity_depository_address(owner: address, asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
+get fun get_liquidity_depository_address(
+    owner: address,
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+    ammSettings: cell,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 
 /// Return deterministic Liquidity Depository address and hash without AMM settings.
-get fun get_liquidity_depository_address_no_settings(owner: address, asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
+get fun get_liquidity_depository_address_no_settings(
+    owner: address,
+    asset1: slice,
+    asset2: slice,
+    amm: int,
+): CoffeeFactoryAddressWithHash {
     throw 0;
 }
 

@@ -6,7 +6,9 @@ contract EvaaMasterPyth {
     storage: EvaaMasterPythStorage
     incomingMessages: EvaaMasterPythIncomingMessage
     outgoingMessages: EvaaMasterPythOutgoingMessage
-    forceAbiExport: EvaaMasterPythGetConfigReply | EvaaMasterPythGetUIVariablesReply | EvaaMasterPythGetOraclesInfoReply
+    forceAbiExport: EvaaMasterPythGetConfigReply
+        | EvaaMasterPythGetUIVariablesReply
+        | EvaaMasterPythGetOraclesInfoReply
     thrownErrors: EvaaMasterPythErrors
 }
 
@@ -1231,17 +1233,25 @@ enum EvaaMasterPythErrors {
     UnsupportedOperation = 0xffff
 }
 
-fun exportEvaaMasterPythErrors(): void {
-
-}
+fun exportEvaaMasterPythErrors(): void {}
 
 /// Return collateral quote for a borrow/collateral liquidation pair.
-get fun getCollateralQuote(borrowAssetId: int, borrowLiquidateAmount: int, collateralAssetId: int, pricesPacked: cell): int {
+get fun getCollateralQuote(
+    borrowAssetId: int,
+    borrowLiquidateAmount: int,
+    collateralAssetId: int,
+    pricesPacked: cell,
+): int {
     throw 0;
 }
 
 /// Return updated rates for one asset and elapsed time.
-get fun getUpdatedRates(assetConfigCollection: cell, assetDynamicsCollection: cell, assetId: int, timeElapsed: int): EvaaMasterPythAssetRate {
+get fun getUpdatedRates(
+    assetConfigCollection: cell,
+    assetDynamicsCollection: cell,
+    assetId: int,
+    timeElapsed: int,
+): EvaaMasterPythAssetRate {
     throw 0;
 }
 

@@ -1,6 +1,6 @@
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -10,14 +10,15 @@ import "../wrappers/StormExecutorCollection.gen"
 const PINNED_MAINNET_BLOCK = 71588122
 const MAINNET_EXECUTOR_COLLECTION_ADDRESS = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
 const MAINNET_EXECUTOR_ITEM_0_ADDRESS = "EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"
-const EXPECTED_EXECUTOR_COLLECTION_CODE_HASH =
-    0xbed395e1e32650955d3323dc8769e461f39b6f5215fa7c57084ce9b254a7c213
+const EXPECTED_EXECUTOR_COLLECTION_CODE_HASH = 0xbed395e1e32650955d3323dc8769e461f39b6f5215fa7c57084ce9b254a7c213
 
 fun mainnetStormExecutorCollection(): StormExecutorCollection {
     return StormExecutorCollection.fromAddress(address(MAINNET_EXECUTOR_COLLECTION_ADDRESS));
 }
 
-fun loadStormExecutorCollectionStorageFromFork(collection: StormExecutorCollection): StormExecutorCollectionStorage {
+fun loadStormExecutorCollectionStorageFromFork(
+    collection: StormExecutorCollection,
+): StormExecutorCollectionStorage {
     val account = testing.getAccountState(collection.address);
     expect(account).toBeNotNull();
 
@@ -41,10 +42,7 @@ fun loadStormExecutorCollectionStorageFromFork(collection: StormExecutorCollecti
 }
 
 fun stormWrappedCollectionMetadata(content: cell): cell {
-    return beginCell()
-        .storeUint(1, 8)
-        .storeSlice(content.beginParse())
-        .endCell();
+    return beginCell().storeUint(1, 8).storeSlice(content.beginParse()).endCell();
 }
 
 get fun `test storm executor collection mainnet storage and getters`() {

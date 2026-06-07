@@ -1,9 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/network"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -71,7 +70,9 @@ fun loadHipoParentStorageFromFork(parent: HipoParent): LoadedHipoParentStorage {
 fun expectHipoParentGettersMatchStorage(parent: HipoParent, loaded: LoadedHipoParentStorage): void {
     val storage = loaded.storage;
     val jettonData = parent.getJettonData();
-    val representativeWallet = parent.getWalletAddress(address(MAINNET_HIPO_REPRESENTATIVE_WALLET_OWNER));
+    val representativeWallet = parent.getWalletAddress(
+        address(MAINNET_HIPO_REPRESENTATIVE_WALLET_OWNER),
+    );
 
     expect(scripts.isContractDeployed(parent.address)).toBeTrue();
     expect(storage.totalTokens).toBeGreater(0);

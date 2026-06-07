@@ -1,6 +1,6 @@
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -10,14 +10,15 @@ import "../wrappers/StormReferralCollection.gen"
 const PINNED_MAINNET_BLOCK = 71588122
 const MAINNET_REFERRAL_COLLECTION_ADDRESS = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
 const MAINNET_REFERRAL_ITEM_0_ADDRESS = "EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"
-const EXPECTED_REFERRAL_COLLECTION_CODE_HASH =
-    0x0fc0943198f1cbd0dc3128ce70db40dd43cc4135ae533f04294c4e5060619c3c
+const EXPECTED_REFERRAL_COLLECTION_CODE_HASH = 0x0fc0943198f1cbd0dc3128ce70db40dd43cc4135ae533f04294c4e5060619c3c
 
 fun mainnetStormReferralCollection(): StormReferralCollection {
     return StormReferralCollection.fromAddress(address(MAINNET_REFERRAL_COLLECTION_ADDRESS));
 }
 
-fun loadStormReferralCollectionStorageFromFork(collection: StormReferralCollection): StormReferralCollectionStorage {
+fun loadStormReferralCollectionStorageFromFork(
+    collection: StormReferralCollection,
+): StormReferralCollectionStorage {
     val account = testing.getAccountState(collection.address);
     expect(account).toBeNotNull();
 
@@ -41,10 +42,7 @@ fun loadStormReferralCollectionStorageFromFork(collection: StormReferralCollecti
 }
 
 fun stormWrappedCollectionMetadata(content: cell): cell {
-    return beginCell()
-        .storeUint(1, 8)
-        .storeSlice(content.beginParse())
-        .endCell();
+    return beginCell().storeUint(1, 8).storeSlice(content.beginParse()).endCell();
 }
 
 get fun `test storm referral collection mainnet storage and getters`() {

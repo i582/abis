@@ -11,7 +11,7 @@ const EXPECTED_FORWARD_TON = 0
 const EXPECTED_PREV = "0:947C68BA8B89634AB3651BAADFDC18DEAA9D4866EDE3C280FBA543A6ECED5FC2"
 const EXPECTED_NEXT = "0:0C22DA75619A246898749E0A0C145924222601EA6AC6A471D5095D78BB758CAA"
 
-fun expectNoTail(mutate tail: slice): void {
+fun expectNoTail(tail: slice): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

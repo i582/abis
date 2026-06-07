@@ -20,11 +20,7 @@ fun mainnetGetgemsNftMarketplaceV2(): GetgemsNftMarketplaceV2 {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 
@@ -115,5 +111,7 @@ get fun `test getgems marketplace v2 mainnet rejects invalid external signature`
     );
 
     expect(result).toBeNotAccepted();
-    expect(result).toHaveExternalVmExitCode(GetgemsNftMarketplaceV2Errors.ExpiredOrInvalidSignature);
+    expect(result).toHaveExternalVmExitCode(
+        GetgemsNftMarketplaceV2Errors.ExpiredOrInvalidSignature,
+    );
 }

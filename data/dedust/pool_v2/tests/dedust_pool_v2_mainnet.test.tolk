@@ -80,7 +80,11 @@ fun loadDedustPoolV2StorageFromFork(pool: DedustPoolV2): DedustPoolV2Storage {
     }
 }
 
-fun expectDedustPoolV2SafeGetters(pool: DedustPoolV2, expectedStable: bool, expectedTradeFeeNumerator: uint16): void {
+fun expectDedustPoolV2SafeGetters(
+    pool: DedustPoolV2,
+    expectedStable: bool,
+    expectedTradeFeeNumerator: uint16,
+): void {
     val storage = loadDedustPoolV2StorageFromFork(pool);
     val proof = storage.proof.load();
     val config = storage.config.load();

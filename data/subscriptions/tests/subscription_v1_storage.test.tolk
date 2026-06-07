@@ -1,19 +1,18 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
-import "@acton/testing/expect"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
+import "@acton/testing/expect"
 import "@acton/types/transaction"
 import "../types/subscription_v1.types"
 import "../wrappers/SubscriptionV1.gen"
 
 const CODE_FIXTURE_BOC_PATH = "data/subscriptions/testdata/SubscriptionV1.boc"
 const DATA_FIXTURE_BOC_PATH = "data/subscriptions/testdata/SubscriptionV1.data.boc"
-const LIVE_DATA_BOC =
-    "te6ccgEBAQEAYwAAwYAFp5h9Ay5Oc3Wd9TyLhXRGcBLXiNJCVOmNJh8B0EfMEBADYSZBaCuRRKjT4FmgYDMgfrO+MQonM3FOeljPHw9sQwUdzWUAAAAASxhvfUoAAAqMGG9+NlhvfjZAAAAANCA="
+const LIVE_DATA_BOC = "te6ccgEBAQEAYwAAwYAFp5h9Ay5Oc3Wd9TyLhXRGcBLXiNJCVOmNJh8B0EfMEBADYSZBaCuRRKjT4FmgYDMgfrO+MQonM3FOeljPHw9sQwUdzWUAAAAASxhvfUoAAAqMGG9+NlhvfjZAAAAANCA="
 
 const MAINNET_SUBSCRIPTION_V1_ADDRESS = "EQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihei2s"
 const EXPECTED_WALLET_ADDRESS = "EQAtPMPoGXJzm6zvqeRcK6IzgJa8RpISp0xpMPgOgj5ggPtQ"

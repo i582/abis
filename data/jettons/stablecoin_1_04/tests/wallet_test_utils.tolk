@@ -2,9 +2,9 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
+import "./master_test_utils"
 import "../types/stablecoin_wallet.types"
 import "../wrappers/StablecoinWallet.gen"
-import "./master_test_utils"
 
 fun mainnetStablecoinWallet(): StablecoinWallet {
     return StablecoinWallet.fromAddress(mainnetStablecoinWalletAddress());

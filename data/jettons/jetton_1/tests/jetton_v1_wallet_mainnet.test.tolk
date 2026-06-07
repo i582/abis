@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./wallet_test_utils"
 import "../types/jetton_v1_wallet.types"
 import "../wrappers/JettonV1Wallet.gen"
-import "./wallet_test_utils"
 
 get fun `test jetton v1 wallet mainnet getters and storage`() {
     val wallet = mainnetJettonV1Wallet();

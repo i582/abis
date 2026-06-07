@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/sbt_v1_item.types"
 import "../wrappers/SbtV1Item.gen"
-import "./test_utils"
 
 get fun `test sbt v1 item mainnet getters and storage`() {
     val item = mainnetSbtV1Item();

@@ -69,7 +69,7 @@ get fun `test getgems sale v2 code boc fixture is real and hash verified`() {
 }
 
 get fun `test getgems sale v2 rejects three byte null boc`() {
-    var threeByteNull = beginCell().storeUint(0, 24).endCell().beginParse();
+    val threeByteNull = beginCell().storeUint(0, 24).endCell().beginParse();
     expect(hasBocMagic(threeByteNull)).toBeFalse();
 }
 

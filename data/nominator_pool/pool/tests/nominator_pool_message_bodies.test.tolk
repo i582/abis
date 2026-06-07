@@ -24,7 +24,7 @@ fun bits256FromUint(value: uint256): bits256 {
     return bits.loadBits(256) as bits256;
 }
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -141,7 +141,13 @@ get fun `test nominator pool decodes real incoming new stake validator command b
     expect(body.hash()).toEqual(NEW_STAKE_IN_BODY_HASH);
     expect(decoded.queryId).toEqual(1780797718);
     expect(decoded.stakeValue).toEqual(2328352702442767);
-    expectNewStakePayload(decoded.validatorPubkey, decoded.stakeAt, decoded.maxFactor, decoded.adnlAddr, decoded.signature);
+    expectNewStakePayload(
+        decoded.validatorPubkey,
+        decoded.stakeAt,
+        decoded.maxFactor,
+        decoded.adnlAddr,
+        decoded.signature,
+    );
 
     println("NOMINATOR_POOL_NEW_STAKE_IN_TX={} LT={}", txHash, txLt);
 }
@@ -154,7 +160,13 @@ get fun `test nominator pool decodes real outgoing elector new stake body`() {
 
     expect(body.hash()).toEqual(NEW_STAKE_OUT_BODY_HASH);
     expect(decoded.queryId).toEqual(1780797718);
-    expectNewStakePayload(decoded.validatorPubkey, decoded.stakeAt, decoded.maxFactor, decoded.adnlAddr, decoded.signature);
+    expectNewStakePayload(
+        decoded.validatorPubkey,
+        decoded.stakeAt,
+        decoded.maxFactor,
+        decoded.adnlAddr,
+        decoded.signature,
+    );
 
     println("NOMINATOR_POOL_NEW_STAKE_OUT_TX={} LT={}", txHash, txLt);
 }

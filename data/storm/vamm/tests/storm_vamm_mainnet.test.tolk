@@ -1,9 +1,9 @@
 import "@acton/build"
+import "@acton/fs"
+import "@acton/io"
 import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/fs"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -47,7 +47,10 @@ fun expectCellHashEqualsMaybe(actual: cell, expected: cell?): void {
     }
 }
 
-fun expectMaybeRefPresenceMatchesMap(mutate raw: RemainingBitsAndRefs, expected: map<uint256, cell>): void {
+fun expectMaybeRefPresenceMatchesMap(
+    mutate raw: RemainingBitsAndRefs,
+    expected: map<uint256, cell>,
+): void {
     if (raw.loadBool()) {
         expect(expected.isEmpty()).toBeFalse();
         raw.loadRef();
@@ -154,17 +157,29 @@ fun expectStormVammGettersMatchStorage(vamm: StormVammFork, loaded: LoadedStormV
     expect(ammState.totalShortPositionSize).toEqual(storageAmmState.totalShortPositionSize);
     expect(ammState.openInterestLong).toEqual(storageAmmState.openInterestLong);
     expect(ammState.openInterestShort).toEqual(storageAmmState.openInterestShort);
-    expect(ammState.latestLongCumulativePremiumFraction).toEqual(storageAmmState.latestLongCumulativePremiumFraction);
-    expect(ammState.latestShortCumulativePremiumFraction).toEqual(storageAmmState.latestShortCumulativePremiumFraction);
+    expect(ammState.latestLongCumulativePremiumFraction).toEqual(
+        storageAmmState.latestLongCumulativePremiumFraction,
+    );
+    expect(ammState.latestShortCumulativePremiumFraction).toEqual(
+        storageAmmState.latestShortCumulativePremiumFraction,
+    );
     expect(ammState.nextFundingBlockTimestamp).toEqual(storageAmmState.nextFundingBlockTimestamp);
 
     expect(storageExchangeSettingsTyped.toCell().hash()).toEqual(storage.exchangeSettings.hash());
     expect(exchangeSettings.fee).toEqual(storageExchangeSettingsTyped.fee);
     expect(exchangeSettings.maxOpenNotional).toEqual(storageExchangeSettingsTyped.maxOpenNotional);
-    expect(exchangeSettings.minInitMarginRatio).toEqual(storageExchangeSettingsTyped.minInitMarginRatio);
-    expect(exchangeSettings.directIncreaseEnabled).toEqual(storageExchangeSettingsTyped.directIncreaseEnabled);
-    expect(exchangeSettings.directCloseEnabled).toEqual(storageExchangeSettingsTyped.directCloseEnabled);
-    expect(exchangeSettings.executorsWhitelist).toEqual(storageExchangeSettingsTyped.executorsWhitelist);
+    expect(exchangeSettings.minInitMarginRatio).toEqual(
+        storageExchangeSettingsTyped.minInitMarginRatio,
+    );
+    expect(exchangeSettings.directIncreaseEnabled).toEqual(
+        storageExchangeSettingsTyped.directIncreaseEnabled,
+    );
+    expect(exchangeSettings.directCloseEnabled).toEqual(
+        storageExchangeSettingsTyped.directCloseEnabled,
+    );
+    expect(exchangeSettings.executorsWhitelist).toEqual(
+        storageExchangeSettingsTyped.executorsWhitelist,
+    );
     expect(exchangeSettings.executorFee).toEqual(storageExchangeSettingsTyped.executorFee);
     expect(exchangeSettings.v3CloseDelay).toEqual(storageExchangeSettingsTyped.v3CloseDelay);
 
@@ -181,11 +196,16 @@ fun expectStormVammGettersMatchStorage(vamm: StormVammFork, loaded: LoadedStormV
     expect(exchangeSettings.maxOpenNotional).toEqual(storageExchangeSettings.loadCoins());
     expect(exchangeSettings.feeToStakersPercent).toEqual(storageExchangeSettings.loadUint(32));
     expect(exchangeSettings.fundingMode).toEqual(storageExchangeSettings.loadUint(2));
-    expect(exchangeSettings.minPartialLiquidationNotional).toEqual(storageExchangeSettings.loadCoins());
+    expect(exchangeSettings.minPartialLiquidationNotional).toEqual(
+        storageExchangeSettings.loadCoins(),
+    );
     expect(exchangeSettings.minInitMarginRatio).toEqual(storageExchangeSettings.loadUint(32));
     expect(exchangeSettings.directIncreaseEnabled).toEqual(storageExchangeSettings.loadBool());
     expect(exchangeSettings.directCloseEnabled).toEqual(storageExchangeSettings.loadBool());
-    expectMaybeRefPresenceMatchesMap(mutate storageExchangeSettings, exchangeSettings.executorsWhitelist);
+    expectMaybeRefPresenceMatchesMap(
+        mutate storageExchangeSettings,
+        exchangeSettings.executorsWhitelist,
+    );
     val lowFundingFnA = storageExchangeSettings.loadUint(64);
     val lowFundingFnB = storageExchangeSettings.loadUint(64);
     val highFundingFnA = storageExchangeSettings.loadInt(64);

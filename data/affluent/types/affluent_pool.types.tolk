@@ -3,7 +3,9 @@ contract AffluentPool {
     version: "1.0"
     description: "Curated Affluent pool interface"
     storage: AffluentPoolStorage
-    forceAbiExport: AffluentPoolAssetStorageRecord | AffluentPoolBasicVariantData | AffluentPoolAdvancedVariantData
+    forceAbiExport: AffluentPoolAssetStorageRecord
+        | AffluentPoolBasicVariantData
+        | AffluentPoolAdvancedVariantData
 }
 
 struct AffluentPoolStorage {

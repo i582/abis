@@ -780,16 +780,24 @@ get fun get_pool_data(): CoffeePoolCurveFiStableGetPoolDataReply {
 }
 
 /// Estimate swap input actually used and output amount for a serialized input asset.
-get fun estimate_swap_amount(asset: slice, amount: int): CoffeePoolCurveFiStableEstimateSwapAmountReply {
+get fun estimate_swap_amount(
+    asset: slice,
+    amount: int,
+): CoffeePoolCurveFiStableEstimateSwapAmountReply {
     throw 0;
 }
 
 /// Estimate withdrawn asset amounts for an LP burn amount.
-get fun estimate_liquidity_withdraw_amount(lpAmount: int): CoffeePoolCurveFiStableEstimateLiquidityWithdrawAmountReply {
+get fun estimate_liquidity_withdraw_amount(
+    lpAmount: int,
+): CoffeePoolCurveFiStableEstimateLiquidityWithdrawAmountReply {
     throw 0;
 }
 
 /// Estimate accepted liquidity amounts, minted LP, and locked LP for a proposed deposit.
-get fun estimate_liquidity_deposit_amount(amount1: int, amount2: int): CoffeePoolCurveFiStableEstimateLiquidityDepositAmountReply {
+get fun estimate_liquidity_deposit_amount(
+    amount1: int,
+    amount2: int,
+): CoffeePoolCurveFiStableEstimateLiquidityDepositAmountReply {
     throw 0;
 }

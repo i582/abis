@@ -9,7 +9,9 @@ import "../wrappers/GetgemsNftFixpriceSaleV3.gen"
 const MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3_ADDRESS = "EQC5jtWNb7d6kBK_AZZJ-VhTpQqKRmKz-x3dtVCjJ6pb2amz"
 
 fun mainnetGetgemsNftFixpriceSaleV3(): GetgemsNftFixpriceSaleV3 {
-    return GetgemsNftFixpriceSaleV3.fromAddress(address(MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3_ADDRESS));
+    return GetgemsNftFixpriceSaleV3.fromAddress(
+        address(MAINNET_GETGEMS_NFT_FIXPRICE_SALE_V3_ADDRESS),
+    );
 }
 
 fun loadGetgemsNftFixpriceSaleV3StorageFromFork(

@@ -6,7 +6,11 @@ contract CoffeeStakingMaster {
     storage: CoffeeStakingMasterStorage
     incomingMessages: CoffeeStakingMasterIncomingMessage
     outgoingMessages: CoffeeStakingMasterOutgoingMessage
-    forceAbiExport: CoffeeStakingForwardData | CoffeeStakingAssetData | CoffeeStakingPositionData | CoffeeStakingMasterState | CoffeeStakingMasterStateRefs
+    forceAbiExport: CoffeeStakingForwardData
+        | CoffeeStakingAssetData
+        | CoffeeStakingPositionData
+        | CoffeeStakingMasterState
+        | CoffeeStakingMasterStateRefs
 }
 
 /// Root persistent storage for the staking master.

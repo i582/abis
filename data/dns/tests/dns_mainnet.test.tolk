@@ -3,11 +3,11 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/dns_domain_item.types"
 import "../types/dns_root_resolver.types"
 import "../wrappers/DnsDomainItem.gen"
 import "../wrappers/DnsRootResolver.gen"
-import "./test_utils"
 
 get fun `test dns root resolver mainnet dnsresolve delegates ton zone`() {
     val root = mainnetDnsRootResolver();

@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./master_test_utils"
 import "../types/discoverable_jetton_master.types"
 import "../wrappers/DiscoverableJettonMaster.gen"
-import "./master_test_utils"
 
 get fun `test discoverable jetton master public getters work on mainnet`() {
     val master = mainnetDiscoverableJettonMaster();
@@ -15,7 +15,9 @@ get fun `test discoverable jetton master public getters work on mainnet`() {
 
     expect(scripts.isContractDeployed(master.address)).toBeTrue();
     expect(data.mintable).toBeTrue();
-    expect(data.jettonWalletCode.hash()).toEqual(loadDiscoverableJettonMasterStorageFromFork(master).jettonWalletCode.hash());
+    expect(data.jettonWalletCode.hash()).toEqual(
+        loadDiscoverableJettonMasterStorageFromFork(master).jettonWalletCode.hash(),
+    );
     expect(walletAddress).toEqual(mainnetDiscoverableJettonWalletAddress());
 
     println("DISCOVERABLE_JETTON_MASTER_GET_JETTON_DATA={}", data);

@@ -206,6 +206,11 @@ get fun get_storage_params(): StorageProviderStorageParamsReply {
 }
 
 /// Return the deterministic storage contract address for the provided offer data.
-get fun get_storage_contract_address(merkleHash: uint256, fileSize: uint64, client: address, torrentHash: uint256): address {
+get fun get_storage_contract_address(
+    merkleHash: uint256,
+    fileSize: uint64,
+    client: address,
+    torrentHash: uint256,
+): address {
     throw 0;
 }

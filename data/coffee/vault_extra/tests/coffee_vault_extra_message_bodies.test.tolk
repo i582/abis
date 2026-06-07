@@ -1,12 +1,11 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "../types/coffee_vault_extra.types"
 import "../../factory/types/coffee_factory.types"
 import "../../factory/wrappers/CoffeeFactory.gen"
 
@@ -93,7 +92,9 @@ get fun `test coffee extra vault code is installed in mainnet factory`() {
     expect(extraVaultCode.hash()).toEqual(EXPECTED_CODE_HASH);
     expect(extraVaultCode.hash()).toEqual(build("CoffeeVaultExtra", FIXTURE_BOC_PATH).hash());
 
-    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(derivedFromFactory.address);
+    expect((derivedFromFactory.address as any_address).castToInternal()).toEqual(
+        derivedFromFactory.address,
+    );
 
     expectExtraAssetSlice(mutate getterAsset);
 

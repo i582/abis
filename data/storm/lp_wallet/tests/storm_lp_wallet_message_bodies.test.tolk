@@ -7,7 +7,7 @@ const LP_WALLET_OWNER_A = "0:2457FFDA7E6C000FBC3FF1B87D04C42512C4A00E4550D1B9C98
 const LP_WALLET_OWNER_B = "0:9C062B8FA0ED5B341048F23AB3AEA3402DE69E52F217C539B3A6E411A89E64E3"
 const LP_WALLET_BURN_OWNER = "0:0EB482E6AB9E6C5F2055CD97086D3F24FE5951317E1C078FC2A87A0E5C62393E"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -135,7 +135,7 @@ get fun `test storm lp wallet decodes real bounced known body prefix`() {
     val bodyBoc = "te6cckEBAQEAJgAASP////9zYtCcAAAAAAAAAABDOZ+RiAAnqSKRg6Go8uQo2lUFKnRmwOU=";
     val body = parseCellFromBase64(bodyBoc);
     val decoded = StormLpWalletBouncedKnownBody.fromCell(body);
-    var tail = decoded.tail;
+    val tail = decoded.tail;
 
     expect(decoded.originalOpcode).toEqual(0x7362d09c);
     expect(decoded.queryId).toEqual(0);

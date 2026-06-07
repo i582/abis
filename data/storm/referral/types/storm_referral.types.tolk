@@ -66,8 +66,7 @@ struct (0x84dced7a) StormAddReferralAmount {
 }
 
 /// Request current fee parameters from the referral item.
-struct (0x7e43f5fc) StormReferralProvideFees {
-}
+struct (0x7e43f5fc) StormReferralProvideFees {}
 
 /// Collection response carrying a vault whitelist and original add-amount request tail.
 struct (0x6996158d) StormReferralVaultsReply {

@@ -70,8 +70,7 @@ struct GetgemsNftAuctionV3R3Storage {
 }
 
 /// Empty internal body accepted as a bid with query id zero when bidding is open.
-struct GetgemsNftAuctionV3R3EmptyBid {
-}
+struct GetgemsNftAuctionV3R3EmptyBid {}
 
 /// NFT ownership callback accepted only from the configured NFT address before activation.
 struct (0x05138d91) GetgemsNftAuctionV3R3OwnershipAssigned {

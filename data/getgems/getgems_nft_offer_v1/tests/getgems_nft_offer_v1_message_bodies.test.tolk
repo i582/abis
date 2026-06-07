@@ -28,7 +28,9 @@ get fun `test getgems offer v1 decodes toncenter marketplace cancel offer body`(
     val bodyBoc = "te6cckEBAgEAJQABEQAAAANAHJw4CAEALgAAAABDYW5jZWwgb2ZmZXIgRG9nICM01wwH3A==";
     val body = parseCellFromBase64(bodyBoc);
     val decoded = GetgemsNftOfferV1CancelOffer.fromCell(body);
-    val marketplacePayload = GetgemsNftOfferV1MarketplaceCancelPayload.fromCell(decoded.payload.toCell());
+    val marketplacePayload = GetgemsNftOfferV1MarketplaceCancelPayload.fromCell(
+        decoded.payload.toCell(),
+    );
     var ownerPayload = marketplacePayload.ownerPayload.beginParse();
 
     expect(marketplacePayload.cancelFee).toEqual(30000000);

@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./master_test_utils"
 import "../types/stablecoin_master.types"
 import "../wrappers/StablecoinMaster.gen"
-import "./master_test_utils"
 
 get fun `test stablecoin master public getters work on mainnet`() {
     val master = mainnetStablecoinMaster();
@@ -16,7 +16,9 @@ get fun `test stablecoin master public getters work on mainnet`() {
 
     expect(scripts.isContractDeployed(master.address)).toBeTrue();
     expect(data.mintable).toBeTrue();
-    expect(data.jettonWalletCode.hash()).toEqual(loadStablecoinMasterStorageFromFork(master).jettonWalletCode.hash());
+    expect(data.jettonWalletCode.hash()).toEqual(
+        loadStablecoinMasterStorageFromFork(master).jettonWalletCode.hash(),
+    );
     expect(loadStablecoinMasterStorageFromFork(master).nextAdminAddress).toBeNull();
     expect(nextAdminAddress).toBeNoneAddress();
     expect(walletAddress).toEqual(mainnetStablecoinWalletAddress());

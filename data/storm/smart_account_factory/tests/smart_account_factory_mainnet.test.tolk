@@ -1,6 +1,6 @@
+import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
-import "@acton/io"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -11,18 +11,17 @@ const PINNED_MAINNET_BLOCK = 71591177
 const MAINNET_FACTORY_ADDRESS = "EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"
 const MAINNET_FACTORY_ADMIN_ADDRESS = "EQDq2dUBtXoGM7rV555wiA_L1AbaAMDl99QeQaVRiLrV6gP1"
 const MAINNET_FACTORY_ITEM_0_ADDRESS = "EQB_5VHXCJRL3DVZhWfnu3AjJoafiTd8rSfGDw68i407FWIT"
-const EXPECTED_FACTORY_CODE_HASH =
-    0x80f6ccfa2bb13f3914f510e793c651585e5d8d83f80c6bd55869c92524db32c0
-const EXPECTED_SMART_ACCOUNT_CODE_HASH =
-    0x91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b1157106091886f56
-const EXPECTED_FACTORY_CONTENT_HASH =
-    0x96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+const EXPECTED_FACTORY_CODE_HASH = 0x80f6ccfa2bb13f3914f510e793c651585e5d8d83f80c6bd55869c92524db32c0
+const EXPECTED_SMART_ACCOUNT_CODE_HASH = 0x91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b1157106091886f56
+const EXPECTED_FACTORY_CONTENT_HASH = 0x96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
 
 fun mainnetSmartAccountFactory(): SmartAccountFactory {
     return SmartAccountFactory.fromAddress(address(MAINNET_FACTORY_ADDRESS));
 }
 
-fun loadSmartAccountFactoryStorageFromFork(factory: SmartAccountFactory): SmartAccountFactoryStorage {
+fun loadSmartAccountFactoryStorageFromFork(
+    factory: SmartAccountFactory,
+): SmartAccountFactoryStorage {
     val account = testing.getAccountState(factory.address);
     expect(account).toBeNotNull();
 

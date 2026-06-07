@@ -47,7 +47,12 @@ get fun `test whales proxy decodes real forwarded elector recover request body`(
     expect(decoded.queryId).toEqual(0);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("WHALES_PROXY_RECOVER_REQUEST_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "WHALES_PROXY_RECOVER_REQUEST_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test whales proxy decodes real forwarded elector new stake confirmation body`() {
@@ -60,7 +65,12 @@ get fun `test whales proxy decodes real forwarded elector new stake confirmation
     expect(decoded.comment).toEqual(0);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("WHALES_PROXY_NEW_STAKE_CONFIRMATION_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "WHALES_PROXY_NEW_STAKE_CONFIRMATION_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test whales proxy decodes real forwarded elector recover response body`() {
@@ -72,5 +82,10 @@ get fun `test whales proxy decodes real forwarded elector recover response body`
     expect(decoded.queryId).toEqual(0);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("WHALES_PROXY_RECOVER_RESPONSE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "WHALES_PROXY_RECOVER_RESPONSE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }

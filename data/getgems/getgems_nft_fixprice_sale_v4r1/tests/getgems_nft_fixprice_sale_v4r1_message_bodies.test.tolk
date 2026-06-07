@@ -26,7 +26,11 @@ get fun `test getgems sale v4r1 decodes toncenter jetton transfer notification b
     expectEmptyInlineForwardPayload(mutate forwardPayload);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("GETGEMS_NFT_FIXPRICE_SALE_V4R1_TONCENTER_JETTON_NOTIFICATION_TX={} LT={}", txHash, txLt);
+    println(
+        "GETGEMS_NFT_FIXPRICE_SALE_V4R1_TONCENTER_JETTON_NOTIFICATION_TX={} LT={}",
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test getgems sale v4r1 decodes toncenter deploy jetton body`() {

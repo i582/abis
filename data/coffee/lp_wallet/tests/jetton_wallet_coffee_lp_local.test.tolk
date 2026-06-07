@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -24,7 +24,9 @@ fun mainnetCoffeeLpWallet(): JettonWalletCoffeeLp {
 }
 
 fun mainnetCoffeePoolConstantProduct(): CoffeePoolConstantProduct {
-    return CoffeePoolConstantProduct.fromAddress(address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS));
+    return CoffeePoolConstantProduct.fromAddress(
+        address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS),
+    );
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -38,7 +40,9 @@ fun expectInternalAddress(actual: address): void {
     expect((actual as any_address).castToInternal()).toEqual(actual);
 }
 
-fun loadJettonWalletCoffeeLpStorageFromFork(wallet: JettonWalletCoffeeLp): JettonWalletCoffeeLpStorage {
+fun loadJettonWalletCoffeeLpStorageFromFork(
+    wallet: JettonWalletCoffeeLp,
+): JettonWalletCoffeeLpStorage {
     val account = testing.getAccountState(wallet.address);
     expect(account).toBeNotNull();
 
@@ -85,7 +89,9 @@ get fun `test jetton wallet coffee lp mainnet storage and getter`() {
     expect(storage.balance).toBeGreater(0);
     expect(storage.ownerAddress).toEqual(address(MAINNET_COFFEE_LP_OWNER_ADDRESS));
     expect(storage.ownerAddress).toEqual(walletData.ownerAddress);
-    expect(storage.jettonMasterAddress).toEqual(address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS));
+    expect(storage.jettonMasterAddress).toEqual(
+        address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS),
+    );
     expect(storage.jettonMasterAddress).toEqual(walletData.jettonMasterAddress);
     expect(storage.jettonWalletCode.hash()).toEqual(EXPECTED_CODE_HASH);
     expect(storage.jettonWalletCode.hash()).toEqual(walletData.jettonWalletCode.hash());

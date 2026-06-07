@@ -35,7 +35,9 @@ fun expectAnyAddressEqualsNullable(actual: any_address, expected: address?): voi
     }
 }
 
-fun loadStonfiPoolV2StableswapStorageFromFork(pool: StonfiPoolV2Stableswap): StonfiPoolV2StableswapStorage {
+fun loadStonfiPoolV2StableswapStorageFromFork(
+    pool: StonfiPoolV2Stableswap,
+): StonfiPoolV2StableswapStorage {
     val account = testing.getAccountState(pool.address);
     expect(account).toBeNotNull();
 

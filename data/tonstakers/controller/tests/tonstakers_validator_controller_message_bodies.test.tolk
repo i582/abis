@@ -16,7 +16,7 @@ const EXPECTED_MIN_LOAN = 499000000000000
 const EXPECTED_MAX_LOAN = 901000000000000
 const EXPECTED_MAX_INTEREST = 5033
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -38,7 +38,9 @@ get fun `test tonstakers controller decodes real withdraw and validator withdraw
     val withdrawBodyBoc = "te6cckEBAQEAFQAAJY7+13kAAAAAZzdVemAYUPXIYAgno/v1";
     val validatorWithdrawalBodyBoc = "te6cckEBAQEADgAAGDACYycAAAAAZzdVeplRtL0=";
 
-    val withdraw = TonstakersValidatorControllerWithdrawValidator.fromCell(parseCellFromBase64(withdrawBodyBoc));
+    val withdraw = TonstakersValidatorControllerWithdrawValidator.fromCell(
+        parseCellFromBase64(withdrawBodyBoc),
+    );
     val validatorWithdrawal = TonstakersValidatorControllerValidatorWithdrawal.fromCell(
         parseCellFromBase64(validatorWithdrawalBodyBoc),
     );
@@ -47,7 +49,12 @@ get fun `test tonstakers controller decodes real withdraw and validator withdraw
     expect(withdraw.requestAmount).toEqual(1671000000000);
     expect(validatorWithdrawal.queryId).toEqual(1731679610);
 
-    println("TONSTAKERS_CONTROLLER_WITHDRAW_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_WITHDRAW_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test tonstakers controller decodes real unused loan repayment and empty body`() {
@@ -57,8 +64,12 @@ get fun `test tonstakers controller decodes real unused loan repayment and empty
     val repaymentBodyBoc = "te6cckEBAQEADgAAGN/consAAAAAAAAAAOrQUms=";
     val emptyBodyBoc = "te6cckEBAQEAAgAAAEysuc0=";
 
-    val returnUnused = TonstakersValidatorControllerReturnUnusedLoan.fromCell(parseCellFromBase64(returnUnusedBodyBoc));
-    val repayment = TonstakersValidatorControllerPoolLoanRepayment.fromCell(parseCellFromBase64(repaymentBodyBoc));
+    val returnUnused = TonstakersValidatorControllerReturnUnusedLoan.fromCell(
+        parseCellFromBase64(returnUnusedBodyBoc),
+    );
+    val repayment = TonstakersValidatorControllerPoolLoanRepayment.fromCell(
+        parseCellFromBase64(repaymentBodyBoc),
+    );
     val emptyBody = parseCellFromBase64(emptyBodyBoc).beginParse();
 
     expect(returnUnused.queryId).toEqual(0);
@@ -66,21 +77,33 @@ get fun `test tonstakers controller decodes real unused loan repayment and empty
     expect(emptyBody.remainingBitsCount()).toEqual(0);
     expect(emptyBody.remainingRefsCount()).toEqual(0);
 
-    println("TONSTAKERS_CONTROLLER_RETURN_UNUSED_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_RETURN_UNUSED_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test tonstakers controller decodes real bounced return unused loan body`() {
     val txHash = "IwrMAPOOqV5ii58h6lQRjTLQYormIScnBlMhoUZWo/U=";
     val txLt = "50919599000001";
     val bouncedBodyBoc = "te6cckEBAQEAEgAAIP/////tc3imAAAAAAAAAAAqwhKp";
-    val bounced = TonstakersValidatorControllerBouncedKnownBody.fromCell(parseCellFromBase64(bouncedBodyBoc));
+    val bounced = TonstakersValidatorControllerBouncedKnownBody.fromCell(
+        parseCellFromBase64(bouncedBodyBoc),
+    );
     var tail = bounced.tail;
 
     expect(bounced.originalOpcode).toEqual(0xed7378a6);
     expect(bounced.queryId).toEqual(0);
     expectNoTail(mutate tail);
 
-    println("TONSTAKERS_CONTROLLER_BOUNCE_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_BOUNCE_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test tonstakers controller decodes real pool credit body`() {
@@ -92,7 +115,12 @@ get fun `test tonstakers controller decodes real pool credit body`() {
     expect(credit.queryId).toEqual(EXPECTED_LOAN_QUERY_ID);
     expect(credit.creditAmount).toEqual(901162453949451);
 
-    println("TONSTAKERS_CONTROLLER_CREDIT_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_CREDIT_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test tonstakers controller decodes real request loan in and out bodies`() {
@@ -101,8 +129,12 @@ get fun `test tonstakers controller decodes real request loan in and out bodies`
     val requestBodyBoc = "te6cckEBAQEAIAAAPGM1sRoAAAAAZzbTEnAcXWfb4wAHAzN0aPFQAAATqXyz0GU=";
     val poolRequestBodyBoc = "te6cckEBAwEA0gABPOZCyWUAAAAAZzbTEnAcXWfb4wAHAzN0aPFQAAATqQEB0QAAAACf75L7tBm0MNWKmJTGQbVxyL4CNs5Mq0jmbjdfMPrXahIwApFsX8oQJIpt4Ng4ykEIPE+T+IPkNfiv4xKxnAyWeIvqAESTIwI4uSoCWZpCPZrybnD/CL9oJF8eYxPiv8V+lGImQAIAhYAYKMg5K4k30jynjQhoygtAEIV5RIsrtWFtNhmwmCUrPRACzouwkiwi7vsdtXfya1p/xnRwCWVa+J1rO7bBHseF194GkXsL";
 
-    val request = TonstakersValidatorControllerSendRequestLoan.fromCell(parseCellFromBase64(requestBodyBoc));
-    val poolRequest = TonstakersValidatorControllerPoolRequestLoan.fromCell(parseCellFromBase64(poolRequestBodyBoc));
+    val request = TonstakersValidatorControllerSendRequestLoan.fromCell(
+        parseCellFromBase64(requestBodyBoc),
+    );
+    val poolRequest = TonstakersValidatorControllerPoolRequestLoan.fromCell(
+        parseCellFromBase64(poolRequestBodyBoc),
+    );
     val controllerData = poolRequest.controllerData.load();
 
     expect(request.queryId).toEqual(EXPECTED_LOAN_QUERY_ID);
@@ -116,7 +148,12 @@ get fun `test tonstakers controller decodes real request loan in and out bodies`
     expect(poolRequest.maxInterest).toEqual(EXPECTED_MAX_INTEREST);
     expectStaticControllerData(controllerData);
 
-    println("TONSTAKERS_CONTROLLER_REQUEST_LOAN_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_REQUEST_LOAN_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }
 
 get fun `test tonstakers controller decodes real elector recover ok and repayment bodies`() {
@@ -125,11 +162,20 @@ get fun `test tonstakers controller decodes real elector recover ok and repaymen
     val recoverOkBodyBoc = "te6cckEBAQEADgAAGPlvcyQAAAAAAAAAAB/Snpk=";
     val repaymentBodyBoc = "te6cckEBAQEADgAAGN/consAAAAAAAAAAOrQUms=";
 
-    val recoverOk = TonstakersValidatorControllerRecoverStakeOk.fromCell(parseCellFromBase64(recoverOkBodyBoc));
-    val repayment = TonstakersValidatorControllerPoolLoanRepayment.fromCell(parseCellFromBase64(repaymentBodyBoc));
+    val recoverOk = TonstakersValidatorControllerRecoverStakeOk.fromCell(
+        parseCellFromBase64(recoverOkBodyBoc),
+    );
+    val repayment = TonstakersValidatorControllerPoolLoanRepayment.fromCell(
+        parseCellFromBase64(repaymentBodyBoc),
+    );
 
     expect(recoverOk.queryId).toEqual(0);
     expect(repayment.queryId).toEqual(0);
 
-    println("TONSTAKERS_CONTROLLER_RECOVER_OK_FIXTURE={} TX={} LT={}", MESSAGE_FIXTURE_JSON, txHash, txLt);
+    println(
+        "TONSTAKERS_CONTROLLER_RECOVER_OK_FIXTURE={} TX={} LT={}",
+        MESSAGE_FIXTURE_JSON,
+        txHash,
+        txLt,
+    );
 }

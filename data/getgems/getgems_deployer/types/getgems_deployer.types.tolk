@@ -33,8 +33,7 @@ struct (0x00fe0ede) GetgemsDeployerDoSalePayload {
 }
 
 /// Funding-only deployment command accepted as a no-op.
-struct (0x00000001) GetgemsDeployerAcceptDeploy {
-}
+struct (0x00000001) GetgemsDeployerAcceptDeploy {}
 
 /// Owner-only raw-message proxy command.
 struct (0x0000022b) GetgemsDeployerProxyMessage {
@@ -73,8 +72,7 @@ type GetgemsDeployerIncomingMessage =
     | GetgemsDeployerProxyMessage
 
 /// Structured outgoing message body emitted by the current Getgems deployer BoC.
-type GetgemsDeployerOutgoingMessage =
-    | GetgemsDeployerNftTransfer
+type GetgemsDeployerOutgoingMessage = GetgemsDeployerNftTransfer
 
 /// Source-level exit-code catalog; not exported as thrown_errors because this contract has no public getter.
 enum GetgemsDeployerErrors {

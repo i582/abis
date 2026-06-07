@@ -69,7 +69,10 @@ fun expectStonfiPoolV2WeightedStableswapCodeFromFork(pool: StonfiPoolV2WeightedS
             expect(code).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
             expect(code!.hash()).toEqual(
-                build("StonfiPoolV2WeightedStableswap", STONFI_POOL_V2_WEIGHTED_STABLESWAP_BOC).hash(),
+                build(
+                    "StonfiPoolV2WeightedStableswap",
+                    STONFI_POOL_V2_WEIGHTED_STABLESWAP_BOC,
+                ).hash(),
             );
         }
         TlbAccountStateUninit => {

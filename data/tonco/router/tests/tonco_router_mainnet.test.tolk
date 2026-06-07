@@ -105,8 +105,12 @@ get fun `test tonco router mainnet getters storage and derived pool`() {
     expect(childReply.accountCode.hash()).toEqual(EXPECTED_ACCOUNT_CODE_HASH);
     expect(childReply.positionNftCode.hash()).toEqual(EXPECTED_POSITION_NFT_CODE_HASH);
     expect(childReply.poolCode.hash()).toEqual(build("ToncoPool", POOL_FIXTURE_BOC_PATH).hash());
-    expect(childReply.accountCode.hash()).toEqual(build("ToncoAccount", ACCOUNT_FIXTURE_BOC_PATH).hash());
-    expect(childReply.positionNftCode.hash()).toEqual(build("ToncoPositionNftV3", POSITION_NFT_FIXTURE_BOC_PATH).hash());
+    expect(childReply.accountCode.hash()).toEqual(
+        build("ToncoAccount", ACCOUNT_FIXTURE_BOC_PATH).hash(),
+    );
+    expect(childReply.positionNftCode.hash()).toEqual(
+        build("ToncoPositionNftV3", POSITION_NFT_FIXTURE_BOC_PATH).hash(),
+    );
 
     expect(poolAddress).toEqual(address(MAINNET_TONCO_POOL_ADDRESS));
     expect(poolInitialData.hash()).toBeGreater(0);

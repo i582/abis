@@ -812,80 +812,71 @@ struct LazerFeed {
 
 /// Long/short direction union used by order and position payloads.
 type Direction =
-    // Selects the long direction branch.
+// Selects the long direction branch.
     | Long
-    // Selects the short direction branch.
-    | Short
+    | // Selects the short direction branch.
+    Short
 
 /// Union of user order payload variants accepted by order flows.
 type UserOrder =
-    // Selects the stop-loss order payload branch.
+// Selects the stop-loss order payload branch.
     | StopLossOrder
-    // Selects the take-profit order payload branch.
     | TakeProfitOrder
-    // Selects the raw limit/market order payload branch.
     | LimitMarketOrder
-    // Selects the add-margin order branch.
     | AddMargin
-    // Selects the remove-margin order branch.
     | RemoveMargin
-    // Selects the request-order branch with selector and nested order.
-    | RequestOrder
+    | // Selects the request-order branch with selector and nested order.
+    RequestOrder
 
 /// Union of referral-data branches attached to user intents.
 type RefData =
-    // Selects the no-referral branch.
+// Selects the no-referral branch.
     | RefData0
-    // Selects the first referral-data branch.
     | RefData1
-    // Selects the second referral-data branch.
-    | RefData2
+    | // Selects the second referral-data branch.
+    RefData2
 
 /// Union of signed user intents and executor intents.
 type Intent =
-    // Selects the signed user-intent branch.
+// Selects the signed user-intent branch.
     | UserIntent
-    // Selects the executor-intent branch.
-    | ExecutorIntent
+    | // Selects the executor-intent branch.
+    ExecutorIntent
 
 /// Union of order creation payloads for limit and market orders.
 type CreateOrder =
-    // Selects limit-order creation.
+// Selects limit-order creation.
     | LimitOrder
-    // Selects market-order creation.
-    | MarketOrder
+    | // Selects market-order creation.
+    MarketOrder
 
 /// Union selecting stop-loss or take-profit execution.
 type ExecuteSelector =
-    // Selects stop-loss execution.
+// Selects stop-loss execution.
     | ExecuteStop
-    // Selects take-profit execution.
-    | ExecuteTake
+    | // Selects take-profit execution.
+    ExecuteTake
 
 /// Alias for the legacy oracle price-data payload.
 type OraclePriceData = PriceData
 
 /// Union of V2 oracle payload shapes for live and created prices.
 type OraclePayloadV2 =
-    // Selects a single-feed V2 oracle payload.
+// Selects a single-feed V2 oracle payload.
     | Single
-    // Selects an index plus settlement V2 oracle payload.
     | Double
-    // Selects a single-feed payload with created-price data.
     | SingleWithCreated
-    // Selects an index/settlement payload with created-price data.
-    | DoubleWithCreated
+    | // Selects an index/settlement payload with created-price data.
+    DoubleWithCreated
 
 /// Union of intent-log action tags.
 type LogType =
-    // Selects an increase intent-log action.
+// Selects an increase intent-log action.
     | Increase
-    // Selects a close intent-log action.
     | Close
-    // Selects an add-margin intent-log action.
     | AddMargin2
-    // Selects a remove-margin intent-log action.
-    | RemoveMargin2
+    | // Selects a remove-margin intent-log action.
+    RemoveMargin2
 
 /// Alias for the no-settlement V2 oracle payload shape.
 type SingleOraclePayload = WithoutSettlement
@@ -895,29 +886,28 @@ type DoubleOraclePayload = WithSettlement
 
 /// Union of created-price oracle payload shapes.
 type CreatedOraclePayload =
-    // Selects created-price data without settlement price.
+// Selects created-price data without settlement price.
     | CreatedPrice
-    // Selects created-price data with settlement price.
-    | CreatedPriceWithSettlement
+    | // Selects created-price data with settlement price.
+    CreatedPriceWithSettlement
 
 /// Union of executor-only order actions.
 type ExecutorOrder =
-    // Selects liquidation executor action.
+// Selects liquidation executor action.
     | Liquidate
-    // Selects force-close executor action.
     | ForceClose
-    // Selects max-leverage force-close executor action.
-    | ForceCloseMaxLeverage
+    | // Selects max-leverage force-close executor action.
+    ForceCloseMaxLeverage
 
 /// Alias for the V2 oracle update payload.
 type UpdateMsgV2 = UpdateMsg2
 
 /// Union of Lazer oracle payload branches.
 type LazerPayload =
-    // Selects the single-feed Lazer payload branch.
+// Selects the single-feed Lazer payload branch.
     | Single2
-    // Selects the double-feed Lazer payload branch.
-    | Double2
+    | // Selects the double-feed Lazer payload branch.
+    Double2
 
 /// Internal message body declarations.
 /// Incoming admin message that replaces AMM settings and redirects excess value.
@@ -1146,37 +1136,27 @@ struct (0xd53276db) StormExcesses {
 
 /// Incoming internal message union accepted by the CoinM VAMM contract.
 type StormVammCoinmIncomingMessage =
-    // Accepts the change-settings internal message body.
+// Accepts the change-settings internal message body.
     | StormChangeSettings
-    // Accepts the pay-funding internal message body.
     | StormPayFunding
-    // Accepts the VAMM initialization message body.
     | StormVammInit
-    // Accepts the order-execution internal message body.
     | StormExecuteOrder
-    // Accepts the V2 take-position internal message body.
-    | TakePositionV2
+    | // Accepts the V2 take-position internal message body.
+    TakePositionV2
 
 /// Outgoing message union emitted by the CoinM VAMM contract.
 type StormVammCoinmOutgoingMessage =
-    // Emits completed-order messages to the position manager.
+// Emits completed-order messages to the position manager.
     | StormCompleteOrder
-    // Emits vault trade-notification messages.
     | StormVaultTradeNotification
-    // Emits position update messages without trigger prices.
     | StormUpdatePosition
-    // Emits position update messages with stop/take trigger prices.
     | StormUpdatePositionWithStopLoss
-    // Emits order-activation messages.
     | StormActivateOrder
-    // Emits failed bundle-execution notifications.
     | StormFailedBundleExecution
-    // Emits V2 trade-notification messages.
     | StormTradeNotificationV2
-    // Emits external intent-log messages.
     | IntentLog2
-    // Emits standard excesses responses.
-    | StormExcesses
+    | // Emits standard excesses responses.
+    StormExcesses
 
 /// Stack return tuple for the `get_amm_name` getter.
 struct GetAmmNameReply {
@@ -1624,17 +1604,44 @@ get fun get_position_manager_address(): address {
 }
 
 /// Check whether a position can be liquidated for supplied prices and time.
-get fun get_can_liquidate(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanLiquidateReply {
+get fun get_can_liquidate(
+    newPrice: int,
+    positionRef: cell,
+    newSettlementPrice: int,
+    vpiSpread: int,
+    vpiMarketDepthLong: int,
+    vpiMarketDepthShort: int,
+    vpiCoefficient: int,
+    now: int,
+): GetCanLiquidateReply {
     throw 0;
 }
 
 /// Check whether a position can be force-closed for supplied prices and time.
-get fun get_can_force_close(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanForceCloseReply {
+get fun get_can_force_close(
+    newPrice: int,
+    positionRef: cell,
+    newSettlementPrice: int,
+    vpiSpread: int,
+    vpiMarketDepthLong: int,
+    vpiMarketDepthShort: int,
+    vpiCoefficient: int,
+    now: int,
+): GetCanForceCloseReply {
     throw 0;
 }
 
 /// Check whether an order can execute and return its spot price/error status.
-get fun get_can_execute_order(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanExecuteOrderReply {
+get fun get_can_execute_order(
+    newPrice: int,
+    positionRef: cell,
+    newSettlementPrice: int,
+    vpiSpread: int,
+    vpiMarketDepthLong: int,
+    vpiMarketDepthShort: int,
+    vpiCoefficient: int,
+    now: int,
+): GetCanExecuteOrderReply {
     throw 0;
 }
 
@@ -1644,12 +1651,25 @@ get fun get_spot_price(): coins {
 }
 
 /// Return the VPI-aware liquidation price for supplied position values.
-get fun get_liquidation_price_vpi(openNotional: int, marginRatio: int, positionMargin: int, positionSize: int, isAdd: int, remainMargin: int, settlementOraclePrice: int, isSettleBySpotPrice: int): coins {
+get fun get_liquidation_price_vpi(
+    openNotional: int,
+    marginRatio: int,
+    positionMargin: int,
+    positionSize: int,
+    isAdd: int,
+    remainMargin: int,
+    settlementOraclePrice: int,
+    isSettleBySpotPrice: int,
+): coins {
     throw 0;
 }
 
 /// Return remaining margin, funding payment, PnL, and price data for a position.
-get fun get_remain_margin_with_funding_payment(newPrice: int, positionRef: cell, newSettlementPrice: int): GetRemainMarginWithFundingPaymentReply {
+get fun get_remain_margin_with_funding_payment(
+    newPrice: int,
+    positionRef: cell,
+    newSettlementPrice: int,
+): GetRemainMarginWithFundingPaymentReply {
     throw 0;
 }
 

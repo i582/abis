@@ -13,7 +13,9 @@ fun mainnetGetgemsNftAuctionV2(): GetgemsNftAuctionV2 {
     return GetgemsNftAuctionV2.fromAddress(address(MAINNET_GETGEMS_NFT_AUCTION_V2_ADDRESS));
 }
 
-fun loadGetgemsNftAuctionV2StorageFromFork(auction: GetgemsNftAuctionV2): GetgemsNftAuctionV2Storage {
+fun loadGetgemsNftAuctionV2StorageFromFork(
+    auction: GetgemsNftAuctionV2,
+): GetgemsNftAuctionV2Storage {
     val account = testing.getAccountState(auction.address);
     expect(account).toBeNotNull();
 

@@ -6,7 +6,8 @@ contract GetgemsNftMarketplaceV2 {
     storage: GetgemsNftMarketplaceV2Storage
     incomingMessages: GetgemsNftMarketplaceV2IncomingMessage
     incomingExternal: GetgemsNftMarketplaceV2IncomingExternalMessage
-    forceAbiExport: GetgemsNftMarketplaceV2ExternalSendAction | GetgemsNftMarketplaceV2DeployOutgoingEnvelope
+    forceAbiExport: GetgemsNftMarketplaceV2ExternalSendAction
+        | GetgemsNftMarketplaceV2DeployOutgoingEnvelope
     thrownErrors: GetgemsNftMarketplaceV2Errors
 }
 

@@ -8,7 +8,13 @@ contract Tonkeeper2fa {
     incomingMessages: Tonkeeper2faIncomingMessage
     incomingExternal: Tonkeeper2faIncomingExternalMessage
     outgoingMessages: Tonkeeper2faOutgoingMessage
-    forceAbiExport: Tonkeeper2faDelegationStateNone | Tonkeeper2faDelegationStateActive | Tonkeeper2faEmptyRefill | Tonkeeper2faWalletOutActionSendMsg | Tonkeeper2faWalletSetSignatureAuthAction | Tonkeeper2faWalletAddExtensionAction | Tonkeeper2faWalletDeleteExtensionAction
+    forceAbiExport: Tonkeeper2faDelegationStateNone
+        | Tonkeeper2faDelegationStateActive
+        | Tonkeeper2faEmptyRefill
+        | Tonkeeper2faWalletOutActionSendMsg
+        | Tonkeeper2faWalletSetSignatureAuthAction
+        | Tonkeeper2faWalletAddExtensionAction
+        | Tonkeeper2faWalletDeleteExtensionAction
     thrownErrors: Tonkeeper2faErrors
 }
 
@@ -63,8 +69,7 @@ struct Tonkeeper2faDelegationStateActive {
 }
 
 /// Empty internal body accepted as a balance refill.
-struct Tonkeeper2faEmptyRefill {
-}
+struct Tonkeeper2faEmptyRefill {}
 
 /// Tonkeeper certificate payload signed by the root CA key.
 struct Tonkeeper2faCertificate {
@@ -173,8 +178,7 @@ struct (0x53684037) Tonkeeper2faInternalSigned {
 }
 
 /// Confirmation body sent back after the wallet removes this extension.
-struct (0xc2d7f22b) Tonkeeper2faConfirmRemoval {
-}
+struct (0xc2d7f22b) Tonkeeper2faConfirmRemoval {}
 
 /// Wallet V5 extension request body emitted to the controlled wallet.
 struct (0x6578746e) Tonkeeper2faWalletRequestByExtension {
@@ -308,6 +312,10 @@ get fun get_delegation_state(): Tonkeeper2faDelegationStateReply {
 }
 
 /// Estimate nanotons needed for a wallet request with the supplied forwarded message and action counts.
-get fun get_estimated_attached_value(forwardMsg: cell, msgActions: int, extendedActions: int): coins {
+get fun get_estimated_attached_value(
+    forwardMsg: cell,
+    msgActions: int,
+    extendedActions: int,
+): coins {
     throw 0;
 }

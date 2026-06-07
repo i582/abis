@@ -101,15 +101,21 @@ get fun `test tonco position nft v3 mainnet getters match storage`() {
     expect(positionInfo.liquidity).toEqual(storage.liquidity as int);
     expect(positionInfo.tickLower).toEqual(storage.tickLower as int);
     expect(positionInfo.tickUpper).toEqual(storage.tickUpper as int);
-    expect(positionInfo.feeGrowthInside0LastX128).toEqual(feeGrowthInside.feeGrowthInside0LastX128 as int);
-    expect(positionInfo.feeGrowthInside1LastX128).toEqual(feeGrowthInside.feeGrowthInside1LastX128 as int);
+    expect(positionInfo.feeGrowthInside0LastX128).toEqual(
+        feeGrowthInside.feeGrowthInside0LastX128 as int,
+    );
+    expect(positionInfo.feeGrowthInside1LastX128).toEqual(
+        feeGrowthInside.feeGrowthInside1LastX128 as int,
+    );
 
     expect(nftData.isInitialized).toBeTrue();
     expect(nftData.itemIndex).toEqual(storage.index as int);
     expect(nftData.collectionAddress).toEqual(storage.poolAddress);
     expect(nftData.ownerAddress!).toEqual(storage.userAddress);
     expect(nftData.content).toBeNotNull();
-    expect(nftData.content!.hash()).toEqual(buildExpectedNftDataContent(storage, feeGrowthInside).hash());
+    expect(nftData.content!.hash()).toEqual(
+        buildExpectedNftDataContent(storage, feeGrowthInside).hash(),
+    );
 
     println("TONCO_POSITION_NFT_V3_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("TONCO_POSITION_NFT_V3_ADDRESS={}", position.address);

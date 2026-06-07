@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -24,9 +24,7 @@ fun mainnetDedustVaultNativeV2(): DedustVaultNativeV2 {
 }
 
 fun nativeAssetCell(): cell {
-    return beginCell()
-        .storeUint(0, 4)
-        .endCell();
+    return beginCell().storeUint(0, 4).endCell();
 }
 
 fun hasBocMagic(bytes: slice): bool {

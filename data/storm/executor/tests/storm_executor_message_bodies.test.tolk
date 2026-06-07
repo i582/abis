@@ -10,13 +10,11 @@ const CLAIM_VAULT_ADDRESS = "0:f29d17a209e2bcc652916d802ba69e23cb366e17afad61f84
 const ADD_AMOUNT_ORIGIN_ADDRESS = "0:9dc3b1a65b0b2e0c2a682eec48c8ac82f6bfaf0eabafa6578777e3bfa41845a4"
 const PROVIDE_VAULT_ADDRESS = "0:fa87bdeb3c237eb2b6daf71b35095011b31fbc7115de332c148af3887d5c73d9"
 const PROVIDE_ORIGIN_ADDRESS = "0:763a947d82a6fa9668a29c004b8edd590c68c757a5cef52f83ab312fd8e28832"
-const INITIAL_BALANCE_VAULT_HASH =
-    0xf29d17a209e2bcc652916d802ba69e23cb366e17afad61f8453343b9ba53ace4
-const PROVIDE_VAULT_HASH =
-    0xfa87bdeb3c237eb2b6daf71b35095011b31fbc7115de332c148af3887d5c73d9
+const INITIAL_BALANCE_VAULT_HASH = 0xf29d17a209e2bcc652916d802ba69e23cb366e17afad61f8453343b9ba53ace4
+const PROVIDE_VAULT_HASH = 0xfa87bdeb3c237eb2b6daf71b35095011b31fbc7115de332c148af3887d5c73d9
 const TRANSFER_QUERY_ID = 0xf95b6c08e7439103
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

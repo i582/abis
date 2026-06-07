@@ -5,7 +5,10 @@ contract AffluentBatch {
     storage: AffluentBatchStorage
     incomingMessages: AffluentBatchIncomingMessage
     outgoingMessages: AffluentBatchOutgoingMessage
-    forceAbiExport: AffluentBatchForwardPayload | AffluentBatchAggregatorContext | AffluentBatchStorageRecord | AffluentBatchAggregatorData
+    forceAbiExport: AffluentBatchForwardPayload
+        | AffluentBatchAggregatorContext
+        | AffluentBatchStorageRecord
+        | AffluentBatchAggregatorData
 }
 
 struct AffluentBatchDepositRecord {

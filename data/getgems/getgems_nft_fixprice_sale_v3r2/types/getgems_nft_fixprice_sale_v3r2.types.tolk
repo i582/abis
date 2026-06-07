@@ -44,8 +44,7 @@ struct GetgemsNftFixpriceSaleV3R2Storage {
 }
 
 /// Empty internal message body; when initialized, source treats it as a buy request with query id zero.
-struct GetgemsNftFixpriceSaleV3R2EmptyBuy {
-}
+struct GetgemsNftFixpriceSaleV3R2EmptyBuy {}
 
 /// Zero-op text/comment body; exact tail `cancel` is a cancel request, other tails buy with query id zero.
 struct (0x00000000) GetgemsNftFixpriceSaleV3R2ZeroOpcodeBody {

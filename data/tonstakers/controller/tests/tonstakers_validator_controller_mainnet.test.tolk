@@ -1,10 +1,10 @@
 import "@acton/build"
-import "@acton/emulation/network"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/network"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -12,8 +12,7 @@ import "../types/tonstakers_validator_controller.types"
 
 const CODE_FIXTURE_BOC_PATH = "data/tonstakers/controller/testdata/TonstakersValidatorController.boc"
 const DATA_FIXTURE_BOC_PATH = "data/tonstakers/controller/testdata/TonstakersValidatorController.data.boc"
-const DATA_FIXTURE_BOC =
-    "te6ccgEBAwEA+QABiQBAAAAAAAAAsMyAz5qjJhcm+LZYEcv8JKIwY3kZfZm/7SHWuo2+5aAIAAGc2T7EAAAAAgAAAAAAAAAAAAAAAAAAAAAACAEB0QAAAACf75L7tBm0MNWKmJTGQbVxyL4CNs5Mq0jmbjdfMPrXahIwApFsX8oQJIpt4Ng4ykEIPE+T+IPkNfiv4xKxnAyWeIvqAESTIwI4uSoCWZpCPZrybnD/CL9oJF8eYxPiv8V+lGImQAIAhYAYKMg5K4k30jynjQhoygtAEIV5RIsrtWFtNhmwmCUrPRACzouwkiwi7vsdtXfya1p/xnRwCWVa+J1rO7bBHseF194="
+const DATA_FIXTURE_BOC = "te6ccgEBAwEA+QABiQBAAAAAAAAAsMyAz5qjJhcm+LZYEcv8JKIwY3kZfZm/7SHWuo2+5aAIAAGc2T7EAAAAAgAAAAAAAAAAAAAAAAAAAAAACAEB0QAAAACf75L7tBm0MNWKmJTGQbVxyL4CNs5Mq0jmbjdfMPrXahIwApFsX8oQJIpt4Ng4ykEIPE+T+IPkNfiv4xKxnAyWeIvqAESTIwI4uSoCWZpCPZrybnD/CL9oJF8eYxPiv8V+lGImQAIAhYAYKMg5K4k30jynjQhoygtAEIV5RIsrtWFtNhmwmCUrPRACzouwkiwi7vsdtXfya1p/xnRwCWVa+J1rO7bBHseF194="
 
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0xdd3ce98db487c7585803933bffba7a57eb4e663099059d08b83db0b4ce060793
@@ -91,12 +90,7 @@ fun loadFromDataCell(data: cell): LoadedTonstakersValidatorControllerStorage {
     val storage = TonstakersValidatorControllerStorage.fromCell(data);
     val staticData = storage.staticData.load();
     val roles = staticData.roles.load();
-    return LoadedTonstakersValidatorControllerStorage {
-        data,
-        storage,
-        staticData,
-        roles,
-    };
+    return LoadedTonstakersValidatorControllerStorage { data, storage, staticData, roles };
 }
 
 fun loadTonstakersValidatorControllerStorageFromFork(
@@ -113,7 +107,9 @@ fun loadTonstakersValidatorControllerStorageFromFork(
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
             expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
-            expect(code!.hash()).toEqual(build("TonstakersValidatorController", CODE_FIXTURE_BOC_PATH).hash());
+            expect(code!.hash()).toEqual(
+                build("TonstakersValidatorController", CODE_FIXTURE_BOC_PATH).hash(),
+            );
             expect(data!.hash()).toEqual(EXPECTED_DATA_HASH);
             return loadFromDataCell(data!);
         }
@@ -126,7 +122,9 @@ fun loadTonstakersValidatorControllerStorageFromFork(
     }
 }
 
-fun controllerData(controller: TonstakersValidatorControllerFork): TonstakersValidatorControllerDataReply {
+fun controllerData(
+    controller: TonstakersValidatorControllerFork,
+): TonstakersValidatorControllerDataReply {
     return net.runGetMethod(controller.address, "get_validator_controller_data");
 }
 
@@ -146,7 +144,9 @@ fun requiredBalanceForLoan(
     return net.runGetMethod(controller.address, "required_balance_for_loan", [credit, interest]);
 }
 
-fun requestWindowTime(controller: TonstakersValidatorControllerFork): TonstakersValidatorControllerRequestWindowTimeReply {
+fun requestWindowTime(
+    controller: TonstakersValidatorControllerFork,
+): TonstakersValidatorControllerRequestWindowTimeReply {
     return net.runGetMethod(controller.address, "request_window_time");
 }
 
@@ -180,7 +180,9 @@ get fun `test tonstakers validator controller code and data fixtures are real Bo
 
     expect(hasBocMagic(rawCodeBoc!)).toBeTrue();
     expect(hasBocMagic(rawDataBoc!)).toBeTrue();
-    expect(build("TonstakersValidatorController", CODE_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_CODE_HASH);
+    expect(build("TonstakersValidatorController", CODE_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_CODE_HASH,
+    );
     expect(dataFixtureCell().hash()).toEqual(EXPECTED_DATA_HASH);
 }
 

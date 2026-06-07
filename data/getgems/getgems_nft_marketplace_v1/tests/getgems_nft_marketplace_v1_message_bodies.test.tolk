@@ -1,7 +1,6 @@
 import "@acton/fmt"
 import "@acton/io"
 import "@acton/testing/expect"
-import "../types/getgems_nft_marketplace_v1.types"
 
 get fun `test getgems marketplace v1 decodes toncenter deploy contract body`() {
     val txHash = "SXSy3gYVTTj7vH7M6YnxgKVfgjDtcLvXj45OHTMJozc=";
@@ -22,8 +21,12 @@ get fun `test getgems marketplace v1 decodes toncenter deploy contract body`() {
     val stateInit = parsed.loadRef();
     val forwardedBody = parsed.loadRef();
     expect(parsed.remainingRefsCount()).toEqual(0);
-    expect(stateInit.hash()).toEqual(0xcac1b858c2c2545c0c483d1884a36a8a7348d2f7e1d6d84c10e4f7888f891e80);
-    expect(forwardedBody.hash()).toEqual(0x96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7);
+    expect(
+        stateInit.hash(),
+    ).toEqual(0xcac1b858c2c2545c0c483d1884a36a8a7348d2f7e1d6d84c10e4f7888f891e80);
+    expect(
+        forwardedBody.hash(),
+    ).toEqual(0x96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7);
 
     var stateInitSlice = stateInit.beginParse();
     expect(stateInitSlice.remainingBitsCount()).toEqual(5);
@@ -34,9 +37,13 @@ get fun `test getgems marketplace v1 decodes toncenter deploy contract body`() {
     expect(stateInitSlice.remainingBitsCount()).toEqual(0);
     expect(stateInitSlice.remainingRefsCount()).toEqual(0);
 
-    expect(deployedCode.hash()).toEqual(0xda3e6c053d289d662dd3bd7856c3a1f26d3a6ed05fb02b8351ceb673194313e7);
-    expect(deployedData.hash()).toEqual(0x3e0bc5a3f248b907cee488307a74e6a5585f9835cff3f8e3d668cbd14acafa3b);
-    var deployedCodeSlice = deployedCode.beginParse();
+    expect(
+        deployedCode.hash(),
+    ).toEqual(0xda3e6c053d289d662dd3bd7856c3a1f26d3a6ed05fb02b8351ceb673194313e7);
+    expect(
+        deployedData.hash(),
+    ).toEqual(0x3e0bc5a3f248b907cee488307a74e6a5585f9835cff3f8e3d668cbd14acafa3b);
+    val deployedCodeSlice = deployedCode.beginParse();
     expect(deployedCodeSlice.remainingBitsCount()).toEqual(80);
     expect(deployedCodeSlice.remainingRefsCount()).toEqual(1);
     expect(deployedCodeSlice.preloadUint(16)).toEqual(0xff00);
@@ -46,7 +53,7 @@ get fun `test getgems marketplace v1 decodes toncenter deploy contract body`() {
     expect(deployedDataSlice.remainingBitsCount()).toEqual(570);
     expect(deployedDataSlice.remainingRefsCount()).toEqual(1);
 
-    var forwardedBodySlice = forwardedBody.beginParse();
+    val forwardedBodySlice = forwardedBody.beginParse();
     expect(forwardedBodySlice.remainingBitsCount()).toEqual(0);
     expect(forwardedBodySlice.remainingRefsCount()).toEqual(0);
 

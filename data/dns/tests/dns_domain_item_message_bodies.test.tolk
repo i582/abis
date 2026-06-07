@@ -3,7 +3,7 @@ import "@acton/io"
 import "@acton/testing/expect"
 import "../types/dns_domain_item.types"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -88,7 +88,9 @@ get fun `test dns domain item decodes toncenter report static data body`() {
     val decoded = DnsDomainItemReportStaticData.fromCell(body);
 
     expect(decoded.queryId).toEqual(661);
-    expect(decoded.itemIndex).toEqual(0x9c7d56cc115e7cf6c25e126bea77cbc3cb15d55106f2e397562591059963faa3 as uint256);
+    expect(decoded.itemIndex).toEqual(
+        0x9c7d56cc115e7cf6c25e126bea77cbc3cb15d55106f2e397562591059963faa3 as uint256,
+    );
     expect(decoded.collectionAddress).toEqual(expectedCollection);
 
     println("DNS_DOMAIN_ITEM_TONCENTER_REPORT_STATIC_DATA_TX={} LT={}", txHash, txLt);

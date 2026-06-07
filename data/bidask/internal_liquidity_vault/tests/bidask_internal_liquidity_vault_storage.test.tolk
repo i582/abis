@@ -36,12 +36,16 @@ get fun `test bidask internal liquidity vault code and data boc fixtures are rea
 
     expect(hasBocMagic(rawCodeBoc!)).toBeTrue();
     expect(hasBocMagic(rawDataBoc!)).toBeTrue();
-    expect(build("BidaskInternalLiquidityVault", FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_CODE_HASH);
+    expect(build("BidaskInternalLiquidityVault", FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_CODE_HASH,
+    );
     expect(savedStorageCell().hash()).toEqual(EXPECTED_DATA_HASH);
 }
 
 get fun `test bidask internal liquidity vault wrapper compiles from address`() {
-    val vault = BidaskInternalLiquidityVault.fromAddress(address(MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS));
+    val vault = BidaskInternalLiquidityVault.fromAddress(
+        address(MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS),
+    );
     expect(vault.address).toEqual(address(MAINNET_BIDASK_INTERNAL_LIQUIDITY_VAULT_ADDRESS));
 }
 

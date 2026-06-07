@@ -69,12 +69,10 @@ struct (0x64737472) SubscriptionV1WalletPluginDestruct {
 }
 
 /// Wallet payment request body emitted by the plugin.
-struct (0x73756273) SubscriptionV1SubscriptionPayment {
-}
+struct (0x73756273) SubscriptionV1SubscriptionPayment {}
 
 /// Fallback body emitted when a V1 message is unsupported or unauthorized.
-struct (0x756e6b77) SubscriptionV1Fallback {
-}
+struct (0x756e6b77) SubscriptionV1Fallback {}
 
 /// Internal message bodies accepted by Subscription V1.
 type SubscriptionV1IncomingMessage =

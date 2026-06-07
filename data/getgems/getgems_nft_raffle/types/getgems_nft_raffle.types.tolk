@@ -78,12 +78,10 @@ struct (0x05138d91) GetgemsNftRaffleOwnershipAssigned {
 }
 
 /// Participant or super-user command that cancels an active raffle before all conditions are met.
-struct (0x000007d1) GetgemsNftRaffleCancel {
-}
+struct (0x000007d1) GetgemsNftRaffleCancel {}
 
 /// Left/right participant command that contributes additional commission nanotons.
-struct (0x000007d2) GetgemsNftRaffleAddCoins {
-}
+struct (0x000007d2) GetgemsNftRaffleAddCoins {}
 
 /// Super-user command that relays a raw message after the raffle is canceled or completed.
 struct (0x000007d3) GetgemsNftRaffleMaintain {
@@ -94,8 +92,7 @@ struct (0x000007d3) GetgemsNftRaffleMaintain {
 }
 
 /// Command that resends completed raffle NFT transfers using the attached value.
-struct (0x000007d4) GetgemsNftRaffleSendAgain {
-}
+struct (0x000007d4) GetgemsNftRaffleSendAgain {}
 
 /// NFT transfer message emitted when returning, canceling, completing, or resending raffle NFTs.
 struct (0x5fcc3d14) GetgemsNftRaffleNftTransfer {

@@ -4,8 +4,7 @@ import "@acton/testing/expect"
 import "../types/subscription_v2.types"
 
 const SUBSCRIPTION_DEPLOY_WITHDRAW_ADDRESS = "0:B16A061860C9F389D4EF41FDFDAA7914BC09167DB9F5377B5EA95C504ED76B77"
-const SUBSCRIPTION_DEPLOY_METADATA_BOC =
-    "te6ccgEBAwEA+QABSAGORgtdy6ye9GXg83NoSCJMVlbX3BpxW32t1B3sMWxqcGNAegEB/utuT1lZuDtEThSxHSfugIMqwEnJeIi9Ex4JlLj0L4TyaIpMK+f7TV452zmy0/PNkmyU8Z8mGrtOpBpJa8j22GMQQf6J/YZrspmO30xOeHdCJ5MmEZPNkRof8KGJ4nVkaeruaPQKVXZnuulRGoFF8B7Af2w8B0H50cIVcKF96E0CAJxqp6B2Zwl7tAg+1xG0VTzzXBjnSvkQHWFVJN1uohm+lkq/3aeZOF3lGM85iO3FOjxAYhiDkud3afiM5Jls3v4ouGyr+usp0tr0og16H7Q="
+const SUBSCRIPTION_DEPLOY_METADATA_BOC = "te6ccgEBAwEA+QABSAGORgtdy6ye9GXg83NoSCJMVlbX3BpxW32t1B3sMWxqcGNAegEB/utuT1lZuDtEThSxHSfugIMqwEnJeIi9Ex4JlLj0L4TyaIpMK+f7TV452zmy0/PNkmyU8Z8mGrtOpBpJa8j22GMQQf6J/YZrspmO30xOeHdCJ5MmEZPNkRof8KGJ4nVkaeruaPQKVXZnuulRGoFF8B7Af2w8B0H50cIVcKF96E0CAJxqp6B2Zwl7tAg+1xG0VTzzXBjnSvkQHWFVJN1uohm+lkq/3aeZOF3lGM85iO3FOjxAYhiDkud3afiM5Jls3v4ouGyr+usp0tr0og16H7Q="
 
 fun expectEmptyCell(value: cell): void {
     val parsed = value.beginParse();
@@ -28,7 +27,9 @@ get fun `test subscription v2 decodes real deploy body`() {
     expect(decoded.callerFee).toEqual(0);
     expect(decoded.withdrawAddress).toEqual(address(SUBSCRIPTION_DEPLOY_WITHDRAW_ADDRESS));
     expectEmptyCell(decoded.withdrawMsgBody);
-    expect(decoded.metadata.hash()).toEqual(parseCellFromBase64(SUBSCRIPTION_DEPLOY_METADATA_BOC).hash());
+    expect(decoded.metadata.hash()).toEqual(
+        parseCellFromBase64(SUBSCRIPTION_DEPLOY_METADATA_BOC).hash(),
+    );
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("SUBSCRIPTION_V2_DEPLOY_TX={} LT={}", txHash, txLt);

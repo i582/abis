@@ -6,7 +6,9 @@ contract TonstakersPool {
     storage: TonstakersPoolStorage
     incomingMessages: TonstakersPoolIncomingMessage
     outgoingMessages: TonstakersPoolOutgoingMessage
-    forceAbiExport: TonstakersPoolEventMessage | TonstakersPoolPayoutData | TonstakersPoolPayoutInitData
+    forceAbiExport: TonstakersPoolEventMessage
+        | TonstakersPoolPayoutData
+        | TonstakersPoolPayoutInitData
     thrownErrors: TonstakersPoolErrors
 }
 
@@ -27,8 +29,7 @@ struct TonstakersPoolPayoutData {
 }
 
 /// No pending payout request is stored.
-struct (0b0) TonstakersPoolPayoutAbsent {
-}
+struct (0b0) TonstakersPoolPayoutAbsent {}
 
 /// Pending payout request stored inline in the minter-data cell.
 struct (0b10) TonstakersPoolPayoutInline {
@@ -164,8 +165,7 @@ struct TonstakersPoolStorage {
 }
 
 /// Optional role update marker used by `governor::set_roles`.
-struct (0b0) TonstakersPoolRoleUnchanged {
-}
+struct (0b0) TonstakersPoolRoleUnchanged {}
 
 /// Present role update with the replacement address.
 struct (0b1) TonstakersPoolRoleUpdated {
@@ -754,17 +754,29 @@ get fun get_controller_address(controllerId: int, validator: address): address {
 }
 
 /// Return the deterministic validator controller address as legacy workchain/hash tuple.
-get fun get_controller_address_legacy(controllerId: int, workchain: int, addressHash: uint256): TonstakersPoolControllerAddressLegacyReply {
+get fun get_controller_address_legacy(
+    controllerId: int,
+    workchain: int,
+    addressHash: uint256,
+): TonstakersPoolControllerAddressLegacyReply {
     throw 0;
 }
 
 /// Return principal and accounted interest for a controller in current or previous round data.
-get fun get_loan(controllerId: int, validatorAddress: address, prev: bool, update: bool): TonstakersPoolLoanReply {
+get fun get_loan(
+    controllerId: int,
+    validatorAddress: address,
+    prev: bool,
+    update: bool,
+): TonstakersPoolLoanReply {
     throw 0;
 }
 
 /// Return median-position data for a controller address hash in current or previous round data.
-get fun get_controller_loan_position(controllerAddrHash: uint256, prev: bool): TonstakersPoolControllerLoanPositionReply {
+get fun get_controller_loan_position(
+    controllerAddrHash: uint256,
+    prev: bool,
+): TonstakersPoolControllerLoanPositionReply {
     throw 0;
 }
 

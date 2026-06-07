@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/nft_v1_editable_item.types"
 import "../wrappers/NftV1EditableItem.gen"
-import "./test_utils"
 
 get fun `test nft v1 editable item mainnet getters and storage`() {
     val item = mainnetNftV1EditableItem();

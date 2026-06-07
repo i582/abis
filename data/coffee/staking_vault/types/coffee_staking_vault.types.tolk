@@ -6,7 +6,10 @@ contract CoffeeStakingVault {
     storage: CoffeeStakingVaultStorage
     incomingMessages: CoffeeStakingVaultIncomingMessage
     outgoingMessages: CoffeeStakingVaultOutgoingMessage
-    forceAbiExport: CoffeeStakingLockForwardPayload | CoffeeStakingVaultMasterInit | CoffeeStakingVaultItemInit | CoffeeStakingVaultJettonRefund
+    forceAbiExport: CoffeeStakingLockForwardPayload
+        | CoffeeStakingVaultMasterInit
+        | CoffeeStakingVaultItemInit
+        | CoffeeStakingVaultJettonRefund
 }
 
 /// Root persistent storage for the staking vault.

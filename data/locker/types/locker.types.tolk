@@ -117,6 +117,10 @@ get fun get_unlocked_amount(nowTime: int, totalAmount: int): coins {
 }
 
 /// Return the incremental amount withdrawable by a user since `lastWithdrawTime`.
-get fun get_amount_to_withdraw(nowTime: int, lastWithdrawTime: uint32, totalUserDeposit: int): coins {
+get fun get_amount_to_withdraw(
+    nowTime: int,
+    lastWithdrawTime: uint32,
+    totalUserDeposit: int,
+): coins {
     throw 0;
 }

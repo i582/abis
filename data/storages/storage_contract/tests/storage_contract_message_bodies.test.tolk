@@ -89,7 +89,7 @@ get fun `test storage contract toncenter empty outgoing body is truly empty`() {
     val txLt = "37535495000003";
     val bodyBoc = "te6cckEBAQEAAgAAAEysuc0=";
     val body = parseCellFromBase64(bodyBoc);
-    var tail = body.beginParse();
+    val tail = body.beginParse();
 
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);

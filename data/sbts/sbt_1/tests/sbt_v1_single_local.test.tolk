@@ -3,9 +3,9 @@ import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/expect"
+import "./test_utils"
 import "../types/sbt_v1_single.types"
 import "../wrappers/SbtV1Single.gen"
-import "./test_utils"
 
 get fun `test sbt v1 single local getters and storage`() {
     val owner = testing.treasury("sbt-v1-single-local-owner");

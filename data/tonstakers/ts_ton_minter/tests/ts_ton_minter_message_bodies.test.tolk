@@ -6,7 +6,7 @@ import "../types/ts_ton_minter.types"
 const USER_A = "0:A3173AE6AFCA52A1F15C88EAAD1A60616533FDB936F25019BBCD3EF172239D7F"
 const USER_B = "0:1E6CC569EDEAA844772A709BB5292D8981672C328CAE4DEBE32E1612B853E2D1"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

@@ -8,12 +8,10 @@ const STORM_REFERRAL_ADD_ORIGIN = "kQAFeTwkcYSAG8689epnAsdEXfeaSkUPL03yTQ-4yc-Zb
 const STORM_REFERRAL_CLAIM_VAULT = "kQDynReiCeK8xlKRbYArpp4jyzZuF6-tYfhFM0O5ulOs5MaB"
 const STORM_REFERRAL_LOOKUP_VAULT = "kQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8UJp"
 const STORM_REFERRAL_LOOKUP_ORIGIN = "kQB2OpR9gqb6lmiinABLjt1ZDGjHV6XO9S-DqzEv2OKIMqNn"
-const INITIAL_BALANCE_VAULT_HASH =
-    0xf29d17a209e2bcc652916d802ba69e23cb366e17afad61f8453343b9ba53ace4
-const STORM_REFERRAL_LOOKUP_VAULT_HASH =
-    0xe926764ff3d272c73ddeb836975c5521c025ad68e7919a25094e2de3198805f1
+const INITIAL_BALANCE_VAULT_HASH = 0xf29d17a209e2bcc652916d802ba69e23cb366e17afad61f8453343b9ba53ace4
+const STORM_REFERRAL_LOOKUP_VAULT_HASH = 0xe926764ff3d272c73ddeb836975c5521c025ad68e7919a25094e2de3198805f1
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }

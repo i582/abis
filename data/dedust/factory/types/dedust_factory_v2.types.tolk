@@ -394,6 +394,11 @@ get fun get_pool_address(poolType: int, asset0: slice, asset1: slice): address {
 }
 
 /// Return the deterministic Liquidity Deposit address for owner, pool type, and assets.
-get fun get_liquidity_deposit_address(ownerAddress: address, poolType: int, asset0: slice, asset1: slice): address {
+get fun get_liquidity_deposit_address(
+    ownerAddress: address,
+    poolType: int,
+    asset0: slice,
+    asset1: slice,
+): address {
     throw 0;
 }

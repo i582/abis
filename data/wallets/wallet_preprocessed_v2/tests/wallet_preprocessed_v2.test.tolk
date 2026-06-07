@@ -15,11 +15,7 @@ fun walletPreprocessedV2(): WalletPreprocessedV2 {
 }
 
 fun zeroSignature(): bits512 {
-    var signature = beginCell()
-        .storeUint(0, 256)
-        .storeUint(0, 256)
-        .endCell()
-        .beginParse();
+    var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
 }
 
@@ -31,7 +27,9 @@ fun invalidSeqNo(seqNo: uint16): uint16 {
     return (seqNo == 65535) ? (0 as uint16) : (((seqNo as int) + 1) as uint16);
 }
 
-fun loadWalletPreprocessedV2StorageFromFork(wallet: WalletPreprocessedV2): WalletPreprocessedV2Storage {
+fun loadWalletPreprocessedV2StorageFromFork(
+    wallet: WalletPreprocessedV2,
+): WalletPreprocessedV2Storage {
     val account = testing.getAccountState(wallet.address);
     expect(account).toBeNotNull();
 
