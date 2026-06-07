@@ -6,3 +6,7 @@ build/
 .idea/
 AGENTS.md
 **/research/**
+scripts/
+.skills/
+sources/
+.gen/

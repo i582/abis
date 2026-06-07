@@ -1,6 +1,6 @@
 [package]
 name = "abis"
-description = "ABI schema experiments"
+description = "ABI schema catalog"
 version = "0.1.0"
 
 [contracts.Locker]
