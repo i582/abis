@@ -1124,4 +1124,3 @@ getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies
 
 [import-mappings]
 acton = ".acton"
-gen = "gen"
