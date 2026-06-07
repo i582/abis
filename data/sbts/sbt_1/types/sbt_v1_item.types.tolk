@@ -8,6 +8,7 @@ contract SbtV1Item {
     incomingMessages: SbtV1ItemIncomingMessage
     outgoingMessages: SbtV1ItemOutgoingMessage
     forceAbiExport: SbtV1ItemInit
+    thrownErrors: SbtV1ItemErrors
 }
 
 /// Deployment storage present before the collection initializes the SBT item.
@@ -212,27 +213,15 @@ enum SbtV1ItemErrors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): SbtV1ItemDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw SbtV1ItemErrors.UnauthorizedOwnerOrAuthority;
-    assert (true) throw SbtV1ItemErrors.AlreadyRevoked;
-    assert (true) throw SbtV1ItemErrors.UnauthorizedCollectionInit;
-    assert (true) throw SbtV1ItemErrors.TransferRejected;
-    assert (true) throw SbtV1ItemErrors.UnsupportedOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return the authority stack `MsgAddress`, or `addr_none` when no authority exists.
 get fun get_authority_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return the unix timestamp of revocation, or zero when the SBT is not revoked.
 get fun get_revoked_time(): uint64 {
-    return 0;
+    throw 0;
 }

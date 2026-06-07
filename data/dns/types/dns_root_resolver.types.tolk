@@ -62,8 +62,5 @@ struct DnsRootResolveReply {
 
 /// Resolve a byte-aligned DNS subdomain/category pair.
 get fun dnsresolve(subdomain: slice, category: int): DnsRootResolveReply {
-    return {
-        resolvedBits: 0,
-        result: createEmptyCell(),
-    };
+    throw 0;
 }

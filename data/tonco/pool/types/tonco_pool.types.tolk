@@ -639,63 +639,32 @@ type ToncoPoolOutgoingMessage =
 
 /// Return whether this pool is active.
 get fun getIsActive(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return pool configuration, reserves, fees, price, liquidity, and NFT counters.
 get fun getPoolStateAndConfiguration(): GetPoolStateAndConfigurationReply {
-    return {
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        controllerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWallet0: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWallet1: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMinter0: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMinter1: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        isActive: false,
-        tickSpacing: 0,
-        baseFee: 0,
-        protocolFee: 0,
-        activeFee: 0,
-        currentTick: 0,
-        currentPrice: 0,
-        currentLiquidity: 0,
-        feeGrowsGlobal0: 0,
-        feeGrowsGlobal1: 0,
-        collectedToken0ProtocolFee: 0,
-        collectedToken1ProtocolFee: 0,
-        mintedNftPositions: 0,
-        reserve0: 0,
-        reserve1: 0,
-        activeNftPositions: 0,
-        occupiedTicks: 0,
-        operationsSinceDeploy: 0,
-    };
+    throw 0;
 }
 
 /// Return AccountV3/Position NFT code and NFT metadata cells.
 get fun getChildContracts(): GetChildContractsReply {
-    return {
-        accountCode: createEmptyCell(),
-        positionNftCode: createEmptyCell(),
-        nftCollectionMetadata: createEmptyCell(),
-        nftItemMetadata: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return raw tick dictionary cell for all initialized ticks.
 get fun getAllTickInfos(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return raw nested TVM tuple chunks of tick infos from a starting tick.
 get fun getTickInfosFrom(tickNumber: int, amount: int, back: int, full: int): tuple {
-    return [];
+    throw 0;
 }
 
 /// Return maximum liquidity allowed per initialized tick for this pool's tick spacing.
 get fun getMaxLiquidityPerTick(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return currently collectible token0/token1 fees for supplied position state.
@@ -706,16 +675,12 @@ get fun getCollectedFees(
     posFeeGrowthInside0X128: int,
     posFeeGrowthInside1X128: int,
 ): GetCollectedFeesReply {
-    return { amount0: 0, amount1: 0 };
+    throw 0;
 }
 
 /// Estimate token0/token1 amounts required to mint liquidity in a tick range.
 get fun getMintEstimate(tickLower: int, tickUpper: int, liquidity: int): GetMintEstimateReply {
-    return {
-        amount0: 0,
-        amount1: 0,
-        mintErrors: 0,
-    };
+    throw 0;
 }
 
 /// Estimate token0/token1 deltas for a swap; `zeroForOne` is encoded as TVM integer truth value.
@@ -724,7 +689,7 @@ get fun getSwapEstimate(
     amount: int,
     sqrtPriceLimitX96: int,
 ): GetSwapEstimateReply {
-    return { amount0: 0, amount1: 0 };
+    throw 0;
 }
 
 /// Estimate token0/token1 deltas for a swap under supplied min-output and gas-limit parameters.
@@ -735,7 +700,7 @@ get fun getSwapEstimateGas(
     minOutAmount: int,
     gasLimit: int,
 ): GetSwapEstimateReply {
-    return { amount0: 0, amount1: 0 };
+    throw 0;
 }
 
 /// Return fee growth inside a supplied tick range using provided current tick/global fee state.
@@ -746,29 +711,25 @@ get fun getFeeGrowthInside(
     feeGrowthGlobal0X128: int,
     feeGrowthGlobal1X128: int,
 ): GetFeeGrowthInsideReply {
-    return { feeGrowthInside0X128: 0, feeGrowthInside1X128: 0 };
+    throw 0;
 }
 
 /// Return deterministic AccountV3 address for a user.
 get fun getUserAccountAddress(userAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return standard NFT collection data for pool Position NFTs.
 get fun get_collection_data(): GetCollectionDataReply {
-    return {
-        nextItemIndex: 0,
-        collectionContent: createEmptyCell(),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic Position NFT address for an item index.
 get fun get_nft_address_by_index(index: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return full NFT item content for a Position NFT index and base item content cell.
 get fun get_nft_content(index: int, nftv3itemContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }

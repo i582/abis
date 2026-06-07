@@ -6,6 +6,7 @@ contract LockupUniversal {
     storage: LockupUniversalStorage
     incomingMessages: LockupUniversalIncomingMessage
     incomingExternal: LockupUniversalIncomingExternalMessage
+    thrownErrors: Errors
 }
 
 /// Persistent universal lockup wallet state.
@@ -94,47 +95,30 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.WrongSignature;
-    assert (true) throw Errors.WrongConfigSignature;
-    assert (true) throw Errors.ValueIsTooSmall;
-    assert (true) throw Errors.WrongSeqno;
-    assert (true) throw Errors.WrongSubwalletId;
-    assert (true) throw Errors.ReplayProtection;
-    assert (true) throw Errors.UnknownOp;
-    assert (true) throw Errors.UnknownCmd;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored wallet id.
 get fun wallet_id(): uint32 {
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return account, restricted, and locked balances after unlocking batches up to `time`.
 get fun get_balances_at(time: int): LockupUniversalBalances {
-    return {
-        tonBalance: 0,
-        totalRestrictedValue: 0,
-        totalLockedValue: 0,
-    };
+    throw 0;
 }
 
 /// Return current account, restricted, and locked balances.
 get fun get_balances(): LockupUniversalBalances {
-    return {
-        tonBalance: 0,
-        totalRestrictedValue: 0,
-        totalLockedValue: 0,
-    };
+    throw 0;
 }
 
 /// Return whether a destination address matches the immutable allowlist prefix dictionary.
 get fun check_destination(destination: address): bool {
-    return false;
+    throw 0;
 }

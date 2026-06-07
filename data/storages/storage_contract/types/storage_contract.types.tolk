@@ -7,6 +7,7 @@ contract StorageContract {
     incomingMessages: StorageContractIncomingMessage
     outgoingMessages: StorageContractOutgoingMessage
     forceAbiExport: StorageContractClientData
+    thrownErrors: StorageContractErrors
 }
 
 /// Persistent storage state stored in the root data cell.
@@ -175,40 +176,20 @@ enum StorageContractErrors {
 
 /// Return full storage contract data as a flat stack tuple.
 get fun get_storage_contract_data(): StorageContractDataReply {
-    assert (true) throw StorageContractErrors.Unauthorized;
-    assert (true) throw StorageContractErrors.WrongProof;
-    assert (true) throw StorageContractErrors.ContractNotActive;
-    assert (true) throw StorageContractErrors.ContractAlreadyActive;
-    return {
-        active: false,
-        balance: 0,
-        provider: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        merkleHash: 0,
-        fileSize: 0,
-        nextProof: 0,
-        ratePerMbDay: 0,
-        maxSpan: 0,
-        lastProofTime: 0,
-        client: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        torrentHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the torrent hash stored in client data.
 get fun get_torrent_hash(): uint256 {
-    return 0;
+    throw 0;
 }
 
 /// Return whether the agreement is active.
 get fun is_active(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return the next proof index and timing parameters.
 get fun get_next_proof_info(): StorageContractNextProofInfoReply {
-    return {
-        nextProof: 0,
-        lastProofTime: 0,
-        maxSpan: 0,
-    };
+    throw 0;
 }

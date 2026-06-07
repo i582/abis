@@ -6,6 +6,7 @@ contract Jetton2Master {
     storage: Jetton2MasterStorage
     incomingMessages: Jetton2MasterIncomingMessage
     outgoingMessages: Jetton2MasterOutgoingMessage
+    thrownErrors: Jetton2MasterErrors
 }
 
 /// Persistent Jetton v2.0 minter state stored in the root data cell.
@@ -184,29 +185,15 @@ enum Jetton2MasterErrors {
 
 /// Return supply, mintability, admin address, metadata content cell, and wallet code cell.
 get fun get_jetton_data(): GetJetton2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Jetton2MasterErrors.InvalidNestedOperation;
-    assert (true) throw Jetton2MasterErrors.UnauthorizedAdmin;
-    assert (true) throw Jetton2MasterErrors.InvalidBurnNotificationSender;
-    assert (true) throw Jetton2MasterErrors.NotEnoughGas;
-    assert (true) throw Jetton2MasterErrors.InvalidMessage;
-    assert (true) throw Jetton2MasterErrors.WrongWorkchain;
-    assert (true) throw Jetton2MasterErrors.UnsupportedOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: createAddressNone(),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the owner-shard deterministic wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the pending next admin stack `MsgAddress`, or `addr_none` when no admin claim is pending.
 get fun get_next_admin_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }

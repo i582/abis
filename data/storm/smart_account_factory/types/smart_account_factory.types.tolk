@@ -6,6 +6,7 @@ contract SmartAccountFactory {
     storage: SmartAccountFactoryStorage
     incomingMessages: SmartAccountFactoryIncomingMessage
     outgoingMessages: SmartAccountFactoryOutgoingMessage
+    thrownErrors: SmartAccountFactoryErrors
 }
 
 /// Runtime storage for SmartAccountFactory.
@@ -249,44 +250,20 @@ enum SmartAccountFactoryErrors {
 
 /// Return factory configuration and the ordinary SmartAccount code cell.
 get fun get_factory_data(): SmartAccountFactoryDataReply {
-    assert (true) throw SmartAccountFactoryErrors.NotEnoughGasToDeploy;
-    assert (true) throw SmartAccountFactoryErrors.Unauthorized;
-    assert (true) throw SmartAccountFactoryErrors.InsufficientGas;
-    assert (true) throw SmartAccountFactoryErrors.WrongWorkchain;
-    assert (true) throw SmartAccountFactoryErrors.WrongOperation;
-    return {
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        highloadTimeout: 0,
-        hotPublicKey: 0,
-        coldPublicKey: 0,
-        content: createEmptyCell(),
-        saOrdinaryVersion: 0,
-        saOrdinaryCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return minimum fee thresholds for deposit, deposit-with-deploy, withdrawal, and ordinary SmartAccount storage.
 get fun get_min_fees(): SmartAccountFactoryMinFeesReply {
-    return {
-        depositMinFeeNative: 0,
-        depositMinFeeJetton: 0,
-        depositWithDeployMinFeeNative: 0,
-        depositWithDeployMinFeeJetton: 0,
-        withdrawMinFee: 0,
-        ordinarySaStorageFee: 0,
-    };
+    throw 0;
 }
 
 /// Return royalty numerator, denominator, and payout address for the factory NFT collection helper.
 get fun royalty_params(): SmartAccountFactoryRoyaltyParams {
-    return {
-        numerator: 0,
-        denominator: 1,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the deterministic blank SmartAccount address for the supplied item index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

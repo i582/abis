@@ -6,6 +6,7 @@ contract CoffeeVaultExtra {
     storage: CoffeeVaultExtraStorage
     incomingMessages: CoffeeVaultExtraIncomingMessage
     outgoingMessages: CoffeeVaultExtraOutgoingMessage
+    thrownErrors: Errors
 }
 
 /// Runtime root data cell for the extra-currency vault.
@@ -391,19 +392,10 @@ enum Errors {
 
 /// Return the serialized Coffee asset represented by this vault.
 get fun get_asset(): slice {
-    assert (true) throw Errors.UnknownOpcode;
-    assert (true) throw Errors.NotEnoughGas;
-    assert (true) throw Errors.Unexpected;
-    assert (true) throw Errors.NotAFactory;
-    assert (true) throw Errors.WrongChain;
-    assert (true) throw Errors.SameAssets;
-    assert (true) throw Errors.WrongSignature;
-    assert (true) throw Errors.InvalidBalance;
-    assert (true) throw Errors.InvalidAssetType;
-    return createEmptyCell().beginParse();
+    throw 0;
 }
 
 /// Return whether the extra-currency vault is active.
 get fun is_active(): bool {
-    return true;
+    throw 0;
 }

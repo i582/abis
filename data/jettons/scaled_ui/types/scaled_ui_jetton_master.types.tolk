@@ -29,8 +29,5 @@ struct GetScaledUiDisplayMultiplierReply {
 
 /// Return the display multiplier used to scale Jetton balances in UI.
 get fun get_display_multiplier(): GetScaledUiDisplayMultiplierReply {
-    return {
-        numerator: 1,
-        denominator: 1,
-    };
+    throw 0;
 }

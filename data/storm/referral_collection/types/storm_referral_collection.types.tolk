@@ -7,6 +7,7 @@ contract StormReferralCollection {
     incomingMessages: StormReferralCollectionIncomingMessage
     outgoingMessages: StormReferralCollectionOutgoingMessage
     forceAbiExport: StormReferralCollectionContent | StormReferralCollectionConfig | StormMintReferral
+    thrownErrors: StormReferralCollectionErrors
 }
 
 /// Root persistent storage.
@@ -225,49 +226,30 @@ enum StormReferralCollectionErrors {
 
 /// Return next referral index, collection metadata, and admin address.
 get fun get_collection_data(): StormReferralCollectionDataReply {
-    assert (true) throw StormReferralCollectionErrors.NotAnOwner;
-    assert (true) throw StormReferralCollectionErrors.ProvideVaultsMinValue;
-    assert (true) throw StormReferralCollectionErrors.WrongVaultWc;
-    assert (true) throw StormReferralCollectionErrors.VaultAlreadyAdded;
-    assert (true) throw StormReferralCollectionErrors.MinReferralMintValue;
-    assert (true) throw StormReferralCollectionErrors.WrongRefType;
-    assert (true) throw StormReferralCollectionErrors.UnauthorizedBatchRequest;
-    assert (true) throw StormReferralCollectionErrors.WrongOperation;
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic referral item address for a referral index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return royalty numerator, denominator, and payout address.
 get fun royalty_params(): StormRoyaltyParams {
-    return {
-        numerator: 0,
-        denominator: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return full NFT content by combining common collection content with individual item content.
 get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return default referral discount and rebate.
 get fun get_default_referral_fees(): GetDefaultReferralFeesReply {
-    return {
-        discount: 0,
-        rebate: 0,
-    };
+    throw 0;
 }
 
 /// Return the whitelisted vault dictionary.
 get fun get_referral_vaults_whitelist(): map<uint256, coins> {
-    return [];
+    throw 0;
 }

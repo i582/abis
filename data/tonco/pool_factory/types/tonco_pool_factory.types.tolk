@@ -237,23 +237,15 @@ type ToncoPoolFactoryOutgoingMessage =
 
 /// Return PoolFactory admin, Router, TON price, and default NFT content cells.
 get fun getPoolFactoryData(): ToncoPoolFactoryDataReply {
-    return {
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tonPrice: 0,
-        nftv3Content: createEmptyCell(),
-        nftv3itemContent: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic order address for a pair of pool Jetton wallets.
 get fun getOrderAddress(jetton0Wallet: address, jetton1Wallet: address): ToncoPoolFactoryOrderAddressReply {
-    return {
-        orderAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the raw whitelist dictionary cell, or null when the dictionary is absent.
 get fun getWhitelist(): cell? {
-    return null;
+    throw 0;
 }

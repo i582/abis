@@ -7,6 +7,7 @@ contract NominatorPool {
     incomingMessages: NominatorPoolIncomingMessage
     outgoingMessages: NominatorPoolOutgoingMessage
     forceAbiExport: NominatorPoolConfig | NominatorPoolEmpty | NominatorPoolVote | NominatorPoolVoting | NominatorPoolElectorNewStake | NominatorPoolEmptyBody
+    thrownErrors: NominatorPoolErrors
 }
 
 /// Empty dictionary value used as a set marker.
@@ -388,44 +389,37 @@ enum NominatorPoolErrors {
 
 /// Return complete Pool data.
 get fun get_pool_data(): NominatorPoolDataReply {
-    assertNominatorPoolKnownErrors();
-    return emptyNominatorPoolDataReply();
+    throw 0;
 }
 
 /// Return whether the Pool has pending withdrawal requests.
 get fun has_withdraw_requests(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return nominator accounting for a basechain wallet address hash.
 get fun get_nominator_data(nominatorAddress: uint256): NominatorPoolNominatorDataReply {
-    assert (true) throw NominatorPoolErrors.NominatorLookupOrNewStakeFeeFailed;
-    return {
-        amount: 0,
-        pendingDepositAmount: 0,
-        withdrawRequested: false,
-    };
+    throw 0;
 }
 
 /// Return the maximum recommended punishment for the supplied stake.
 get fun get_max_punishment(stake: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the list of current nominator records.
 get fun list_nominators(): lisp_list<NominatorPoolListNominatorsEntry> {
-    return [];
+    throw 0;
 }
 
 /// Return the list of config-proposal voting records.
 get fun list_votes(): lisp_list<NominatorPoolListVotesEntry> {
-    return [];
+    throw 0;
 }
 
 /// Return the voters for a config proposal hash.
 get fun list_voters(proposalHash: uint256): lisp_list<NominatorPoolListVotersEntry> {
-    assert (true) throw NominatorPoolErrors.VoteProposalMissing;
-    return [];
+    throw 0;
 }
 
 fun emptyNominatorPoolDataReply(): NominatorPoolDataReply {
@@ -451,38 +445,5 @@ fun emptyNominatorPoolDataReply(): NominatorPoolDataReply {
 }
 
 fun assertNominatorPoolKnownErrors(): void {
-    assert (true) throw NominatorPoolErrors.InvalidValidatorSetConfig;
-    assert (true) throw NominatorPoolErrors.NominatorMissingForWithdrawal;
-    assert (true) throw NominatorPoolErrors.NominatorWrongWorkchain;
-    assert (true) throw NominatorPoolErrors.ValidatorAsNominator;
-    assert (true) throw NominatorPoolErrors.UnsupportedTextAction;
-    assert (true) throw NominatorPoolErrors.MaxNominatorsExceeded;
-    assert (true) throw NominatorPoolErrors.DepositValueTooLow;
-    assert (true) throw NominatorPoolErrors.NominatorStakeTooLow;
-    assert (true) throw NominatorPoolErrors.NominatorDictTooDeep;
-    assert (true) throw NominatorPoolErrors.WithdrawSenderNotNominator;
-    assert (true) throw NominatorPoolErrors.UnsupportedOpcode;
-    assert (true) throw NominatorPoolErrors.EmergencyWithdrawRequestMissing;
-    assert (true) throw NominatorPoolErrors.ValidatorDepositWrongSender;
-    assert (true) throw NominatorPoolErrors.ValidatorDepositWithdrawPrecondition;
-    assert (true) throw NominatorPoolErrors.ValidatorWithdrawWrongSender;
-    assert (true) throw NominatorPoolErrors.ValidatorWithdrawTooHigh;
-    assert (true) throw NominatorPoolErrors.ValidatorRequestInvalid;
-    assert (true) throw NominatorPoolErrors.NewStakeWrongState;
-    assert (true) throw NominatorPoolErrors.NewStakeZeroQuery;
-    assert (true) throw NominatorPoolErrors.NewStakeTooLow;
-    assert (true) throw NominatorPoolErrors.NewStakeTooHigh;
-    assert (true) throw NominatorPoolErrors.ValidatorStakeTooLow;
-    assert (true) throw NominatorPoolErrors.ValidatorReserveTooLow;
-    assert (true) throw NominatorPoolErrors.WithdrawRequestsExist;
-    assert (true) throw NominatorPoolErrors.NominatorLookupOrNewStakeFeeFailed;
-    assert (true) throw NominatorPoolErrors.RecoverStakeTooFewSetChanges;
-    assert (true) throw NominatorPoolErrors.RecoverStakeTooEarly;
-    assert (true) throw NominatorPoolErrors.ValidatorSetChangesLimit;
-    assert (true) throw NominatorPoolErrors.VoteWrongWorkchain;
-    assert (true) throw NominatorPoolErrors.VoteSenderNotAuthorized;
-    assert (true) throw NominatorPoolErrors.VoteStakeOrFeeInvalid;
-    assert (true) throw NominatorPoolErrors.VoteAlreadyExists;
-    assert (true) throw NominatorPoolErrors.VoteProposalMissing;
-    assert (true) throw NominatorPoolErrors.InvalidVoteHexSymbol;
+
 }

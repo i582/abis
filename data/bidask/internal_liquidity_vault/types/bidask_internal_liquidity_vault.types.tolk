@@ -99,10 +99,5 @@ struct GetLiquidityDataReply {
 
 /// Schema-defined getter; live method-id extraction is blocked by library-reference code.
 get fun get_liquidity_data(): GetLiquidityDataReply {
-    return {
-        userAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        poolAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        amountX: 0,
-        amountY: 0,
-    };
+    throw 0;
 }

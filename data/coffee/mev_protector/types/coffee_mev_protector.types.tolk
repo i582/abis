@@ -166,10 +166,10 @@ enum CoffeeMevProtectorErrors {
 
 /// Return the stored public key.
 get fun get_public_key(): uint256 {
-    return 0;
+    throw 0;
 }
 
 /// Return whether a query id has already been processed.
 get fun `processed?`(queryId: uint64): bool {
-    return false;
+    throw 0;
 }

@@ -6,6 +6,7 @@ contract JettonV1Wallet {
     storage: JettonV1WalletStorage
     incomingMessages: JettonV1WalletIncomingMessage
     outgoingMessages: JettonV1WalletOutgoingMessage
+    thrownErrors: JettonV1WalletErrors
 }
 
 /// Persistent wallet state stored in the root data cell.
@@ -139,17 +140,5 @@ enum JettonV1WalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetJettonV1WalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw JettonV1WalletErrors.UnauthorizedOwner;
-    assert (true) throw JettonV1WalletErrors.InsufficientJettonBalance;
-    assert (true) throw JettonV1WalletErrors.InvalidSenderOrBurnFunding;
-    assert (true) throw JettonV1WalletErrors.MissingForwardPayloadTag;
-    assert (true) throw JettonV1WalletErrors.TransferFundingOrBounce;
-    assert (true) throw JettonV1WalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

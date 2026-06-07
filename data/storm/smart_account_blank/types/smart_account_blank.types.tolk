@@ -184,10 +184,5 @@ enum Errors {
 
 /// Getter returning transient blank SmartAccount storage data.
 get fun get_blank_storage_data(): GetBlankStorageDataReply {
-    return {
-        saType: 0,
-        factoryAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        balances: [],
-    };
+    throw 0;
 }

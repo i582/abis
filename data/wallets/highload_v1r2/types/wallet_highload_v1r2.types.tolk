@@ -6,6 +6,7 @@ contract WalletHighloadV1r2 {
     storage: WalletHighloadV1r2Storage
     incomingExternal: WalletHighloadV1r2IncomingExternalMessage
     forceAbiExport: HighloadV1r2SendMessageAction
+    thrownErrors: Errors
 }
 
 /// Persistent Highload Wallet V1 R2 state stored in the root data cell.
@@ -55,14 +56,10 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.ExpiredOrInvalidSignature;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }

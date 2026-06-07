@@ -6,6 +6,7 @@ contract Locker {
     storage: LockerStorage
     incomingMessages: LockerIncomingMessage
     outgoingMessages: LockerOutgoingMessage
+    thrownErrors: LockerErrors
 }
 
 /// Persistent locker campaign state stored in the root data cell.
@@ -102,38 +103,20 @@ enum LockerErrors {
 
 /// Return the locker campaign totals and vesting schedule.
 get fun get_locker_data(): GetLockerDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw LockerErrors.MsgValueAtLeastOneTon;
-    assert (true) throw LockerErrors.OnlyTextCommentsSupported;
-    assert (true) throw LockerErrors.InvalidComment;
-    assert (true) throw LockerErrors.InvalidBillSender;
-    assert (true) throw LockerErrors.DepositsTimeEnded;
-    assert (true) throw LockerErrors.WithdrawTimeNotStarted;
-    assert (true) throw LockerErrors.NotEnoughCoinsForDeposit;
-    assert (true) throw LockerErrors.NotEnoughCoinsForReward;
-    assert (true) throw LockerErrors.InvalidStartTime;
-    assert (true) throw LockerErrors.InvalidUnlockPeriod;
-    return {
-        totalCoinsLocked: 0,
-        totalReward: 0,
-        depositsEndTime: 0,
-        vestingStartTime: 0,
-        vestingTotalDuration: 0,
-        unlockPeriod: 0,
-    };
+    throw 0;
 }
 
 /// Return the deterministic LockerBill address for `userAddress`.
 get fun get_bill_address(userAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return how much of `totalAmount` is unlocked at `nowTime` under the stored vesting schedule.
 get fun get_unlocked_amount(nowTime: int, totalAmount: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return the incremental amount withdrawable by a user since `lastWithdrawTime`.
 get fun get_amount_to_withdraw(nowTime: int, lastWithdrawTime: uint32, totalUserDeposit: int): coins {
-    return 0;
+    throw 0;
 }

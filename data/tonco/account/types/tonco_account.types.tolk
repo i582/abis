@@ -107,12 +107,5 @@ struct GetAccountDataReply {
 
 /// Return AccountV3 owner, pool, pending token balances, and enough thresholds.
 get fun get_account_data(): GetAccountDataReply {
-    return {
-        userAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        poolAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        amount0: 0,
-        amount1: 0,
-        enough0: 0,
-        enough1: 0,
-    };
+    throw 0;
 }

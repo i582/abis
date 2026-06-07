@@ -6,6 +6,7 @@ contract DedustLiquidityDepositV2 {
     storage: DedustLiquidityDepositV2Storage
     incomingMessages: DedustLiquidityDepositV2IncomingMessage
     outgoingMessages: DedustLiquidityDepositV2OutgoingMessage
+    thrownErrors: DedustLiquidityDepositV2Errors
 }
 
 /// Runtime storage written by the installed Liquidity Deposit code after the Factory install message.
@@ -269,66 +270,40 @@ enum DedustLiquidityDepositV2Errors {
 
 /// Returns the Factory address stored by the installed Liquidity Deposit code.
 get fun get_factory_addr(): DedustLiquidityDepositV2AddressReply {
-    assert (true) throw DedustLiquidityDepositV2Errors.InvalidOwnerSender;
-    assert (true) throw DedustLiquidityDepositV2Errors.InvalidFactorySender;
-    assert (true) throw DedustLiquidityDepositV2Errors.InvalidAssetOrProof;
-    assert (true) throw DedustLiquidityDepositV2Errors.InvalidPoolSender;
-    assert (true) throw DedustLiquidityDepositV2Errors.InvalidProcessingState;
-    assert (true) throw DedustLiquidityDepositV2Errors.UnsupportedOperation;
-    return {
-        addr: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Returns the user address that owns this pending deposit.
 get fun get_owner_addr(): DedustLiquidityDepositV2AddressReply {
-    return {
-        addr: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Returns the target pool address for this pending deposit.
 get fun get_pool_addr(): DedustLiquidityDepositV2AddressReply {
-    return {
-        addr: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Returns pool type and assets for this pending deposit.
 get fun get_pool_params(): DedustLiquidityDepositV2PoolParamsReply {
-    return {
-        isStable: false,
-        asset0: createEmptyCell().beginParse(),
-        asset1: createEmptyCell().beginParse(),
-    };
+    throw 0;
 }
 
 /// Returns user-selected target balances for the pool assets.
 get fun get_target_balances(): DedustLiquidityDepositV2TargetBalancesReply {
-    return {
-        asset0TargetBalance: 0,
-        asset1TargetBalance: 0,
-    };
+    throw 0;
 }
 
 /// Returns currently accumulated balances for the pool assets.
 get fun get_balances(): DedustLiquidityDepositV2BalancesReply {
-    return {
-        asset0Balance: 0,
-        asset1Balance: 0,
-    };
+    throw 0;
 }
 
 /// Returns whether this deposit is actively processing the liquidity operation.
 get fun is_processing(): DedustLiquidityDepositV2ProcessingReply {
-    return {
-        status: false,
-    };
+    throw 0;
 }
 
 /// Returns the minimum LP amount configured for this pending deposit.
 get fun get_min_lp_amount(): DedustLiquidityDepositV2MinLpAmountReply {
-    return {
-        minLpAmount: 0,
-    };
+    throw 0;
 }

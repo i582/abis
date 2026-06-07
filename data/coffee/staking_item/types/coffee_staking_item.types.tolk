@@ -171,24 +171,10 @@ enum CoffeeStakingItemErrors {
 
 /// Return item storage fields.
 get fun get_stored_data(): CoffeeStakingItemStoredDataReply {
-    return {
-        initialized: false,
-        nftId: 0,
-        master: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        asset: createEmptyCell(),
-        info: createEmptyCell(),
-        periods: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return standard NFT item data for the staking position.
 get fun get_nft_data(): CoffeeStakingItemNftDataReply {
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-    };
+    throw 0;
 }

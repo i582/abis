@@ -7,6 +7,7 @@ contract GetgemsNftFixpriceSaleV1 {
     storageAtDeployment: GetgemsNftFixpriceSaleV1DeploymentStorage
     incomingMessages: GetgemsNftFixpriceSaleV1IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV1OutgoingMessage
+    thrownErrors: GetgemsNftFixpriceSaleV1Errors
 }
 
 /// Deployment storage before the NFT ownership callback records the previous owner.
@@ -140,20 +141,5 @@ enum GetgemsNftFixpriceSaleV1Errors {
 
 /// Return marketplace, NFT, owner, price, fee recipient, fee, royalty recipient, and royalty amount.
 get fun get_sale_data(): GetgemsNftFixpriceSaleV1SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftFixpriceSaleV1Errors.NotEnoughTonsForSale;
-    assert (true) throw GetgemsNftFixpriceSaleV1Errors.UnauthorizedInitiation;
-    assert (true) throw GetgemsNftFixpriceSaleV1Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftFixpriceSaleV1Errors.NotEnoughTonsForCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV1Errors.UnknownOperation;
-    return {
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFee: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyAmount: 0,
-    };
+    throw 0;
 }

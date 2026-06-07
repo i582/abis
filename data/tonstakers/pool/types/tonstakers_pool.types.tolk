@@ -7,6 +7,7 @@ contract TonstakersPool {
     incomingMessages: TonstakersPoolIncomingMessage
     outgoingMessages: TonstakersPoolOutgoingMessage
     forceAbiExport: TonstakersPoolEventMessage | TonstakersPoolPayoutData | TonstakersPoolPayoutInitData
+    thrownErrors: TonstakersPoolErrors
 }
 
 /// Signed coin value encoded by Tonstakers as `Coins` magnitude followed by a one-bit sign.
@@ -739,89 +740,37 @@ enum TonstakersPoolErrors {
 
 /// Return complete Pool data after first refreshing round accounting.
 get fun get_pool_full_data(): TonstakersPoolFullDataReply {
-    assert (true) throw TonstakersPoolErrors.UnknownOperation;
-    assert (true) throw TonstakersPoolErrors.WrongSender;
-    assert (true) throw TonstakersPoolErrors.WrongState;
-    assert (true) throw TonstakersPoolErrors.Halted;
-    assert (true) throw TonstakersPoolErrors.SudoerQuarantine;
-    assert (true) throw TonstakersPoolErrors.GovernorUpdateTooSoon;
-    assert (true) throw TonstakersPoolErrors.GovernorUpdateNotMatured;
-    assert (true) throw TonstakersPoolErrors.InterestTooLow;
-    assert (true) throw TonstakersPoolErrors.ContradictingBorrowingParams;
-    assert (true) throw TonstakersPoolErrors.NotEnoughFundsForLoan;
-    assert (true) throw TonstakersPoolErrors.TotalCreditTooHigh;
-    assert (true) throw TonstakersPoolErrors.BorrowingRequestInClosedRound;
-    assert (true) throw TonstakersPoolErrors.DepositAmountTooLow;
-    assert (true) throw TonstakersPoolErrors.DepositsAreClosed;
-    assert (true) throw TonstakersPoolErrors.OutputAmountIsZero;
-    assert (true) throw TonstakersPoolErrors.NotEnoughTonToProcess;
-    assert (true) throw TonstakersPoolErrors.ControllerInWrongWorkchain;
-    assert (true) throw TonstakersPoolErrors.CreditBookTooDeep;
-    assert (true) throw TonstakersPoolErrors.UnknownBorrower;
-    assert (true) throw TonstakersPoolErrors.FinalizingActiveCreditRound;
-    assert (true) throw TonstakersPoolErrors.TooEarlyStakeRecoverAttemptCount;
-    assert (true) throw TonstakersPoolErrors.TooEarlyStakeRecoverAttemptTime;
-    assert (true) throw TonstakersPoolErrors.TooLowRecoverStakeValue;
-    assert (true) throw TonstakersPoolErrors.NotEnoughMoneyToPayFine;
-    assert (true) throw TonstakersPoolErrors.TooLowRequestLoanValue;
-    assert (true) throw TonstakersPoolErrors.TooMuchValidatorSetCounts;
-    assert (true) throw TonstakersPoolErrors.NoNewHash;
-    assert (true) throw TonstakersPoolErrors.WithdrawalWhileCredited;
-    assert (true) throw TonstakersPoolErrors.IncorrectWithdrawalAmount;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeQueryId;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeRequestValue;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeValueLtMinimum;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeValueTooHigh;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeWronglyUsedCredit;
-    assert (true) throw TonstakersPoolErrors.IncorrectNewStakeSolvencyNotGuaranteed;
-    assert (true) throw TonstakersPoolErrors.ControllerNotApproved;
-    assert (true) throw TonstakersPoolErrors.MultipleLoansAreProhibited;
-    assert (true) throw TonstakersPoolErrors.TooEarlyLoanRequest;
-    assert (true) throw TonstakersPoolErrors.TooLateLoanRequest;
-    assert (true) throw TonstakersPoolErrors.TooHighLoanRequestAmount;
-    assert (true) throw TonstakersPoolErrors.CreditInterestTooHigh;
-    assert (true) throw TonstakersPoolErrors.NoCredit;
-    assert (true) throw TonstakersPoolErrors.TooEarlyLoanReturn;
-    return emptyTonstakersPoolFullDataReply();
+    throw 0;
 }
 
 /// Return complete Pool data without refreshing round accounting.
 get fun get_pool_full_data_raw(): TonstakersPoolFullDataReply {
-    return emptyTonstakersPoolFullDataReply();
+    throw 0;
 }
 
 /// Return the deterministic validator controller address for `controllerId` and `validator`.
 get fun get_controller_address(controllerId: int, validator: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic validator controller address as legacy workchain/hash tuple.
 get fun get_controller_address_legacy(controllerId: int, workchain: int, addressHash: uint256): TonstakersPoolControllerAddressLegacyReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return principal and accounted interest for a controller in current or previous round data.
 get fun get_loan(controllerId: int, validatorAddress: address, prev: bool, update: bool): TonstakersPoolLoanReply {
-    return {
-        borrowedAmount: 0,
-        accountedInterest: 0,
-    };
+    throw 0;
 }
 
 /// Return median-position data for a controller address hash in current or previous round data.
 get fun get_controller_loan_position(controllerAddrHash: uint256, prev: bool): TonstakersPoolControllerLoanPositionReply {
-    return {
-        distanceToMedian: 0,
-        expected: 0,
-    };
+    throw 0;
 }
 
 /// Return the loan amount the Pool would grant for the supplied controller limits, or -1 when unavailable.
 get fun calculate_loan_amount(minLoan: int, maxLoan: int, maxInterest: int): int {
-    return 0;
+    throw 0;
 }
 
 fun emptyTonstakersPoolRoundDataReply(): TonstakersPoolRoundDataReply {

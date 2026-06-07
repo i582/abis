@@ -8,6 +8,7 @@ contract SubscriptionV2 {
     incomingMessages: SubscriptionV2IncomingMessage
     incomingExternal: SubscriptionV2IncomingExternalMessage
     outgoingMessages: SubscriptionV2OutgoingMessage
+    thrownErrors: SubscriptionV2Errors
 }
 
 /// Precompiled wallet request cached in subscription storage.
@@ -297,60 +298,25 @@ enum SubscriptionV2Errors {
 
 /// Return subscription ownership and withdrawal metadata.
 get fun get_subscription_info(): SubscriptionV2SubscriptionInfoReply {
-    assert (true) throw SubscriptionV2Errors.NotEnoughFunds;
-    assert (true) throw SubscriptionV2Errors.TooEarlyRequest;
-    assert (true) throw SubscriptionV2Errors.TooManyRequests;
-    assert (true) throw SubscriptionV2Errors.SenderIsNotWallet;
-    assert (true) throw SubscriptionV2Errors.NotInitialized;
-    assert (true) throw SubscriptionV2Errors.Initialized;
-    assert (true) throw SubscriptionV2Errors.SenderIsNotBeneficiary;
-    assert (true) throw SubscriptionV2Errors.InvalidChargingDate;
-    assert (true) throw SubscriptionV2Errors.InvalidReducePaymentAmount;
-    assert (true) throw SubscriptionV2Errors.SubscriptionIsNotActivated;
-    assert (true) throw SubscriptionV2Errors.WalletAddressIsWithdrawAddress;
-    assert (true) throw SubscriptionV2Errors.WrongInitializationParams;
-    assert (true) throw SubscriptionV2Errors.TooEarlyPayment;
-    assert (true) throw SubscriptionV2Errors.UnsupportedOperation;
-    return {
-        wallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        walletVersion: 0,
-        beneficiary: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        subscriptionId: 0,
-        withdrawAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        withdrawMsgBody: createEmptyCell(),
-        metadata: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return billing state.
 get fun get_payment_info(): SubscriptionV2PaymentInfoReply {
-    return {
-        subscriptionState: 0,
-        paymentPerPeriod: 0,
-        period: 0,
-        chargeDate: 0,
-        gracePeriod: 0,
-        lastRequestTime: 0,
-        callerFee: 0,
-    };
+    throw 0;
 }
 
 /// Return nanotons reserved for storage and caller reward.
 get fun get_reserved_amount(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return whether the subscription is currently active.
 get fun get_is_subscription_active(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return cron scheduling metadata.
 get fun get_cron_info(): SubscriptionV2CronInfoReply {
-    return {
-        nextCallTime: 0,
-        reward: 0,
-        balanceMinusAmounts: 0,
-        repeatEvery: 0,
-    };
+    throw 0;
 }

@@ -200,17 +200,10 @@ enum CoffeeStakingVaultErrors {
 
 /// Return vault owner, dictionaries, and code cells.
 get fun get_stored_data(): CoffeeStakingVaultStoredDataReply {
-    return {
-        initialized: false,
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettons: createEmptyCell(),
-        periods: createEmptyCell(),
-        masterCode: createEmptyCell(),
-        itemCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic staking master collection address.
 get fun get_master_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

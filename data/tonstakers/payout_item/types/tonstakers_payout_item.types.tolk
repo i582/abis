@@ -7,6 +7,7 @@ contract TonstakersPayoutItem {
     storageAtDeployment: TonstakersPayoutItemDeploymentStorage
     incomingMessages: TonstakersPayoutItemIncomingMessage
     outgoingMessages: TonstakersPayoutItemOutgoingMessage
+    thrownErrors: TonstakersPayoutItemErrors
 }
 
 /// Deployment storage created by the payout collection before `init_nft`.
@@ -170,22 +171,10 @@ enum TonstakersPayoutItemErrors {
 
 /// Return initialization flag, index, collection, owner, and a bill-amount content cell.
 get fun get_nft_data(): TonstakersPayoutItemNftDataReply {
-    assert (true) throw TonstakersPayoutItemErrors.InvalidWorkchain;
-    assert (true) throw TonstakersPayoutItemErrors.Unauthorized;
-    assert (true) throw TonstakersPayoutItemErrors.NotEnoughTons;
-    assert (true) throw TonstakersPayoutItemErrors.UnknownOpcode;
-    assert (true) throw TonstakersPayoutItemErrors.NoForwardPayload;
-    assert (true) throw TonstakersPayoutItemErrors.UnauthorizedInit;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        billContent: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the payout bill amount stored in runtime storage.
 get fun get_bill_amount(): int {
-    return 0;
+    throw 0;
 }

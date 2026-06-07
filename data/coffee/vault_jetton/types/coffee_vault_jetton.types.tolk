@@ -8,6 +8,7 @@ contract CoffeeVaultJetton {
     incomingMessages: CoffeeVaultJettonIncomingMessage
     outgoingMessages: CoffeeVaultJettonOutgoingMessage
     forceAbiExport: CoffeeVaultJettonForwardPayload
+    thrownErrors: Errors
 }
 
 /// Active runtime root data after the vault stores its jetton wallet address.
@@ -475,23 +476,10 @@ enum Errors {
 
 /// Return the serialized Coffee asset represented by this vault.
 get fun get_asset(): slice {
-    assert (true) throw Errors.UnknownOpcode;
-    assert (true) throw Errors.NotEnoughGas;
-    assert (true) throw Errors.Unexpected;
-    assert (true) throw Errors.WrongSender;
-    assert (true) throw Errors.NotAFactory;
-    assert (true) throw Errors.WrongChain;
-    assert (true) throw Errors.SameAssets;
-    assert (true) throw Errors.WrongSignature;
-    assert (true) throw Errors.InvalidBalance;
-    assert (true) throw Errors.InvalidJettonMaster;
-    assert (true) throw Errors.InvalidAssetType;
-    assert (true) throw Errors.AlreadyActive;
-    assert (true) throw Errors.NotActive;
-    return createEmptyCell().beginParse();
+    throw 0;
 }
 
 /// Return active status.
 get fun is_active(): bool {
-    return false;
+    throw 0;
 }

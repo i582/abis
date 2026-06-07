@@ -6,6 +6,7 @@ contract DedustFactoryV2 {
     storage: DedustFactoryV2Storage
     incomingMessages: DedustFactoryV2IncomingMessage
     outgoingMessages: DedustFactoryV2OutgoingMessage
+    thrownErrors: DedustFactoryV2Errors
 }
 
 /// Runtime Factory storage loaded by the verified v2 code root data cell.
@@ -374,40 +375,25 @@ struct DedustFactoryV2Ownership {
 
 /// Return current and pending owner addresses plus ownership acceptance timestamp.
 get fun get_ownership(): DedustFactoryV2Ownership {
-    return {
-        ownerAddress: createAddressNone(),
-        pendingOwnerAddress: createAddressNone(),
-        canAcceptAfter: 0,
-    };
+    throw 0;
 }
 
 /// Return the live Factory code/storage version.
 get fun get_version(): uint16 {
-    assert (true) throw DedustFactoryV2Errors.InvalidOwnerSender;
-    assert (true) throw DedustFactoryV2Errors.InvalidPendingOwnerSender;
-    assert (true) throw DedustFactoryV2Errors.OwnershipDelayNotElapsed;
-    assert (true) throw DedustFactoryV2Errors.MissingChildCode;
-    assert (true) throw DedustFactoryV2Errors.InvalidAssetOrProof;
-    assert (true) throw DedustFactoryV2Errors.InvalidAssetOrder;
-    assert (true) throw DedustFactoryV2Errors.InsufficientValue;
-    assert (true) throw DedustFactoryV2Errors.InvalidVaultSender;
-    assert (true) throw DedustFactoryV2Errors.InvalidCodeVersion;
-    assert (true) throw DedustFactoryV2Errors.InvalidOperatorSender;
-    assert (true) throw DedustFactoryV2Errors.UnsupportedOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return the deterministic Vault address for `asset`.
 get fun get_vault_address(asset: slice): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic Pool address for `poolType` (`0` volatile, `1` stable) and assets.
 get fun get_pool_address(poolType: int, asset0: slice, asset1: slice): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic Liquidity Deposit address for owner, pool type, and assets.
 get fun get_liquidity_deposit_address(ownerAddress: address, poolType: int, asset0: slice, asset1: slice): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

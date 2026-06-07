@@ -86,10 +86,5 @@ struct GetCronInfoReply {
 
 /// Return cron scheduling metadata.
 get fun get_cron_info(): GetCronInfoReply {
-    return {
-        nextCallTime: 0,
-        reward: 0,
-        balanceMinusAmounts: 0,
-        repeatEvery: 0,
-    };
+    throw 0;
 }

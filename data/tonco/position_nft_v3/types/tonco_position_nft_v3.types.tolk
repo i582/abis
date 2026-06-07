@@ -217,32 +217,20 @@ struct ToncoPositionNftV3DataReply {
 
 /// Return the pool collection address for this Position NFT.
 get fun getPoolAddress(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the user/position owner tracked by the pool logic.
 get fun getUserAddress(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return position liquidity, ticks, and fee-growth checkpoints.
 get fun getPositionInfo(): ToncoPositionNftV3InfoReply {
-    return {
-        liquidity: 0,
-        tickLower: 0,
-        tickUpper: 0,
-        feeGrowthInside0LastX128: 0,
-        feeGrowthInside1LastX128: 0,
-    };
+    throw 0;
 }
 
 /// Return standard NFT item data for the Position NFT.
 get fun get_nft_data(): ToncoPositionNftV3DataReply {
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }

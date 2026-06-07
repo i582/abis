@@ -7,6 +7,7 @@ contract StablecoinMaster {
     incomingMessages: StablecoinMasterIncomingMessage
     outgoingMessages: StablecoinMasterOutgoingMessage
     forceAbiExport: StablecoinMasterWalletAdminAction
+    thrownErrors: StablecoinMasterErrors
 }
 
 /// Persistent stablecoin minter state stored in the root data cell.
@@ -238,29 +239,15 @@ enum StablecoinMasterErrors {
 
 /// Return supply, mintability, admin address, metadata content cell, and wallet code cell.
 get fun get_jetton_data(): GetStablecoinJettonDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw StablecoinMasterErrors.InvalidNestedOperation;
-    assert (true) throw StablecoinMasterErrors.UnauthorizedAdmin;
-    assert (true) throw StablecoinMasterErrors.InvalidBurnNotificationSender;
-    assert (true) throw StablecoinMasterErrors.NotEnoughGas;
-    assert (true) throw StablecoinMasterErrors.InvalidMessage;
-    assert (true) throw StablecoinMasterErrors.WrongWorkchain;
-    assert (true) throw StablecoinMasterErrors.UnsupportedOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic governed wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the pending next admin `MsgAddress`, or `addr_none` when no admin claim is pending.
 get fun get_next_admin_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }

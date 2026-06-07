@@ -6,7 +6,7 @@ contract StormVammCoinm {
     storage: StormVammCoinmStorage
     incomingMessages: StormVammCoinmIncomingMessage
     outgoingMessages: StormVammCoinmOutgoingMessage
-    forceAbiExport: StormVammCoinmErrors
+    thrownErrors: StormVammCoinmErrors
 }
 
 /// Runtime storage parsed from the CoinM VAMM data cell.
@@ -1590,317 +1590,130 @@ enum StormVammCoinmErrors {
 
 /// Return current pause-time value; pseudo-asserts export the VAMM error catalog.
 get fun get_pause_time(): uint32 {
-    assert (true) throw StormVammCoinmErrors.InvalidVaultAddress;
-    assert (true) throw StormVammCoinmErrors.InvalidAmmAddress;
-    assert (true) throw StormVammCoinmErrors.NotAnAdmin;
-    assert (true) throw StormVammCoinmErrors.NotEnoughGas;
-    assert (true) throw StormVammCoinmErrors.WrongPositionAddress;
-    assert (true) throw StormVammCoinmErrors.NotAVault;
-    assert (true) throw StormVammCoinmErrors.LessMarginRatio;
-    assert (true) throw StormVammCoinmErrors.WrongSize;
-    assert (true) throw StormVammCoinmErrors.PositionBadDebt;
-    assert (true) throw StormVammCoinmErrors.WrongPositionTimestamp;
-    assert (true) throw StormVammCoinmErrors.WrongAmount;
-    assert (true) throw StormVammCoinmErrors.HighPriceImpact;
-    assert (true) throw StormVammCoinmErrors.OverSpreadLimit;
-    assert (true) throw StormVammCoinmErrors.OverMaxOpenNotional;
-    assert (true) throw StormVammCoinmErrors.NotExecutableByStop;
-    assert (true) throw StormVammCoinmErrors.NotExecutable;
-    assert (true) throw StormVammCoinmErrors.WrongBaseAssetReserve;
-    assert (true) throw StormVammCoinmErrors.WrongQuoteAssetReserve;
-    assert (true) throw StormVammCoinmErrors.WrongId;
-    assert (true) throw StormVammCoinmErrors.QuorumFailed;
-    assert (true) throw StormVammCoinmErrors.InvalidTimestamp;
-    assert (true) throw StormVammCoinmErrors.InvalidDiff;
-    assert (true) throw StormVammCoinmErrors.WrongLeverage;
-    assert (true) throw StormVammCoinmErrors.SlippageTolerance;
-    assert (true) throw StormVammCoinmErrors.NegativeMarginToTrader;
-    assert (true) throw StormVammCoinmErrors.OrderExpired;
-    assert (true) throw StormVammCoinmErrors.WrongLiquidity;
-    assert (true) throw StormVammCoinmErrors.InvalidBaseAssetAmount;
-    assert (true) throw StormVammCoinmErrors.Paused;
-    assert (true) throw StormVammCoinmErrors.CloseOnly;
-    assert (true) throw StormVammCoinmErrors.MarketIsActive;
-    assert (true) throw StormVammCoinmErrors.MarketIsNotActive;
-    assert (true) throw StormVammCoinmErrors.WrongReferralItem;
-    assert (true) throw StormVammCoinmErrors.WrongExecutorItem;
-    assert (true) throw StormVammCoinmErrors.StartAlreadySet;
-    assert (true) throw StormVammCoinmErrors.EndAlreadySet;
-    assert (true) throw StormVammCoinmErrors.NotStarted;
-    assert (true) throw StormVammCoinmErrors.Ended;
-    assert (true) throw StormVammCoinmErrors.WrongStartDate;
-    assert (true) throw StormVammCoinmErrors.WrongEndDate;
-    assert (true) throw StormVammCoinmErrors.WrongExecutorAddress;
-    assert (true) throw StormVammCoinmErrors.DirectIncreaseDisabled;
-    assert (true) throw StormVammCoinmErrors.DirectCloseDisabled;
-    assert (true) throw StormVammCoinmErrors.UnknownOraclePayload;
-    assert (true) throw StormVammCoinmErrors.WrongDoubleOraclePayload;
-    assert (true) throw StormVammCoinmErrors.WrongPause;
-    assert (true) throw StormVammCoinmErrors.MarketPaused;
-    assert (true) throw StormVammCoinmErrors.NotEnoughPnl;
-    assert (true) throw StormVammCoinmErrors.HighCumulativePriceImpact;
-    assert (true) throw StormVammCoinmErrors.PauseAfterUnpause;
-    assert (true) throw StormVammCoinmErrors.TooCloseToLiquidation;
-    assert (true) throw StormVammCoinmErrors.UnpauseNotDefined;
-    assert (true) throw StormVammCoinmErrors.InvalidPauseAt;
-    assert (true) throw StormVammCoinmErrors.InvalidUnpauseAt;
-    assert (true) throw StormVammCoinmErrors.DayTradingDisabled;
-    assert (true) throw StormVammCoinmErrors.NotCloseToPause;
-    assert (true) throw StormVammCoinmErrors.NotEnoughLeverage;
-    assert (true) throw StormVammCoinmErrors.InvalidOracleTimestamp;
-    assert (true) throw StormVammCoinmErrors.MarginIsSufficient;
-    assert (true) throw StormVammCoinmErrors.InvalidVpiPrice;
-    assert (true) throw StormVammCoinmErrors.WrongSmartAccountAddress;
-    assert (true) throw StormVammCoinmErrors.V3CloseCooldown;
-    assert (true) throw StormVammCoinmErrors.InvalidMessageMagic;
-    assert (true) throw StormVammCoinmErrors.InvalidPayloadMagic;
-    assert (true) throw StormVammCoinmErrors.InvalidFeedsCount;
-    assert (true) throw StormVammCoinmErrors.InvalidIndexFeedId;
-    assert (true) throw StormVammCoinmErrors.InvalidSettlementFeedId;
-    assert (true) throw StormVammCoinmErrors.InvalidPropertyCount;
-    assert (true) throw StormVammCoinmErrors.InvalidPropertyId;
-    assert (true) throw StormVammCoinmErrors.InvalidLazerSignature;
-    assert (true) throw StormVammCoinmErrors.InvalidVammType;
-    assert (true) throw StormVammCoinmErrors.WrongOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return the raw AMM contract data cell exposed by the on-chain getter.
 get fun get_amm_contract_data(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the vault address and Storm asset id for this market.
 get fun get_amm_name(): GetAmmNameReply {
-    return {
-        vaultAddr: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        assetId: 0,
-    };
+    throw 0;
 }
 
 /// Return close-only, paused, stopped, and pause-window status flags.
 get fun get_amm_status(): GetAmmStatusReply {
-    return {
-        closeOnly: false,
-        paused: false,
-        stopped: false,
-        pauseAt: 0,
-        unpauseAt: 0,
-    };
+    throw 0;
 }
 
 /// Return reserves, open interest, cumulative premiums, and next funding timestamp.
 get fun get_amm_state(): GetAmmStateReply {
-    return {
-        quoteAssetReserve: 0,
-        baseAssetReserve: 0,
-        quoteAssetWeight: 0,
-        totalLongPositionSize: 0,
-        totalShortPositionSize: 0,
-        openInterestLong: 0,
-        openInterestShort: 0,
-        latestLongCumulativePremiumFraction: 0,
-        latestShortCumulativePremiumFraction: 0,
-        nextFundingBlockTimestamp: 0,
-    };
+    throw 0;
 }
 
 /// Return fee, risk, funding, executor, and direct-trade settings.
 get fun get_exchange_settings(): GetExchangeSettingsReply {
-    return {
-        fee: 0,
-        rolloverFee: 0,
-        fundingPeriod: 0,
-        initMarginRatio: 0,
-        maintenanceMarginRatio: 0,
-        liquidationFeeRatio: 0,
-        partialLiquidationRatio: 0,
-        spreadLimit: 0,
-        maxPriceImpact: 0,
-        maxPriceSpread: 0,
-        maxOpenNotional: 0,
-        feeToStakersPercent: 0,
-        fundingMode: 0,
-        minPartialLiquidationNotional: 0,
-        minInitMarginRatio: 0,
-        executorFee: 0,
-        closePositionTimeDelta: 0,
-        maxUnrealizedPnl: 0,
-        directIncreaseEnabled: false,
-        directCloseEnabled: false,
-        executorsWhitelist: [],
-        lowFundingFnA: 0,
-        lowFundingFnB: 0,
-        highFundingFnA: 0,
-        highFundingFnB: 0,
-        inflectionPoint: 0,
-        v3CloseDelay: 0,
-    };
+    throw 0;
 }
 
 /// Return the position-manager contract address used by this VAMM.
 get fun get_position_manager_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Check whether a position can be liquidated for supplied prices and time.
 get fun get_can_liquidate(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanLiquidateReply {
-    return {
-        canExecute: false,
-        spotMarginRatio: 0,
-        liquidationMarginRatio: 0,
-        errorCode: 0,
-    };
+    throw 0;
 }
 
 /// Check whether a position can be force-closed for supplied prices and time.
 get fun get_can_force_close(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanForceCloseReply {
-    return {
-        canClose: false,
-        errorCode: 0,
-    };
+    throw 0;
 }
 
 /// Check whether an order can execute and return its spot price/error status.
 get fun get_can_execute_order(newPrice: int, positionRef: cell, newSettlementPrice: int, vpiSpread: int, vpiMarketDepthLong: int, vpiMarketDepthShort: int, vpiCoefficient: int, now: int): GetCanExecuteOrderReply {
-    return {
-        canExecute: false,
-        spotPrice: 0,
-        errorCode: 0,
-    };
+    throw 0;
 }
 
 /// Return the current AMM spot price.
 get fun get_spot_price(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return the VPI-aware liquidation price for supplied position values.
 get fun get_liquidation_price_vpi(openNotional: int, marginRatio: int, positionMargin: int, positionSize: int, isAdd: int, remainMargin: int, settlementOraclePrice: int, isSettleBySpotPrice: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return remaining margin, funding payment, PnL, and price data for a position.
 get fun get_remain_margin_with_funding_payment(newPrice: int, positionRef: cell, newSettlementPrice: int): GetRemainMarginWithFundingPaymentReply {
-    return {
-        remainMargin: 0,
-        fundindPayment: 0,
-        marginRatio: 0,
-        unrealizedPnl: 0,
-        badDebt: 0,
-        positionNotional: 0,
-        rolloverFee: 0,
-        newPrice: 0,
-        spotPrice: 0,
-    };
+    throw 0;
 }
 
 /// Return the terminal AMM price used by price-adjustment logic.
 get fun get_terminal_amm_price(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return the AMM peg-adjustment cost for a supplied price.
 get fun get_peg_adjust_cost(price: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return adjusted spot price for supplied index and settlement prices.
 get fun get_adjusted_spot_price(price: int, settlementPrice: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Validate oracle signatures and return live/created price results plus pause time.
 get fun get_validate_signatures(oraclePayload: cell): GetValidateSignaturesReply {
-    return {
-        newPrice: 0,
-        newSettlementPrice: 0,
-        newCreatedPrice: null,
-        settlementCreatedPrice: null,
-        pauseTime: 0,
-    };
+    throw 0;
 }
 
 /// Return stored oracle price, spread, timestamp, limits, and public-key dictionary.
 get fun get_oracle_data(): GetOracleDataReply {
-    return {
-        oracleLastPrice: 0,
-        oracleLastSpread: 0,
-        oracleLastTimestamp: 0,
-        oracleMaxDeviation: 0,
-        oracleValidityPeriod: 0,
-        oraclePublicKeysCount: 0,
-        oraclePublicKeysRef: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return current long/short funding, premium-to-vault, sync amount, and spot price.
 get fun get_funding(newPrice: int, newSettlementPrice: int): GetFundingReply {
-    return {
-        longFunding: 0,
-        shortFunding: 0,
-        premiumToVault: 0,
-        syncExchangeAmount: 0,
-        spotPrice: 0,
-    };
+    throw 0;
 }
 
 /// Return computed premium fractions and funding-period count.
 get fun get_compute_funding_data(newPrice: int, pauseTime: int): GetComputeFundingDataReply {
-    return {
-        shortPremiumFraction: 0,
-        longPremiumFraction: 0,
-        premiumToVault: 0,
-        fundingPeriods: 0,
-    };
+    throw 0;
 }
 
 /// Return the funding premium for a supplied price.
 get fun get_premium(newPrice: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return funding-function coefficients and inflection point.
 get fun get_funding_settings(): GetFundingSettingsReply {
-    return {
-        lowFundingFnA: 0,
-        lowFundingFnB: 0,
-        highFundingFnA: 0,
-        highFundingFnB: 0,
-        inflectionPoint: 0,
-    };
+    throw 0;
 }
 
 /// Return day-trading activity flag and maximum leverage.
 get fun get_day_trading_data(): GetDayTradingDataReply {
-    return {
-        active: false,
-        maxLeverage: 0,
-    };
+    throw 0;
 }
 
 /// Return packed Lazer oracle flag and Pyth asset identifiers.
 get fun get_lazer_data(): GetLazerDataReply {
-    return {
-        oracleFlag: 0,
-        indexAssetPythId: 0,
-        settlementAssetPythId: 0,
-    };
+    throw 0;
 }
 
 /// Return the VAMM type discriminator.
 get fun get_vamm_type(): uint32 {
-    return 0;
+    throw 0;
 }
 
 /// Return CoinM settlement oracle price, spread, timestamp, limits, and asset id.
 get fun get_settlement_oracle_data(): GetSettlementOracleDataReply {
-    return {
-        settlementLastPrice: 0,
-        settlementLastSpread: 0,
-        settlementLastTimestamp: 0,
-        settlementMaxDeviation: 0,
-        settlementValidityPeriod: 0,
-        settlementAssetId: 0,
-    };
+    throw 0;
 }

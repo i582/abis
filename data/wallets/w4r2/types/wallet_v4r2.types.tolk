@@ -8,6 +8,7 @@ contract WalletV4r2 {
     incomingExternal: WalletV4r2IncomingExternalMessage
     outgoingMessages: WalletV4r2OutgoingMessage
     forceAbiExport: WalletV4r2Payload
+    thrownErrors: Errors
 }
 
 /// Persistent Wallet V4 R2 state.
@@ -166,32 +167,25 @@ enum Errors {
 
 /// Return the installed plugin list as `(workchain, address_hash)` pairs.
 get fun get_plugin_list(): lisp_list<WalletV4r2PluginListEntry> {
-    return [];
+    throw 0;
 }
 
 /// Return whether a plugin key is installed.
 get fun is_plugin_installed(workchain: int32, addrHash: int): bool {
-    return false;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.InvalidSignature;
-    assert (true) throw Errors.ExpiredMessage;
-    assert (true) throw Errors.PluginNotFound;
-    assert (true) throw Errors.NotEnoughTon;
-    return 0;
+    throw 0;
 }
 
 /// Return the wallet id, equivalent to subwallet id.
 get fun get_subwallet_id(): uint32 {
-    return 0;
+    throw 0;
 }

@@ -342,33 +342,20 @@ enum CoffeeStakingMasterErrors {
 
 /// Return owner, distributor, vault, aggregate state, and dictionaries.
 get fun get_stored_data(): CoffeeStakingMasterStoredDataReply {
-    return {
-        initialized: false,
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        distributor: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        vault: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        state: createEmptyCell(),
-        rewards: createEmptyCell(),
-        jettons: createEmptyCell(),
-        periods: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return standard NFT collection data for the staking position collection.
 get fun get_collection_data(): CoffeeStakingMasterCollectionDataReply {
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic NFT item address by item index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return full NFT item content from collection and item content cells.
 get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }

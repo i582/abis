@@ -6,6 +6,7 @@ contract SbtV1Single {
     storage: SbtV1SingleStorage
     incomingMessages: SbtV1SingleIncomingMessage
     outgoingMessages: SbtV1SingleOutgoingMessage
+    thrownErrors: SbtV1SingleErrors
 }
 
 /// Runtime storage for the Getgems single SBT variant.
@@ -231,34 +232,20 @@ enum SbtV1SingleErrors {
 
 /// Return item initialization flag, zero index, null collection, owner, and content.
 get fun get_nft_data(): SbtV1SingleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw SbtV1SingleErrors.InvalidWorkchain;
-    assert (true) throw SbtV1SingleErrors.UnauthorizedOwnerAuthorityOrEditor;
-    assert (true) throw SbtV1SingleErrors.InsufficientRestAmount;
-    assert (true) throw SbtV1SingleErrors.AlreadyRevoked;
-    assert (true) throw SbtV1SingleErrors.UnauthorizedEditContent;
-    assert (true) throw SbtV1SingleErrors.TransferRejected;
-    assert (true) throw SbtV1SingleErrors.UnsupportedOperation;
-    return {
-        isInitialized: true,
-        itemIndex: 0,
-        collectionAddress: createAddressNone(),
-        ownerAddress: null,
-        content: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the current editor address.
 get fun get_editor(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the authority stack `MsgAddress`, or `addr_none` when no authority exists.
 get fun get_authority_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return the unix timestamp of revocation, or zero when the SBT is not revoked.
 get fun get_revoked_time(): uint64 {
-    return 0;
+    throw 0;
 }

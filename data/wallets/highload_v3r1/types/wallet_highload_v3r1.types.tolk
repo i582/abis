@@ -6,6 +6,7 @@ contract WalletHighloadV3r1 {
     storage: WalletHighloadV3r1Storage
     incomingMessages: WalletHighloadV3r1IncomingMessage
     incomingExternal: WalletHighloadV3r1IncomingExternalMessage
+    thrownErrors: Errors
 }
 
 /// Persistent Highload Wallet V3 R1 state stored in the root data cell.
@@ -88,32 +89,25 @@ enum Errors {
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSignature;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.InvalidCreatedAt;
-    assert (true) throw Errors.AlreadyExecuted;
-    assert (true) throw Errors.InvalidMessageToSend;
-    assert (true) throw Errors.InvalidTimeout;
-    return 0;
+    throw 0;
 }
 
 /// Return the wallet id, also called subwallet id.
 get fun get_subwallet_id(): uint32 {
-    return 0;
+    throw 0;
 }
 
 /// Return the Unix timestamp of the last replay-dictionary cleanup.
 get fun get_last_clean_time(): uint64 {
-    return 0;
+    throw 0;
 }
 
 /// Return the external-message validity window in seconds.
 get fun get_timeout(): uint32 {
-    return 0;
+    throw 0;
 }
 
 /// Return whether `queryId` is already marked in replay dictionaries; optionally apply cleanup rules before checking.
 get fun `processed?`(queryId: int, needClean: int): bool {
-    return false;
+    throw 0;
 }

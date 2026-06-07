@@ -5,6 +5,7 @@ contract WalletHighloadV2r2 {
     description: "Curated Highload Wallet V2 R2 interface"
     storage: WalletHighloadV2r2Storage
     incomingExternal: WalletHighloadV2r2IncomingExternalMessage
+    thrownErrors: Errors
 }
 
 /// Persistent Highload Wallet V2 R2 state stored in the root data cell.
@@ -54,14 +55,10 @@ enum Errors {
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.QueryAlreadyExecuted;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.InvalidQueryIdOrSignature;
-    return 0;
+    throw 0;
 }
 
 /// Return replay status: -1 processed, 0 not processed, 1 forgotten/unknown.
 get fun `processed?`(queryId: int): int {
-    return 0;
+    throw 0;
 }

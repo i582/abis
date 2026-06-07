@@ -7,6 +7,7 @@ contract TsTonWallet {
     incomingMessages: TsTonWalletIncomingMessage
     outgoingMessages: TsTonWalletOutgoingMessage
     forceAbiExport: TsTonWalletBouncedKnownBody
+    thrownErrors: TsTonWalletErrors
 }
 
 /// Runtime tsTON wallet state stored in the root data cell.
@@ -297,39 +298,15 @@ enum TsTonWalletErrors {
 
 /// Return wallet balance, owner, minter/master, and wallet code cell.
 get fun get_wallet_data(): TsTonWalletDataReply {
-    assert (true) throw TsTonWalletErrors.WrongWorkchain;
-    assert (true) throw TsTonWalletErrors.UnauthorizedOwner;
-    assert (true) throw TsTonWalletErrors.InsufficientJettonBalance;
-    assert (true) throw TsTonWalletErrors.InvalidInternalTransferSender;
-    assert (true) throw TsTonWalletErrors.MissingForwardPayload;
-    assert (true) throw TsTonWalletErrors.TransferFundingTooLow;
-    assert (true) throw TsTonWalletErrors.UnauthorizedVoting;
-    assert (true) throw TsTonWalletErrors.BurnFundingTooLow;
-    assert (true) throw TsTonWalletErrors.VotingAlreadyFinished;
-    assert (true) throw TsTonWalletErrors.ExpirationDateTooHigh;
-    assert (true) throw TsTonWalletErrors.UnsupportedBouncedOperation;
-    assert (true) throw TsTonWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return wallet balance, owner, minter/master, wallet code, locked balance, and lock expiration.
 get fun get_dao_wallet_data(): TsTonDaoWalletDataReply {
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-        locked: 0,
-        lockExpiration: 0,
-    };
+    throw 0;
 }
 
 /// Return the deterministic vote-keeper address for this wallet and a voting contract.
 get fun get_vote_keeper_address(votingAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

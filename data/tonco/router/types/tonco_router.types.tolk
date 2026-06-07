@@ -489,35 +489,25 @@ type ToncoRouterOutgoingMessage =
 
 /// Return Router admin state, PoolFactory address, active flags, and pool sequence number.
 get fun getRouterState(): GetRouterStateReply {
-    return {
-        routerAdminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        poolAdminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        poolFactoryAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        activeFlags: 0,
-        poolSeqno: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic pool address for a pair of pool Jetton wallets.
 get fun getPoolAddress(jettonWallet0: address, jettonWallet1: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return Router child implementation code cells.
 get fun getChildContracts(): GetChildContractsReply {
-    return {
-        poolCode: createEmptyCell(),
-        accountCode: createEmptyCell(),
-        positionNftCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return deterministic initial Pool data cell for a pair of pool Jetton wallets.
 get fun getPoolInitialData(jettonWallet0: address, jettonWallet1: address): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return deterministic Pool StateInit cell for a pair of pool Jetton wallets.
 get fun getPoolStateInit(jettonWallet0: address, jettonWallet1: address): cell {
-    return createEmptyCell();
+    throw 0;
 }

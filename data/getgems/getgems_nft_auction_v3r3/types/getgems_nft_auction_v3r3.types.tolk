@@ -8,6 +8,7 @@ contract GetgemsNftAuctionV3R3 {
     incomingExternal: GetgemsNftAuctionV3R3IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV3R3OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV3R3EmptyBid
+    thrownErrors: GetgemsNftAuctionV3R3Errors
 }
 
 /// Fee address cell referenced from root auction storage.
@@ -287,73 +288,10 @@ enum GetgemsNftAuctionV3R3Errors {
 
 /// Return legacy auction state, fee, and royalty data.
 get fun get_sale_data(): GetgemsNftAuctionV3R3SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftAuctionV3R3Errors.UnauthorizedAddress;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.LowBid;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.AlreadyInitiated;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.InvalidOwnershipAssigned;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.NotMessage;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.NotCancel;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.AuctionEnded;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.AlreadyActivated;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.CannotCancelEnded;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.LowAmount;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.CannotCancelWithBid;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.CannotStopBeforeEndTime;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.NonProfitableFees;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.BadEmergencySendMode;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.LastBidTooClose;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.AuctionDurationTooLong;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.NotActivatedYet;
-    assert (true) throw GetgemsNftAuctionV3R3Errors.UnknownExternalOperation;
-    return {
-        magic: 0x415543,
-        isEnded: false,
-        endTime: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        lastBid: 0,
-        lastMemberAddress: createAddressNone(),
-        minStep: 0,
-        marketplaceFeeAddress: createAddressNone(),
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-    };
+    throw 0;
 }
 
 /// Return V3R3 auction state, including activation, step time, and last query id.
 get fun get_auction_data(): GetgemsNftAuctionV3R3AuctionDataReply {
-    return {
-        isActivated: false,
-        isEnded: false,
-        endTime: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        lastBid: 0,
-        lastMemberAddress: createAddressNone(),
-        minStep: 0,
-        marketplaceFeeAddress: createAddressNone(),
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-        stepTime: 0,
-        lastQueryId: 0,
-    };
+    throw 0;
 }

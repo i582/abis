@@ -110,41 +110,35 @@ struct BidaskLpMultitokenNftDataReply {
 
 /// Returns the optional direct LP-token Hashmap root cell.
 get fun get_tokens(): cell? {
-    return null;
+    throw 0;
 }
 
 /// Returns `addr_none`; Bidask LP multitokens do not expose a mutable authority.
 get fun get_authority_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Returns NFT-style LP multitoken metadata.
 get fun get_nft_data(): BidaskLpMultitokenNftDataReply {
-    return {
-        isInitialized: -1,
-        itemAddressHash: 0,
-        rangeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        userAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Returns zero; the contract behaves like a non-revoked NFT/SBT item.
 get fun get_revoked_time(): int {
-    return 0;
+    throw 0;
 }
 
 /// Returns the LP token balance for one individual bin.
 get fun get_bin(bin: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Returns the number of initialized LP token bins.
 get fun get_bins_number(): int {
-    return 0;
+    throw 0;
 }
 
 /// Returns the raw full storage cell.
 get fun get_storage(): cell {
-    return createEmptyCell();
+    throw 0;
 }

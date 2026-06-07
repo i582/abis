@@ -678,114 +678,85 @@ enum BidaskPoolErrors {
 
 /// Return token wallets, bin step, and LP fee.
 get fun get_pool_info(): GetPoolInfoReply {
-    return {
-        jettonWalletX: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletY: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        binStep: 0,
-        lpFee: 0,
-    };
+    throw 0;
 }
 
 /// Return referral and protocol-fee parameters.
 get fun get_fees_info(): GetFeesInfoReply {
-    return {
-        refFee: 0,
-        protocolFeeReductionFactor: 0,
-    };
+    throw 0;
 }
 
 /// Return the Pool token wallet pair.
 get fun get_pool_tokens(): GetPoolTokensReply {
-    return {
-        jettonWalletX: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletY: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the Pool kind marker.
 get fun whoami(): string {
-    return "DLMM";
+    throw 0;
 }
 
 /// Return the current active bin.
 get fun get_current_bin(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the deterministic DLMM LP account address for a user.
 get fun get_lp_account_address(userAddress: address): address {
-    return userAddress;
+    throw 0;
 }
 
 /// Return the current active Range address.
 get fun get_active_range(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic trade account address for a user and seed.
 get fun get_trade_account_address(userAddress: address, seed: cell): address {
-    return userAddress;
+    throw 0;
 }
 
 /// Return base and dynamic-fee parameters.
 get fun get_dynamic_fees_info(): GetDynamicFeesInfoReply {
-    return {
-        baseFee: 0,
-        dynamicFeeFactor: 0,
-        timeFilter: 0,
-        timeDecay: 0,
-    };
+    throw 0;
 }
 
 /// Return the Pool admin address.
 get fun get_admin_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return total token amounts tracked by the Pool.
 get fun get_tvl(): GetTvlReply {
-    return {
-        tokenXAmount: 0,
-        tokenYAmount: 0,
-    };
+    throw 0;
 }
 
 /// Return the raw root storage cell.
 get fun get_storage(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return active or zeroed farming schedule data.
 get fun get_farming_info(): GetFarmingInfoReply {
-    return {
-        distributedXAmount: 0,
-        distributedYAmount: 0,
-        farmingXPerSecond: 0,
-        farmingYPerSecond: 0,
-        previousCall: 0,
-        endOfFarming: 0,
-    };
+    throw 0;
 }
 
 /// Return accumulated protocol fee counters.
 get fun get_protocol_fees(): GetProtocolFeesReply {
-    return {
-        collectedTokenXProtocolFee: 0,
-        collectedTokenYProtocolFee: 0,
-    };
+    throw 0;
 }
 
 /// Return the Pool initialization/status value.
 get fun get_is_inited(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the deterministic Range address for a first bin.
 get fun get_range_address(firstBin: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the current sqrt price.
 get fun get_sqrt_p(): int {
-    return 0;
+    throw 0;
 }

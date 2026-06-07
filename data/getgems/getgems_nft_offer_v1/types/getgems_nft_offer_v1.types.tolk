@@ -8,6 +8,7 @@ contract GetgemsNftOfferV1 {
     incomingExternal: GetgemsNftOfferV1IncomingExternalMessage
     outgoingMessages: GetgemsNftOfferV1OutgoingMessage
     forceAbiExport: GetgemsNftOfferV1InitialFunding | GetgemsNftOfferV1MarketplaceCancelPayload | GetgemsNftOfferV1RawSendAction
+    thrownErrors: GetgemsNftOfferV1Errors
 }
 
 /// Referenced marketplace and royalty fee configuration cell.
@@ -195,29 +196,5 @@ enum GetgemsNftOfferV1Errors {
 
 /// Return offer state, fee settings, and computed profit.
 get fun get_offer_data(): GetgemsNftOfferV1OfferDataReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftOfferV1Errors.OfferAlreadyComplete;
-    assert (true) throw GetgemsNftOfferV1Errors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftOfferV1Errors.ExternalCancelInvalidOpcode;
-    assert (true) throw GetgemsNftOfferV1Errors.ExternalCancelHasRefs;
-    assert (true) throw GetgemsNftOfferV1Errors.ExternalCancelBodyTooLarge;
-    assert (true) throw GetgemsNftOfferV1Errors.ExternalCancelTooEarly;
-    assert (true) throw GetgemsNftOfferV1Errors.UnknownOperation;
-    return {
-        magic: 0x4f46464552,
-        isComplete: false,
-        createdAt: 0,
-        finishAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        offerOwnerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFactor: 0,
-        marketplaceBase: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyFactor: 0,
-        royaltyBase: 0,
-        profitPrice: 0,
-    };
+    throw 0;
 }

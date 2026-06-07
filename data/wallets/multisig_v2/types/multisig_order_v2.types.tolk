@@ -7,6 +7,7 @@ contract MultisigOrderV2 {
     storageAtDeployment: MultisigOrderV2DeploymentStorage
     incomingMessages: MultisigOrderV2IncomingMessage
     outgoingMessages: MultisigOrderV2OutgoingMessage
+    thrownErrors: MultisigOrderV2Errors
 }
 
 /// Deployment data used before an order contract receives its init message.
@@ -153,23 +154,5 @@ enum MultisigOrderV2Errors {
 
 /// Return parent multisig address, order id, approval state, signer dictionary, expiration, and raw order cell.
 get fun get_order_data(): GetMultisigOrderV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw MultisigOrderV2Errors.UnauthorizedInit;
-    assert (true) throw MultisigOrderV2Errors.AlreadyInited;
-    assert (true) throw MultisigOrderV2Errors.UnauthorizedSign;
-    assert (true) throw MultisigOrderV2Errors.AlreadyApproved;
-    assert (true) throw MultisigOrderV2Errors.Expired;
-    assert (true) throw MultisigOrderV2Errors.AlreadyExecuted;
-    assert (true) throw MultisigOrderV2Errors.UnknownOp;
-    return {
-        multisigAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        orderSeqno: 0,
-        threshold: null,
-        sentForExecution: null,
-        signers: null,
-        approvalsMask: null,
-        approvalsNum: null,
-        expirationDate: null,
-        order: null,
-    };
+    throw 0;
 }

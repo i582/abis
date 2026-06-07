@@ -8,6 +8,7 @@ contract StormReferral {
     incomingMessages: StormReferralIncomingMessage
     outgoingMessages: StormReferralOutgoingMessage
     forceAbiExport: StormReferralParameters | StormReferralInitPayload
+    thrownErrors: StormReferralErrors
 }
 
 /// Deployment storage before the collection initializes the referral item.
@@ -239,32 +240,10 @@ enum StormReferralErrors {
 
 /// Return item initialization flag, index, collection, owner, and compatibility content cell.
 get fun get_nft_data(): StormReferralNftDataReply {
-    assert (true) throw StormReferralErrors.NotAnOwner;
-    assert (true) throw StormReferralErrors.WrongVaultWc;
-    assert (true) throw StormReferralErrors.CanNotTransferKol;
-    assert (true) throw StormReferralErrors.NegativeResponseValue;
-    assert (true) throw StormReferralErrors.NotACollection;
-    assert (true) throw StormReferralErrors.MinAddAmountValue;
-    assert (true) throw StormReferralErrors.MinProvideFeesValue;
-    assert (true) throw StormReferralErrors.VaultWasNotAdded;
-    assert (true) throw StormReferralErrors.MinTonForClaim;
-    assert (true) throw StormReferralErrors.VaultNotFound;
-    assert (true) throw StormReferralErrors.WrongOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return referral type, default fee parameters, and raw balances dictionary.
 get fun get_referral_data(): GetReferralDataReply {
-    return {
-        referralType: 0,
-        discount: 0,
-        rebate: 0,
-        balancesDict: [],
-    };
+    throw 0;
 }

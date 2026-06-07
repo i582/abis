@@ -7,6 +7,7 @@ contract GetgemsNftMarketplaceV2 {
     incomingMessages: GetgemsNftMarketplaceV2IncomingMessage
     incomingExternal: GetgemsNftMarketplaceV2IncomingExternalMessage
     forceAbiExport: GetgemsNftMarketplaceV2ExternalSendAction | GetgemsNftMarketplaceV2DeployOutgoingEnvelope
+    thrownErrors: GetgemsNftMarketplaceV2Errors
 }
 
 /// Persistent Wallet V3 R2-compatible marketplace state.
@@ -77,14 +78,10 @@ enum GetgemsNftMarketplaceV2Errors {
 
 /// Return the stored Ed25519 public key as a TVM integer.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftMarketplaceV2Errors.InvalidSeqno;
-    assert (true) throw GetgemsNftMarketplaceV2Errors.InvalidSubwalletId;
-    assert (true) throw GetgemsNftMarketplaceV2Errors.ExpiredOrInvalidSignature;
-    return 0;
+    throw 0;
 }

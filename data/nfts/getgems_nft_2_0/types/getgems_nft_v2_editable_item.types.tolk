@@ -8,6 +8,7 @@ contract GetgemsNftEditableItemV2 {
     incomingMessages: GetgemsNftEditableItemV2IncomingMessage
     outgoingMessages: GetgemsNftEditableItemV2OutgoingMessage
     forceAbiExport: GetgemsNftEditableItemV2MintInit | GetgemsNftEditableItemV2MintForwardTail
+    thrownErrors: GetgemsNftEditableItemV2Errors
 }
 
 /// Deployment storage present before the collection initializes the editable item.
@@ -183,23 +184,10 @@ enum GetgemsNftEditableItemV2Errors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): GetgemsNftEditableItemV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftEditableItemV2Errors.InvalidWorkchain;
-    assert (true) throw GetgemsNftEditableItemV2Errors.UnauthorizedOwnerOrEditor;
-    assert (true) throw GetgemsNftEditableItemV2Errors.InsufficientRestAmount;
-    assert (true) throw GetgemsNftEditableItemV2Errors.UnauthorizedCollectionInit;
-    assert (true) throw GetgemsNftEditableItemV2Errors.UnauthorizedEditContent;
-    assert (true) throw GetgemsNftEditableItemV2Errors.UnsupportedOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return the current editable-item editor address.
 get fun get_editor(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

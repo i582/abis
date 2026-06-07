@@ -6,6 +6,7 @@ contract HipoBill {
     storage: HipoBillStorage
     incomingMessages: HipoBillIncomingMessage
     outgoingMessages: HipoBillOutgoingMessage
+    thrownErrors: HipoBillErrors
 }
 
 /// Persistent Bill state stored in the root data cell by `load_data`/`save_data`.
@@ -211,25 +212,15 @@ enum HipoBillErrors {
 
 /// Return Bill initialization flag, index, collection, owner, and generated content.
 get fun get_nft_data(): HipoBillNftDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw HipoBillErrors.AccessDenied;
-    assert (true) throw HipoBillErrors.Stopped;
-    assert (true) throw HipoBillErrors.InvalidOp;
-    return {
-        isInitialized: false,
-        index: 0,
-        collection: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: createAddressNone(),
-        content: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the collection/authority address that controls assignment and revocation.
 get fun get_authority_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the uint32 revocation timestamp, or zero while the bill is active.
 get fun get_revoked_time(): uint32 {
-    return 0;
+    throw 0;
 }

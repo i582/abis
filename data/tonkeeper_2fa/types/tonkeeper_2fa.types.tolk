@@ -9,6 +9,7 @@ contract Tonkeeper2fa {
     incomingExternal: Tonkeeper2faIncomingExternalMessage
     outgoingMessages: Tonkeeper2faOutgoingMessage
     forceAbiExport: Tonkeeper2faDelegationStateNone | Tonkeeper2faDelegationStateActive | Tonkeeper2faEmptyRefill | Tonkeeper2faWalletOutActionSendMsg | Tonkeeper2faWalletSetSignatureAuthAction | Tonkeeper2faWalletAddExtensionAction | Tonkeeper2faWalletDeleteExtensionAction
+    thrownErrors: Tonkeeper2faErrors
 }
 
 /// Pre-install data cell used when the extension address is derived and deployed.
@@ -283,47 +284,30 @@ enum Tonkeeper2faErrors {
 
 /// Return the current replay-protection sequence number.
 get fun get_seqno(): uint32 {
-    assert (true) throw Tonkeeper2faErrors.ExtensionAlreadyInstalled;
-    assert (true) throw Tonkeeper2faErrors.SenderIsNotOwner;
-    assert (true) throw Tonkeeper2faErrors.WrongCertificateSignature;
-    assert (true) throw Tonkeeper2faErrors.WrongRootCaSignature;
-    assert (true) throw Tonkeeper2faErrors.WrongSeedSignature;
-    assert (true) throw Tonkeeper2faErrors.WrongSeqno;
-    assert (true) throw Tonkeeper2faErrors.Expired;
-    assert (true) throw Tonkeeper2faErrors.RecoveryInProgress;
-    assert (true) throw Tonkeeper2faErrors.ActionTimeout;
-    assert (true) throw Tonkeeper2faErrors.MismatchedData;
-    assert (true) throw Tonkeeper2faErrors.NoDelegationInitiated;
-    assert (true) throw Tonkeeper2faErrors.OnlySendActionsSupported;
-    assert (true) throw Tonkeeper2faErrors.UnsupportedOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return the controlled wallet address.
 get fun get_wallet_addr(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the stored root CA public key.
 get fun get_root_pubkey(): uint256 {
-    return 0;
+    throw 0;
 }
 
 /// Return the stored seed public key.
 get fun get_seed_pubkey(): uint256 {
-    return 0;
+    throw 0;
 }
 
 /// Return delegation state flag, timeout, and variant-specific raw tuple.
 get fun get_delegation_state(): Tonkeeper2faDelegationStateReply {
-    return {
-        delegationStarted: false,
-        recoveryBlockedUntil: 0,
-        stateParams: [],
-    };
+    throw 0;
 }
 
 /// Estimate nanotons needed for a wallet request with the supplied forwarded message and action counts.
 get fun get_estimated_attached_value(forwardMsg: cell, msgActions: int, extendedActions: int): coins {
-    return 0;
+    throw 0;
 }

@@ -8,6 +8,7 @@ contract StormExecutor {
     incomingMessages: StormExecutorIncomingMessage
     outgoingMessages: StormExecutorOutgoingMessage
     forceAbiExport: StormExecutorInitPayload
+    thrownErrors: StormExecutorErrors
 }
 
 /// Deployment storage before the collection initializes the executor item.
@@ -195,25 +196,10 @@ enum StormExecutorErrors {
 
 /// Return item initialization flag, index, collection, owner, and compatibility content cell.
 get fun get_nft_data(): StormExecutorNftDataReply {
-    assert (true) throw StormExecutorErrors.NotAnOwner;
-    assert (true) throw StormExecutorErrors.WrongVaultWc;
-    assert (true) throw StormExecutorErrors.NegativeResponseValue;
-    assert (true) throw StormExecutorErrors.NotACollection;
-    assert (true) throw StormExecutorErrors.MinAddAmountValue;
-    assert (true) throw StormExecutorErrors.VaultWasNotAdded;
-    assert (true) throw StormExecutorErrors.MinTonForClaim;
-    assert (true) throw StormExecutorErrors.VaultNotFound;
-    assert (true) throw StormExecutorErrors.WrongOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return the executor balances dictionary.
 get fun get_executor_balances(): map<uint256, coins> {
-    return [];
+    throw 0;
 }

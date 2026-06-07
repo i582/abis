@@ -6,6 +6,7 @@ contract StormLpMinter {
     storage: StormLpMinterStorage
     incomingMessages: StormLpMinterIncomingMessage
     outgoingMessages: StormLpMinterOutgoingMessage
+    thrownErrors: StormLpMinterErrors
 }
 
 /// Persistent LP minter state stored in the root data cell.
@@ -122,25 +123,15 @@ enum StormLpMinterErrors {
 
 /// Return the stored Storm vault/admin address.
 get fun get_vault_address(): address {
-    assert (true) throw StormLpMinterErrors.UnauthorizedVaultMint;
-    assert (true) throw StormLpMinterErrors.InvalidBurnNotificationSender;
-    assert (true) throw StormLpMinterErrors.NotEnoughDiscoveryValue;
-    assert (true) throw StormLpMinterErrors.UnsupportedOperation;
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return total supply, mintability, vault/admin address, content cell, and LP wallet code cell.
 get fun get_jetton_data(): StormLpMinterJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-        walletCode: createEmptyCell(),
-    };
+    throw 0;
 }

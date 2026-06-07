@@ -6,6 +6,7 @@ contract DedustPoolV2 {
     storage: DedustPoolV2Storage
     incomingMessages: DedustPoolV2IncomingMessage
     outgoingMessages: DedustPoolV2OutgoingMessage
+    thrownErrors: DedustPoolV2Errors
 }
 
 /// Runtime Pool storage loaded by the verified v2 Pool code root data cell.
@@ -495,95 +496,50 @@ enum DedustPoolV2Errors {
 
 /// Return the DeDust Pool code/interface version.
 get fun get_version(): uint16 {
-    assert (true) throw DedustPoolV2Errors.InvalidLpWalletSender;
-    assert (true) throw DedustPoolV2Errors.InvalidControlSender;
-    assert (true) throw DedustPoolV2Errors.InvalidAssetOrProof;
-    assert (true) throw DedustPoolV2Errors.InsufficientValue;
-    assert (true) throw DedustPoolV2Errors.InvalidVaultSender;
-    assert (true) throw DedustPoolV2Errors.InvalidPoolSender;
-    assert (true) throw DedustPoolV2Errors.InvalidLiquidityDepositSender;
-    assert (true) throw DedustPoolV2Errors.InvalidTradeFee;
-    assert (true) throw DedustPoolV2Errors.InvalidTokenWallet;
-    assert (true) throw DedustPoolV2Errors.MissingPayoutTarget;
-    assert (true) throw DedustPoolV2Errors.InvalidWithdrawalAsset;
-    assert (true) throw DedustPoolV2Errors.InvalidRequestAsset;
-    assert (true) throw DedustPoolV2Errors.InvalidAmount;
-    assert (true) throw DedustPoolV2Errors.ProtocolFeeExceeded;
-    assert (true) throw DedustPoolV2Errors.EmptyLiquidity;
-    assert (true) throw DedustPoolV2Errors.InvalidChildSender;
-    assert (true) throw DedustPoolV2Errors.SlippageExceeded;
-    assert (true) throw DedustPoolV2Errors.DeadlineExceeded;
-    assert (true) throw DedustPoolV2Errors.UnsupportedOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return whether this Pool instance is stable-swap.
 get fun is_stable(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return the current trade-fee numerator and denominator.
 get fun get_trade_fee(): DedustPoolV2GetTradeFeeReply {
-    return {
-        tradeFeeNumerator: 0,
-        tradeFeeDenominator: 0,
-    };
+    throw 0;
 }
 
 /// Return current asset reserves.
 get fun get_reserves(): DedustPoolV2GetReservesReply {
-    return {
-        reserve0: 0,
-        reserve1: 0,
-    };
+    throw 0;
 }
 
 /// Return accumulated protocol fees for both assets.
 get fun get_protocol_fees(): DedustPoolV2GetProtocolFeesReply {
-    return {
-        asset0ProtocolFee: 0,
-        asset1ProtocolFee: 0,
-    };
+    throw 0;
 }
 
 /// Return serialized asset identifiers for this Pool.
 get fun get_assets(): DedustPoolV2GetAssetsReply {
-    return {
-        asset0: createEmptyCell().beginParse(),
-        asset1: createEmptyCell().beginParse(),
-    };
+    throw 0;
 }
 
 /// Estimate output amount and fee for a serialized input asset and amount.
 get fun estimate_swap_out(assetIn: slice, amountIn: int): DedustPoolV2EstimateSwapOutReply {
-    return {
-        assetOut: createEmptyCell().beginParse(),
-        amountOut: 0,
-        tradeFee: 0,
-    };
+    throw 0;
 }
 
 /// Estimate accepted deposit amounts and fair LP supply for proposed asset amounts.
 get fun estimate_deposit_out(amount0: int, amount1: int): DedustPoolV2EstimateDepositOutReply {
-    return {
-        asset0Deposit: 0,
-        asset1Deposit: 0,
-        fairSupply: 0,
-    };
+    throw 0;
 }
 
 /// Return LP Jetton minter data for the Pool.
 get fun get_jetton_data(): DedustPoolV2JettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for an owner.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

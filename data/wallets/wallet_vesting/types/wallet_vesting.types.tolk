@@ -7,6 +7,7 @@ contract WalletVesting {
     incomingMessages: WalletVestingIncomingMessage
     incomingExternal: WalletVestingIncomingExternalMessage
     outgoingMessages: WalletVestingOutgoingMessage
+    thrownErrors: Errors
 }
 
 /// Persistent vesting wallet state stored in the root data cell.
@@ -150,54 +151,35 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.InvalidSignature;
-    assert (true) throw Errors.ExpiredMessage;
-    assert (true) throw Errors.SendModeNotAllowed;
-    assert (true) throw Errors.NonBounceableNotAllowed;
-    assert (true) throw Errors.StateInitNotAllowed;
-    assert (true) throw Errors.CommentNotAllowed;
-    assert (true) throw Errors.SymbolsNotAllowed;
-    return 0;
+    throw 0;
 }
 
 /// Return the wallet id, equivalent to subwallet id.
 get fun get_subwallet_id(): uint32 {
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the immutable vesting parameters and raw whitelist dictionary.
 get fun get_vesting_data(): GetVestingDataReply {
-    return {
-        vestingStartTime: 0,
-        vestingTotalDuration: 0,
-        unlockPeriod: 0,
-        cliffDuration: 0,
-        vestingTotalAmount: 0,
-        vestingSenderAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        whitelist: null,
-    };
+    throw 0;
 }
 
 /// Return whether an address is present in the whitelist dictionary.
 get fun is_whitelisted(addr: address): bool {
-    return false;
+    throw 0;
 }
 
 /// Return all whitelist entries as a TVM cons-list of `(workchain, address_hash)` pairs.
 get fun get_whitelist(): lisp_list<WalletVestingWhitelistEntry> {
-    return [];
+    throw 0;
 }
 
 /// Return the amount, in nanotons, still locked at `atTime`.
 get fun get_locked_amount(atTime: int): coins {
-    return 0;
+    throw 0;
 }

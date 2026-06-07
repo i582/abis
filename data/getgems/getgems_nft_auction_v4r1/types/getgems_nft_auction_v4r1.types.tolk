@@ -8,6 +8,7 @@ contract GetgemsNftAuctionV4R1 {
     incomingExternal: GetgemsNftAuctionV4R1IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV4R1OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV4R1RawSendAction
+    thrownErrors: GetgemsNftAuctionV4R1Errors
 }
 
 /// Persistent root data cell used by initialized and deploy-time auction states.
@@ -318,53 +319,5 @@ enum GetgemsNftAuctionV4R1Errors {
 
 /// Return the complete auction state exposed by source `get_auction_data_v4`.
 get fun get_auction_data_v4(): GetgemsNftAuctionV4R1AuctionDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftAuctionV4R1Errors.InvalidSignature;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.InvalidJettonWalletWorkchain;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.UnauthorizedAddress;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.InvalidJettonNotificationWorkchain;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.LowBid;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AlreadyInitiated;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.InvalidOpExpectOwnershipAssigned;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.EmergencyProxyNotAllowed;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AlreadyExecuted;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AlreadyActivated;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.NotEnoughTons;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AlreadyHasBid;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AuctionInProgress;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.BadEmergencySendMode;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.LastBidTooClose;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AuctionDurationTooLong;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AuctionHasNotBeenActivatedYet;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.AuctionIsInABrokenState;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.WrongCurrency;
-    assert (true) throw GetgemsNftAuctionV4R1Errors.UnknownOperation;
-    return {
-        activated: false,
-        end: false,
-        endTime: 0,
-        marketplace: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nft: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        lastBid: 0,
-        lastMember: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        minStep: 0,
-        marketFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        mpFeeFactor: 0,
-        mpFeeBase: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-        stepTime: 0,
-        lastQueryId: 0,
-        jettonWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        jettonMaster: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        isBrokenState: false,
-        publicKey: 0,
-    };
+    throw 0;
 }

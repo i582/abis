@@ -7,6 +7,7 @@ contract MultisigV2 {
     incomingMessages: MultisigV2IncomingMessage
     outgoingMessages: MultisigV2OutgoingMessage
     forceAbiExport: MultisigV2OrderAction
+    thrownErrors: MultisigV2Errors
 }
 
 /// Persistent Multisig V2 state stored in the root data cell.
@@ -158,31 +159,15 @@ enum MultisigV2Errors {
 
 /// Return next order id, threshold, signer dictionary, and proposer dictionary.
 get fun get_multisig_data(): GetMultisigV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw MultisigV2Errors.UnauthorizedNewOrder;
-    assert (true) throw MultisigV2Errors.InvalidNewOrder;
-    assert (true) throw MultisigV2Errors.NotEnoughTon;
-    assert (true) throw MultisigV2Errors.UnauthorizedExecute;
-    assert (true) throw MultisigV2Errors.SignersOutdated;
-    assert (true) throw MultisigV2Errors.InvalidDictionarySequence;
-    assert (true) throw MultisigV2Errors.InconsistentData;
-    assert (true) throw MultisigV2Errors.InvalidThreshold;
-    assert (true) throw MultisigV2Errors.InvalidSigners;
-    assert (true) throw MultisigV2Errors.Expired;
-    return {
-        seqno: 0,
-        threshold: 0,
-        signers: createEmptyCell(),
-        proposers: [],
-    };
+    throw 0;
 }
 
 /// Return estimated nanotons required to create, store, approve, and execute an order until expiration.
 get fun get_order_estimate(order: cell, expirationDate: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the deterministic order contract address for `orderSeqno`.
 get fun get_order_address(orderSeqno: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

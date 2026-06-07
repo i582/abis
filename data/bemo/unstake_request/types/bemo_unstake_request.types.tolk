@@ -6,6 +6,7 @@ contract BemoUnstakeRequest {
     storage: BemoUnstakeRequestStorage
     incomingMessages: BemoUnstakeRequestIncomingMessage
     outgoingMessages: BemoUnstakeRequestOutgoingMessage
+    thrownErrors: BemoUnstakeRequestErrors
 }
 
 /// Persistent Unstake Request state stored in the root data cell.
@@ -100,18 +101,5 @@ enum BemoUnstakeRequestErrors {
 
 /// Return request index, Financial address, owner, TON amount, bmTON amount, unlock timestamp, and payload.
 get fun get_unstake_data(): BemoUnstakeRequestDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw BemoUnstakeRequestErrors.UnsupportedFinancialOperation;
-    assert (true) throw BemoUnstakeRequestErrors.RequestAlreadyConsumed;
-    assert (true) throw BemoUnstakeRequestErrors.RequestStillLocked;
-    assert (true) throw BemoUnstakeRequestErrors.NotEnoughValue;
-    return {
-        index: 0,
-        financial: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tonAmount: 0,
-        jettonAmount: 0,
-        unlockTimestamp: 0,
-        forwardPayload: null,
-    };
+    throw 0;
 }

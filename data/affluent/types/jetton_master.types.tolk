@@ -29,15 +29,9 @@ struct GetJettonDataReply {
 }
 
 get fun get_jetton_data(): GetJettonDataReply {
-    return {
-        totalSupply: 1000000000,
-        mintable: true,
-        adminAddress: null,
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

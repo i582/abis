@@ -6,6 +6,7 @@ contract AirdropInterlockerV1 {
     storage: AirdropInterlockerV1Storage
     incomingMessages: AirdropInterlockerV1IncomingMessage
     outgoingMessages: AirdropInterlockerV1OutgoingMessage
+    thrownErrors: AirdropInterlockerV1Errors
 }
 
 /// Persistent v1 interlocker state stored in the root data cell.
@@ -82,18 +83,5 @@ enum AirdropInterlockerV1Errors {
 
 /// Return the claim flag, Merkle root, receiver, and distributor.
 get fun get_contract_data(): GetContractDataReply {
-    assert (true) throw AirdropInterlockerV1Errors.MissingProofEntry;
-    assert (true) throw AirdropInterlockerV1Errors.AlreadyClaimed;
-    assert (true) throw AirdropInterlockerV1Errors.SenderIsNotReceiver;
-    assert (true) throw AirdropInterlockerV1Errors.InsufficientCommission;
-    assert (true) throw AirdropInterlockerV1Errors.MissingProof;
-    assert (true) throw AirdropInterlockerV1Errors.InvalidProofTag;
-    assert (true) throw AirdropInterlockerV1Errors.ProofReceiverMismatch;
-    assert (true) throw AirdropInterlockerV1Errors.UnknownOpcode;
-    return {
-        isClaimed: false,
-        merkleRoot: 0,
-        receiver: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        distributor: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }

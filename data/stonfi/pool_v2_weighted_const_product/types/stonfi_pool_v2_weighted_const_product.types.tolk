@@ -6,6 +6,7 @@ contract StonfiPoolV2WeightedConstProduct {
     storage: StonfiPoolV2WeightedConstProductStorage
     incomingMessages: StonfiPoolV2WeightedConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2WeightedConstProductOutgoingMessage
+    thrownErrors: StonfiPoolV2WeightedConstProductErrors
 }
 
 /// Persistent weighted constant product Pool state stored in the root data cell.
@@ -551,62 +552,25 @@ enum StonfiPoolV2WeightedConstProductErrors {
 
 /// Return the STON.fi Pool type string, equal to the Router `dex_type` value.
 get fun get_pool_type(): string {
-    return "weighted_const_product";
+    throw 0;
 }
 
 /// Return the deterministic LP Account address for `ownerAddress`.
 get fun get_lp_account_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return LP Jetton supply, mintability, router/admin address, content, and wallet code.
 get fun get_jetton_data(): StonfiPoolV2WeightedConstProductJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonLpWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP Jetton wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return common Pool v2 state plus weighted constant product `w0` at index 12.
 get fun get_pool_data(): StonfiPoolV2WeightedConstProductDataReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.NoLiquidity;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.ZeroOutput;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.InvalidCaller;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.InsufficientGas;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.WrongWorkchain;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.WrongAddress;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.LowLiquidity;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.MathError;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.InvalidAmount;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.InvalidCall;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.FeeOutOfRange;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.InvalidToken;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.EmptyNotAllowed;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.MaxInRatio;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.EmptyCell;
-    assert (true) throw StonfiPoolV2WeightedConstProductErrors.WrongOp;
-    return {
-        isLocked: false,
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        totalSupply: 0,
-        reserve0: 0,
-        reserve1: 0,
-        token0WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        token1WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        lpFee: 0,
-        protocolFee: 0,
-        protocolFeeAddress: createAddressNone(),
-        collectedToken0ProtocolFee: 0,
-        collectedToken1ProtocolFee: 0,
-        w0: 0,
-    };
+    throw 0;
 }

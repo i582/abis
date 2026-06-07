@@ -169,16 +169,10 @@ enum NftV1EditableItemErrors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): GetNftV1EditableDataReply {
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return the current editable-item editor address.
 get fun get_editor(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

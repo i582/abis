@@ -6,6 +6,7 @@ contract TsTonMinter {
     storage: TsTonMinterStorage
     incomingMessages: TsTonMinterIncomingMessage
     outgoingMessages: TsTonMinterOutgoingMessage
+    thrownErrors: TsTonMinterErrors
 }
 
 /// Persistent minter state stored in the account data cell.
@@ -303,44 +304,25 @@ enum TsTonMinterErrors {
 
 /// Return total supply, mintability, admin address, content cell, and wallet code cell.
 get fun get_jetton_data(): GetTsTonMinterJettonDataReply {
-    assert (true) throw TsTonMinterErrors.UnauthorizedMintRequest;
-    assert (true) throw TsTonMinterErrors.UnauthorizedBurnRequest;
-    assert (true) throw TsTonMinterErrors.DiscoveryFeeNotMatched;
-    assert (true) throw TsTonMinterErrors.UnauthorizedChangeAdminRequest;
-    assert (true) throw TsTonMinterErrors.UnauthorizedChangeContentRequest;
-    assert (true) throw TsTonMinterErrors.UnauthorizedVoteExecution;
-    assert (true) throw TsTonMinterErrors.UnauthorizedCodeUpgradeRequest;
-    assert (true) throw TsTonMinterErrors.ForbiddenVotingType;
-    assert (true) throw TsTonMinterErrors.MintFeeNotMatched;
-    assert (true) throw TsTonMinterErrors.VotingNotFinished;
-    assert (true) throw TsTonMinterErrors.VotingAlreadyFinished;
-    assert (true) throw TsTonMinterErrors.ExpirationDateTooHigh;
-    assert (true) throw TsTonMinterErrors.UnknownOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic tsTON wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic DAO voting address for a sequential voting id.
 get fun get_voting_address(votingId: uint64): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the stored DAO voting code cell.
 get fun get_voting_code(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the deterministic voting-results contract address for a poll body and duration.
 get fun get_voting_results_address(votingBody: cell, duration: uint48): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

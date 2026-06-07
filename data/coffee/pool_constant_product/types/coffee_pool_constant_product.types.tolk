@@ -6,6 +6,7 @@ contract CoffeePoolConstantProduct {
     storage: CoffeePoolConstantProductStorage
     incomingMessages: CoffeePoolConstantProductIncomingMessage
     outgoingMessages: CoffeePoolConstantProductOutgoingMessage
+    thrownErrors: CoffeePoolConstantProductErrors
 }
 
 /// Runtime persistent Pool storage loaded by `contracts/pool/include/storage.fc`.
@@ -755,79 +756,30 @@ enum CoffeePoolConstantProductErrors {
 
 /// Return LP Jetton minter data for this Pool.
 get fun get_jetton_data(): CoffeePoolConstantProductJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for an owner.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return current Coffee Pool state and fee settings.
 get fun get_pool_data(): CoffeePoolConstantProductGetPoolDataReply {
-    assert (true) throw CoffeePoolConstantProductErrors.UnknownOpcode;
-    assert (true) throw CoffeePoolConstantProductErrors.NotEnoughGas;
-    assert (true) throw CoffeePoolConstantProductErrors.Unexpected;
-    assert (true) throw CoffeePoolConstantProductErrors.WrongSender;
-    assert (true) throw CoffeePoolConstantProductErrors.NotAFactory;
-    assert (true) throw CoffeePoolConstantProductErrors.WrongChain;
-    assert (true) throw CoffeePoolConstantProductErrors.WrongAssets;
-    assert (true) throw CoffeePoolConstantProductErrors.WrongSignature;
-    assert (true) throw CoffeePoolConstantProductErrors.AmmFailed;
-    assert (true) throw CoffeePoolConstantProductErrors.InvalidAmmSettings;
-    assert (true) throw CoffeePoolConstantProductErrors.InvalidLiquidity;
-    assert (true) throw CoffeePoolConstantProductErrors.InvalidFee;
-    assert (true) throw CoffeePoolConstantProductErrors.InvalidCondition;
-    assert (true) throw CoffeePoolConstantProductErrors.InvalidAssetType;
-    assert (true) throw CoffeePoolConstantProductErrors.DeadlineExceeded;
-    assert (true) throw CoffeePoolConstantProductErrors.SlippageTolerated;
-    assert (true) throw CoffeePoolConstantProductErrors.PoolAlreadyExists;
-    assert (true) throw CoffeePoolConstantProductErrors.ReservesRatioFailed;
-    assert (true) throw CoffeePoolConstantProductErrors.AlreadyActive;
-    assert (true) throw CoffeePoolConstantProductErrors.NotActive;
-    return {
-        poolVersion: 0,
-        asset1: createEmptyCell().beginParse(),
-        asset2: createEmptyCell().beginParse(),
-        amm: 0,
-        ammSettings: null,
-        active: false,
-        reserve1: 0,
-        reserve2: 0,
-        totalSupply: 0,
-        protocolFee: 0,
-        lpFee: 0,
-    };
+    throw 0;
 }
 
 /// Estimate swap input actually used and output amount for a serialized input asset.
 get fun estimate_swap_amount(asset: slice, amount: int): CoffeePoolConstantProductEstimateSwapAmountReply {
-    return {
-        inputAmount: 0,
-        outputAmount: 0,
-    };
+    throw 0;
 }
 
 /// Estimate withdrawn asset amounts for an LP burn amount.
 get fun estimate_liquidity_withdraw_amount(lpAmount: int): CoffeePoolConstantProductEstimateLiquidityWithdrawAmountReply {
-    return {
-        amount1: 0,
-        amount2: 0,
-    };
+    throw 0;
 }
 
 /// Estimate accepted liquidity amounts, minted LP, and locked LP for a proposed deposit.
 get fun estimate_liquidity_deposit_amount(amount1: int, amount2: int): CoffeePoolConstantProductEstimateLiquidityDepositAmountReply {
-    return {
-        amount1Used: 0,
-        amount2Used: 0,
-        lpAmount: 0,
-        lpToLock: 0,
-    };
+    throw 0;
 }

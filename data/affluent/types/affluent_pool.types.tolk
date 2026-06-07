@@ -108,22 +108,5 @@ struct GetPoolDataReply {
 }
 
 get fun get_pool_data(): GetPoolDataReply {
-    return {
-        isInitialized: false,
-        id: 0,
-        ownerAddress: null,
-        feeConfigurerAddress: null,
-        protocolFeeRate: 0,
-        oracleAddress: null,
-        oracleConfig: null,
-        maxLoanLeverageRatio: 0,
-        maxLoanVarRatio: 0,
-        liquidateLeverageRatio: 0,
-        liquidateVarRatio: 0,
-        minLiquidateCloseRatio: 0,
-        maxLiquidateCloseRatio: 0,
-        assets: [],
-        gasCell: null,
-        accountCode: createEmptyCell(),
-    };
+    throw 0;
 }

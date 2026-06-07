@@ -6,7 +6,7 @@ contract PtonMinterV2 {
     storage: PtonMinterV2Storage
     incomingMessages: PtonMinterV2IncomingMessage
     outgoingMessages: PtonMinterV2OutgoingMessage
-    forceAbiExport: PtonMinterV2Errors
+    thrownErrors: PtonMinterV2Errors
 }
 
 /// Persistent pTON minter state stored in the root data cell.
@@ -103,28 +103,15 @@ enum PtonMinterV2Errors {
 
 /// Return zero supply, mintability, no admin, metadata, and wallet code.
 get fun get_jetton_data(): PtonMinterV2JettonDataReply {
-    assert (true) throw PtonMinterV2Errors.InsufficientGas;
-    assert (true) throw PtonMinterV2Errors.WrongWorkchain;
-    assert (true) throw PtonMinterV2Errors.WrongOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: createAddressNone(),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic pTON wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return pTON source version.
 get fun get_version(): PtonMinterV2VersionReply {
-    return {
-        major: 2,
-        minor: 1,
-        development: "release",
-    };
+    throw 0;
 }

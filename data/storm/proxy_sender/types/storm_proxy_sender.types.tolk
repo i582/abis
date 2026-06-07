@@ -6,6 +6,7 @@ contract StormProxySender {
     storage: StormProxySenderStorage
     incomingMessages: StormProxySenderIncomingMessage
     outgoingMessages: StormProxySenderOutgoingMessage
+    thrownErrors: StormProxySenderErrors
 }
 
 /// Runtime storage cell used by the proxy sender.
@@ -40,6 +41,5 @@ enum StormProxySenderErrors {
 
 /// Return the owner address stored in the single-field data cell.
 get fun get_proxy_owner_address(): address {
-    assert (true) throw StormProxySenderErrors.UnauthorizedSender;
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

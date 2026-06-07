@@ -8,6 +8,7 @@ contract GetgemsNftOfferV1R3 {
     incomingExternal: GetgemsNftOfferV1R3IncomingExternalMessage
     outgoingMessages: GetgemsNftOfferV1R3OutgoingMessage
     forceAbiExport: GetgemsNftOfferV1R3InitialFunding | GetgemsNftOfferV1R3MarketplaceCancelPayload | GetgemsNftOfferV1R3RawSendAction
+    thrownErrors: GetgemsNftOfferV1R3Errors
 }
 
 /// Referenced marketplace and royalty fee configuration cell.
@@ -243,56 +244,10 @@ enum GetgemsNftOfferV1R3Errors {
 
 /// Return legacy offer state, fee settings, and computed profit.
 get fun get_offer_data(): GetgemsNftOfferV1R3OfferDataReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftOfferV1R3Errors.OfferAlreadyComplete;
-    assert (true) throw GetgemsNftOfferV1R3Errors.EmergencyProxyMode32NotAllowed;
-    assert (true) throw GetgemsNftOfferV1R3Errors.EmergencyProxySwapWindowBlocked;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ProfitTooLowOnDeploy;
-    assert (true) throw GetgemsNftOfferV1R3Errors.GetterBeforeDeployFinalized;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ProfitTooLow;
-    assert (true) throw GetgemsNftOfferV1R3Errors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ExternalCancelInvalidOpcode;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ExternalCancelHasRefs;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ExternalCancelBodyTooLarge;
-    assert (true) throw GetgemsNftOfferV1R3Errors.ExternalCancelTooEarly;
-    assert (true) throw GetgemsNftOfferV1R3Errors.UnknownOperation;
-    return {
-        magic: 0x4f46464552,
-        isComplete: false,
-        createdAt: 0,
-        finishAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        offerOwnerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        profitPrice: 0,
-    };
+    throw 0;
 }
 
 /// Return V1R3 offer state, including `swapAt`, fee settings, and computed profit.
 get fun get_offer_data_v2(): GetgemsNftOfferV1R3OfferDataV2Reply {
-    return {
-        magic: 0x4f46464552,
-        isComplete: false,
-        createdAt: 0,
-        finishAt: 0,
-        swapAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        offerOwnerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        profitPrice: 0,
-    };
+    throw 0;
 }

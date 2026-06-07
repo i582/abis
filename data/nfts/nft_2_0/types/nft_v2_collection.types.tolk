@@ -153,28 +153,20 @@ enum NftV2CollectionErrors {
 
 /// Return next item index, collection metadata cell, and admin address.
 get fun get_collection_data(): GetNftV2CollectionDataReply {
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic NFT item address for an item index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return royalty numerator, denominator, and payout address.
 get fun royalty_params(): NftV2RoyaltyParams {
-    return {
-        numerator: 0,
-        denominator: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return full NFT content by combining common collection content with individual item content.
 get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }

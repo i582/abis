@@ -8,6 +8,7 @@ contract GetgemsNftAuctionV3R2 {
     incomingExternal: GetgemsNftAuctionV3R2IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV3R2OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV3R2Bid | GetgemsNftAuctionV3R2ExternalActivation | GetgemsNftAuctionV3R2EmergencyRelayBox
+    thrownErrors: GetgemsNftAuctionV3R2Errors
 }
 
 /// Fee configuration cell referenced from the auction root storage.
@@ -209,36 +210,5 @@ enum GetgemsNftAuctionV3R2Errors {
 
 /// Return auction state, bid state, fee parameters, and cancellation status.
 get fun get_sale_data(): GetgemsNftAuctionV3R2SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftAuctionV3R2Errors.UnauthorizedAddress;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.LowBid;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.AlreadyInitiated;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.AlreadyExecuted;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.NotEnoughTons;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.AlreadyHasBid;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.AuctionInProgress;
-    assert (true) throw GetgemsNftAuctionV3R2Errors.UnknownOperation;
-    return {
-        magic: 0x415543,
-        end: false,
-        endTime: 0,
-        marketplace: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nft: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: createAddressNone(),
-        lastBid: 0,
-        lastMember: createAddressNone(),
-        minStep: 0,
-        marketFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        mpFeeFactor: 0,
-        mpFeeBase: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-    };
+    throw 0;
 }

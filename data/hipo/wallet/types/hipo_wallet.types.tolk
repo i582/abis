@@ -7,6 +7,7 @@ contract HipoWallet {
     incomingMessages: HipoWalletIncomingMessage
     outgoingMessages: HipoWalletOutgoingMessage
     forceAbiExport: HipoWalletUnstakeCustomPayload | HipoWalletBouncedKnownBody
+    thrownErrors: HipoWalletErrors
 }
 
 /// Persistent Hipo wallet state stored in the root data cell.
@@ -319,37 +320,15 @@ enum HipoWalletErrors {
 
 /// Return wallet balance, owner, parent, and current wallet code cell.
 get fun get_wallet_data(): HipoWalletDataReply {
-    assert (true) throw HipoWalletErrors.InsufficientFee;
-    assert (true) throw HipoWalletErrors.InsufficientFunds;
-    assert (true) throw HipoWalletErrors.AccessDenied;
-    assert (true) throw HipoWalletErrors.OnlyBasechainAllowed;
-    assert (true) throw HipoWalletErrors.ReceiverIsSender;
-    assert (true) throw HipoWalletErrors.InvalidOp;
-    assert (true) throw HipoWalletErrors.InvalidComment;
-    assert (true) throw HipoWalletErrors.InvalidParameters;
-    return {
-        tokens: 0,
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        parent: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        code: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return wallet balance, pending staking dictionary, and current unstaking balance.
 get fun get_wallet_state(): HipoWalletStateReply {
-    return {
-        tokens: 0,
-        staking: [],
-        unstaking: 0,
-    };
+    throw 0;
 }
 
 /// Return precomputed operation fee requirements and storage reserve.
 get fun get_wallet_fees(): HipoWalletFeesReply {
-    return {
-        sendTokensFee: 0,
-        unstakeTokensFee: 0,
-        upgradeWalletFee: 0,
-        walletStorageFee: 0,
-    };
+    throw 0;
 }

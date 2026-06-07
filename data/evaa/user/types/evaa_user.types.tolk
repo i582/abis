@@ -8,6 +8,7 @@ contract EvaaUser {
     incomingMessages: EvaaUserIncomingMessage
     outgoingMessages: EvaaUserOutgoingMessage
     forceAbiExport: EvaaUserGetStoreRequest | EvaaUserUpgradeInfo
+    thrownErrors: EvaaUserErrors
 }
 
 /// Runtime value stored in the user principal dictionary.
@@ -821,83 +822,65 @@ enum EvaaUserErrors {
 
 /// Return current user code version.
 get fun codeVersion(): int {
-    assert (true) throw EvaaUserErrors.DifferentWorkchain;
-    assert (true) throw EvaaUserErrors.MessageNotFromMaster;
-    assert (true) throw EvaaUserErrors.BrokenUpgradeInfo;
-    assert (true) throw EvaaUserErrors.UserDataChanged;
-    assert (true) throw EvaaUserErrors.UserCodeVersionMismatch;
-    assert (true) throw EvaaUserErrors.AroundZeroSplitMessedUp;
-    return 0;
+    throw 0;
 }
 
 /// Return marker identifying a runtime user contract.
 get fun isUserSc(): int {
-    return -1;
+    throw 0;
 }
 
 /// Return the present balance for one asset and supplied rates.
 get fun getAccountAssetBalance(assetId: int, sRate: int, bRate: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return a raw dictionary of per-asset account balances.
 get fun getAccountBalances(assetDynamicsCollection: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return account health for supplied config, dynamics, and price dictionaries.
 get fun getAccountHealth(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return available borrow amount for supplied config, dynamics, and price dictionaries.
 get fun getAvailableToBorrow(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return whether the account is liquidatable for supplied config, dynamics, and price dictionaries.
 get fun getIsLiquidable(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return aggregate supplied and borrowed values.
 get fun getAggregatedBalances(assetConfigCollection: cell, assetDynamicsCollection: cell, pricesPacked: cell): EvaaUserAggregatedBalances {
-    return {
-        supply: 0,
-        borrow: 0,
-    };
+    throw 0;
 }
 
 /// Return the stored principal for one asset id.
 get fun get_asset_principal(assetId: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the user principal dictionary keyed by 256-bit EVAA asset id.
 get fun getPrincipals(): map<uint256, EvaaUserPrincipal> {
-    return [];
+    throw 0;
 }
 
 /// Return the user reward dictionary keyed by 256-bit EVAA asset id.
 get fun getRewards(): map<uint256, EvaaUserReward> {
-    return [];
+    throw 0;
 }
 
 /// Return the full user storage tuple.
 get fun getAllUserScData(): EvaaUserScData {
-    return {
-        codeVersion: 0,
-        masterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        userPrincipals: [],
-        state: 0,
-        userRewards: [],
-        backupCell1: null,
-        backupCell2: null,
-    };
+    throw 0;
 }
 
 /// Return maximum withdraw amount for one asset with supplied market state.
 get fun get_maximum_withdraw_amount(assetId: int, pricesPacked: cell, assetConfigCollection: cell, assetDynamicsCollection: cell): int {
-    return 0;
+    throw 0;
 }

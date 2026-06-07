@@ -7,6 +7,7 @@ contract StormPrelaunch {
     incomingMessages: StormPrelaunchIncomingMessage
     outgoingMessages: StormPrelaunchOutgoingMessage
     forceAbiExport: StormPrelaunchParticipant | StormPrelaunchUserRewardCountsReply
+    thrownErrors: StormPrelaunchErrors
 }
 
 /// Runtime Prelaunch storage.
@@ -234,31 +235,10 @@ enum StormPrelaunchErrors {
 
 /// Return the full Prelaunch storage tuple.
 get fun get_storage_data(): StormPrelaunchStorageDataReply {
-    assert (true) throw StormPrelaunchErrors.WrongWorkchain;
-    assert (true) throw StormPrelaunchErrors.NotAdmin;
-    assert (true) throw StormPrelaunchErrors.WrongWalletDiscoverySender;
-    assert (true) throw StormPrelaunchErrors.StartAlreadySet;
-    assert (true) throw StormPrelaunchErrors.EndAlreadySet;
-    assert (true) throw StormPrelaunchErrors.NotStarted;
-    assert (true) throw StormPrelaunchErrors.Ended;
-    assert (true) throw StormPrelaunchErrors.WrongStartDate;
-    assert (true) throw StormPrelaunchErrors.WrongEndDate;
-    assert (true) throw StormPrelaunchErrors.WrongOperation;
-    return {
-        participants: [],
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        startTime: 0,
-        endTime: 0,
-        walletDiscovered: false,
-        jettonWalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        rewardNotifierAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Synthetic ABI name whose CRC selector is live raw method id 104966.
 get fun get_method_104966_jsxb(userAddress: address): StormPrelaunchUserRewardCountsReply {
-    return {
-        rewardCountA: 0,
-        rewardCountB: 0,
-    };
+    throw 0;
 }

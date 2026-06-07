@@ -20,10 +20,5 @@ struct GetAccountDataReply {
 }
 
 get fun get_account_data(): GetAccountDataReply {
-    return {
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        secondaryAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        balances: createEmptyCell(),
-        pendingBalances: createEmptyCell(),
-    };
+    throw 0;
 }

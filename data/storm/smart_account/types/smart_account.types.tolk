@@ -994,57 +994,35 @@ enum Errors {
 
 /// Getter returning SmartAccount storage data.
 get fun get_storage_data(): GetStorageDataReply {
-    return {
-        saType: 0,
-        factoryAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        balances: [],
-        version: 0,
-        keys: createEmptyCell(),
-        positions: [],
-        highloadData: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Getter returning the SmartAccount user public-key dictionary.
 get fun get_user_public_keys(): map<uint256, cell> {
-    return [];
+    throw 0;
 }
 
 /// Getter returning SmartAccount highload replay-protection data.
 get fun get_highload_data(): GetHighloadDataReply {
-    return {
-        oldQueries: [],
-        queries: [],
-        lastCleanTime: 0,
-        timeout: 0,
-    };
+    throw 0;
 }
 
 /// Getter returning SmartAccount key data.
 get fun get_keys_data(): GetKeysDataReply {
-    return {
-        hotPublicKey: 0,
-        coldPublicKey: 0,
-        userPublicKeys: [],
-        keysCount: 0,
-    };
+    throw 0;
 }
 
 /// Getter returning the balance for a vault address.
 get fun get_vault_balance(vaultAddress: address): coins {
-    return 0;
+    throw 0;
 }
 
 /// Getter returning a position by its 268-bit key.
 get fun get_position(positionKey: bits268): GetPositionReply {
-    return {
-        locked: false,
-        position: null,
-    };
+    throw 0;
 }
 
 /// Return whether a highload query bit is already processed.
 get fun `processed?`(shift: int, bitNumber: int, needClean: int): bool {
-    return false;
+    throw 0;
 }

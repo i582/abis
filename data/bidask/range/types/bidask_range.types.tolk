@@ -512,127 +512,105 @@ struct GetDynamicFeesInfoReply {
 
 /// Return the current sqrt price. Live mainnet call returned exit code 0.
 get fun get_sqrt_price(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the first bin covered by this range.
 get fun get_first_bin_number(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the pool bin step. Live mainnet call returned exit code 0.
 get fun get_bin_step(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the LP/base fee configured for this range.
 get fun get_lp_fee(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the current active bin. Live mainnet call returned exit code 0.
 get fun get_current_bin(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the parent pool address.
 get fun get_pool_addr(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the total-liquidity dictionary cell.
 get fun get_bins_dict(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return total-liquidity and LP-supply dictionary cells.
 get fun get_bins_dicts(): GetBinsDictsReply {
-    return {
-        liquidityDict: null,
-        lpSupplyDict: null,
-    };
+    throw 0;
 }
 
 /// Derive the LP multitoken wallet address for a user.
 get fun get_lp_multitoken_wallet(userAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the previous range address, or addr_none if absent.
 get fun get_left_range(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return the next range address, or addr_none if absent.
 get fun get_right_range(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return total liquidity for a bin.
 get fun get_bin(binNumber: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return LP supply for a bin.
 get fun get_bin_lp(binNumber: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return left and right sqrt-price bounds for a bin.
 get fun get_price_bounds(binNumber: int): GetPriceBoundsReply {
-    return {
-        binStartPrice: 0,
-        binEndPrice: 0,
-    };
+    throw 0;
 }
 
 /// Return NFT-style collection metadata exposed by the Range docs.
 get fun get_collection_data(): GetCollectionDataReply {
-    return {
-        zero: 0,
-        contentData: createEmptyCell(),
-        poolAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the current dynamic fee.
 get fun get_dynamic_fee(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the dynamic fee calculated at a specific timestamp.
 get fun get_get_dynamic_fee_by_timestamp(timestamp: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the dynamic fee state tuple.
 get fun get_dynamic_fees_info(): GetDynamicFeesInfoReply {
-    return {
-        dynamicFee: 0,
-        dynamicFeeFactor: 0,
-        previousTime: 0,
-        timeFilter: 0,
-        timeDecay: 0,
-    };
+    throw 0;
 }
 
 /// Return the raw current storage cell.
 get fun get_storage(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return token X and token Y represented by a bin, from the local XML schema.
 get fun get_bin_assets(binNumber: int): GetBinAssetsReply {
-    return {
-        amountX: 0,
-        amountY: 0,
-    };
+    throw 0;
 }
 
 /// Return user token X and token Y represented by a bin and LP amount, from the local XML schema.
 get fun get_user_bin_assets(binNumber: int, userLp: int): GetUserBinAssetsReply {
-    return {
-        amountX: 0,
-        amountY: 0,
-    };
+    throw 0;
 }

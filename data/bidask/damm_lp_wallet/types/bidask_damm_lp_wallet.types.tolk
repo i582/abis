@@ -242,20 +242,10 @@ struct GetBidaskDammLpWalletUserFeesInfoReply {
 
 /// Return the standard LP Jetton wallet data tuple.
 get fun get_wallet_data(): GetBidaskDammLpWalletDataReply {
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the wallet's stored DAMM fee checkpoints and already-claimed totals.
 get fun get_user_fees_info(): GetBidaskDammLpWalletUserFeesInfoReply {
-    return {
-        feesPerLpXLast: 0,
-        feesPerLpYLast: 0,
-        claimedX: 0,
-        claimedY: 0,
-    };
+    throw 0;
 }

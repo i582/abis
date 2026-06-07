@@ -7,6 +7,7 @@ contract GetgemsNftSaleLegacy {
     incomingMessages: GetgemsNftSaleLegacyIncomingMessage
     outgoingMessages: GetgemsNftSaleLegacyOutgoingMessage
     forceAbiExport: GetgemsNftSaleLegacyEmptyBuy
+    thrownErrors: GetgemsNftSaleLegacyErrors
 }
 
 /// Fee distribution cell referenced from the root legacy sale storage.
@@ -134,20 +135,5 @@ enum GetgemsNftSaleLegacyErrors {
 
 /// Return legacy sale state, marketplace fee, and royalty data.
 get fun get_sale_data(): GetgemsNftSaleLegacySaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftSaleLegacyErrors.NotEnoughTonsForSale;
-    assert (true) throw GetgemsNftSaleLegacyErrors.UnauthorizedInitiation;
-    assert (true) throw GetgemsNftSaleLegacyErrors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftSaleLegacyErrors.NotEnoughTonsForCancellation;
-    assert (true) throw GetgemsNftSaleLegacyErrors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftSaleLegacyErrors.UnknownOperation;
-    return {
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        marketplaceFee: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyAmount: 0,
-    };
+    throw 0;
 }

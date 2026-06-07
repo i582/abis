@@ -6,6 +6,7 @@ contract CoffeePoolCurveFiStable {
     storage: CoffeePoolCurveFiStableStorage
     incomingMessages: CoffeePoolCurveFiStableIncomingMessage
     outgoingMessages: CoffeePoolCurveFiStableOutgoingMessage
+    thrownErrors: CoffeePoolCurveFiStableErrors
 }
 
 /// Runtime persistent Pool storage loaded by `contracts/pool/include/storage.fc`.
@@ -765,79 +766,30 @@ enum CoffeePoolCurveFiStableErrors {
 
 /// Return LP Jetton minter data for this Pool.
 get fun get_jetton_data(): CoffeePoolCurveFiStableJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for an owner.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return current Coffee Pool state and fee settings.
 get fun get_pool_data(): CoffeePoolCurveFiStableGetPoolDataReply {
-    assert (true) throw CoffeePoolCurveFiStableErrors.UnknownOpcode;
-    assert (true) throw CoffeePoolCurveFiStableErrors.NotEnoughGas;
-    assert (true) throw CoffeePoolCurveFiStableErrors.Unexpected;
-    assert (true) throw CoffeePoolCurveFiStableErrors.WrongSender;
-    assert (true) throw CoffeePoolCurveFiStableErrors.NotAFactory;
-    assert (true) throw CoffeePoolCurveFiStableErrors.WrongChain;
-    assert (true) throw CoffeePoolCurveFiStableErrors.WrongAssets;
-    assert (true) throw CoffeePoolCurveFiStableErrors.WrongSignature;
-    assert (true) throw CoffeePoolCurveFiStableErrors.AmmFailed;
-    assert (true) throw CoffeePoolCurveFiStableErrors.InvalidAmmSettings;
-    assert (true) throw CoffeePoolCurveFiStableErrors.InvalidLiquidity;
-    assert (true) throw CoffeePoolCurveFiStableErrors.InvalidFee;
-    assert (true) throw CoffeePoolCurveFiStableErrors.InvalidCondition;
-    assert (true) throw CoffeePoolCurveFiStableErrors.InvalidAssetType;
-    assert (true) throw CoffeePoolCurveFiStableErrors.DeadlineExceeded;
-    assert (true) throw CoffeePoolCurveFiStableErrors.SlippageTolerated;
-    assert (true) throw CoffeePoolCurveFiStableErrors.PoolAlreadyExists;
-    assert (true) throw CoffeePoolCurveFiStableErrors.ReservesRatioFailed;
-    assert (true) throw CoffeePoolCurveFiStableErrors.AlreadyActive;
-    assert (true) throw CoffeePoolCurveFiStableErrors.NotActive;
-    return {
-        poolVersion: 0,
-        asset1: createEmptyCell().beginParse(),
-        asset2: createEmptyCell().beginParse(),
-        amm: 0,
-        ammSettings: null,
-        active: false,
-        reserve1: 0,
-        reserve2: 0,
-        totalSupply: 0,
-        protocolFee: 0,
-        lpFee: 0,
-    };
+    throw 0;
 }
 
 /// Estimate swap input actually used and output amount for a serialized input asset.
 get fun estimate_swap_amount(asset: slice, amount: int): CoffeePoolCurveFiStableEstimateSwapAmountReply {
-    return {
-        inputAmount: 0,
-        outputAmount: 0,
-    };
+    throw 0;
 }
 
 /// Estimate withdrawn asset amounts for an LP burn amount.
 get fun estimate_liquidity_withdraw_amount(lpAmount: int): CoffeePoolCurveFiStableEstimateLiquidityWithdrawAmountReply {
-    return {
-        amount1: 0,
-        amount2: 0,
-    };
+    throw 0;
 }
 
 /// Estimate accepted liquidity amounts, minted LP, and locked LP for a proposed deposit.
 get fun estimate_liquidity_deposit_amount(amount1: int, amount2: int): CoffeePoolCurveFiStableEstimateLiquidityDepositAmountReply {
-    return {
-        amount1Used: 0,
-        amount2Used: 0,
-        lpAmount: 0,
-        lpToLock: 0,
-    };
+    throw 0;
 }

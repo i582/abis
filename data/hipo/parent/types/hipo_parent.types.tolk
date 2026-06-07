@@ -6,6 +6,7 @@ contract HipoParent {
     storage: HipoParentStorage
     incomingMessages: HipoParentIncomingMessage
     outgoingMessages: HipoParentOutgoingMessage
+    thrownErrors: HipoParentErrors
 }
 
 /// Runtime persistent Parent state stored in the root data cell.
@@ -325,20 +326,10 @@ enum HipoParentErrors {
 
 /// Return supply, mintability, treasury address, metadata content cell, and wallet code cell.
 get fun get_jetton_data(): HipoParentJettonDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw HipoParentErrors.AccessDenied;
-    assert (true) throw HipoParentErrors.OnlyBasechainAllowed;
-    assert (true) throw HipoParentErrors.InvalidOperation;
-    return {
-        totalTokens: 0,
-        mintable: true,
-        treasury: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-        walletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic Hipo wallet address for a basechain owner.
 get fun get_wallet_address(owner: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

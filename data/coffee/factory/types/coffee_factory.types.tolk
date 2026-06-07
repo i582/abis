@@ -581,69 +581,45 @@ enum CoffeeFactoryErrors {
 
 /// Return deterministic Vault address and hash for a serialized Coffee asset.
 get fun get_vault_address(asset: slice): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Pool address and hash for serialized Coffee assets, AMM, and settings.
 get fun get_pool_address(asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Pool address and hash without AMM settings.
 get fun get_pool_address_no_settings(asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Pool Creator address and hash for owner and Pool identity.
 get fun get_pool_creator_address(owner: address, asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Pool Creator address and hash without AMM settings.
 get fun get_pool_creator_address_no_settings(owner: address, asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Liquidity Depository address and hash for owner and Pool identity.
 get fun get_liquidity_depository_address(owner: address, asset1: slice, asset2: slice, amm: int, ammSettings: cell): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic Liquidity Depository address and hash without AMM settings.
 get fun get_liquidity_depository_address_no_settings(owner: address, asset1: slice, asset2: slice, amm: int): CoffeeFactoryAddressWithHash {
-    return {
-        address: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        hash: 0,
-    };
+    throw 0;
 }
 
 /// Return the Factory administrator address.
 get fun get_admin_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the two child-code storage refs.
 get fun get_code(): CoffeeFactoryCodeRefs {
-    return {
-        first: createEmptyCell() as Cell<CoffeeFactoryCodeCells>,
-        second: createEmptyCell() as Cell<CoffeeFactoryCodeDictionaries>,
-    };
+    throw 0;
 }

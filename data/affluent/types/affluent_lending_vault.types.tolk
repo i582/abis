@@ -162,19 +162,7 @@ struct GetVaultDataReply {
 }
 
 get fun get_vault_data(): GetVaultDataReply {
-    return {
-        totalSupply: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        managerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        assetAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        balance: 0,
-        cash: 0,
-        totalTargetWeight: 0,
-        assetWalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        whitelistedPool: [],
-        jettonWalletCode: createEmptyCell(),
-        poolAggregatorCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 struct GetJettonDataReply {
@@ -186,15 +174,9 @@ struct GetJettonDataReply {
 }
 
 get fun get_jetton_data(): GetJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: false,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

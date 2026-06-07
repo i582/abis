@@ -7,6 +7,7 @@ contract StonfiPoolV2Stableswap {
     incomingMessages: StonfiPoolV2StableswapIncomingMessage
     outgoingMessages: StonfiPoolV2StableswapOutgoingMessage
     forceAbiExport: StonfiPoolV2StableswapRouterSetParams
+    thrownErrors: StonfiPoolV2StableswapErrors
 }
 
 /// Runtime Pool data cell: common Pool storage followed by StableSwap `amp` and a static-data ref.
@@ -566,63 +567,25 @@ enum StonfiPoolV2StableswapErrors {
 
 /// Return the pool type string; source returns `stableswap`.
 get fun get_pool_type(): string {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw StonfiPoolV2StableswapErrors.NotConverge;
-    assert (true) throw StonfiPoolV2StableswapErrors.NoLiquidity;
-    assert (true) throw StonfiPoolV2StableswapErrors.ZeroOutput;
-    assert (true) throw StonfiPoolV2StableswapErrors.InvalidCaller;
-    assert (true) throw StonfiPoolV2StableswapErrors.InsufficientGas;
-    assert (true) throw StonfiPoolV2StableswapErrors.WrongWorkchain;
-    assert (true) throw StonfiPoolV2StableswapErrors.WrongAddress;
-    assert (true) throw StonfiPoolV2StableswapErrors.LowLiquidity;
-    assert (true) throw StonfiPoolV2StableswapErrors.MathError;
-    assert (true) throw StonfiPoolV2StableswapErrors.InvalidAmount;
-    assert (true) throw StonfiPoolV2StableswapErrors.InvalidCall;
-    assert (true) throw StonfiPoolV2StableswapErrors.FeeOutOfRange;
-    assert (true) throw StonfiPoolV2StableswapErrors.InvalidToken;
-    assert (true) throw StonfiPoolV2StableswapErrors.EmptyNotAllowed;
-    assert (true) throw StonfiPoolV2StableswapErrors.MaxInRatio;
-    assert (true) throw StonfiPoolV2StableswapErrors.EmptyCell;
-    assert (true) throw StonfiPoolV2StableswapErrors.WrongOperation;
-    return "stableswap";
+    throw 0;
 }
 
 /// Return the deterministic LP account address for `ownerAddress`.
 get fun get_lp_account_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return LP minter data for the Pool's LP jetton.
 get fun get_jetton_data(): StonfiPoolV2StableswapJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return current StableSwap PoolData as common 12 fields plus `amp:uint32`.
 get fun get_pool_data(): StonfiPoolV2StableswapPoolDataReply {
-    return {
-        isLocked: false,
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        totalSupply: 0,
-        reserve0: 0,
-        reserve1: 0,
-        token0WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        token1WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        lpFee: 0,
-        protocolFee: 0,
-        protocolFeeAddress: createAddressNone(),
-        collectedToken0ProtocolFee: 0,
-        collectedToken1ProtocolFee: 0,
-        amp: 0,
-    };
+    throw 0;
 }

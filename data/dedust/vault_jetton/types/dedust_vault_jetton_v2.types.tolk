@@ -7,6 +7,7 @@ contract DedustVaultJettonV2 {
     incomingMessages: DedustVaultJettonV2IncomingMessage
     outgoingMessages: DedustVaultJettonV2OutgoingMessage
     forceAbiExport: DedustVaultJettonV2ForwardPayload | DedustVaultJettonV2ProvideWalletAddress
+    thrownErrors: DedustVaultJettonV2Errors
 }
 
 /// Runtime storage loaded by the verified Jetton Vault code root data cell.
@@ -346,37 +347,25 @@ enum DedustVaultJettonV2Errors {
 
 /// Return the DeDust vault version stored as a 16-bit field.
 get fun get_version(): uint16 {
-    assert (true) throw DedustVaultJettonV2Errors.InvalidJettonWalletSender;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidFactorySender;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidAssetOrPayload;
-    assert (true) throw DedustVaultJettonV2Errors.InsufficientValue;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidPoolSender;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidLiquidityDepositSender;
-    assert (true) throw DedustVaultJettonV2Errors.VaultNotReady;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidReadinessState;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidDepositAmounts;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidDepositAsset;
-    assert (true) throw DedustVaultJettonV2Errors.InvalidOperatorSender;
-    assert (true) throw DedustVaultJettonV2Errors.UnsupportedOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return whether the Jetton wallet address has been synced and stored.
 get fun is_ready(): bool {
-    return false;
+    throw 0;
 }
 
 /// Return the authenticated Factory address stored in Jetton Vault state.
 get fun get_factory_addr(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the vault-owned Jetton wallet address, or `addr_none` before readiness sync.
 get fun get_wallet_addr(): address? {
-    return null;
+    throw 0;
 }
 
 /// Return the Jetton asset slice; live USDT vault returns tag, workchain id, and minter hash.
 get fun get_asset(): slice {
-    return createEmptyCell().beginParse();
+    throw 0;
 }

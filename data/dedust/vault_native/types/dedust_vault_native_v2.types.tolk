@@ -7,6 +7,7 @@ contract DedustVaultNativeV2 {
     incomingMessages: DedustVaultNativeV2IncomingMessage
     outgoingMessages: DedustVaultNativeV2OutgoingMessage
     forceAbiExport: DedustVaultNativeV2InlineDepositLiquidityCandidate
+    thrownErrors: DedustVaultNativeV2Errors
 }
 
 /// Runtime storage loaded by the verified native vault code root data cell.
@@ -307,25 +308,15 @@ enum DedustVaultNativeV2Errors {
 
 /// Return the DeDust vault version stored as a 16-bit field.
 get fun get_version(): uint16 {
-    assert (true) throw DedustVaultNativeV2Errors.InvalidFactorySender;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidAssetOrPayload;
-    assert (true) throw DedustVaultNativeV2Errors.InsufficientValue;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidPoolSender;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidLiquidityDepositSender;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidDepositAmounts;
-    assert (true) throw DedustVaultNativeV2Errors.SwapPathTooLong;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidDepositAsset;
-    assert (true) throw DedustVaultNativeV2Errors.InvalidOperatorSender;
-    assert (true) throw DedustVaultNativeV2Errors.UnsupportedOperation;
-    return 0;
+    throw 0;
 }
 
 /// Return the authenticated Factory address stored in Native Vault state.
 get fun get_factory_addr(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the raw DeDust asset slice; live code returns the four-bit native tag.
 get fun get_asset(): slice {
-    return createEmptyCell().beginParse();
+    throw 0;
 }

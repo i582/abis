@@ -6,6 +6,7 @@ contract AirdropInterlockerV2 {
     storage: AirdropInterlockerV2Storage
     incomingMessages: AirdropInterlockerV2IncomingMessage
     outgoingMessages: AirdropInterlockerV2OutgoingMessage
+    thrownErrors: AirdropInterlockerV2Errors
 }
 
 /// Persistent v2 interlocker state stored in the root data cell.
@@ -110,34 +111,15 @@ enum AirdropInterlockerV2Errors {
 
 /// Return Merkle root, receiver, distributor, and minimum commission.
 get fun get_distribution_info(): GetDistributionInfoReply {
-    assert (true) throw AirdropInterlockerV2Errors.MissingProofEntry;
-    assert (true) throw AirdropInterlockerV2Errors.AlreadyClaimed;
-    assert (true) throw AirdropInterlockerV2Errors.SenderIsNotReceiver;
-    assert (true) throw AirdropInterlockerV2Errors.InsufficientCommission;
-    assert (true) throw AirdropInterlockerV2Errors.NoAvailableUnlock;
-    assert (true) throw AirdropInterlockerV2Errors.MissingProof;
-    assert (true) throw AirdropInterlockerV2Errors.InvalidProofTag;
-    assert (true) throw AirdropInterlockerV2Errors.ProofReceiverMismatch;
-    assert (true) throw AirdropInterlockerV2Errors.UnknownOpcode;
-    return {
-        merkleRoot: 0,
-        receiver: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        distributor: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        minCommission: 0,
-    };
+    throw 0;
 }
 
 /// Return claim state, amount counters, and raw unlock schedule.
 get fun get_unlocks_info(): GetUnlocksInfoReply {
-    return {
-        claimed: false,
-        totalAmount: 0,
-        claimedAmount: 0,
-        unlocks: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the amount currently available for claim.
 get fun get_available_claim_amount(): coins {
-    return 0;
+    throw 0;
 }

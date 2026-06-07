@@ -8,6 +8,7 @@ contract GetgemsNftFixpriceSaleV4R1 {
     incomingMessages: GetgemsNftFixpriceSaleV4R1IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV4R1OutgoingMessage
     forceAbiExport: GetgemsNftFixpriceSaleV4R1EmptyTonBuy
+    thrownErrors: GetgemsNftFixpriceSaleV4R1Errors
 }
 
 /// Persistent runtime sale state after `save_data` rewrites the root cell.
@@ -281,35 +282,5 @@ enum GetgemsNftFixpriceSaleV4R1Errors {
 
 /// Return fixed-price sale state, fee fractions, and Jetton price dictionary.
 get fun get_fix_price_data_v4(): GetgemsNftFixpriceSaleV4R1FixPriceDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.MissingDeployPublicKey;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.InvalidDeploySignature;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.AlreadySoldOrCancelled;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.Mode32NotAllowed;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.CannotExecuteCommandAtThisTime;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.NotEnoughTonsForSale;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.InconsistentPriceAndFees;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.JettonWalletWrongWorkchain;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.NotEnoughTonsForCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.TonPriceDisabled;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.UnauthorizedInitiation;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.NotEnoughFundsForSale;
-    assert (true) throw GetgemsNftFixpriceSaleV4R1Errors.UnknownOperation;
-    return {
-        isComplete: false,
-        createdAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        feeAddress: createAddressNone(),
-        feePercent: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyPercent: 0,
-        soldAt: 0,
-        soldQueryId: 0,
-        jettonPriceDict: [],
-    };
+    throw 0;
 }

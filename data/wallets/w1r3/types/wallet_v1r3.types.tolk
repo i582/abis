@@ -5,6 +5,7 @@ contract WalletV1r3 {
     description: "Curated Wallet V1 R3 interface"
     storage: WalletV1r3Storage
     incomingExternal: WalletV1r3IncomingExternalMessage
+    thrownErrors: Errors
 }
 
 /// Persistent Wallet V1 R3 state.
@@ -38,13 +39,10 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidSignature;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }

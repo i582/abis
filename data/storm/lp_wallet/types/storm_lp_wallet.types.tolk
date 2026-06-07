@@ -7,6 +7,7 @@ contract StormLpWallet {
     incomingMessages: StormLpWalletIncomingMessage
     outgoingMessages: StormLpWalletOutgoingMessage
     forceAbiExport: StormLpWalletBouncedKnownBody
+    thrownErrors: StormLpWalletErrors
 }
 
 /// Runtime LP Jetton wallet storage parsed by get_wallet_data and every internal-message branch.
@@ -165,19 +166,5 @@ enum StormLpWalletErrors {
 
 /// Return the standard Jetton wallet tuple: balance, owner, minter/master, and wallet code cell.
 get fun get_wallet_data(): GetStormLpWalletDataReply {
-    assert (true) throw StormLpWalletErrors.UnauthorizedOwner;
-    assert (true) throw StormLpWalletErrors.InsufficientJettonBalance;
-    assert (true) throw StormLpWalletErrors.InvalidInternalTransferSender;
-    assert (true) throw StormLpWalletErrors.MissingForwardPayload;
-    assert (true) throw StormLpWalletErrors.TransferFundingTooLow;
-    assert (true) throw StormLpWalletErrors.WrongWorkchain;
-    assert (true) throw StormLpWalletErrors.BurnFundingTooLow;
-    assert (true) throw StormLpWalletErrors.UnsupportedBouncedOperation;
-    assert (true) throw StormLpWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

@@ -6,7 +6,7 @@ contract PtonWalletV2 {
     storage: PtonWalletV2Storage
     incomingMessages: PtonWalletV2IncomingMessage
     outgoingMessages: PtonWalletV2OutgoingMessage
-    forceAbiExport: PtonWalletV2Errors
+    thrownErrors: PtonWalletV2Errors
 }
 
 /// Persistent pTON wallet state stored in the root data cell.
@@ -133,17 +133,5 @@ enum PtonWalletV2Errors {
 
 /// Return wallet balance, owner, minter, and wallet code.
 get fun get_wallet_data(): PtonWalletV2WalletDataReply {
-    assert (true) throw PtonWalletV2Errors.InsufficientGas;
-    assert (true) throw PtonWalletV2Errors.InvalidAddress;
-    assert (true) throw PtonWalletV2Errors.WrongWorkchain;
-    assert (true) throw PtonWalletV2Errors.LowAmount;
-    assert (true) throw PtonWalletV2Errors.LowBalance;
-    assert (true) throw PtonWalletV2Errors.InvalidBody;
-    assert (true) throw PtonWalletV2Errors.WrongOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

@@ -6,6 +6,7 @@ contract StablecoinWallet {
     storage: StablecoinWalletStorage
     incomingMessages: StablecoinWalletIncomingMessage
     outgoingMessages: StablecoinWalletOutgoingMessage
+    thrownErrors: StablecoinWalletErrors
 }
 
 /// Persistent governed wallet state stored in the root data cell.
@@ -159,24 +160,10 @@ enum StablecoinWalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetStablecoinWalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw StablecoinWalletErrors.ContractLocked;
-    assert (true) throw StablecoinWalletErrors.InsufficientJettonBalance;
-    assert (true) throw StablecoinWalletErrors.NotEnoughGas;
-    assert (true) throw StablecoinWalletErrors.InvalidMessage;
-    assert (true) throw StablecoinWalletErrors.UnauthorizedOwnerOrMaster;
-    assert (true) throw StablecoinWalletErrors.InvalidSender;
-    assert (true) throw StablecoinWalletErrors.WrongWorkchain;
-    assert (true) throw StablecoinWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the current four-bit wallet lock status.
 get fun get_status(): uint4 {
-    return 0;
+    throw 0;
 }

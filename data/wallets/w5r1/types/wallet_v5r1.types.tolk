@@ -7,6 +7,7 @@ contract WalletV5r1 {
     incomingMessages: WalletV5r1IncomingMessage
     incomingExternal: WalletV5r1IncomingExternalMessage
     forceAbiExport: WalletV5r1ExtraAction
+    thrownErrors: Errors
 }
 
 /// Persistent Wallet V5 R1 state.
@@ -135,42 +136,25 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): int {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.SignatureDisabled;
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidWalletId;
-    assert (true) throw Errors.InvalidSignature;
-    assert (true) throw Errors.Expired;
-    assert (true) throw Errors.ExternalSendMessageMustHaveIgnoreErrorsSendMode;
-    assert (true) throw Errors.InvalidMessageOperation;
-    assert (true) throw Errors.AddExtension;
-    assert (true) throw Errors.RemoveExtension;
-    assert (true) throw Errors.UnsupportedAction;
-    assert (true) throw Errors.DisableSignatureWhenExtensionsIsEmpty;
-    assert (true) throw Errors.ThisSignatureModeAlreadySet;
-    assert (true) throw Errors.RemoveLastExtensionWhenSignatureDisabled;
-    assert (true) throw Errors.ExtensionWrongWorkchain;
-    assert (true) throw Errors.OnlyExtensionCanChangeSignatureMode;
-    assert (true) throw Errors.InvalidC5;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the wallet id, equivalent to subwallet id.
 get fun get_subwallet_id(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the raw extension dictionary keyed by extension address hash.
 get fun get_extensions(): map<uint256, bool> {
-    return [];
+    throw 0;
 }
 
 /// Return whether public-key signature authentication is currently allowed.
 get fun is_signature_allowed(): bool {
-    return false;
+    throw 0;
 }

@@ -7,6 +7,7 @@ contract GetgemsNftCollectionV2 {
     incomingMessages: GetgemsNftCollectionV2IncomingMessage
     outgoingMessages: GetgemsNftCollectionV2OutgoingMessage
     forceAbiExport: GetgemsNftCollectionV2LegacyStorage | GetgemsNftCollectionV2ItemMintInit | GetgemsNftCollectionV2BatchDeployItem | GetgemsNftCollectionV2BatchAutoIndexFlag
+    thrownErrors: GetgemsNftCollectionV2Errors
 }
 
 /// Current collection v2 storage written by `save_data`.
@@ -196,40 +197,25 @@ enum GetgemsNftCollectionV2Errors {
 
 /// Return next item index, collection metadata cell, and primary owner address.
 get fun get_collection_data(): GetgemsNftCollectionV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftCollectionV2Errors.BatchLimitExceeded;
-    assert (true) throw GetgemsNftCollectionV2Errors.UnauthorizedOwnerOrSecondOwner;
-    assert (true) throw GetgemsNftCollectionV2Errors.InvalidItemIndex;
-    assert (true) throw GetgemsNftCollectionV2Errors.InvalidBatchItemIndexBase;
-    assert (true) throw GetgemsNftCollectionV2Errors.UnauthorizedPrimaryOwnerChange;
-    assert (true) throw GetgemsNftCollectionV2Errors.UnsupportedOperation;
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic NFT item address for an item index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return royalty numerator, denominator, and payout address.
 get fun royalty_params(): GetgemsNftCollectionV2RoyaltyParams {
-    return {
-        numerator: 0,
-        denominator: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return full NFT content by combining common collection content with individual item content.
 get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the secondary owner address used by Getgems collection v2 admin checks.
 get fun get_second_owner_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

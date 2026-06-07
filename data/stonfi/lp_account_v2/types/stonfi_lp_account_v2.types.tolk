@@ -180,10 +180,5 @@ struct StonfiLpAccountV2DataReply {
 
 /// Returns the current LP Account owner, pool, and stored first/second Jetton balances.
 get fun get_lp_account_data(): StonfiLpAccountV2DataReply {
-    return {
-        userAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        poolAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        amount0: 0,
-        amount1: 0,
-    };
+    throw 0;
 }

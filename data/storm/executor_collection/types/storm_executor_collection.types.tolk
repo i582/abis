@@ -7,6 +7,7 @@ contract StormExecutorCollection {
     incomingMessages: StormExecutorCollectionIncomingMessage
     outgoingMessages: StormExecutorCollectionOutgoingMessage
     forceAbiExport: StormExecutorCollectionContent
+    thrownErrors: StormExecutorCollectionErrors
 }
 
 /// Root persistent storage.
@@ -172,40 +173,25 @@ enum StormExecutorCollectionErrors {
 
 /// Return next executor index, collection metadata, and admin address.
 get fun get_collection_data(): StormExecutorCollectionDataReply {
-    assert (true) throw StormExecutorCollectionErrors.NotAnOwner;
-    assert (true) throw StormExecutorCollectionErrors.ProvideVaultsMinValue;
-    assert (true) throw StormExecutorCollectionErrors.UnauthorizedBatchRequest;
-    assert (true) throw StormExecutorCollectionErrors.WrongVaultWc;
-    assert (true) throw StormExecutorCollectionErrors.VaultAlreadyAdded;
-    assert (true) throw StormExecutorCollectionErrors.MinExecutorMintValue;
-    assert (true) throw StormExecutorCollectionErrors.WrongOperation;
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return deterministic executor item address for an executor index.
 get fun get_nft_address_by_index(itemIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return royalty numerator, denominator, and payout address.
 get fun royalty_params(): StormRoyaltyParams {
-    return {
-        numerator: 0,
-        denominator: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return full NFT content by combining common collection content with individual item content.
 get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the whitelisted vault dictionary.
 get fun get_executor_vaults_whitelist(): map<uint256, coins> {
-    return [];
+    throw 0;
 }

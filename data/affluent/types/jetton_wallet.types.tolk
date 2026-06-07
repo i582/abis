@@ -71,10 +71,5 @@ struct GetWalletDataReply {
 }
 
 get fun get_wallet_data(): GetWalletDataReply {
-    return {
-        balance: 0,
-        owner: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jetton: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

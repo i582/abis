@@ -7,6 +7,7 @@ contract BemoFinancial {
     incomingMessages: BemoFinancialIncomingMessage
     outgoingMessages: BemoFinancialOutgoingMessage
     forceAbiExport: BemoFinancialEmptyStake | BemoFinancialLockupData
+    thrownErrors: BemoFinancialErrors
 }
 
 /// Referenced lockup accounting state stored at the end of Financial storage.
@@ -392,59 +393,25 @@ enum BemoFinancialErrors {
 
 /// Return the complete Financial storage tuple exposed by Bemo docs.
 get fun get_full_data(): BemoFinancialFullDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw BemoFinancialErrors.WrongWorkchain;
-    assert (true) throw BemoFinancialErrors.NotEnoughValue;
-    assert (true) throw BemoFinancialErrors.InvalidBurnNotificationSender;
-    assert (true) throw BemoFinancialErrors.InvalidUnstakeRequestSender;
-    assert (true) throw BemoFinancialErrors.InvalidCommissionDeposit;
-    assert (true) throw BemoFinancialErrors.Unauthorized;
-    assert (true) throw BemoFinancialErrors.InvalidTransactionSender;
-    assert (true) throw BemoFinancialErrors.InvalidAmount;
-    assert (true) throw BemoFinancialErrors.MissingTrackedAmount;
-    assert (true) throw BemoFinancialErrors.InvalidCommissionFactor;
-    assert (true) throw BemoFinancialErrors.UnsupportedOperation;
-    return {
-        jettonTotalSupply: 0,
-        tonTotalSupply: 0,
-        commissionTotalSupply: 0,
-        commissionFactor: 0,
-        commissionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        transactionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-        unstakeRequestCode: createEmptyCell(),
-        lastLockupEpoch: 0,
-        lockupSupply: 0,
-        nextLockupSupply: 0,
-        laterLockupSupply: 0,
-        nextUnstakeRequestIndex: 0,
-    };
+    throw 0;
 }
 
 /// Return total supply, mintability, admin address, content cell, and wallet code cell.
 get fun get_jetton_data(): BemoFinancialJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic bmTON wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic Unstake Request address for a sequential `index`.
 get fun get_unstake_request_address(index: uint64): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the Bemo lockup period in seconds.
 get fun get_lockup_period(): uint32 {
-    return 0;
+    throw 0;
 }

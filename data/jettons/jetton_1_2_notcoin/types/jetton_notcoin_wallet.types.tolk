@@ -6,6 +6,7 @@ contract JettonNotcoinWallet {
     storage: JettonNotcoinWalletStorage
     incomingMessages: JettonNotcoinWalletIncomingMessage
     outgoingMessages: JettonNotcoinWalletOutgoingMessage
+    thrownErrors: JettonNotcoinWalletErrors
 }
 
 /// Persistent Notcoin-style wallet state stored in the root data cell.
@@ -148,23 +149,10 @@ enum JettonNotcoinWalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetJettonNotcoinWalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw JettonNotcoinWalletErrors.InsufficientJettonBalance;
-    assert (true) throw JettonNotcoinWalletErrors.NotEnoughGas;
-    assert (true) throw JettonNotcoinWalletErrors.InvalidMessage;
-    assert (true) throw JettonNotcoinWalletErrors.UnauthorizedOwner;
-    assert (true) throw JettonNotcoinWalletErrors.InvalidSender;
-    assert (true) throw JettonNotcoinWalletErrors.WrongWorkchain;
-    assert (true) throw JettonNotcoinWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the stored four-bit status field, currently unused and expected to remain 0.
 get fun get_status(): uint4 {
-    return 0;
+    throw 0;
 }

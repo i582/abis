@@ -128,11 +128,5 @@ enum NftV1ItemErrors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): GetNftV1DataReply {
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }

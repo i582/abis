@@ -262,33 +262,30 @@ struct GetBidaskPoolFactoryFeesReply {
 
 /// Tact compatibility getter; live bytecode returns the ASCII hex SDK interface hash.
 get fun sdk_interfaces_hash(): string {
-    return "";
+    throw 0;
 }
 
 /// Return the factory preset dictionary as a raw optional cell.
 get fun get_presets(): cell? {
-    return null;
+    throw 0;
 }
 
 /// Return the current factory owner.
 get fun owner(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic pool address for a deployer/factory address and seed cell.
 get fun get_pool_address(deployer: address, seed: cell): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the raw factory data cell.
 get fun get_storage(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the current default protocol and referral fees.
 get fun fees(): GetBidaskPoolFactoryFeesReply {
-    return {
-        protocolFee: 0,
-        refFee: 0,
-    };
+    throw 0;
 }

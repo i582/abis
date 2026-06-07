@@ -7,6 +7,7 @@ contract TonstakersValidatorController {
     incomingMessages: TonstakersValidatorControllerIncomingMessage
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage
     forceAbiExport: TonstakersValidatorControllerEmptyBody | TonstakersValidatorControllerBouncedKnownBody
+    thrownErrors: TonstakersValidatorControllerErrors
 }
 
 /// Shared static role cell referenced from the controller static-data cell.
@@ -414,59 +415,17 @@ enum TonstakersValidatorControllerErrors {
 
 /// Return the controller runtime state and selected static addresses.
 get fun get_validator_controller_data(): TonstakersValidatorControllerDataReply {
-    assert (true) throw TonstakersValidatorControllerErrors.UnknownOp;
-    assert (true) throw TonstakersValidatorControllerErrors.WrongSender;
-    assert (true) throw TonstakersValidatorControllerErrors.WrongState;
-    assert (true) throw TonstakersValidatorControllerErrors.Halted;
-    assert (true) throw TonstakersValidatorControllerErrors.SudoerQuarantine;
-    assert (true) throw TonstakersValidatorControllerErrors.TooEarlyStakeRecoverAttemptCount;
-    assert (true) throw TonstakersValidatorControllerErrors.TooEarlyStakeRecoverAttemptTime;
-    assert (true) throw TonstakersValidatorControllerErrors.TooLowRecoverStakeValue;
-    assert (true) throw TonstakersValidatorControllerErrors.TooLowRequestLoanValue;
-    assert (true) throw TonstakersValidatorControllerErrors.TooMuchValidatorSetCounts;
-    assert (true) throw TonstakersValidatorControllerErrors.NoNewHash;
-    assert (true) throw TonstakersValidatorControllerErrors.WithdrawalWhileCredited;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectWithdrawalAmount;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeQueryId;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeRequestValue;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeValueLtMinimum;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeValueTooHigh;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeWronglyUsedCredit;
-    assert (true) throw TonstakersValidatorControllerErrors.IncorrectNewStakeSolvencyNotGuaranteed;
-    assert (true) throw TonstakersValidatorControllerErrors.ControllerNotApproved;
-    assert (true) throw TonstakersValidatorControllerErrors.MultipleLoansAreProhibited;
-    assert (true) throw TonstakersValidatorControllerErrors.TooEarlyLoanRequest;
-    assert (true) throw TonstakersValidatorControllerErrors.TooLateLoanRequest;
-    assert (true) throw TonstakersValidatorControllerErrors.TooHighLoanRequestAmount;
-    assert (true) throw TonstakersValidatorControllerErrors.CreditInterestTooHigh;
-    assert (true) throw TonstakersValidatorControllerErrors.NoCredit;
-    assert (true) throw TonstakersValidatorControllerErrors.TooEarlyLoanReturn;
-    return {
-        state: 0,
-        halted: false,
-        approved: false,
-        stakeAmountSent: 0,
-        stakeAt: 0,
-        savedValidatorSetHash: 0,
-        validatorSetChangesCount: 0,
-        validatorSetChangeTime: 0,
-        stakeHeldFor: 0,
-        borrowedAmount: 0,
-        borrowingTime: 0,
-        validator: createAddressNone(),
-        pool: createAddressNone(),
-        sudoer: createAddressNone(),
-    };
+    throw 0;
 }
 
 /// Return the maximum recommended punishment for a validator stake value.
 get fun get_max_punishment(stake: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return the maximum stake value the controller can send, or `-1` when staking is unavailable.
 get fun get_max_stake_value(): int {
-    return -1;
+    throw 0;
 }
 
 /// Return required balance and validator-owned amount for a candidate loan.
@@ -474,16 +433,10 @@ get fun required_balance_for_loan(
     credit: coins,
     interest: uint24,
 ): TonstakersValidatorControllerRequiredBalanceForLoanReply {
-    return {
-        requiredBalance: 0,
-        validatorAmount: 0,
-    };
+    throw 0;
 }
 
 /// Return the current election-round loan request window.
 get fun request_window_time(): TonstakersValidatorControllerRequestWindowTimeReply {
-    return {
-        since: 0,
-        until: 0,
-    };
+    throw 0;
 }

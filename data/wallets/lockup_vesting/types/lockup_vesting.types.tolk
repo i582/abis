@@ -5,6 +5,7 @@ contract LockupVesting {
     description: "Curated old lockup vesting wallet interface"
     storage: LockupVestingStorage
     incomingExternal: LockupVestingIncomingExternalMessage
+    thrownErrors: Errors
 }
 
 /// Persistent old lockup vesting wallet state.
@@ -80,34 +81,20 @@ enum Errors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Errors.InvalidSeqno;
-    assert (true) throw Errors.InvalidSubwalletId;
-    assert (true) throw Errors.InvalidSignature;
-    assert (true) throw Errors.ExpiredMessage;
-    assert (true) throw Errors.InvalidRefsCount;
-    assert (true) throw Errors.InvalidSendMode;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored Ed25519 public key.
 get fun get_public_key(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the amount locked at the supplied Unix timestamp.
 get fun get_locked_amount(atTime: int): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return lockup vesting schedule parameters.
 get fun get_lockup_data(): GetLockupDataReply {
-    return {
-        startTime: 0,
-        totalDuration: 0,
-        unlockPeriod: 0,
-        cliffDuration: 0,
-        totalAmount: 0,
-        allowElector: false,
-    };
+    throw 0;
 }

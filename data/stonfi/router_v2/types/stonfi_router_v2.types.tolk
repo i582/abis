@@ -656,39 +656,25 @@ struct GetRouterVersionReply {
 
 /// Return the deterministic Pool address for a pair of Router-owned Jetton wallets.
 get fun get_pool_address(token0: address, token1: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic referral-fee Vault address for a Vault owner and Router-owned Jetton wallet.
 get fun get_vault_address(user: address, token: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return Router id, type, lock/admin state, upgrade state, and contract code cells.
 get fun get_router_data(): GetRouterDataReply {
-    return {
-        id: 0,
-        dexType: "",
-        isLocked: false,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tempUpgrade: createEmptyCell(),
-        poolCode: createEmptyCell(),
-        jettonLpWalletCode: createEmptyCell(),
-        lpAccountCode: createEmptyCell(),
-        vaultCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the finalized Pool code cell staged for Pool code updates.
 get fun get_upgraded_pool_code(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return major, minor, and development version constants compiled into the Router.
 get fun get_router_version(): GetRouterVersionReply {
-    return {
-        major: 0,
-        minor: 0,
-        development: "",
-    };
+    throw 0;
 }

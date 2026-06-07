@@ -7,6 +7,7 @@ contract EvaaMasterPyth {
     incomingMessages: EvaaMasterPythIncomingMessage
     outgoingMessages: EvaaMasterPythOutgoingMessage
     forceAbiExport: EvaaMasterPythGetConfigReply | EvaaMasterPythGetUIVariablesReply | EvaaMasterPythGetOraclesInfoReply
+    thrownErrors: EvaaMasterPythErrors
 }
 
 /// Runtime master data root.
@@ -1231,270 +1232,180 @@ enum EvaaMasterPythErrors {
 }
 
 fun exportEvaaMasterPythErrors(): void {
-    assert (true) throw EvaaMasterPythErrors.AddToReserveNotEnoughFees;
-    assert (true) throw EvaaMasterPythErrors.ClaimAssetReservesTransactionFees;
-    assert (true) throw EvaaMasterPythErrors.IncomingAssetTransactionFees;
-    assert (true) throw EvaaMasterPythErrors.LiquidateAssetTransactionFees;
-    assert (true) throw EvaaMasterPythErrors.PythFeedsUpdateTransactionFees;
-    assert (true) throw EvaaMasterPythErrors.SupplyWithdrawMasterTransactionFees;
-    assert (true) throw EvaaMasterPythErrors.MasterLiquidatingTooMuch;
-    assert (true) throw EvaaMasterPythErrors.NotLiquidatable;
-    assert (true) throw EvaaMasterPythErrors.MinCollateralNotSatisfied;
-    assert (true) throw EvaaMasterPythErrors.UserNotEnoughCollateral;
-    assert (true) throw EvaaMasterPythErrors.UserLiquidatingTooMuch;
-    assert (true) throw EvaaMasterPythErrors.MasterNotEnoughLiquidity;
-    assert (true) throw EvaaMasterPythErrors.LiquidationPricesMissing;
-    assert (true) throw EvaaMasterPythErrors.LiquidationExecutionCrashed;
-    assert (true) throw EvaaMasterPythErrors.ReceivedUnsupportedJetton;
-    assert (true) throw EvaaMasterPythErrors.UnsupportedJettonOpCode;
-    assert (true) throw EvaaMasterPythErrors.JettonExecutionCrashed;
-    assert (true) throw EvaaMasterPythErrors.ClaimAssetReservesNotAdmin;
-    assert (true) throw EvaaMasterPythErrors.ClaimAssetReservesNotEnough;
-    assert (true) throw EvaaMasterPythErrors.ClaimAssetReservesTooMuch;
-    assert (true) throw EvaaMasterPythErrors.MessageNotFromAdmin;
-    assert (true) throw EvaaMasterPythErrors.MessageNotFromMaster;
-    assert (true) throw EvaaMasterPythErrors.DifferentWorkchain;
-    assert (true) throw EvaaMasterPythErrors.SupplySuccessFakeSender;
-    assert (true) throw EvaaMasterPythErrors.SupplyFailFakeSender;
-    assert (true) throw EvaaMasterPythErrors.LiquidateUnsatisfiedFakeSender;
-    assert (true) throw EvaaMasterPythErrors.LiquidateSatisfiedFakeSender;
-    assert (true) throw EvaaMasterPythErrors.RevertFakeSender;
-    assert (true) throw EvaaMasterPythErrors.SupplyWithdrawUnsatisfiedFakeSender;
-    assert (true) throw EvaaMasterPythErrors.SupplyWithdrawSatisfiedFakeSender;
-    assert (true) throw EvaaMasterPythErrors.UpgradeNotAllowedFreezeTooShort;
-    assert (true) throw EvaaMasterPythErrors.UpgradeNotAllowedTooEarlyUpdate;
-    assert (true) throw EvaaMasterPythErrors.UpgradeNotAllowedTooEarlyFreeze;
-    assert (true) throw EvaaMasterPythErrors.UpgradeNotAllowedNewCodeIsEmpty;
-    assert (true) throw EvaaMasterPythErrors.UserCodeVersionMismatch;
-    assert (true) throw EvaaMasterPythErrors.BrokenUpgradeInfo;
-    assert (true) throw EvaaMasterPythErrors.UnexpectedEmptyValue;
-    assert (true) throw EvaaMasterPythErrors.UserDataChanged;
-    assert (true) throw EvaaMasterPythErrors.PricesIncorrectTimestamp;
-    assert (true) throw EvaaMasterPythErrors.PricesNotPositive;
-    assert (true) throw EvaaMasterPythErrors.RefTokenNotAllowed;
-    assert (true) throw EvaaMasterPythErrors.RefTokenNoReferredValue;
-    assert (true) throw EvaaMasterPythErrors.Disabled;
-    assert (true) throw EvaaMasterPythErrors.UserWithdrawInProgress;
-    assert (true) throw EvaaMasterPythErrors.BouncedOnBlank;
-    assert (true) throw EvaaMasterPythErrors.InvalidAddressProvided;
-    assert (true) throw EvaaMasterPythErrors.CustomResponsePayloadTooBig;
-    assert (true) throw EvaaMasterPythErrors.AlreadyExists;
-    assert (true) throw EvaaMasterPythErrors.WeScrewedUpRevert;
-    assert (true) throw EvaaMasterPythErrors.AroundZeroSplitMessedUp;
-    assert (true) throw EvaaMasterPythErrors.AlreadyInited;
-    assert (true) throw EvaaMasterPythErrors.InvalidData;
-    assert (true) throw EvaaMasterPythErrors.TonUnsupported;
-    assert (true) throw EvaaMasterPythErrors.IntegerOutOfExpectedRange;
-    assert (true) throw EvaaMasterPythErrors.PythNotAuthorized;
-    assert (true) throw EvaaMasterPythErrors.UnsupportedFeedsOperation;
-    assert (true) throw EvaaMasterPythErrors.UnsupportedMasterPythOperation;
-    assert (true) throw EvaaMasterPythErrors.UnexpectedOperationInPythErrorResponse;
-    assert (true) throw EvaaMasterPythErrors.PythErrorOnLiquidate;
-    assert (true) throw EvaaMasterPythErrors.OnchainGetterInvalidSender;
-    assert (true) throw EvaaMasterPythErrors.PythErrorOnSupplyWithdraw;
-    assert (true) throw EvaaMasterPythErrors.UnsupportedPriceId;
-    assert (true) throw EvaaMasterPythErrors.NotSavedPriceId;
-    assert (true) throw EvaaMasterPythErrors.ReferredPriceIdNotFound;
-    assert (true) throw EvaaMasterPythErrors.UnsupportedOperation;
+
 }
 
 /// Return collateral quote for a borrow/collateral liquidation pair.
 get fun getCollateralQuote(borrowAssetId: int, borrowLiquidateAmount: int, collateralAssetId: int, pricesPacked: cell): int {
-    exportEvaaMasterPythErrors();
-    return 0;
+    throw 0;
 }
 
 /// Return updated rates for one asset and elapsed time.
 get fun getUpdatedRates(assetConfigCollection: cell, assetDynamicsCollection: cell, assetId: int, timeElapsed: int): EvaaMasterPythAssetRate {
-    return { sRate: 0, bRate: 0 };
+    throw 0;
 }
 
 /// Return updated rates for every asset.
 get fun getUpdatedRatesForAllAssets(timeElapsed: int): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return current supply and borrow rates for one asset.
 get fun getAssetRates(assetId: int): EvaaMasterPythAssetRate {
-    return { sRate: 0, bRate: 0 };
+    throw 0;
 }
 
 /// Return current supply and borrow rates for every asset.
 get fun get_assets_rates(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return protocol reserve amount for one asset.
 get fun getAssetReserves(assetId: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return protocol reserve amounts for every asset.
 get fun get_assets_reserves(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return total supply and total borrow for one asset.
 get fun getAssetTotals(assetId: int): EvaaMasterPythAssetTotals {
-    return { totalSupply: 0, totalBorrow: 0 };
+    throw 0;
 }
 
 /// Return asset dynamics collection.
 get fun getAssetsData(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return asset config collection.
 get fun getAssetsConfig(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return metadata, upgrade config, and master config bundle.
 get fun getConfig(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return full master storage cell.
 get fun getStore(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return asset dynamics, config, rates, and reserves bundle.
 get fun getUIVariables(): EvaaMasterPythGetUIVariablesReply {
-    return {
-        assetDynamicsCollection: createEmptyCell(),
-        config: createEmptyCell(),
-        assetsRates: createEmptyCell(),
-        assetsReserves: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return user contract address for the default subaccount.
 get fun get_user_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return user contract address for a subaccount.
 get fun get_user_subaccount_address(ownerAddress: address, subaccountId: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return minimum attachment for reserve claiming.
 get fun claim_asset_reserves_min_attachment(fwdFee: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return a dummy `supply_user` message body.
 get fun dummy_supply_user_message(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return minimum attachment for supply.
 get fun supply_min_attachment(fwdFee: int, supplyUserMessage: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return minimum attachment for withdraw.
 get fun withdraw_min_attachment(fwdFee: int, withdrawUserMessage: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return a dummy `liquidate_user` message body.
 get fun dummy_liquidate_user_message(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return minimum attachment for liquidation.
 get fun liquidate_min_attachment(fwdFee: int, liquidateUserMessage: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return total supply and borrow principals for one asset.
 get fun get_asset_total_principals(assetId: int): EvaaMasterPythAssetTotals {
-    return { totalSupply: 0, totalBorrow: 0 };
+    throw 0;
 }
 
 /// Return a dummy `supply_withdraw_user` message body.
 get fun dummy_supply_withdraw_user_message(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return minimum attachment for supply-withdraw.
 get fun supply_withdraw_min_attachment(fwdFee: int, supplyWithdrawUserMessage: cell): int {
-    return 0;
+    throw 0;
 }
 
 /// Return asset token balance.
 get fun get_asset_balance(assetId: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return asset liquidity.
 get fun get_asset_liquidity_by_id(assetId: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return asset liquidity minus reserves.
 get fun get_asset_liquidity_minus_reserves_by_id(assetId: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return stored supply and borrow rates for one asset.
 get fun get_asset_sb_rate(assetId: int): EvaaMasterPythAssetRate {
-    return { sRate: 0, bRate: 0 };
+    throw 0;
 }
 
 /// Return signed activity flag.
 get fun get_active(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return token keys dictionary.
 get fun getTokensKeys(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return last user contract version.
 get fun getLastUserScVersion(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return upgrade configuration.
 get fun getUpgradeConfig(): EvaaMasterPythUpgradeConfigReply {
-    return {
-        masterCodeVersion: 0,
-        userCodeVersion: 0,
-        timeout: 0,
-        updateTime: 0,
-        freezeTime: 0,
-        userCode: createEmptyCell(),
-        newMasterCode: null,
-        newUserCode: null,
-    };
+    throw 0;
 }
 
 /// Return reward tracking indexes and last accrual timestamp for one asset.
 get fun get_asset_tracking_info(assetId: int): EvaaMasterPythAssetTrackingInfo {
-    return {
-        trackingSupplyIndex: 0,
-        trackingBorrowIndex: 0,
-        lastAccrual: 0,
-    };
+    throw 0;
 }
 
 /// Return supervisor address.
 get fun get_supervisor(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return oracle configuration fields.
 get fun get_oracles_info(): EvaaMasterPythGetOraclesInfoReply {
-    return {
-        pythAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        feedsData: createEmptyCell(),
-        pricesTtl: 0,
-        pythComputeBaseGas: 0,
-        pythComputePerUpdateGas: 0,
-        pythSingleUpdateFee: 0,
-    };
+    throw 0;
 }

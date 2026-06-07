@@ -192,59 +192,7 @@ struct GetVaultDataAffluentVaultData {
 }
 
 get fun get_vault_data(): GetVaultDataAffluentVaultData {
-    return {
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        assets: createEmptyCell(),
-        factorialPools: null,
-        aggregatorIndex: 0,
-        rfqIndex: 0,
-        totalSupply: 0,
-        collectedManagementFee: 0,
-        collectedProtocolFee: 0,
-        isExecutingStrategy: false,
-        config: createEmptyCell(),
-        code: createEmptyCell(),
-        protocolFeeManagerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        manager: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        isPrivateVault: false,
-        depositCloseTimestamp: 0,
-        withdrawCloseTimestamp: 0,
-        whitelistedMinters: null,
-        lastCollectedTime: 0,
-        managementFeeRatePerYear: 0,
-        protocolFeeRatePerYear: 0,
-        maxLeverageRatio: 0,
-        assetWalletDict: createEmptyCell(),
-        walletAssetDict: createEmptyCell(),
-        rfqConfig: null,
-        gasConfig: null,
-        oracleConfig: null,
-        managementFeeRecipientAddress: null,
-        guardianAddress: null,
-        timelock: 0,
-        pendingOwnerActionIndex: 0,
-        pendingOwnerActionCount: 0,
-        pendingOwnerAction: null,
-        walletCode: createEmptyCell(),
-        dataAggregatorCode: createEmptyCell(),
-        rfqCode: createEmptyCell(),
-        content: createEmptyCell(),
-        globalDepositValueCap: 0,
-        withdrawFeeRate: 0,
-        queueWithdrawFeeRate: 0,
-        depositQueueTotalSize: 0,
-        depositQueueCounter: 0,
-        depositQueuePendingDict: null,
-        depositQueueProcessingDict: null,
-        withdrawQueueTotalSize: 0,
-        withdrawQueueCounter: 0,
-        withdrawQueuePendingDict: null,
-        withdrawQueueProcessingDict: null,
-        interactiveVaults: null,
-        xchainConnectorAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        xchainConfig: null,
-        xchainUpdateHash: 0,
-    };
+    throw 0;
 }
 
 struct GetJettonDataReply {
@@ -256,23 +204,17 @@ struct GetJettonDataReply {
 }
 
 get fun get_jetton_data(): GetJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: false,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 get fun is_strategy_vault(): bool {
-    return true;
+    throw 0;
 }
 
 get fun get_rfq_address(index: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

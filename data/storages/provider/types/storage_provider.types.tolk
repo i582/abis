@@ -8,6 +8,7 @@ contract StorageProvider {
     incomingExternal: StorageProviderIncomingExternalMessage
     outgoingMessages: StorageProviderOutgoingMessage
     forceAbiExport: TorrentInfo | StorageProviderExternalSendAction
+    thrownErrors: StorageProviderErrors
 }
 
 /// Persistent provider state stored in the root data cell.
@@ -186,43 +187,25 @@ enum StorageProviderErrors {
 
 /// Return the current replay-protection sequence number.
 get fun seqno(): uint32 {
-    assert (true) throw StorageProviderErrors.InvalidSeqno;
-    assert (true) throw StorageProviderErrors.InvalidSubwallet;
-    assert (true) throw StorageProviderErrors.ExpiredOrInvalidSignature;
-    assert (true) throw StorageProviderErrors.NotEnoughMoney;
-    assert (true) throw StorageProviderErrors.FileTooSmall;
-    assert (true) throw StorageProviderErrors.FileTooBig;
-    assert (true) throw StorageProviderErrors.NoNewContracts;
-    assert (true) throw StorageProviderErrors.ProviderParamsChanged;
-    return 0;
+    throw 0;
 }
 
 /// Return the stored provider public key.
 get fun get_public_key(): uint256 {
-    return 0;
+    throw 0;
 }
 
 /// Return wallet-style replay and authorization parameters.
 get fun get_wallet_params(): StorageProviderWalletParamsReply {
-    return {
-        seqno: 0,
-        subwallet: 0,
-        publicKey: 0,
-    };
+    throw 0;
 }
 
 /// Return current provider storage terms.
 get fun get_storage_params(): StorageProviderStorageParamsReply {
-    return {
-        acceptNewContracts: false,
-        ratePerMbDay: 0,
-        maxSpan: 0,
-        minimalFileSize: 0,
-        maximalFileSize: 0,
-    };
+    throw 0;
 }
 
 /// Return the deterministic storage contract address for the provided offer data.
 get fun get_storage_contract_address(merkleHash: uint256, fileSize: uint64, client: address, torrentHash: uint256): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

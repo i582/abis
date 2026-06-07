@@ -7,6 +7,7 @@ contract BidaskDammPool {
     incomingMessages: BidaskDammPoolIncomingMessage
     outgoingMessages: BidaskDammPoolOutgoingMessage
     forceAbiExport: BidaskDammPoolForwardPayload
+    thrownErrors: BidaskDammPoolErrors
 }
 
 /// Persistent root data cell decoded from the live DAMM Pool code.
@@ -762,160 +763,95 @@ enum BidaskDammPoolErrors {
 
 /// Return the accumulated protocol fee counters.
 get fun get_protocol_fees(): GetBidaskDammProtocolFeesReply {
-    return {
-        protocolFeeX: 0,
-        protocolFeeY: 0,
-    };
+    throw 0;
 }
 
 /// Return the pool token wallet pair and configured base fee.
 get fun get_pool_info(): GetBidaskDammPoolInfoReply {
-    // ABI-export scaffolding: constant assertions make every observed exit-code variant visible in thrown_errors.
-    assert (true) throw BidaskDammPoolErrors.InsufficientGas;
-    assert (true) throw BidaskDammPoolErrors.WrongWorkchain;
-    assert (true) throw BidaskDammPoolErrors.InvalidAmount;
-    assert (true) throw BidaskDammPoolErrors.MissingFarmingSchedule;
-    assert (true) throw BidaskDammPoolErrors.NativePairRequired;
-    assert (true) throw BidaskDammPoolErrors.PoolLocked;
-    assert (true) throw BidaskDammPoolErrors.SwapUnavailable;
-    assert (true) throw BidaskDammPoolErrors.InvalidFarmingReward;
-    assert (true) throw BidaskDammPoolErrors.ExactOutUnavailable;
-    assert (true) throw BidaskDammPoolErrors.OutputBelowLimit;
-    assert (true) throw BidaskDammPoolErrors.LockedLiquidityDisabled;
-    assert (true) throw BidaskDammPoolErrors.BurnAmountExceedsUnlockedSupply;
-    assert (true) throw BidaskDammPoolErrors.InvalidInitialLiquidity;
-    assert (true) throw BidaskDammPoolErrors.InvalidSender;
-    assert (true) throw BidaskDammPoolErrors.UnsupportedOperation;
-    return {
-        tokenXPoolWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tokenYPoolWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        baseFee: 0,
-    };
+    throw 0;
 }
 
 /// Return the deterministic DAMM LP account address for `userAddress`.
 get fun get_lp_account_address(userAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic DAMM LP Jetton wallet address for an LP owner.
 get fun get_wallet_address(userAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the deterministic DAMM trade account address for `userAddress` and `seed`.
 get fun get_trade_account_address(userAddress: address, seed: cell): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the pool token wallet addresses.
 get fun get_pool_tokens(): GetBidaskDammPoolTokensReply {
-    return {
-        tokenXPoolWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tokenYPoolWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the pool admin address.
 get fun get_admin_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return total value tracked by the pool.
 get fun get_tvl(): GetBidaskDammTvlReply {
-    return {
-        tokenXAmount: 0,
-        tokenYAmount: 0,
-    };
+    throw 0;
 }
 
 /// Return reserve, virtual-liquidity, total LP, and locked LP counters.
 get fun get_liquidity_info(): GetBidaskDammLiquidityInfoReply {
-    return {
-        liquidityXAmount: 0,
-        liquidityYAmount: 0,
-        virtualXAmount: 0,
-        virtualYAmount: 0,
-        totalSupplyLp: 0,
-        lockedLp: 0,
-    };
+    throw 0;
 }
 
 /// Return the dynamic fee that would apply at `timestamp`.
 get fun get_dynamic_fee_by_timestamp(timestamp: int): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the four-bit pool status flags.
 get fun get_status(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return fee configuration and current dynamic-fee state.
 get fun get_fees_info(): GetBidaskDammFeesInfoReply {
-    return {
-        dynamicFee: 0,
-        dynamicFeeFactor: 0,
-        previousSwapTime: 0,
-        timeFilter: 0,
-        timeDecay: 0,
-        protocolFeeReductionFactor: 0,
-    };
+    throw 0;
 }
 
 /// Return active or zeroed farming schedule data.
 get fun get_farming_info(): GetBidaskDammFarmingInfoReply {
-    return {
-        farmingXPerSecond: 0,
-        farmingYPerSecond: 0,
-        previousCall: 0,
-        endOfFarming: 0,
-    };
+    throw 0;
 }
 
 /// Return the quote tuple for a hypothetical swap.
 get fun get_expected_swap_result(amount: int, exactOut: int, tokenWallet: address, refFee: int, timestamp: int): GetBidaskDammExpectedSwapResultReply {
-    return {
-        out: 0,
-        excess: 0,
-        lpFee: 0,
-        protocolFee: 0,
-        refFee: 0,
-        liquidityXAmount: 0,
-        liquidityYAmount: 0,
-    };
+    throw 0;
 }
 
 /// Return token X/Y fee accumulator counters.
 get fun get_collected_fees_info(): GetBidaskDammCollectedFeesInfoReply {
-    return {
-        feesPerLpX: 0,
-        feesPerLpY: 0,
-    };
+    throw 0;
 }
 
 /// Return the raw root storage cell.
 get fun get_storage(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Return the pool kind marker; live code returns ASCII `DAMM`.
 get fun whoami(): string {
-    return "DAMM";
+    throw 0;
 }
 
 /// Return standard Jetton master data for the DAMM LP token.
 get fun get_jetton_data(): GetBidaskDammJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the configured trade start timestamp.
 get fun get_start_trade_time(): int {
-    return 0;
+    throw 0;
 }

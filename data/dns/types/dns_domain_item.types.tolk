@@ -8,6 +8,7 @@ contract DnsDomainItem {
     incomingMessages: DnsDomainItemIncomingMessage
     outgoingMessages: DnsDomainItemOutgoingMessage
     forceAbiExport: DnsDomainItemInit | DnsDomainRecord
+    thrownErrors: DnsDomainItemErrors
 }
 
 /// Deployment storage present before the DNS collection initializes the domain item.
@@ -298,66 +299,30 @@ enum DnsDomainItemErrors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): DnsDomainItemDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw DnsDomainItemErrors.BadSubdomainLength;
-    assert (true) throw DnsDomainItemErrors.AuctionNotStarted;
-    assert (true) throw DnsDomainItemErrors.DomainTooShort;
-    assert (true) throw DnsDomainItemErrors.DomainTooLong;
-    assert (true) throw DnsDomainItemErrors.BadDomainLength;
-    assert (true) throw DnsDomainItemErrors.BadDomainString;
-    assert (true) throw DnsDomainItemErrors.AmountBelowMinimum;
-    assert (true) throw DnsDomainItemErrors.DomainReservedByConfig;
-    assert (true) throw DnsDomainItemErrors.InvalidWorkchain;
-    assert (true) throw DnsDomainItemErrors.UnauthorizedTransfer;
-    assert (true) throw DnsDomainItemErrors.InsufficientRestAmount;
-    assert (true) throw DnsDomainItemErrors.UnauthorizedCollectionInit;
-    assert (true) throw DnsDomainItemErrors.UnauthorizedFillUp;
-    assert (true) throw DnsDomainItemErrors.BidTooSmall;
-    assert (true) throw DnsDomainItemErrors.UnauthorizedEditContent;
-    assert (true) throw DnsDomainItemErrors.UnauthorizedChangeDns;
-    assert (true) throw DnsDomainItemErrors.BadContentTag;
-    assert (true) throw DnsDomainItemErrors.BadDnsPrecondition;
-    assert (true) throw DnsDomainItemErrors.CannotReleaseBalance;
-    assert (true) throw DnsDomainItemErrors.GovernanceConfigNotFound;
-    assert (true) throw DnsDomainItemErrors.UnsupportedGovernanceOp;
-    assert (true) throw DnsDomainItemErrors.UnsupportedOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        content: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the current DNS domain item editor/owner address.
 get fun get_editor(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return the domain label slice stored by the item.
 get fun get_domain(): slice {
-    return createEmptyCell().beginParse();
+    throw 0;
 }
 
 /// Return active auction information, or zero values with `addr_none` when no auction is active.
 get fun get_auction_info(): DnsDomainAuctionInfoReply {
-    return {
-        maxBidAddress: createAddressNone(),
-        maxBidAmount: 0,
-        auctionEndTime: 0,
-    };
+    throw 0;
 }
 
 /// Return the unix timestamp of the last fill-up/renewal.
 get fun get_last_fill_up_time(): int64 {
-    return 0;
+    throw 0;
 }
 
 /// Resolve a DNS subdomain/category pair through the item's DNS record dictionary.
 get fun dnsresolve(subdomain: slice, category: int): DnsDomainResolveReply {
-    return {
-        resolvedBits: 0,
-        result: createEmptyCell(),
-    };
+    throw 0;
 }

@@ -6,6 +6,7 @@ contract LockerBill {
     storage: LockerBillStorage
     incomingMessages: LockerBillIncomingMessage
     outgoingMessages: LockerBillOutgoingMessage
+    thrownErrors: LockerBillErrors
 }
 
 /// Persistent state stored by a deterministic per-user LockerBill.
@@ -78,15 +79,5 @@ enum LockerBillErrors {
 
 /// Return the parent locker, user deposit, user address, and last withdrawal timestamp.
 get fun get_locker_bill_data(): GetLockerBillDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw LockerBillErrors.OnlyTextCommentsSupported;
-    assert (true) throw LockerBillErrors.InvalidComment;
-    assert (true) throw LockerBillErrors.OnlyLockerAddress;
-    assert (true) throw LockerBillErrors.OnlyUserAddress;
-    return {
-        lockerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        totalCoinsDeposit: 0,
-        userAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        lastWithdrawTime: 0,
-    };
+    throw 0;
 }

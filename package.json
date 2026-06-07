@@ -13,6 +13,7 @@
     "compile:gen-abis": "node scripts/compile-gen-abis.mjs",
     "find:contracts-by-hash": "node scripts/find-contracts-by-hash.mjs",
     "tonscan:contracts": "node scripts/fetch-tonscan-contracts.mjs",
+    "tonscan:interfaces": "node scripts/tonscan-interface-summary.mjs",
     "method-ids": "node scripts/method-ids.mjs",
     "app:build": "npm --prefix app run build",
     "app:dev": "npm --prefix app run dev",

@@ -6,6 +6,7 @@ contract HipoLoan {
     storage: HipoLoanStorage
     incomingMessages: HipoLoanIncomingMessage
     outgoingMessages: HipoLoanOutgoingMessage
+    thrownErrors: HipoLoanErrors
 }
 
 /// Persistent Loan state stored in the root data cell.
@@ -154,13 +155,5 @@ enum HipoLoanErrors {
 
 /// Return Elector, Treasury, borrower, and round timestamp from persistent storage.
 get fun get_loan_state(): HipoLoanState {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw HipoLoanErrors.AccessDenied;
-    assert (true) throw HipoLoanErrors.InvalidOperation;
-    return {
-        elector: createAddressNone(),
-        treasury: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        borrower: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        roundSince: 0,
-    };
+    throw 0;
 }

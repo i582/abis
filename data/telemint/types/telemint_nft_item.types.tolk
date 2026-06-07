@@ -7,6 +7,7 @@ contract TelemintNftItem {
     incomingMessages: TelemintNftItemIncomingMessage
     outgoingMessages: TelemintNftItemOutgoingMessage
     forceAbiExport: TelemintNftItemBidInfo
+    thrownErrors: TelemintNftItemErrors
 }
 
 /// Root persistent item data: immutable config plus optional initialized item state.
@@ -360,78 +361,35 @@ enum TelemintNftItemErrors {
 
 /// Return item initialization flag, index, collection, owner, and individual content.
 get fun get_nft_data(): TelemintNftItemDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw TelemintNftItemErrors.BadSubdomainLength;
-    assert (true) throw TelemintNftItemErrors.NotEnoughFunds;
-    assert (true) throw TelemintNftItemErrors.UnknownOp;
-    assert (true) throw TelemintNftItemErrors.Uninitialized;
-    assert (true) throw TelemintNftItemErrors.TooSmallStake;
-    assert (true) throw TelemintNftItemErrors.ForbiddenNotDeploy;
-    assert (true) throw TelemintNftItemErrors.ForbiddenNotStake;
-    assert (true) throw TelemintNftItemErrors.ForbiddenTopup;
-    assert (true) throw TelemintNftItemErrors.ForbiddenTransfer;
-    assert (true) throw TelemintNftItemErrors.ForbiddenChangeDns;
-    assert (true) throw TelemintNftItemErrors.NoAuction;
-    assert (true) throw TelemintNftItemErrors.ForbiddenAuction;
-    assert (true) throw TelemintNftItemErrors.AlreadyHasStakes;
-    assert (true) throw TelemintNftItemErrors.InvalidAuctionConfig;
-    assert (true) throw TelemintNftItemErrors.IncorrectWorkchain;
-    assert (true) throw TelemintNftItemErrors.NoFirstZeroByte;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: createAddressNone(),
-        content: null,
-    };
+    throw 0;
 }
 
 /// Return full DNS domain slice as `domain + token_name + zero byte`.
 get fun get_full_domain(): slice {
-    return createEmptyCell().beginParse();
+    throw 0;
 }
 
 /// Return the TeleMint token name, for example a Telegram username without `@`.
 get fun get_telemint_token_name(): string {
-    return "";
+    throw 0;
 }
 
 /// Return active auction state; throws `NoAuction` when no auction is active.
 get fun get_telemint_auction_state(): TelemintAuctionStateReply {
-    return {
-        bidderAddress: createAddressNone(),
-        bid: 0,
-        bidTs: 0,
-        minBid: 0,
-        endTime: 0,
-    };
+    throw 0;
 }
 
 /// Return active auction configuration, or zero values with `addr_none` when no auction is active.
 get fun get_telemint_auction_config(): TelemintAuctionConfigReply {
-    return {
-        beneficiaryAddress: createAddressNone(),
-        initialMinBid: 0,
-        maxBid: 0,
-        minBidStep: 0,
-        minExtendTime: 0,
-        duration: 0,
-    };
+    throw 0;
 }
 
 /// Return stored royalty parameters.
 get fun royalty_params(): TelemintRoyaltyParamsReply {
-    return {
-        numerator: 0,
-        denominator: 0,
-        destination: createAddressNone(),
-    };
+    throw 0;
 }
 
 /// Resolve a DNS subdomain/category pair through the item's DNS record dictionary.
 get fun dnsresolve(subdomain: slice, category: int): TelemintDnsResolveReply {
-    return {
-        resolvedBits: 0,
-        result: createEmptyCell(),
-    };
+    throw 0;
 }

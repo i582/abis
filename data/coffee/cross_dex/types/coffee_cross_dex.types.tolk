@@ -200,5 +200,5 @@ enum CoffeeCrossDexErrors {
 
 /// Return the stored admin address.
 get fun get_admin(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

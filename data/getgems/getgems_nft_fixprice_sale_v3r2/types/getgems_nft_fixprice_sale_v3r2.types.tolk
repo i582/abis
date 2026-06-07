@@ -8,6 +8,7 @@ contract GetgemsNftFixpriceSaleV3R2 {
     incomingExternal: GetgemsNftFixpriceSaleV3R2IncomingExternalMessage
     outgoingMessages: GetgemsNftFixpriceSaleV3R2OutgoingMessage
     forceAbiExport: GetgemsNftFixpriceSaleV3R2EmptyBuy
+    thrownErrors: GetgemsNftFixpriceSaleV3R2Errors
 }
 
 /// Fee distribution cell referenced from the root sale storage.
@@ -181,26 +182,5 @@ enum GetgemsNftFixpriceSaleV3R2Errors {
 
 /// Return fixed-price sale state, fee, and royalty data.
 get fun get_sale_data(): GetgemsNftFixpriceSaleV3R2SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.AlreadySoldOrCancelled;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.NotEnoughTonsForSale;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.NotEnoughTonsForCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.UnauthorizedInitiation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.ExternalDeployNotAllowed;
-    assert (true) throw GetgemsNftFixpriceSaleV3R2Errors.UnknownOperation;
-    return {
-        magic: 0x46495850,
-        isComplete: false,
-        createdAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFee: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyAmount: 0,
-    };
+    throw 0;
 }

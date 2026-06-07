@@ -8,6 +8,7 @@ contract GetgemsNftItemV2 {
     incomingMessages: GetgemsNftItemV2IncomingMessage
     outgoingMessages: GetgemsNftItemV2OutgoingMessage
     forceAbiExport: GetgemsNftItemV2MintInit | GetgemsNftItemV2MintForwardTail
+    thrownErrors: GetgemsNftItemV2Errors
 }
 
 /// Deployment storage present before the collection initializes the item.
@@ -140,17 +141,5 @@ enum GetgemsNftItemV2Errors {
 
 /// Return item initialization flag, index, collection, owner, and content.
 get fun get_nft_data(): GetgemsNftItemV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftItemV2Errors.InvalidWorkchain;
-    assert (true) throw GetgemsNftItemV2Errors.UnauthorizedOwner;
-    assert (true) throw GetgemsNftItemV2Errors.InsufficientRestAmount;
-    assert (true) throw GetgemsNftItemV2Errors.UnauthorizedCollectionInit;
-    assert (true) throw GetgemsNftItemV2Errors.UnsupportedOperation;
-    return {
-        isInitialized: false,
-        itemIndex: 0,
-        collectionAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        ownerAddress: null,
-        content: null,
-    };
+    throw 0;
 }

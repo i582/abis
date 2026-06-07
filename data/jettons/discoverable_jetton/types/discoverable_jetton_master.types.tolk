@@ -6,6 +6,7 @@ contract DiscoverableJettonMaster {
     storage: DiscoverableJettonMasterStorage
     incomingMessages: DiscoverableJettonMasterIncomingMessage
     outgoingMessages: DiscoverableJettonMasterOutgoingMessage
+    thrownErrors: DiscoverableJettonMasterErrors
 }
 
 /// Persistent discoverable minter state stored in the root data cell.
@@ -127,21 +128,10 @@ enum DiscoverableJettonMasterErrors {
 
 /// Return total supply, mintability, admin address, content cell, and wallet code cell.
 get fun get_jetton_data(): GetDiscoverableJettonDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw DiscoverableJettonMasterErrors.UnauthorizedAdmin;
-    assert (true) throw DiscoverableJettonMasterErrors.InvalidBurnNotificationSender;
-    assert (true) throw DiscoverableJettonMasterErrors.InsufficientProvideWalletAddressValue;
-    assert (true) throw DiscoverableJettonMasterErrors.UnsupportedOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

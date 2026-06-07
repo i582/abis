@@ -8,6 +8,7 @@ contract TonstakersPayoutCollection {
     incomingMessages: TonstakersPayoutCollectionIncomingMessage
     outgoingMessages: TonstakersPayoutCollectionOutgoingMessage
     forceAbiExport: TonstakersPayoutCollectionContent | TonstakersPayoutCollectionPendingTonDistribution | TonstakersPayoutCollectionPendingJettonDistribution | TonstakersPayoutCollectionStartedTonDistribution | TonstakersPayoutCollectionStartedJettonDistribution
+    thrownErrors: TonstakersPayoutCollectionErrors
 }
 
 /// Runtime storage shape after at least one payout NFT has been minted.
@@ -261,45 +262,25 @@ enum TonstakersPayoutCollectionErrors {
 
 /// Return next item index, collection metadata cell, and admin address.
 get fun get_collection_data(): TonstakersPayoutCollectionDataReply {
-    assert (true) throw TonstakersPayoutCollectionErrors.BurnBeforeDistribution;
-    assert (true) throw TonstakersPayoutCollectionErrors.NeedInit;
-    assert (true) throw TonstakersPayoutCollectionErrors.DistributionAlreadyStarted;
-    assert (true) throw TonstakersPayoutCollectionErrors.CannotDistributeJettons;
-    assert (true) throw TonstakersPayoutCollectionErrors.CannotDistributeTons;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnknownJettonWallet;
-    assert (true) throw TonstakersPayoutCollectionErrors.MintAfterDistributionStart;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnauthorizedMintRequest;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnauthorizedBurnNotification;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnauthorizedTransferSource;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnauthorizedStartRequest;
-    assert (true) throw TonstakersPayoutCollectionErrors.EmptyDistributionCell;
-    assert (true) throw TonstakersPayoutCollectionErrors.UnauthorizedInitOrUnsupportedOperation;
-    return {
-        nextItemIndex: 0,
-        collectionContent: createEmptyCell(),
-        admin: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the optional distribution state cell.
 get fun get_distribution_data(): cell? {
-    return null;
+    throw 0;
 }
 
 /// Return total issued bill amount and minted bill count.
 get fun get_issued_bills(): TonstakersPayoutCollectionIssuedBillsReply {
-    return {
-        issuedBills: 0,
-        billsCount: 0,
-    };
+    throw 0;
 }
 
 /// Return deterministic payout NFT item address for `index`.
 get fun get_nft_address_by_index(index: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return full TEP-64 NFT content built from collection metadata and individual bill amount.
 get fun get_nft_content(index: int, individualNftContent: cell): cell {
-    return createEmptyCell();
+    throw 0;
 }

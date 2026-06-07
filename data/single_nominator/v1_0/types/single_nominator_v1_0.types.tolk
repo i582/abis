@@ -6,6 +6,7 @@ contract SingleNominatorV10 {
     storage: SingleNominatorV10Storage
     incomingMessages: SingleNominatorV10IncomingMessage
     outgoingMessages: SingleNominatorV10OutgoingMessage
+    thrownErrors: SingleNominatorV10Errors
 }
 
 /// Persistent Single Nominator state stored in the root data cell.
@@ -193,37 +194,10 @@ enum SingleNominatorV10Errors {
 
 /// Return owner and validator role addresses.
 get fun get_roles(): SingleNominatorV10Roles {
-    assert (true) throw SingleNominatorV10Errors.WrongNominatorWorkchain;
-    assert (true) throw SingleNominatorV10Errors.WrongQueryId;
-    assert (true) throw SingleNominatorV10Errors.WrongSetCode;
-    assert (true) throw SingleNominatorV10Errors.WrongValidatorWorkchain;
-    assert (true) throw SingleNominatorV10Errors.InsufficientBalance;
-    assert (true) throw SingleNominatorV10Errors.InsufficientElectorFee;
-    return {
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        validatorAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the nominator-pool-compatible state tuple used by validator tooling.
 get fun get_pool_data(): SingleNominatorV10PoolDataReply {
-    return {
-        state: 2,
-        nominatorsCount: 1,
-        stakeAmountSent: 0,
-        validatorAmount: 0,
-        validatorAddress: 0,
-        validatorRewardShare: 0,
-        maxNominatorsCount: 0,
-        minValidatorStake: 0,
-        minNominatorStake: 0,
-        nominators: null,
-        withdrawRequests: null,
-        stakeAt: 0,
-        savedValidatorSetHash: 0,
-        validatorSetChangesCount: 2,
-        validatorSetChangeTime: 0,
-        stakeHeldFor: 0,
-        configProposalVotings: [],
-    };
+    throw 0;
 }

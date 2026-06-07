@@ -6,6 +6,7 @@ contract GetgemsNftSwap {
     storage: GetgemsNftSwapStorage
     incomingMessages: GetgemsNftSwapIncomingMessage
     outgoingMessages: GetgemsNftSwapOutgoingMessage
+    thrownErrors: GetgemsNftSwapErrors
 }
 
 /// Persistent swap state stored in the root data cell.
@@ -178,29 +179,10 @@ enum GetgemsNftSwapErrors {
 
 /// Return full swap state, condition flags, and raw NFT dictionaries.
 get fun get_trade_state(): GetgemsNftSwapTradeStateReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftSwapErrors.UnauthorizedSender;
-    assert (true) throw GetgemsNftSwapErrors.InvalidStateOrSenderAddress;
-    assert (true) throw GetgemsNftSwapErrors.InsufficientValue;
-    assert (true) throw GetgemsNftSwapErrors.UnknownOperation;
-    return {
-        state: 0,
-        leftOk: false,
-        rightOk: false,
-        leftTrader: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        rightTrader: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        leftNft: null,
-        rightNft: null,
-        leftCommission: 0,
-        leftSurcharge: 0,
-        leftCoinsGot: 0,
-        rightCommission: 0,
-        rightSurcharge: 0,
-        rightCoinsGot: 0,
-    };
+    throw 0;
 }
 
 /// Return the supervisor address authorized for cancellation and maintenance.
 get fun get_supervisor(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

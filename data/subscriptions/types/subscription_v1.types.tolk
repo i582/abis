@@ -89,16 +89,5 @@ type SubscriptionV1OutgoingMessage =
 
 /// Return legacy Subscription V1 storage data.
 get fun get_subscription_data(): SubscriptionV1DataReply {
-    return {
-        wallet: [0, 0],
-        beneficiary: [0, 0],
-        amount: 0,
-        period: 0,
-        startTime: 0,
-        timeout: 0,
-        lastPaymentTime: 0,
-        lastRequestTime: 0,
-        failedAttempts: 0,
-        subscriptionId: 0,
-    };
+    throw 0;
 }

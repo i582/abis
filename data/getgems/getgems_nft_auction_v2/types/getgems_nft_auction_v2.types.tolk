@@ -8,6 +8,7 @@ contract GetgemsNftAuctionV2 {
     incomingExternal: GetgemsNftAuctionV2IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV2OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV2EmergencyRelayTail
+    thrownErrors: GetgemsNftAuctionV2Errors
 }
 
 /// Referenced fee configuration cell used for marketplace and royalty payouts.
@@ -199,34 +200,5 @@ enum GetgemsNftAuctionV2Errors {
 
 /// Return auction state, fee settings, bid limits, and timestamps.
 get fun get_sale_data(): GetgemsNftAuctionV2SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftAuctionV2Errors.UnauthorizedAddress;
-    assert (true) throw GetgemsNftAuctionV2Errors.LowBid;
-    assert (true) throw GetgemsNftAuctionV2Errors.AlreadyInitiated;
-    assert (true) throw GetgemsNftAuctionV2Errors.InvalidOpExpectOwnershipAssigned;
-    assert (true) throw GetgemsNftAuctionV2Errors.AlreadyExecuted;
-    assert (true) throw GetgemsNftAuctionV2Errors.AlreadyActivated;
-    assert (true) throw GetgemsNftAuctionV2Errors.NotEnoughTons;
-    return {
-        magic: 0x415543,
-        end: false,
-        endTime: 0,
-        marketplace: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nft: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        owner: null,
-        lastBid: 0,
-        lastMember: null,
-        minStep: 0,
-        marketFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        mpFeeFactor: 0,
-        mpFeeBase: 0,
-        royaltyAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-    };
+    throw 0;
 }

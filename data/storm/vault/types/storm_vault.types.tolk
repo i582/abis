@@ -540,85 +540,70 @@ enum Errors {
 
 /// Returns raw vault contract data cell used by off-chain integrations.
 get fun get_vault_contract_data(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Returns the main vault accounting tuple and V3 pause flag.
 get fun get_vault_data(): GetVaultDataReply {
-    return {
-        jettonWallet: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        rate: 0,
-        totalSupply: 0,
-        freeBalance: 0,
-        lockedBalance: 0,
-        bufferBalance: 0,
-        stakersBalance: 0,
-        executorsBalance: 0,
-        v3Paused: false,
-    };
+    throw 0;
 }
 
 /// Returns current buffer balance and configured buffer rates.
 get fun get_buffer_data(): GetBufferDataReply {
-    return {
-        bufferBalance: 0,
-        bufferRate: 0,
-        bufferUnderRate: 0,
-        bufferOverRate: 0,
-    };
+    throw 0;
 }
 
 /// Returns the protocol-address dictionary used for whitelist lookups.
 get fun get_vault_whitelisted_addresses(): map<uint4, address> {
-    return [];
+    throw 0;
 }
 
 /// Computes the position contract address for a trader and VAMM pair.
 get fun get_position_address(traderAddress: address, vammAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the configured VAMM address for an asset index.
 get fun get_vamm_address(assetIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the configured LP minter address.
 get fun get_lp_minter_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Computes or returns the referral item address for an item index.
 get fun get_referral_item_addr(referralIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Computes or returns the executor item address for an item index.
 get fun get_executor_item_addr(executorIndex: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the configured referral collection address.
 get fun get_referral_collection_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the configured executor collection address.
 get fun get_executor_collection_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the configured claimer address.
 get fun get_claimer_address(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Returns the latest position manager code cell.
 get fun get_last_position_manager_code(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Returns the vault type discriminator for the jetton vault.
 get fun get_vault_type(): uint32 {
-    return 0;
+    throw 0;
 }

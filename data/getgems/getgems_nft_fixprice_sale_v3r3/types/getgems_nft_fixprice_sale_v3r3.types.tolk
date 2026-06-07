@@ -7,6 +7,7 @@ contract GetgemsNftFixpriceSaleV3R3 {
     incomingMessages: GetgemsNftFixpriceSaleV3R3IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV3R3OutgoingMessage
     forceAbiExport: GetgemsNftFixpriceSaleV3R3EmptyBuy
+    thrownErrors: GetgemsNftFixpriceSaleV3R3Errors
 }
 
 /// Fee distribution cell referenced from the root sale storage.
@@ -223,48 +224,10 @@ enum GetgemsNftFixpriceSaleV3R3Errors {
 
 /// Return legacy fixed-price sale state, fee, and royalty data.
 get fun get_sale_data(): GetgemsNftFixpriceSaleV3R3SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.AlreadySoldOrCancelled;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.Mode32NotAllowed;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.CannotExecuteCommandAtThisTime;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.InconsistentPriceAndFeesOnChangePrice;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.InconsistentPriceAndFeesOnSaleData;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.InconsistentPriceAndFeesOnFixPriceData;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.NotEnoughTonsForSale;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.NotEnoughTonsForCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.UnauthorizedCancellation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.UnauthorizedInitiation;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftFixpriceSaleV3R3Errors.UnknownOperation;
-    return {
-        magic: 0x46495850,
-        isComplete: false,
-        createdAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFee: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyAmount: 0,
-    };
+    throw 0;
 }
 
 /// Return V3R3 fixed-price sale state including sold timestamp and purchase query id.
 get fun get_fix_price_data(): GetgemsNftFixpriceSaleV3R3FixPriceDataReply {
-    return {
-        isComplete: false,
-        createdAt: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        fullPrice: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFee: 0,
-        royaltyAddress: createAddressNone(),
-        royaltyAmount: 0,
-        soldAt: 0,
-        queryId: 0,
-    };
+    throw 0;
 }

@@ -6,6 +6,7 @@ contract DiscoverableJettonWallet {
     storage: DiscoverableJettonWalletStorage
     incomingMessages: DiscoverableJettonWalletIncomingMessage
     outgoingMessages: DiscoverableJettonWalletOutgoingMessage
+    thrownErrors: DiscoverableJettonWalletErrors
 }
 
 /// Persistent wallet state stored in the root data cell.
@@ -139,17 +140,5 @@ enum DiscoverableJettonWalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetDiscoverableJettonWalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw DiscoverableJettonWalletErrors.UnauthorizedOwner;
-    assert (true) throw DiscoverableJettonWalletErrors.InsufficientJettonBalance;
-    assert (true) throw DiscoverableJettonWalletErrors.InvalidSenderOrBurnFunding;
-    assert (true) throw DiscoverableJettonWalletErrors.MissingForwardPayloadTag;
-    assert (true) throw DiscoverableJettonWalletErrors.TransferFundingOrBounce;
-    assert (true) throw DiscoverableJettonWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

@@ -8,6 +8,7 @@ contract GetgemsNftAuctionV1 {
     incomingExternal: GetgemsNftAuctionV1IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV1OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV1EmptyBid | GetgemsNftAuctionV1EmergencyRelayBox
+    thrownErrors: GetgemsNftAuctionV1Errors
 }
 
 /// Fee distribution cell referenced from the auction root storage.
@@ -243,103 +244,45 @@ enum GetgemsNftAuctionV1Errors {
 
 /// Return the stored seller address as workchain/hash parts, or `(0, 0)` before initialization.
 get fun get_nft_owner(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the configured NFT item address as workchain/hash parts.
 get fun get_nft_addr(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the highest bidder address as workchain/hash parts; source may throw before the first bid.
 get fun get_last_member(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the marketplace address as workchain/hash parts.
 get fun get_mp_addr(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the marketplace fee payout address as workchain/hash parts.
 get fun get_mp_fee_addr(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return the royalty fee payout address as workchain/hash parts.
 get fun get_royalty_fee_addr(): GetgemsNftAuctionV1AddressPartsReply {
-    return {
-        workchain: 0,
-        addressHash: 0,
-    };
+    throw 0;
 }
 
 /// Return marketplace and royalty fee factors.
 get fun get_fees_info(): GetgemsNftAuctionV1FeesInfoReply {
-    return {
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-    };
+    throw 0;
 }
 
 /// Return bid thresholds, current bid, and auction end time.
 get fun get_bid_info(): GetgemsNftAuctionV1BidInfoReply {
-    return {
-        minBid: 0,
-        maxBid: 0,
-        minStep: 0,
-        lastBid: 0,
-        endTime: 0,
-    };
+    throw 0;
 }
 
 /// Return the full auction state used by Getgems sale indexers.
 get fun get_sale_data(): GetgemsNftAuctionV1SaleDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftAuctionV1Errors.LowBid;
-    assert (true) throw GetgemsNftAuctionV1Errors.AlreadyInitiated;
-    assert (true) throw GetgemsNftAuctionV1Errors.InvalidOpExpectedOwnershipAssigned;
-    assert (true) throw GetgemsNftAuctionV1Errors.InvalidTextCommandOpcode;
-    assert (true) throw GetgemsNftAuctionV1Errors.InvalidCancelText;
-    assert (true) throw GetgemsNftAuctionV1Errors.AuctionEnded;
-    assert (true) throw GetgemsNftAuctionV1Errors.AlreadyActivated;
-    return {
-        magic: 0x415543,
-        end: false,
-        endTime: 0,
-        marketplaceAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        nftOwnerAddress: createAddressNone(),
-        lastBid: 0,
-        lastMemberAddress: createAddressNone(),
-        minStep: 0,
-        marketplaceFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        marketplaceFeeFactor: 0,
-        marketplaceFeeBase: 0,
-        royaltyFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        royaltyFeeFactor: 0,
-        royaltyFeeBase: 0,
-        maxBid: 0,
-        minBid: 0,
-        createdAt: 0,
-        lastBidAt: 0,
-        isCanceled: false,
-    };
+    throw 0;
 }

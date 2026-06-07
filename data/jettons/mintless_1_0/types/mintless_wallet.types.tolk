@@ -6,6 +6,7 @@ contract MintlessJettonWallet {
     storage: MintlessJettonWalletStorage
     incomingMessages: MintlessJettonWalletIncomingMessage
     outgoingMessages: MintlessJettonWalletOutgoingMessage
+    thrownErrors: MintlessJettonWalletErrors
 }
 
 /// Persistent mintless wallet state stored in the root data cell.
@@ -174,36 +175,15 @@ enum MintlessJettonWalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetMintlessJettonWalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw MintlessJettonWalletErrors.InsufficientJettonBalance;
-    assert (true) throw MintlessJettonWalletErrors.NotEnoughGas;
-    assert (true) throw MintlessJettonWalletErrors.InvalidMessage;
-    assert (true) throw MintlessJettonWalletErrors.AirdropAlreadyClaimed;
-    assert (true) throw MintlessJettonWalletErrors.AirdropNotReady;
-    assert (true) throw MintlessJettonWalletErrors.AirdropFinished;
-    assert (true) throw MintlessJettonWalletErrors.UnknownCustomPayload;
-    assert (true) throw MintlessJettonWalletErrors.UnauthorizedOwner;
-    assert (true) throw MintlessJettonWalletErrors.InvalidSender;
-    assert (true) throw MintlessJettonWalletErrors.WrongWorkchain;
-    assert (true) throw MintlessJettonWalletErrors.NotExoticMerkleProof;
-    assert (true) throw MintlessJettonWalletErrors.NotMerkleProof;
-    assert (true) throw MintlessJettonWalletErrors.WrongMerkleRoot;
-    assert (true) throw MintlessJettonWalletErrors.AirdropNotFound;
-    assert (true) throw MintlessJettonWalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the stored four-bit claim status.
 get fun get_status(): uint4 {
-    return 0;
+    throw 0;
 }
 
 /// Return true when the wallet has already claimed its mintless airdrop.
 get fun is_claimed(): bool {
-    return false;
+    throw 0;
 }

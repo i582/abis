@@ -6,6 +6,7 @@ contract HipoCollection {
     storage: HipoCollectionStorage
     incomingMessages: HipoCollectionIncomingMessage
     outgoingMessages: HipoCollectionOutgoingMessage
+    thrownErrors: HipoCollectionErrors
 }
 
 /// Persistent collection state stored in the root data cell.
@@ -152,22 +153,15 @@ enum HipoCollectionErrors {
 
 /// Return next bill index, generated collection metadata, and treasury address.
 get fun get_collection_data(): HipoCollectionDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw HipoCollectionErrors.AccessDenied;
-    assert (true) throw HipoCollectionErrors.InvalidOperation;
-    return {
-        nextItemIndex: 0,
-        collectionMetadata: createEmptyCell(),
-        treasury: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-    };
+    throw 0;
 }
 
 /// Return the deterministic bill item address for `index`.
 get fun get_nft_address_by_index(index: int): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the individual bill content unchanged, as implemented by the source.
 get fun get_nft_content(index: int, individualContent: cell): cell {
-    return individualContent;
+    throw 0;
 }

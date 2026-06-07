@@ -6,6 +6,7 @@ contract Jetton2Wallet {
     storage: Jetton2WalletStorage
     incomingMessages: Jetton2WalletIncomingMessage
     outgoingMessages: Jetton2WalletOutgoingMessage
+    thrownErrors: Jetton2WalletErrors
 }
 
 /// Persistent Jetton v2.0 wallet state stored in the root data cell.
@@ -146,18 +147,5 @@ enum Jetton2WalletErrors {
 
 /// Return wallet balance, owner address, minter address, and wallet code cell.
 get fun get_wallet_data(): GetJetton2WalletDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw Jetton2WalletErrors.InsufficientJettonBalance;
-    assert (true) throw Jetton2WalletErrors.NotEnoughGas;
-    assert (true) throw Jetton2WalletErrors.InvalidMessage;
-    assert (true) throw Jetton2WalletErrors.UnauthorizedOwner;
-    assert (true) throw Jetton2WalletErrors.InvalidSender;
-    assert (true) throw Jetton2WalletErrors.WrongWorkchain;
-    assert (true) throw Jetton2WalletErrors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

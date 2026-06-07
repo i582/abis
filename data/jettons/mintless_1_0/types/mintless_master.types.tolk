@@ -6,6 +6,7 @@ contract MintlessJettonMaster {
     storage: MintlessJettonMasterStorage
     incomingMessages: MintlessJettonMasterIncomingMessage
     outgoingMessages: MintlessJettonMasterOutgoingMessage
+    thrownErrors: MintlessJettonMasterErrors
 }
 
 /// Persistent mintless minter state stored in the root data cell.
@@ -194,42 +195,25 @@ enum MintlessJettonMasterErrors {
 
 /// Return supply, mintability, admin address, metadata content cell, and wallet code cell.
 get fun get_jetton_data(): GetMintlessJettonDataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw MintlessJettonMasterErrors.InvalidNestedOperation;
-    assert (true) throw MintlessJettonMasterErrors.UnauthorizedAdmin;
-    assert (true) throw MintlessJettonMasterErrors.InvalidBurnNotificationSender;
-    assert (true) throw MintlessJettonMasterErrors.NotEnoughGas;
-    assert (true) throw MintlessJettonMasterErrors.InvalidMessage;
-    assert (true) throw MintlessJettonMasterErrors.WrongWorkchain;
-    assert (true) throw MintlessJettonMasterErrors.UnsupportedOperation;
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: createAddressNone(),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic salted wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the wallet state init and selected salt for `ownerAddress`.
 get fun get_wallet_state_init_and_salt(ownerAddress: address): GetMintlessWalletStateInitAndSaltReply {
-    return {
-        stateInit: createEmptyCell(),
-        salt: 0,
-    };
+    throw 0;
 }
 
 /// Return the pending next admin stack `MsgAddress`, or `addr_none` when no admin claim is pending.
 get fun get_next_admin_address(): any_address {
-    return createAddressNone();
+    throw 0;
 }
 
 /// Return the stored Merkle root used to verify mintless wallet claim proofs.
 get fun get_mintless_airdrop_hashmap_root(): uint256 {
-    return 0;
+    throw 0;
 }

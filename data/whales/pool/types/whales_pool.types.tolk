@@ -7,6 +7,7 @@ contract WhalesPool {
     incomingMessages: WhalesPoolIncomingMessage
     outgoingMessages: WhalesPoolOutgoingMessage
     forceAbiExport: WhalesPoolExtras | WhalesPoolProxyStateTail
+    thrownErrors: WhalesPoolErrors
 }
 
 /// Pool-wide accounting stored in a referenced balance cell.
@@ -478,108 +479,65 @@ enum WhalesPoolErrors {
 
 /// Return the configured proxy address.
 get fun get_proxy(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the configured owner address.
 get fun get_owner(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return the configured controller address.
 get fun get_controller(): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return TON balance not owned by pool members.
 get fun get_unowned(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return pool balance available for staking.
 get fun get_available(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return current validator staking status.
 get fun get_staking_status(): WhalesPoolStakingStatusReply {
-    assert (true) throw WhalesPoolErrors.InvalidAddress;
-    assert (true) throw WhalesPoolErrors.InvalidMessage;
-    assert (true) throw WhalesPoolErrors.AccessDenied;
-    assert (true) throw WhalesPoolErrors.InternalError;
-    assert (true) throw WhalesPoolErrors.AlreadyDeployed;
-    assert (true) throw WhalesPoolErrors.TooLowValue;
-    assert (true) throw WhalesPoolErrors.InvalidStakeValue;
-    assert (true) throw WhalesPoolErrors.UnknownTextCommand;
-    return {
-        stakeAt: 0,
-        stakeUntil: 0,
-        stakeSent: 0,
-        querySent: false,
-        canUnlock: false,
-        locked: false,
-        stakeLockFinal: false,
-    };
+    throw 0;
 }
 
 /// Return pool balance accounting.
 get fun get_pool_status(): WhalesPoolStatusReply {
-    return {
-        balance: 0,
-        balanceSent: 0,
-        balancePendingDeposits: 0,
-        balancePendingWithdraw: 0,
-        balanceWithdraw: 0,
-    };
+    throw 0;
 }
 
 /// Return pool runtime parameters.
 get fun get_params(): WhalesPoolParamsReply {
-    return {
-        enabled: false,
-        updatesEnabled: false,
-        minStake: 0,
-        depositFee: 0,
-        withdrawFee: 0,
-        poolFee: 0,
-        receiptPrice: 0,
-    };
+    throw 0;
 }
 
 /// Return member balance accounting for an address.
 get fun get_member_balance(memberAddress: address): WhalesPoolMemberBalanceReply {
-    return {
-        balance: 0,
-        pendingDeposit: 0,
-        pendingWithdraw: 0,
-        memberWithdraw: 0,
-    };
+    throw 0;
 }
 
 /// Return the raw nominator dictionary.
 get fun get_members_raw(): map<uint256, WhalesPoolMember> {
-    return [];
+    throw 0;
 }
 
 /// Return all member balances as a Lisp list.
 get fun get_members(): lisp_list<WhalesPoolMemberListEntry> {
-    return [];
+    throw 0;
 }
 
 /// Return member balance accounting for an address.
 get fun get_member(memberAddress: address): WhalesPoolMemberBalanceReply {
-    return {
-        balance: 0,
-        pendingDeposit: 0,
-        pendingWithdraw: 0,
-        memberWithdraw: 0,
-    };
+    throw 0;
 }
 
 /// Return supported interface identifiers.
 get fun supported_interfaces(): WhalesPoolSupportedInterfacesReply {
-    return {
-        introspection: 123515602279859691144772641439386770278,
-        whalesNominators: 256184278959413194623484780286929323492,
-    };
+    throw 0;
 }

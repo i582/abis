@@ -6,6 +6,7 @@ contract StonfiPoolV2ConstProduct {
     storage: StonfiPoolV2ConstProductStorage
     incomingMessages: StonfiPoolV2ConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2ConstProductOutgoingMessage
+    thrownErrors: StonfiPoolV2ConstProductErrors
 }
 
 /// Root persistent ConstantProduct pool state stored by `storage::save`; mirrors the common PoolData fields exposed by `get_pool_data`.
@@ -526,57 +527,25 @@ enum StonfiPoolV2ConstProductErrors {
 
 /// Return the pool type string; live ConstantProduct pools return `constant_product`.
 get fun get_pool_type(): string {
-    return "";
+    throw 0;
 }
 
 /// Return the deterministic LP Account address for a user.
 get fun get_lp_account_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return LP Jetton minter data for this Pool.
 get fun get_jetton_data(): StonfiPoolV2ConstProductJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        adminAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonContent: createEmptyCell(),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP wallet address for an owner.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return current ConstantProduct PoolData; stableswap, weighted_stableswap, and weighted_const_product trailing fields are not present for this pool type.
 get fun get_pool_data(): StonfiPoolV2ConstProductDataReply {
-    // ABI-export scaffolding: constant assertions make every source-level pool error visible in thrown_errors.
-    assert (true) throw StonfiPoolV2ConstProductErrors.InsufficientProvideWalletAddressValue;
-    assert (true) throw StonfiPoolV2ConstProductErrors.ZeroOutput;
-    assert (true) throw StonfiPoolV2ConstProductErrors.InvalidCaller;
-    assert (true) throw StonfiPoolV2ConstProductErrors.InsufficientGas;
-    assert (true) throw StonfiPoolV2ConstProductErrors.WrongWorkchain;
-    assert (true) throw StonfiPoolV2ConstProductErrors.WrongAddress;
-    assert (true) throw StonfiPoolV2ConstProductErrors.LowLiquidity;
-    assert (true) throw StonfiPoolV2ConstProductErrors.InvalidAmount;
-    assert (true) throw StonfiPoolV2ConstProductErrors.InvalidCall;
-    assert (true) throw StonfiPoolV2ConstProductErrors.InvalidToken;
-    assert (true) throw StonfiPoolV2ConstProductErrors.EmptyNotAllowed;
-    assert (true) throw StonfiPoolV2ConstProductErrors.UnsupportedOperation;
-    return {
-        isLocked: false,
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        totalSupply: 0,
-        reserve0: 0,
-        reserve1: 0,
-        token0WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        token1WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        lpFee: 0,
-        protocolFee: 0,
-        protocolFeeAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        collectedToken0ProtocolFee: 0,
-        collectedToken1ProtocolFee: 0,
-    };
+    throw 0;
 }

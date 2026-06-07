@@ -7,6 +7,7 @@ contract StonfiLpWalletV2 {
     incomingMessages: StonfiLpWalletV2IncomingMessage
     outgoingMessages: StonfiLpWalletV2OutgoingMessage
     forceAbiExport: StonfiLpWalletV2BouncedKnownBody
+    thrownErrors: StonfiLpWalletV2Errors
 }
 
 /// Persistent LP Jetton wallet state stored in the root data cell.
@@ -154,17 +155,5 @@ enum StonfiLpWalletV2Errors {
 
 /// Return the standard Jetton wallet data tuple: balance, owner, master/Pool, and wallet code cell.
 get fun get_wallet_data(): GetStonfiLpWalletV2DataReply {
-    // ABI-export scaffolding: constant assertions make every error variant visible in thrown_errors.
-    assert (true) throw StonfiLpWalletV2Errors.WrongWorkchain;
-    assert (true) throw StonfiLpWalletV2Errors.UnauthorizedOwner;
-    assert (true) throw StonfiLpWalletV2Errors.InsufficientJettonBalance;
-    assert (true) throw StonfiLpWalletV2Errors.InvalidSenderOrBurnFunding;
-    assert (true) throw StonfiLpWalletV2Errors.TransferFundingOrBounce;
-    assert (true) throw StonfiLpWalletV2Errors.UnsupportedOperation;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

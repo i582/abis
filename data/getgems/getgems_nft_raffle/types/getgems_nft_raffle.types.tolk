@@ -6,6 +6,7 @@ contract GetgemsNftRaffle {
     storage: GetgemsNftRaffleStorage
     incomingMessages: GetgemsNftRaffleIncomingMessage
     outgoingMessages: GetgemsNftRaffleOutgoingMessage
+    thrownErrors: GetgemsNftRaffleErrors
 }
 
 /// Root persistent raffle state; source stores each logical group in a referenced cell.
@@ -181,32 +182,10 @@ enum GetgemsNftRaffleErrors {
 
 /// Return full raffle state and raw dictionary cells.
 get fun raffle_state(): GetgemsNftRaffleStateReply {
-    // ABI-export scaffolding: constant assertions make every source-thrown error variant visible in thrown_errors.
-    assert (true) throw GetgemsNftRaffleErrors.BouncedInboundMessage;
-    assert (true) throw GetgemsNftRaffleErrors.InvalidState;
-    assert (true) throw GetgemsNftRaffleErrors.WrongAddress;
-    assert (true) throw GetgemsNftRaffleErrors.NotEnoughCoins;
-    assert (true) throw GetgemsNftRaffleErrors.UnknownOperation;
-    return {
-        state: 0,
-        rightNftsCount: 0,
-        rightNftsReceived: 0,
-        leftNftsCount: 0,
-        leftNftsReceived: 0,
-        leftUser: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        rightUser: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        superUser: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        leftCommission: 0,
-        rightCommission: 0,
-        leftCoinsGot: 0,
-        rightCoinsGot: 0,
-        nftTransferFee: 0,
-        nfts: null,
-        raffledNfts: null,
-    };
+    throw 0;
 }
 
 /// Return whether all NFT receipt and commission conditions needed for completion are currently met.
 get fun `utils::check_conditions`(): bool {
-    return false;
+    throw 0;
 }

@@ -7,6 +7,7 @@ contract JettonWalletCoffeeLp {
     incomingMessages: JettonWalletCoffeeLpIncomingMessage
     outgoingMessages: JettonWalletCoffeeLpOutgoingMessage
     forceAbiExport: JettonWalletCoffeeLpBouncedKnownBody
+    thrownErrors: JettonWalletCoffeeLpErrors
 }
 
 /// Persistent Jetton wallet state stored in the root data cell.
@@ -156,17 +157,5 @@ enum JettonWalletCoffeeLpErrors {
 
 /// Return the standard Jetton wallet data tuple: balance, owner, master/Pool, and wallet code cell.
 get fun get_wallet_data(): GetJettonWalletCoffeeLpDataReply {
-    assert (true) throw JettonWalletCoffeeLpErrors.UnknownOpcode;
-    assert (true) throw JettonWalletCoffeeLpErrors.WrongChain;
-    assert (true) throw JettonWalletCoffeeLpErrors.UnauthorizedOwner;
-    assert (true) throw JettonWalletCoffeeLpErrors.InsufficientJettonBalance;
-    assert (true) throw JettonWalletCoffeeLpErrors.InvalidSenderOrBurnFunding;
-    assert (true) throw JettonWalletCoffeeLpErrors.MissingForwardPayload;
-    assert (true) throw JettonWalletCoffeeLpErrors.TransferFundingOrBounce;
-    return {
-        balance: 0,
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonMasterAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        jettonWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }

@@ -554,48 +554,25 @@ struct StonfiPoolV2WeightedStableswapJettonDataReply {
 
 /// Return this Pool type string; for this contract it is `weighted_stableswap`.
 get fun get_pool_type(): string {
-    return "weighted_stableswap";
+    throw 0;
 }
 
 /// Return the deterministic LP Account address of a user.
 get fun get_lp_account_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }
 
 /// Return common Pool state plus weighted stableswap `amp`, `rate`, `w0`, and `rate_setter` fields.
 get fun get_pool_data(): StonfiPoolV2WeightedStableswapPoolDataReply {
-    return {
-        isLocked: false,
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        totalSupply: 0,
-        reserve0: 0,
-        reserve1: 0,
-        token0WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        token1WalletAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        lpFee: 0,
-        protocolFee: 0,
-        protocolFeeAddress: createAddressNone(),
-        collectedToken0ProtocolFee: 0,
-        collectedToken1ProtocolFee: 0,
-        amp: 0,
-        rate: 0,
-        w0: 0,
-        rateSetter: createAddressNone(),
-    };
+    throw 0;
 }
 
 /// Return LP Jetton supply, mintability, router/admin address, generated content, and LP wallet code.
 get fun get_jetton_data(): StonfiPoolV2WeightedStableswapJettonDataReply {
-    return {
-        totalSupply: 0,
-        mintable: true,
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        contentLp: createEmptyCell(),
-        jettonLpWalletCode: createEmptyCell(),
-    };
+    throw 0;
 }
 
 /// Return the deterministic LP Jetton wallet address for `ownerAddress`.
 get fun get_wallet_address(ownerAddress: address): address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000");
+    throw 0;
 }

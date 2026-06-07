@@ -70,10 +70,5 @@ struct GetVaultDataReply {
 
 /// Return the Vault owner, Router jetton wallet, Router address, and collected token amount.
 get fun get_vault_data(): GetVaultDataReply {
-    return {
-        ownerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        tokenAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        routerAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        depositedAmount: 0,
-    };
+    throw 0;
 }

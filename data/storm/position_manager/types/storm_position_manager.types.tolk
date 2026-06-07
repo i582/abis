@@ -6,7 +6,7 @@ contract StormPositionManager {
     storage: StormPositionManagerStorage
     incomingMessages: StormPositionManagerIncomingMessage
     outgoingMessages: StormPositionManagerOutgoingMessage
-    forceAbiExport: StormPositionManagerErrors
+    thrownErrors: StormPositionManagerErrors
 }
 
 /// Runtime storage parsed from the PositionManager persistent data cell.
@@ -529,56 +529,20 @@ enum StormPositionManagerErrors {
 
 /// Public getter returning decoded PositionManager runtime storage fields.
 get fun get_position_manager_data(): GetPositionManagerDataReply {
-    assert (true) throw StormPositionManagerErrors.PositionLocked;
-    assert (true) throw StormPositionManagerErrors.NotAnAmm;
-    assert (true) throw StormPositionManagerErrors.NotATrader;
-    assert (true) throw StormPositionManagerErrors.NotFound;
-    assert (true) throw StormPositionManagerErrors.PositionExists;
-    assert (true) throw StormPositionManagerErrors.NotAVault;
-    assert (true) throw StormPositionManagerErrors.WrongOrderType;
-    assert (true) throw StormPositionManagerErrors.OrderExists;
-    assert (true) throw StormPositionManagerErrors.WrongOrderParams;
-    assert (true) throw StormPositionManagerErrors.PositionNotFound;
-    assert (true) throw StormPositionManagerErrors.Expired;
-    assert (true) throw StormPositionManagerErrors.NoFreeOrder;
-    assert (true) throw StormPositionManagerErrors.OrderNotFound;
-    assert (true) throw StormPositionManagerErrors.VammBounced;
-    assert (true) throw StormPositionManagerErrors.MaxOrders;
-    assert (true) throw StormPositionManagerErrors.OrderCanceled;
-    assert (true) throw StormPositionManagerErrors.MinProvideGas;
-    assert (true) throw StormPositionManagerErrors.MinProvideOrderGas;
-    assert (true) throw StormPositionManagerErrors.MinCancelOrderGas;
-    assert (true) throw StormPositionManagerErrors.NotAReferral;
-    assert (true) throw StormPositionManagerErrors.NotInited;
-    assert (true) throw StormPositionManagerErrors.PositionManagerInited;
-    assert (true) throw StormPositionManagerErrors.WrongInitAddr;
-    assert (true) throw StormPositionManagerErrors.LateMigration;
-    assert (true) throw StormPositionManagerErrors.DirectionMismatch;
-    assert (true) throw StormPositionManagerErrors.MarketOrderCanceled;
-    assert (true) throw StormPositionManagerErrors.WrongOperation;
-    return {
-        traderAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        vaultAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        vammAddress: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        longRecord: createEmptyCell(),
-        shortRecord: createEmptyCell(),
-        ordersDict: createEmptyCell(),
-        referralData: createEmptyCell(),
-        ordersBitset: 0,
-    };
+    throw 0;
 }
 
 /// Public getter returning the raw persistent data cell.
 get fun get_position_manager_contract_data(): cell {
-    return createEmptyCell();
+    throw 0;
 }
 
 /// Public getter returning whether referral initialization data is present.
 get fun get_is_inited(): bool {
-    return false;
+    throw 0;
 }
 
 /// Public getter returning the hard-coded PositionManager version number.
 get fun get_version(): uint32 {
-    return 4;
+    throw 0;
 }

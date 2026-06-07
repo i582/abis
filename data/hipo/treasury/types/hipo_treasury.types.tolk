@@ -8,6 +8,7 @@ contract HipoTreasury {
     incomingExternal: HipoTreasuryIncomingExternalMessage
     outgoingMessages: HipoTreasuryOutgoingMessage
     forceAbiExport: HipoTreasuryNewStakeMsg | HipoTreasuryLoanRequest | HipoTreasuryParticipation | HipoTreasuryExtension | HipoTreasuryLoanLog | HipoTreasuryRepaymentLog | HipoTreasuryFinishLog | HipoTreasuryFailedBurningTokensLog
+    thrownErrors: HipoTreasuryErrors
 }
 
 /// Empty dictionary value used where the FunC source stores an empty builder as a set marker.
@@ -995,115 +996,50 @@ enum HipoTreasuryErrors {
 
 /// Return treasury accounting, parent, raw dictionaries, rates, governance, and code dictionaries.
 get fun get_treasury_state(): HipoTreasuryStateReply {
-    assert (true) throw HipoTreasuryErrors.InsufficientFee;
-    assert (true) throw HipoTreasuryErrors.InsufficientFunds;
-    assert (true) throw HipoTreasuryErrors.AccessDenied;
-    assert (true) throw HipoTreasuryErrors.OnlyBasechainAllowed;
-    assert (true) throw HipoTreasuryErrors.ReceiverIsSender;
-    assert (true) throw HipoTreasuryErrors.Stopped;
-    assert (true) throw HipoTreasuryErrors.InvalidOp;
-    assert (true) throw HipoTreasuryErrors.InvalidComment;
-    assert (true) throw HipoTreasuryErrors.InvalidParameters;
-    assert (true) throw HipoTreasuryErrors.NotAcceptingLoanRequests;
-    assert (true) throw HipoTreasuryErrors.UnableToParticipate;
-    assert (true) throw HipoTreasuryErrors.TooSoonToParticipate;
-    assert (true) throw HipoTreasuryErrors.NotReadyToFinishParticipation;
-    assert (true) throw HipoTreasuryErrors.TooSoonToFinishParticipation;
-    assert (true) throw HipoTreasuryErrors.VsetNotChanged;
-    assert (true) throw HipoTreasuryErrors.VsetNotChangeable;
-    assert (true) throw HipoTreasuryErrors.NotReadyToBurnAll;
-    assert (true) throw HipoTreasuryErrors.UnexpectedValidatorSetFormat;
-    return {
-        totalCoins: 0,
-        totalTokens: 0,
-        totalStaking: 0,
-        totalUnstaking: 0,
-        totalBorrowersStake: 0,
-        parent: address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address,
-        participations: null,
-        roundsImbalance: 0,
-        stopped: false,
-        instantMint: false,
-        loanCodes: createEmptyCell(),
-        previousRate: 0,
-        currentRate: 0,
-        halter: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        governor: address("0:0000000000000000000000000000000000000000000000000000000000000000"),
-        proposedGovernor: null,
-        governanceFee: 0,
-        collectionCodes: createEmptyCell(),
-        billCodes: createEmptyCell(),
-        oldParents: null,
-    };
+    throw 0;
 }
 
 /// Return one participation record from the participation dictionary.
 get fun get_participation(roundSince: int): HipoTreasuryParticipationReply {
-    return {
-        state: 0,
-        size: 0,
-        sorted: null,
-        requests: null,
-        rejected: null,
-        accepted: null,
-        accrued: null,
-        staked: null,
-        recovering: null,
-        totalStaked: 0,
-        totalRecovered: 0,
-        currentVsetHash: 0,
-        stakeHeldFor: 0,
-        stakeHeldUntil: 0,
-    };
+    throw 0;
 }
 
 /// Return the derived collection address for a validator round.
 get fun get_collection_address(roundSince: int): any_address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address;
+    throw 0;
 }
 
 /// Return the derived bill address for a validator round and bill index.
 get fun get_bill_address(roundSince: int, index: int): any_address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address;
+    throw 0;
 }
 
 /// Return the derived loan address for a borrower and validator round.
 get fun get_loan_address(borrower: slice, roundSince: int): any_address {
-    return address("0:0000000000000000000000000000000000000000000000000000000000000000") as any_address;
+    throw 0;
 }
 
 /// Return loan, deposit, and unstake-all fee estimates.
 get fun get_treasury_fees(ownershipAssignedAmount: int): HipoTreasuryFeesReply {
-    return {
-        requestLoanFee: 0,
-        depositCoinsFee: 0,
-        unstakeAllTokensFee: 0,
-    };
+    throw 0;
 }
 
 /// Return current and next validator timing windows.
 get fun get_times(): HipoTreasuryTimesReply {
-    return {
-        currentRoundSince: 0,
-        participateSince: 0,
-        participateUntil: 0,
-        nextRoundSince: 0,
-        nextRoundUntil: 0,
-        stakeHeldFor: 0,
-    };
+    throw 0;
 }
 
 /// Return the currently burnable hTON amount based on balance and reserves.
 get fun get_max_burnable_tokens(): coins {
-    return 0;
+    throw 0;
 }
 
 /// Return TON surplus above the source-calculated minimum reserve.
 get fun get_surplus(): int {
-    return 0;
+    throw 0;
 }
 
 /// Return the recommended max misbehaviour punishment for a given stake.
 get fun get_max_punishment(stake: int): coins {
-    return 0;
+    throw 0;
 }
