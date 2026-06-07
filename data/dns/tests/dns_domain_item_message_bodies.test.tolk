@@ -12,7 +12,7 @@ fun expectInlineEmptyForwardPayload(mutate forwardPayload: RemainingBitsAndRefs)
     expect(forwardPayload.remainingBitsCount()).toEqual(1);
     expect(forwardPayload.remainingRefsCount()).toEqual(0);
     expect(forwardPayload.loadBool()).toBeFalse();
-    expectNoTail(mutate forwardPayload);
+    expectNoTail(forwardPayload);
 }
 
 get fun `test dns domain item decodes toncenter transfer body`() {
@@ -46,7 +46,7 @@ get fun `test dns domain item decodes toncenter change dns delete body`() {
     expect(decoded.queryId).toEqual(0);
     expect(decoded.key).toEqual(0 as uint256);
     var value = decoded.value;
-    expectNoTail(mutate value);
+    expectNoTail(value);
 
     println("DNS_DOMAIN_ITEM_TONCENTER_CHANGE_DNS_DELETE_TX={} LT={}", txHash, txLt);
 }
