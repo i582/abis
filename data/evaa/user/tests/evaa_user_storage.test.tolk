@@ -61,7 +61,7 @@ get fun `test evaa user parses saved live storage fixture`() {
     expect(storage.userPrincipals).toHaveLength(1);
     expect(storage.userRewards).toHaveLength(1);
     expect(principal.principal).toEqual(EXPECTED_PRINCIPAL);
-    expectNoTail(mutate principalTail);
+    expectNoTail(principalTail);
     expect(reward.trackingIndex).toEqual(0);
     expect(reward.trackingAccrued).toEqual(0);
     expect(storage.backupCell1).toBeNull();

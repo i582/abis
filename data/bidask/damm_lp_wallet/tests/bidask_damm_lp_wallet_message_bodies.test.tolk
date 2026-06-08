@@ -20,7 +20,7 @@ fun expectInlineEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void 
     expect(payload.remainingBitsCount()).toEqual(1);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun expectRefForwardPayload(mutate payload: RemainingBitsAndRefs): cell {
@@ -29,7 +29,7 @@ fun expectRefForwardPayload(mutate payload: RemainingBitsAndRefs): cell {
     expect(payload.loadBool()).toBeTrue();
 
     val ref = payload.loadRef();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
     return ref;
 }
 

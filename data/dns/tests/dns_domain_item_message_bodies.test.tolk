@@ -45,7 +45,7 @@ get fun `test dns domain item decodes toncenter change dns delete body`() {
 
     expect(decoded.queryId).toEqual(0);
     expect(decoded.key).toEqual(0 as uint256);
-    var value = decoded.value;
+    val value = decoded.value;
     expectNoTail(value);
 
     println("DNS_DOMAIN_ITEM_TONCENTER_CHANGE_DNS_DELETE_TX={} LT={}", txHash, txLt);

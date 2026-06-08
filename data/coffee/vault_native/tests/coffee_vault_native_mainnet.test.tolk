@@ -96,7 +96,7 @@ get fun `test coffee native vault mainnet code and safe getters`() {
     expect(vault.isActive()).toBeTrue();
     expect(assetCell.hash()).toEqual(coffeeNativeAssetCell().hash());
     expect(asset.loadUint(2)).toEqual(0);
-    expectNoTail(mutate asset);
+    expectNoTail(asset);
 
     println("COFFEE_VAULT_NATIVE_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("COFFEE_VAULT_NATIVE_ADDRESS={}", vault.address);

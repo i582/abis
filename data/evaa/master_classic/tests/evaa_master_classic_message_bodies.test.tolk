@@ -22,7 +22,7 @@ fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
     expect(payload.loadBool()).toBeTrue();
 
     val payloadCell = payload.loadRef();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
     return payloadCell;
 }
 
