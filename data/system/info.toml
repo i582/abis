@@ -1,0 +1,50 @@
+[project]
+name = "system"
+
+[metadata]
+category = "TON system contracts"
+description = "Official TON masterchain Elector and Config system contracts"
+
+[sources]
+ton_smartcont_source = "https://github.com/ton-blockchain/ton/tree/master/crypto/smartcont"
+config_verifier = "https://verifier.ton.org/Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
+local_source_snapshot = "data/system/research/source"
+local_account_states = "data/system/research/account_states.json"
+local_research_plan = "data/system/research/plan.md"
+local_research_results = "data/system/research/results.md"
+local_elector_research = "data/system/research/elector.md"
+local_config_research = "data/system/research/config.md"
+
+[contracts.Elector]
+display_name = "TON Elector"
+types = "elector/types/elector.types.tolk"
+description = "Masterchain validator election contract for validator stakes, election rounds, stake recovery, validator-set proposals, and complaint voting."
+known_addresses = ["Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF"]
+hashes = ["6217f872c99fafcb870f2c11a362f59339be95095f70d00b9cff2f6dcd69d3dd"]
+related_asset_symbols = ["TON"]
+
+[contracts.Elector.instances.mainnet]
+address = "Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF"
+raw_address = "-1:3333333333333333333333333333333333333333333333333333333333333333"
+network = "mainnet"
+code_hash_hex = "6217f872c99fafcb870f2c11a362f59339be95095f70d00b9cff2f6dcd69d3dd"
+code_hash_base64 = "Yhf4csmfr8uHDywRo2L1kzm+lQlfcNALnP8vbc1p090="
+data_hash_hex = "5dad4efaec08b04e55aa556fb847a1369ef8014f1ef44a8a6efa4ae79e25ea72"
+data_hash_base64 = "Xa1O+uwIsE5VqlVvuEehNp74AU8e9EqKbvpK554l6nI="
+
+[contracts.Config]
+display_name = "TON Config"
+types = "config/types/config.types.tolk"
+description = "Masterchain configuration contract for network config parameters, validator-set installation, signed configuration changes, and validator proposal voting."
+known_addresses = ["Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"]
+hashes = ["c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"]
+related_asset_symbols = ["TON"]
+
+[contracts.Config.instances.mainnet]
+address = "Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
+raw_address = "-1:5555555555555555555555555555555555555555555555555555555555555555"
+network = "mainnet"
+code_hash_hex = "c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"
+code_hash_base64 = "xIRMgsgid9Zfun3TILOQ8W6J6cEGgS42e2eb8N4TE+A="
+data_hash_hex = "77362a1cc4bf0f1c2eee2f15008247217dda7f2ced3bf78f7fa21afda777ba9f"
+data_hash_base64 = "dzYqHMS/Dxwu7i8VAIJHIX3afyztO/ePf6Ia/ad3up8="

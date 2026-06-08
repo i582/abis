@@ -969,8 +969,24 @@ src = "data/tonkeeper_2fa/testdata/Tonkeeper2fa.boc"
 types = "data/tonkeeper_2fa/types/tonkeeper_2fa.types.tolk"
 depends = []
 
+[contracts.Elector]
+display-name = "TON Elector"
+src = "data/system/elector/testdata/Elector.boc"
+types = "data/system/elector/types/elector.types.tolk"
+depends = []
+
+[contracts.Config]
+display-name = "TON Config"
+src = "data/system/config/testdata/Config.boc"
+types = "data/system/config/types/config.types.tolk"
+depends = []
+
 [scripts]
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
+system-elector-storage-test = "acton test data/system/elector/tests/elector_storage.test.tolk --show-bodies"
+system-elector-message-bodies-test = "acton test data/system/elector/tests/elector_message_bodies.test.tolk --show-bodies"
+system-elector-mainnet-test = "acton test data/system/elector/tests/elector_mainnet.test.tolk --fork-net mainnet --fork-block-number 71907711 --show-bodies"
+system-config-storage-test = "acton test data/system/config/tests/config_storage.test.tolk --fork-net mainnet --fork-block-number 71907711 --show-bodies"
 cron-mainnet-test = "acton test data/cron/tests/cron_storage.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
 cron-message-bodies-test = "acton test data/cron/tests/cron_message_bodies.test.tolk --show-bodies"
 subscription-v1-mainnet-test = "acton test data/subscriptions/tests/subscription_v1_storage.test.tolk --fork-net mainnet --fork-block-number 16895880 --show-bodies"
