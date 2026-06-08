@@ -879,6 +879,42 @@ src = "data/tonstakers/payout_item/testdata/TonstakersPayoutItem.boc"
 types = "data/tonstakers/payout_item/types/tonstakers_payout_item.types.tolk"
 depends = []
 
+[contracts.StakeePool]
+display-name = "Stakee Staking Pool"
+src = "data/stakee/pool/testdata/StakeePool.boc"
+types = "data/stakee/pool/types/stakee_pool.types.tolk"
+depends = []
+
+[contracts.StakeeValidatorController]
+display-name = "Stakee Validator Controller"
+src = "data/stakee/controller/testdata/StakeeValidatorController.boc"
+types = "data/stakee/controller/types/stakee_validator_controller.types.tolk"
+depends = []
+
+[contracts.StakeedMinter]
+display-name = "Stakee STAKEED Minter"
+src = "data/stakee/stakeed_minter/testdata/StakeedMinter.boc"
+types = "data/stakee/stakeed_minter/types/stakeed_minter.types.tolk"
+depends = []
+
+[contracts.StakeedWallet]
+display-name = "Stakee STAKEED Wallet"
+src = "data/stakee/stakeed_wallet/testdata/StakeedWallet.boc"
+types = "data/stakee/stakeed_wallet/types/stakeed_wallet.types.tolk"
+depends = []
+
+[contracts.StakeePayoutCollection]
+display-name = "Stakee Payout NFT Collection"
+src = "data/stakee/payout_collection/testdata/StakeePayoutCollection.boc"
+types = "data/stakee/payout_collection/types/stakee_payout_collection.types.tolk"
+depends = []
+
+[contracts.StakeePayoutItem]
+display-name = "Stakee Payout NFT Item"
+src = "data/stakee/payout_item/testdata/StakeePayoutItem.boc"
+types = "data/stakee/payout_item/types/stakee_payout_item.types.tolk"
+depends = []
+
 [contracts.EvaaMasterPyth]
 display-name = "EVAA Master Pyth"
 src = "data/evaa/master_pyth/testdata/EvaaMasterPyth.boc"
@@ -981,8 +1017,58 @@ src = "data/system/config/testdata/Config.boc"
 types = "data/system/config/types/config.types.tolk"
 depends = []
 
+[contracts.AquaUsdMasterVault]
+display-name = "Aqua USD Master Vault"
+src = "data/aqua/testdata/AquaUsdMasterVault.boc"
+types = "data/aqua/types/aqua_usd_master_vault.types.tolk"
+depends = []
+
+[contracts.FragmentUsernameCollection]
+display-name = "Fragment Username Collection"
+src = "data/fragment/testdata/FragmentUsernameCollection.boc"
+types = "data/fragment/types/fragment_username_collection.types.tolk"
+depends = []
+
+[contracts.FragmentNumbersCollection]
+display-name = "Fragment Numbers Collection"
+src = "data/fragment/testdata/FragmentNumbersCollection.boc"
+types = "data/fragment/types/fragment_numbers_collection.types.tolk"
+depends = []
+
+[contracts.FragmentUsernameItem]
+display-name = "Fragment Username Item"
+src = "data/fragment/testdata/FragmentUsernameItem.boc"
+types = "data/fragment/types/fragment_username_item.types.tolk"
+depends = []
+
+[contracts.FragmentNumbersItem]
+display-name = "Fragment Numbers Item"
+src = "data/fragment/testdata/FragmentNumbersItem.boc"
+types = "data/fragment/types/fragment_numbers_item.types.tolk"
+depends = []
+
+[contracts.PythOracle]
+display-name = "Pyth Oracle"
+src = "data/pyth_oracle/testdata/PythOracle.boc"
+types = "data/pyth_oracle/types/pyth_oracle.types.tolk"
+depends = []
+
 [scripts]
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
+pyth-oracle-storage-test = "acton test data/pyth_oracle/tests/pyth_oracle_storage.test.tolk --show-bodies"
+pyth-oracle-message-bodies-test = "acton test data/pyth_oracle/tests/pyth_oracle_message_bodies.test.tolk --show-bodies"
+aqua-usd-master-vault-storage-test = "acton test data/aqua/tests/aqua_usd_master_vault_storage.test.tolk --show-bodies"
+aqua-usd-master-vault-message-bodies-test = "acton test data/aqua/tests/aqua_usd_master_vault_message_bodies.test.tolk --show-bodies"
+stakee-test = "acton test data/stakee --show-bodies"
+fragment-test = "acton test data/fragment/tests --show-bodies"
+fragment-username-collection-storage-test = "acton test data/fragment/tests/fragment_username_collection_storage.test.tolk --show-bodies"
+fragment-username-collection-message-bodies-test = "acton test data/fragment/tests/fragment_username_collection_message_bodies.test.tolk --show-bodies"
+fragment-numbers-collection-storage-test = "acton test data/fragment/tests/fragment_numbers_collection_storage.test.tolk --show-bodies"
+fragment-numbers-collection-message-bodies-test = "acton test data/fragment/tests/fragment_numbers_collection_message_bodies.test.tolk --show-bodies"
+fragment-username-item-storage-test = "acton test data/fragment/tests/fragment_username_item_storage.test.tolk --show-bodies"
+fragment-username-item-message-bodies-test = "acton test data/fragment/tests/fragment_username_item_message_bodies.test.tolk --show-bodies"
+fragment-numbers-item-storage-test = "acton test data/fragment/tests/fragment_numbers_item_storage.test.tolk --show-bodies"
+fragment-numbers-item-message-bodies-test = "acton test data/fragment/tests/fragment_numbers_item_message_bodies.test.tolk --show-bodies"
 system-elector-storage-test = "acton test data/system/elector/tests/elector_storage.test.tolk --show-bodies"
 system-elector-message-bodies-test = "acton test data/system/elector/tests/elector_message_bodies.test.tolk --show-bodies"
 system-elector-mainnet-test = "acton test data/system/elector/tests/elector_mainnet.test.tolk --fork-net mainnet --fork-block-number 71907711 --show-bodies"

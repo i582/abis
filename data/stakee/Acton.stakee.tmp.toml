@@ -1,0 +1,10 @@
+[package]
+name = "stakee-abi-temp"
+description = "Temporary Stakee ABI wrapper manifest"
+version = "0.0.0"
+
+[contracts.StakeePool]
+display-name = "Stakee Pool"
+src = "data/stakee/pool/testdata/StakeePool.boc"
+types = "data/stakee/pool/types/stakee_pool.types.tolk"
+depends = []

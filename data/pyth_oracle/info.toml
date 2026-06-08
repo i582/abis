@@ -1,0 +1,37 @@
+[project]
+name = "pyth_oracle"
+
+[metadata]
+category = "Oracle contracts"
+description = "Pyth Network TON price oracle with Wormhole governance, guardian sets, price updates, parsing responses, and public getters"
+website = "https://pyth.network/"
+
+[sources]
+pyth_crosschain_repo = "https://github.com/pyth-network/pyth-crosschain"
+pyth_ton_docs = "https://docs.pyth.network/price-feeds/use-real-time-data/ton"
+local_research_plan = "research/plan.md"
+local_research_results = "research/results.md"
+local_research_note = "research/pyth_oracle.md"
+local_source_snapshot = "research/source/pyth-crosschain-29239b21"
+local_decompile_snapshot = "research/func"
+local_message_body_scan = "research/pyth_oracle_message_bodies_500.md"
+local_toncenter_tlb = "research/source/toncenter-schemes.tlb"
+
+[contracts.PythOracle]
+display_name = "Pyth Oracle"
+types = "types/pyth_oracle.types.tolk"
+hashes = ["f4849f26e6a41931304eb3d7652906825dc632e68ccc7ec61cad4532699c11fe"]
+known_addresses = ["EQA5NPyjfZztDm8jcTBwTAU9NGsgJEkw19z61yecX0TlseSB"]
+
+[contracts.PythOracle.instances.current_mainnet]
+address = "EQA5NPyjfZztDm8jcTBwTAU9NGsgJEkw19z61yecX0TlseSB"
+raw_address = "0:3934FCA37D9CED0E6F237130704C053D346B20244930D7DCFAD7279C5F44E5B1"
+code_hash_base64 = "9ISfJuakGTEwTrPXZSkGgl3GMuaMzH7GHK1FMmmcEf4="
+network = "mainnet"
+
+[contracts.PythOracle.variants.legacy_candidate]
+address = "EQBU6k8HH6yX4Jf3d18swWbnYr31D3PJI7PgjXT-flsKHqql"
+raw_address = "0:54EA4F071FAC97E097F7775F2CC166E762BDF50F73C923B3E08D74FE7E5B0A1E"
+code_hash_base64 = "VTNktX5KcpGMzjCljNIZ8w+xGUevGF4iKQwyUpAamGw="
+network = "mainnet"
+status = "research-only"

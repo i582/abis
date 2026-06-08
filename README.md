@@ -41,6 +41,7 @@ Each curated project group normally includes:
 | Project | Coverage | Contract entries |
 | --- | --- | --- |
 | Tonstakers | Staking pool, validator controller, tsTON jetton minter/wallet, and payout NFT collection/item. | `TonstakersPool`, `TonstakersValidatorController`, `TsTonMinter`, `TsTonWallet`, `TonstakersPayoutCollection`, `TonstakersPayoutItem` |
+| Stakee | Staking pool, validator controller, STAKEED jetton minter/wallet, and payout NFT collection/item. | `StakeePool`, `StakeeValidatorController`, `StakeedMinter`, `StakeedWallet`, `StakeePayoutCollection`, `StakeePayoutItem` |
 | Hipo Finance | hTON treasury, parent, wallet, bill collection/item, loan, and librarian. | `HipoTreasury`, `HipoParent`, `HipoWallet`, `HipoCollection`, `HipoBill`, `HipoLoan`, `HipoLibrarian` |
 | Bemo | Bemo v2 financial jetton master and unstake request contracts. | `BemoFinancial`, `BemoUnstakeRequest` |
 | Ton Whales Nominators | Nominator pool and proxy contracts for pooled TON staking through Elector. | `WhalesPool`, `WhalesProxy` |
@@ -52,6 +53,8 @@ Each curated project group normally includes:
 | Project | Coverage | Contract entries |
 | --- | --- | --- |
 | EVAA | Lending protocol master and user contracts, including Pyth and classic master variants. | `EvaaMasterPyth`, `EvaaMasterClassic`, `EvaaUser`, `EvaaBlank` |
+| Aqua Protocol | Aqua USD master vault and jetton master interface. | `AquaUsdMasterVault` |
+| Pyth Oracle | Pyth price oracle contract for feed updates, governance state, guardian sets, and price getters. | `PythOracle` |
 | Affluent | Pools, accounts, batch, multiply vaults, lending vaults, and FactorialTON jetton contracts. | `Pool`, `Account`, `Batch`, `MultiplyVault`, `MultiplyVaultV2`, `LendingVault`, `FactorialTonMinter`, `FactorialTonWallet` |
 | Locker | Locker and locker bill contracts. | `Locker`, `LockerBill` |
 
@@ -61,6 +64,7 @@ Each curated project group normally includes:
 | --- | --- | --- |
 | Getgems | Deployer, marketplace, sale, auction, offer, raffle, and swap contracts. | `GetgemsDeployer`, `GetgemsNftAuctionV1`, `GetgemsNftAuctionV2`, `GetgemsNftAuctionV3R2`, `GetgemsNftAuctionV3R3`, `GetgemsNftAuctionV4R1`, `GetgemsNftFixpriceSaleV1`, `GetgemsNftSaleLegacy`, `GetgemsNftFixpriceSaleV2`, `GetgemsNftFixpriceSaleV3`, `GetgemsNftFixpriceSaleV3R2`, `GetgemsNftFixpriceSaleV3R3`, `GetgemsNftFixpriceSaleV4R1`, `GetgemsNftMarketplaceV1`, `GetgemsNftMarketplaceV2`, `GetgemsNftOfferV1`, `GetgemsNftOfferV1R3`, `GetgemsNftRaffle`, `GetgemsNftSwap` |
 | TeleMint | Telegram TeleMint NFT item contract used by Fragment username and anonymous-number NFTs. | `TelemintNftItem` |
+| Fragment | Telegram username and anonymous-number collection/item contracts used by Fragment auctions and NFT ownership. | `FragmentUsernameCollection`, `FragmentNumbersCollection`, `FragmentUsernameItem`, `FragmentNumbersItem` |
 | Airdrop Interlocker | Airdrop claim interlocker contracts. | `AirdropInterlockerV1`, `AirdropInterlockerV2` |
 
 ### Payments, Automation, And Wallet Tooling
