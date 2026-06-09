@@ -1,0 +1,17 @@
+[project]
+name = "acton"
+
+[metadata]
+category = "Acton built-in testing contracts"
+description = "Built-in contracts used by Acton and TON Sandbox test environments"
+
+[sources]
+sandbox_treasury_source = "https://github.com/ton-org/sandbox/blob/main/src/treasury/treasury.fc"
+local_treasury_source_snapshot = "data/acton/treasury/research/func/treasury.fc"
+
+[contracts.TreasuryContract]
+display_name = "TreasuryContract"
+types = "treasury/types/treasury.types.tolk"
+description = "Built-in highload-like treasury contract used by Acton testing.treasury and TON Sandbox."
+hashes = ["d992502b94ea96e7b34e5d62ffb0c6fc73d78b3e61f11f0848fb3a1eb1afc912"]
+known_addresses = []
