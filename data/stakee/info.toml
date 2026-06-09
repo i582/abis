@@ -1,68 +1,104 @@
 [project]
-name = "Stakee"
+name = "stakee"
+
+[metadata]
+category = "TON liquid staking contracts"
 description = "Stakee liquid staking contracts: Pool, validator controller, STAKEED minter/wallet, payout collection, and payout item."
-research_results = "data/stakee/research/results.md"
 
-[[sources]]
-kind = "saved_source"
-path = "data/stakee/research/source/liquid-staking-contract/Readme.md"
-description = "Saved liquid-staking project overview and contract role description."
+[sources]
+local_research_plan = "research/plan.md"
+local_research_results = "research/results.md"
+local_project_overview = "research/source/liquid-staking-contract/Readme.md"
+local_sdk_constants = "research/source/liquid-staking-contract/sdk_constants.ts"
+local_source_snapshot = "research/source/liquid-staking-contract"
+local_decompile_snapshot = "research/func"
 
-[[sources]]
-kind = "saved_source"
-path = "data/stakee/research/source/liquid-staking-contract/sdk_constants.ts"
-description = "Saved SDK constants with staking contract address and public op constants."
-
-[[contracts]]
-name = "StakeePool"
-types = "data/stakee/pool/types/stakee_pool.types.tolk"
-wrapper = "data/stakee/pool/wrappers/StakeePool.gen.tolk"
-code_fixture = "data/stakee/pool/testdata/StakeePool.boc"
-data_fixture = "data/stakee/pool/testdata/StakeePool.data.boc"
+[contracts.StakeePool]
+display_name = "Stakee Staking Pool"
+types = "pool/types/stakee_pool.types.tolk"
+wrapper = "pool/wrappers/StakeePool.gen.tolk"
+code_fixture = "pool/testdata/StakeePool.boc"
+data_fixture = "pool/testdata/StakeePool.data.boc"
+hashes = ["192535677eed65c20ac387efe4dd7415ad9ebb9349103e87c60e592538c9dcf3"]
 known_addresses = ["EQD2_4d91M4TVbEBVyBF8J1UwpMJc361LKVCz6bBlffMW05o"]
-research = "data/stakee/research/stakee_pool.md"
+research = "research/stakee_pool.md"
 
-[[contracts]]
-name = "StakeeValidatorController"
-types = "data/stakee/controller/types/stakee_validator_controller.types.tolk"
-wrapper = "data/stakee/controller/wrappers/StakeeValidatorController.gen.tolk"
-code_fixture = "data/stakee/controller/testdata/StakeeValidatorController.boc"
-data_fixture = "data/stakee/controller/testdata/StakeeValidatorController.data.boc"
+[contracts.StakeePool.instances.mainnet]
+address = "EQD2_4d91M4TVbEBVyBF8J1UwpMJc361LKVCz6bBlffMW05o"
+raw_address = "0:F6FF877DD4CE1355B101572045F09D54C29309737EB52CA542CFA6C195F7CC5B"
+network = "mainnet"
+
+[contracts.StakeeValidatorController]
+display_name = "Stakee Validator Controller"
+types = "controller/types/stakee_validator_controller.types.tolk"
+wrapper = "controller/wrappers/StakeeValidatorController.gen.tolk"
+code_fixture = "controller/testdata/StakeeValidatorController.boc"
+data_fixture = "controller/testdata/StakeeValidatorController.data.boc"
+hashes = ["dd3ce98db487c7585803933bffba7a57eb4e663099059d08b83db0b4ce060793"]
 known_addresses = ["Ef8uWHmq2-BsU8q984j_JqDwtZv7SCY2bTz5eBT5GrNeAcHX"]
-research = "data/stakee/research/stakee_validator_controller.md"
+research = "research/stakee_validator_controller.md"
 
-[[contracts]]
-name = "StakeedMinter"
-types = "data/stakee/stakeed_minter/types/stakeed_minter.types.tolk"
-wrapper = "data/stakee/stakeed_minter/wrappers/StakeedMinter.gen.tolk"
-code_fixture = "data/stakee/stakeed_minter/testdata/StakeedMinter.boc"
-data_fixture = "data/stakee/stakeed_minter/testdata/StakeedMinter.data.boc"
+[contracts.StakeeValidatorController.instances.mainnet]
+address = "Ef8uWHmq2-BsU8q984j_JqDwtZv7SCY2bTz5eBT5GrNeAcHX"
+raw_address = "-1:2E5879AADBE06C53CABDF388FF26A0F0B59BFB4826366D3CF97814F91AB35E01"
+network = "mainnet"
+
+[contracts.StakeedMinter]
+display_name = "Stakee STAKEED Minter"
+types = "stakeed_minter/types/stakeed_minter.types.tolk"
+wrapper = "stakeed_minter/wrappers/StakeedMinter.gen.tolk"
+code_fixture = "stakeed_minter/testdata/StakeedMinter.boc"
+data_fixture = "stakeed_minter/testdata/StakeedMinter.data.boc"
+hashes = ["93b438a335eebb4f152bedc0cf5b0650612b8219b53f23560c47c09f37bccaba"]
 known_addresses = ["EQCqC6EhRJ_tpWngKxL6dV0k6DSnRUrs9GSVkLbfdCqsj6TE"]
-research = "data/stakee/research/stakeed_minter.md"
+research = "research/stakeed_minter.md"
 
-[[contracts]]
-name = "StakeedWallet"
-types = "data/stakee/stakeed_wallet/types/stakeed_wallet.types.tolk"
-wrapper = "data/stakee/stakeed_wallet/wrappers/StakeedWallet.gen.tolk"
-code_fixture = "data/stakee/stakeed_wallet/testdata/StakeedWallet.boc"
-data_fixture = "data/stakee/stakeed_wallet/testdata/StakeedWallet.data.boc"
+[contracts.StakeedMinter.instances.mainnet]
+address = "EQCqC6EhRJ_tpWngKxL6dV0k6DSnRUrs9GSVkLbfdCqsj6TE"
+raw_address = "0:AA0BA121449FEDA569E02B12FA755D24E834A7454AECF4649590B6DF742AAC8F"
+network = "mainnet"
+
+[contracts.StakeedWallet]
+display_name = "Stakee STAKEED Wallet"
+types = "stakeed_wallet/types/stakeed_wallet.types.tolk"
+wrapper = "stakeed_wallet/wrappers/StakeedWallet.gen.tolk"
+code_fixture = "stakeed_wallet/testdata/StakeedWallet.boc"
+data_fixture = "stakeed_wallet/testdata/StakeedWallet.data.boc"
+hashes = ["12bebb0dc8e202b7e26f721e2547e16bb9ebaec934f657d19f22e76d62bec878"]
 known_addresses = ["EQAtCWVbs2vyDHr0_WLUz5J5FAZySX1R2xPCDzUJ2iNYCzOq"]
-research = "data/stakee/research/stakeed_wallet.md"
+research = "research/stakeed_wallet.md"
 
-[[contracts]]
-name = "StakeePayoutCollection"
-types = "data/stakee/payout_collection/types/stakee_payout_collection.types.tolk"
-wrapper = "data/stakee/payout_collection/wrappers/StakeePayoutCollection.gen.tolk"
-code_fixture = "data/stakee/payout_collection/testdata/StakeePayoutCollection.boc"
-data_fixture = "data/stakee/payout_collection/testdata/StakeePayoutCollection.data.boc"
+[contracts.StakeedWallet.instances.mainnet]
+address = "EQAtCWVbs2vyDHr0_WLUz5J5FAZySX1R2xPCDzUJ2iNYCzOq"
+raw_address = "0:2D09655BB36BF20C7AF4FD62D4CF9279140672497D51DB13C20F3509DA23580B"
+network = "mainnet"
+
+[contracts.StakeePayoutCollection]
+display_name = "Stakee Payout NFT Collection"
+types = "payout_collection/types/stakee_payout_collection.types.tolk"
+wrapper = "payout_collection/wrappers/StakeePayoutCollection.gen.tolk"
+code_fixture = "payout_collection/testdata/StakeePayoutCollection.boc"
+data_fixture = "payout_collection/testdata/StakeePayoutCollection.data.boc"
+hashes = ["06174e58f067ca46c87fa65efe574ea0becb217cda36e351f4a979370d720ee2"]
 known_addresses = ["EQAov2TtT-ccMsvLz_yhUkp0MV5MG2J0fKx2qx_xu9rXcUY3"]
-research = "data/stakee/research/stakee_payout_collection.md"
+research = "research/stakee_payout_collection.md"
 
-[[contracts]]
-name = "StakeePayoutItem"
-types = "data/stakee/payout_item/types/stakee_payout_item.types.tolk"
-wrapper = "data/stakee/payout_item/wrappers/StakeePayoutItem.gen.tolk"
-code_fixture = "data/stakee/payout_item/testdata/StakeePayoutItem.boc"
-data_fixture = "data/stakee/payout_item/testdata/StakeePayoutItem.data.boc"
+[contracts.StakeePayoutCollection.instances.mainnet]
+address = "EQAov2TtT-ccMsvLz_yhUkp0MV5MG2J0fKx2qx_xu9rXcUY3"
+raw_address = "0:28BF64ED4FE71C32CBCBCFFC21D24A74315E4C1B62747CAC76AB1FF1BBDAD771"
+network = "mainnet"
+
+[contracts.StakeePayoutItem]
+display_name = "Stakee Payout NFT Item"
+types = "payout_item/types/stakee_payout_item.types.tolk"
+wrapper = "payout_item/wrappers/StakeePayoutItem.gen.tolk"
+code_fixture = "payout_item/testdata/StakeePayoutItem.boc"
+data_fixture = "payout_item/testdata/StakeePayoutItem.data.boc"
+hashes = ["6acd958dceb085713fd3f2657993d446c238fa01dcd3c550b8f6216c79f67032"]
 known_addresses = ["EQBXSRr2B-Sqw3G3ZnHNC978MaPvD0SceFDT8GoS4AR6U8xC"]
-research = "data/stakee/research/stakee_payout_item.md"
+research = "research/stakee_payout_item.md"
+
+[contracts.StakeePayoutItem.instances.mainnet]
+address = "EQBXSRr2B-Sqw3G3ZnHNC978MaPvD0SceFDT8GoS4AR6U8xC"
+raw_address = "0:57491AF607E4AAC371B76671CD0BDEFC31A3EF0F449C7850D3F06A12E0047A53"
+network = "mainnet"

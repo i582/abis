@@ -1,70 +1,76 @@
 [project]
-name = "Fragment"
+name = "fragment"
+
+[metadata]
+category = "Telegram NFT auction contracts"
 description = "Telegram Fragment TeleMint contracts for username and anonymous-number collections and NFT items."
-research_results = "data/fragment/research/results.md"
 
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/func/common.fc"
-description = "Saved TeleMint shared FunC source with storage helpers, opcodes, errors, auction logic, and message builders."
+[sources]
+local_research_plan = "research/plan.md"
+local_research_results = "research/results.md"
+local_common_source = "research/source/func/common.fc"
+local_username_collection_source = "research/source/func/nft-collection.fc"
+local_numbers_collection_source = "research/source/func/nft-collection-no-dns.fc"
+local_username_item_source = "research/source/func/nft-item.fc"
+local_numbers_item_source = "research/source/func/nft-item-no-dns.fc"
+local_tlb_schema = "research/source/telemint.tlb"
 
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/func/nft-collection.fc"
-description = "Saved TeleMint username collection FunC source."
-
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/func/nft-collection-no-dns.fc"
-description = "Saved TeleMint anonymous-number collection FunC source."
-
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/func/nft-item.fc"
-description = "Saved TeleMint username item FunC source."
-
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/func/nft-item-no-dns.fc"
-description = "Saved TeleMint anonymous-number item FunC source."
-
-[[sources]]
-kind = "saved_source"
-path = "data/fragment/research/source/telemint.tlb"
-description = "Saved TeleMint TL-B schema with item messages and data constructors."
-
-[[contracts]]
-name = "FragmentUsernameCollection"
-types = "data/fragment/types/fragment_username_collection.types.tolk"
-wrapper = "data/fragment/wrappers/FragmentUsernameCollection.gen.tolk"
-code_fixture = "data/fragment/testdata/FragmentUsernameCollection.boc"
-data_fixture = "data/fragment/testdata/FragmentUsernameCollection.data.boc"
+[contracts.FragmentUsernameCollection]
+display_name = "Fragment Username Collection"
+types = "types/fragment_username_collection.types.tolk"
+wrapper = "wrappers/FragmentUsernameCollection.gen.tolk"
+code_fixture = "testdata/FragmentUsernameCollection.boc"
+data_fixture = "testdata/FragmentUsernameCollection.data.boc"
+hashes = ["4d4eb9bfa2b210d890833a712be244081fddadb07f031f361ea5cf7f1a130651"]
 known_addresses = ["EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"]
-research = "data/fragment/research/fragment_username_collection.md"
+research = "research/fragment_username_collection.md"
 
-[[contracts]]
-name = "FragmentNumbersCollection"
-types = "data/fragment/types/fragment_numbers_collection.types.tolk"
-wrapper = "data/fragment/wrappers/FragmentNumbersCollection.gen.tolk"
-code_fixture = "data/fragment/testdata/FragmentNumbersCollection.boc"
-data_fixture = "data/fragment/testdata/FragmentNumbersCollection.data.boc"
+[contracts.FragmentUsernameCollection.instances.mainnet]
+address = "EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"
+raw_address = "0:80D78A35F955A14B679FAA887FF4CD5BFC0F43B4A4EEA2A7E6927F3701B273C2"
+network = "mainnet"
+
+[contracts.FragmentNumbersCollection]
+display_name = "Fragment Numbers Collection"
+types = "types/fragment_numbers_collection.types.tolk"
+wrapper = "wrappers/FragmentNumbersCollection.gen.tolk"
+code_fixture = "testdata/FragmentNumbersCollection.boc"
+data_fixture = "testdata/FragmentNumbersCollection.data.boc"
+hashes = ["88410c220f822181668269ce83eb9cc0d3b39c21999c8b55de03360a20e7c282"]
 known_addresses = ["EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"]
-research = "data/fragment/research/fragment_numbers_collection.md"
+research = "research/fragment_numbers_collection.md"
 
-[[contracts]]
-name = "FragmentUsernameItem"
-types = "data/fragment/types/fragment_username_item.types.tolk"
-wrapper = "data/fragment/wrappers/FragmentUsernameItem.gen.tolk"
-code_fixture = "data/fragment/testdata/FragmentUsernameItem.boc"
-data_fixture = "data/fragment/testdata/FragmentUsernameItem.data.boc"
+[contracts.FragmentNumbersCollection.instances.mainnet]
+address = "EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"
+raw_address = "0:0E41DC1DC3C9067ED24248580E12B3359818D83DEE0304FABCF80845EAFAFDB2"
+network = "mainnet"
+
+[contracts.FragmentUsernameItem]
+display_name = "Fragment Username Item"
+types = "types/fragment_username_item.types.tolk"
+wrapper = "wrappers/FragmentUsernameItem.gen.tolk"
+code_fixture = "testdata/FragmentUsernameItem.boc"
+data_fixture = "testdata/FragmentUsernameItem.data.boc"
+hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
 known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
-research = "data/fragment/research/fragment_username_item.md"
+research = "research/fragment_username_item.md"
 
-[[contracts]]
-name = "FragmentNumbersItem"
-types = "data/fragment/types/fragment_numbers_item.types.tolk"
-wrapper = "data/fragment/wrappers/FragmentNumbersItem.gen.tolk"
-code_fixture = "data/fragment/testdata/FragmentNumbersItem.boc"
-data_fixture = "data/fragment/testdata/FragmentNumbersItem.data.boc"
+[contracts.FragmentUsernameItem.instances.mainnet]
+address = "EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"
+raw_address = "0:6AB3CA65D5D24E65E5C2DE5B299D89DE0476A0ED56D0F732A4BF8229413DE79E"
+network = "mainnet"
+
+[contracts.FragmentNumbersItem]
+display_name = "Fragment Numbers Item"
+types = "types/fragment_numbers_item.types.tolk"
+wrapper = "wrappers/FragmentNumbersItem.gen.tolk"
+code_fixture = "testdata/FragmentNumbersItem.boc"
+data_fixture = "testdata/FragmentNumbersItem.data.boc"
+hashes = ["5b092991650fbc48b3288b08acc7677b22e4c25d48458c56d2a17f23e806b6b4"]
 known_addresses = ["EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"]
-research = "data/fragment/research/fragment_numbers_item.md"
+research = "research/fragment_numbers_item.md"
+
+[contracts.FragmentNumbersItem.instances.mainnet]
+address = "EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"
+raw_address = "0:A44250ECE39DB1FEFB2920AABF3D395497C0744B8DBB4442EBFFAD836EBA3B83"
+network = "mainnet"
