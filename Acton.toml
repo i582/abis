@@ -555,6 +555,12 @@ src = "data/dedust/liquidity_deposit/testdata/DedustLiquidityDepositV2.boc"
 types = "data/dedust/liquidity_deposit/types/dedust_liquidity_deposit_v2.types.tolk"
 depends = []
 
+[contracts.DedustV2Cpmm]
+display-name = "DeDust V2 CPMM"
+src = "data/dedust/cpmm_v2/testdata/DedustV2Cpmm.boc"
+types = "data/dedust/cpmm_v2/types/dedust_v2_cpmm.types.tolk"
+depends = []
+
 [contracts.CoffeeFactory]
 display-name = "Coffee Swap Factory"
 src = "data/coffee/factory/testdata/CoffeeFactory.boc"
@@ -1162,6 +1168,8 @@ dedust-pool-v2-mainnet-test = "acton test data/dedust/pool_v2/tests/dedust_pool_
 dedust-pool-v2-message-bodies-test = "acton test data/dedust/pool_v2/tests/dedust_pool_v2_message_bodies.test.tolk --show-bodies"
 dedust-liquidity-deposit-v2-storage-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71184765 --show-bodies"
 dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_message_bodies.test.tolk --show-bodies"
+dedust-v2-cpmm-storage-test = "acton test data/dedust/cpmm_v2/tests/dedust_v2_cpmm_storage.test.tolk --show-bodies"
+dedust-v2-cpmm-message-bodies-test = "acton test data/dedust/cpmm_v2/tests/dedust_v2_cpmm_message_bodies.test.tolk --show-bodies"
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"

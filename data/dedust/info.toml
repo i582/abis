@@ -93,3 +93,16 @@ address = "EQCDfi69jD02bImrXQGB_PXAOq3UO95ywF1-6Bnxkh90uU9Q"
 status = "destroyed_same_trace"
 trace_hash = "yudqNJUTA3R9/i1p5htaeLs5UkzI+MrR+Qzzo5JIPsA="
 network = "mainnet"
+
+[contracts.DedustV2Cpmm]
+display_name = "DeDust V2 CPMM"
+types = "cpmm_v2/types/dedust_v2_cpmm.types.tolk"
+hashes = ["5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"]
+known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
+notes = "Library-backed DeDust v2 CPMM pool proven from the live TON/LFG representative instance and verified decompile."
+
+[contracts.DedustV2Cpmm.instances.lfg_ton]
+address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
+asset0 = "TON"
+asset1 = "LFG"
+network = "mainnet"
