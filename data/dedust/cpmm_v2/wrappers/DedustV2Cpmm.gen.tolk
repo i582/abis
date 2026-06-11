@@ -45,35 +45,35 @@ fun DedustV2Cpmm.deploy(self, from: address, config: SendParams = {}): SendResul
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcodeDe8402ce(
+fun DedustV2Cpmm.sendDedustV2CpmmInitPool(
     self,
     from: address,
     queryId: uint64,
-    payload: RemainingBitsAndRefs,
+    customPayload: cell?,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcodeDe8402ce { queryId, payload },
+        body: DedustV2CpmmInitPool { queryId, customPayload },
     });
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcodeD1735400(
+fun DedustV2Cpmm.sendDedustV2CpmmTakeWalletAddress(
     self,
     from: address,
     queryId: uint64,
-    address0: address,
-    payload: RemainingBitsAndRefs,
+    walletAddress: address,
+    ownerAddress: Cell<address>?,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcodeD1735400 { queryId, address0, payload },
+        body: DedustV2CpmmTakeWalletAddress { queryId, walletAddress, ownerAddress },
     });
     return net.send(from, genericMsg);
 }
@@ -83,248 +83,283 @@ fun DedustV2Cpmm.sendDedustV2CpmmPayNative(
     from: address,
     queryId: uint64,
     amount: coins,
-    routeStep: cell,
-    swapParams: cell,
+    paymentPayload: cell,
+    payoutConfig: DedustV2CpmmExtendedPayoutConfig,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmPayNative { queryId, amount, routeStep, swapParams },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode7362d09c(
-    self,
-    from: address,
-    queryId: uint64,
-    amount: coins,
-    address0: address,
-    hasRefTail: bool,
-    payload: RemainingBitsAndRefs,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode7362d09c { queryId, amount, address0, hasRefTail, payload },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode25251ee0(
-    self,
-    from: address,
-    queryId: uint64,
-    ref0: cell,
-    amount0: coins,
-    amount1: coins,
-    address0: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode25251ee0 { queryId, ref0, amount0, amount1, address0 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode0d29d6f2(
-    self,
-    from: address,
-    queryId: uint64,
-    ref0: cell,
-    amount0: coins,
-    amount1: coins,
-    address0: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode0d29d6f2 { queryId, ref0, amount0, amount1, address0 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode5652f1df(
-    self,
-    from: address,
-    queryId: uint64,
-    address0: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode5652f1df { queryId, address0 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode29ff1bcf(
-    self,
-    from: address,
-    queryId: uint64,
-    amount0: coins,
-    amount1: coins,
-    address0: address,
-    address1: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode29ff1bcf { queryId, amount0, amount1, address0, address1 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode419a17b3(
-    self,
-    from: address,
-    queryId: uint64,
-    address0: address,
-    address1: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode419a17b3 { queryId, address0, address1 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcodeBe3e3179(
-    self,
-    from: address,
-    queryId: uint64,
-    address0: address,
-    address1: address,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcodeBe3e3179 { queryId, address0, address1 },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode20b5ef89(
-    self,
-    from: address,
-    queryId: uint64,
-    amount0: coins,
-    amount1: coins,
-    amount2: coins,
-    flag0: bool,
-    payload: RemainingBitsAndRefs,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcode20b5ef89 { queryId, amount0, amount1, amount2, flag0, payload },
-    });
-    return net.send(from, genericMsg);
-}
-
-fun DedustV2Cpmm.sendDedustV2CpmmOpcodeF6f6a3aa(
-    self,
-    from: address,
-    queryId: uint64,
-    amount0: coins,
-    amount1: coins,
-    amount2: coins,
-    address0: address,
-    amount3: coins,
-    amount4: coins,
-    payload: RemainingBitsAndRefs,
-    config: SendParams = {},
-): SendResultList {
-    val genericMsg = createMessage({
-        bounce: config.bounce,
-        value: config.value,
-        dest: self.address,
-        body: DedustV2CpmmOpcodeF6f6a3aa {
+        body: DedustV2CpmmPayNative {
             queryId,
-            amount0,
-            amount1,
-            amount2,
-            address0,
-            amount3,
-            amount4,
-            payload,
+            amount,
+            paymentPayload,
+            payoutConfig: payoutConfig.toCell(),
         },
     });
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode00d8d8b9(
+fun DedustV2Cpmm.sendDedustV2CpmmTransferNotification(
     self,
     from: address,
     queryId: uint64,
-    flag0: bool,
-    flag1: bool,
-    flag2: bool,
-    payload: RemainingBitsAndRefs,
+    amount: coins,
+    sender: address,
+    isForwardPayloadRef: bool,
+    forwardPayload: RemainingBitsAndRefs,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcode00d8d8b9 { queryId, flag0, flag1, flag2, payload },
+        body: DedustV2CpmmTransferNotification {
+            queryId,
+            amount,
+            sender,
+            isForwardPayloadRef,
+            forwardPayload,
+        },
     });
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode909fdb65(
+fun DedustV2Cpmm.sendDedustV2CpmmJoinLiquidity(
     self,
     from: address,
     queryId: uint64,
-    mode: uint2,
-    address0: address,
-    address1: address,
+    config_: cell,
+    amountX: coins,
+    amountY: coins,
+    initiatorAddress: address,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcode909fdb65 { queryId, mode, address0, address1 },
+        body: DedustV2CpmmJoinLiquidity {
+            queryId,
+            config: config_,
+            amountX,
+            amountY,
+            initiatorAddress,
+        },
     });
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcode9e17fbbe(
+fun DedustV2Cpmm.sendDedustV2CpmmRefundDeposit(
     self,
     from: address,
     queryId: uint64,
-    amount0: coins,
-    mode: uint2,
-    address0: address,
-    address1: address,
+    config_: cell,
+    amountX: coins,
+    amountY: coins,
+    initiatorAddress: address,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcode9e17fbbe { queryId, amount0, mode, address0, address1 },
+        body: DedustV2CpmmRefundDeposit {
+            queryId,
+            config: config_,
+            amountX,
+            amountY,
+            initiatorAddress,
+        },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmClaimPositionFees(
+    self,
+    from: address,
+    queryId: uint64,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmClaimPositionFees { queryId, excessesTo },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmPayoutPositionFees(
+    self,
+    from: address,
+    queryId: uint64,
+    xFees: coins,
+    yFees: coins,
+    ownerAddress: address,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmPayoutPositionFees { queryId, xFees, yFees, ownerAddress, excessesTo },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmClaimProtocolFees(
+    self,
+    from: address,
+    queryId: uint64,
+    to: address,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmClaimProtocolFees { queryId, to, excessesTo },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmClaimCreatorFees(
+    self,
+    from: address,
+    queryId: uint64,
+    to: address,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmClaimCreatorFees { queryId, to, excessesTo },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmWithdraw(
+    self,
+    from: address,
+    queryId: uint64,
+    liquidity: coins,
+    minimalXOut: coins,
+    minimalYOut: coins,
+    autoClaimFees: bool,
+    payoutConfig: DedustV2CpmmBasicPayoutConfig,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmWithdraw {
+            queryId,
+            liquidity,
+            minimalXOut,
+            minimalYOut,
+            autoClaimFees,
+            payoutConfig: payoutConfig.toCell(),
+        },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmExitLiquidity(
+    self,
+    from: address,
+    queryId: uint64,
+    liquidity: coins,
+    xFees: coins,
+    yFees: coins,
+    ownerAddress: address,
+    minimalAmountX: coins,
+    minimalAmountY: coins,
+    payoutConfig: DedustV2CpmmBasicPayoutConfig,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmExitLiquidity {
+            queryId,
+            liquidity,
+            xFees,
+            yFees,
+            ownerAddress,
+            minimalAmountX,
+            minimalAmountY,
+            payoutConfig: payoutConfig.toCell(),
+        },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmProvidePoolState(
+    self,
+    from: address,
+    queryId: uint64,
+    includeConfig: bool,
+    includeFees: bool,
+    includeCodeHash: bool,
+    includeRewards: bool,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmProvidePoolState {
+            queryId,
+            includeConfig,
+            includeFees,
+            includeCodeHash,
+            includeRewards,
+        },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmClaimReward(
+    self,
+    from: address,
+    queryId: uint64,
+    rewardIndex: uint2,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmClaimReward { queryId, rewardIndex, excessesTo },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustV2Cpmm.sendDedustV2CpmmPayoutReward(
+    self,
+    from: address,
+    queryId: uint64,
+    amount: coins,
+    rewardIndex: uint2,
+    ownerAddress: address,
+    excessesTo: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustV2CpmmPayoutReward { queryId, amount, rewardIndex, ownerAddress, excessesTo },
     });
     return net.send(from, genericMsg);
 }
