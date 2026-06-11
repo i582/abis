@@ -1,0 +1,82 @@
+/// Fragment/MarketApp buy-routing proxy variant observed in live Telegram Stars traffic.
+contract FragmentMarketappProxySimple {
+    author: "MarketApp"
+    version: "1.0"
+    description: "Signed Fragment/Telegram collectible buy-routing proxy variant with optional root secondary-send ref"
+    storage: FragmentMarketappProxySimpleStorage
+    incomingMessages: FragmentMarketappProxySimpleIncomingMessage
+    forceAbiExport: FragmentMarketappProxySimpleSignedBuyRequest
+        | FragmentMarketappProxySimpleSecondarySend
+    thrownErrors: FragmentMarketappProxySimpleErrors
+}
+
+/// Proxy persistent data used for Ed25519 authorization and admin raw-send control.
+struct FragmentMarketappProxySimpleStorage {
+    /// Ed25519 public key that signs buy-routing payload cells.
+    publicKey: bits256
+    /// Account authorized to send opcode `0x22b` raw-message relay commands.
+    adminAddress: address
+}
+
+/// Signed direct buy request accepted by the proxy.
+struct (0x3f2b92d2) FragmentMarketappProxySimpleBuy {
+    /// Ed25519 signature over the referenced signed request cell hash.
+    signature: bits512
+    /// Referenced request cell containing destination, value, forwarded body, and variant-specific tail.
+    request: Cell<FragmentMarketappProxySimpleSignedBuyRequest>
+    /// Untagged extra refs used by this variant for secondary reward/referral sends.
+    extra: RemainingBitsAndRefs
+}
+
+/// Request cell signed by the proxy public key.
+struct FragmentMarketappProxySimpleSignedBuyRequest {
+    /// Destination that receives the primary routed TON transfer.
+    destination: address
+    /// Nanotons sent with the primary routed transfer.
+    amount: coins
+    /// Body attached to the primary routed transfer.
+    forwardPayload: cell
+    /// Expected to be empty for this variant; retained to prove absence of trailing signed fields.
+    extra: RemainingBitsAndRefs
+}
+
+/// Secondary destination/payload cell used for reward or referral sends.
+struct FragmentMarketappProxySimpleSecondarySend {
+    /// Destination that receives the secondary computed-value transfer.
+    destination: address
+    /// Body attached to the secondary transfer.
+    forwardPayload: cell
+    /// Reserved for variant-specific trailing fields.
+    extra: RemainingBitsAndRefs
+}
+
+/// Admin raw-message relay command accepted only from the stored admin address.
+struct (0x22b) FragmentMarketappProxySimpleAdminRelay {
+    /// Referenced cell containing send mode followed by the raw message cell.
+    command: Cell<FragmentMarketappProxySimpleAdminRelayCommand>
+}
+
+/// Admin relay command cell.
+struct FragmentMarketappProxySimpleAdminRelayCommand {
+    /// TVM send mode for the relayed raw message.
+    sendMode: uint8
+    /// Raw outbound message to pass to `send_raw_message`.
+    message: cell
+}
+
+/// Internal messages accepted by the proxy.
+type FragmentMarketappProxySimpleIncomingMessage =
+    | FragmentMarketappProxySimpleBuy
+    | FragmentMarketappProxySimpleAdminRelay
+
+/// Exit-code catalog for the proxy.
+enum FragmentMarketappProxySimpleErrors {
+    /// Signature over the signed routing payload is invalid.
+    InvalidSignature = 403
+    /// Admin relay send mode uses a forbidden flag.
+    InvalidSendMode = 400
+    /// Incoming TON value is not greater than the primary routed amount.
+    InsufficientMessageValue = 1001
+    /// Incoming message opcode is not supported.
+    UnsupportedOperation = 65535
+}

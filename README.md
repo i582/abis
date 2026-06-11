@@ -2,7 +2,7 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **179 contract entries**.
+Current catalog size: **182 contract entries**.
 
 Each curated project group normally includes:
 
@@ -66,7 +66,7 @@ Each curated project group normally includes:
 | --- | --- | --- |
 | Getgems | Deployer, marketplace, sale, auction, offer, raffle, and swap contracts. | `GetgemsDeployer`, `GetgemsNftAuctionV1`, `GetgemsNftAuctionV2`, `GetgemsNftAuctionV3R2`, `GetgemsNftAuctionV3R3`, `GetgemsNftAuctionV4R1`, `GetgemsNftFixpriceSaleV1`, `GetgemsNftSaleLegacy`, `GetgemsNftFixpriceSaleV2`, `GetgemsNftFixpriceSaleV3`, `GetgemsNftFixpriceSaleV3R2`, `GetgemsNftFixpriceSaleV3R3`, `GetgemsNftFixpriceSaleV4R1`, `GetgemsNftMarketplaceV1`, `GetgemsNftMarketplaceV2`, `GetgemsNftOfferV1`, `GetgemsNftOfferV1R3`, `GetgemsNftRaffle`, `GetgemsNftSwap` |
 | TeleMint | Telegram TeleMint NFT item contract used by Fragment username and anonymous-number NFTs. | `TelemintNftItem` |
-| Fragment | Telegram username and anonymous-number collection/item contracts used by Fragment auctions and NFT ownership. | `FragmentUsernameCollection`, `FragmentNumbersCollection`, `FragmentUsernameItem`, `FragmentNumbersItem` |
+| Fragment | Telegram username and anonymous-number collection/item contracts, plus MarketApp/Fragment buy-routing proxy variants for Telegram collectible purchases. | `FragmentUsernameCollection`, `FragmentNumbersCollection`, `FragmentUsernameItem`, `FragmentNumbersItem`, `FragmentMarketappProxyKnown`, `FragmentMarketappProxySimple`, `FragmentMarketappProxyJetton` |
 | Airdrop Interlocker | Airdrop claim interlocker contracts. | `AirdropInterlockerV1`, `AirdropInterlockerV2` |
 
 ### Payments, Automation, And Wallet Tooling

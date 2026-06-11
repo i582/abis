@@ -1125,6 +1125,24 @@ src = "data/fragment/testdata/FragmentNumbersItem.boc"
 types = "data/fragment/types/fragment_numbers_item.types.tolk"
 depends = []
 
+[contracts.FragmentMarketappProxyKnown]
+display-name = "Fragment MarketApp Proxy Known"
+src = "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyKnown.boc"
+types = "data/fragment/marketapp_proxy/types/fragment_marketapp_proxy_known.types.tolk"
+depends = []
+
+[contracts.FragmentMarketappProxySimple]
+display-name = "Fragment MarketApp Proxy Simple"
+src = "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxySimple.boc"
+types = "data/fragment/marketapp_proxy/types/fragment_marketapp_proxy_simple.types.tolk"
+depends = []
+
+[contracts.FragmentMarketappProxyJetton]
+display-name = "Fragment MarketApp Proxy Jetton"
+src = "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyJetton.boc"
+types = "data/fragment/marketapp_proxy/types/fragment_marketapp_proxy_jetton.types.tolk"
+depends = []
+
 [contracts.PythOracle]
 display-name = "Pyth Oracle"
 src = "data/pyth_oracle/testdata/PythOracle.boc"

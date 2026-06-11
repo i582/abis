@@ -14,6 +14,10 @@ local_numbers_collection_source = "research/source/func/nft-collection-no-dns.fc
 local_username_item_source = "research/source/func/nft-item.fc"
 local_numbers_item_source = "research/source/func/nft-item-no-dns.fc"
 local_tlb_schema = "research/source/telemint.tlb"
+marketapp_proxy_source_excerpt = "research/source/marketapp_proxy_teleclaw_fragment_service_excerpt.ts"
+marketapp_proxy_known_decompile = "research/func/marketapp_proxy_known.fc"
+marketapp_proxy_simple_decompile = "research/func/marketapp_proxy_0dbd.fc"
+marketapp_proxy_jetton_decompile = "research/func/marketapp_proxy_a9c1.fc"
 
 [contracts.FragmentUsernameCollection]
 display_name = "Fragment Username Collection"
@@ -73,4 +77,49 @@ research = "research/fragment_numbers_item.md"
 [contracts.FragmentNumbersItem.instances.mainnet]
 address = "EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"
 raw_address = "0:A44250ECE39DB1FEFB2920AABF3D395497C0744B8DBB4442EBFFAD836EBA3B83"
+network = "mainnet"
+
+[contracts.FragmentMarketappProxyKnown]
+display_name = "Fragment MarketApp Proxy Known"
+types = "marketapp_proxy/types/fragment_marketapp_proxy_known.types.tolk"
+wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxyKnown.gen.tolk"
+code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyKnown.boc"
+data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyKnown.data.boc"
+hashes = ["e92234d14b8f1961b8c64c5506167fd52cdfb95d344185cba300edff13352030"]
+known_addresses = ["EQCYCA-47lALps90xoFFIPVznOsiHlWVKF3cEDChKgP3JYEf"]
+research = "research/fragment_marketapp_proxy.md"
+
+[contracts.FragmentMarketappProxyKnown.instances.mainnet]
+address = "EQCYCA-47lALps90xoFFIPVznOsiHlWVKF3cEDChKgP3JYEf"
+raw_address = "0:98080FB8EE500BA6CF74C6814520F5739CEB221E5595285DDC1030A12A03F725"
+network = "mainnet"
+
+[contracts.FragmentMarketappProxySimple]
+display_name = "Fragment MarketApp Proxy Simple"
+types = "marketapp_proxy/types/fragment_marketapp_proxy_simple.types.tolk"
+wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxySimple.gen.tolk"
+code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxySimple.boc"
+data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxySimple.data.boc"
+hashes = ["d4b299082778659ee541537db4f082d9b13fedc0f61b74cf7390ca0b255d9238"]
+known_addresses = ["EQANvQrhZdnFuw3DKsYeQwffxnTdER9TTZ_br2eT_lTu_mGz"]
+research = "research/fragment_marketapp_proxy.md"
+
+[contracts.FragmentMarketappProxySimple.instances.mainnet]
+address = "EQANvQrhZdnFuw3DKsYeQwffxnTdER9TTZ_br2eT_lTu_mGz"
+raw_address = "0:0DBD0AE165D9C5BB0DC32AC61E4307DFC674DD111F534D9FDBAF6793FE54EEFE"
+network = "mainnet"
+
+[contracts.FragmentMarketappProxyJetton]
+display_name = "Fragment MarketApp Proxy Jetton"
+types = "marketapp_proxy/types/fragment_marketapp_proxy_jetton.types.tolk"
+wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxyJetton.gen.tolk"
+code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyJetton.boc"
+data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyJetton.data.boc"
+hashes = ["889170121b62550b64c19044c3bef93b7abbad11a0b0e672e1605096ddcc85ec"]
+known_addresses = ["EQCpwa0v6lvGA01uKGfsW1CK1Nd59aO_xVFGGHPy7JTghHTB"]
+research = "research/fragment_marketapp_proxy.md"
+
+[contracts.FragmentMarketappProxyJetton.instances.mainnet]
+address = "EQCpwa0v6lvGA01uKGfsW1CK1Nd59aO_xVFGGHPy7JTghHTB"
+raw_address = "0:A9C1AD2FEA5BC6034D6E2867EC5B508AD4D779F5A3BFC551461873F2EC94E084"
 network = "mainnet"
