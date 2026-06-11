@@ -2,6 +2,8 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
+Current catalog size: **179 contract entries**.
+
 Each curated project group normally includes:
 
 - `info.toml` with catalog metadata, contract entries, known hashes, known addresses, and source links.
