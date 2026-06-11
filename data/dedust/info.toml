@@ -3,7 +3,7 @@ name = "dedust"
 
 [metadata]
 category = "TON DEX contracts"
-description = "DeDust Protocol v1 and v2 Factory, Pool, Vault, Liquidity Deposit, and CPMM contracts"
+description = "DeDust Protocol v1 and v2 Factory, Pool, Vault, Liquidity Deposit, CPMM, and Uranus launchpad contracts"
 
 [sources]
 dedust_docs = "https://docs.dedust.io"
@@ -12,10 +12,17 @@ dedust_factory_docs = "https://docs.dedust.io/reference/factory"
 dedust_pool_docs = "https://docs.dedust.io/reference/pool"
 dedust_sdk = "https://github.com/dedust-io/sdk"
 dedust_api_pools = "https://api.dedust.io/v2/pools"
+dedust_uranus_beta_docs = "https://hub-beta.dedust.io/docs/uranus/overview"
+dedust_uranus_beta_factory_reference = "https://hub-beta.dedust.io/docs/uranus/reference/meme-factory"
+dedust_uranus_beta_meme_reference = "https://hub-beta.dedust.io/docs/uranus/reference/meme"
+dedust_uranus_beta_meme_wallet_reference = "https://hub-beta.dedust.io/docs/uranus/reference/meme-wallet"
 local_research_plan = "data/dedust/research/plan.md"
 local_research_results = "data/dedust/research/results.md"
 local_shared_research = "data/dedust/research/shared.md"
 local_docs_snapshot = "data/dedust/research/docs"
+local_uranus_beta_docs_snapshot = "data/dedust/research/docs/uranus_beta"
+local_uranus_v3_research = "data/dedust/research/dedust_uranus_v3.md"
+local_uranus_message_bodies = "data/dedust/research/uranus_message_bodies_2026-06-11.tsv"
 local_sdk_snapshot = "data/dedust/research/source/sdk"
 local_schema = "data/dedust/research/source/local/dedust.xml"
 local_toncenter_tlb = "data/dedust/research/source/local/toncenter_dedust_v2.tlb"
@@ -144,4 +151,36 @@ known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
 address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
 asset0 = "TON"
 asset1 = "LFG"
+network = "mainnet"
+
+[contracts.DedustUranusFactoryV3]
+display_name = "DeDust Uranus Factory V3"
+types = "uranus/factory/types/dedust_uranus_factory_v3.types.tolk"
+hashes = ["b4577491b68c6e37f4b7fbe8cb135e19467fee7653cde48ce28940e4d0ee311a"]
+known_addresses = ["EQA6ivhIOBQJvqO1SY3IvutmluM1d817gZDeEjiaVNBLePd3"]
+
+[contracts.DedustUranusFactoryV3.instances.mainnet]
+address = "EQA6ivhIOBQJvqO1SY3IvutmluM1d817gZDeEjiaVNBLePd3"
+network = "mainnet"
+
+[contracts.DedustUranusMemeV3]
+display_name = "DeDust Uranus Meme V3"
+types = "uranus/meme/types/dedust_uranus_meme_v3.types.tolk"
+hashes = ["1e4f8fcaabefdbbb9b397372d9f021511c272eda2b492ca2d33b817bc3251afe"]
+known_addresses = ["EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"]
+
+[contracts.DedustUranusMemeV3.instances.rastagram]
+address = "EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"
+symbol = "RASTA"
+network = "mainnet"
+
+[contracts.DedustUranusMemeWalletV3]
+display_name = "DeDust Uranus Meme Wallet V3"
+types = "uranus/meme_wallet/types/dedust_uranus_meme_wallet_v3.types.tolk"
+hashes = ["e2da88070dcf9d1b2ed4ab9079b8c473625bf320f38423ed86ee03ef5c326858"]
+known_addresses = ["EQAIQw-od7Nq8ZJrn40VQHzXOFm3N7XteVgF4ITp-GiiBjzG"]
+
+[contracts.DedustUranusMemeWalletV3.instances.rastagram_owner_sample]
+address = "EQAIQw-od7Nq8ZJrn40VQHzXOFm3N7XteVgF4ITp-GiiBjzG"
+meme = "EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"
 network = "mainnet"

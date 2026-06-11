@@ -585,6 +585,24 @@ src = "data/dedust/cpmm_v2/testdata/DedustV2Cpmm.boc"
 types = "data/dedust/cpmm_v2/types/dedust_v2_cpmm.types.tolk"
 depends = []
 
+[contracts.DedustUranusFactoryV3]
+display-name = "DeDust Uranus Factory V3"
+src = "data/dedust/uranus/factory/testdata/DedustUranusFactoryV3.boc"
+types = "data/dedust/uranus/factory/types/dedust_uranus_factory_v3.types.tolk"
+depends = []
+
+[contracts.DedustUranusMemeV3]
+display-name = "DeDust Uranus Meme V3"
+src = "data/dedust/uranus/meme/testdata/DedustUranusMemeV3.boc"
+types = "data/dedust/uranus/meme/types/dedust_uranus_meme_v3.types.tolk"
+depends = []
+
+[contracts.DedustUranusMemeWalletV3]
+display-name = "DeDust Uranus Meme Wallet V3"
+src = "data/dedust/uranus/meme_wallet/testdata/DedustUranusMemeWalletV3.boc"
+types = "data/dedust/uranus/meme_wallet/types/dedust_uranus_meme_wallet_v3.types.tolk"
+depends = []
+
 [contracts.DedustFactoryV1]
 display-name = "DeDust Factory V1"
 src = "data/dedust/v1/factory/testdata/DedustFactoryV1.boc"
