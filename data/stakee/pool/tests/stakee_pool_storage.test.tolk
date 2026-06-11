@@ -1,9 +1,12 @@
 import "@acton/build"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
 import "@acton/testing/expect"
 import "../types/stakee_pool.types"
+import "../wrappers/StakeePool.gen"
 
 const CODE_FIXTURE_BOC_PATH = "data/stakee/pool/testdata/StakeePool.boc"
 const DATA_FIXTURE_BOC_PATH = "data/stakee/pool/testdata/StakeePool.data.boc"
@@ -153,4 +156,27 @@ get fun `test stakee pool parses saved mainnet storage fixture`() {
     println("STAKEE_POOL_STORAGE={}", storage);
     println("STAKEE_POOL_MINTERS={}", minters);
     println("STAKEE_POOL_CURRENT_ROUND={}", loaded.currentRound);
+}
+
+get fun `test stakee pool local wrapper full-data decodes borrower maps`() {
+    val loaded = loadStakeePoolStorage();
+    val pool = StakeePool.fromStorage(loaded.storage);
+    val deployer = testing.treasury("stakee-pool-storage-deployer");
+
+    pool.deploy(deployer.address, { value: ton("1"), bounce: false });
+    expect(scripts.isContractDeployed(pool.address)).toBeTrue();
+
+    val fullData = pool.getPoolFullDataRaw();
+    val [currentBorrowers, currentRoundId, _, _, _, _, _] = fullData.currentRoundBorrowers;
+    val [prevBorrowers, prevRoundId, _, _, _, _, _] = fullData.prevRoundBorrowers;
+    expect(currentRoundId).toEqual(loaded.currentRound.roundId as int);
+    expect(currentBorrowers).toHaveLength(
+        loaded.currentRound.activeBorrowers as int,
+    );
+    expect(prevRoundId).toEqual(loaded.prevRound.roundId as int);
+    expect(prevBorrowers).toHaveLength(
+        loaded.prevRound.activeBorrowers as int,
+    );
+
+    println("STAKEE_POOL_FULL_DATA={}", fullData);
 }

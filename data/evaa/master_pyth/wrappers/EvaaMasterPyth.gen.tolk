@@ -18,12 +18,13 @@ struct EvaaMasterPyth {
 fun EvaaMasterPyth.fromStorage(
     storage: EvaaMasterPythStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): EvaaMasterPyth {
     val stateInit = ContractState {
         code: build("EvaaMasterPyth"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return EvaaMasterPyth { address, stateInit };
 }
 
@@ -691,7 +692,10 @@ fun EvaaMasterPyth.getUpdatedRates(
     );
 }
 
-fun EvaaMasterPyth.getUpdatedRatesForAllAssets(self, timeElapsed: int): cell {
+fun EvaaMasterPyth.getUpdatedRatesForAllAssets(self, timeElapsed: int): map<
+    uint256,
+    EvaaMasterPythPackedAssetRate,
+> {
     return net.runGetMethod(self.address, "getUpdatedRatesForAllAssets", [timeElapsed]);
 }
 
@@ -699,7 +703,7 @@ fun EvaaMasterPyth.getAssetRates(self, assetId: int): EvaaMasterPythAssetRate {
     return net.runGetMethod(self.address, "getAssetRates", [assetId]);
 }
 
-fun EvaaMasterPyth.getAssetsRates(self): cell {
+fun EvaaMasterPyth.getAssetsRates(self): map<uint256, EvaaMasterPythPackedAssetRate> {
     return net.runGetMethod(self.address, "get_assets_rates");
 }
 
@@ -707,7 +711,7 @@ fun EvaaMasterPyth.getAssetReserves(self, assetId: int): int {
     return net.runGetMethod(self.address, "getAssetReserves", [assetId]);
 }
 
-fun EvaaMasterPyth.getAssetsReserves(self): cell {
+fun EvaaMasterPyth.getAssetsReserves(self): map<uint256, int65> {
     return net.runGetMethod(self.address, "get_assets_reserves");
 }
 
@@ -715,11 +719,11 @@ fun EvaaMasterPyth.getAssetTotals(self, assetId: int): EvaaMasterPythAssetTotals
     return net.runGetMethod(self.address, "getAssetTotals", [assetId]);
 }
 
-fun EvaaMasterPyth.getAssetsData(self): cell {
+fun EvaaMasterPyth.getAssetsData(self): map<uint256, EvaaMasterPythAssetDynamics> {
     return net.runGetMethod(self.address, "getAssetsData");
 }
 
-fun EvaaMasterPyth.getAssetsConfig(self): cell {
+fun EvaaMasterPyth.getAssetsConfig(self): map<uint256, EvaaMasterPythAssetConfig> {
     return net.runGetMethod(self.address, "getAssetsConfig");
 }
 
@@ -819,7 +823,7 @@ fun EvaaMasterPyth.getActive(self): int {
     return net.runGetMethod(self.address, "get_active");
 }
 
-fun EvaaMasterPyth.getTokensKeys(self): cell {
+fun EvaaMasterPyth.getTokensKeys(self): map<uint256, uint256> {
     return net.runGetMethod(self.address, "getTokensKeys");
 }
 

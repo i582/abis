@@ -157,10 +157,10 @@ struct GetgemsNftRaffleStateReply {
     rightCoinsGot: coins
     /// Per-NFT transfer amount used by outbound NFT transfers.
     nftTransferFee: coins
-    /// Raw `HashmapE 256` NFT status dictionary returned on the stack; null means empty.
-    nfts: cell?
-    /// Raw `HashmapE 256` raffle-result dictionary returned on the stack; null means empty.
-    raffledNfts: cell?
+    /// NFT status dictionary keyed by NFT item address hash; empty map means no entries.
+    nfts: map<uint256, uint4>
+    /// Raffle result dictionary keyed by NFT item address hash; empty map means no entries.
+    raffledNfts: map<uint256, uint1>
 }
 
 /// Source-level exit-code catalog for Getgems NFT raffle.

@@ -98,6 +98,16 @@ get fun `test pyth oracle local wrapper getters match saved storage`() {
     expect(oracle.getChainId()).toEqual(loaded.governance.chainId);
     expect(oracle.getGovernanceChainId()).toEqual(loaded.governance.governanceChainId);
     expect(oracle.getCurrentGuardianSetIndex()).toEqual(loaded.guardianSets.currentGuardianSetIndex);
+    val storedGuardianSet = loaded.guardianSets.guardianSets
+        .mustGet(loaded.guardianSets.currentGuardianSetIndex)
+        .guardianSet
+        .load();
+    val getterGuardianSet = oracle.getGuardianSet(loaded.guardianSets.currentGuardianSetIndex as int);
+    expect(getterGuardianSet.expirationTime).toEqual(storedGuardianSet.expirationTime as int);
+    expect(getterGuardianSet.keys).toHaveLength(getterGuardianSet.keyCount);
+    expect(getterGuardianSet.keys.mustGet(0 as uint8)).toEqual(
+        storedGuardianSet.keys.mustGet(0 as uint8),
+    );
     expect(oracle.getGovernanceDataSource().hash()).toEqual(loaded.governance.governanceDataSource.hash());
     expect(oracle.getGovernanceDataSourceIndex()).toEqual(loaded.governance.governanceDataSourceIndex);
     expect(oracle.getLastExecutedGovernanceSequence()).toEqual(loaded.governance.lastExecutedGovernanceSequence);

@@ -178,6 +178,14 @@ struct EvaaMasterPythAssetRate {
     bRate: int
 }
 
+/// Packed supply and borrow rates stored as dictionary values by aggregate getters.
+struct EvaaMasterPythPackedAssetRate {
+    /// Supply rate stored with `store_sb_rate` as uint64.
+    sRate: uint64
+    /// Borrow rate stored with `store_sb_rate` as uint64.
+    bRate: uint64
+}
+
 /// Pair of total supply and total borrow values.
 struct EvaaMasterPythAssetTotals {
     /// Total supply.
@@ -229,13 +237,13 @@ struct EvaaMasterPythGetConfigReply {
 /// UI bundle returned by `getUIVariables`.
 struct EvaaMasterPythGetUIVariablesReply {
     /// Asset dynamics collection.
-    assetDynamicsCollection: cell
+    assetDynamicsCollection: map<uint256, EvaaMasterPythAssetDynamics>
     /// Metadata, upgrade config, and master config bundle.
     config: cell
     /// Asset rates dictionary.
-    assetsRates: cell
+    assetsRates: map<uint256, EvaaMasterPythPackedAssetRate>
     /// Asset reserves dictionary.
-    assetsReserves: cell
+    assetsReserves: map<uint256, int65>
 }
 
 /// Pyth oracle info returned by `get_oracles_info`.
@@ -1256,7 +1264,7 @@ get fun getUpdatedRates(
 }
 
 /// Return updated rates for every asset.
-get fun getUpdatedRatesForAllAssets(timeElapsed: int): cell {
+get fun getUpdatedRatesForAllAssets(timeElapsed: int): map<uint256, EvaaMasterPythPackedAssetRate> {
     throw 0;
 }
 
@@ -1266,7 +1274,7 @@ get fun getAssetRates(assetId: int): EvaaMasterPythAssetRate {
 }
 
 /// Return current supply and borrow rates for every asset.
-get fun get_assets_rates(): cell {
+get fun get_assets_rates(): map<uint256, EvaaMasterPythPackedAssetRate> {
     throw 0;
 }
 
@@ -1276,7 +1284,7 @@ get fun getAssetReserves(assetId: int): int {
 }
 
 /// Return protocol reserve amounts for every asset.
-get fun get_assets_reserves(): cell {
+get fun get_assets_reserves(): map<uint256, int65> {
     throw 0;
 }
 
@@ -1286,12 +1294,12 @@ get fun getAssetTotals(assetId: int): EvaaMasterPythAssetTotals {
 }
 
 /// Return asset dynamics collection.
-get fun getAssetsData(): cell {
+get fun getAssetsData(): map<uint256, EvaaMasterPythAssetDynamics> {
     throw 0;
 }
 
 /// Return asset config collection.
-get fun getAssetsConfig(): cell {
+get fun getAssetsConfig(): map<uint256, EvaaMasterPythAssetConfig> {
     throw 0;
 }
 
@@ -1391,7 +1399,7 @@ get fun get_active(): int {
 }
 
 /// Return token keys dictionary.
-get fun getTokensKeys(): cell {
+get fun getTokensKeys(): map<uint256, uint256> {
     throw 0;
 }
 

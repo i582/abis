@@ -18,12 +18,13 @@ struct GetgemsNftSwap {
 fun GetgemsNftSwap.fromStorage(
     storage: GetgemsNftSwapStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): GetgemsNftSwap {
     val stateInit = ContractState {
         code: build("GetgemsNftSwap"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return GetgemsNftSwap { address, stateInit };
 }
 

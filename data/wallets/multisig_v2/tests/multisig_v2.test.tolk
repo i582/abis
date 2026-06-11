@@ -131,7 +131,17 @@ get fun `test multisig v2 mainnet parses persistent storage`() {
         expect(data.seqno).toEqual(storage.nextOrderSeqno);
     }
     expect(data.threshold).toEqual(storage.threshold);
-    expect(data.signers.hash()).toEqual(storage.signers.hash());
+    expect(data.signers).toHaveLength(storage.signersNum as int);
+    expect(data.signers).toContainKey(0 as uint8);
+    expect(data.signers.mustGet(0 as uint8)).toEqual(
+        address("EQA4oDD_lwNY_TMJTAUPfHuf8z8n4-mvUC-WCFwYQNVVqSOe"),
+    );
+    expect(data.signers.mustGet(1 as uint8)).toEqual(
+        address("EQAfNKK-iJm9Sb5E1UC4ucQ4QuvOh0cKUF4bmGgwR7IOIx3f"),
+    );
+    expect(data.signers.mustGet(2 as uint8)).toEqual(
+        address("EQBAu7M4cfEsg7AS3cNXsh3tBUtsQbmeaxTQ4sS4R4d4L_a-"),
+    );
 
     expect(data.proposers).toHaveLength(1);
     expect(storage.proposers).toHaveLength(1);

@@ -115,8 +115,8 @@ struct GetVestingDataReply {
     vestingSenderAddress: address
     /// Owner address allowed to initiate internal send requests.
     ownerAddress: address
-    /// Raw whitelist dictionary cell returned by source code; null means an empty dictionary.
-    whitelist: cell?
+    /// Whitelist dictionary keyed by `int8 workchain + uint256 address_hash`; empty map means no entries.
+    whitelist: map<bits264, bool>
 }
 
 /// Single `(workchain, address_hash)` pair returned by `get_whitelist`.

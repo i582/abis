@@ -18,12 +18,13 @@ struct HipoTreasury {
 fun HipoTreasury.fromStorage(
     storage: HipoTreasuryStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): HipoTreasury {
     val stateInit = ContractState {
         code: build("HipoTreasury"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return HipoTreasury { address, stateInit };
 }
 

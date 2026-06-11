@@ -544,8 +544,8 @@ type StakeePoolEventMessage =
 
 /// Structured round tuple returned by Pool full-data getters.
 struct StakeePoolRoundDataReply {
-    /// Raw borrower dictionary root returned inside the getter tuple; storage decodes this dictionary as a typed map.
-    borrowersDict: cell?
+    /// Borrower records keyed by validator controller address hash; empty map means no active borrowers.
+    borrowersDict: map<uint256, StakeePoolLoanData>
     /// Sequential lending round id.
     roundId: int
     /// Number of active borrowers in this round.
@@ -559,6 +559,17 @@ struct StakeePoolRoundDataReply {
     /// Signed profit returned as a stack integer.
     profit: int
 }
+
+/// Raw round tuple with a typed borrower dictionary in element 0.
+type StakeePoolRoundDataTuple = [
+    map<uint256, StakeePoolLoanData>,
+    int,
+    int,
+    int,
+    int,
+    int,
+    int,
+]
 
 /// Structured result returned by `get_pool_full_data` and `get_pool_full_data_raw`.
 struct StakeePoolFullDataReply {
@@ -576,10 +587,10 @@ struct StakeePoolFullDataReply {
     depositsOpen: bool
     /// Saved validator-set hash.
     savedValidatorSetHash: uint256
-    /// Previous lending round raw TVM tuple; storage decodes the same layout as `StakeePoolRoundData`.
-    prevRoundBorrowers: tuple
-    /// Current lending round raw TVM tuple; storage decodes the same layout as `StakeePoolRoundData`.
-    currentRoundBorrowers: tuple
+    /// Previous lending round tuple; element 0 is the typed borrower map.
+    prevRoundBorrowers: StakeePoolRoundDataTuple
+    /// Current lending round tuple; element 0 is the typed borrower map.
+    currentRoundBorrowers: StakeePoolRoundDataTuple
     /// Minimum loan per validator.
     minLoanPerValidator: int
     /// Maximum loan per validator.
@@ -787,7 +798,7 @@ get fun calculate_loan_amount(minLoan: int, maxLoan: int, maxInterest: int): int
 
 fun emptyStakeePoolRoundDataReply(): StakeePoolRoundDataReply {
     return {
-        borrowersDict: null,
+        borrowersDict: [],
         roundId: 0,
         activeBorrowers: 0,
         borrowed: 0,
@@ -795,6 +806,10 @@ fun emptyStakeePoolRoundDataReply(): StakeePoolRoundDataReply {
         returned: 0,
         profit: 0,
     };
+}
+
+fun emptyStakeePoolRoundDataTuple(): StakeePoolRoundDataTuple {
+    return [[], 0, 0, 0, 0, 0, 0];
 }
 
 fun emptyStakeePoolFullDataReply(): StakeePoolFullDataReply {
@@ -806,8 +821,8 @@ fun emptyStakeePoolFullDataReply(): StakeePoolFullDataReply {
         optimisticDepositWithdrawals: false,
         depositsOpen: false,
         savedValidatorSetHash: 0,
-        prevRoundBorrowers: [],
-        currentRoundBorrowers: [],
+        prevRoundBorrowers: emptyStakeePoolRoundDataTuple(),
+        currentRoundBorrowers: emptyStakeePoolRoundDataTuple(),
         minLoanPerValidator: 0,
         maxLoanPerValidator: 0,
         governanceFee: 0,

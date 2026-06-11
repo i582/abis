@@ -147,10 +147,10 @@ struct GetgemsNftSwapTradeStateReply {
     leftTrader: address
     /// Right participant address stored in swap state.
     rightTrader: address
-    /// Raw `HashmapE 256` left NFT status dictionary returned on the stack; null means empty.
-    leftNft: cell?
-    /// Raw `HashmapE 256` right NFT status dictionary returned on the stack; null means empty.
-    rightNft: cell?
+    /// Left NFT status dictionary keyed by NFT item address hash; empty map means no entries.
+    leftNft: map<uint256, uint1>
+    /// Right NFT status dictionary keyed by NFT item address hash; empty map means no entries.
+    rightNft: map<uint256, uint1>
     /// Required left-side commission in nanotons.
     leftCommission: int
     /// Required left-side surcharge in nanotons.

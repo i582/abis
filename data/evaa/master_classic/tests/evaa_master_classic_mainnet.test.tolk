@@ -21,6 +21,7 @@ const EXPECTED_TIMEOUT = 60
 const EXPECTED_IF_ACTIVE = -1
 const EXPECTED_TOTAL_ORACLES = 4
 const EXPECTED_THRESHOLD = 3
+const EXPECTED_ASSET_ID = 0xd9496f9b279a4e26c49eb65d5c47c79b6dfdea16c9baefa9158a7dfbbbcac04a
 const PINNED_MAINNET_BLOCK = 71635640
 
 const MAINNET_EVAA_MASTER_CLASSIC_ADDRESS = "EQCdIdXf1kA_2Hd9mbGzSFDEPA-Px-et8qTWHEXgRGo0K3zd"
@@ -107,6 +108,76 @@ fun expectStorageCore(loaded: LoadedEvaaMasterClassicStorage): void {
     expect(oraclesInfo.oracles!.hash()).toEqual(EXPECTED_ORACLE_DICT_HASH);
 }
 
+fun expectAssetDynamicsMatch(
+    actual: EvaaMasterClassicAssetDynamics,
+    expected: EvaaMasterClassicAssetDynamics,
+): void {
+    expect(actual.sRate).toEqual(expected.sRate);
+    expect(actual.bRate).toEqual(expected.bRate);
+    expect(actual.totalSupplyPrincipal).toEqual(expected.totalSupplyPrincipal);
+    expect(actual.totalBorrowPrincipal).toEqual(expected.totalBorrowPrincipal);
+    expect(actual.lastAccrual).toEqual(expected.lastAccrual);
+    expect(actual.tokenBalance).toEqual(expected.tokenBalance);
+    expect(actual.trackingSupplyIndex).toEqual(expected.trackingSupplyIndex);
+    expect(actual.trackingBorrowIndex).toEqual(expected.trackingBorrowIndex);
+    expect(actual.awaitedSupply).toEqual(expected.awaitedSupply);
+}
+
+fun expectAssetConfigMatch(
+    actual: EvaaMasterClassicAssetConfig,
+    expected: EvaaMasterClassicAssetConfig,
+): void {
+    expect(actual.jwAddressHash).toEqual(expected.jwAddressHash);
+    expect(actual.decimals).toEqual(expected.decimals);
+    expect(actual.params.hash()).toEqual(expected.params.hash());
+}
+
+fun expectTypedMapGettersMatchStorage(
+    master: EvaaMasterClassic,
+    loaded: LoadedEvaaMasterClassicStorage,
+): void {
+    val storage = loaded.storage;
+    val config = storage.masterConfig.load();
+    val assetId = EXPECTED_ASSET_ID as uint256;
+    val getterAssetsData = master.getAssetsData();
+    val getterAssetsConfig = master.getAssetsConfig();
+    val getterTokensKeys = master.getTokensKeys();
+    val getterAssetsRates = master.getAssetsRates();
+    val getterAssetsReserves = master.getAssetsReserves();
+    val getterUpdatedRates = master.getUpdatedRatesForAllAssets(0);
+    val getterUiVariables = master.getUiVariables();
+    val expectedDynamics = storage.assetDynamicsCollection.mustGet(assetId);
+    val expectedConfig = config.assetConfigCollection.mustGet(assetId);
+    val scalarRates = master.getAssetRates(EXPECTED_ASSET_ID);
+    val scalarReserve = master.getAssetReserves(EXPECTED_ASSET_ID);
+    val assetsRate = getterAssetsRates.mustGet(assetId);
+    val assetsReserve = getterAssetsReserves.mustGet(assetId);
+    val updatedRate = getterUpdatedRates.mustGet(assetId);
+    val uiRate = getterUiVariables.assetsRates.mustGet(assetId);
+
+    expect(getterAssetsData.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterAssetsConfig.isEmpty()).toEqual(config.assetConfigCollection.isEmpty());
+    expect(getterTokensKeys.isEmpty()).toEqual(config.tokensKeys.isEmpty());
+    expect(getterAssetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterAssetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUpdatedRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetDynamicsCollection.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+
+    expectAssetDynamicsMatch(getterAssetsData.mustGet(assetId), expectedDynamics);
+    expectAssetDynamicsMatch(getterUiVariables.assetDynamicsCollection.mustGet(assetId), expectedDynamics);
+    expectAssetConfigMatch(getterAssetsConfig.mustGet(assetId), expectedConfig);
+    expect(assetsRate.sRate as int).toEqual(scalarRates.sRate);
+    expect(assetsRate.bRate as int).toEqual(scalarRates.bRate);
+    expect(uiRate.sRate).toEqual(assetsRate.sRate);
+    expect(uiRate.bRate).toEqual(assetsRate.bRate);
+    expect(updatedRate.sRate).toBeGreaterOrEqual(0);
+    expect(updatedRate.bRate).toBeGreaterOrEqual(0);
+    expect(assetsReserve as int).toEqual(scalarReserve);
+    expect(getterUiVariables.assetsReserves.mustGet(assetId) as int).toEqual(scalarReserve);
+}
+
 fun expectGettersMatchStorage(
     master: EvaaMasterClassic,
     loaded: LoadedEvaaMasterClassicStorage,
@@ -140,6 +211,7 @@ fun expectGettersMatchStorage(
     expect(getterConfig.meta.hash()).toEqual(storage.meta.hash());
     expect(getterConfig.upgradeConfig.hash()).toEqual(storage.upgradeConfig.hash());
     expect(getterConfig.masterConfig.hash()).toEqual(storage.masterConfig.hash());
+    expectTypedMapGettersMatchStorage(master, loaded);
 }
 
 get fun `test evaa master classic code and data boc fixtures are real`() {

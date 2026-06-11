@@ -23,6 +23,7 @@ const EXPECTED_CURRENT_RATE = 0x42b74e1f
 const EXPECTED_CURRENT_ROUND_SINCE = 1780764424
 const EXPECTED_MAX_BURNABLE_TOKENS = -8934080690
 const PINNED_MAINNET_BLOCK = 71622046
+const EXPECTED_ACTIVE_BORROWER_HASH = 70835196457902382809754946112128837920519623275992030204848994489915958562815
 
 const MAINNET_HIPO_TREASURY_ADDRESS = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 const MAINNET_HIPO_PARENT_ADDRESS = "0:CF76AF318C0872B58A9F1925FC29C156211782B9FB01F56760D292E56123BF87"
@@ -125,6 +126,28 @@ fun expectTreasuryStateMatchesStorage(
     expect(state.governanceFee).toEqual(extension.governanceFee);
     expect(state.collectionCodes.hash()).toEqual(extension.collectionCodes.hash());
     expect(state.billCodes.hash()).toEqual(extension.billCodes.hash());
+    expect(state.participations).toHaveLength(1);
+    expect(state.oldParents).toBeEmpty();
+    val stateParticipation = state.participations.mustGet(EXPECTED_CURRENT_ROUND_SINCE as uint32);
+    val storageParticipation = storage.participations.mustGet(EXPECTED_CURRENT_ROUND_SINCE as uint32);
+    expect(stateParticipation.state).toEqual(storageParticipation.state);
+    expect(stateParticipation.staked).toHaveLength(1);
+    expect(stateParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount).toEqual(
+        storageParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
+    );
+
+    val participation = treasury.getParticipation(EXPECTED_CURRENT_ROUND_SINCE);
+    expect(participation.state).toEqual(storageParticipation.state);
+    expect(participation.size).toEqual(storageParticipation.size);
+    expect(participation.requests).toBeEmpty();
+    expect(participation.rejected).toBeEmpty();
+    expect(participation.accepted).toBeEmpty();
+    expect(participation.accrued).toBeEmpty();
+    expect(participation.staked).toHaveLength(1);
+    expect(participation.recovering).toBeEmpty();
+    expect(participation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount).toEqual(
+        storageParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
+    );
 
     expect(times.currentRoundSince).toBeGreater(0);
     expect(times.participateSince).toBeGreater(0);

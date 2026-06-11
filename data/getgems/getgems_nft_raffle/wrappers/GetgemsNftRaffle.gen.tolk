@@ -18,12 +18,13 @@ struct GetgemsNftRaffle {
 fun GetgemsNftRaffle.fromStorage(
     storage: GetgemsNftRaffleStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): GetgemsNftRaffle {
     val stateInit = ContractState {
         code: build("GetgemsNftRaffle"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return GetgemsNftRaffle { address, stateInit };
 }
 

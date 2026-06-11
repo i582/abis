@@ -18,12 +18,13 @@ struct WalletVesting {
 fun WalletVesting.fromStorage(
     storage: WalletVestingStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): WalletVesting {
     val stateInit = ContractState {
         code: build("WalletVesting"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return WalletVesting { address, stateInit };
 }
 

@@ -24,6 +24,7 @@ const EXPECTED_PRICES_TTL = 180
 const EXPECTED_PYTH_COMPUTE_BASE_GAS = 340000
 const EXPECTED_PYTH_COMPUTE_PER_UPDATE_GAS = 90000
 const EXPECTED_PYTH_SINGLE_UPDATE_FEE = 1
+const EXPECTED_ASSET_ID = 0xd9496f9b279a4e26c49eb65d5c47c79b6dfdea16c9baefa9158a7dfbbbcac04a
 const MAINNET_EVAA_MASTER_PYTH_ADDRESS = "EQC8rUZqR_pWV1BylWUlPNBzyiTYVoBEmQkMIQDZXICfnuRr"
 
 fun hasBocMagic(bytes: slice): bool {
@@ -73,6 +74,75 @@ fun expectEvaaMasterPythStorageCore(storage: EvaaMasterPythStorage): EvaaMasterP
     expect(oraclesInfo.pythSingleUpdateFee).toEqual(EXPECTED_PYTH_SINGLE_UPDATE_FEE);
 
     return oraclesInfo;
+}
+
+fun expectAssetDynamicsMatch(
+    actual: EvaaMasterPythAssetDynamics,
+    expected: EvaaMasterPythAssetDynamics,
+): void {
+    expect(actual.sRate).toEqual(expected.sRate);
+    expect(actual.bRate).toEqual(expected.bRate);
+    expect(actual.totalSupplyPrincipal).toEqual(expected.totalSupplyPrincipal);
+    expect(actual.totalBorrowPrincipal).toEqual(expected.totalBorrowPrincipal);
+    expect(actual.lastAccrual).toEqual(expected.lastAccrual);
+    expect(actual.tokenBalance).toEqual(expected.tokenBalance);
+    expect(actual.trackingSupplyIndex).toEqual(expected.trackingSupplyIndex);
+    expect(actual.trackingBorrowIndex).toEqual(expected.trackingBorrowIndex);
+    expect(actual.awaitedSupply).toEqual(expected.awaitedSupply);
+}
+
+fun expectAssetConfigMatch(
+    actual: EvaaMasterPythAssetConfig,
+    expected: EvaaMasterPythAssetConfig,
+): void {
+    expect(actual.jwAddressHash).toEqual(expected.jwAddressHash);
+    expect(actual.decimals).toEqual(expected.decimals);
+    expect(actual.params.hash()).toEqual(expected.params.hash());
+}
+
+fun expectTypedMapGettersMatchStorage(
+    master: EvaaMasterPyth,
+    storage: EvaaMasterPythStorage,
+): void {
+    val config = storage.masterConfig.load();
+    val assetId = EXPECTED_ASSET_ID as uint256;
+    val getterAssetsData = master.getAssetsData();
+    val getterAssetsConfig = master.getAssetsConfig();
+    val getterTokensKeys = master.getTokensKeys();
+    val getterAssetsRates = master.getAssetsRates();
+    val getterAssetsReserves = master.getAssetsReserves();
+    val getterUpdatedRates = master.getUpdatedRatesForAllAssets(0);
+    val getterUiVariables = master.getUiVariables();
+    val expectedDynamics = storage.assetDynamicsCollection.mustGet(assetId);
+    val expectedConfig = config.assetConfigCollection.mustGet(assetId);
+    val scalarRates = master.getAssetRates(EXPECTED_ASSET_ID);
+    val scalarReserve = master.getAssetReserves(EXPECTED_ASSET_ID);
+    val assetsRate = getterAssetsRates.mustGet(assetId);
+    val assetsReserve = getterAssetsReserves.mustGet(assetId);
+    val updatedRate = getterUpdatedRates.mustGet(assetId);
+    val uiRate = getterUiVariables.assetsRates.mustGet(assetId);
+
+    expect(getterAssetsData.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterAssetsConfig.isEmpty()).toEqual(config.assetConfigCollection.isEmpty());
+    expect(getterTokensKeys.isEmpty()).toEqual(config.tokensKeys.isEmpty());
+    expect(getterAssetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterAssetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUpdatedRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetDynamicsCollection.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+
+    expectAssetDynamicsMatch(getterAssetsData.mustGet(assetId), expectedDynamics);
+    expectAssetDynamicsMatch(getterUiVariables.assetDynamicsCollection.mustGet(assetId), expectedDynamics);
+    expectAssetConfigMatch(getterAssetsConfig.mustGet(assetId), expectedConfig);
+    expect(assetsRate.sRate as int).toEqual(scalarRates.sRate);
+    expect(assetsRate.bRate as int).toEqual(scalarRates.bRate);
+    expect(uiRate.sRate).toEqual(assetsRate.sRate);
+    expect(uiRate.bRate).toEqual(assetsRate.bRate);
+    expect(updatedRate.sRate).toBeGreaterOrEqual(0);
+    expect(updatedRate.bRate).toBeGreaterOrEqual(0);
+    expect(assetsReserve as int).toEqual(scalarReserve);
+    expect(getterUiVariables.assetsReserves.mustGet(assetId) as int).toEqual(scalarReserve);
 }
 
 get fun `test evaa master pyth code and data boc fixtures are real`() {
@@ -133,6 +203,7 @@ get fun `test evaa master pyth local wrapper getters match saved storage`() {
     expect(oraclesGetter.pythComputeBaseGas).toEqual(oraclesInfo.pythComputeBaseGas);
     expect(oraclesGetter.pythComputePerUpdateGas).toEqual(oraclesInfo.pythComputePerUpdateGas);
     expect(oraclesGetter.pythSingleUpdateFee).toEqual(oraclesInfo.pythSingleUpdateFee);
+    expectTypedMapGettersMatchStorage(master, storage);
 
     println("EVAA_MASTER_PYTH_LOCAL_ADDRESS={}", master.address);
 }

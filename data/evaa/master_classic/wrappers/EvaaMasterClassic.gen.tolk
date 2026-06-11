@@ -18,12 +18,13 @@ struct EvaaMasterClassic {
 fun EvaaMasterClassic.fromStorage(
     storage: EvaaMasterClassicStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): EvaaMasterClassic {
     val stateInit = ContractState {
         code: build("EvaaMasterClassic"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return EvaaMasterClassic { address, stateInit };
 }
 
@@ -701,7 +702,10 @@ fun EvaaMasterClassic.getUpdatedRates(
     );
 }
 
-fun EvaaMasterClassic.getUpdatedRatesForAllAssets(self, timeElapsed: int): cell {
+fun EvaaMasterClassic.getUpdatedRatesForAllAssets(self, timeElapsed: int): map<
+    uint256,
+    EvaaMasterClassicPackedAssetRate,
+> {
     return net.runGetMethod(self.address, "getUpdatedRatesForAllAssets", [timeElapsed]);
 }
 
@@ -709,7 +713,7 @@ fun EvaaMasterClassic.getAssetRates(self, assetId: int): EvaaMasterClassicAssetR
     return net.runGetMethod(self.address, "getAssetRates", [assetId]);
 }
 
-fun EvaaMasterClassic.getAssetsRates(self): cell {
+fun EvaaMasterClassic.getAssetsRates(self): map<uint256, EvaaMasterClassicPackedAssetRate> {
     return net.runGetMethod(self.address, "get_assets_rates");
 }
 
@@ -717,7 +721,7 @@ fun EvaaMasterClassic.getAssetReserves(self, assetId: int): int {
     return net.runGetMethod(self.address, "getAssetReserves", [assetId]);
 }
 
-fun EvaaMasterClassic.getAssetsReserves(self): cell {
+fun EvaaMasterClassic.getAssetsReserves(self): map<uint256, int65> {
     return net.runGetMethod(self.address, "get_assets_reserves");
 }
 
@@ -725,11 +729,11 @@ fun EvaaMasterClassic.getAssetTotals(self, assetId: int): EvaaMasterClassicAsset
     return net.runGetMethod(self.address, "getAssetTotals", [assetId]);
 }
 
-fun EvaaMasterClassic.getAssetsData(self): cell {
+fun EvaaMasterClassic.getAssetsData(self): map<uint256, EvaaMasterClassicAssetDynamics> {
     return net.runGetMethod(self.address, "getAssetsData");
 }
 
-fun EvaaMasterClassic.getAssetsConfig(self): cell {
+fun EvaaMasterClassic.getAssetsConfig(self): map<uint256, EvaaMasterClassicAssetConfig> {
     return net.runGetMethod(self.address, "getAssetsConfig");
 }
 
@@ -829,7 +833,7 @@ fun EvaaMasterClassic.getActive(self): int {
     return net.runGetMethod(self.address, "get_active");
 }
 
-fun EvaaMasterClassic.getTokensKeys(self): cell {
+fun EvaaMasterClassic.getTokensKeys(self): map<uint256, uint256> {
     return net.runGetMethod(self.address, "getTokensKeys");
 }
 

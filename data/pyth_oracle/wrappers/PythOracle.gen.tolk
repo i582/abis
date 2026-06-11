@@ -18,12 +18,13 @@ struct PythOracle {
 fun PythOracle.fromStorage(
     storage: PythOracleStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): PythOracle {
     val stateInit = ContractState {
         code: build("PythOracle"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return PythOracle { address, stateInit };
 }
 

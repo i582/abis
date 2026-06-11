@@ -18,12 +18,13 @@ struct TonstakersPool {
 fun TonstakersPool.fromStorage(
     storage: TonstakersPoolStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): TonstakersPool {
     val stateInit = ContractState {
         code: build("TonstakersPool"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return TonstakersPool { address, stateInit };
 }
 

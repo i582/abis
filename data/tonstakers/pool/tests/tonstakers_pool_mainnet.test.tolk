@@ -50,20 +50,20 @@ fun signedCoinsToInt(value: TonstakersPoolSignedCoins): int {
     return value.amount;
 }
 
-fun expectRoundReplyMatchesStorage(reply: tuple, storage: TonstakersPoolRoundData): void {
-    expect(reply.get(1) as int).toEqual(storage.roundId);
-    expect(reply.get(2) as int).toEqual(storage.activeBorrowers);
-    expect(reply.get(3) as int).toEqual(storage.borrowed);
-    expect(reply.get(4) as int).toEqual(storage.expected);
-    expect(reply.get(5) as int).toEqual(storage.returned);
-    expect(reply.get(6) as int).toEqual(signedCoinsToInt(storage.profit));
-    if (storage.activeBorrowers == 0) {
-        expect(storage.borrowersDict.isEmpty()).toBeTrue();
-    } else {
-        expect((reply.get(0) as cell).hash()).toBeGreater(0);
-        expect(storage.borrowersDict.isEmpty()).toBeFalse();
-    }
-    expect(storage.borrowersDict).toHaveLength(storage.activeBorrowers);
+fun expectRoundReplyMatchesStorage(
+    reply: TonstakersPoolRoundDataTuple,
+    storage: TonstakersPoolRoundData,
+): void {
+    val [borrowersDict, roundId, activeBorrowers, borrowed, expectedRepayment, returned, profit] =
+        reply;
+    expect(roundId).toEqual(storage.roundId);
+    expect(activeBorrowers).toEqual(storage.activeBorrowers);
+    expect(borrowed).toEqual(storage.borrowed);
+    expect(expectedRepayment).toEqual(storage.expected);
+    expect(returned).toEqual(storage.returned);
+    expect(profit).toEqual(signedCoinsToInt(storage.profit));
+    expect(borrowersDict.isEmpty()).toEqual(storage.borrowersDict.isEmpty());
+    expect(borrowersDict).toHaveLength(storage.activeBorrowers);
 }
 
 fun expectGetterPayoutMatchesStorage(

@@ -177,8 +177,8 @@ get fun `test getgems nft raffle local storage and getters`() {
     expect(data.leftCoinsGot).toEqual(commissions.leftCoinsGot);
     expect(data.rightCoinsGot).toEqual(commissions.rightCoinsGot);
     expect(data.nftTransferFee).toEqual(commissions.nftTransferFee);
-    expect(data.nfts).toBeNull();
-    expect(data.raffledNfts).toBeNull();
+    expect(data.nfts).toBeEmpty();
+    expect(data.raffledNfts).toBeEmpty();
 
     println("GETGEMS_NFT_RAFFLE_LOCAL_ADDRESS={}", fixture.raffle.address);
     println("GETGEMS_NFT_RAFFLE_LOCAL_STORAGE={}", storage);

@@ -18,12 +18,13 @@ struct MultisigV2 {
 fun MultisigV2.fromStorage(
     storage: MultisigV2Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): MultisigV2 {
     val stateInit = ContractState {
         code: build("MultisigV2"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return MultisigV2 { address, stateInit };
 }
 

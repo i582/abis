@@ -127,8 +127,8 @@ struct GetMultisigV2DataReply {
     seqno: int
     /// Number of signer approvals required for execution.
     threshold: uint8
-    /// Raw mandatory `Hashmap 8 MsgAddressInt` signer dictionary root cell.
-    signers: cell
+    /// Getter-decoded mandatory `Hashmap 8 MsgAddressInt` signer dictionary.
+    signers: map<uint8, address>
     /// `HashmapE 8 MsgAddressInt` proposer dictionary.
     proposers: map<uint8, address>
 }

@@ -18,12 +18,13 @@ struct StakeePool {
 fun StakeePool.fromStorage(
     storage: StakeePoolStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): StakeePool {
     val stateInit = ContractState {
         code: build("StakeePool"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return StakeePool { address, stateInit };
 }
 

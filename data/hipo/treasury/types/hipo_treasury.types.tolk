@@ -866,8 +866,8 @@ struct HipoTreasuryStateReply {
     totalBorrowersStake: coins
     /// Parent address returned from storage, or none during setup.
     parent: any_address
-    /// Raw participation dictionary returned as a cell by the source getter.
-    participations: cell?
+    /// Participation records keyed by validator round `round_since`; empty map means no entries.
+    participations: map<uint32, HipoTreasuryParticipation>
     /// Round imbalance factor.
     roundsImbalance: uint8
     /// Stopped flag.
@@ -892,8 +892,8 @@ struct HipoTreasuryStateReply {
     collectionCodes: cell
     /// Bill code dictionary cell.
     billCodes: cell
-    /// Raw old-parent dictionary returned as a cell by the source getter.
-    oldParents: cell?
+    /// Historical parent-address hashes keyed by uint256; empty map means no entries.
+    oldParents: map<uint256, HipoTreasuryEmpty>
 }
 
 /// Stack reply returned by `get_participation`.
@@ -902,20 +902,20 @@ struct HipoTreasuryParticipationReply {
     state: uint4
     /// Number of requests in the participation.
     size: uint16
-    /// Raw sorted dictionary cell.
-    sorted: cell?
-    /// Raw pending requests dictionary cell.
-    requests: cell?
-    /// Raw rejected requests dictionary cell.
-    rejected: cell?
-    /// Raw accepted requests dictionary cell.
-    accepted: cell?
-    /// Raw accrued requests dictionary cell.
-    accrued: cell?
-    /// Raw staked requests dictionary cell.
-    staked: cell?
-    /// Raw recovering requests dictionary cell.
-    recovering: cell?
+    /// Sort buckets keyed by request sort key; empty map means no entries.
+    sorted: map<uint112, cell>
+    /// Pending loan requests keyed by borrower address hash; empty map means no entries.
+    requests: map<uint256, HipoTreasuryLoanRequest>
+    /// Rejected requests keyed by borrower address hash; empty map means no entries.
+    rejected: map<uint256, HipoTreasuryLoanRequest>
+    /// Accepted requests before accrual distribution, keyed by borrower address hash; empty map means no entries.
+    accepted: map<uint256, HipoTreasuryLoanRequest>
+    /// Accepted requests after accrual distribution, keyed by borrower address hash; empty map means no entries.
+    accrued: map<uint256, HipoTreasuryLoanRequest>
+    /// Requests with active loan contracts, keyed by borrower address hash; empty map means no entries.
+    staked: map<uint256, HipoTreasuryLoanRequest>
+    /// Requests being recovered from loan contracts, keyed by borrower address hash; empty map means no entries.
+    recovering: map<uint256, HipoTreasuryLoanRequest>
     /// Total staked amount.
     totalStaked: coins
     /// Total recovered amount.

@@ -172,6 +172,14 @@ struct EvaaMasterClassicAssetRate {
     bRate: int
 }
 
+/// Packed supply and borrow rates stored as dictionary values by aggregate getters.
+struct EvaaMasterClassicPackedAssetRate {
+    /// Supply rate stored with `store_sb_rate` as uint64.
+    sRate: uint64
+    /// Borrow rate stored with `store_sb_rate` as uint64.
+    bRate: uint64
+}
+
 /// Pair of total supply and total borrow values.
 struct EvaaMasterClassicAssetTotals {
     /// Total supply.
@@ -223,13 +231,13 @@ struct EvaaMasterClassicGetConfigReply {
 /// UI bundle returned by `getUIVariables`.
 struct EvaaMasterClassicGetUIVariablesReply {
     /// Asset dynamics collection.
-    assetDynamicsCollection: cell
+    assetDynamicsCollection: map<uint256, EvaaMasterClassicAssetDynamics>
     /// Metadata, upgrade config, and master config bundle.
     config: cell
     /// Asset rates dictionary.
-    assetsRates: cell
+    assetsRates: map<uint256, EvaaMasterClassicPackedAssetRate>
     /// Asset reserves dictionary.
-    assetsReserves: cell
+    assetsReserves: map<uint256, int65>
 }
 
 /// Classic oracle info returned by `get_oracles_info`.
@@ -1244,7 +1252,7 @@ get fun getUpdatedRates(
 }
 
 /// Return updated rates for every asset.
-get fun getUpdatedRatesForAllAssets(timeElapsed: int): cell {
+get fun getUpdatedRatesForAllAssets(timeElapsed: int): map<uint256, EvaaMasterClassicPackedAssetRate> {
     throw 0;
 }
 
@@ -1254,7 +1262,7 @@ get fun getAssetRates(assetId: int): EvaaMasterClassicAssetRate {
 }
 
 /// Return current supply and borrow rates for every asset.
-get fun get_assets_rates(): cell {
+get fun get_assets_rates(): map<uint256, EvaaMasterClassicPackedAssetRate> {
     throw 0;
 }
 
@@ -1264,7 +1272,7 @@ get fun getAssetReserves(assetId: int): int {
 }
 
 /// Return protocol reserve amounts for every asset.
-get fun get_assets_reserves(): cell {
+get fun get_assets_reserves(): map<uint256, int65> {
     throw 0;
 }
 
@@ -1274,12 +1282,12 @@ get fun getAssetTotals(assetId: int): EvaaMasterClassicAssetTotals {
 }
 
 /// Return asset dynamics collection.
-get fun getAssetsData(): cell {
+get fun getAssetsData(): map<uint256, EvaaMasterClassicAssetDynamics> {
     throw 0;
 }
 
 /// Return asset config collection.
-get fun getAssetsConfig(): cell {
+get fun getAssetsConfig(): map<uint256, EvaaMasterClassicAssetConfig> {
     throw 0;
 }
 
@@ -1379,7 +1387,7 @@ get fun get_active(): int {
 }
 
 /// Return token keys dictionary.
-get fun getTokensKeys(): cell {
+get fun getTokensKeys(): map<uint256, uint256> {
     throw 0;
 }
 

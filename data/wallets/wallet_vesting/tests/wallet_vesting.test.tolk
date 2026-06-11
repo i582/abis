@@ -10,6 +10,7 @@ import "../types/wallet_vesting.types"
 import "../wrappers/WalletVesting.gen"
 
 const MAINNET_WALLET_VESTING_ADDRESS = "UQCufmEfMOiP1SFMCZwKXpKEWn34vei9EYT2f0YNPqhdOe0o"
+const EXPECTED_WHITELIST_ADDRESS_HASH = 0x5555555555555555555555555555555555555555555555555555555555555555
 
 fun walletVesting(): WalletVesting {
     return WalletVesting.fromAddress(address(MAINNET_WALLET_VESTING_ADDRESS));
@@ -18,6 +19,15 @@ fun walletVesting(): WalletVesting {
 fun zeroSignature(): bits512 {
     var signature = beginCell().storeUint(0, 256).storeUint(0, 256).endCell().beginParse();
     return signature.loadBits(512) as bits512;
+}
+
+fun expectedWhitelistKey(): bits264 {
+    var key = beginCell()
+        .storeUint(0xff, 8)
+        .storeUint(EXPECTED_WHITELIST_ADDRESS_HASH, 256)
+        .endCell()
+        .beginParse();
+    return key.loadBits(264) as bits264;
 }
 
 fun emptyOutgoingTail(): RemainingBitsAndRefs {
@@ -65,6 +75,8 @@ get fun `test wallet vesting mainnet getters through wrapper`() {
     expect(vestingData.vestingTotalAmount).toBeGreaterOrEqual(0);
     expect(lockedNow).toBeGreaterOrEqual(0);
     expect(whitelist.calculateSize()).toBeGreaterOrEqual(0);
+    expect(vestingData.whitelist).toHaveLength(whitelist.calculateSize());
+    expect(vestingData.whitelist.mustGet(expectedWhitelistKey())).toBeTrue();
     expect(wallet.isWhitelisted(zeroAddress())).toBeFalse();
 
     println("WALLET_VESTING_DATA={}", vestingData);
@@ -93,6 +105,7 @@ get fun `test wallet vesting mainnet parses persistent storage`() {
     expect(params.vestingTotalAmount).toEqual(vestingData.vestingTotalAmount);
     expect(params.vestingSenderAddress).toEqual(vestingData.vestingSenderAddress);
     expect(params.ownerAddress).toEqual(vestingData.ownerAddress);
+    expect(vestingData.whitelist.isEmpty()).toEqual(storage.whitelist.isEmpty());
 }
 
 get fun `test wallet vesting mainnet accepts plain internal transfer`() {

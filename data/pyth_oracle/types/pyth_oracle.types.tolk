@@ -229,8 +229,8 @@ type PythOracleOutgoingMessage =
 struct GetPythGuardianSetReply {
     /// Guardian set expiration timestamp.
     expirationTime: int
-    /// Raw guardian-key dictionary cell.
-    keys: cell
+    /// Guardian Ethereum addresses keyed by 8-bit guardian index.
+    keys: map<uint8, uint160>
     /// Number of guardian keys in the dictionary.
     keyCount: int
 }
