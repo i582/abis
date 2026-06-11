@@ -441,6 +441,30 @@ src = "data/stonfi/router_v2/testdata/StonfiRouterV2.boc"
 types = "data/stonfi/router_v2/types/stonfi_router_v2.types.tolk"
 depends = []
 
+[contracts.StonfiRouterV1]
+display-name = "STON.fi Router V1"
+src = "data/stonfi/v1/router/testdata/StonfiRouterV1.boc"
+types = "data/stonfi/v1/router/types/stonfi_router_v1.types.tolk"
+depends = []
+
+[contracts.StonfiPoolV1]
+display-name = "STON.fi Pool V1"
+src = "data/stonfi/v1/pool/testdata/StonfiPoolV1.boc"
+types = "data/stonfi/v1/pool/types/stonfi_pool_v1.types.tolk"
+depends = []
+
+[contracts.StonfiLpAccountV1]
+display-name = "STON.fi LP Account V1"
+src = "data/stonfi/v1/lp_account/testdata/StonfiLpAccountV1.boc"
+types = "data/stonfi/v1/lp_account/types/stonfi_lp_account_v1.types.tolk"
+depends = []
+
+[contracts.StonfiLpWalletV1]
+display-name = "STON.fi LP Wallet V1"
+src = "data/stonfi/v1/lp_wallet/testdata/StonfiLpWalletV1.boc"
+types = "data/stonfi/v1/lp_wallet/types/stonfi_lp_wallet_v1.types.tolk"
+depends = []
+
 [contracts.StonfiPoolV2ConstProduct]
 display-name = "STON.fi Pool V2 ConstantProduct"
 src = "data/stonfi/pool_v2_const_product/testdata/StonfiPoolV2ConstProduct.boc"
@@ -559,6 +583,36 @@ depends = []
 display-name = "DeDust V2 CPMM"
 src = "data/dedust/cpmm_v2/testdata/DedustV2Cpmm.boc"
 types = "data/dedust/cpmm_v2/types/dedust_v2_cpmm.types.tolk"
+depends = []
+
+[contracts.DedustFactoryV1]
+display-name = "DeDust Factory V1"
+src = "data/dedust/v1/factory/testdata/DedustFactoryV1.boc"
+types = "data/dedust/v1/factory/types/dedust_factory_v1.types.tolk"
+depends = []
+
+[contracts.DedustPoolV1]
+display-name = "DeDust Pool V1"
+src = "data/dedust/v1/pool/testdata/DedustPoolV1.boc"
+types = "data/dedust/v1/pool/types/dedust_pool_v1.types.tolk"
+depends = []
+
+[contracts.DedustVaultNativeV1]
+display-name = "DeDust Native Vault V1"
+src = "data/dedust/v1/vault_native/testdata/DedustVaultNativeV1.boc"
+types = "data/dedust/v1/vault_native/types/dedust_vault_native_v1.types.tolk"
+depends = []
+
+[contracts.DedustVaultJettonV1]
+display-name = "DeDust Jetton Vault V1"
+src = "data/dedust/v1/vault_jetton/testdata/DedustVaultJettonV1.boc"
+types = "data/dedust/v1/vault_jetton/types/dedust_vault_jetton_v1.types.tolk"
+depends = []
+
+[contracts.DedustLiquidityDepositV1]
+display-name = "DeDust Liquidity Deposit V1"
+src = "data/dedust/v1/liquidity_deposit/testdata/DedustLiquidityDepositV1.boc"
+types = "data/dedust/v1/liquidity_deposit/types/dedust_liquidity_deposit_v1.types.tolk"
 depends = []
 
 [contracts.CoffeeFactory]
@@ -1170,7 +1224,9 @@ dedust-liquidity-deposit-v2-storage-test = "acton test data/dedust/liquidity_dep
 dedust-liquidity-deposit-v2-message-bodies-test = "acton test data/dedust/liquidity_deposit/tests/dedust_liquidity_deposit_v2_message_bodies.test.tolk --show-bodies"
 dedust-v2-cpmm-storage-test = "acton test data/dedust/cpmm_v2/tests/dedust_v2_cpmm_storage.test.tolk --show-bodies"
 dedust-v2-cpmm-message-bodies-test = "acton test data/dedust/cpmm_v2/tests/dedust_v2_cpmm_message_bodies.test.tolk --show-bodies"
+dedust-v1-mainnet-test = "acton test data/dedust/v1 --fork-net mainnet --fork-block-number 71185104 --show-bodies"
 stonfi-ton-to-ston-swap = "acton script --fork-net mainnet scripts/stonfi-ton-to-ston-swap.tolk"
+stonfi-v1-mainnet-test = "acton test data/stonfi/v1 --fork-net mainnet --fork-block-number 71819864 --show-bodies"
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"
 bidask-pool-factory-local-test = "acton test data/bidask/pool_factory/tests/bidask_pool_factory_local.test.tolk --show-bodies"

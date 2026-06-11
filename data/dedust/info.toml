@@ -3,7 +3,7 @@ name = "dedust"
 
 [metadata]
 category = "TON DEX contracts"
-description = "DeDust Protocol v2 Factory, Pool, Vault, and Liquidity Deposit contracts"
+description = "DeDust Protocol v1 and v2 Factory, Pool, Vault, Liquidity Deposit, and CPMM contracts"
 
 [sources]
 dedust_docs = "https://docs.dedust.io"
@@ -22,6 +22,46 @@ local_toncenter_tlb = "data/dedust/research/source/local/toncenter_dedust_v2.tlb
 local_anton_interfaces = "source/anton.json"
 local_generated_types = "gen"
 local_generated_abis = "gen_abis"
+local_v1_research = "data/dedust/research/dedust_v1_search.md"
+local_factory_v1_decompile = "data/dedust/research/func/dedust_legacy_factory_a17fa1eb.fc"
+local_pool_v1_decompile = "data/dedust/research/func/dedust_pool_v1_cbb3f4bc.fc"
+local_vault_native_v1_decompile = "data/dedust/research/func/dedust_vault_native_v1_cfbe57e3.fc"
+local_vault_jetton_v1_decompile = "data/dedust/research/func/dedust_vault_jetton_v1_bf4cfd99.fc"
+local_liquidity_deposit_v1_decompile = "data/dedust/research/func/dedust_liquidity_deposit_v1_80edc8d7.fc"
+
+[contracts.DedustFactoryV1]
+display_name = "DeDust Factory V1"
+types = "v1/factory/types/dedust_factory_v1.types.tolk"
+hashes = ["a17fa1eb974c6ffe435da078b233a808e0d52dad01a6905504d5fe87d6e51031"]
+known_addresses = ["EQBVZVImPUeKTtheqvT1PFmgj8GzTpnupkqc1Q2lUNF6ttt-"]
+
+[contracts.DedustFactoryV1.instances.mainnet]
+address = "EQBVZVImPUeKTtheqvT1PFmgj8GzTpnupkqc1Q2lUNF6ttt-"
+network = "mainnet"
+
+[contracts.DedustPoolV1]
+display_name = "DeDust Pool V1"
+types = "v1/pool/types/dedust_pool_v1.types.tolk"
+hashes = ["cbb3f4bcc2a4614b9ceaea404aca82ed8345c76f453c9aecf8a7744dcc3767ac"]
+known_addresses = []
+
+[contracts.DedustVaultNativeV1]
+display_name = "DeDust Native Vault V1"
+types = "v1/vault_native/types/dedust_vault_native_v1.types.tolk"
+hashes = ["cfbe57e36e7fb5be8bc133acbc0082d47638a23d9d7c894e27db1ff7c1553a47"]
+known_addresses = []
+
+[contracts.DedustVaultJettonV1]
+display_name = "DeDust Jetton Vault V1"
+types = "v1/vault_jetton/types/dedust_vault_jetton_v1.types.tolk"
+hashes = ["bf4cfd99b9b1e2bd17e001840dfd85706a9c781e75348a318f768c1ea2ae1a1b"]
+known_addresses = []
+
+[contracts.DedustLiquidityDepositV1]
+display_name = "DeDust Liquidity Deposit V1"
+types = "v1/liquidity_deposit/types/dedust_liquidity_deposit_v1.types.tolk"
+hashes = ["80edc8d7bbbb6526c3b06ccb7c2d02a82c20d8ccdf431bf4088b1f1470cc94cc"]
+known_addresses = []
 
 [contracts.DedustFactoryV2]
 display_name = "DeDust Factory V2"
@@ -99,7 +139,6 @@ display_name = "DeDust V2 CPMM"
 types = "cpmm_v2/types/dedust_v2_cpmm.types.tolk"
 hashes = ["5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"]
 known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
-notes = "Library-backed DeDust v2 CPMM pool proven from the live TON/LFG representative instance and verified decompile."
 
 [contracts.DedustV2Cpmm.instances.lfg_ton]
 address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"

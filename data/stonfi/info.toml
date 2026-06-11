@@ -3,9 +3,14 @@ name = "stonfi"
 
 [metadata]
 category = "TON DEX contracts"
-description = "STON.fi DEX core v2 Router, Pool, LP Account, LP Wallet, and Vault contracts"
+description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, and Vault contracts"
 
 [sources]
+stonfi_docs_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1"
+stonfi_docs_router_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/router"
+stonfi_docs_pool_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/pool"
+stonfi_docs_lp_account_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/lpaccount"
+stonfi_docs_lp_wallet_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/lpwallet"
 stonfi_docs_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2"
 stonfi_docs_router_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/router"
 stonfi_docs_pool_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
@@ -13,11 +18,38 @@ stonfi_docs_lp_account_v2 = "https://docs.ston.fi/developer-section/dex/smart-co
 stonfi_docs_lp_wallet_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/lpwallet"
 stonfi_docs_vault_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/vault"
 stonfi_docs_op_codes_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/op-codes"
+stonfi_dex_core_v1 = "https://github.com/ston-fi/dex-core"
 stonfi_dex_core_v2 = "https://github.com/ston-fi/dex-core-v2"
+local_source_snapshot_v1 = "data/stonfi/research/source/dex-core-v1"
 local_source_snapshot = "data/stonfi/research/source/dex-core-v2"
 local_schema = "schemas/ston-fi.xml"
 local_research_plan = "data/stonfi/research/plan.md"
 local_shared_research = "data/stonfi/research/shared.md"
+local_shared_research_v1 = "data/stonfi/research/stonfi_v1_shared.md"
+
+[contracts.StonfiRouterV1]
+display_name = "STON.fi Router V1"
+types = "v1/router/types/stonfi_router_v1.types.tolk"
+hashes = ["276f7c2058931d4685750a9856a5ac2dfa04d1b83c932d1e429fa3ceecd42faf"]
+known_addresses = ["EQB3ncyBUTjZUA5EnFKR5_EnOMI9V1tTEAAPaiU71gc4TiUt"]
+
+[contracts.StonfiPoolV1]
+display_name = "STON.fi Pool V1"
+types = "v1/pool/types/stonfi_pool_v1.types.tolk"
+hashes = ["82566ad72b6568fe7276437d3b0c911aab65ed701c13601941b2917305e81c11"]
+known_addresses = ["EQD8TJ8xEWB1SpnRE4d89YO3jl0W0EiBnNS4IBaHaUmdfizE"]
+
+[contracts.StonfiLpAccountV1]
+display_name = "STON.fi LP Account V1"
+types = "v1/lp_account/types/stonfi_lp_account_v1.types.tolk"
+hashes = ["fe9085c0bcc4f58983c38c62a46d46646ccf5dd1ae042dfa0f8355d0e9812175"]
+known_addresses = ["EQBflFgUQWx0fSFdbmUdIr_VtQU99Zn1z1ey6iKB_Av1yF3v"]
+
+[contracts.StonfiLpWalletV1]
+display_name = "STON.fi LP Wallet V1"
+types = "v1/lp_wallet/types/stonfi_lp_wallet_v1.types.tolk"
+hashes = ["0857cdd89c74844150cacd35cd020bef9167cbe12cd330dfb8c779c14d6b1552"]
+known_addresses = ["EQC47gPA2YMcmg2l_SscPm9pXILg-D98DjpQVZckEdeLaVH7"]
 
 [contracts.StonfiRouterV2]
 display_name = "STON.fi Router V2"
