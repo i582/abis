@@ -2,7 +2,7 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **182 contract entries**.
+Current catalog size: **183 contract entries**.
 
 Each curated project group normally includes:
 
@@ -24,7 +24,7 @@ Each curated project group normally includes:
 | pTON | pTON v2.1 proxy TON minter and wallet contracts. | `PtonMinterV2`, `PtonWalletV2` |
 | NFTs | TEP-62, TEP-64, TEP-66, and Getgems NFT v2 collection/item variants. | `NftV1Collection`, `NftV1Item`, `NftV1EditableItem`, `NftV2Collection`, `NftV2Item`, `NftV2EditableItem`, `GetgemsNftCollectionV2`, `GetgemsNftItemV2`, `GetgemsNftEditableItemV2` |
 | SBTs | TEP-85 SBT item contracts. | `SbtV1Item`, `SbtV1Single` |
-| TON DNS | TON DNS root resolver and `.ton` domain item contracts. | `DnsRootResolver`, `DnsDomainItem` |
+| TON DNS | TON DNS root resolver, `.ton` collection resolver, and `.ton` domain item contracts. | `DnsRootResolver`, `DnsCollection`, `DnsDomainItem` |
 | TON Storage | TON Storage provider and per-file storage agreement contracts. | `StorageProvider`, `StorageContract` |
 
 ### DEX, AMM, And Trading Protocols

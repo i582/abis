@@ -24,6 +24,18 @@ types = "types/dns_root_resolver.types.tolk"
 hashes = ["9ffe14989a82dd5e0ec22a6f2a14f784a72c347d7552c6f220d9c3e13b7e2778"]
 known_addresses = ["Ef_lZ1T4NCb2mwkme9h2rJfESCE0W34ma9lWp7-_uY3zXDvq"]
 
+[contracts.DnsCollection]
+display_name = "TON DNS .ton Collection Resolver"
+types = "types/dns_collection.types.tolk"
+hashes = ["eec5bbc25065628799468860d8fd48031585f649c32fa382c888ba48831625a3"]
+known_addresses = ["EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz"]
+
+[contracts.DnsCollection.instances.ton]
+address = "EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz"
+raw_address = "0:b774d95eb20543f186c06b371ab88ad704f7e256130caf96189368a7d0cb6ccf"
+domain = ".ton"
+code_fixture = "testdata/DnsCollection.boc"
+
 [contracts.DnsDomainItem]
 display_name = "TON DNS Domain Item"
 types = "types/dns_domain_item.types.tolk"

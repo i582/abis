@@ -303,6 +303,12 @@ src = "data/dns/testdata/DnsRootResolver.boc"
 types = "data/dns/types/dns_root_resolver.types.tolk"
 depends = []
 
+[contracts.DnsCollection]
+display-name = "DnsCollection"
+src = "data/dns/testdata/DnsCollection.boc"
+types = "data/dns/types/dns_collection.types.tolk"
+depends = []
+
 [contracts.DnsDomainItem]
 display-name = "DnsDomainItem"
 src = "data/dns/testdata/DnsDomainItem.boc"
