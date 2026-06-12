@@ -37,9 +37,10 @@ get fun `test dns domain item mainnet getters storage and dnsresolve`() {
     expect(data.isInitialized).toBeTrue();
     expect(data.itemIndex).toEqual(storage.itemIndex as int);
     expect(data.collectionAddress).toEqual(storage.collectionAddress);
-    expect(data.ownerAddress).toEqual(storage.ownerAddress);
+    expect(storage.ownerAddress).toBeNotNull();
+    expect(data.ownerAddress.castToInternal()).toEqual(storage.ownerAddress!);
     expect(data.content.hash()).toEqual(storage.content.hash());
-    expect(editor.castToInternal()).toEqual(storage.ownerAddress);
+    expect(editor.castToInternal()).toEqual(storage.ownerAddress!);
     expect(content.onchainTag).toEqual(0);
     expect(lastFillUpTime).toEqual(storage.lastFillUpTime as int64);
     expect(resolved.resolvedBits).toEqual(8);
@@ -50,6 +51,33 @@ get fun `test dns domain item mainnet getters storage and dnsresolve`() {
     println("DNS_DOMAIN_ITEM_DOMAIN={}", domain);
     println("DNS_DOMAIN_ITEM_AUCTION={}", auctionInfo);
     println("DNS_DOMAIN_ITEM_RESOLVE_SELF={}", resolved);
+}
+
+get fun `test dns domain item mainnet auction storage uses addr none owner`() {
+    val item = mainnetDnsAuctionItem();
+    val storage = loadDnsDomainItemStorageFromFork(item);
+    val data = item.getNftData();
+    val editor = item.getEditor();
+    val domain = item.getDomain();
+    val auctionInfo = item.getAuctionInfo();
+
+    expect(scripts.isContractDeployed(item.address)).toBeTrue();
+    expect(data.isInitialized).toBeTrue();
+    expect(data.itemIndex).toEqual(storage.itemIndex as int);
+    expect(data.collectionAddress).toEqual(storage.collectionAddress);
+    expect(storage.ownerAddress).toBeNull();
+    expect(data.ownerAddress).toBeNoneAddress();
+    expect(editor).toBeNoneAddress();
+    expect(storage.auction).toBeNotNull();
+    expect(auctionInfo.maxBidAddress.castToInternal()).toEqual(storage.auction!.load().maxBidAddress);
+    expect(auctionInfo.maxBidAmount).toEqual(storage.auction!.load().maxBidAmount);
+    expect(auctionInfo.auctionEndTime).toEqual(storage.auction!.load().auctionEndTime);
+
+    println("DNS_DOMAIN_AUCTION_ITEM_ADDRESS={}", item.address);
+    println("DNS_DOMAIN_AUCTION_ITEM_STORAGE={}", storage);
+    println("DNS_DOMAIN_AUCTION_ITEM_DATA={}", data);
+    println("DNS_DOMAIN_AUCTION_ITEM_DOMAIN={}", domain);
+    println("DNS_DOMAIN_AUCTION_ITEM_AUCTION={}", auctionInfo);
 }
 
 get fun `test dns domain item rejects unauthorized transfer`() {

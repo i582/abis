@@ -25,8 +25,8 @@ struct DnsDomainItemStorage {
     itemIndex: uint256
     /// DNS collection address used for static-data reports and auction settlement.
     collectionAddress: address
-    /// Current owner address; the zero address is used while an auction has no final owner.
-    ownerAddress: address
+    /// Current owner address; `addr_none` is used while an active auction has no final owner.
+    ownerAddress: address?
     /// On-chain NFT content cell with DNS records.
     content: Cell<DnsDomainItemContent>
     /// Domain label cell, for example `foundation` without a trailing zero byte.
@@ -225,8 +225,8 @@ struct DnsDomainItemDataReply {
     itemIndex: int
     /// DNS collection address stored by the item.
     collectionAddress: address
-    /// Current owner address, or zero address while an auction is active.
-    ownerAddress: address
+    /// Current owner address, or `addr_none` while an auction is active.
+    ownerAddress: any_address
     /// Referenced content cell with DNS record dictionary.
     content: cell
 }

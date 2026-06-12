@@ -31,6 +31,7 @@ hashes = ["8b5ffc9ebfd39064d8d5f56e4659c826bb7593923f5ca48728be4d60af6f51f9"]
 known_addresses = [
   "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e",
   "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1",
+  "EQAPA39ZpqDXHsT0FJ1KQ3rhXTn7UctxiIeZ6aX8s7VEYguv",
 ]
 
 [contracts.DnsDomainItem.instances.foundation_ton]
@@ -40,3 +41,8 @@ domain = "foundation.ton"
 [contracts.DnsDomainItem.instances.wallet_ton]
 address = "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1"
 domain = "wallet.ton"
+
+[contracts.DnsDomainItem.instances.petrmakhnev_ton]
+address = "EQAPA39ZpqDXHsT0FJ1KQ3rhXTn7UctxiIeZ6aX8s7VEYguv"
+domain = "petrmakhnev.ton"
+state = "active auction"

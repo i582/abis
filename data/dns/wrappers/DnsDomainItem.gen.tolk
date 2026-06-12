@@ -18,12 +18,13 @@ struct DnsDomainItem {
 fun DnsDomainItem.fromStorage(
     storage: DnsDomainItemDeploymentStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DnsDomainItem {
     val stateInit = ContractState {
         code: build("DnsDomainItem"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
     return DnsDomainItem { address, stateInit };
 }
 

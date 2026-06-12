@@ -8,6 +8,7 @@ import "../wrappers/DnsRootResolver.gen"
 
 const MAINNET_DNS_ROOT_RESOLVER_ADDRESS = "Ef_lZ1T4NCb2mwkme9h2rJfESCE0W34ma9lWp7-_uY3zXDvq"
 const MAINNET_DNS_FOUNDATION_ITEM_ADDRESS = "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e"
+const MAINNET_DNS_AUCTION_ITEM_ADDRESS = "EQAPA39ZpqDXHsT0FJ1KQ3rhXTn7UctxiIeZ6aX8s7VEYguv"
 
 fun mainnetDnsRootResolver(): DnsRootResolver {
     return DnsRootResolver.fromAddress(address(MAINNET_DNS_ROOT_RESOLVER_ADDRESS));
@@ -15,6 +16,10 @@ fun mainnetDnsRootResolver(): DnsRootResolver {
 
 fun mainnetDnsFoundationItem(): DnsDomainItem {
     return DnsDomainItem.fromAddress(address(MAINNET_DNS_FOUNDATION_ITEM_ADDRESS));
+}
+
+fun mainnetDnsAuctionItem(): DnsDomainItem {
+    return DnsDomainItem.fromAddress(address(MAINNET_DNS_AUCTION_ITEM_ADDRESS));
 }
 
 fun dnsTonRootSubdomain(): slice {
