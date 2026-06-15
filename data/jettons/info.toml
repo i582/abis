@@ -200,7 +200,6 @@ scope = "contract"
 types = "jetton_2_0/types/jetton_2_master.types.tolk"
 hashes = [
   "6eb01cd370f25445b7c9b598928e444009c31737334835a956b90bdd92228895",
-  "6bf8f48ca97d3fd9c8e553344efe7af030c322459e2ee2197a052162f1961bfb",
 ]
 known_addresses = []
 
@@ -215,7 +214,6 @@ types = "jetton_2_0/types/jetton_2_wallet.types.tolk"
 hashes = [
   "346250c205f56acfb6afa6fe7b76550805d256c6d8e47dd4f94ff672b47d19d3",
   "7602922348e199739f56d7a063c37e30f1cf1450ab86efb06ed048c0ca74e8a1",
-  "7bfa53bce90ce26cd368ec2989eba2bd15d286104742f0e04659f485a03012ba",
 ]
 known_addresses = []
 
@@ -223,6 +221,28 @@ known_addresses = []
 kind = "source"
 title = "TON Jetton 2.0 source"
 url = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
+scope = "contract"
+
+[contracts.JettonMinter]
+types = "jetton_2_1/types/jetton_minter.types.tolk"
+hashes = ["6bf8f48ca97d3fd9c8e553344efe7af030c322459e2ee2197a052162f1961bfb"]
+known_addresses = []
+
+[[contracts.JettonMinter.links]]
+kind = "source"
+title = "Acton Tolk jetton template source"
+url = "https://github.com/ton-blockchain/acton/tree/master/src/commands/new/templates/jetton"
+scope = "contract"
+
+[contracts.JettonWallet]
+types = "jetton_2_1/types/jetton_wallet.types.tolk"
+hashes = ["7bfa53bce90ce26cd368ec2989eba2bd15d286104742f0e04659f485a03012ba"]
+known_addresses = []
+
+[[contracts.JettonWallet.links]]
+kind = "source"
+title = "Acton Tolk jetton template source"
+url = "https://github.com/ton-blockchain/acton/tree/master/src/commands/new/templates/jetton"
 scope = "contract"
 
 [contracts.MintlessJettonMaster]
