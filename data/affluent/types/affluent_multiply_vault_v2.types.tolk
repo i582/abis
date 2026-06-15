@@ -1,7 +1,7 @@
 contract AffluentMultiplyVaultV2 {
     author: "Affluent"
     version: "2.0"
-    description: "Curated Affluent multiply vault v2 interface"
+    description: "Affluent Multiply Vault v2 is a strategy vault for leveraged market exposure using Affluent's newer vault flow."
     storage: AffluentMultiplyVaultV2Storage
     outgoingMessages: AffluentMultiplyVaultV2OutgoingMessage
     forceAbiExport: AffluentVaultJettonPayload

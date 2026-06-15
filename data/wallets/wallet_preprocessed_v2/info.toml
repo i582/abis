@@ -11,6 +11,18 @@ tongo_wallets_xml = "schemas/wallets.xml"
 toncenter_schemes = "source/toncenter-schemes.tlb"
 contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "spec"
+title = "Preprocessed Wallet V2 specification"
+url = "https://docs.ton.org/blockchain-basics/standard/wallets/preprocessed-v2/specification"
+scope = "contract"
+
+[[links]]
+kind = "docs"
+title = "Preprocessed Wallet V2 guide"
+url = "https://docs.ton.org/standard/wallets/preprocessed-v2/interact"
+scope = "contract"
+
 [contracts.WalletPreprocessedV2]
 types = "types/wallet_preprocessed_v2.types.tolk"
 hashes = ["45ebbce9b5d235886cb6bfe1c3ad93b708de058244892365c9ee0dfe439cb7b5"]

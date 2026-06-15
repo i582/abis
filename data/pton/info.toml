@@ -19,11 +19,41 @@ stonfi_api_routers_snapshot = "data/stonfi/research/docs/stonfi_api_routers_2026
 local_schema = "schemas/ston-fi.xml"
 local_research = "data/pton/research"
 
+[[links]]
+kind = "source"
+title = "pTON contract source"
+url = "https://github.com/ston-fi/pton-contracts"
+scope = "project"
+
+[[links]]
+kind = "spec"
+title = "pTON TLB specs"
+url = "https://github.com/ston-fi/pton-contracts/blob/main/docs/specs.tlb"
+scope = "project"
+
+[[links]]
+kind = "spec"
+title = "TEP-74 Jetton standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-89 wallet discovery"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
+scope = "standard"
+
 [contracts.PtonMinterV2]
 display_name = "pTON Minter V2"
 types = "minter_v2/types/pton_minter_v2.types.tolk"
 hashes = ["faf8bb63fe7c20f8468c1cda6981998eb1fdfb86571bf6e592e141f30f8e4461"]
 known_addresses = ["EQBnGWMCf3-FZZq1W4IWcWiGAc3PHuZ0_H-7sad2oY00o83S"]
+
+[[contracts.PtonMinterV2.links]]
+kind = "source"
+title = "pTON minter source"
+url = "https://github.com/ston-fi/pton-contracts/blob/main/contracts/minter.fc"
+scope = "contract"
 
 [contracts.PtonWalletV2]
 display_name = "pTON Wallet V2"
@@ -33,3 +63,9 @@ known_addresses = [
   "EQCSIMGBps_qzRG3uPYhON8bucyCtu0mYdL1-u4gSz77IBa3",
   "EQBTYCx7TGgVgaIr3tuJ3r_91E6FUBBWLtT73lTYYmrIc5gb",
 ]
+
+[[contracts.PtonWalletV2.links]]
+kind = "source"
+title = "pTON wallet source"
+url = "https://github.com/ston-fi/pton-contracts/blob/main/contracts/wallet.fc"
+scope = "contract"

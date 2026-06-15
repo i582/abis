@@ -2,7 +2,7 @@
 contract NftV1Collection {
     author: "TON Core"
     version: "1"
-    description: "Curated TEP-62, TEP-64, and TEP-66 NFT v1 collection interface"
+    description: "TON NFT v1 Collection is the parent contract for an NFT set, responsible for minting items and publishing content and royalties."
     storage: NftV1CollectionStorage
     incomingMessages: NftV1CollectionIncomingMessage
     outgoingMessages: NftV1CollectionOutgoingMessage

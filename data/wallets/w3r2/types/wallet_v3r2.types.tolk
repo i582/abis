@@ -2,7 +2,7 @@
 contract WalletV3r2 {
     author: "TON Core"
     version: "3.2"
-    description: "Curated Wallet V3 R2 interface"
+    description: "Wallet V3 R2 is a TON wallet for holding TON with wallet id separation; compared with R1, it adds public-key visibility."
     storage: WalletV3r2Storage
     incomingExternal: WalletV3r2IncomingExternalMessage
     thrownErrors: Errors

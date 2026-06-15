@@ -2,7 +2,7 @@
 contract JettonNotcoinWallet {
     author: "TON Core"
     version: "1.2"
-    description: "Curated interface for ton-blockchain/jetton-contract Notcoin/basecoin wallet"
+    description: "Notcoin Jetton Wallet is a user's NOT/basecoin token account, holding balance and handling token transfers and burns."
     storage: JettonNotcoinWalletStorage
     incomingMessages: JettonNotcoinWalletIncomingMessage
     outgoingMessages: JettonNotcoinWalletOutgoingMessage

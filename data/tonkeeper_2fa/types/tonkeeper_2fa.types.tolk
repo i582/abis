@@ -2,7 +2,7 @@
 contract Tonkeeper2fa {
     author: "Tonkeeper"
     version: "1.0"
-    description: "Curated Tonkeeper 2FA extension interface"
+    description: "Tonkeeper 2FA Extension is a wallet add-on that requires a second-factor approval before protected transactions execute."
     storage: Tonkeeper2faStorage
     storageAtDeployment: Tonkeeper2faDeploymentStorage
     incomingMessages: Tonkeeper2faIncomingMessage

@@ -18,6 +18,12 @@ tongo_subscription_v1 = "research/source/tongo_subscriptions_v1.xml"
 tongo_subscription_v2 = "research/source/tongo_subscriptions_v2.xml"
 decompiled_subscription_v1 = "research/func/subscription_v1.fc"
 
+[[links]]
+kind = "website"
+title = "Tonkeeper website"
+url = "https://tonkeeper.com"
+scope = "project"
+
 [contracts.SubscriptionV1]
 types = "types/subscription_v1.types.tolk"
 hashes = ["52161446bb3e6f811f3ceb163c8be33710fe41086c3a047ee928c2d94743fc2d"]

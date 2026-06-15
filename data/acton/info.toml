@@ -9,6 +9,12 @@ description = "Built-in contracts used by Acton and TON Sandbox test environment
 sandbox_treasury_source = "https://github.com/ton-org/sandbox/blob/main/src/treasury/treasury.fc"
 local_treasury_source_snapshot = "data/acton/treasury/research/func/treasury.fc"
 
+[[links]]
+kind = "source"
+title = "Sandbox treasury source"
+url = "https://github.com/ton-org/sandbox/blob/main/src/treasury/treasury.fc"
+scope = "contract"
+
 [contracts.TreasuryContract]
 display_name = "TreasuryContract"
 types = "treasury/types/treasury.types.tolk"

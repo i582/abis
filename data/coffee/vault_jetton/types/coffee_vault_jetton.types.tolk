@@ -2,7 +2,7 @@
 contract CoffeeVaultJetton {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap Jetton Vault ABI for jetton transfer notifications, swaps, liquidity deposits, pool creation, payouts, and wallet activation."
+    description: "Coffee Swap Jetton Vault receives users' jettons for swaps, liquidity deposits, pool creation, and payouts."
     storage: CoffeeVaultJettonActiveStorage
     storageAtDeployment: CoffeeVaultJettonInactiveStorage
     incomingMessages: CoffeeVaultJettonIncomingMessage

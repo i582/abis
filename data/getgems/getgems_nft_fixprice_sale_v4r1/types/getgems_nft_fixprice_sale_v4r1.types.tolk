@@ -2,7 +2,7 @@
 contract GetgemsNftFixpriceSaleV4R1 {
     author: "Getgems"
     version: "4r1"
-    description: "Curated Getgems fixed-price NFT sale V4R1 interface with TON and Jetton sale support"
+    description: "Getgems fixed-price sale V4 R1 is a marketplace escrow contract that sells one NFT for TON or Jettons and distributes proceeds."
     storage: GetgemsNftFixpriceSaleV4R1Storage
     storageAtDeployment: GetgemsNftFixpriceSaleV4R1DeploymentStorage
     incomingMessages: GetgemsNftFixpriceSaleV4R1IncomingMessage

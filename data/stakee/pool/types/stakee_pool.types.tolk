@@ -2,7 +2,7 @@
 contract StakeePool {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee Pool for liquid-staking deposits, STAKEED withdrawals, validator-controller loans, governance, storage, and getters."
+    description: "Stakee Pool is the liquid staking pool where users deposit TON and receive STAKEED while validator controllers use pooled funds for staking."
     storage: StakeePoolStorage
     incomingMessages: StakeePoolIncomingMessage
     outgoingMessages: StakeePoolOutgoingMessage

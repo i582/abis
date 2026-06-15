@@ -2,7 +2,7 @@
 contract DedustUranusFactoryV3 {
     author: "DeDust"
     version: "3.0"
-    description: "Curated ABI for the deployed Uranus Meme Factory v3 contract."
+    description: "DeDust Uranus Factory V3 is the launchpad factory that creates Uranus meme token markets and helps apps find deployed meme contracts."
     storage: DedustUranusFactoryV3Storage
     incomingMessages: DedustUranusFactoryV3IncomingMessage
     outgoingMessages: DedustUranusFactoryV3OutgoingMessage

@@ -2,7 +2,7 @@
 contract StonfiPoolV2ConstProduct {
     author: "STON.fi"
     version: "2.2"
-    description: "Source-preserving STON.fi Pool v2 ConstantProduct ABI aligned with docs.ston.fi Pool v2 terminology for PoolData, LP account/wallet discovery, routed swap/provide_liquidity flows, fee collection, referral vault payouts, and async getter messages"
+    description: "STON.fi v2 Constant Product Pool is the standard AMM pool users trade through for ordinary token pairs in STON.fi DEX v2."
     storage: StonfiPoolV2ConstProductStorage
     incomingMessages: StonfiPoolV2ConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2ConstProductOutgoingMessage

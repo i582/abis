@@ -13,6 +13,18 @@ common_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/
 stdlib_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/imports/stdlib.fc"
 tongo_schema = "schemas/locker.xml"
 
+[[links]]
+kind = "source"
+title = "TON Locker source"
+url = "https://github.com/ton-blockchain/locker-contract"
+scope = "project"
+
+[[links]]
+kind = "audit"
+title = "TON Locker audit"
+url = "https://github.com/ton-blockchain/locker-contract#quantstamp-audit"
+scope = "project"
+
 [contracts.Locker]
 types = "types/locker.types.tolk"
 hashes = [
@@ -24,9 +36,21 @@ known_addresses = [
   "EQCxTD5GdQ3IVw830nrOEfT9k8c2k1Wqm7rcCTny-cW2Kvyo",
 ]
 
+[[contracts.Locker.links]]
+kind = "source"
+title = "TON Locker contract source"
+url = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker.fc"
+scope = "contract"
+
 [contracts.LockerBill]
 types = "types/locker_bill.types.tolk"
 hashes = ["bb9ba6dafd7372b81ee66d7dbfca388e7384998a3ae1790b871ce672185c7829"]
 known_addresses = ["EQAMOAT3OoX8weD8Z4IlkEL-M2WQxg3Dz4KFeMBoWjkgSykt"]
 observed_method_ids = [118274]
 notes = "Official per-user bill contract for Locker. Code hash was compiled locally from current upstream FunC with local FunC v0.4.6 and verified against a live Toncenter locker_bill account."
+
+[[contracts.LockerBill.links]]
+kind = "source"
+title = "TON Locker bill source"
+url = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker_bill.fc"
+scope = "contract"

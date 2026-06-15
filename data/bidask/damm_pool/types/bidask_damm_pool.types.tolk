@@ -2,7 +2,7 @@
 contract BidaskDammPool {
     author: "Bidask Protocol"
     version: "1.0"
-    description: "Curated interface for Bidask DAMM Pool storage, pool/user-account messages, LP Jetton master getters, and SDK-documented jetton forward payloads."
+    description: "Bidask DAMM Pool is a dynamic AMM liquidity pool where users swap tokens and provide pooled liquidity."
     storage: BidaskDammPoolStorage
     incomingMessages: BidaskDammPoolIncomingMessage
     outgoingMessages: BidaskDammPoolOutgoingMessage

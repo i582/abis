@@ -2,7 +2,7 @@
 contract HipoBill {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Curated interface for Hipo Finance Bill item contracts"
+    description: "Hipo Bill Item is a non-transferable withdrawal NFT showing a user's pending hTON unstake claim until the round can pay out."
     storage: HipoBillStorage
     incomingMessages: HipoBillIncomingMessage
     outgoingMessages: HipoBillOutgoingMessage

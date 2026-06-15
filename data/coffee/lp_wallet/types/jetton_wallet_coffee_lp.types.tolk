@@ -2,7 +2,7 @@
 contract JettonWalletCoffeeLp {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee DEX LP Jetton wallet ABI for standard Jetton transfers, LP burns, owner notifications, excesses, and wallet data."
+    description: "Coffee Swap LP Jetton Wallet is a user's LP token account, holding pool-share tokens and handling LP transfers or burns."
     storage: JettonWalletCoffeeLpStorage
     incomingMessages: JettonWalletCoffeeLpIncomingMessage
     outgoingMessages: JettonWalletCoffeeLpOutgoingMessage

@@ -2,7 +2,7 @@
 contract FragmentUsernameCollection {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment collection interface for Telegram username TeleMint items with DNS resolver support"
+    description: "Fragment Username Collection is Telegram's collection contract for username collectibles traded through Fragment and resolved via TON DNS."
     storage: FragmentUsernameCollectionStorage
     incomingMessages: FragmentUsernameCollectionIncomingMessage
     outgoingMessages: FragmentUsernameCollectionOutgoingMessage

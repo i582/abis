@@ -2,7 +2,7 @@
 contract CoffeeStakingMaster {
     author: "swap.coffee"
     version: "0.1"
-    description: "Coffee Swap staking master ABI for reward accounting, NFT collection getters, vault/item callbacks, admin updates, and storage."
+    description: "Coffee Swap Staking Master manages a staking program where users lock tokens, receive staking NFTs, and earn configured rewards."
     storage: CoffeeStakingMasterStorage
     incomingMessages: CoffeeStakingMasterIncomingMessage
     outgoingMessages: CoffeeStakingMasterOutgoingMessage

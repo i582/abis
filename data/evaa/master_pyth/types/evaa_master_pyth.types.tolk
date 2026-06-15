@@ -2,7 +2,7 @@
 contract EvaaMasterPyth {
     author: "EVAA"
     version: "10"
-    description: "EVAA Master Pyth ABI with master storage, public getters, admin messages, user-flow messages, Pyth callbacks, and jetton notifications."
+    description: "EVAA Master Pyth is the lending market controller for Pyth-priced pools where users supply, borrow, repay, and liquidate assets."
     storage: EvaaMasterPythStorage
     incomingMessages: EvaaMasterPythIncomingMessage
     outgoingMessages: EvaaMasterPythOutgoingMessage

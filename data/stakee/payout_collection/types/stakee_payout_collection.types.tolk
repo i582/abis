@@ -2,7 +2,7 @@
 contract StakeePayoutCollection {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee payout NFT collection for storage, mint/init flows, distribution callbacks, getters, and exit codes."
+    description: "Stakee Payout NFT Collection groups delayed withdrawal payout NFTs created when STAKEED withdrawals wait for a validation round."
     storage: StakeePayoutCollectionStorage
     storageAtDeployment: StakeePayoutCollectionDeploymentStorage
     incomingMessages: StakeePayoutCollectionIncomingMessage

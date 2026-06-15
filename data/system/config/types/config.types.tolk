@@ -4,7 +4,7 @@ import "@stdlib/lisp-lists"
 contract Config {
     author: "TON Core"
     version: "1.0"
-    description: "Mainnet TON Config contract interface for network configuration governance."
+    description: "TON Config is the masterchain system contract that stores network parameters and coordinates validator-approved configuration changes."
     incomingMessages: ConfigIncomingInternalMessage
     incomingExternal: ConfigIncomingExternalMessage
     outgoingMessages: ConfigOutgoingMessage

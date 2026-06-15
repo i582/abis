@@ -2,7 +2,7 @@
 contract BidaskRange {
     author: "Bidask"
     version: "0.9.2"
-    description: "Curated Bidask DLMM Range ABI with storage, getters, internal range operations, and observed outbound callbacks"
+    description: "Bidask DLMM Range represents a price range that users encounter when providing bin-based liquidity to a Bidask pool."
     storage: BidaskRangeStorage
     incomingMessages: BidaskRangeIncomingMessage
     outgoingMessages: BidaskRangeOutgoingMessage

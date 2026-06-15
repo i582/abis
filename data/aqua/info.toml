@@ -18,6 +18,12 @@ local_message_body_scan = "research/aqua_usd_message_bodies_500.md"
 local_get_jetton_data = "research/aqua_usd_get_jetton_data_raw.txt"
 local_get_assets = "research/aqua_usd_get_assets_raw.txt"
 
+[[links]]
+kind = "website"
+title = "Aqua app"
+url = "https://app.aquaprotocol.xyz/"
+scope = "project"
+
 [contracts.AquaUsdMasterVault]
 display_name = "Aqua USD Master Vault"
 types = "types/aqua_usd_master_vault.types.tolk"

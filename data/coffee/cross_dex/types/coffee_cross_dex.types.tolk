@@ -2,7 +2,7 @@
 contract CoffeeCrossDex {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee CrossDex bridge ABI for resend payloads, upstream DEX callbacks, admin operations, and get_admin."
+    description: "Coffee CrossDex is a routing helper used by Coffee Swap integrations to forward swaps through external TON DEX flows."
     storage: CoffeeCrossDexStorage
     incomingMessages: CoffeeCrossDexIncomingMessage
     outgoingMessages: CoffeeCrossDexOutgoingMessage

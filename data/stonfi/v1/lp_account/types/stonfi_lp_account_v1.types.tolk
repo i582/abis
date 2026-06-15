@@ -2,7 +2,7 @@
 contract StonfiLpAccountV1 {
     author: "STON.fi"
     version: "1.0"
-    description: "Curated STON.fi LP Account v1 interface for stored liquidity balances, add/refund/reset commands, LP Account callbacks, and account data getters"
+    description: "STON.fi v1 LP Account is a temporary per-user helper that collects liquidity deposits before adding them to a v1 pool or refunding them."
     storage: StonfiLpAccountV1Storage
     incomingMessages: StonfiLpAccountV1IncomingMessage
     outgoingMessages: StonfiLpAccountV1OutgoingMessage

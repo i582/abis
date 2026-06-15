@@ -2,7 +2,7 @@
 contract Elector {
     author: "TON Core"
     version: "1.0"
-    description: "TON system Elector ABI for storage, validator election messages, complaint voting, outgoing responses, and public getters."
+    description: "TON Elector is the masterchain system contract where validators stake, join election rounds, recover stake, and vote on complaints."
     storage: ElectorStorage
     incomingMessages: ElectorIncomingMessage
     outgoingMessages: ElectorOutgoingMessage

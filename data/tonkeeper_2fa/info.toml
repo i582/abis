@@ -16,6 +16,12 @@ local_tongo_schema = "data/tonkeeper_2fa/research/source/tongo_tonkeeper_2fa.xml
 local_generated_types = "gen/tonkeeper_2fa.types.tolk"
 local_schema = "schemas/tonkeeper_2fa.xml"
 
+[[links]]
+kind = "website"
+title = "Tonkeeper website"
+url = "https://tonkeeper.com"
+scope = "project"
+
 [contracts.Tonkeeper2fa]
 display_name = "Tonkeeper 2FA Extension"
 types = "types/tonkeeper_2fa.types.tolk"

@@ -2,7 +2,7 @@
 contract StonfiRouterV1 {
     author: "STON.fi"
     version: "1.0"
-    description: "Curated low-level STON.fi DEX v1 Router ABI for storage, getters, Jetton transfer payloads, Pool routing, async getter messages, and admin operations."
+    description: "STON.fi v1 Router is the main DEX entry contract users and apps call to swap tokens and provide liquidity through v1 pools."
     storage: StonfiRouterV1Storage
     incomingMessages: StonfiRouterV1IncomingMessage
     outgoingMessages: StonfiRouterV1OutgoingMessage

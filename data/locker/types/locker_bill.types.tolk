@@ -2,7 +2,7 @@
 contract LockerBill {
     author: "TON Core"
     version: "1.0"
-    description: "Curated interface for the official TON locker bill contract"
+    description: "TON Locker Bill is a per-user helper contract that tracks an individual locker allocation and its claimable TON."
     storage: LockerBillStorage
     incomingMessages: LockerBillIncomingMessage
     outgoingMessages: LockerBillOutgoingMessage

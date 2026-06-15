@@ -2,7 +2,7 @@
 contract GetgemsNftMarketplaceV1 {
     author: "Getgems"
     version: "1.0"
-    description: "Curated Getgems NFT marketplace V1 interface"
+    description: "Getgems NFT Marketplace V1 is the marketplace controller used to deploy and manage NFT sale contracts for listings."
     storage: GetgemsNftMarketplaceV1Storage
     incomingMessages: GetgemsNftMarketplaceV1IncomingMessage
     forceAbiExport: GetgemsNftMarketplaceV1DeployEnvelopeRefs

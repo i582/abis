@@ -2,7 +2,7 @@
 contract DnsRootResolver {
     author: "TON"
     version: "1.0"
-    description: "Curated TON DNS resolver get-method interface"
+    description: "TON DNS Root Resolver is the root contract apps use to resolve top-level TON DNS domains such as .ton."
     forceAbiExport: DnsRootRecord
 }
 

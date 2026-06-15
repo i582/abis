@@ -14,6 +14,24 @@ lockup_vesting_readme = "https://github.com/ton-blockchain/lockup-wallet-contrac
 tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
 local_contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "docs"
+title = "TON lockup wallet documentation"
+url = "https://docs.ton.org/blockchain-basics/standard/wallets/lockup"
+scope = "standard"
+
+[[links]]
+kind = "docs"
+title = "TON vesting documentation"
+url = "https://docs.ton.org/blockchain-basics/standard/vesting"
+scope = "standard"
+
+[[links]]
+kind = "source"
+title = "Lockup wallet source"
+url = "https://github.com/ton-blockchain/lockup-wallet-contract"
+scope = "project"
+
 [contracts.LockupVesting]
 types = "types/lockup_vesting.types.tolk"
 hashes = ["2d2611ebab89d61853842312f38f836af817415071227102eb4aa1bb8dfd3ce7"]

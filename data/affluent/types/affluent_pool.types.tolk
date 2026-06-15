@@ -1,7 +1,7 @@
 contract AffluentPool {
     author: "Affluent"
     version: "1.0"
-    description: "Curated Affluent pool interface"
+    description: "Affluent Pool is a lending market where users supply assets, borrow against collateral, and earn or pay interest."
     storage: AffluentPoolStorage
     forceAbiExport: AffluentPoolAssetStorageRecord
         | AffluentPoolBasicVariantData

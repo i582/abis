@@ -11,6 +11,18 @@ official_stdlib = "https://github.com/ton-blockchain/ton/blob/master/crypto/smar
 tongo_wallets_xml = "schemas/wallets.xml"
 toncenter_schemes = "source/toncenter-schemes.tlb"
 
+[[links]]
+kind = "docs"
+title = "Highload wallet documentation"
+url = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+scope = "standard"
+
+[[links]]
+kind = "source"
+title = "Highload Wallet V2 source"
+url = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet-v2-code.fc"
+scope = "contract"
+
 [contracts.WalletHighloadV2]
 types = "types/wallet_highload_v2.types.tolk"
 hashes = ["9494d1cc8edf12f05671a1a9ba09921096eb50811e1924ec65c3c629fbb80812"]

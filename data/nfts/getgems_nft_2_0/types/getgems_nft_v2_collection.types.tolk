@@ -2,7 +2,7 @@
 contract GetgemsNftCollectionV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems NFT collection v2 interface with second owner and balance-return operation"
+    description: "Getgems NFT Collection V2 is the marketplace collection contract for minting Getgems NFT v2 items and managing collection ownership."
     storage: GetgemsNftCollectionV2Storage
     incomingMessages: GetgemsNftCollectionV2IncomingMessage
     outgoingMessages: GetgemsNftCollectionV2OutgoingMessage

@@ -2,7 +2,7 @@
 contract BemoFinancial {
     author: "Bemo"
     version: "2.0"
-    description: "Curated interface for the Bemo v2 Financial bmTON jetton master contract"
+    description: "Bemo v2 Financial is the bmTON jetton master and staking hub where users stake TON, receive bmTON, and start unstake requests."
     storage: BemoFinancialStorage
     incomingMessages: BemoFinancialIncomingMessage
     outgoingMessages: BemoFinancialOutgoingMessage

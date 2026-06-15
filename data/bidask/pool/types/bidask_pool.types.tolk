@@ -2,7 +2,7 @@
 contract BidaskPool {
     author: "Bidask"
     version: "0.9.2"
-    description: "Curated Bidask DLMM Pool ABI for storage, direct and Jetton-forward swap/provide flows, range callbacks, and public pool getters"
+    description: "Bidask DLMM Pool is a concentrated-liquidity market where users swap tokens and provide liquidity across price bins."
     storage: BidaskPoolStorage
     outgoingMessages: BidaskPoolOutgoingMessage
     forceAbiExport: BidaskPoolIncomingMessage

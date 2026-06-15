@@ -2,7 +2,7 @@
 contract StormExecutorCollection {
     author: "Storm Trade"
     version: "1.0"
-    description: "Executor NFT collection with Storm-specific minting and vault whitelist ABI"
+    description: "Storm Trade Executor Collection mints executor NFTs and manages the vault whitelist for executor rewards."
     storage: StormExecutorCollectionStorage
     incomingMessages: StormExecutorCollectionIncomingMessage
     outgoingMessages: StormExecutorCollectionOutgoingMessage

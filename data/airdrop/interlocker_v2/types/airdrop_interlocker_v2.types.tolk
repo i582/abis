@@ -2,7 +2,7 @@
 contract AirdropInterlockerV2 {
     author: "Airdrop"
     version: "2.0"
-    description: "Airdrop Interlocker v2 ABI for proof-backed lock-and-claim flow with unlock schedule"
+    description: "Airdrop Interlocker v2 is a claim contract that verifies allocation proofs and releases tokens according to an unlock schedule."
     storage: AirdropInterlockerV2Storage
     incomingMessages: AirdropInterlockerV2IncomingMessage
     outgoingMessages: AirdropInterlockerV2OutgoingMessage

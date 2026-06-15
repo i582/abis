@@ -2,7 +2,7 @@
 contract Invoices {
     author: "Unknown"
     version: "1.0"
-    description: "Payload-only ABI for invoice_payload internal bodies and Jetton forward payloads."
+    description: "TON Invoices payloads help wallets and payment apps recognize invoice payments and jetton-forwarded payment details."
     incomingMessages: InvoicesIncomingMessage
     forceAbiExport: InvoicesJettonPayload
 }

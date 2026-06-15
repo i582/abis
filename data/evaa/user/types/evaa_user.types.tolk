@@ -2,7 +2,7 @@
 contract EvaaUser {
     author: "EVAA"
     version: "9"
-    description: "EVAA user position ABI with runtime storage, upgrade-wrapped user commands, responses, and public getters."
+    description: "EVAA User is a per-account lending position contract that holds a user's collateral, borrow debt, and market actions."
     storage: EvaaUserStorage
     storageAtDeployment: EvaaUserDeploymentStorage
     incomingMessages: EvaaUserIncomingMessage

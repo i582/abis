@@ -2,7 +2,7 @@
 contract CoffeeVaultNative {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap Native Vault ABI for TON swaps, liquidity deposits, pool creation, payouts, and factory updates."
+    description: "Coffee Swap Native Vault is the TON vault users interact with when swapping, adding liquidity, or receiving native payouts on Coffee Swap."
     storage: CoffeeVaultNativeStorage
     incomingMessages: CoffeeVaultNativeIncomingMessage
     outgoingMessages: CoffeeVaultNativeOutgoingMessage

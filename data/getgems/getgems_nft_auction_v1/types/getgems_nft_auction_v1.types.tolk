@@ -2,7 +2,7 @@
 contract GetgemsNftAuctionV1 {
     author: "Getgems"
     version: "1.0"
-    description: "Curated Getgems NFT auction v1 interface"
+    description: "Getgems NFT Auction V1 is a TON-only marketplace escrow where bidders compete for one NFT and the seller settles the winning bid."
     storage: GetgemsNftAuctionV1Storage
     incomingMessages: GetgemsNftAuctionV1IncomingMessage
     incomingExternal: GetgemsNftAuctionV1IncomingExternalMessage

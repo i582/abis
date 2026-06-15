@@ -10,6 +10,12 @@ tongo_wallets_xml = "schemas/wallets.xml"
 toncenter_schemes = "source/toncenter-schemes.tlb"
 anton_catalog = "source/anton.json"
 
+[[links]]
+kind = "docs"
+title = "Highload wallet documentation"
+url = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+scope = "standard"
+
 [contracts.WalletHighloadV2r1]
 types = "types/wallet_highload_v2r1.types.tolk"
 hashes = ["8ceb45b3cd4b5cc60eaae1c13b9c092392677fe536b2e9b2d801b62eff931fe1"]

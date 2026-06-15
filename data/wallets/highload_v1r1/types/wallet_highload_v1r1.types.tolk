@@ -2,7 +2,7 @@
 contract WalletHighloadV1r1 {
     author: "TON Core"
     version: "1.1"
-    description: "Curated Highload Wallet V1 R1 interface"
+    description: "Highload Wallet V1 R1 is a TON service wallet for many outgoing transactions; compared with basic wallets, it batches sends."
     storage: WalletHighloadV1r1Storage
     incomingExternal: WalletHighloadV1r1IncomingExternalMessage
     forceAbiExport: HighloadV1r1SendMessageAction

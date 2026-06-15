@@ -1,7 +1,7 @@
 contract AffluentBatch {
     author: "Affluent"
     version: "1.0"
-    description: "Curated Affluent batch interface"
+    description: "Affluent Batch coordinates queued Affluent operations so users and vaults can execute multi-step market actions."
     storage: AffluentBatchStorage
     incomingMessages: AffluentBatchIncomingMessage
     outgoingMessages: AffluentBatchOutgoingMessage

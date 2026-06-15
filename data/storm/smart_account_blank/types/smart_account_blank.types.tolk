@@ -2,7 +2,7 @@
 contract SmartAccountBlank {
     author: "Storm Trade"
     version: "0.1-local-schema"
-    description: "Storm Trade transient smart account used by the factory to initialize a user SmartAccount or process the first deposit."
+    description: "Storm Trade Smart Account Blank is the temporary account contract used before a new user's trading account is fully initialized."
     storage: SmartAccountBlankStorage
     incomingMessages: SmartAccountBlankIncomingMessage
     outgoingMessages: SmartAccountBlankOutgoingMessage

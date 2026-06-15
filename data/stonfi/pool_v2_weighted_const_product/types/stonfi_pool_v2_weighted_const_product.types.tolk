@@ -2,7 +2,7 @@
 contract StonfiPoolV2WeightedConstProduct {
     author: "STON.fi"
     version: "2.2"
-    description: "Source-proven STON.fi Pool v2 Weighted Constant Product interface aligned with official Pool v2 docs; storage/getter layout wins where docs conflict"
+    description: "STON.fi v2 Weighted Constant Product Pool is a weighted AMM pool for token pairs whose liquidity should follow configured asset weights."
     storage: StonfiPoolV2WeightedConstProductStorage
     incomingMessages: StonfiPoolV2WeightedConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2WeightedConstProductOutgoingMessage

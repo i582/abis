@@ -2,7 +2,7 @@
 contract JettonV1Wallet {
     author: "TON Core"
     version: "1"
-    description: "Curated interface for the ton-blockchain/token-contract Jetton v1 wallet"
+    description: "Jetton v1 Wallet is a user's TEP-74 token account, holding one owner's jetton balance and handling token transfers and burns."
     storage: JettonV1WalletStorage
     incomingMessages: JettonV1WalletIncomingMessage
     outgoingMessages: JettonV1WalletOutgoingMessage

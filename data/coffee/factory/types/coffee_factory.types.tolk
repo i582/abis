@@ -2,7 +2,7 @@
 contract CoffeeFactory {
     author: "Coffee Swap"
     version: "1.0"
-    description: "Coffee Swap Factory ABI for deterministic child deployment, vault, pool, helper address derivation, pool administration, code-cell updates, and protocol-fee withdrawal."
+    description: "Coffee Swap Factory is the DEX registry and deployment hub that creates vaults, pools, and helper contracts for Coffee Swap markets."
     storage: CoffeeFactoryStorage
     incomingMessages: CoffeeFactoryIncomingMessage
     outgoingMessages: CoffeeFactoryOutgoingMessage

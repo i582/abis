@@ -2,7 +2,7 @@
 contract FragmentMarketappProxySimple {
     author: "MarketApp"
     version: "1.0"
-    description: "Signed Fragment/Telegram collectible buy-routing proxy variant with optional root secondary-send ref"
+    description: "Fragment MarketApp Proxy Simple is a buy-routing variant for signed Telegram collectible purchases without jetton transfer routing."
     storage: FragmentMarketappProxySimpleStorage
     incomingMessages: FragmentMarketappProxySimpleIncomingMessage
     forceAbiExport: FragmentMarketappProxySimpleSignedBuyRequest

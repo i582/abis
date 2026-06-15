@@ -2,7 +2,7 @@
 contract WalletV4r2 {
     author: "TON Core"
     version: "4.2"
-    description: "Curated Wallet V4 R2 interface"
+    description: "Wallet V4 R2 is a TON wallet for holding TON with app plugins; it is the common V4 revision for app-triggered payments."
     storage: WalletV4r2Storage
     incomingMessages: WalletV4r2IncomingMessage
     incomingExternal: WalletV4r2IncomingExternalMessage

@@ -2,7 +2,7 @@
 contract GetgemsNftOfferV1 {
     author: "Getgems"
     version: "1"
-    description: "Curated Getgems NFT offer V1 interface"
+    description: "Getgems NFT Offer V1 is a buy-offer escrow where a bidder locks TON until the NFT owner accepts, cancels, or the offer expires."
     storage: GetgemsNftOfferV1Storage
     incomingMessages: GetgemsNftOfferV1IncomingMessage
     incomingExternal: GetgemsNftOfferV1IncomingExternalMessage

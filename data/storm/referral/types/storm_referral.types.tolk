@@ -2,7 +2,7 @@
 contract StormReferral {
     author: "Storm Trade"
     version: "1.0"
-    description: "Referral NFT item with TEP-62 item surface and Storm referral balance ABI"
+    description: "Storm Trade Referral Item is an NFT that represents a referral profile and accrues referral rewards across whitelisted vaults."
     storage: StormReferralStorage
     storageAtDeployment: StormReferralDeploymentStorage
     incomingMessages: StormReferralIncomingMessage

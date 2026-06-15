@@ -2,7 +2,7 @@
 contract StormVammCoinm {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade CoinM VAMM for TON-settled markets, trading messages, and public getters."
+    description: "Storm Trade Coin-margined vAMM is a perpetual market contract where TON collateral backs and settles TON-denominated trades."
     storage: StormVammCoinmStorage
     incomingMessages: StormVammCoinmIncomingMessage
     outgoingMessages: StormVammCoinmOutgoingMessage

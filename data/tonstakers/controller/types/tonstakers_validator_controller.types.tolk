@@ -2,7 +2,7 @@
 contract TonstakersValidatorController {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers Validator Controller for storage, controller commands, Pool and Elector messages, getters, and exit codes."
+    description: "Tonstakers Validator Controller is the validator-side account that stakes pooled TON and returns round results to the pool."
     storage: TonstakersValidatorControllerStorage
     incomingMessages: TonstakersValidatorControllerIncomingMessage
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage

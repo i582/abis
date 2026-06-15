@@ -2,7 +2,7 @@
 contract WalletHighloadV2r2 {
     author: "TON Core"
     version: "2.2"
-    description: "Curated Highload Wallet V2 R2 interface"
+    description: "Highload Wallet V2 R2 is a TON service wallet for replay-protected batch sends; compared with R1, it adds public-key visibility."
     storage: WalletHighloadV2r2Storage
     incomingExternal: WalletHighloadV2r2IncomingExternalMessage
     thrownErrors: Errors

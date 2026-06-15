@@ -2,7 +2,7 @@
 contract MintlessJettonMaster {
     author: "TON Core"
     version: "1.0"
-    description: "Curated interface for ton-blockchain/mintless-jetton-contract v1.0 minter"
+    description: "Mintless Jetton Master is a jetton issuer that lets users claim tokens from off-chain allocations instead of regular on-chain minting."
     storage: MintlessJettonMasterStorage
     incomingMessages: MintlessJettonMasterIncomingMessage
     outgoingMessages: MintlessJettonMasterOutgoingMessage

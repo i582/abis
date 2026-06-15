@@ -2,7 +2,7 @@
 contract StormLpMinter {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade LP Jetton minter for LP supply, mint and burn notifications, wallet discovery, and public Jetton getters."
+    description: "Storm Trade LP Jetton Minter issues LP tokens for a Storm vault and burns them when liquidity providers withdraw."
     storage: StormLpMinterStorage
     incomingMessages: StormLpMinterIncomingMessage
     outgoingMessages: StormLpMinterOutgoingMessage

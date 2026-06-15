@@ -2,7 +2,7 @@
 contract StakeedMinter {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee STAKEED Jetton minter for pool-admin minting, burn accounting, discovery, DAO voting hooks, storage, and getters."
+    description: "Stakee STAKEED Minter is the jetton master that issues STAKEED, the liquid staking token representing a user's share of the Stakee pool."
     storage: StakeedMinterStorage
     incomingMessages: StakeedMinterIncomingMessage
     outgoingMessages: StakeedMinterOutgoingMessage

@@ -23,6 +23,18 @@ local_pyth_message_body_evidence = "data/evaa/research/evaa_pyth_master_message_
 local_classic_message_body_evidence = "data/evaa/research/evaa_stable_master_message_bodies.md"
 local_user_message_body_scan = "data/evaa/research/evaa_user_message_bodies.md"
 
+[[links]]
+kind = "source"
+title = "EVAA contracts source"
+url = "https://github.com/evaafi/contracts"
+scope = "project"
+
+[[links]]
+kind = "sdk"
+title = "EVAA SDK"
+url = "https://github.com/evaafi/sdk"
+scope = "project"
+
 [contracts.EvaaMasterPyth]
 display_name = "EVAA Master Pyth"
 types = "master_pyth/types/evaa_master_pyth.types.tolk"

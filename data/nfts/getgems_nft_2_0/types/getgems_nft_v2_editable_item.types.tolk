@@ -2,7 +2,7 @@
 contract GetgemsNftEditableItemV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems NFT editable item v2 interface with editor storage and mint notifications"
+    description: "Getgems NFT Editable Item V2 is a collectible item contract that lets an authorized editor update item metadata after minting."
     storage: GetgemsNftEditableItemV2Storage
     storageAtDeployment: GetgemsNftEditableItemV2DeploymentStorage
     incomingMessages: GetgemsNftEditableItemV2IncomingMessage

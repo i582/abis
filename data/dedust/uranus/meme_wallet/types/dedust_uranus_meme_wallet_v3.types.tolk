@@ -2,7 +2,7 @@
 contract DedustUranusMemeWalletV3 {
     author: "DeDust"
     version: "3.0"
-    description: "Curated ABI for Uranus Meme Wallet v3 Jetton wallet operations and sell-token routing."
+    description: "DeDust Uranus Meme Wallet V3 is the per-owner wallet for Uranus meme tokens, holding balances and routing sells through the meme market."
     storage: DedustUranusMemeWalletV3Storage
     incomingMessages: DedustUranusMemeWalletV3IncomingMessage
     outgoingMessages: DedustUranusMemeWalletV3OutgoingMessage

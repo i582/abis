@@ -2,7 +2,7 @@
 contract PtonWalletV2 {
     author: "STON.fi"
     version: "2.1"
-    description: "Curated pTON v2.1 wallet ABI for tokenizing TON, detokenizing through Jetton transfer, chaining pTON transfers, and standard Jetton wallet getters"
+    description: "pTON v2.1 Wallet is a user's wrapped TON account, holding proxy TON balance and unwrapping it back into native TON when needed."
     storage: PtonWalletV2Storage
     incomingMessages: PtonWalletV2IncomingMessage
     outgoingMessages: PtonWalletV2OutgoingMessage

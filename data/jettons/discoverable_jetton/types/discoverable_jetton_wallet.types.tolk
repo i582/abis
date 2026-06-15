@@ -2,7 +2,7 @@
 contract DiscoverableJettonWallet {
     author: "TON Core"
     version: "1.05M"
-    description: "Curated interface for discoverable Jetton wallets from minter-contract and token-contract minor variants"
+    description: "Discoverable Jetton Wallet is a user's token account for discoverable jettons, holding balance and handling transfers and burns."
     storage: DiscoverableJettonWalletStorage
     incomingMessages: DiscoverableJettonWalletIncomingMessage
     outgoingMessages: DiscoverableJettonWalletOutgoingMessage

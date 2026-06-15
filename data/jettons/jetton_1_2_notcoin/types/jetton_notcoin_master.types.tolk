@@ -2,7 +2,7 @@
 contract JettonNotcoinMaster {
     author: "TON Core"
     version: "1.2"
-    description: "Curated interface for ton-blockchain/jetton-contract Notcoin/basecoin minter"
+    description: "Notcoin Jetton Master is the issuer contract for NOT/basecoin-style jettons, defining token supply, metadata, admin, and wallets."
     storage: JettonNotcoinMasterStorage
     incomingMessages: JettonNotcoinMasterIncomingMessage
     outgoingMessages: JettonNotcoinMasterOutgoingMessage

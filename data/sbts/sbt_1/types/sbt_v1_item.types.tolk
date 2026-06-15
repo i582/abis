@@ -2,7 +2,7 @@
 contract SbtV1Item {
     author: "Getgems"
     version: "1"
-    description: "Curated TEP-85 SBT collection item interface with non-transferable NFT item surface"
+    description: "TEP-85 SBT Item is a non-transferable NFT-style token that represents a user's soul-bound credential or badge."
     storage: SbtV1ItemStorage
     storageAtDeployment: SbtV1ItemDeploymentStorage
     incomingMessages: SbtV1ItemIncomingMessage

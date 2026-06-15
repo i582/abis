@@ -15,6 +15,18 @@ local_contracts_catalog = "contracts.json"
 toncenter_v3_wallet_states = "https://toncenter.com/api/v3/walletStates"
 toncenter_v3_account_states = "https://toncenter.com/api/v3/accountStates"
 
+[[links]]
+kind = "docs"
+title = "TON wallet history"
+url = "https://docs.ton.org/blockchain-basics/standard/wallets/history"
+scope = "standard"
+
+[[links]]
+kind = "source"
+title = "Wallet V2 source"
+url = "https://raw.githubusercontent.com/ton-blockchain/ton/master/crypto/smartcont/wallet-code.fc"
+scope = "contract"
+
 [contracts.WalletV2r1]
 types = "types/wallet_v2r1.types.tolk"
 hashes = ["5c9a5e68c108e18721a07c42f9956bfb39ad77ec6d624b60c576ec88eee65329"]

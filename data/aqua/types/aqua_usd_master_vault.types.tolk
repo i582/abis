@@ -2,7 +2,7 @@
 contract AquaUsdMasterVault {
     author: "Aqua Protocol"
     version: "1.0"
-    description: "Aqua USD master vault ABI for root storage, jetton-minter getters, asset dictionaries, wallet discovery, asset transfers, and vault command bodies."
+    description: "Aqua USD Master Vault is the core vault for Aqua's synthetic USD asset, managing backing assets and issuing Aqua USD jettons."
     storage: AquaUsdMasterVaultStorage
     incomingMessages: AquaUsdMasterVaultIncomingMessage
     outgoingMessages: AquaUsdMasterVaultOutgoingMessage

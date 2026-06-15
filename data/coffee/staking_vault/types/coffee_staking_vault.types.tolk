@@ -2,7 +2,7 @@
 contract CoffeeStakingVault {
     author: "swap.coffee"
     version: "0.1"
-    description: "Coffee Swap staking vault ABI for Jetton transfer lock handling, master/item deployment routing, owner updates, storage, and getters."
+    description: "Coffee Swap Staking Vault receives users' staking tokens and coordinates locks with the staking master and position NFTs."
     storage: CoffeeStakingVaultStorage
     incomingMessages: CoffeeStakingVaultIncomingMessage
     outgoingMessages: CoffeeStakingVaultOutgoingMessage

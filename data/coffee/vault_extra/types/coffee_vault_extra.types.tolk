@@ -2,7 +2,7 @@
 contract CoffeeVaultExtra {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap Extra-Currency Vault ABI for extra-currency swaps, liquidity deposits, pool creation, payouts, and factory updates."
+    description: "Coffee Swap Extra-Currency Vault is the vault for non-jetton extra-currency assets used in Coffee Swap swaps, liquidity, and payouts."
     storage: CoffeeVaultExtraStorage
     incomingMessages: CoffeeVaultExtraIncomingMessage
     outgoingMessages: CoffeeVaultExtraOutgoingMessage

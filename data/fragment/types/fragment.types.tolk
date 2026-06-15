@@ -2,7 +2,7 @@
 contract FragmentUsernameCollection {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment collection interface for Telegram username TeleMint items with DNS resolver support"
+    description: "Fragment Username Collection is Telegram's collection contract for username collectibles traded through Fragment and resolved via TON DNS."
     storage: FragmentCollectionStorage
     incomingMessages: FragmentUsernameCollectionIncomingMessage
     outgoingMessages: FragmentCollectionOutgoingMessage
@@ -13,7 +13,7 @@ contract FragmentUsernameCollection {
 contract FragmentNumbersCollection {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment collection interface for anonymous Telegram number TeleMint items"
+    description: "Fragment Numbers Collection is Telegram's collection contract for anonymous number collectibles traded through Fragment."
     storage: FragmentCollectionStorage
     incomingMessages: FragmentNumbersCollectionIncomingMessage
     outgoingMessages: FragmentCollectionOutgoingMessage
@@ -24,7 +24,7 @@ contract FragmentNumbersCollection {
 contract FragmentUsernameItem {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment TeleMint item interface for Telegram usernames with auction, DNS, royalty, and TEP-62 messages"
+    description: "Fragment Username Item is the TeleMint NFT for one Telegram username, including ownership, auction, and TON DNS behavior."
     storage: FragmentItemStorage
     incomingMessages: FragmentUsernameItemIncomingMessage
     outgoingMessages: FragmentItemOutgoingMessage
@@ -36,7 +36,7 @@ contract FragmentUsernameItem {
 contract FragmentNumbersItem {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment TeleMint item interface for anonymous Telegram numbers with auction, royalty, and TEP-62 messages"
+    description: "Fragment Numbers Item is the TeleMint NFT contract for one anonymous Telegram number collectible traded through Fragment."
     storage: FragmentItemStorage
     incomingMessages: FragmentNumbersItemIncomingMessage
     outgoingMessages: FragmentItemOutgoingMessage

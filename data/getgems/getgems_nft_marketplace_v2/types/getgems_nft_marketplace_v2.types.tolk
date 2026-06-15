@@ -2,7 +2,7 @@
 contract GetgemsNftMarketplaceV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems NFT marketplace V2 interface for wallet-style sends and signed sale deployment"
+    description: "Getgems NFT Marketplace V2 is the marketplace controller that signs and deploys sale contracts for Getgems NFT listings."
     storage: GetgemsNftMarketplaceV2Storage
     incomingMessages: GetgemsNftMarketplaceV2IncomingMessage
     incomingExternal: GetgemsNftMarketplaceV2IncomingExternalMessage

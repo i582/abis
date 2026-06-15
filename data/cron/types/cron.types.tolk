@@ -2,7 +2,7 @@
 contract Cron {
     author: "TON"
     version: "1.0"
-    description: "Curated TON cron interface for scheduler trigger decoding, cron getter metadata, and runtime storage"
+    description: "TON Cron is a scheduler-compatible account contract that lets TON cron services trigger automated on-chain actions for an app."
     storage: CronStorage
     incomingExternal: CronIncomingExternalMessage
 }

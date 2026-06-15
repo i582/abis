@@ -2,7 +2,7 @@
 contract DedustVaultNativeV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Native Vault ABI for native swaps, liquidity deposit routing, payout callbacks, storage, safe getters, and exit codes."
+    description: "DeDust Native Vault V2 is the TON vault for swaps, liquidity deposits, and native payouts through DeDust v2."
     storage: DedustVaultNativeV2Storage
     incomingMessages: DedustVaultNativeV2IncomingMessage
     outgoingMessages: DedustVaultNativeV2OutgoingMessage

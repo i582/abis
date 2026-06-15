@@ -2,7 +2,7 @@
 contract StormReferralCollection {
     author: "Storm Trade"
     version: "1.0"
-    description: "Referral NFT collection with Storm-specific minting, default fee, and vault whitelist ABI"
+    description: "Storm Trade Referral Collection mints referral NFTs and manages the vault whitelist and default fee terms for referrals."
     storage: StormReferralCollectionStorage
     incomingMessages: StormReferralCollectionIncomingMessage
     outgoingMessages: StormReferralCollectionOutgoingMessage

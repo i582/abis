@@ -2,7 +2,7 @@
 contract FragmentNumbersItem {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment TeleMint item interface for anonymous Telegram numbers with auction, royalty, and TEP-62 messages"
+    description: "Fragment Numbers Item is the TeleMint NFT contract for one anonymous Telegram number collectible traded through Fragment."
     storage: FragmentNumbersItemStorage
     incomingMessages: FragmentNumbersItemIncomingMessage
     outgoingMessages: FragmentNumbersItemOutgoingMessage

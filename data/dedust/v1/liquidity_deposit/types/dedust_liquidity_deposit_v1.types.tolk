@@ -2,7 +2,7 @@
 contract DedustLiquidityDepositV1 {
     author: "DeDust"
     version: "1.0"
-    description: "DeDust Liquidity Deposit v1 ABI for pending two-asset liquidity deposits, pool callbacks, cancellation, and asset payouts."
+    description: "DeDust Liquidity Deposit V1 is a short-lived helper that holds a user's two assets while a legacy pool liquidity deposit is completed."
     storage: DedustLiquidityDepositV1Storage
     incomingMessages: DedustLiquidityDepositV1IncomingMessage
     outgoingMessages: DedustLiquidityDepositV1OutgoingMessage

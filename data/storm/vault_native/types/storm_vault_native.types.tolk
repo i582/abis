@@ -2,7 +2,7 @@
 contract StormVaultNative {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade native vault for TON deposits, direct callbacks, withdrawals, staking, and public getters."
+    description: "Storm Trade Native Vault holds TON for native-margin markets, backing trader deposits, withdrawals, staking, and LP liquidity."
     storage: StormVaultNativeStorage
     incomingMessages: StormVaultNativeIncomingMessage
     outgoingMessages: StormVaultNativeOutgoingMessage

@@ -2,7 +2,7 @@
 contract StormLpWallet {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade LP Jetton wallet for standard Jetton wallet messages, Storm excess requests, and get_wallet_data."
+    description: "Storm Trade LP Jetton Wallet is a liquidity provider's LP token account for holding, transferring, and burning Storm LP tokens."
     storage: StormLpWalletStorage
     incomingMessages: StormLpWalletIncomingMessage
     outgoingMessages: StormLpWalletOutgoingMessage

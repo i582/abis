@@ -2,7 +2,7 @@
 contract DedustV2Cpmm {
     author: "DeDust"
     version: "2.0"
-    description: "Curated ABI for the deployed DeDust v2 CPMM pool family with get_pool_data, get_position_address, proven storage shape, and live message bodies."
+    description: "DeDust CPMM v2 Pool is a liquidity pool where users swap an asset pair and LPs provide liquidity for constant-product market making."
     storage: DedustV2CpmmStorage
     incomingMessages: DedustV2CpmmIncomingMessage
     outgoingMessages: DedustV2CpmmOutgoingMessage

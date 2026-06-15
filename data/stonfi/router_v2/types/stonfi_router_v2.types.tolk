@@ -2,7 +2,7 @@
 contract StonfiRouterV2 {
     author: "STON.fi"
     version: "2.0"
-    description: "Curated low-level STON.fi DEX v2 Router ABI for getter methods, Jetton transfer payloads, admin operations, and Pool/Vault callbacks. Covers constant_product, stableswap, weighted_stableswap, and weighted_const_product router variants."
+    description: "STON.fi v2 Router is the entry contract users and apps call to swap tokens and add or remove liquidity through STON.fi pools."
     storage: StonfiRouterV2Storage
     incomingMessages: StonfiRouterV2IncomingMessage
     outgoingMessages: StonfiRouterV2OutgoingMessage

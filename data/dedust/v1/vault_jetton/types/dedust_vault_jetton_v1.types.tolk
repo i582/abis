@@ -2,7 +2,7 @@
 contract DedustVaultJettonV1 {
     author: "DeDust"
     version: "1.0"
-    description: "DeDust Jetton Vault v1 ABI for Jetton transfer notifications, swap/deposit forward payloads, payout callbacks, wallet discovery, upgrade handling, storage, and getters."
+    description: "DeDust Jetton Vault V1 is the legacy token vault that receives jettons and routes swaps, liquidity deposits, and payouts in DeDust v1."
     storage: DedustVaultJettonV1Storage
     incomingMessages: DedustVaultJettonV1IncomingMessage
     outgoingMessages: DedustVaultJettonV1OutgoingMessage

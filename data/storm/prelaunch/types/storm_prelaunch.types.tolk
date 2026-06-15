@@ -2,7 +2,7 @@
 contract StormPrelaunch {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade Prelaunch vault for participant storage, jetton notifications, admin controls, reward notifier sends, and public getters."
+    description: "Storm Trade Prelaunch Vault collects eligible prelaunch deposits and tracks participant allocations before the campaign migrates."
     storage: StormPrelaunchStorage
     incomingMessages: StormPrelaunchIncomingMessage
     outgoingMessages: StormPrelaunchOutgoingMessage

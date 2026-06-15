@@ -2,7 +2,7 @@
 contract GetgemsNftFixpriceSaleV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems fixed-price NFT sale v2 interface"
+    description: "Getgems fixed-price sale V2 is a marketplace escrow that lists one NFT for a set TON price and transfers it to the buyer."
     storage: GetgemsNftFixpriceSaleV2Storage
     incomingMessages: GetgemsNftFixpriceSaleV2IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV2OutgoingMessage

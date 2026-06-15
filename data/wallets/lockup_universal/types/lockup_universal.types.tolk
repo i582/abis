@@ -2,7 +2,7 @@
 contract LockupUniversal {
     author: "TON Core"
     version: "1.0"
-    description: "Curated universal lockup wallet interface"
+    description: "Universal Lockup Wallet is a TON wallet that holds funds under transfer restrictions until lockup rules are satisfied."
     storage: LockupUniversalStorage
     incomingMessages: LockupUniversalIncomingMessage
     incomingExternal: LockupUniversalIncomingExternalMessage

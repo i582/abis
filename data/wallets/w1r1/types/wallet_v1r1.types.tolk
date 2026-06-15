@@ -2,7 +2,7 @@
 contract WalletV1r1 {
     author: "TON Core"
     version: "1.1"
-    description: "Curated Wallet V1 R1 interface"
+    description: "Wallet V1 R1 is a TON wallet for holding TON and sending signed transfers, using simple seqno replay protection."
     storage: WalletV1r1Storage
     incomingExternal: WalletV1r1IncomingExternalMessage
 }

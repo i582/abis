@@ -2,7 +2,7 @@
 contract FragmentNumbersCollection {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment collection interface for anonymous Telegram number TeleMint items"
+    description: "Fragment Numbers Collection is Telegram's collection contract for anonymous number collectibles traded through Fragment."
     storage: FragmentNumbersCollectionStorage
     incomingMessages: FragmentNumbersCollectionIncomingMessage
     outgoingMessages: FragmentNumbersCollectionOutgoingMessage

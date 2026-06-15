@@ -2,7 +2,7 @@
 contract HipoTreasury {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Finance Treasury contract for TON staking deposits, delayed unstake bills, validator loans, governance, and wallet/collection proxy operations."
+    description: "Hipo Treasury is the main liquid staking contract where users' TON is pooled, lent to validators, and accounted for hTON staking."
     storage: HipoTreasuryStorage
     incomingMessages: HipoTreasuryIncomingMessage
     incomingExternal: HipoTreasuryIncomingExternalMessage

@@ -2,7 +2,7 @@
 contract FragmentUsernameItem {
     author: "Telegram"
     version: "1.0"
-    description: "Fragment TeleMint item interface for Telegram usernames with auction, DNS, royalty, and TEP-62 messages"
+    description: "Fragment Username Item is the TeleMint NFT for one Telegram username, including ownership, auction, and TON DNS behavior."
     storage: FragmentUsernameItemStorage
     incomingMessages: FragmentUsernameItemIncomingMessage
     outgoingMessages: FragmentUsernameItemOutgoingMessage

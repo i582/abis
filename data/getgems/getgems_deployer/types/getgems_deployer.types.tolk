@@ -2,7 +2,7 @@
 contract GetgemsDeployer {
     author: "Getgems"
     version: "1.0"
-    description: "Curated Getgems sale deployer interface for NFT ownership callbacks and sale deployment"
+    description: "Getgems Deployer is a marketplace helper that creates sale contracts when NFT owners transfer listed items into Getgems flows."
     storage: GetgemsDeployerStorage
     incomingMessages: GetgemsDeployerIncomingMessage
     outgoingMessages: GetgemsDeployerOutgoingMessage

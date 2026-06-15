@@ -2,7 +2,7 @@
 contract SmartAccountFactory {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade SmartAccountFactory ABI for storage, ordinary SmartAccount deployment messages, fee getters, and working NFT helpers."
+    description: "Storm Trade Smart Account Factory deploys user trading accounts and connects first deposits to the correct Smart Account."
     storage: SmartAccountFactoryStorage
     incomingMessages: SmartAccountFactoryIncomingMessage
     outgoingMessages: SmartAccountFactoryOutgoingMessage

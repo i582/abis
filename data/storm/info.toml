@@ -26,6 +26,36 @@ local_decompile_snapshot = "data/storm/research/func"
 local_generated_types = "gen"
 local_generated_abis = "gen_abis"
 
+[[links]]
+kind = "docs"
+title = "Storm Trade documentation"
+url = "https://docs.storm.tg"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Storm Trade SDK documentation"
+url = "https://docs.storm.tg/for-developers/sdk"
+scope = "project"
+
+[[links]]
+kind = "audit"
+title = "Storm Trade audit reports"
+url = "https://docs.storm.tg/introduction/auditreports"
+scope = "project"
+
+[[links]]
+kind = "sdk"
+title = "Storm Trade JavaScript SDK"
+url = "https://github.com/storm-trade/sdk-js"
+scope = "project"
+
+[[links]]
+kind = "api"
+title = "Storm Trade API config"
+url = "https://api5.storm.tg/api/config"
+scope = "project"
+
 [contracts.StormVault]
 display_name = "Storm Trade Jetton Vault"
 types = "vault/types/storm_vault.types.tolk"

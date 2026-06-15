@@ -2,7 +2,7 @@
 contract Locker {
     author: "TON Core"
     version: "1.0"
-    description: "Curated interface for the official TON locker contract"
+    description: "TON Locker is the official vesting contract for holding locked TON and releasing it to a recipient according to a schedule."
     storage: LockerStorage
     incomingMessages: LockerIncomingMessage
     outgoingMessages: LockerOutgoingMessage

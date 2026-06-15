@@ -2,7 +2,7 @@
 contract EvaaBlank {
     author: "EVAA"
     version: "v9"
-    description: "Transient EVAA user deployment code that accepts master upgrade headers and installs runtime user code."
+    description: "EVAA Blank is a temporary deployment shell that becomes a user's EVAA lending account after initialization."
     storage: EvaaBlankStorage
     incomingMessages: EvaaBlankIncomingMessage
     outgoingMessages: EvaaBlankOutgoingMessage

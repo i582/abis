@@ -2,7 +2,7 @@
 contract Jetton2Wallet {
     author: "TON Core"
     version: "2.0"
-    description: "Curated interface for ton-blockchain/jetton-contract jetton-2.0 wallet"
+    description: "Jetton v2 Wallet is a user's TEP-74 token account for jetton 2.0 tokens, holding balance and handling transfers and burns."
     storage: Jetton2WalletStorage
     incomingMessages: Jetton2WalletIncomingMessage
     outgoingMessages: Jetton2WalletOutgoingMessage

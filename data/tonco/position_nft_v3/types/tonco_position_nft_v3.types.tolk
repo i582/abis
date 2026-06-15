@@ -2,7 +2,7 @@
 contract ToncoPositionNftV3 {
     author: "Algebra / TONCO"
     version: "1.6"
-    description: "Curated TONCO Position NFT V3 ABI for NFT ownership, position initialization/burn commands, and pool burn callbacks"
+    description: "TONCO Position NFT V3 represents one user's concentrated-liquidity position and ownership of a specific price range in a pool."
     storage: ToncoPositionNftV3Storage
     incomingMessages: ToncoPositionNftV3IncomingMessage
     outgoingMessages: ToncoPositionNftV3OutgoingMessage

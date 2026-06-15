@@ -2,7 +2,7 @@
 contract DnsDomainItem {
     author: "TON"
     version: "1.0"
-    description: "Curated TON DNS domain NFT item interface with DNS record management"
+    description: "TON DNS Domain Item is the NFT contract for a .ton domain, holding its DNS records, owner, editor, and auction or renewal state."
     storage: DnsDomainItemStorage
     storageAtDeployment: DnsDomainItemDeploymentStorage
     incomingMessages: DnsDomainItemIncomingMessage

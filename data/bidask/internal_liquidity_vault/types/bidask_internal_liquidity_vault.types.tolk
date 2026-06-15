@@ -2,7 +2,7 @@
 contract BidaskInternalLiquidityVault {
     author: "Bidask Protocol"
     version: "1.0"
-    description: "Bidask DLMM temporary vault for collecting two-sided liquidity deposit data before notifying the Pool."
+    description: "Bidask Internal Liquidity Vault temporarily holds two-sided deposits while a DLMM liquidity position is being created."
     storage: BidaskInternalLiquidityVaultStorage
     incomingMessages: BidaskInternalLiquidityVaultIncomingMessage
     outgoingMessages: BidaskInternalLiquidityVaultOutgoingMessage

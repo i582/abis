@@ -18,11 +18,41 @@ local_research_results = "data/coffee/research/results.md"
 local_shared_research = "data/coffee/research/shared.md"
 local_send_site_inventory = "data/coffee/research/send_sites_grep.txt"
 
+[[links]]
+kind = "docs"
+title = "Coffee DEX docs"
+url = "https://docs.swap.coffee/technical-guides/dex"
+scope = "project"
+
+[[links]]
+kind = "source"
+title = "Coffee DEX source"
+url = "https://github.com/swapcoffee/dex"
+scope = "project"
+
+[[links]]
+kind = "source"
+title = "Coffee docs source"
+url = "https://github.com/swapcoffee/documentation"
+scope = "project"
+
+[[links]]
+kind = "audit"
+title = "Trail of Bits audit"
+url = "https://github.com/trailofbits/publications/blob/master/reviews/2025-07-swapcoffee-tondex-securityreview.pdf"
+scope = "project"
+
 [contracts.CoffeeFactory]
 display_name = "Coffee Swap Factory"
 types = "factory/types/coffee_factory.types.tolk"
 hashes = ["9a09f156e0aa9c01246c9a27e2ee3859efdef1191e7782652600efa86ed689d0"]
 known_addresses = ["EQAsf2sDPfoo-0IjnRA7l_gJBB9jyo4zqfCG_1IFCCI_Qbef"]
+
+[[contracts.CoffeeFactory.links]]
+kind = "source"
+title = "Coffee Factory source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/factory.fc"
+scope = "contract"
 
 [contracts.CoffeeFactory.instances.mainnet]
 address = "EQAsf2sDPfoo-0IjnRA7l_gJBB9jyo4zqfCG_1IFCCI_Qbef"
@@ -35,11 +65,23 @@ types = "init/types/coffee_init.types.tolk"
 hashes = ["3297d9a5883d6eff2715ee51fed15b7b687e7ae84276795e147bc7b27f5c9bbf"]
 known_addresses = []
 
+[[contracts.CoffeeInit.links]]
+kind = "source"
+title = "Coffee Init source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/init.fc"
+scope = "contract"
+
 [contracts.CoffeeVaultNative]
 display_name = "Coffee Swap Native Vault"
 types = "vault_native/types/coffee_vault_native.types.tolk"
 hashes = ["d143135bc56a2f2b031c58ebc89bb747dfe31f9df98326117c1b547037897895"]
 known_addresses = ["EQDbLqT_zhxpERj0EnXG2iqr1g71ODb_Xoc74R8RzUSElKGD"]
+
+[[contracts.CoffeeVaultNative.links]]
+kind = "source"
+title = "Coffee Native Vault source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/vault_native.fc"
+scope = "contract"
 
 [contracts.CoffeeVaultNative.instances.ton]
 address = "EQDbLqT_zhxpERj0EnXG2iqr1g71ODb_Xoc74R8RzUSElKGD"
@@ -56,6 +98,12 @@ hashes = [
 ]
 known_addresses = ["EQDp1qV-qwZ8Fzhi-4k7vRz3BtZWv3OS8aMTuRSauZYxF3fw"]
 
+[[contracts.CoffeeVaultJetton.links]]
+kind = "source"
+title = "Coffee Jetton Vault source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/vault_jetton.fc"
+scope = "contract"
+
 [contracts.CoffeeVaultJetton.instances.ces]
 address = "EQDp1qV-qwZ8Fzhi-4k7vRz3BtZWv3OS8aMTuRSauZYxF3fw"
 raw_address = "0:E9D6A57EAB067C173862FB893BBD1CF706D656BF7392F1A313B9149AB9963117"
@@ -70,6 +118,12 @@ types = "vault_extra/types/coffee_vault_extra.types.tolk"
 hashes = ["ab11a31f0417ded5a87029e5d4dccf5c978d7b41c232d261e43d352f868ade8e"]
 known_addresses = []
 
+[[contracts.CoffeeVaultExtra.links]]
+kind = "source"
+title = "Coffee Extra Vault source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/vault_extra.fc"
+scope = "contract"
+
 [contracts.CoffeePoolConstantProduct]
 display_name = "Coffee Swap Pool Constant Product"
 types = "pool_constant_product/types/coffee_pool_constant_product.types.tolk"
@@ -78,6 +132,12 @@ hashes = [
   "d236d360e53464a3a47837743602a9b04b501a329bbc20c356c24cfd355378cd",
 ]
 known_addresses = ["EQA5NdnaYUsyg0E7MZuIRdvdCFfstdBr7CQoppfvhqqGkYnJ"]
+
+[[contracts.CoffeePoolConstantProduct.links]]
+kind = "source"
+title = "Coffee Constant Product source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/pool_constant_product.fc"
+scope = "contract"
 
 [contracts.CoffeePoolConstantProduct.instances.ton_ces]
 address = "EQA5NdnaYUsyg0E7MZuIRdvdCFfstdBr7CQoppfvhqqGkYnJ"
@@ -97,6 +157,12 @@ hashes = [
 ]
 known_addresses = ["EQA7fZK6kuU_6qfrJFqzMZ7hqEJwKvrzT6Xu24eu0xRDp4uv"]
 
+[[contracts.CoffeePoolCurveFiStable.links]]
+kind = "source"
+title = "Coffee Stable Pool source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/pool_curve_fi_stable.fc"
+scope = "contract"
+
 [contracts.CoffeePoolCurveFiStable.instances.ton_bmton]
 address = "EQA7fZK6kuU_6qfrJFqzMZ7hqEJwKvrzT6Xu24eu0xRDp4uv"
 raw_address = "0:3B7D92BA92E53FEAA7EB245AB3319EE1A842702AFAF34FA5EEDB87AED31443A7"
@@ -111,6 +177,12 @@ display_name = "Coffee Swap Pool Creator"
 types = "pool_creator/types/coffee_pool_creator.types.tolk"
 hashes = ["abe90e85e916317f142d0467aebc7675784f49d2a9d62790ccafd485b4f55556"]
 known_addresses = []
+
+[[contracts.CoffeePoolCreator.links]]
+kind = "source"
+title = "Coffee Pool Creator source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/pool_creator.fc"
+scope = "contract"
 
 [contracts.CoffeePoolCreator.instances.factory_deploy_ton_ces]
 address = "EQAXXrMo1FT7-u9atE42HjVVsZNUlsD7HlGIUPxdcX9wWZQo"
@@ -130,6 +202,12 @@ types = "liquidity_depository/types/coffee_liquidity_depository.types.tolk"
 hashes = ["3680c3688d65602168abc10052c45377ca81455cdb8279ffacd80a5c11d6d2a3"]
 known_addresses = []
 
+[[contracts.CoffeeLiquidityDepository.links]]
+kind = "source"
+title = "Coffee Depository source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/liquidity_depository.fc"
+scope = "contract"
+
 [contracts.CoffeeLiquidityDepository.instances.factory_deploy_ton_ces]
 address = "EQCwicSGbYVdcRhml1DRJuzcea15nAVUIHECeGma7yHcQdXo"
 raw_address = "0:B089C4866D855D7118669750D126ECDC79AD799C055420710278699AEF21DC41"
@@ -147,6 +225,12 @@ display_name = "Coffee Swap LP Jetton Wallet"
 types = "lp_wallet/types/jetton_wallet_coffee_lp.types.tolk"
 hashes = ["e5ce6005c0b710d9b2cae507dcaf195df8ace3d6869c7d90b17a7bf5a1bbf858"]
 known_addresses = ["EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW"]
+
+[[contracts.JettonWalletCoffeeLp.links]]
+kind = "source"
+title = "Coffee LP Wallet source"
+url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f08033917d4/contracts/lp_wallet.fc"
+scope = "contract"
 
 [contracts.JettonWalletCoffeeLp.instances.ton_ces_owner]
 address = "EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW"

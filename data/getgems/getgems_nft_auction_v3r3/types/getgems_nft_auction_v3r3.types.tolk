@@ -2,7 +2,7 @@
 contract GetgemsNftAuctionV3R3 {
     author: "Getgems"
     version: "3.3"
-    description: "Curated Getgems NFT auction V3R3 interface"
+    description: "Getgems NFT Auction V3 R3 is a marketplace auction escrow for one NFT, handling bids, cancellation, and final settlement."
     storage: GetgemsNftAuctionV3R3Storage
     incomingMessages: GetgemsNftAuctionV3R3IncomingMessage
     incomingExternal: GetgemsNftAuctionV3R3IncomingExternalMessage

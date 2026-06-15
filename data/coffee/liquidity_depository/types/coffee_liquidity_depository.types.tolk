@@ -2,7 +2,7 @@
 contract CoffeeLiquidityDepository {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee DEX LiquidityDepository utility contract ABI for liquidity escrow, cancellation, Pool forwarding, Factory callbacks, and update handling."
+    description: "Coffee Swap Liquidity Depository is a short-lived escrow helper that holds assets while a user's liquidity deposit is finalized."
     storage: CoffeeLiquidityDepositoryStorage
     incomingMessages: CoffeeLiquidityDepositoryIncomingMessage
     outgoingMessages: CoffeeLiquidityDepositoryOutgoingMessage

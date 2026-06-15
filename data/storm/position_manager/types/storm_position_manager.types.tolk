@@ -2,7 +2,7 @@
 contract StormPositionManager {
     author: "Storm Trade"
     version: "4"
-    description: "Storm Trade PositionManager interface with runtime storage, getters, order messages, and event bodies."
+    description: "Storm Trade Position Manager is a per-trader market account that tracks open positions, orders, and referral terms for one vAMM."
     storage: StormPositionManagerStorage
     incomingMessages: StormPositionManagerIncomingMessage
     outgoingMessages: StormPositionManagerOutgoingMessage

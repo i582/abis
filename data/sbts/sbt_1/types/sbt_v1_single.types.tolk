@@ -2,7 +2,7 @@
 contract SbtV1Single {
     author: "Getgems"
     version: "1"
-    description: "Curated TEP-85 single SBT interface with editable content and editorship"
+    description: "TEP-85 Single SBT is a standalone soul-bound token contract used for one non-transferable credential without a collection."
     storage: SbtV1SingleStorage
     incomingMessages: SbtV1SingleIncomingMessage
     outgoingMessages: SbtV1SingleOutgoingMessage

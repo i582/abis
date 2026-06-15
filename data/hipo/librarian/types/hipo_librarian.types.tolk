@@ -2,7 +2,7 @@
 contract HipoLibrarian {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Finance Librarian that stores the Treasury address, accepts library-management internal messages, and emits gas excess refunds."
+    description: "Hipo Librarian helps deploy and maintain Hipo library-based contracts by holding the Treasury reference and keeping deployments funded."
     storage: HipoLibrarianStorage
     incomingMessages: HipoLibrarianIncomingMessage
     outgoingMessages: HipoLibrarianOutgoingMessage

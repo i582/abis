@@ -2,7 +2,7 @@
 contract NominatorPool {
     author: "TON Validators"
     version: "1.0"
-    description: "TON Validators Nominator Pool for pooled validator staking, nominator deposits and withdrawals, validator maintenance commands, Elector messages, config-proposal voting, and getters."
+    description: "TON Validators Nominator Pool lets multiple nominators pool TON behind one validator and share validation rewards and withdrawals."
     storage: NominatorPoolStorage
     incomingMessages: NominatorPoolIncomingMessage
     outgoingMessages: NominatorPoolOutgoingMessage

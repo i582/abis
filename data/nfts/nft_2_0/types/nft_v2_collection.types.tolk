@@ -2,7 +2,7 @@
 contract NftV2Collection {
     author: "TON Core"
     version: "2.0"
-    description: "Curated TON NFT 2.0 collection profile; on-chain ABI matches TEP-62, TEP-64, and TEP-66 NFT v1"
+    description: "TON NFT v2 Collection is the NFT 2.0 collection profile for minting items and exposing shared content and royalty information."
     storage: NftV2CollectionStorage
     incomingMessages: NftV2CollectionIncomingMessage
     outgoingMessages: NftV2CollectionOutgoingMessage

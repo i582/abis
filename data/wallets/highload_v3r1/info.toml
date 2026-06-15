@@ -13,6 +13,24 @@ official_tlb = "https://github.com/ton-blockchain/highload-wallet-contract-v3/bl
 tongo_wallets_xml = "schemas/wallets.xml"
 toncenter_schemes = "source/toncenter-schemes.tlb"
 
+[[links]]
+kind = "docs"
+title = "Highload wallet documentation"
+url = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "Highload Wallet V3 specification"
+url = "https://docs.ton.org/standard/wallets/highload/v3/specification"
+scope = "contract"
+
+[[links]]
+kind = "source"
+title = "Highload Wallet V3 source"
+url = "https://github.com/ton-blockchain/highload-wallet-contract-v3"
+scope = "contract"
+
 [contracts.WalletHighloadV3r1]
 types = "types/wallet_highload_v3r1.types.tolk"
 hashes = [

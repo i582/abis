@@ -18,11 +18,35 @@ local_generated_types = "gen/sbt.types.tolk"
 local_generated_abis = "gen_abis/sbt.json"
 contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "docs"
+title = "TON SBT documentation"
+url = "https://docs.ton.org/standard/tokens/nft/sbt"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-85 SBT standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0085-sbt-standard.md"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-62 NFT standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0062-nft-standard.md"
+scope = "standard"
+
 [contracts.SbtV1Item]
 types = "sbt_1/types/sbt_v1_item.types.tolk"
 hashes = ["2ffbf52beaf816157bfc9726dc2548327fa87ebfd2696eed27a9c2cda25c9edc"]
 known_addresses = ["EQCeAQzHYeZ4qLnXYevsOOElwxTuNdZfzwxF6vy4wegbSq5h"]
 profile = "tep_85"
+
+[[contracts.SbtV1Item.links]]
+kind = "source"
+title = "Getgems SBT item source"
+url = "https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/sources/sbt-item.fc"
+scope = "contract"
 
 [contracts.SbtV1Item.variants.collection_item]
 source_file = "packages/contracts/sources/sbt-item.fc"
@@ -34,6 +58,12 @@ types = "sbt_1/types/sbt_v1_single.types.tolk"
 hashes = ["68550b3df306e709935f2d3d97e226454a409ad7965c87163845ba56b0745f93"]
 known_addresses = ["EQBamoka0hrsZjwRa1qedfufUcaapBfxyQiLdRbTMDH7H1sq"]
 profile = "tep_85"
+
+[[contracts.SbtV1Single.links]]
+kind = "source"
+title = "Getgems SBT single source"
+url = "https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/sources/sbt-single.fc"
+scope = "contract"
 
 [contracts.SbtV1Single.variants.single]
 source_file = "packages/contracts/sources/sbt-single.fc"

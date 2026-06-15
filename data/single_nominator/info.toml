@@ -18,6 +18,18 @@ local_v1_1_account_state = "data/single_nominator/research/single_nominator_v1_1
 local_v1_0_message_bodies = "data/single_nominator/research/single_nominator_v1_0_message_bodies.json"
 local_v1_1_message_bodies = "data/single_nominator/research/single_nominator_v1_1_message_bodies.json"
 
+[[links]]
+kind = "source"
+title = "Orbs Single Nominator source"
+url = "https://github.com/orbs-network/single-nominator/tree/656696b4840d9226da3d98410f0103ee4efb0402"
+scope = "project"
+
+[[links]]
+kind = "audit"
+title = "Single Nominator audit"
+url = "https://github.com/orbs-network/single-nominator/blob/main/certik-audit.pdf"
+scope = "project"
+
 [contracts.SingleNominatorV10]
 display_name = "Single Nominator Pool v1.0"
 types = "v1_0/types/single_nominator_v1_0.types.tolk"
@@ -26,6 +38,12 @@ hashes = ["a42ae69eac76ffe0e452d3d4f13d387a14e46c01a5aadba5fc1d893e6c71f5ba"]
 code_hash_base64 = "pCrmnqx2/+DkUtPU8T04ehTkbAGlqtul/B2JPmxx9bo="
 known_addresses = ["Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"]
 related_asset_symbols = ["TON"]
+
+[[contracts.SingleNominatorV10.links]]
+kind = "source"
+title = "Single Nominator v1.0 release"
+url = "https://github.com/orbs-network/single-nominator/releases/tag/v1.0.0"
+scope = "contract"
 
 [contracts.SingleNominatorV10.instances.mainnet_sample]
 address = "Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"

@@ -2,7 +2,7 @@
 contract StormVault {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade jetton vault for jetton-forward deposits, direct callbacks, withdrawals, and public getters."
+    description: "Storm Trade Jetton Vault holds settlement jettons for leveraged markets, deposits, withdrawals, and LP liquidity."
     storage: StormVaultStorage
     incomingMessages: StormVaultIncomingMessage
     outgoingMessages: StormVaultOutgoingMessage

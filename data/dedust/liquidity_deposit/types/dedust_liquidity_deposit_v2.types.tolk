@@ -2,7 +2,7 @@
 contract DedustLiquidityDepositV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust Protocol v2 Liquidity Deposit interface with trace-proven lifecycle messages, outgoing pool/vault messages, installed-code getter ids, and exit codes."
+    description: "DeDust Liquidity Deposit V2 is a temporary helper that holds a user's assets until a DeDust v2 liquidity position is minted or cancelled."
     storage: DedustLiquidityDepositV2Storage
     incomingMessages: DedustLiquidityDepositV2IncomingMessage
     outgoingMessages: DedustLiquidityDepositV2OutgoingMessage

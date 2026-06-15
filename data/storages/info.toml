@@ -17,6 +17,24 @@ local_address_search = "data/storages/research/address_search.md"
 local_source_snapshot = "data/storages/research/source/ton-blockchain"
 local_schema_snapshot = "data/storages/research/source/local"
 
+[[links]]
+kind = "docs"
+title = "TON Storage overview"
+url = "https://docs.ton.org/blockchain-basics/primitives/web3/ton-storage"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Storage provider guide"
+url = "https://old-docs.ton.org/v3/guidelines/web3/ton-storage/storage-provider"
+scope = "project"
+
+[[links]]
+kind = "source"
+title = "TON Storage contracts source"
+url = "https://github.com/ton-blockchain/ton/tree/master/storage/storage-daemon/smartcont"
+scope = "project"
+
 [contracts.StorageProvider]
 display_name = "TON Storage Provider"
 types = "provider/types/storage_provider.types.tolk"

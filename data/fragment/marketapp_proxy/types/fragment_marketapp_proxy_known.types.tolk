@@ -2,7 +2,7 @@
 contract FragmentMarketappProxyKnown {
     author: "MarketApp"
     version: "1.0"
-    description: "MarketApp proxy interface for signed Fragment/Telegram collectible buy routing"
+    description: "Fragment MarketApp Proxy is a buy-routing contract that helps marketplaces route signed Telegram collectible purchases."
     storage: FragmentMarketappProxyKnownStorage
     incomingMessages: FragmentMarketappProxyKnownIncomingMessage
     forceAbiExport: FragmentMarketappProxyKnownSignedBuyRequest

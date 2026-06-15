@@ -2,7 +2,7 @@
 contract CoffeePoolCurveFiStable {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap CurveFi stable Pool ABI for swaps, liquidity, LP Jetton minter operations, pool administration, getters, and events."
+    description: "Coffee Swap Curve.fi Stable Pool is a liquidity pool tuned for stable asset pairs where users swap with lower slippage."
     storage: CoffeePoolCurveFiStableStorage
     incomingMessages: CoffeePoolCurveFiStableIncomingMessage
     outgoingMessages: CoffeePoolCurveFiStableOutgoingMessage

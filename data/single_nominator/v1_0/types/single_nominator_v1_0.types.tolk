@@ -2,7 +2,7 @@
 contract SingleNominatorV10 {
     author: "Orbs Network"
     version: "1.0"
-    description: "Single Nominator Pool v1.0 ABI for owner commands, validator Elector commands, storage, and pool-compatible getters"
+    description: "Orbs Single Nominator Pool v1.0 is a cold-wallet staking firewall for one owner and one validator, reducing hot-wallet risk."
     storage: SingleNominatorV10Storage
     incomingMessages: SingleNominatorV10IncomingMessage
     outgoingMessages: SingleNominatorV10OutgoingMessage

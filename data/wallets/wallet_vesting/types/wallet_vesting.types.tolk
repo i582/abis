@@ -2,7 +2,7 @@
 contract WalletVesting {
     author: "TON Core"
     version: "1.0"
-    description: "Curated TON vesting wallet interface"
+    description: "TON Vesting Wallet is a TON wallet that holds locked funds for a beneficiary and releases them by schedule and whitelist rules."
     storage: WalletVestingStorage
     incomingMessages: WalletVestingIncomingMessage
     incomingExternal: WalletVestingIncomingExternalMessage

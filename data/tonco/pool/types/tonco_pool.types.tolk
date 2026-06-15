@@ -2,7 +2,7 @@
 contract ToncoPool {
     author: "Algebra / TONCO"
     version: "1.0"
-    description: "Curated TONCO PoolV3 ABI for concentrated-liquidity pool storage, swap/mint/burn/admin messages, NFT collection getters, fee estimates, and child Account/Position NFT callbacks"
+    description: "TONCO Pool V3 is a concentrated-liquidity pool where users swap tokens and liquidity providers manage capital within price ranges."
     storage: ToncoPoolStorage
     incomingMessages: ToncoPoolIncomingMessage
     outgoingMessages: ToncoPoolOutgoingMessage

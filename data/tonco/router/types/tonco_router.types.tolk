@@ -2,7 +2,7 @@
 contract ToncoRouter {
     author: "Algebra / TONCO"
     version: "1.0"
-    description: "Curated TONCO Router ABI for pool creation, Jetton notification routing, pay-to callbacks, admin changes, deterministic pool derivation, and child code discovery"
+    description: "TONCO Router is the main entry contract users and apps call to create pools and route swaps or liquidity into TONCO pools."
     storage: ToncoRouterStorage
     incomingMessages: ToncoRouterIncomingMessage
     outgoingMessages: ToncoRouterOutgoingMessage

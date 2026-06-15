@@ -2,7 +2,7 @@
 contract GetgemsNftOfferV1R3 {
     author: "Getgems"
     version: "1r3"
-    description: "Curated Getgems NFT offer V1R3 interface with swap timestamp getter"
+    description: "Getgems NFT Offer V1 R3 is a buy-offer escrow where a bidder locks TON until the NFT owner accepts or the offer closes."
     storage: GetgemsNftOfferV1R3Storage
     incomingMessages: GetgemsNftOfferV1R3IncomingMessage
     incomingExternal: GetgemsNftOfferV1R3IncomingExternalMessage

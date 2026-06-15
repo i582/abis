@@ -11,6 +11,12 @@ local_source_snapshot = "data/nominator_pool/research/source"
 local_research_plan = "data/nominator_pool/research/plan.md"
 local_research_results = "data/nominator_pool/research/results.md"
 
+[[links]]
+kind = "source"
+title = "TON nominator pool source"
+url = "https://github.com/ton-blockchain/nominator-pool/tree/2f35c36b5ad662f10fd7b01ef780c3f1949c399d"
+scope = "project"
+
 [contracts.NominatorPool]
 display_name = "TON Validators Nominator Pool"
 types = "pool/types/nominator_pool.types.tolk"

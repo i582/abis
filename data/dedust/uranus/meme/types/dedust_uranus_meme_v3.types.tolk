@@ -2,7 +2,7 @@
 contract DedustUranusMemeV3 {
     author: "DeDust"
     version: "3.0"
-    description: "Curated ABI for Uranus Meme v3 trading, Jetton minter getters, events, and fee-claim messages."
+    description: "DeDust Uranus Meme V3 is a launchpad meme-token market where users buy, sell, and track a token through Uranus trading."
     storage: DedustUranusMemeV3Storage
     incomingMessages: DedustUranusMemeV3IncomingMessage
     outgoingMessages: DedustUranusMemeV3OutgoingMessage

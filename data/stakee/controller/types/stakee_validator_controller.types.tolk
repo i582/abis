@@ -2,7 +2,7 @@
 contract StakeeValidatorController {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee Validator Controller for storage, controller commands, Pool and Elector messages, getters, and exit codes."
+    description: "Stakee Validator Controller is the validator-side account that borrows pooled TON, stakes it in validation rounds, and repays the pool."
     storage: StakeeValidatorControllerStorage
     incomingMessages: StakeeValidatorControllerIncomingMessage
     outgoingMessages: StakeeValidatorControllerOutgoingMessage

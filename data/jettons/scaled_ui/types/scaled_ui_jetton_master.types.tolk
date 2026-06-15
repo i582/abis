@@ -2,7 +2,7 @@
 contract ScaledUiJettonMaster {
     author: "Maxim Gromov"
     version: "TEP-526"
-    description: "Scaled UI Jetton master interface"
+    description: "Scaled UI Jetton Master is a jetton issuer that publishes display scaling so apps can show human-friendly token amounts."
     outgoingMessages: ScaledUiJettonMasterOutgoingMessage
 }
 

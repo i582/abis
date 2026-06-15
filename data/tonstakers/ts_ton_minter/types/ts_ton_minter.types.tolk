@@ -2,7 +2,7 @@
 contract TsTonMinter {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers tsTON Jetton minter for pool-admin minting, burn accounting, discovery, DAO voting hooks, storage, and getters."
+    description: "Tonstakers tsTON Minter is the jetton master that issues tsTON, the liquid staking token representing a user's share of pooled TON."
     storage: TsTonMinterStorage
     incomingMessages: TsTonMinterIncomingMessage
     outgoingMessages: TsTonMinterOutgoingMessage

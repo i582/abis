@@ -2,7 +2,7 @@
 contract BemoUnstakeRequest {
     author: "Bemo"
     version: "2.0"
-    description: "Curated interface for Bemo v2 delayed Unstake Request contracts"
+    description: "Bemo v2 Unstake Request is a per-user withdrawal contract that waits for unlock time and releases TON after bmTON is burned."
     storage: BemoUnstakeRequestStorage
     incomingMessages: BemoUnstakeRequestIncomingMessage
     outgoingMessages: BemoUnstakeRequestOutgoingMessage

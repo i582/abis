@@ -2,7 +2,7 @@
 contract WalletPreprocessedV2 {
     author: "pyAndr3w"
     version: "2.0"
-    description: "Curated Preprocessed Wallet V2 interface"
+    description: "Preprocessed Wallet V2 is a TON wallet for prepared outgoing action batches, reducing per-request parsing work."
     storage: WalletPreprocessedV2Storage
     incomingExternal: WalletPreprocessedV2IncomingExternalMessage
     forceAbiExport: Errors

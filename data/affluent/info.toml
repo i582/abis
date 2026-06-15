@@ -21,6 +21,24 @@ docs_strategy_roles = "https://docs.affluent.org/strategy-vault/roles"
 docs_strategy_rfq = "https://docs.affluent.org/strategy-vault/oracle-verified-rfq"
 docs_legacy_vault = "https://docs.affluent.org/factorial-legacy/vault-overview"
 
+[[links]]
+kind = "website"
+title = "Affluent website"
+url = "https://affluent.org"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Affluent concept docs"
+url = "https://docs.affluent.org/concept"
+scope = "project"
+
+[[links]]
+kind = "api"
+title = "Strategy vaults API"
+url = "https://api.affluent.org/v2/api/strategyvaults"
+scope = "project"
+
 [contracts.Pool]
 types = "types/affluent_pool.types.tolk"
 hashes = [
@@ -125,6 +143,12 @@ known_addresses = [
 observed_method_ids = [73179, 88360, 103289, 106029, 113417, 120297, 127184]
 notes = "Older multiply vault shape from schemas/affluent.xml. Decompile confirms jetton master get methods, get_vault_data, get_rfq_address, and is_strategy_vault returning true."
 
+[[contracts.MultiplyVault.links]]
+kind = "docs"
+title = "Legacy vault overview"
+url = "https://docs.affluent.org/factorial-legacy/vault-overview"
+scope = "contract"
+
 [[contracts.MultiplyVault.instances]]
 name = "Gold Multiply Vault"
 symbol = "affGOLDm"
@@ -155,6 +179,18 @@ known_addresses = [
 ]
 observed_method_ids = [71107, 73179, 88360, 103289, 106029, 110223, 113417, 120297, 127184]
 notes = "Strategy vault v2 shape from schemas/affluent.xml and Affluent API. Decompile confirms jetton master get methods, get_vault_data, get_rfq_address, and is_strategy_vault returning true; extra high ids 71107 and 110223 remain unnamed."
+
+[[contracts.MultiplyVaultV2.links]]
+kind = "docs"
+title = "Strategy vault roles"
+url = "https://docs.affluent.org/strategy-vault/roles"
+scope = "contract"
+
+[[contracts.MultiplyVaultV2.links]]
+kind = "docs"
+title = "Oracle verified RFQ"
+url = "https://docs.affluent.org/strategy-vault/oracle-verified-rfq"
+scope = "contract"
 
 [[contracts.MultiplyVaultV2.instances]]
 name = "Affluent/Strategy-Vault/TON-Multiply-1"
@@ -213,6 +249,12 @@ known_addresses = [
 observed_method_ids = [75634, 103289, 106029, 113417, 127184]
 notes = "Lending vaults are jetton masters. Affluent sharevaults API supplies names/symbols/underlying assets; decompile confirms get_vault_data plus get_jetton_data and get_wallet_address."
 
+[[contracts.LendingVault.links]]
+kind = "docs"
+title = "Legacy vault overview"
+url = "https://docs.affluent.org/factorial-legacy/vault-overview"
+scope = "contract"
+
 [[contracts.LendingVault.instances]]
 name = "Factorial/Lending-Vault/USDT"
 symbol = "VAULT7"
@@ -248,6 +290,12 @@ observed_method_ids = [103289, 106029]
 compiler_helper_method_ids = [0]
 notes = "Live FactorialTON minter hash matches the catalog. Public getters are standard jetton get_wallet_address and get_jetton_data; low id 0 is treated as an internal helper."
 
+[[contracts.FactorialTonMinter.links]]
+kind = "spec"
+title = "TEP-74 jetton standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+scope = "standard"
+
 [[contracts.FactorialTonMinter.instances]]
 name = "Factorial TON"
 symbol = "FactorialTON"
@@ -268,6 +316,12 @@ known_addresses = [
 observed_method_ids = [97026]
 compiler_helper_method_ids = [0, 2, 13, 14, 15, 16, 17]
 notes = "FactorialTON jetton wallets holding TON for Affluent markets, from ton-labels. All listed wallet addresses were live-checked and expose standard get_wallet_data; low ids are treated as internal helpers."
+
+[[contracts.FactorialTonWallet.links]]
+kind = "spec"
+title = "TEP-74 jetton standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+scope = "standard"
 
 [[contracts.FactorialTonWallet.instances]]
 name = "Basic market FactorialTON wallet"

@@ -2,7 +2,7 @@
 contract DedustFactoryV1 {
     author: "DeDust"
     version: "1.0"
-    description: "DeDust Factory v1 ABI for deterministic Vault, Pool, and Liquidity Deposit derivation plus factory administration messages."
+    description: "DeDust Factory V1 is the legacy registry and deployment hub that creates and discovers v1 pools, vaults, and liquidity helpers."
     storage: DedustFactoryV1Storage
     incomingMessages: DedustFactoryV1IncomingMessage
     outgoingMessages: DedustFactoryV1OutgoingMessage

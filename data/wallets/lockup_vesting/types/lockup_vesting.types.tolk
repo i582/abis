@@ -2,7 +2,7 @@
 contract LockupVesting {
     author: "TON Core"
     version: "1.0"
-    description: "Curated old lockup vesting wallet interface"
+    description: "Legacy Lockup Vesting Wallet is a TON wallet that releases funds on a linear schedule and restricts locked transfers."
     storage: LockupVestingStorage
     incomingExternal: LockupVestingIncomingExternalMessage
     thrownErrors: Errors

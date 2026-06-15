@@ -1,7 +1,7 @@
 contract JettonWallet {
     author: "TON"
     version: "1.0"
-    description: "Standard jetton wallet interface used by Affluent FactorialTON wallets"
+    description: "FactorialTON Jetton Wallet is a user's token account for holding and transferring FactorialTON in Affluent markets."
     storage: JettonWalletStorage
     incomingMessages: JettonWalletIncomingMessage
     outgoingMessages: JettonWalletOutgoingMessage

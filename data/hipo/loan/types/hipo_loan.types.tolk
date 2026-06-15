@@ -2,7 +2,7 @@
 contract HipoLoan {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Curated interface for Hipo Finance Loan contracts"
+    description: "Hipo Loan is a validator borrower contract that safeguards TON lent from the Treasury for one validation round."
     storage: HipoLoanStorage
     incomingMessages: HipoLoanIncomingMessage
     outgoingMessages: HipoLoanOutgoingMessage

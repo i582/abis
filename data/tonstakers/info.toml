@@ -21,6 +21,18 @@ local_generated_controller_types = "gen/validator_controller.types.tolk"
 local_generated_pool_abi = "gen_abis/tonstake_pool.json"
 local_generated_controller_abi = "gen_abis/validator_controller.json"
 
+[[links]]
+kind = "source"
+title = "TON liquid staking source"
+url = "https://github.com/ton-blockchain/liquid-staking-contract"
+scope = "project"
+
+[[links]]
+kind = "sdk"
+title = "Tonstakers SDK"
+url = "https://github.com/tonstakers/tonstakers-sdk"
+scope = "project"
+
 [contracts.TonstakersPool]
 display_name = "Tonstakers Staking Pool"
 types = "pool/types/tonstakers_pool.types.tolk"

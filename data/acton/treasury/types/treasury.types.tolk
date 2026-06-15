@@ -2,7 +2,7 @@
 contract TreasuryContract {
     author: "TON Core"
     version: "1.0"
-    description: "Curated testing treasury interface with storage and external transfer body layout"
+    description: "TreasuryContract is a TON Sandbox and Acton utility wallet used to fund local accounts and send scripted internal transfers."
     storage: TreasuryStorage
     incomingExternal: TreasuryExternalMessage
     forceAbiExport: TreasurySendMessageAction

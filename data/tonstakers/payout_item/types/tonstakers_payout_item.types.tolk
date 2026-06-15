@@ -2,7 +2,7 @@
 contract TonstakersPayoutItem {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers payout NFT item for payout bill ownership, burn-chain distribution, storage, getters, and exit codes."
+    description: "Tonstakers Payout NFT Item represents one delayed Tonstakers withdrawal claim that can be paid out after the staking round settles."
     storage: TonstakersPayoutItemStorage
     storageAtDeployment: TonstakersPayoutItemDeploymentStorage
     incomingMessages: TonstakersPayoutItemIncomingMessage

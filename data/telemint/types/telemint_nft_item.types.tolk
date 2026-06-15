@@ -2,7 +2,7 @@
 contract TelemintNftItem {
     author: "Telegram"
     version: "1.0"
-    description: "Curated TeleMint NFT item interface with auction, DNS, royalty, and TEP-62 messages"
+    description: "TeleMint NFT Item is a Telegram collectible for Fragment usernames and anonymous numbers, including auctions and TON DNS names."
     storage: TelemintNftItemStorage
     incomingMessages: TelemintNftItemIncomingMessage
     outgoingMessages: TelemintNftItemOutgoingMessage

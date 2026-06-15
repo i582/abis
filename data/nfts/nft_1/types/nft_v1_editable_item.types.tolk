@@ -2,7 +2,7 @@
 contract NftV1EditableItem {
     author: "TON Core"
     version: "1"
-    description: "Curated TEP-62 NFT v1 editable item interface with editor runtime storage"
+    description: "TON NFT v1 Editable Item is a TEP-62 collectible whose designated editor can update the item's metadata after minting."
     storage: NftV1EditableItemStorage
     storageAtDeployment: NftV1EditableItemDeploymentStorage
     incomingMessages: NftV1EditableItemIncomingMessage

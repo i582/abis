@@ -2,7 +2,7 @@
 contract PythOracle {
     author: "Pyth Network"
     version: "1.0"
-    description: "Pyth Network TON oracle ABI for price updates, Wormhole governance state, parsing responses, storage, and live public getters."
+    description: "Pyth TON Oracle is the on-chain price feed contract apps use to publish and read verified Pyth market prices on TON."
     storage: PythOracleStorage
     incomingMessages: PythOracleIncomingMessage
     outgoingMessages: PythOracleOutgoingMessage

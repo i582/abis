@@ -2,7 +2,7 @@
 contract ToncoPoolFactory {
     author: "Algebra / TONCO"
     version: "1.6"
-    description: "Curated TONCO PoolFactory ABI for v1.6 pool creation orders, whitelist management, deterministic order address derivation, and Router create-pool callbacks"
+    description: "TONCO PoolFactory deploys new concentrated-liquidity pools when the TONCO router or admin creates a supported token pair."
     storage: ToncoPoolFactoryStorage
     incomingMessages: ToncoPoolFactoryIncomingMessage
     outgoingMessages: ToncoPoolFactoryOutgoingMessage

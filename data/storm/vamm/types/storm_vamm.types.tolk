@@ -2,7 +2,7 @@
 contract StormVamm {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade base VAMM for TON/USD-style markets, trading messages, and public getters."
+    description: "Storm Trade vAMM is a perpetual market contract that prices and settles base-asset trades against a jetton-backed vault."
     storage: StormVammStorage
     incomingMessages: StormVammIncomingMessage
     outgoingMessages: StormVammOutgoingMessage

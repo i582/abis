@@ -2,7 +2,7 @@
 contract WhalesPool {
     author: "Ton Whales"
     version: "1.0"
-    description: "Whales Nominators pool ABI with storage, staking operations, controller operations, Elector bodies, and public getters."
+    description: "Ton Whales Nominators Pool lets TON holders pool stake with a validator, track balances, and withdraw after validation rounds."
     storage: WhalesPoolStorage
     incomingMessages: WhalesPoolIncomingMessage
     outgoingMessages: WhalesPoolOutgoingMessage

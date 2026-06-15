@@ -2,7 +2,7 @@
 contract StablecoinWallet {
     author: "TON Core"
     version: "1.04"
-    description: "Curated interface for ton-blockchain/stablecoin-contract v1.04 governed wallet"
+    description: "Stablecoin Wallet is a user's governed stablecoin account, holding balance while supporting transfers, burns, and freeze controls."
     storage: StablecoinWalletStorage
     incomingMessages: StablecoinWalletIncomingMessage
     outgoingMessages: StablecoinWalletOutgoingMessage

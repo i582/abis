@@ -2,7 +2,7 @@
 contract DedustVaultJettonV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Jetton Vault ABI for Jetton transfer notifications, swap/deposit forward payloads, common vault callbacks, storage, live-proven getters, and exit codes."
+    description: "DeDust Jetton Vault V2 is a token vault that receives jettons and routes swaps, liquidity deposits, and payouts through DeDust v2."
     storage: DedustVaultJettonV2Storage
     incomingMessages: DedustVaultJettonV2IncomingMessage
     outgoingMessages: DedustVaultJettonV2OutgoingMessage

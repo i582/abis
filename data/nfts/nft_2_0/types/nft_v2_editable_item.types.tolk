@@ -2,7 +2,7 @@
 contract NftV2EditableItem {
     author: "TON Core"
     version: "2.0"
-    description: "Curated TON NFT 2.0 editable item profile; on-chain ABI matches the editable TEP-62 NFT v1 item"
+    description: "TON NFT v2 Editable Item is the NFT 2.0 editable item profile for collectibles whose metadata can be updated by an editor."
     storage: NftV2EditableItemStorage
     storageAtDeployment: NftV2EditableItemDeploymentStorage
     incomingMessages: NftV2EditableItemIncomingMessage

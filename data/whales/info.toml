@@ -19,6 +19,12 @@ local_proxy_account_state = "data/whales/research/whales_proxy_account_state.jso
 local_pool_message_bodies = "data/whales/research/toncenter_pool_message_bodies.json"
 local_proxy_message_bodies = "data/whales/research/toncenter_proxy_message_bodies.json"
 
+[[links]]
+kind = "source"
+title = "Ton Whales nominator source"
+url = "https://github.com/tonwhales/ton-nominators/tree/0553e1b6ddfc5c0b60505957505ce58d01bec3e7"
+scope = "project"
+
 [contracts.WhalesPool]
 display_name = "Ton Whales Nominators Pool"
 types = "pool/types/whales_pool.types.tolk"

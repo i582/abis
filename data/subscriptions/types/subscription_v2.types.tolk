@@ -2,7 +2,7 @@
 contract SubscriptionV2 {
     author: "Tonkeeper"
     version: "2.0"
-    description: "Tonkeeper native subscription extension ABI"
+    description: "Tonkeeper Subscription V2 is a native wallet extension for recurring TON payments approved by the wallet owner."
     storage: SubscriptionV2Storage
     storageAtDeployment: SubscriptionV2DeploymentStorage
     incomingMessages: SubscriptionV2IncomingMessage

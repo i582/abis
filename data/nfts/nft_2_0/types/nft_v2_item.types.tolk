@@ -2,7 +2,7 @@
 contract NftV2Item {
     author: "TON Core"
     version: "2.0"
-    description: "Curated TON NFT 2.0 item profile; on-chain ABI matches the TEP-62 NFT v1 item"
+    description: "TON NFT v2 Item is the NFT 2.0 item profile for one collectible in a collection, compatible with standard TON NFT behavior."
     storage: NftV2ItemStorage
     storageAtDeployment: NftV2ItemDeploymentStorage
     incomingMessages: NftV2ItemIncomingMessage

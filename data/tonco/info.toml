@@ -30,10 +30,34 @@ sdk_opcodes = "https://github.com/cryptoalgebra/tonco-sdk/blob/a7f2c9c60d5599a94
 tonviewer_router = "https://tonviewer.com/EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"
 tonviewer_pool = "https://tonviewer.com/EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"
 
+[[links]]
+kind = "website"
+title = "TONCO website"
+url = "https://tonco.io"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "TONCO documentation"
+url = "https://docs.tonco.io/"
+scope = "project"
+
+[[links]]
+kind = "sdk"
+title = "TONCO TypeScript SDK"
+url = "https://github.com/cryptoalgebra/tonco-sdk"
+scope = "project"
+
 [contracts.Router]
 types = "router/types/tonco_router.types.tolk"
 hashes = ["9b9891eaa7db7becc6ccdda1bd9a8d25dc3df2817d57e4b27ec003daf81a4439"]
 known_addresses = ["EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"]
+
+[[contracts.Router.links]]
+kind = "docs"
+title = "TONCO Router docs"
+url = "https://docs.tonco.io/technical-reference/contracts/router"
+scope = "contract"
 
 [[contracts.Router.instances]]
 name = "TONCO mainnet router"
@@ -46,6 +70,12 @@ types = "pool/types/tonco_pool.types.tolk"
 hashes = ["bc947d16346c2fdc845b7a446382f59c86acb075e2a31dbfa956cd0c9e54678e"]
 known_addresses = ["EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"]
 
+[[contracts.Pool.links]]
+kind = "docs"
+title = "TONCO Pool docs"
+url = "https://docs.tonco.io/technical-reference/contracts/pool"
+scope = "contract"
+
 [[contracts.Pool.instances]]
 name = "TONCO pool sample from local schema"
 address = "EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"
@@ -56,6 +86,12 @@ network = "mainnet"
 types = "account/types/tonco_account.types.tolk"
 hashes = ["a820f670f18a3afa05c5acb0f85e248c97b01b4d846aeeac4730622b832a8c20"]
 known_addresses = ["EQAZ8g6UM2EXWMFxpFcXtrAFHCY9PFbnbHKoQt7pHH9ps5w4"]
+
+[[contracts.Account.links]]
+kind = "docs"
+title = "TONCO Account docs"
+url = "https://docs.tonco.io/technical-reference/contracts/account"
+scope = "contract"
 
 [[contracts.Account.instances]]
 name = "TONCO AccountV3 derived from sample pool PositionNFT #0 owner"
@@ -68,6 +104,12 @@ types = "pool_factory/types/tonco_pool_factory.types.tolk"
 hashes = ["b5b46a506af6a118fe1a1853f43dc3d53d65c36a3c2ad5722feef343ecb7b857"]
 known_addresses = ["EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"]
 
+[[contracts.PoolFactory.links]]
+kind = "docs"
+title = "TONCO PoolFactory docs"
+url = "https://docs.tonco.io/technical-reference/contracts/pool_factory"
+scope = "contract"
+
 [[contracts.PoolFactory.instances]]
 name = "TONCO mainnet PoolFactory from router state"
 address = "EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"
@@ -78,6 +120,12 @@ network = "mainnet"
 types = "position_nft_v3/types/tonco_position_nft_v3.types.tolk"
 hashes = ["23091475641789bbbd415b0396a1f0a7a22701086c99dab178a353fc04ce7983"]
 known_addresses = ["EQAFaimkHZz_KorlOZ1UbdRGjfZnvHJW2cNZff4GdswrCIHp"]
+
+[[contracts.PositionNFT.links]]
+kind = "docs"
+title = "TONCO Position NFT docs"
+url = "https://docs.tonco.io/technical-reference/contracts/position_nft"
+scope = "contract"
 
 [[contracts.PositionNFT.instances]]
 name = "TONCO sample pool PositionNFT #0"

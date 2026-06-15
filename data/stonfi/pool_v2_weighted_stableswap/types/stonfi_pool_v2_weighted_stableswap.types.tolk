@@ -2,7 +2,7 @@
 contract StonfiPoolV2WeightedStableswap {
     author: "STON.fi"
     version: "2.0"
-    description: "STON.fi DEX v2 WeightedStableSwap Pool ABI with source-proven wire layout and documentation aligned to docs.ston.fi PoolData, getter, opcode, fee, and weighted parameter descriptions"
+    description: "STON.fi v2 Weighted StableSwap Pool is a liquidity pool for weighted asset baskets that still need stable-swap style pricing."
     storage: StonfiPoolV2WeightedStableswapStorage
     incomingMessages: StonfiPoolV2WeightedStableswapIncomingMessage
     outgoingMessages: StonfiPoolV2WeightedStableswapOutgoingMessage

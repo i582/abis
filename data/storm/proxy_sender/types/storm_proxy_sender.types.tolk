@@ -2,7 +2,7 @@
 contract StormProxySender {
     author: "Storm Trade"
     version: "1.0"
-    description: "Proxy sender ABI with owner storage, raw action-list internal body, and owner getter."
+    description: "Storm Trade Proxy Sender lets an owner-controlled account execute a prepared batch of TON actions through one proxy contract."
     storage: StormProxySenderStorage
     incomingMessages: StormProxySenderIncomingMessage
     outgoingMessages: StormProxySenderOutgoingMessage

@@ -13,6 +13,18 @@ lockup_sender_ui = "https://toncenter.github.io/lockup-sender/"
 tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
 local_contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "docs"
+title = "TON lockup wallet documentation"
+url = "https://docs.ton.org/blockchain-basics/standard/wallets/lockup"
+scope = "standard"
+
+[[links]]
+kind = "source"
+title = "Lockup wallet source"
+url = "https://github.com/ton-blockchain/lockup-wallet-contract"
+scope = "project"
+
 [contracts.LockupUniversal]
 types = "types/lockup_universal.types.tolk"
 hashes = ["88fbf818e47d5f328f7dc34bad4323bb28a12ec6c75ce9ec25d77746c56e1ded"]

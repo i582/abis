@@ -2,7 +2,7 @@
 contract BidaskLpMultitoken {
     author: "Bidask"
     version: "1.0"
-    description: "Curated Bidask DLMM LP multitoken interface with packed four-bin token dictionaries"
+    description: "Bidask DLMM LP Multitoken issues the position tokens that represent a user's liquidity across pool bins."
     storage: BidaskLpMultitokenStorage
     incomingMessages: BidaskLpMultitokenIncomingMessage
     outgoingMessages: BidaskLpMultitokenOutgoingMessage

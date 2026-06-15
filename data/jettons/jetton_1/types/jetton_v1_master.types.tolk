@@ -2,7 +2,7 @@
 contract JettonV1Master {
     author: "TON Core"
     version: "1"
-    description: "Curated interface for the ton-blockchain/token-contract Jetton v1 minter"
+    description: "Jetton v1 Master is the issuer contract for a TEP-74 token, defining supply, metadata, admin, and wallet creation."
     storage: JettonV1MasterStorage
     incomingMessages: JettonV1MasterIncomingMessage
     outgoingMessages: JettonV1MasterOutgoingMessage

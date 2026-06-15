@@ -2,7 +2,7 @@
 contract CoffeePoolCreator {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee DEX PoolCreator utility contract ABI for initial pool-creation escrow, cancellation, Factory callbacks, and update handling."
+    description: "Coffee Swap Pool Creator is a short-lived escrow helper that holds initial assets while the factory creates a new pool."
     storage: CoffeePoolCreatorStorage
     incomingMessages: CoffeePoolCreatorIncomingMessage
     outgoingMessages: CoffeePoolCreatorOutgoingMessage

@@ -2,7 +2,7 @@
 contract DnsCollection {
     author: "TON"
     version: "1.0"
-    description: "Curated TON DNS `.ton` collection resolver and NFT collection interface"
+    description: "TON DNS .ton Collection is the official NFT collection and resolver for registered .ton domain items."
     storage: DnsCollectionStorage
     incomingMessages: DnsCollectionIncomingMessage
     outgoingMessages: DnsCollectionOutgoingMessage

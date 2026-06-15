@@ -2,7 +2,7 @@
 contract MultisigOrderV2 {
     author: "TON Core"
     version: "2.0"
-    description: "Curated TON Multisig V2 order contract interface"
+    description: "TON Multisig V2 Order is a temporary approval contract that collects signer confirmations before a multisig transaction executes."
     storage: MultisigOrderV2Storage
     storageAtDeployment: MultisigOrderV2DeploymentStorage
     incomingMessages: MultisigOrderV2IncomingMessage

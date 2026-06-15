@@ -2,7 +2,7 @@
 contract SmartAccount {
     author: "Storm Trade"
     version: "0.1-local-schema"
-    description: "Storm Trade smart account for balances, positions, order execution, key management, and highload replay protection."
+    description: "Storm Trade Smart Account is a user's on-chain trading account for balances, positions, orders, and signed trading actions."
     storage: SmartAccountStorage
     incomingMessages: SmartAccountIncomingMessage
     incomingExternal: SmartAccountIncomingExternalMessage

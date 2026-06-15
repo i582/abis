@@ -2,7 +2,7 @@
 contract PtonMinterV2 {
     author: "STON.fi"
     version: "2.1"
-    description: "Curated pTON v2.1 minter ABI for TEP-161 proxy TON wallet deployment, Jetton discovery, and standard Jetton metadata getters"
+    description: "pTON v2.1 Minter is the jetton master for wrapped TON, issuing proxy TON wallets used by DEX apps to treat native TON like a token."
     storage: PtonMinterV2Storage
     incomingMessages: PtonMinterV2IncomingMessage
     outgoingMessages: PtonMinterV2OutgoingMessage

@@ -2,7 +2,7 @@
 contract CoffeeInit {
     author: "Coffee Swap"
     version: "1.0"
-    description: "Coffee Swap deterministic Init shell. It accepts Factory install messages, replaces its own code/data, and optionally dispatches an action body under the newly installed code."
+    description: "Coffee Swap Init is the bootstrap contract users may see while the factory prepares a newly deployed Coffee Swap component."
     storage: CoffeeInitStorage
     incomingMessages: CoffeeInitIncomingMessage
     outgoingMessages: CoffeeInitOutgoingMessage

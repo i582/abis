@@ -2,7 +2,7 @@
 contract StonfiPoolV1 {
     author: "STON.fi"
     version: "1.0"
-    description: "Curated STON.fi Pool v1 ABI covering stored pool state, routed swap/provide_lp flows, LP account callbacks, fee operations, async getter messages, and LP Jetton minter discovery"
+    description: "STON.fi v1 Pool is an AMM liquidity pool that holds token pair reserves, prices swaps, and issues LP tokens to liquidity providers."
     storage: StonfiPoolV1Storage
     incomingMessages: StonfiPoolV1IncomingMessage
     outgoingMessages: StonfiPoolV1OutgoingMessage

@@ -2,7 +2,7 @@
 contract WhalesProxy {
     author: "Ton Whales"
     version: "1.0"
-    description: "Whales Nominators proxy ABI with storage and observed Elector pass-through bodies."
+    description: "Ton Whales Nominators Proxy is the masterchain bridge that forwards staking traffic between the pool and TON Elector."
     storage: WhalesProxyStorage
     incomingMessages: WhalesProxyIncomingMessage
     outgoingMessages: WhalesProxyOutgoingMessage

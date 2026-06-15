@@ -20,6 +20,18 @@ local_research_plan = "data/cron/research/plan.md"
 local_research_results = "data/cron/research/results.md"
 dune_cron_trigger_candidates = "https://dune.com/queries/7671804"
 
+[[links]]
+kind = "spec"
+title = "Tongo Cron schema"
+url = "https://github.com/tonkeeper/tongo/blob/master/abi/schemas/cron.xml"
+scope = "project"
+
+[[links]]
+kind = "source"
+title = "Verified Cron source"
+url = "https://github.com/ton-community/contract-abis/blob/main/verified/7a/b49ee8a64007c60738e36d82381c75f0b9983b6961eed34de6a558ecee9d97/orbs.com/sources/cron.tolk"
+scope = "contract"
+
 [contracts.Cron]
 display_name = "TON Cron interface"
 types = "types/cron.types.tolk"

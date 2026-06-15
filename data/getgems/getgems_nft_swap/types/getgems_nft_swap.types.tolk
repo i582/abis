@@ -2,7 +2,7 @@
 contract GetgemsNftSwap {
     author: "Getgems"
     version: "1.0"
-    description: "Curated Getgems two-party NFT swap interface"
+    description: "Getgems NFT Swap is a two-party escrow that exchanges agreed NFTs and TON side payments between traders."
     storage: GetgemsNftSwapStorage
     incomingMessages: GetgemsNftSwapIncomingMessage
     outgoingMessages: GetgemsNftSwapOutgoingMessage

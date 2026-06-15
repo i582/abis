@@ -2,7 +2,7 @@
 contract DedustVaultNativeV1 {
     author: "DeDust"
     version: "1.0"
-    description: "DeDust Native Vault v1 ABI for native swap routing, liquidity deposit routing, pool and liquidity-deposit payouts, storage, getters, and upgrade messages."
+    description: "DeDust Native Vault V1 is the legacy TON vault users interact with when swapping or adding TON liquidity through DeDust v1."
     storage: DedustVaultNativeV1Storage
     incomingMessages: DedustVaultNativeV1IncomingMessage
     outgoingMessages: DedustVaultNativeV1OutgoingMessage

@@ -2,7 +2,7 @@
 contract GetgemsNftRaffle {
     author: "Getgems"
     version: "1.0"
-    description: "Curated Getgems NFT raffle interface"
+    description: "Getgems NFT Raffle is an escrow for two-party NFT raffle swaps, collecting both sides' NFTs and distributing the randomized result."
     storage: GetgemsNftRaffleStorage
     incomingMessages: GetgemsNftRaffleIncomingMessage
     outgoingMessages: GetgemsNftRaffleOutgoingMessage

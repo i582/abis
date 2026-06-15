@@ -2,7 +2,7 @@
 contract HipoParent {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Curated interface for the Hipo Finance Parent hTON jetton master contract"
+    description: "Hipo hTON Parent is the jetton master that mints hTON and routes user wallet interactions with the Hipo Treasury."
     storage: HipoParentStorage
     incomingMessages: HipoParentIncomingMessage
     outgoingMessages: HipoParentOutgoingMessage

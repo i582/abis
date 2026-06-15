@@ -2,7 +2,7 @@
 contract StormExecutor {
     author: "Storm Trade"
     version: "1.0"
-    description: "Executor NFT item with TEP-62 item surface and Storm executor balance ABI"
+    description: "Storm Trade Executor Item is an NFT that represents an order executor and accrues executor rewards across whitelisted vaults."
     storage: StormExecutorStorage
     storageAtDeployment: StormExecutorDeploymentStorage
     incomingMessages: StormExecutorIncomingMessage

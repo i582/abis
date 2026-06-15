@@ -2,7 +2,7 @@
 contract StorageProvider {
     author: "TON Core"
     version: "1.0"
-    description: "Official TON Storage provider contract interface"
+    description: "TON Storage Provider is a service contract where nodes publish offers and users discover providers for decentralized file deals."
     storage: StorageProviderStorage
     incomingMessages: StorageProviderIncomingMessage
     incomingExternal: StorageProviderIncomingExternalMessage

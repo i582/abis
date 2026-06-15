@@ -2,7 +2,7 @@
 contract StonfiPoolV2Stableswap {
     author: "STON.fi"
     version: "2.2"
-    description: "Curated STON.fi DEX v2 StableSwap Pool interface for common Pool state, on-chain getter messages, LP-minter getters, and the stableswap amp parameter"
+    description: "STON.fi v2 StableSwap Pool is an AMM pool optimized for swaps and liquidity between similarly priced assets such as stablecoins."
     storage: StonfiPoolV2StableswapStorage
     incomingMessages: StonfiPoolV2StableswapIncomingMessage
     outgoingMessages: StonfiPoolV2StableswapOutgoingMessage

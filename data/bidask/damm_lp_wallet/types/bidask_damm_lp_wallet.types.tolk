@@ -2,7 +2,7 @@
 contract BidaskDammLpWallet {
     author: "Bidask Protocol"
     version: "0.1"
-    description: "Curated interface for the Bidask DAMM LP wallet: LP Jetton wallet messages, DAMM mint/burn/claim extensions, fee checkpoint getters, and proven init-state storage"
+    description: "Bidask DAMM LP Wallet is a user's LP token account for holding pool shares and claiming DAMM liquidity fees."
     storage: BidaskDammLpWalletStorage
     incomingMessages: BidaskDammLpWalletIncomingMessage
     outgoingMessages: BidaskDammLpWalletOutgoingMessage

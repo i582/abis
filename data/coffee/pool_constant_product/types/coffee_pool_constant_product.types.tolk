@@ -2,7 +2,7 @@
 contract CoffeePoolConstantProduct {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap constant-product Pool ABI for swaps, liquidity, LP Jetton minter operations, pool administration, getters, and events."
+    description: "Coffee Swap Constant-Product Pool is a liquidity pool for volatile asset pairs where users swap tokens and LPs earn fees."
     storage: CoffeePoolConstantProductStorage
     incomingMessages: CoffeePoolConstantProductIncomingMessage
     outgoingMessages: CoffeePoolConstantProductOutgoingMessage

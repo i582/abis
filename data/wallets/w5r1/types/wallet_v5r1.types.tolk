@@ -2,7 +2,7 @@
 contract WalletV5r1 {
     author: "TON Core"
     version: "5.1"
-    description: "Curated Wallet V5 R1 interface"
+    description: "Wallet V5 R1 is a TON wallet for holding TON and sending transactions; compared with V4, it uses app extensions instead of plugins."
     storage: WalletV5r1Storage
     incomingMessages: WalletV5r1IncomingMessage
     incomingExternal: WalletV5r1IncomingExternalMessage

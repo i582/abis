@@ -19,6 +19,12 @@ marketapp_proxy_known_decompile = "research/func/marketapp_proxy_known.fc"
 marketapp_proxy_simple_decompile = "research/func/marketapp_proxy_0dbd.fc"
 marketapp_proxy_jetton_decompile = "research/func/marketapp_proxy_a9c1.fc"
 
+[[links]]
+kind = "website"
+title = "Fragment marketplace"
+url = "https://fragment.com/"
+scope = "project"
+
 [contracts.FragmentUsernameCollection]
 display_name = "Fragment Username Collection"
 types = "types/fragment_username_collection.types.tolk"
@@ -28,6 +34,12 @@ data_fixture = "testdata/FragmentUsernameCollection.data.boc"
 hashes = ["4d4eb9bfa2b210d890833a712be244081fddadb07f031f361ea5cf7f1a130651"]
 known_addresses = ["EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"]
 research = "research/fragment_username_collection.md"
+
+[[contracts.FragmentUsernameCollection.links]]
+kind = "source"
+title = "Telegram TeleMint source"
+url = "https://github.com/TelegramMessenger/telemint"
+scope = "contract"
 
 [contracts.FragmentUsernameCollection.instances.mainnet]
 address = "EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"
@@ -44,6 +56,12 @@ hashes = ["88410c220f822181668269ce83eb9cc0d3b39c21999c8b55de03360a20e7c282"]
 known_addresses = ["EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"]
 research = "research/fragment_numbers_collection.md"
 
+[[contracts.FragmentNumbersCollection.links]]
+kind = "source"
+title = "Telegram TeleMint source"
+url = "https://github.com/TelegramMessenger/telemint"
+scope = "contract"
+
 [contracts.FragmentNumbersCollection.instances.mainnet]
 address = "EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"
 raw_address = "0:0E41DC1DC3C9067ED24248580E12B3359818D83DEE0304FABCF80845EAFAFDB2"
@@ -59,6 +77,12 @@ hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
 known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
 research = "research/fragment_username_item.md"
 
+[[contracts.FragmentUsernameItem.links]]
+kind = "source"
+title = "Telegram TeleMint source"
+url = "https://github.com/TelegramMessenger/telemint"
+scope = "contract"
+
 [contracts.FragmentUsernameItem.instances.mainnet]
 address = "EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"
 raw_address = "0:6AB3CA65D5D24E65E5C2DE5B299D89DE0476A0ED56D0F732A4BF8229413DE79E"
@@ -73,6 +97,12 @@ data_fixture = "testdata/FragmentNumbersItem.data.boc"
 hashes = ["5b092991650fbc48b3288b08acc7677b22e4c25d48458c56d2a17f23e806b6b4"]
 known_addresses = ["EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"]
 research = "research/fragment_numbers_item.md"
+
+[[contracts.FragmentNumbersItem.links]]
+kind = "source"
+title = "Telegram TeleMint source"
+url = "https://github.com/TelegramMessenger/telemint"
+scope = "contract"
 
 [contracts.FragmentNumbersItem.instances.mainnet]
 address = "EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"

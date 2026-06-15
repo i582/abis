@@ -2,7 +2,7 @@
 contract AirdropInterlockerV1 {
     author: "Airdrop"
     version: "1.0"
-    description: "Airdrop Interlocker v1 ABI for one-shot lock-and-claim flow"
+    description: "Airdrop Interlocker v1 is a claim contract that locks a user's allocation and releases it through the first airdrop flow."
     storage: AirdropInterlockerV1Storage
     incomingMessages: AirdropInterlockerV1IncomingMessage
     outgoingMessages: AirdropInterlockerV1OutgoingMessage

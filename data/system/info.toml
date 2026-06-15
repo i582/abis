@@ -15,6 +15,12 @@ local_research_results = "data/system/research/results.md"
 local_elector_research = "data/system/research/elector.md"
 local_config_research = "data/system/research/config.md"
 
+[[links]]
+kind = "source"
+title = "TON system contracts source"
+url = "https://github.com/ton-blockchain/ton/tree/master/crypto/smartcont"
+scope = "project"
+
 [contracts.Elector]
 display_name = "TON Elector"
 types = "elector/types/elector.types.tolk"
@@ -39,6 +45,12 @@ description = "Masterchain configuration contract for network config parameters,
 known_addresses = ["Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"]
 hashes = ["c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"]
 related_asset_symbols = ["TON"]
+
+[[contracts.Config.links]]
+kind = "explorer"
+title = "TON Config verifier"
+url = "https://verifier.ton.org/Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
+scope = "contract"
 
 [contracts.Config.instances.mainnet]
 address = "Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"

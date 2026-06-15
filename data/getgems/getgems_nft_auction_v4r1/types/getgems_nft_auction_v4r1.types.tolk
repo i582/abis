@@ -2,7 +2,7 @@
 contract GetgemsNftAuctionV4R1 {
     author: "Getgems"
     version: "4r1"
-    description: "Curated Getgems NFT auction V4R1 interface with storage, bid commands, settlement messages, and getter"
+    description: "Getgems NFT Auction V4 R1 is a newer marketplace auction escrow for one NFT, used for bidding, cancellation, and settlement."
     storage: GetgemsNftAuctionV4R1Storage
     incomingMessages: GetgemsNftAuctionV4R1IncomingMessage
     incomingExternal: GetgemsNftAuctionV4R1IncomingExternalMessage

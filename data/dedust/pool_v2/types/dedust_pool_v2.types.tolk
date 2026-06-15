@@ -2,7 +2,7 @@
 contract DedustPoolV2 {
     author: "DeDust"
     version: "2.0"
-    description: "Curated DeDust v2 Pool ABI for swaps, liquidity deposit callbacks, LP Jetton getters, public pool getters, and exit codes."
+    description: "DeDust Pool V2 is a liquidity pool where users swap an asset pair and LPs provide liquidity for volatile or stable DeDust markets."
     storage: DedustPoolV2Storage
     incomingMessages: DedustPoolV2IncomingMessage
     outgoingMessages: DedustPoolV2OutgoingMessage

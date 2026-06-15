@@ -2,7 +2,7 @@
 contract WalletV4r1 {
     author: "TON Core"
     version: "4.1"
-    description: "Curated Wallet V4 R1 interface"
+    description: "Wallet V4 R1 is a TON wallet for holding TON and sending transactions; compared with V3, it adds app plugins."
     storage: WalletV4r1Storage
     incomingMessages: WalletV4r1IncomingMessage
     incomingExternal: WalletV4r1IncomingExternalMessage

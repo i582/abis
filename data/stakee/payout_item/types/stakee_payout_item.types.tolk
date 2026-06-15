@@ -2,7 +2,7 @@
 contract StakeePayoutItem {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee payout NFT item for payout bill ownership, burn-chain distribution, storage, getters, and exit codes."
+    description: "Stakee Payout NFT Item represents one delayed Stakee withdrawal claim that can be paid out after the staking round settles."
     storage: StakeePayoutItemStorage
     storageAtDeployment: StakeePayoutItemDeploymentStorage
     incomingMessages: StakeePayoutItemIncomingMessage

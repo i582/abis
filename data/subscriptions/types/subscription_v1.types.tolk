@@ -2,7 +2,7 @@
 contract SubscriptionV1 {
     author: "Tonkeeper"
     version: "1.0"
-    description: "Curated interface for Tonkeeper Subscription V1 wallet plugin contracts"
+    description: "Tonkeeper Subscription V1 is a wallet plugin that lets apps charge recurring TON payments authorized by the wallet owner."
     storage: SubscriptionV1Storage
     incomingMessages: SubscriptionV1IncomingMessage
     outgoingMessages: SubscriptionV1OutgoingMessage

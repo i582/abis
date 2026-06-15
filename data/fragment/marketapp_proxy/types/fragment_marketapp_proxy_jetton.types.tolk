@@ -2,7 +2,7 @@
 contract FragmentMarketappProxyJetton {
     author: "MarketApp"
     version: "1.0"
-    description: "Signed Fragment/Telegram collectible buy-routing proxy variant with Jetton transfer-notification routing"
+    description: "Fragment MarketApp Proxy Jetton is a buy-routing variant that handles jetton-funded Telegram collectible purchases."
     storage: FragmentMarketappProxyJettonStorage
     incomingMessages: FragmentMarketappProxyJettonIncomingMessage
     outgoingMessages: FragmentMarketappProxyJettonOutgoingMessage

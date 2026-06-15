@@ -20,6 +20,30 @@ local_generated_types = "gen/nft_*.types.tolk"
 local_generated_abis = "gen_abis/nft_*.json"
 contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "docs"
+title = "TON NFT reference"
+url = "https://docs.ton.org/standard/tokens/nft/nft-reference"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-62 NFT standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0062-nft-standard.md"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-64 Token data standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0064-token-data-standard.md"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-66 NFT royalty standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0066-nft-royalty-standard.md"
+scope = "standard"
+
 [contracts.NftV1Collection]
 types = "nft_1/types/nft_v1_collection.types.tolk"
 hashes = [
@@ -31,6 +55,12 @@ known_addresses = [
   "EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw",
   "EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF",
 ]
+
+[[contracts.NftV1Collection.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
 
 [contracts.NftV1Collection.variants.standard]
 source_file = "nft/nft-collection.fc"
@@ -57,6 +87,12 @@ known_addresses = [
   "EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq",
   "EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty",
 ]
+
+[[contracts.NftV1Item.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
 
 [contracts.NftV1Item.variants.standard_v1_00_01]
 source_file = "nft/nft-item.fc"
@@ -89,6 +125,12 @@ known_addresses = [
   "EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA",
 ]
 
+[[contracts.NftV1EditableItem.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
+
 [contracts.NftV1EditableItem.variants.editable_v1_00_01]
 source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
@@ -111,6 +153,12 @@ known_addresses = [
   "EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF",
 ]
 profile = "ton_docs_nft_2_0"
+
+[[contracts.NftV2Collection.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
 
 [contracts.NftV2Collection.variants.standard]
 source_file = "nft/nft-collection.fc"
@@ -138,6 +186,12 @@ known_addresses = [
   "EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty",
 ]
 profile = "ton_docs_nft_2_0"
+
+[[contracts.NftV2Item.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
 
 [contracts.NftV2Item.variants.standard_v1_00_01]
 source_file = "nft/nft-item.fc"
@@ -171,6 +225,12 @@ known_addresses = [
 ]
 profile = "ton_docs_nft_2_0"
 
+[[contracts.NftV2EditableItem.links]]
+kind = "source"
+title = "TON NFT contract source"
+url = "https://github.com/ton-blockchain/nft-contract"
+scope = "contract"
+
 [contracts.NftV2EditableItem.variants.editable_v1_00_01]
 source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
@@ -187,6 +247,12 @@ hashes = ["0b84497ccefe297d00beebb08a544cc6ef6230eab762692ca053fa9811399836"]
 known_addresses = ["EQCoXMPfScPFpyeBJWAwJDTGt0IedtnvUCglIQphe1KAf62u"]
 profile = "getgems_nft_2_0"
 
+[[contracts.GetgemsNftCollectionV2.links]]
+kind = "source"
+title = "Getgems NFT source"
+url = "https://github.com/getgems-io/nft-contracts"
+scope = "contract"
+
 [contracts.GetgemsNftCollectionV2.variants.editable]
 source_file = "packages/contracts/sources/nft-collection-editable-v2.fc"
 hashes = ["0b84497ccefe297d00beebb08a544cc6ef6230eab762692ca053fa9811399836"]
@@ -197,6 +263,12 @@ types = "getgems_nft_2_0/types/getgems_nft_v2_item.types.tolk"
 hashes = ["02e3a2370ea36b24eabff810cd84ef63dc180443d0b51adb9d3be4c0ea8f7319"]
 known_addresses = ["EQDciKcA85857MsCuXuD_kXL2My8V1Log5ZvbAw_J4VC5keQ"]
 profile = "getgems_nft_2_0"
+
+[[contracts.GetgemsNftItemV2.links]]
+kind = "source"
+title = "Getgems NFT source"
+url = "https://github.com/getgems-io/nft-contracts"
+scope = "contract"
 
 [contracts.GetgemsNftItemV2.variants.standard]
 source_file = "packages/contracts/sources/nft-item-v2.fc"
@@ -211,6 +283,12 @@ known_addresses = [
   "EQAp_sKu81P7AC678ANV3KqmK_cZ96KymZsPC7jg6QOqiHof",
 ]
 profile = "getgems_nft_2_0"
+
+[[contracts.GetgemsNftEditableItemV2.links]]
+kind = "source"
+title = "Getgems NFT source"
+url = "https://github.com/getgems-io/nft-contracts"
+scope = "contract"
 
 [contracts.GetgemsNftEditableItemV2.variants.editable]
 source_file = "packages/contracts/sources/nft-item-editable-v2.fc"

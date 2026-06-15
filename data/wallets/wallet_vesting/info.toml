@@ -12,6 +12,18 @@ vesting_wallet_func = "https://raw.githubusercontent.com/ton-blockchain/vesting-
 tongo_wallets_xml = "schemas/wallets.xml"
 local_contracts_catalog = "contracts.json"
 
+[[links]]
+kind = "docs"
+title = "TON vesting documentation"
+url = "https://docs.ton.org/standard/vesting"
+scope = "standard"
+
+[[links]]
+kind = "source"
+title = "Vesting wallet source"
+url = "https://github.com/ton-blockchain/vesting-contract"
+scope = "project"
+
 [contracts.WalletVesting]
 types = "types/wallet_vesting.types.tolk"
 hashes = ["b48b531abec3b714638291f7d77ed6dc9f6a2729efca20477137374d4ae8b590"]

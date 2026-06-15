@@ -2,7 +2,7 @@
 contract TsTonWallet {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers tsTON Jetton wallet for transfers, burns, excess handling, DAO voting lock flows, storage, and getters."
+    description: "Tonstakers tsTON Wallet is a user's TEP-74 jetton wallet holding transferable tsTON received from staking in Tonstakers."
     storage: TsTonWalletStorage
     incomingMessages: TsTonWalletIncomingMessage
     outgoingMessages: TsTonWalletOutgoingMessage

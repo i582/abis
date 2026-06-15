@@ -19,3 +19,21 @@ hashes = [
   "6398c607b11b539775a583f7bacb80c1d22087100c4f40df5fb502d2b726aed2",
 ]
 known_addresses = ["UQBuPuy0bnowA2cukDKw__YVX04CsUpXprpzM39CgFPTmePf"]
+
+[[contracts.WalletV5r1.links]]
+kind = "docs"
+title = "TON Wallet V5 documentation"
+url = "https://docs.ton.org/blockchain-basics/standard/wallets/v5"
+scope = "contract"
+
+[[contracts.WalletV5r1.links]]
+kind = "source"
+title = "TON Wallet V5 source"
+url = "https://github.com/ton-blockchain/wallet-contract-v5"
+scope = "contract"
+
+[[contracts.WalletV5r1.links]]
+kind = "spec"
+title = "Wallet V5 TL-B types"
+url = "https://github.com/ton-blockchain/wallet-contract-v5/blob/main/types.tlb"
+scope = "contract"

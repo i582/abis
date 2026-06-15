@@ -2,7 +2,7 @@
 contract Jetton2Master {
     author: "TON Core"
     version: "2.0"
-    description: "Curated interface for ton-blockchain/jetton-contract jetton-2.0 minter"
+    description: "Jetton v2 Master is the issuer contract for a jetton, defining its metadata, administrator, supply, and user wallet creation."
     storage: Jetton2MasterStorage
     incomingMessages: Jetton2MasterIncomingMessage
     outgoingMessages: Jetton2MasterOutgoingMessage

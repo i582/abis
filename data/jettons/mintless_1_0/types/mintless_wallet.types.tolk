@@ -2,7 +2,7 @@
 contract MintlessJettonWallet {
     author: "TON Core"
     version: "1.0"
-    description: "Curated interface for ton-blockchain/mintless-jetton-contract v1.0 wallet"
+    description: "Mintless Jetton Wallet is a user's token account for mintless jettons, holding claimed balance and handling transfers and burns."
     storage: MintlessJettonWalletStorage
     incomingMessages: MintlessJettonWalletIncomingMessage
     outgoingMessages: MintlessJettonWalletOutgoingMessage

@@ -2,7 +2,7 @@
 contract BidaskPoolFactory {
     author: "Bidask Protocol"
     version: "0.9.2-live"
-    description: "Bidask DLMM factory for deterministic regular and limit pool deployment, owner administration, and pool-address lookup"
+    description: "Bidask DLMM Pool Factory deploys deterministic liquidity pools and lets apps discover pool addresses for token pairs."
     storage: BidaskPoolFactoryStorage
     incomingMessages: BidaskPoolFactoryIncomingMessage
     outgoingMessages: BidaskPoolFactoryOutgoingMessage

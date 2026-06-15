@@ -2,7 +2,7 @@
 contract TonstakersPool {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers Pool for liquid-staking deposits, tsTON withdrawals, validator-controller loans, governance, storage, and getters."
+    description: "Tonstakers Pool is the liquid staking pool where users deposit TON and receive tsTON while the protocol stakes funds with validators."
     storage: TonstakersPoolStorage
     incomingMessages: TonstakersPoolIncomingMessage
     outgoingMessages: TonstakersPoolOutgoingMessage

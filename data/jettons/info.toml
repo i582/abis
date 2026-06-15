@@ -26,15 +26,45 @@ local_generated_abis = "gen_abis/jetton_*.json"
 contracts_catalog = "contracts.json"
 tep_526 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-ui-jettons.md"
 
+[[links]]
+kind = "docs"
+title = "TON Jetton comparison"
+url = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/comparison"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-74 Jetton standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+scope = "standard"
+
+[[links]]
+kind = "spec"
+title = "TEP-89 Jetton wallet discovery"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
+scope = "standard"
+
 [contracts.JettonV1Master]
 types = "jetton_1/types/jetton_v1_master.types.tolk"
 hashes = ["f95ba0330b38cdf3459b1e811e5fc6fa6cfee566d7b764455c0468140365a737"]
 known_addresses = ["EQALtan2kEPuvdpa0ulG65UyQr2PYD_nldkGmM7sa_xgoCwr"]
 
+[[contracts.JettonV1Master.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
+
 [contracts.JettonV100Master]
 types = "jetton_1/types/jetton_v1_00_master.types.tolk"
 hashes = ["e0b78e8e9112a385aeb509c98324333a4f9e5cebfacc5042b95c72373c4d7d39"]
 known_addresses = []
+
+[[contracts.JettonV100Master.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
 
 [contracts.JettonV1Wallet]
 types = "jetton_1/types/jetton_v1_wallet.types.tolk"
@@ -48,6 +78,12 @@ hashes = [
 ]
 known_addresses = ["EQA_wAw2-rhLg-kCypeJW8dcrPKWcHZ9VccrZd_6RPjqYpfR"]
 
+[[contracts.JettonV1Wallet.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
+
 [contracts.DiscoverableJettonMaster]
 types = "discoverable_jetton/types/discoverable_jetton_master.types.tolk"
 hashes = [
@@ -56,6 +92,18 @@ hashes = [
   "0571976c63ec1b7550230a2609dbedb36e1b64ef8d022a16b34ea57063185b2f",
 ]
 known_addresses = ["EQDOxsDBUkJYfX2musuy4yG-7o6VSMIMdqEsktTjI3HX3vUb"]
+
+[[contracts.DiscoverableJettonMaster.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
+
+[[contracts.DiscoverableJettonMaster.links]]
+kind = "source"
+title = "TON minter contract source"
+url = "https://github.com/ton-blockchain/minter-contract"
+scope = "contract"
 
 [contracts.DiscoverableJettonWallet]
 types = "discoverable_jetton/types/discoverable_jetton_wallet.types.tolk"
@@ -68,6 +116,18 @@ hashes = [
 ]
 known_addresses = ["EQDt0qeoHwip8CtuUeNsaKjK-g0rwL7zUunKAnv0NCTZDSs3"]
 
+[[contracts.DiscoverableJettonWallet.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
+
+[[contracts.DiscoverableJettonWallet.links]]
+kind = "source"
+title = "TON minter contract source"
+url = "https://github.com/ton-blockchain/minter-contract"
+scope = "contract"
+
 [contracts.JettonDiscovery]
 types = "discoverable_jetton/types/jetton_discovery.types.tolk"
 hashes = [
@@ -76,10 +136,22 @@ hashes = [
 ]
 known_addresses = []
 
+[[contracts.JettonDiscovery.links]]
+kind = "source"
+title = "TON token contract source"
+url = "https://github.com/ton-blockchain/token-contract"
+scope = "contract"
+
 [contracts.StablecoinMaster]
 types = "stablecoin_1_04/types/stablecoin_master.types.tolk"
 hashes = ["18d5b6e780ff0bb451254c2c760d09d6e485638cd1407abb97078752c3c1c9ee"]
 known_addresses = ["EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"]
+
+[[contracts.StablecoinMaster.links]]
+kind = "source"
+title = "TON stablecoin source"
+url = "https://github.com/ton-blockchain/stablecoin-contract"
+scope = "contract"
 
 [contracts.StablecoinWallet]
 types = "stablecoin_1_04/types/stablecoin_wallet.types.tolk"
@@ -89,6 +161,12 @@ hashes = [
 ]
 known_addresses = ["EQAmJs8wtwK93thF78iD76RQKf9Z3v2sxM57iwpZZtdQAiVM"]
 
+[[contracts.StablecoinWallet.links]]
+kind = "source"
+title = "TON stablecoin source"
+url = "https://github.com/ton-blockchain/stablecoin-contract"
+scope = "contract"
+
 [contracts.JettonNotcoinMaster]
 types = "jetton_1_2_notcoin/types/jetton_notcoin_master.types.tolk"
 hashes = [
@@ -96,6 +174,12 @@ hashes = [
   "55fedf497f79e4985ddb1c0dca69a4b89422152b2f6007f25321f4d2c798b617",
 ]
 known_addresses = ["EQAvlWFDxGF2lXm67y4yzC17wYKD9A0guwPkMs1gOsM__NOT"]
+
+[[contracts.JettonNotcoinMaster.links]]
+kind = "source"
+title = "Notcoin contract source"
+url = "https://github.com/OpenBuilders/notcoin-contract"
+scope = "contract"
 
 [contracts.JettonNotcoinWallet]
 types = "jetton_1_2_notcoin/types/jetton_notcoin_wallet.types.tolk"
@@ -106,6 +190,12 @@ hashes = [
 ]
 known_addresses = ["EQAtRMiPzUFf6--gle-_Z2WGl0XH8To-r5hHk_B8JPCqTjcD"]
 
+[[contracts.JettonNotcoinWallet.links]]
+kind = "source"
+title = "Notcoin contract source"
+url = "https://github.com/OpenBuilders/notcoin-contract"
+scope = "contract"
+
 [contracts.Jetton2Master]
 types = "jetton_2_0/types/jetton_2_master.types.tolk"
 hashes = [
@@ -113,6 +203,12 @@ hashes = [
   "6bf8f48ca97d3fd9c8e553344efe7af030c322459e2ee2197a052162f1961bfb",
 ]
 known_addresses = []
+
+[[contracts.Jetton2Master.links]]
+kind = "source"
+title = "TON Jetton 2.0 source"
+url = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
+scope = "contract"
 
 [contracts.Jetton2Wallet]
 types = "jetton_2_0/types/jetton_2_wallet.types.tolk"
@@ -123,10 +219,22 @@ hashes = [
 ]
 known_addresses = []
 
+[[contracts.Jetton2Wallet.links]]
+kind = "source"
+title = "TON Jetton 2.0 source"
+url = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
+scope = "contract"
+
 [contracts.MintlessJettonMaster]
 types = "mintless_1_0/types/mintless_master.types.tolk"
 hashes = ["84d0ae717efd23eecceb3a565e25fc5fb2e066f03bcf3672a7dd69aefa389db2"]
 known_addresses = ["EQAJ8uWd7EBqsmpSWaRdf_I-8R8-XHwh3gsNKhy-UrdrPcUo"]
+
+[[contracts.MintlessJettonMaster.links]]
+kind = "source"
+title = "TON mintless jetton source"
+url = "https://github.com/ton-blockchain/mintless-jetton-contract"
+scope = "contract"
 
 [contracts.MintlessJettonWallet]
 types = "mintless_1_0/types/mintless_wallet.types.tolk"
@@ -136,6 +244,12 @@ hashes = [
 ]
 known_addresses = ["EQD1MISQQCRISJVAyLVdwEo8WiFAxSX173eUHTFPz2FdfJ42"]
 
+[[contracts.MintlessJettonWallet.links]]
+kind = "source"
+title = "TON mintless jetton source"
+url = "https://github.com/ton-blockchain/mintless-jetton-contract"
+scope = "contract"
+
 [contracts.ScaledUiJettonMaster]
 display_name = "Scaled UI Jetton Master Interface"
 types = "scaled_ui/types/scaled_ui_jetton_master.types.tolk"
@@ -144,3 +258,9 @@ known_addresses = [
   "EQAlL7fOykivkEefblcB3bkqn4HMwP8jQNDNVzo9-RkKZNJx",
   "EQCpSKh0bO8zr5M6Qnk5lVUaUKwEsSsjE-X29PxYhhnEj48I",
 ]
+
+[[contracts.ScaledUiJettonMaster.links]]
+kind = "spec"
+title = "TEP-526 Scaled UI Jettons"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-ui-jettons.md"
+scope = "standard"

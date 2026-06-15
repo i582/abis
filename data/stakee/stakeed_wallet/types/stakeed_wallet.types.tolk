@@ -2,7 +2,7 @@
 contract StakeedWallet {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee STAKEED Jetton wallet for transfers, burns, excess handling, DAO voting lock flows, storage, and getters."
+    description: "Stakee STAKEED Wallet is a user's TEP-74 jetton wallet holding transferable STAKEED received from staking in Stakee."
     storage: StakeedWalletStorage
     incomingMessages: StakeedWalletIncomingMessage
     outgoingMessages: StakeedWalletOutgoingMessage

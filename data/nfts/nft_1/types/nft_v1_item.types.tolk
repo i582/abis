@@ -2,7 +2,7 @@
 contract NftV1Item {
     author: "TON Core"
     version: "1"
-    description: "Curated TEP-62 NFT v1 item interface for standard runtime storage"
+    description: "TON NFT v1 Item is the contract for one TEP-62 collectible, holding its owner and content within a parent collection."
     storage: NftV1ItemStorage
     storageAtDeployment: NftV1ItemDeploymentStorage
     incomingMessages: NftV1ItemIncomingMessage

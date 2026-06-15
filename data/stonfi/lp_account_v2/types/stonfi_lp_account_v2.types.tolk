@@ -2,7 +2,7 @@
 contract StonfiLpAccountV2 {
     author: "STON.fi"
     version: "2.0"
-    description: "Curated STON.fi LP Account v2 interface aligned with docs.ston.fi terminology for get_lp_account_data, on-chain getter query/response, liquidity/refund/reset commands, and LPAccount-to-Pool callbacks; source-proven wire layout is preserved"
+    description: "STON.fi v2 LP Account is a temporary per-user helper that stages liquidity deposits for a v2 pool and refunds unfinished deposits."
     storage: StonfiLpAccountV2Storage
     incomingMessages: StonfiLpAccountV2IncomingMessage
     outgoingMessages: StonfiLpAccountV2OutgoingMessage

@@ -2,7 +2,7 @@
 contract GetgemsNftAuctionV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems NFT auction V2 interface"
+    description: "Getgems NFT Auction V2 is a marketplace escrow for selling one NFT by timed TON bids and settling the winner after the auction."
     storage: GetgemsNftAuctionV2Storage
     incomingMessages: GetgemsNftAuctionV2IncomingMessage
     incomingExternal: GetgemsNftAuctionV2IncomingExternalMessage

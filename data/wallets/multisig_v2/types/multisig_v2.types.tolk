@@ -2,7 +2,7 @@
 contract MultisigV2 {
     author: "TON Core"
     version: "2.0"
-    description: "Curated TON Multisig V2 wallet interface"
+    description: "TON Multisig V2 is a shared TON wallet where multiple signers approve and execute transactions for one account."
     storage: MultisigV2Storage
     incomingMessages: MultisigV2IncomingMessage
     outgoingMessages: MultisigV2OutgoingMessage

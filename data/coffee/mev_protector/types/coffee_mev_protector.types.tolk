@@ -2,7 +2,7 @@
 contract CoffeeMevProtector {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee MEV Protector ABI for hold/failure payloads, upstream DEX callbacks, admin operations, public key getter, and processed-query lookup."
+    description: "Coffee MEV Protector holds swap intents and releases or fails them to reduce harmful execution around Coffee trades."
     storage: CoffeeMevProtectorStorage
     incomingMessages: CoffeeMevProtectorIncomingMessage
     outgoingMessages: CoffeeMevProtectorOutgoingMessage

@@ -2,7 +2,7 @@
 contract StablecoinMaster {
     author: "TON Core"
     version: "1.04"
-    description: "Curated interface for ton-blockchain/stablecoin-contract v1.04 minter"
+    description: "Stablecoin Master is a governed jetton issuer used by stablecoin projects to mint, burn, and manage regulated token supply."
     storage: StablecoinMasterStorage
     incomingMessages: StablecoinMasterIncomingMessage
     outgoingMessages: StablecoinMasterOutgoingMessage

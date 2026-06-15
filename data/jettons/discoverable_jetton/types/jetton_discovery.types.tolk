@@ -2,7 +2,7 @@
 contract JettonDiscovery {
     author: "TON Core"
     version: "1.07"
-    description: "Curated interface for token-contract v1.04+ jetton-discovery helper"
+    description: "Jetton Discovery is a helper contract that lets apps locate jetton wallets for token masters that support discovery."
     storage: JettonDiscoveryStorage
     incomingMessages: JettonDiscoveryIncomingMessage
     outgoingMessages: JettonDiscoveryOutgoingMessage

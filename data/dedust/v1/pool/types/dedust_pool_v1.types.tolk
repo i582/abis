@@ -2,7 +2,7 @@
 contract DedustPoolV1 {
     author: "DeDust"
     version: "1.0"
-    description: "DeDust Pool v1 ABI for swaps, liquidity deposit callbacks, LP Jetton getters, protocol-fee withdrawal, public pool getters, and exit codes."
+    description: "DeDust Pool V1 is a legacy liquidity pool where users swap an asset pair and liquidity providers earn fees from early DeDust markets."
     storage: DedustPoolV1Storage
     incomingMessages: DedustPoolV1IncomingMessage
     outgoingMessages: DedustPoolV1OutgoingMessage

@@ -2,7 +2,7 @@
 contract StorageContract {
     author: "TON Core"
     version: "1.0"
-    description: "Official TON Storage per-file storage agreement contract interface"
+    description: "TON Storage Deal Contract records the terms of one decentralized file deal between a user and a provider node."
     storage: StorageContractStorage
     incomingMessages: StorageContractIncomingMessage
     outgoingMessages: StorageContractOutgoingMessage

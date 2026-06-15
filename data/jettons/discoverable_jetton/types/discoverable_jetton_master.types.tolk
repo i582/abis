@@ -2,7 +2,7 @@
 contract DiscoverableJettonMaster {
     author: "TON Core"
     version: "1.05M"
-    description: "Curated interface for discoverable Jetton minters from token-contract v1.04+ and minter-contract 1.04M+"
+    description: "Discoverable Jetton Master is a TEP-74 token issuer that supports wallet discovery so apps can find a user's token wallet."
     storage: DiscoverableJettonMasterStorage
     incomingMessages: DiscoverableJettonMasterIncomingMessage
     outgoingMessages: DiscoverableJettonMasterOutgoingMessage

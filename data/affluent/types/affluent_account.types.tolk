@@ -1,7 +1,7 @@
 contract AffluentAccount {
     author: "Affluent"
     version: "1.0"
-    description: "Curated Affluent account-like contract interface with get_account_data"
+    description: "Affluent Account is a user's lending account that tracks collateral, debt, and market positions across Affluent pools."
     storage: AffluentAccountStorage
 }
 

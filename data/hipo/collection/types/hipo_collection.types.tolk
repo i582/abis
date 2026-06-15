@@ -2,7 +2,7 @@
 contract HipoCollection {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Curated interface for the Hipo Finance bill collection contract"
+    description: "Hipo Bill Collection groups non-transferable withdrawal bill NFTs created for delayed hTON unstaking rounds."
     storage: HipoCollectionStorage
     incomingMessages: HipoCollectionIncomingMessage
     outgoingMessages: HipoCollectionOutgoingMessage

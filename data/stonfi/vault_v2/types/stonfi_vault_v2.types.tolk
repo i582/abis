@@ -2,7 +2,7 @@
 contract StonfiVaultV2 {
     author: "STON.fi"
     version: "2.0"
-    description: "Curated interface for the STON.fi DEX v2 Vault that accumulates referral fees and withdraws collected tokens through the Router"
+    description: "STON.fi v2 Vault is a referral fee vault that accumulates swap fees for a referrer and token, then lets the referrer withdraw them."
     storage: StonfiVaultV2Storage
     incomingMessages: StonfiVaultV2IncomingMessage
     outgoingMessages: StonfiVaultV2OutgoingMessage

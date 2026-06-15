@@ -2,7 +2,7 @@
 contract ToncoAccount {
     author: "Algebra / TONCO"
     version: "1.0"
-    description: "Curated TONCO AccountV3 ABI for pending concentrated-liquidity mint balances, user refund/reset commands, and Pool mint callbacks"
+    description: "TONCO Account V3 is a per-user helper that stages token deposits before minting a concentrated-liquidity position or refunding them."
     storage: ToncoAccountStorage
     incomingMessages: ToncoAccountIncomingMessage
     outgoingMessages: ToncoAccountOutgoingMessage

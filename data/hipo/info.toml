@@ -16,6 +16,30 @@ local_generated_types = "data/hipo/research/source/gen_hipo_finance.types.tolk"
 local_generated_abis = "data/hipo/research/source/gen_abis_hipo_finance.json"
 local_toncenter_snapshot = "data/hipo/research/source/toncenter"
 
+[[links]]
+kind = "website"
+title = "Hipo website"
+url = "https://hipo.finance"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Hipo docs"
+url = "https://docs.hipo.finance"
+scope = "project"
+
+[[links]]
+kind = "source"
+title = "Hipo contract source"
+url = "https://github.com/HipoFinance/contract"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Hipo integration guide"
+url = "https://github.com/HipoFinance/contract/blob/main/Integration.md"
+scope = "project"
+
 [contracts.HipoTreasury]
 display_name = "Hipo Finance Treasury"
 types = "treasury/types/hipo_treasury.types.tolk"

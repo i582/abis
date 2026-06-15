@@ -2,7 +2,7 @@
 contract DedustFactoryV2 {
     author: "DeDust"
     version: "2.0"
-    description: "DeDust Protocol v2 Factory ABI for deterministic Vault, Pool, Operator, and Liquidity Deposit derivation, verified factory administration messages, and exit codes."
+    description: "DeDust Factory V2 is the registry and deployment hub that creates and discovers DeDust v2 vaults, pools, operators, and deposit helpers."
     storage: DedustFactoryV2Storage
     incomingMessages: DedustFactoryV2IncomingMessage
     outgoingMessages: DedustFactoryV2OutgoingMessage

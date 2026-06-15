@@ -2,7 +2,7 @@
 contract CoffeeStakingItem {
     author: "swap.coffee"
     version: "0.1"
-    description: "Coffee Swap staking item ABI for NFT position state, unlock/extend callbacks, and standard NFT item getter."
+    description: "Coffee Swap Staking Item is an NFT position that represents one user's locked stake, unlock time, and reward participation."
     storage: CoffeeStakingItemStorage
     incomingMessages: CoffeeStakingItemIncomingMessage
     outgoingMessages: CoffeeStakingItemOutgoingMessage

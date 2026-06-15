@@ -2,7 +2,7 @@
 contract GetgemsNftItemV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Curated Getgems NFT item v2 interface with mint-time ownership_assigned support"
+    description: "Getgems NFT Item V2 is a collectible item contract used by Getgems collections for ownership, content, and transfer behavior."
     storage: GetgemsNftItemV2Storage
     storageAtDeployment: GetgemsNftItemV2DeploymentStorage
     incomingMessages: GetgemsNftItemV2IncomingMessage

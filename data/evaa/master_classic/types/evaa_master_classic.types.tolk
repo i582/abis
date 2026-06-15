@@ -2,7 +2,7 @@
 contract EvaaMasterClassic {
     author: "EVAA"
     version: "3"
-    description: "EVAA Master Classic ABI with master storage, public getters, admin messages, user-flow messages, oracle callbacks, and jetton notifications."
+    description: "EVAA Master Classic is the lending market controller for EVAA pools that price assets with the classic oracle setup."
     storage: EvaaMasterClassicStorage
     incomingMessages: EvaaMasterClassicIncomingMessage
     outgoingMessages: EvaaMasterClassicOutgoingMessage

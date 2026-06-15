@@ -2,7 +2,7 @@
 contract WalletHighloadV2 {
     author: "TON Core"
     version: "2.0"
-    description: "Curated Highload Wallet V2 interface"
+    description: "Highload Wallet V2 is a TON service wallet for batched sends; compared with V1, it tracks requests by timestamped ids."
     storage: WalletHighloadV2Storage
     incomingExternal: WalletHighloadV2IncomingExternalMessage
     thrownErrors: Errors

@@ -2,7 +2,7 @@
 contract HipoWallet {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Finance hTON wallet ABI for TEP-74 transfers, Hipo staking callbacks, wallet migration, withdrawal notifications, storage, and getters."
+    description: "Hipo hTON Wallet is a user's jetton wallet holding transferable hTON and connecting token transfers to Hipo staking and unstaking."
     storage: HipoWalletStorage
     incomingMessages: HipoWalletIncomingMessage
     outgoingMessages: HipoWalletOutgoingMessage

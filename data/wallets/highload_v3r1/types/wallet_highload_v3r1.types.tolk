@@ -2,7 +2,7 @@
 contract WalletHighloadV3r1 {
     author: "TON Core"
     version: "3.1"
-    description: "Curated Highload Wallet V3 R1 interface"
+    description: "Highload Wallet V3 R1 is a TON service wallet for high-volume sends; compared with V2, it uses bitmap replay windows."
     storage: WalletHighloadV3r1Storage
     incomingMessages: WalletHighloadV3r1IncomingMessage
     incomingExternal: WalletHighloadV3r1IncomingExternalMessage

@@ -36,6 +36,42 @@ local_vault_native_v1_decompile = "data/dedust/research/func/dedust_vault_native
 local_vault_jetton_v1_decompile = "data/dedust/research/func/dedust_vault_jetton_v1_bf4cfd99.fc"
 local_liquidity_deposit_v1_decompile = "data/dedust/research/func/dedust_liquidity_deposit_v1_80edc8d7.fc"
 
+[[links]]
+kind = "docs"
+title = "DeDust documentation"
+url = "https://docs.dedust.io"
+scope = "project"
+
+[[links]]
+kind = "spec"
+title = "DeDust TL-B schemes"
+url = "https://docs.dedust.io/reference/tlb-schemes"
+scope = "project"
+
+[[links]]
+kind = "sdk"
+title = "DeDust Protocol SDK"
+url = "https://github.com/dedust-io/sdk"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "DeDust CPMM v2 docs"
+url = "https://hub-beta.dedust.io/docs/cpmm-v2/overview"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "DeDust Uranus docs"
+url = "https://hub-beta.dedust.io/docs/uranus/overview"
+scope = "project"
+
+[[links]]
+kind = "api"
+title = "DeDust pools API"
+url = "https://api.dedust.io/v2/pools"
+scope = "project"
+
 [contracts.DedustFactoryV1]
 display_name = "DeDust Factory V1"
 types = "v1/factory/types/dedust_factory_v1.types.tolk"
@@ -76,6 +112,12 @@ types = "factory/types/dedust_factory_v2.types.tolk"
 hashes = ["e64d0059486e3cbe14bd70572295d06d79e847cb4017eac1aa65d82009eaa20c"]
 known_addresses = ["EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"]
 
+[[contracts.DedustFactoryV2.links]]
+kind = "docs"
+title = "DeDust Factory reference"
+url = "https://docs.dedust.io/reference/factory"
+scope = "contract"
+
 [contracts.DedustFactoryV2.instances.mainnet]
 address = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
 network = "mainnet"
@@ -115,6 +157,12 @@ known_addresses = [
   "EQABt8YegyD7VJnZdFVwom8wwqp0E0X8tN2Y6NhrDmbrnSXP",
 ]
 
+[[contracts.DedustPoolV2.links]]
+kind = "docs"
+title = "DeDust Pool reference"
+url = "https://docs.dedust.io/reference/pool"
+scope = "contract"
+
 [contracts.DedustPoolV2.instances.volatile_ton_usdt]
 address = "EQA-X_yo3fzzbDbJ_0bzFWKqtRuZFIRa1sJsveZJ1YpViO3r"
 pool_type = "volatile"
@@ -147,6 +195,18 @@ types = "cpmm_v2/types/dedust_v2_cpmm.types.tolk"
 hashes = ["5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"]
 known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
 
+[[contracts.DedustV2Cpmm.links]]
+kind = "docs"
+title = "DeDust CPMM v2 overview"
+url = "https://hub-beta.dedust.io/docs/cpmm-v2/overview"
+scope = "contract"
+
+[[contracts.DedustV2Cpmm.links]]
+kind = "docs"
+title = "DeDust CPMM pool reference"
+url = "https://hub-beta.dedust.io/docs/cpmm-v2/reference/pool"
+scope = "contract"
+
 [contracts.DedustV2Cpmm.instances.lfg_ton]
 address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
 asset0 = "TON"
@@ -159,6 +219,12 @@ types = "uranus/factory/types/dedust_uranus_factory_v3.types.tolk"
 hashes = ["b4577491b68c6e37f4b7fbe8cb135e19467fee7653cde48ce28940e4d0ee311a"]
 known_addresses = ["EQA6ivhIOBQJvqO1SY3IvutmluM1d817gZDeEjiaVNBLePd3"]
 
+[[contracts.DedustUranusFactoryV3.links]]
+kind = "docs"
+title = "Uranus Factory reference"
+url = "https://hub-beta.dedust.io/docs/uranus/reference/meme-factory"
+scope = "contract"
+
 [contracts.DedustUranusFactoryV3.instances.mainnet]
 address = "EQA6ivhIOBQJvqO1SY3IvutmluM1d817gZDeEjiaVNBLePd3"
 network = "mainnet"
@@ -168,6 +234,12 @@ display_name = "DeDust Uranus Meme V3"
 types = "uranus/meme/types/dedust_uranus_meme_v3.types.tolk"
 hashes = ["1e4f8fcaabefdbbb9b397372d9f021511c272eda2b492ca2d33b817bc3251afe"]
 known_addresses = ["EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"]
+
+[[contracts.DedustUranusMemeV3.links]]
+kind = "docs"
+title = "Uranus Meme reference"
+url = "https://hub-beta.dedust.io/docs/uranus/reference/meme"
+scope = "contract"
 
 [contracts.DedustUranusMemeV3.instances.rastagram]
 address = "EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"
@@ -179,6 +251,12 @@ display_name = "DeDust Uranus Meme Wallet V3"
 types = "uranus/meme_wallet/types/dedust_uranus_meme_wallet_v3.types.tolk"
 hashes = ["e2da88070dcf9d1b2ed4ab9079b8c473625bf320f38423ed86ee03ef5c326858"]
 known_addresses = ["EQAIQw-od7Nq8ZJrn40VQHzXOFm3N7XteVgF4ITp-GiiBjzG"]
+
+[[contracts.DedustUranusMemeWalletV3.links]]
+kind = "docs"
+title = "Uranus Meme Wallet reference"
+url = "https://hub-beta.dedust.io/docs/uranus/reference/meme-wallet"
+scope = "contract"
 
 [contracts.DedustUranusMemeWalletV3.instances.rastagram_owner_sample]
 address = "EQAIQw-od7Nq8ZJrn40VQHzXOFm3N7XteVgF4ITp-GiiBjzG"

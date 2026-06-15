@@ -1,7 +1,7 @@
 contract AffluentLendingVault {
     author: "Affluent"
     version: "1.0"
-    description: "Curated Affluent lending vault interface"
+    description: "Affluent Lending Vault is a tokenized vault where users deposit an asset and receive vault shares for the lending position."
     storage: AffluentLendingVaultStorage
     outgoingMessages: AffluentLendingVaultOutgoingMessage
     forceAbiExport: AffluentLendingVaultExtendedOutgoingMessage | AffluentVaultJettonPayload

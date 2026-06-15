@@ -2,7 +2,7 @@
 contract GetgemsNftSaleLegacy {
     author: "Getgems"
     version: "1.0-legacy"
-    description: "Curated Getgems legacy NFT sale interface with three-field fee cell"
+    description: "Getgems legacy NFT sale is an older marketplace escrow that sells one NFT for TON and distributes the sale proceeds."
     storage: GetgemsNftSaleLegacyStorage
     incomingMessages: GetgemsNftSaleLegacyIncomingMessage
     outgoingMessages: GetgemsNftSaleLegacyOutgoingMessage

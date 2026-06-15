@@ -2,7 +2,7 @@
 contract TonstakersPayoutCollection {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers payout NFT collection for storage, mint/init flows, distribution callbacks, getters, and exit codes."
+    description: "Tonstakers Payout NFT Collection groups delayed withdrawal payout NFTs created when tsTON withdrawals wait for a validation round."
     storage: TonstakersPayoutCollectionStorage
     storageAtDeployment: TonstakersPayoutCollectionDeploymentStorage
     incomingMessages: TonstakersPayoutCollectionIncomingMessage

@@ -2,7 +2,7 @@
 contract StonfiLpWalletV1 {
     author: "STON.fi"
     version: "1.0"
-    description: "Curated interface for the STON.fi DEX core v1 LP Jetton wallet: standard Jetton wallet messages plus the LP burn callback"
+    description: "STON.fi v1 LP Wallet is a user's LP token account, representing their share of a v1 pool and enabling liquidity withdrawal."
     storage: StonfiLpWalletV1Storage
     incomingMessages: StonfiLpWalletV1IncomingMessage
     outgoingMessages: StonfiLpWalletV1OutgoingMessage
