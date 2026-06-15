@@ -91,7 +91,10 @@ known_addresses = ["EQAmJs8wtwK93thF78iD76RQKf9Z3v2sxM57iwpZZtdQAiVM"]
 
 [contracts.JettonNotcoinMaster]
 types = "jetton_1_2_notcoin/types/jetton_notcoin_master.types.tolk"
-hashes = ["f83d05490af7c9cc58019488c7b253c9492d49c25d12d09383e52e81537e343a"]
+hashes = [
+  "f83d05490af7c9cc58019488c7b253c9492d49c25d12d09383e52e81537e343a",
+  "55fedf497f79e4985ddb1c0dca69a4b89422152b2f6007f25321f4d2c798b617",
+]
 known_addresses = ["EQAvlWFDxGF2lXm67y4yzC17wYKD9A0guwPkMs1gOsM__NOT"]
 
 [contracts.JettonNotcoinWallet]
@@ -99,12 +102,16 @@ types = "jetton_1_2_notcoin/types/jetton_notcoin_wallet.types.tolk"
 hashes = [
   "ba2918c8947e9b25af9ac1b883357754173e5812f807a3d6e642a14709595395",
   "8d28ea421b77e805fea52acf335296499f03aec8e9fd21ddb5f2564aa65c48de",
+  "e754ecd3b4cc8ff9f598ffa178fc0f87c96e8ebaef712183f041449bb74d007a",
 ]
 known_addresses = ["EQAtRMiPzUFf6--gle-_Z2WGl0XH8To-r5hHk_B8JPCqTjcD"]
 
 [contracts.Jetton2Master]
 types = "jetton_2_0/types/jetton_2_master.types.tolk"
-hashes = ["6eb01cd370f25445b7c9b598928e444009c31737334835a956b90bdd92228895"]
+hashes = [
+  "6eb01cd370f25445b7c9b598928e444009c31737334835a956b90bdd92228895",
+  "6bf8f48ca97d3fd9c8e553344efe7af030c322459e2ee2197a052162f1961bfb",
+]
 known_addresses = []
 
 [contracts.Jetton2Wallet]
@@ -112,6 +119,7 @@ types = "jetton_2_0/types/jetton_2_wallet.types.tolk"
 hashes = [
   "346250c205f56acfb6afa6fe7b76550805d256c6d8e47dd4f94ff672b47d19d3",
   "7602922348e199739f56d7a063c37e30f1cf1450ab86efb06ed048c0ca74e8a1",
+  "7bfa53bce90ce26cd368ec2989eba2bd15d286104742f0e04659f485a03012ba",
 ]
 known_addresses = []
 

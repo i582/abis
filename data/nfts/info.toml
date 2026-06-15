@@ -25,6 +25,7 @@ types = "nft_1/types/nft_v1_collection.types.tolk"
 hashes = [
   "8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780",
   "64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca",
+  "69d824a8486315bc4d29554213038ef8ba14891cf10331ba9ce9d0b1128f9e4c",
 ]
 known_addresses = [
   "EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw",
@@ -48,6 +49,7 @@ hashes = [
   "28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071",
   "ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c",
   "4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42",
+  "a984d24a5d3942a48ae49c96c467043c2f00ce84c61447b8b83012b52f6fb38e",
 ]
 known_addresses = [
   "EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V",
@@ -102,6 +104,7 @@ types = "nft_2_0/types/nft_v2_collection.types.tolk"
 hashes = [
   "8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780",
   "64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca",
+  "69d824a8486315bc4d29554213038ef8ba14891cf10331ba9ce9d0b1128f9e4c",
 ]
 known_addresses = [
   "EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw",
@@ -126,6 +129,7 @@ hashes = [
   "28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071",
   "ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c",
   "4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42",
+  "a984d24a5d3942a48ae49c96c467043c2f00ce84c61447b8b83012b52f6fb38e",
 ]
 known_addresses = [
   "EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V",

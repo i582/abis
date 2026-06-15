@@ -21,13 +21,19 @@ local_anton_interfaces = "source/anton.json"
 [contracts.DnsRootResolver]
 display_name = "TON DNS Root Resolver"
 types = "types/dns_root_resolver.types.tolk"
-hashes = ["9ffe14989a82dd5e0ec22a6f2a14f784a72c347d7552c6f220d9c3e13b7e2778"]
+hashes = [
+  "9ffe14989a82dd5e0ec22a6f2a14f784a72c347d7552c6f220d9c3e13b7e2778",
+  "9e93dd938efa850ec2f65c2cdcae04083830d88b34ae106bd0e04a4c7162e939",
+]
 known_addresses = ["Ef_lZ1T4NCb2mwkme9h2rJfESCE0W34ma9lWp7-_uY3zXDvq"]
 
 [contracts.DnsCollection]
 display_name = "TON DNS .ton Collection Resolver"
 types = "types/dns_collection.types.tolk"
-hashes = ["eec5bbc25065628799468860d8fd48031585f649c32fa382c888ba48831625a3"]
+hashes = [
+  "eec5bbc25065628799468860d8fd48031585f649c32fa382c888ba48831625a3",
+  "95d47906b295d536ab03eec7715c9849dc7e1126ebc84b01798ce4c5d5c9145f",
+]
 known_addresses = ["EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz"]
 
 [contracts.DnsCollection.instances.ton]
@@ -39,7 +45,10 @@ code_fixture = "testdata/DnsCollection.boc"
 [contracts.DnsDomainItem]
 display_name = "TON DNS Domain Item"
 types = "types/dns_domain_item.types.tolk"
-hashes = ["8b5ffc9ebfd39064d8d5f56e4659c826bb7593923f5ca48728be4d60af6f51f9"]
+hashes = [
+  "8b5ffc9ebfd39064d8d5f56e4659c826bb7593923f5ca48728be4d60af6f51f9",
+  "95b4b47c8659fcc0ee4ef9fd059f1f06d294ab67536e3d86ae6c1515013a9636",
+]
 known_addresses = [
   "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e",
   "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1",

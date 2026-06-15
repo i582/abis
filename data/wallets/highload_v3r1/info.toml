@@ -15,6 +15,9 @@ toncenter_schemes = "source/toncenter-schemes.tlb"
 
 [contracts.WalletHighloadV3r1]
 types = "types/wallet_highload_v3r1.types.tolk"
-hashes = ["11acad7955844090f283bf238bc1449871f783e7cc0979408d3f4859483e8525"]
+hashes = [
+  "11acad7955844090f283bf238bc1449871f783e7cc0979408d3f4859483e8525",
+  "b5fc9ca76c66aa99893ff5e1b70ebef0d6296197b8dbddee5e519b95445a39c3",
+]
 code_hash_base64 = "EayteVWEQJDyg78ji8FEmHH3g+fMCXlAjT9IWUg+hSU="
 known_addresses = ["EQDTku4sK8aSw3x8mGogsXSHgbHfZ4Ld781sMYuL1qPJGQc_"]

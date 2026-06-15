@@ -14,5 +14,8 @@ tongo_wallets_xml = "schemas/wallets.xml"
 
 [contracts.WalletV5r1]
 types = "types/wallet_v5r1.types.tolk"
-hashes = ["20834b7b72b112147e1b2fb457b84e74d1a30f04f737d4f62a668e9552d2b72f"]
+hashes = [
+  "20834b7b72b112147e1b2fb457b84e74d1a30f04f737d4f62a668e9552d2b72f",
+  "6398c607b11b539775a583f7bacb80c1d22087100c4f40df5fb502d2b726aed2",
+]
 known_addresses = ["UQBuPuy0bnowA2cukDKw__YVX04CsUpXprpzM39CgFPTmePf"]

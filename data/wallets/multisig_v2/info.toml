@@ -13,7 +13,10 @@ contracts_catalog = "contracts.json"
 
 [contracts.MultisigV2]
 types = "types/multisig_v2.types.tolk"
-hashes = ["d3d14da9a627f0ec3533341829762af92b9540b21bf03665fac09c2b46eabbac"]
+hashes = [
+  "d3d14da9a627f0ec3533341829762af92b9540b21bf03665fac09c2b46eabbac",
+  "329f7515947bb36f1ea704980286ffbedfecd41c0ca64c733b3a245b9b28ab49",
+]
 code_hash_base64 = "09FNqaYn8Ow1MzQYKXYq+SuVQLIb8DZl+sCcK0bqu6w="
 known_addresses = ["EQDBiZgqlvtO7yyHUU-W76fFAMq_DNa0_usZYgcpjNIfRVFI"]
 observed_method_ids = [0, 93855, 107307, 111399]
@@ -34,7 +37,10 @@ toncenter_last_transaction_hash = "1BVI4s6ezyjhE4byhN6Scc1zJ5jCW3ksXUE2xNLGxQ0="
 
 [contracts.MultisigOrderV2]
 types = "types/multisig_order_v2.types.tolk"
-hashes = ["a01e057fbd4288402b9898d78d67bd4e90254c93c5866879bc2d1d12865436bc"]
+hashes = [
+  "a01e057fbd4288402b9898d78d67bd4e90254c93c5866879bc2d1d12865436bc",
+  "618d299530b39755868741f5767fc8f7e0faa7bd310f3440575e3082b3698e4b",
+]
 code_hash_base64 = "oB4Ff71CiEArmJjXjWe9TpAlTJPFhmh5vC0dEoZUNrw="
 known_addresses = ["EQC9p_dC5dRmLnrV8fl5sRXrbWAqGoPa37ROSvjurK60dUFN", "EQDeUoVbOj1vNM-TtnZ31wu0E6CSl1j-G3RsKVz4T3VLPF35"]
 observed_method_ids = []
