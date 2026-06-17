@@ -1,7 +1,6 @@
 import "@acton/fmt"
 import "@acton/io"
 import "@acton/testing/expect"
-import "./test_utils"
 import "../types/fragment_username_item.types"
 
 const USERNAME_COLLECTION = "0:80D78A35F955A14B679FAA887FF4CD5BFC0F43B4A4EEA2A7E6927F3701B273C2"
