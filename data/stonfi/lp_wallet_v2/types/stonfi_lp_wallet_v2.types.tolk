@@ -7,7 +7,7 @@ contract StonfiLpWalletV2 {
     incomingMessages: StonfiLpWalletV2IncomingMessage
     outgoingMessages: StonfiLpWalletV2OutgoingMessage
     forceAbiExport: StonfiLpWalletV2BouncedKnownBody
-    thrownErrors: StonfiLpWalletV2Errors
+    thrownErrors: Errors
 }
 
 /// Persistent LP Jetton wallet state stored in the root data cell.
@@ -138,7 +138,7 @@ struct GetStonfiLpWalletV2DataReply {
 }
 
 /// Source-level exit-code catalog for the STON.fi LP wallet.
-enum StonfiLpWalletV2Errors {
+enum Errors {
     /// Transfer destination owner is outside the configured base workchain.
     WrongWorkchain = 85
     /// Sender is not the stored owner for transfer or burn requests.

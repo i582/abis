@@ -7,7 +7,7 @@ contract StormPrelaunch {
     incomingMessages: StormPrelaunchIncomingMessage
     outgoingMessages: StormPrelaunchOutgoingMessage
     forceAbiExport: StormPrelaunchParticipant | StormPrelaunchUserRewardCountsReply
-    thrownErrors: StormPrelaunchErrors
+    thrownErrors: Errors
 }
 
 /// Runtime Prelaunch storage.
@@ -210,7 +210,7 @@ struct StormPrelaunchUserRewardCountsReply {
 }
 
 /// Prelaunch exit-code catalog.
-enum StormPrelaunchErrors {
+enum Errors {
     /// Sender workchain is not basechain.
     WrongWorkchain = 333
     /// Admin-only message was not sent by the stored admin address.

@@ -6,7 +6,7 @@ contract HipoLoan {
     storage: HipoLoanStorage
     incomingMessages: HipoLoanIncomingMessage
     outgoingMessages: HipoLoanOutgoingMessage
-    thrownErrors: HipoLoanErrors
+    thrownErrors: Errors
 }
 
 /// Persistent Loan state stored in the root data cell.
@@ -145,7 +145,7 @@ struct HipoLoanState {
 }
 
 /// Loan exit-code catalog proven from `constants.fc` and `loan.fc`.
-enum HipoLoanErrors {
+enum Errors {
     /// Caller is not the authorized Treasury or Elector for a privileged path.
     AccessDenied = 103
     /// Message opcode is unsupported and source is not an Elector address accepted for coin returns.

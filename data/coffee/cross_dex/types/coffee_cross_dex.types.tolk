@@ -181,7 +181,7 @@ type CoffeeCrossDexOutgoingMessage =
     | CoffeeCrossDexJettonTransfer
     | CoffeeCrossDexExcesses
 
-enum CoffeeCrossDexErrors {
+enum Errors {
     /// CrossDex resend payload is missing or malformed.
     InvalidPayloadToResend = 100
     /// DeDust payout callback does not include a nested payload.

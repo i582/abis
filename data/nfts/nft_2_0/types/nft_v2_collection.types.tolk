@@ -138,7 +138,7 @@ struct GetNftV2CollectionDataReply {
 }
 
 /// NFT 2.0 collection exit-code catalog from the reference FunC sources.
-enum NftV2CollectionErrors {
+enum CollectionErrors {
     /// Batch deploy would exceed the action-list limit.
     BatchLimitExceeded = 399
     /// Sender is not the stored admin address.

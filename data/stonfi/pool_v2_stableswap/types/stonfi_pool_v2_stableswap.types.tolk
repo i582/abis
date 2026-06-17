@@ -7,7 +7,7 @@ contract StonfiPoolV2Stableswap {
     incomingMessages: StonfiPoolV2StableswapIncomingMessage
     outgoingMessages: StonfiPoolV2StableswapOutgoingMessage
     forceAbiExport: StonfiPoolV2StableswapRouterSetParams
-    thrownErrors: StonfiPoolV2StableswapErrors
+    thrownErrors: Errors
 }
 
 /// Runtime Pool data cell: common Pool storage followed by StableSwap `amp` and a static-data ref.
@@ -528,7 +528,7 @@ struct StonfiPoolV2StableswapJettonDataReply {
 }
 
 /// StableSwap Pool exit-code catalog from common Pool and StableSwap math source.
-enum StonfiPoolV2StableswapErrors {
+enum Errors {
     /// StableSwap invariant iteration did not converge.
     NotConverge = 5103
     /// Pool has no liquidity for the requested operation.

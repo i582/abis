@@ -8,7 +8,7 @@ contract GetgemsNftAuctionV1 {
     incomingExternal: GetgemsNftAuctionV1IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV1OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV1EmptyBid | GetgemsNftAuctionV1EmergencyRelayBox
-    thrownErrors: GetgemsNftAuctionV1Errors
+    thrownErrors: Errors
 }
 
 /// Fee distribution cell referenced from the auction root storage.
@@ -224,7 +224,7 @@ struct GetgemsNftAuctionV1SaleDataReply {
 }
 
 /// Source-level exit-code catalog for Getgems NFT auction v1.
-enum GetgemsNftAuctionV1Errors {
+enum Errors {
     /// Attached value is below the first-bid minimum.
     LowBid = 1000
     /// NFT ownership callback arrived after the seller was already stored.

@@ -75,7 +75,7 @@ type GetgemsDeployerIncomingMessage =
 type GetgemsDeployerOutgoingMessage = GetgemsDeployerNftTransfer
 
 /// Source-level exit-code catalog; not exported as thrown_errors because this contract has no public getter.
-enum GetgemsDeployerErrors {
+enum Errors {
     /// Proxy command sender is not the owner stored in contract data.
     UnauthorizedProxySender = 403
     /// Ownership callback did not contain the required `do_sale` sub-op.

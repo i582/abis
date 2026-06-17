@@ -6,7 +6,7 @@ contract StormProxySender {
     storage: StormProxySenderStorage
     incomingMessages: StormProxySenderIncomingMessage
     outgoingMessages: StormProxySenderOutgoingMessage
-    thrownErrors: StormProxySenderErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage cell used by the proxy sender.
@@ -34,7 +34,7 @@ type StormProxySenderIncomingMessage = StormProxySenderSetActions
 type StormProxySenderOutgoingMessage = void
 
 /// Proxy sender exit codes.
-enum StormProxySenderErrors {
+enum Errors {
     /// Non-bounced action-list sender is neither the stored owner nor the proxy contract itself.
     UnauthorizedSender = 403
 }

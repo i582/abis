@@ -6,7 +6,7 @@ contract HipoCollection {
     storage: HipoCollectionStorage
     incomingMessages: HipoCollectionIncomingMessage
     outgoingMessages: HipoCollectionOutgoingMessage
-    thrownErrors: HipoCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Persistent collection state stored in the root data cell.
@@ -144,7 +144,7 @@ struct HipoCollectionDataReply {
 }
 
 /// Hipo Collection exit-code catalog from the source constants used by collection.fc.
-enum HipoCollectionErrors {
+enum Errors {
     /// Sender is not the stored treasury or deterministic bill sender required by the operation.
     AccessDenied = 103
     /// Incoming internal message opcode is not one of the source dispatcher branches.

@@ -6,7 +6,7 @@ contract StonfiPoolV2WeightedConstProduct {
     storage: StonfiPoolV2WeightedConstProductStorage
     incomingMessages: StonfiPoolV2WeightedConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2WeightedConstProductOutgoingMessage
-    thrownErrors: StonfiPoolV2WeightedConstProductErrors
+    thrownErrors: Errors
 }
 
 /// Persistent weighted constant product Pool state stored in the root data cell.
@@ -515,7 +515,7 @@ struct StonfiPoolV2WeightedConstProductJettonDataReply {
 }
 
 /// Source-level exit-code catalog shared by STON.fi DEX core v2 pool handlers.
-enum StonfiPoolV2WeightedConstProductErrors {
+enum Errors {
     /// Liquidity-dependent operation had no usable pool or LP-account liquidity.
     NoLiquidity = 80
     /// Computed output or supplied liquidity was zero.

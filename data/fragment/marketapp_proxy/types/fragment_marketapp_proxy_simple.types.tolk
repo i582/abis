@@ -7,7 +7,7 @@ contract FragmentMarketappProxySimple {
     incomingMessages: FragmentMarketappProxySimpleIncomingMessage
     forceAbiExport: FragmentMarketappProxySimpleSignedBuyRequest
         | FragmentMarketappProxySimpleSecondarySend
-    thrownErrors: FragmentMarketappProxySimpleErrors
+    thrownErrors: Errors
 }
 
 /// Proxy persistent data used for Ed25519 authorization and admin raw-send control.
@@ -70,7 +70,7 @@ type FragmentMarketappProxySimpleIncomingMessage =
     | FragmentMarketappProxySimpleAdminRelay
 
 /// Exit-code catalog for the proxy.
-enum FragmentMarketappProxySimpleErrors {
+enum Errors {
     /// Signature over the signed routing payload is invalid.
     InvalidSignature = 403
     /// Admin relay send mode uses a forbidden flag.

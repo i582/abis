@@ -10,7 +10,7 @@ contract GetgemsNftCollectionV2 {
         | GetgemsNftCollectionV2ItemMintInit
         | GetgemsNftCollectionV2BatchDeployItem
         | GetgemsNftCollectionV2BatchAutoIndexFlag
-    thrownErrors: GetgemsNftCollectionV2Errors
+    thrownErrors: CollectionErrors
 }
 
 /// Current collection v2 storage written by `save_data`.
@@ -183,7 +183,7 @@ struct GetgemsNftCollectionV2DataReply {
 }
 
 /// Getgems NFT collection v2 exit-code catalog from source.
-enum GetgemsNftCollectionV2Errors {
+enum CollectionErrors {
     /// Batch deploy would exceed the action-list limit.
     BatchLimitExceeded = 399
     /// Sender is neither primary owner nor secondary owner.

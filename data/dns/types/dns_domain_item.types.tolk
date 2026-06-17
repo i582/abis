@@ -8,7 +8,7 @@ contract DnsDomainItem {
     incomingMessages: DnsDomainItemIncomingMessage
     outgoingMessages: DnsDomainItemOutgoingMessage
     forceAbiExport: DnsDomainItemInit | DnsDomainRecord
-    thrownErrors: DnsDomainItemErrors
+    thrownErrors: DomainItemErrors
 }
 
 /// Deployment storage present before the DNS collection initializes the domain item.
@@ -250,7 +250,7 @@ struct DnsDomainResolveReply {
 }
 
 /// Source-level exit-code catalog from the official DNS domain item source.
-enum DnsDomainItemErrors {
+enum DomainItemErrors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Domain item auction has not started yet.

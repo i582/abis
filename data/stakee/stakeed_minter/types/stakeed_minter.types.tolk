@@ -6,7 +6,7 @@ contract StakeedMinter {
     storage: StakeedMinterStorage
     incomingMessages: StakeedMinterIncomingMessage
     outgoingMessages: StakeedMinterOutgoingMessage
-    thrownErrors: StakeedMinterErrors
+    thrownErrors: MinterErrors
 }
 
 /// Persistent minter state stored in the account data cell.
@@ -273,7 +273,7 @@ struct GetStakeedMinterJettonDataReply {
 }
 
 /// STAKEED minter exit-code catalog.
-enum StakeedMinterErrors {
+enum MinterErrors {
     /// Sender is not the stored admin for mint requests.
     UnauthorizedMintRequest = 73
     /// Burn notification did not come from the deterministic wallet for the reported owner.

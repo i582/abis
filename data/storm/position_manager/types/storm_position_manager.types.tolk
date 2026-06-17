@@ -6,7 +6,7 @@ contract StormPositionManager {
     storage: StormPositionManagerStorage
     incomingMessages: StormPositionManagerIncomingMessage
     outgoingMessages: StormPositionManagerOutgoingMessage
-    thrownErrors: StormPositionManagerErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage parsed from the PositionManager persistent data cell.
@@ -470,7 +470,7 @@ struct GetPositionManagerDataReply {
 }
 
 /// PositionManager exit codes.
-enum StormPositionManagerErrors {
+enum Errors {
     /// Position record is locked during an in-flight update.
     PositionLocked = 500
     /// Sender is not the configured VAMM.

@@ -12,7 +12,7 @@ contract TonstakersPayoutCollection {
         | TonstakersPayoutCollectionPendingJettonDistribution
         | TonstakersPayoutCollectionStartedTonDistribution
         | TonstakersPayoutCollectionStartedJettonDistribution
-    thrownErrors: TonstakersPayoutCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage shape after at least one payout NFT has been minted.
@@ -235,7 +235,7 @@ struct TonstakersPayoutCollectionIssuedBillsReply {
 }
 
 /// Payout collection exit-code catalog.
-enum TonstakersPayoutCollectionErrors {
+enum Errors {
     /// Burn notification arrived before distribution was started.
     BurnBeforeDistribution = 66
     /// Collection has not been initialized with a distribution state ref.

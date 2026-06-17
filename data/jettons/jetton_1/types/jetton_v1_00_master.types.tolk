@@ -6,7 +6,7 @@ contract JettonV100Master {
     storage: JettonV100MasterStorage
     incomingMessages: JettonV100MasterIncomingMessage
     outgoingMessages: JettonV100MasterOutgoingMessage
-    thrownErrors: JettonV100MasterErrors
+    thrownErrors: Errors
 }
 
 /// Persistent minter state stored in the root data cell.
@@ -74,7 +74,7 @@ struct GetJettonV100DataReply {
 }
 
 /// Jetton v1.00 minter exit-code catalog from the official FunC source.
-enum JettonV100MasterErrors {
+enum Errors {
     /// Sender is not the stored admin for mint requests.
     UnauthorizedAdmin = 73
     /// Burn notification sender is not the deterministic wallet for the reported owner.

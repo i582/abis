@@ -32,7 +32,7 @@ struct GetgemsNftMarketplaceV1DeployEnvelopeRefs {
 type GetgemsNftMarketplaceV1IncomingMessage = GetgemsNftMarketplaceV1DeployContract
 
 /// Source-level exit-code catalog; not exported as thrown_errors because V1 has no public getter.
-enum GetgemsNftMarketplaceV1Errors {
+enum Errors {
     /// Non-empty internal message sender is not the owner stored in contract data.
     UnauthorizedSender = 401
 }

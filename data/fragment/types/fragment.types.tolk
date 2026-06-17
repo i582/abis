@@ -6,7 +6,7 @@ contract FragmentUsernameCollection {
     storage: FragmentCollectionStorage
     incomingMessages: FragmentUsernameCollectionIncomingMessage
     outgoingMessages: FragmentCollectionOutgoingMessage
-    thrownErrors: FragmentCollectionErrors
+    thrownErrors: CollectionErrors
 }
 
 /// Fragment anonymous Telegram number collection contract.
@@ -17,7 +17,7 @@ contract FragmentNumbersCollection {
     storage: FragmentCollectionStorage
     incomingMessages: FragmentNumbersCollectionIncomingMessage
     outgoingMessages: FragmentCollectionOutgoingMessage
-    thrownErrors: FragmentCollectionErrors
+    thrownErrors: CollectionErrors
 }
 
 /// Fragment Telegram username TeleMint item contract.
@@ -29,7 +29,7 @@ contract FragmentUsernameItem {
     incomingMessages: FragmentUsernameItemIncomingMessage
     outgoingMessages: FragmentItemOutgoingMessage
     forceAbiExport: FragmentTelemintBidInfo
-    thrownErrors: FragmentItemErrors
+    thrownErrors: ItemErrors
 }
 
 /// Fragment anonymous Telegram number TeleMint item contract.
@@ -41,7 +41,7 @@ contract FragmentNumbersItem {
     incomingMessages: FragmentNumbersItemIncomingMessage
     outgoingMessages: FragmentItemOutgoingMessage
     forceAbiExport: FragmentTelemintBidInfo
-    thrownErrors: FragmentItemErrors
+    thrownErrors: ItemErrors
 }
 
 /// Root persistent collection data.
@@ -434,7 +434,7 @@ struct FragmentRoyaltyParamsReply {
 }
 
 /// Fragment collection exit-code catalog.
-enum FragmentCollectionErrors {
+enum CollectionErrors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Text payload length is invalid.
@@ -466,7 +466,7 @@ enum FragmentCollectionErrors {
 }
 
 /// Fragment item exit-code catalog.
-enum FragmentItemErrors {
+enum ItemErrors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Text payload length is invalid.

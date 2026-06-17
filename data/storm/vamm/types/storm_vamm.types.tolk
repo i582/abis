@@ -6,7 +6,7 @@ contract StormVamm {
     storage: StormVammStorage
     incomingMessages: StormVammIncomingMessage
     outgoingMessages: StormVammOutgoingMessage
-    thrownErrors: StormVammErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage parsed from the base VAMM data cell.
@@ -1391,7 +1391,7 @@ struct GetLazerDataReply {
 }
 
 /// Base VAMM exit codes.
-enum StormVammErrors {
+enum Errors {
     /// Invalid vault address.
     InvalidVaultAddress = 157
     /// Invalid AMM address.

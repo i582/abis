@@ -8,7 +8,7 @@ contract EvaaUser {
     incomingMessages: EvaaUserIncomingMessage
     outgoingMessages: EvaaUserOutgoingMessage
     forceAbiExport: EvaaUserGetStoreRequest | EvaaUserUpgradeInfo
-    thrownErrors: EvaaUserErrors
+    thrownErrors: Errors
 }
 
 /// Runtime value stored in the user principal dictionary.
@@ -804,7 +804,7 @@ struct EvaaUserScData {
 }
 
 /// User contract exit codes that can terminate user-message processing.
-enum EvaaUserErrors {
+enum Errors {
     /// Incoming user message is from a different workchain than the user contract.
     DifferentWorkchain = 0x55ff
     /// Incoming upgraded command sender is not the stored master address.

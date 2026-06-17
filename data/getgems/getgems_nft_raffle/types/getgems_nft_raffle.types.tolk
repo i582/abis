@@ -6,7 +6,7 @@ contract GetgemsNftRaffle {
     storage: GetgemsNftRaffleStorage
     incomingMessages: GetgemsNftRaffleIncomingMessage
     outgoingMessages: GetgemsNftRaffleOutgoingMessage
-    thrownErrors: GetgemsNftRaffleErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent raffle state; source stores each logical group in a referenced cell.
@@ -164,7 +164,7 @@ struct GetgemsNftRaffleStateReply {
 }
 
 /// Source-level exit-code catalog for Getgems NFT raffle.
-enum GetgemsNftRaffleErrors {
+enum Errors {
     /// Bounced inbound messages are rejected by the first internal-message flag check.
     BouncedInboundMessage = 0
     /// Command is invalid for the current lifecycle state.

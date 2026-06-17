@@ -6,7 +6,7 @@ contract AirdropInterlockerV1 {
     storage: AirdropInterlockerV1Storage
     incomingMessages: AirdropInterlockerV1IncomingMessage
     outgoingMessages: AirdropInterlockerV1OutgoingMessage
-    thrownErrors: AirdropInterlockerV1Errors
+    thrownErrors: Errors
 }
 
 /// Persistent v1 interlocker state stored in the root data cell.
@@ -60,7 +60,7 @@ struct GetContractDataReply {
 }
 
 /// Airdrop Interlocker v1 exit-code catalog.
-enum AirdropInterlockerV1Errors {
+enum Errors {
     /// Proof dictionary has no entry for the provided query id.
     MissingProofEntry = 404
     /// This interlocker has already processed a successful claim.

@@ -35,7 +35,7 @@ type CoffeeInitIncomingMessage = CoffeeInitDeploy
 type CoffeeInitOutgoingMessage = void
 
 /// Init error codes.
-enum CoffeeInitErrors {
+enum Errors {
     /// Incoming opcode is not supported.
     UnknownOpcode = 6
     /// Install message was not sent by the stored Factory address.

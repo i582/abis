@@ -149,7 +149,7 @@ type CoffeeMevProtectorOutgoingMessage =
     | CoffeeMevProtectorJettonTransfer
     | CoffeeMevProtectorExcesses
 
-enum CoffeeMevProtectorErrors {
+enum Errors {
     /// Message does not include a transaction payload to resend.
     EmptyTxToResend = 100
     /// DeDust payout callback does not include a nested payload.

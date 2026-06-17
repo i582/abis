@@ -114,7 +114,7 @@ get fun `test mintless master rejects unauthorized admin messages`() {
     expect(changeAdminTxs).toHaveFailedTx<MintlessJettonMasterChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: MintlessJettonMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     val dropAdminTxs = master.sendMintlessJettonMasterDropAdmin(
@@ -125,7 +125,7 @@ get fun `test mintless master rejects unauthorized admin messages`() {
     expect(dropAdminTxs).toHaveFailedTx<MintlessJettonMasterDropAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: MintlessJettonMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     val changeMetadataTxs = master.sendMintlessJettonMasterChangeMetadataUri(
@@ -137,7 +137,7 @@ get fun `test mintless master rejects unauthorized admin messages`() {
     expect(changeMetadataTxs).toHaveFailedTx<MintlessJettonMasterChangeMetadataUri>({
         from: sender.address,
         to: master.address,
-        exitCode: MintlessJettonMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     expect(master.getJettonData().totalSupply).toEqual(before.totalSupply);

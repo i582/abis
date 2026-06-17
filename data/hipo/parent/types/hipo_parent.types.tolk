@@ -6,7 +6,7 @@ contract HipoParent {
     storage: HipoParentStorage
     incomingMessages: HipoParentIncomingMessage
     outgoingMessages: HipoParentOutgoingMessage
-    thrownErrors: HipoParentErrors
+    thrownErrors: Errors
 }
 
 /// Runtime persistent Parent state stored in the root data cell.
@@ -315,7 +315,7 @@ struct HipoParentJettonDataReply {
 }
 
 /// Exit-code catalog used by Parent source branches.
-enum HipoParentErrors {
+enum Errors {
     /// Sender is not Treasury or not the deterministic owner wallet required by the proxy branch.
     AccessDenied = 103
     /// Wallet-address getter was called with an owner outside the basechain.

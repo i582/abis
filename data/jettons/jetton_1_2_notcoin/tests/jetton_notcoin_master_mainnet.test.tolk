@@ -90,7 +90,7 @@ get fun `test jetton notcoin master rejects admin messages after drop admin`() {
     expect(changeAdminTxs).toHaveFailedTx<JettonNotcoinMasterChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: JettonNotcoinMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     val dropAdminTxs = master.sendJettonNotcoinMasterDropAdmin(
@@ -101,7 +101,7 @@ get fun `test jetton notcoin master rejects admin messages after drop admin`() {
     expect(dropAdminTxs).toHaveFailedTx<JettonNotcoinMasterDropAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: JettonNotcoinMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     val changeMetadataTxs = master.sendJettonNotcoinMasterChangeMetadataUri(
@@ -113,7 +113,7 @@ get fun `test jetton notcoin master rejects admin messages after drop admin`() {
     expect(changeMetadataTxs).toHaveFailedTx<JettonNotcoinMasterChangeMetadataUri>({
         from: sender.address,
         to: master.address,
-        exitCode: JettonNotcoinMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     expect(master.getJettonData().adminAddress).toEqual(before.adminAddress);

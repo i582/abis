@@ -81,7 +81,7 @@ get fun `test discoverable jetton master rejects unauthorized admin change`() {
     expect(txs).toHaveFailedTx<JettonChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: DiscoverableJettonMasterErrors.UnauthorizedAdmin,
+        exitCode: Errors.UnauthorizedAdmin,
     });
     expect(master.getJettonData().adminAddress).toEqual(before.adminAddress);
 }

@@ -6,7 +6,7 @@ contract StormLpMinter {
     storage: StormLpMinterStorage
     incomingMessages: StormLpMinterIncomingMessage
     outgoingMessages: StormLpMinterOutgoingMessage
-    thrownErrors: StormLpMinterErrors
+    thrownErrors: Errors
 }
 
 /// Persistent LP minter state stored in the root data cell.
@@ -110,7 +110,7 @@ struct StormLpMinterJettonDataReply {
 }
 
 /// Storm LP minter exit-code catalog.
-enum StormLpMinterErrors {
+enum Errors {
     /// Mint request sender is not the stored vault address.
     UnauthorizedVaultMint = 73
     /// Burn notification sender is not the deterministic wallet for the reported owner.

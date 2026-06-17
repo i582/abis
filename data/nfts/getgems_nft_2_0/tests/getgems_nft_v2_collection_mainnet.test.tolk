@@ -68,7 +68,7 @@ get fun `test getgems nft collection v2 rejects unauthorized second owner change
     expect(txs).toHaveFailedTx<GetgemsNftCollectionV2ChangeSecondOwner>({
         from: sender.address,
         to: collection.address,
-        exitCode: GetgemsNftCollectionV2Errors.UnauthorizedOwnerOrSecondOwner,
+        exitCode: CollectionErrors.UnauthorizedOwnerOrSecondOwner,
     });
     expect(collection.getSecondOwnerAddress()).toEqual(before);
 }

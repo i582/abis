@@ -7,7 +7,7 @@ contract StorageContract {
     incomingMessages: StorageContractIncomingMessage
     outgoingMessages: StorageContractOutgoingMessage
     forceAbiExport: StorageContractClientData
-    thrownErrors: StorageContractErrors
+    thrownErrors: Errors
 }
 
 /// Persistent storage state stored in the root data cell.
@@ -163,7 +163,7 @@ struct StorageContractNextProofInfoReply {
 }
 
 /// Storage contract exit-code catalog.
-enum StorageContractErrors {
+enum Errors {
     /// Sender is not authorized for the requested action.
     Unauthorized = 401
     /// Submitted Merkle proof does not match the stored root or challenge.

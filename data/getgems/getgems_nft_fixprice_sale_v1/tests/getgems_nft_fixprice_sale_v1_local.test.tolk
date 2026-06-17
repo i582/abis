@@ -241,7 +241,7 @@ get fun `test getgems sale v1 local rejects unauthorized init and underfunded bu
     expect(rogueTxs).toHaveFailedTx<GetgemsNftFixpriceSaleV1OwnershipAssigned>({
         from: rogue.address,
         to: sale.address,
-        exitCode: GetgemsNftFixpriceSaleV1Errors.UnauthorizedInitiation,
+        exitCode: Errors.UnauthorizedInitiation,
     });
     expect(loadGetgemsNftFixpriceSaleV1DeploymentStorage(sale).nftOwnerAddress).toBeNull();
 
@@ -266,6 +266,6 @@ get fun `test getgems sale v1 local rejects unauthorized init and underfunded bu
     expect(buyTxs).toHaveFailedTx<GetgemsNftFixpriceSaleV1Buy>({
         from: buyer.address,
         to: sale.address,
-        exitCode: GetgemsNftFixpriceSaleV1Errors.NotEnoughTonsForSale,
+        exitCode: Errors.NotEnoughTonsForSale,
     });
 }

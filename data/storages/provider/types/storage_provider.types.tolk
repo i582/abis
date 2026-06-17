@@ -8,7 +8,7 @@ contract StorageProvider {
     incomingExternal: StorageProviderIncomingExternalMessage
     outgoingMessages: StorageProviderOutgoingMessage
     forceAbiExport: TorrentInfo | StorageProviderExternalSendAction
-    thrownErrors: StorageProviderErrors
+    thrownErrors: Errors
 }
 
 /// Persistent provider state stored in the root data cell.
@@ -166,7 +166,7 @@ struct StorageProviderStorageParamsReply {
 }
 
 /// Storage provider exit-code catalog.
-enum StorageProviderErrors {
+enum Errors {
     /// Request msgSeqno does not match storage.seqno.
     InvalidSeqno = 33
     /// Request subwallet does not match storage.subwallet.

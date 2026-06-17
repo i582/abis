@@ -7,7 +7,7 @@ contract BemoFinancial {
     incomingMessages: BemoFinancialIncomingMessage
     outgoingMessages: BemoFinancialOutgoingMessage
     forceAbiExport: BemoFinancialEmptyStake | BemoFinancialLockupData
-    thrownErrors: BemoFinancialErrors
+    thrownErrors: Errors
 }
 
 /// Referenced lockup accounting state stored at the end of Financial storage.
@@ -362,7 +362,7 @@ struct BemoFinancialJettonDataReply {
 }
 
 /// Financial exit-code catalog proven from decompiled branches.
-enum BemoFinancialErrors {
+enum Errors {
     /// Staking message originated outside basechain workchain zero.
     WrongWorkchain = 333
     /// Attached TON value is below the gas, storage, or payout budget.

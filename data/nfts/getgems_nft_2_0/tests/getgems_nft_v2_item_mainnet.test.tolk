@@ -62,7 +62,7 @@ get fun `test getgems nft item v2 rejects unauthorized transfer`() {
     expect(txs).toHaveFailedTx<GetgemsNftItemV2Transfer>({
         from: sender.address,
         to: item.address,
-        exitCode: GetgemsNftItemV2Errors.UnauthorizedOwner,
+        exitCode: ItemErrors.UnauthorizedOwner,
     });
     expect(item.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }

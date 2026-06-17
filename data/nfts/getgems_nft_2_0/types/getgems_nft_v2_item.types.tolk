@@ -8,7 +8,7 @@ contract GetgemsNftItemV2 {
     incomingMessages: GetgemsNftItemV2IncomingMessage
     outgoingMessages: GetgemsNftItemV2OutgoingMessage
     forceAbiExport: GetgemsNftItemV2MintInit | GetgemsNftItemV2MintForwardTail
-    thrownErrors: GetgemsNftItemV2Errors
+    thrownErrors: ItemErrors
 }
 
 /// Deployment storage present before the collection initializes the item.
@@ -126,7 +126,7 @@ struct GetgemsNftItemV2DataReply {
 }
 
 /// Getgems NFT item v2 exit-code catalog from source.
-enum GetgemsNftItemV2Errors {
+enum ItemErrors {
     /// Address workchain is not the configured base workchain.
     InvalidWorkchain = 333
     /// Transfer sender is not the current owner.

@@ -7,7 +7,7 @@ contract StablecoinMaster {
     incomingMessages: StablecoinMasterIncomingMessage
     outgoingMessages: StablecoinMasterOutgoingMessage
     forceAbiExport: StablecoinMasterWalletAdminAction
-    thrownErrors: StablecoinMasterErrors
+    thrownErrors: MasterErrors
 }
 
 /// Persistent stablecoin minter state stored in the root data cell.
@@ -220,7 +220,7 @@ struct GetStablecoinJettonDataReply {
 }
 
 /// Stablecoin v1.04 minter exit-code catalog from official FunC source.
-enum StablecoinMasterErrors {
+enum MasterErrors {
     /// Nested mint or `call_to` action opcode is not one of the accepted wallet actions.
     InvalidNestedOperation = 72
     /// Sender is not the stored admin or pending admin for the requested admin action.

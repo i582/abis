@@ -10,7 +10,7 @@ contract GetgemsNftOfferV1 {
     forceAbiExport: GetgemsNftOfferV1InitialFunding
         | GetgemsNftOfferV1MarketplaceCancelPayload
         | GetgemsNftOfferV1RawSendAction
-    thrownErrors: GetgemsNftOfferV1Errors
+    thrownErrors: Errors
 }
 
 /// Referenced marketplace and royalty fee configuration cell.
@@ -179,7 +179,7 @@ struct GetgemsNftOfferV1OfferDataReply {
 }
 
 /// Exit-code catalog proven by V1 FunC throw sites.
-enum GetgemsNftOfferV1Errors {
+enum Errors {
     /// Offer is already accepted or cancelled.
     OfferAlreadyComplete = 404
     /// Cancellation sender is neither offer owner nor marketplace.

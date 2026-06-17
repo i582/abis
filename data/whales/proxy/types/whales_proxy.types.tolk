@@ -69,7 +69,7 @@ type WhalesProxyOutgoingMessage =
     | WhalesProxyElectorRecoverStakeResponse
 
 /// Source-level exit-code catalog for Whales Nominators proxy.
-enum WhalesProxyErrors {
+enum Errors {
     /// Proxy external messages are not accepted.
     InvalidMessage = 72
 }

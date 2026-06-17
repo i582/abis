@@ -6,7 +6,7 @@ contract FragmentUsernameCollection {
     storage: FragmentUsernameCollectionStorage
     incomingMessages: FragmentUsernameCollectionIncomingMessage
     outgoingMessages: FragmentUsernameCollectionOutgoingMessage
-    thrownErrors: FragmentUsernameCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent collection data.
@@ -108,7 +108,7 @@ struct FragmentUsernameCollectionDnsResolveReply {
 }
 
 /// Fragment username collection exit-code catalog.
-enum FragmentUsernameCollectionErrors {
+enum Errors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Text payload length is invalid.

@@ -250,7 +250,7 @@ type CoffeeLiquidityDepositoryOutgoingMessage =
     | CoffeeLiquidityDepositoryExcesses
 
 /// LiquidityDepository error codes.
-enum CoffeeLiquidityDepositoryErrors {
+enum DepositoryErrors {
     /// Incoming opcode is not supported by LiquidityDepository.
     UnknownOpcode = 6
     /// Deposit asset is not one of the two assets bound to this helper.

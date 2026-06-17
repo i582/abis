@@ -8,7 +8,7 @@ contract GetgemsNftMarketplaceV2 {
     incomingExternal: GetgemsNftMarketplaceV2IncomingExternalMessage
     forceAbiExport: GetgemsNftMarketplaceV2ExternalSendAction
         | GetgemsNftMarketplaceV2DeployOutgoingEnvelope
-    thrownErrors: GetgemsNftMarketplaceV2Errors
+    thrownErrors: Errors
 }
 
 /// Persistent Wallet V3 R2-compatible marketplace state.
@@ -68,7 +68,7 @@ type GetgemsNftMarketplaceV2IncomingMessage = GetgemsNftMarketplaceV2DeploySigne
 type GetgemsNftMarketplaceV2IncomingExternalMessage = GetgemsNftMarketplaceV2SignedExternal
 
 /// Source-level exit-code catalog from explicit `throw_*` branches.
-enum GetgemsNftMarketplaceV2Errors {
+enum Errors {
     /// Request seqno does not match storage.seqno.
     InvalidSeqno = 33
     /// Request wallet id does not match storage.subwalletId.

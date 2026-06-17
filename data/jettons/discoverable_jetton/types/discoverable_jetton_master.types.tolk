@@ -6,7 +6,7 @@ contract DiscoverableJettonMaster {
     storage: DiscoverableJettonMasterStorage
     incomingMessages: DiscoverableJettonMasterIncomingMessage
     outgoingMessages: DiscoverableJettonMasterOutgoingMessage
-    thrownErrors: DiscoverableJettonMasterErrors
+    thrownErrors: Errors
 }
 
 /// Persistent discoverable minter state stored in the root data cell.
@@ -115,7 +115,7 @@ struct GetDiscoverableJettonDataReply {
 }
 
 /// Discoverable Jetton minter exit-code catalog from source variants.
-enum DiscoverableJettonMasterErrors {
+enum Errors {
     /// Sender is not the stored admin for mint/admin/content requests.
     UnauthorizedAdmin = 73
     /// Burn notification sender is not the deterministic wallet for the reported owner.

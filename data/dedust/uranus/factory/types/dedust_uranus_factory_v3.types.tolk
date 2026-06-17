@@ -6,7 +6,7 @@ contract DedustUranusFactoryV3 {
     storage: DedustUranusFactoryV3Storage
     incomingMessages: DedustUranusFactoryV3IncomingMessage
     outgoingMessages: DedustUranusFactoryV3OutgoingMessage
-    thrownErrors: DedustUranusErrors
+    thrownErrors: Errors
 }
 
 /// Root Factory state; the v3 dispatcher authenticates the controller address from this cell.
@@ -106,7 +106,7 @@ type DedustUranusFactoryV3IncomingMessage =
 type DedustUranusFactoryV3OutgoingMessage = DedustUranusInitMeme
 
 /// Uranus exit-code catalog shared by Factory, Meme, and Meme Wallet.
-enum DedustUranusErrors {
+enum Errors {
     /// Bonding curve parameters are malformed.
     BondingCurveParametersMalformed = 20,
     /// Output amount is below the supplied slippage limit.

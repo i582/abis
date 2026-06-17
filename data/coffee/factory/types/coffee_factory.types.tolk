@@ -559,7 +559,7 @@ struct CoffeeFactoryCodeRefs {
 }
 
 /// Factory error codes.
-enum CoffeeFactoryErrors {
+enum FactoryErrors {
     /// Incoming opcode is not supported.
     UnknownOpcode = 6
     /// Attached value cannot cover required gas.

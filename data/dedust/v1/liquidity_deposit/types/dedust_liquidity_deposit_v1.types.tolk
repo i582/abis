@@ -6,7 +6,7 @@ contract DedustLiquidityDepositV1 {
     storage: DedustLiquidityDepositV1Storage
     incomingMessages: DedustLiquidityDepositV1IncomingMessage
     outgoingMessages: DedustLiquidityDepositV1OutgoingMessage
-    thrownErrors: DedustLiquidityDepositV1Errors
+    thrownErrors: Errors
 }
 
 /// Runtime storage after the Liquidity Deposit implementation is installed.
@@ -253,7 +253,7 @@ struct DedustLiquidityDepositV1MinLpAmountReply {
 }
 
 /// DeDust Liquidity Deposit v1 exit-code catalog.
-enum DedustLiquidityDepositV1Errors {
+enum Errors {
     /// Cancellation sender is not the stored deposit owner.
     InvalidOwnerSender = 257
     /// Asset-deposit sender is not the Factory.

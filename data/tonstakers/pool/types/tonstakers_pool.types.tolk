@@ -9,7 +9,7 @@ contract TonstakersPool {
     forceAbiExport: TonstakersPoolEventMessage
         | TonstakersPoolPayoutData
         | TonstakersPoolPayoutInitData
-    thrownErrors: TonstakersPoolErrors
+    thrownErrors: Errors
 }
 
 /// Signed coin value encoded by Tonstakers as `Coins` magnitude followed by a one-bit sign.
@@ -660,7 +660,7 @@ struct TonstakersPoolControllerLoanPositionReply {
 }
 
 /// Pool exit-code catalog.
-enum TonstakersPoolErrors {
+enum Errors {
     /// Message opcode is unsupported, or a loan-position getter could not find the requested controller.
     UnknownOperation = 0xffff
     /// Sender does not match the role, minter, or derived controller expected by a branch.

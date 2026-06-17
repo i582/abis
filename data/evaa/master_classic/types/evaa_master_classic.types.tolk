@@ -9,7 +9,7 @@ contract EvaaMasterClassic {
     forceAbiExport: EvaaMasterClassicGetConfigReply
         | EvaaMasterClassicGetUIVariablesReply
         | EvaaMasterClassicGetOraclesInfoReply
-    thrownErrors: EvaaMasterClassicErrors
+    thrownErrors: Errors
 }
 
 /// Runtime master data root.
@@ -1096,7 +1096,7 @@ type EvaaMasterClassicOutgoingMessage =
     | EvaaMasterClassicGetStoreResponse
 
 /// Static EVAA master exit-code catalog.
-enum EvaaMasterClassicErrors {
+enum Errors {
     /// Add-to-reserve message lacks required fees.
     AddToReserveNotEnoughFees = 0xa9e9
     /// Claim-reserves flow lacks transaction fees.

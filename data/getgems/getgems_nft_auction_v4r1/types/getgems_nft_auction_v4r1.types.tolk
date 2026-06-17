@@ -8,7 +8,7 @@ contract GetgemsNftAuctionV4R1 {
     incomingExternal: GetgemsNftAuctionV4R1IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV4R1OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV4R1RawSendAction
-    thrownErrors: GetgemsNftAuctionV4R1Errors
+    thrownErrors: Errors
 }
 
 /// Persistent root data cell used by initialized and deploy-time auction states.
@@ -274,7 +274,7 @@ struct GetgemsNftAuctionV4R1AuctionDataReply {
 }
 
 /// Source-proven exit-code catalog for auction command validation.
-enum GetgemsNftAuctionV4R1Errors {
+enum Errors {
     /// Signature over the Jetton wallet update payload is invalid.
     InvalidSignature = 35
     /// Resolved Jetton wallet is not in workchain 0.

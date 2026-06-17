@@ -8,7 +8,7 @@ contract GetgemsNftFixpriceSaleV4R1 {
     incomingMessages: GetgemsNftFixpriceSaleV4R1IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV4R1OutgoingMessage
     forceAbiExport: GetgemsNftFixpriceSaleV4R1EmptyTonBuy
-    thrownErrors: GetgemsNftFixpriceSaleV4R1Errors
+    thrownErrors: Errors
 }
 
 /// Persistent runtime sale state after `save_data` rewrites the root cell.
@@ -246,7 +246,7 @@ struct GetgemsNftFixpriceSaleV4R1FixPriceDataReply {
 }
 
 /// Source-level exit-code catalog for Getgems fixed-price sale V4R1.
-enum GetgemsNftFixpriceSaleV4R1Errors {
+enum Errors {
     /// Signed Jetton deploy message arrived when deployment public key is absent.
     MissingDeployPublicKey = 350
     /// Signed Jetton deploy signature verification failed.

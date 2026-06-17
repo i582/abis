@@ -12,7 +12,7 @@ contract NominatorPool {
         | NominatorPoolVoting
         | NominatorPoolElectorNewStake
         | NominatorPoolEmptyBody
-    thrownErrors: NominatorPoolErrors
+    thrownErrors: Errors
 }
 
 /// Empty dictionary value used as a set marker.
@@ -319,7 +319,7 @@ struct NominatorPoolListVotersEntry {
 }
 
 /// Nominator Pool exit-code catalog.
-enum NominatorPoolErrors {
+enum Errors {
     /// Current validator-set config is not encoded as `validators_ext`.
     InvalidValidatorSetConfig = 9
     /// Nominator record is missing for withdrawal.

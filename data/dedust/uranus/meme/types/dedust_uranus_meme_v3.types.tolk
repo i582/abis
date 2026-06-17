@@ -6,7 +6,7 @@ contract DedustUranusMemeV3 {
     storage: DedustUranusMemeV3Storage
     incomingMessages: DedustUranusMemeV3IncomingMessage
     outgoingMessages: DedustUranusMemeV3OutgoingMessage
-    thrownErrors: DedustUranusErrors
+    thrownErrors: Errors
 }
 
 /// Metadata URI wrapper used by Uranus meme config and deploy messages.
@@ -361,7 +361,7 @@ type DedustUranusMemeV3OutgoingMessage =
     | DedustUranusTakeWalletAddress
 
 /// Uranus exit-code catalog shared by Factory, Meme, and Meme Wallet.
-enum DedustUranusErrors {
+enum Errors {
     /// Bonding curve parameters are malformed.
     BondingCurveParametersMalformed = 20,
     /// Output amount is below the supplied slippage limit.

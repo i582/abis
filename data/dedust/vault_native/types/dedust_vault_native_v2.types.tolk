@@ -7,7 +7,7 @@ contract DedustVaultNativeV2 {
     incomingMessages: DedustVaultNativeV2IncomingMessage
     outgoingMessages: DedustVaultNativeV2OutgoingMessage
     forceAbiExport: DedustVaultNativeV2InlineDepositLiquidityCandidate
-    thrownErrors: DedustVaultNativeV2Errors
+    thrownErrors: Errors
 }
 
 /// Runtime storage loaded by the verified native vault code root data cell.
@@ -283,7 +283,7 @@ type DedustVaultNativeV2OutgoingMessage =
     | DedustVaultNativeV2TakeVaultState
 
 /// DeDust Native Vault v2 exit-code catalog.
-enum DedustVaultNativeV2Errors {
+enum Errors {
     /// Factory message sender is not the stored Factory.
     InvalidFactorySender = 259
     /// Asset tag, user payload, or proof shape is invalid for this Vault.

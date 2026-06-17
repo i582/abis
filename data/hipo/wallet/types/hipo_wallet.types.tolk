@@ -7,7 +7,7 @@ contract HipoWallet {
     incomingMessages: HipoWalletIncomingMessage
     outgoingMessages: HipoWalletOutgoingMessage
     forceAbiExport: HipoWalletUnstakeCustomPayload | HipoWalletBouncedKnownBody
-    thrownErrors: HipoWalletErrors
+    thrownErrors: Errors
 }
 
 /// Persistent Hipo wallet state stored in the root data cell.
@@ -299,7 +299,7 @@ struct HipoWalletFeesReply {
 }
 
 /// Hipo wallet exit-code catalog used by source throw sites.
-enum HipoWalletErrors {
+enum Errors {
     /// Incoming TON is lower than the required operation fee.
     InsufficientFee = 101
     /// Requested hTON amount is zero or larger than the available balance.

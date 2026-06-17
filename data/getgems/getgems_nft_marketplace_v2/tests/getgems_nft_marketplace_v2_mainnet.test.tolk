@@ -112,6 +112,6 @@ get fun `test getgems marketplace v2 mainnet rejects invalid external signature`
 
     expect(result).toBeNotAccepted();
     expect(result).toHaveExternalVmExitCode(
-        GetgemsNftMarketplaceV2Errors.ExpiredOrInvalidSignature,
+        Errors.ExpiredOrInvalidSignature,
     );
 }

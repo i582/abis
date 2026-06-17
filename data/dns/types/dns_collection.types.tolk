@@ -7,7 +7,7 @@ contract DnsCollection {
     incomingMessages: DnsCollectionIncomingMessage
     outgoingMessages: DnsCollectionOutgoingMessage
     forceAbiExport: DnsCollectionDomainItemInit | DnsCollectionRecord | DnsCollectionOffchainContent
-    thrownErrors: DnsCollectionErrors
+    thrownErrors: CollectionErrors
 }
 
 /// Persistent storage for the official `.ton` DNS collection resolver.
@@ -119,7 +119,7 @@ struct DnsCollectionResolveReply {
 }
 
 /// Source-level exit-code catalog from the official DNS collection source.
-enum DnsCollectionErrors {
+enum CollectionErrors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Domain collection auction has not started yet.

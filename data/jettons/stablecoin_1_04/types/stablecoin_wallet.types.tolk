@@ -6,7 +6,7 @@ contract StablecoinWallet {
     storage: StablecoinWalletStorage
     incomingMessages: StablecoinWalletIncomingMessage
     outgoingMessages: StablecoinWalletOutgoingMessage
-    thrownErrors: StablecoinWalletErrors
+    thrownErrors: WalletErrors
 }
 
 /// Persistent governed wallet state stored in the root data cell.
@@ -139,7 +139,7 @@ struct GetStablecoinWalletDataReply {
 }
 
 /// Stablecoin v1.04 governed wallet exit-code catalog from official FunC source.
-enum StablecoinWalletErrors {
+enum WalletErrors {
     /// Wallet status prevents the attempted outgoing or incoming transfer.
     ContractLocked = 45
     /// Transfer or burn would make the stored jetton balance negative.

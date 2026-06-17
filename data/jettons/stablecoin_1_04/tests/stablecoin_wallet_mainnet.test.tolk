@@ -80,7 +80,7 @@ get fun `test stablecoin wallet rejects unauthorized transfer and status update`
     expect(transferTxs).toHaveFailedTx<StablecoinWalletTransfer>({
         from: sender.address,
         to: wallet.address,
-        exitCode: StablecoinWalletErrors.UnauthorizedOwnerOrMaster,
+        exitCode: WalletErrors.UnauthorizedOwnerOrMaster,
     });
 
     val statusTxs = wallet.sendStablecoinWalletSetStatus(
@@ -92,7 +92,7 @@ get fun `test stablecoin wallet rejects unauthorized transfer and status update`
     expect(statusTxs).toHaveFailedTx<StablecoinWalletSetStatus>({
         from: sender.address,
         to: wallet.address,
-        exitCode: StablecoinWalletErrors.InvalidSender,
+        exitCode: WalletErrors.InvalidSender,
     });
 
     expect(wallet.getWalletData().balance).toEqual(before.balance);

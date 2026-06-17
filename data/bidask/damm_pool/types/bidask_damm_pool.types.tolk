@@ -7,7 +7,7 @@ contract BidaskDammPool {
     incomingMessages: BidaskDammPoolIncomingMessage
     outgoingMessages: BidaskDammPoolOutgoingMessage
     forceAbiExport: BidaskDammPoolForwardPayload
-    thrownErrors: BidaskDammPoolErrors
+    thrownErrors: Errors
 }
 
 /// Persistent root data cell decoded from the live DAMM Pool code.
@@ -728,7 +728,7 @@ struct GetBidaskDammJettonDataReply {
 }
 
 /// Source-level exit-code catalog observed in the decompiled live pool code.
-enum BidaskDammPoolErrors {
+enum Errors {
     /// Internal message value is too small for the operation's gas budget.
     InsufficientGas = 83
     /// Contract or derived address is not in workchain zero.

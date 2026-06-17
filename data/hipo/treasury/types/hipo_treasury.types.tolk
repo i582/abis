@@ -15,7 +15,7 @@ contract HipoTreasury {
         | HipoTreasuryRepaymentLog
         | HipoTreasuryFinishLog
         | HipoTreasuryFailedBurningTokensLog
-    thrownErrors: HipoTreasuryErrors
+    thrownErrors: Errors
 }
 
 /// Empty dictionary value used where the FunC source stores an empty builder as a set marker.
@@ -961,7 +961,7 @@ struct HipoTreasuryAddressReply {
 }
 
 /// Source-level exit-code catalog from `imports/constants.fc`.
-enum HipoTreasuryErrors {
+enum Errors {
     /// Attached TON is below the required fee.
     InsufficientFee = 101
     /// Available funds are below the requested amount.

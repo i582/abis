@@ -6,7 +6,7 @@ contract PythOracle {
     storage: PythOracleStorage
     incomingMessages: PythOracleIncomingMessage
     outgoingMessages: PythOracleOutgoingMessage
-    thrownErrors: PythOracleErrors
+    thrownErrors: Errors
 }
 
 /// Root account data cell split into four referenced storage sections.
@@ -236,7 +236,7 @@ struct GetPythGuardianSetReply {
 }
 
 /// Pyth and Wormhole exit-code catalog.
-enum PythOracleErrors {
+enum Errors {
     /// Guardian set is invalid for the verified Wormhole message.
     InvalidGuardianSet = 1000
     /// Wormhole VM version is invalid.

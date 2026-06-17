@@ -6,7 +6,7 @@ contract GetgemsNftSwap {
     storage: GetgemsNftSwapStorage
     incomingMessages: GetgemsNftSwapIncomingMessage
     outgoingMessages: GetgemsNftSwapOutgoingMessage
-    thrownErrors: GetgemsNftSwapErrors
+    thrownErrors: Errors
 }
 
 /// Persistent swap state stored in the root data cell.
@@ -166,7 +166,7 @@ struct GetgemsNftSwapTradeStateReply {
 }
 
 /// Source-level exit-code catalog for Getgems NFT swap.
-enum GetgemsNftSwapErrors {
+enum Errors {
     /// Sender is not authorized for add-coins, cancel, or maintain.
     UnauthorizedSender = 401
     /// Sender address is not `addr_std`, or command requires active state.

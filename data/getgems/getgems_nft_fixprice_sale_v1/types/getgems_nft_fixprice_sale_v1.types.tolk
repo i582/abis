@@ -7,7 +7,7 @@ contract GetgemsNftFixpriceSaleV1 {
     storageAtDeployment: GetgemsNftFixpriceSaleV1DeploymentStorage
     incomingMessages: GetgemsNftFixpriceSaleV1IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV1OutgoingMessage
-    thrownErrors: GetgemsNftFixpriceSaleV1Errors
+    thrownErrors: Errors
 }
 
 /// Deployment storage before the NFT ownership callback records the previous owner.
@@ -125,7 +125,7 @@ struct GetgemsNftFixpriceSaleV1SaleDataReply {
 }
 
 /// Exit-code catalog proven by the V1 FunC throw sites.
-enum GetgemsNftFixpriceSaleV1Errors {
+enum Errors {
     /// Buy value is below `full_price + 1 TON`.
     NotEnoughTonsForSale = 450
     /// Uninitialized sale was not called by the stored NFT address.

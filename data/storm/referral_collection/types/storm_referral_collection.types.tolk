@@ -9,7 +9,7 @@ contract StormReferralCollection {
     forceAbiExport: StormReferralCollectionContent
         | StormReferralCollectionConfig
         | StormMintReferral
-    thrownErrors: StormReferralCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent storage.
@@ -207,7 +207,7 @@ struct GetDefaultReferralFeesReply {
 }
 
 /// Referral collection exit codes.
-enum StormReferralCollectionErrors {
+enum Errors {
     /// Sender is not the stored admin address.
     NotAnOwner = 301
     /// Provide-vaults request attached less than 0.01 TON.

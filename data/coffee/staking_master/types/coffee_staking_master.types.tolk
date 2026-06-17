@@ -323,7 +323,7 @@ type CoffeeStakingMasterOutgoingMessage =
     | CoffeeStakingItemExtended
     | CoffeeStakingItemUnlocked
 
-enum CoffeeStakingMasterErrors {
+enum Errors {
     /// Unknown reward or staking Jetton wallet.
     UnknownJettonWallet = 81
     /// Contract is not initialized.

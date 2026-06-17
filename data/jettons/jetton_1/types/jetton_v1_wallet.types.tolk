@@ -6,7 +6,7 @@ contract JettonV1Wallet {
     storage: JettonV1WalletStorage
     incomingMessages: JettonV1WalletIncomingMessage
     outgoingMessages: JettonV1WalletOutgoingMessage
-    thrownErrors: JettonV1WalletErrors
+    thrownErrors: Errors
 }
 
 /// Persistent wallet state stored in the root data cell.
@@ -123,7 +123,7 @@ struct GetJettonV1WalletDataReply {
 }
 
 /// Jetton v1 wallet exit-code catalog from the official FunC source.
-enum JettonV1WalletErrors {
+enum Errors {
     /// Sender is not the stored owner for transfer or burn requests.
     UnauthorizedOwner = 705
     /// Transfer or burn would make the stored jetton balance negative.

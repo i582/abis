@@ -287,7 +287,7 @@ get fun `test multisig v2 mainnet rejects unauthorized new order`() {
     expect(txs).toHaveFailedTx<MultisigV2NewOrder>({
         from: sender.address,
         to: multisig.address,
-        exitCode: MultisigV2Errors.UnauthorizedNewOrder,
+        exitCode: MultisigErrors.UnauthorizedNewOrder,
     });
 }
 
@@ -305,7 +305,7 @@ get fun `test multisig order v2 mainnet rejects unauthorized approval`() {
     expect(txs).toHaveFailedTx<MultisigOrderV2Approve>({
         from: sender.address,
         to: order.address,
-        exitCode: MultisigOrderV2Errors.UnauthorizedSign,
+        exitCode: OrderErrors.UnauthorizedSign,
     });
 }
 
@@ -322,6 +322,6 @@ get fun `test multisig order v2 mainnet rejects unknown opcode`() {
     expect(txs).toHaveFailedTx({
         from: sender.address,
         to: order.address,
-        exitCode: MultisigOrderV2Errors.UnknownOp,
+        exitCode: OrderErrors.UnknownOp,
     });
 }

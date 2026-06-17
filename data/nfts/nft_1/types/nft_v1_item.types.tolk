@@ -111,7 +111,7 @@ struct GetNftV1DataReply {
 }
 
 /// NFT v1 item exit-code catalog from the reference FunC sources.
-enum NftV1ItemErrors {
+enum ItemErrors {
     /// Address workchain is not basechain.
     InvalidWorkchain = 333
     /// Transfer sender is not the current owner.

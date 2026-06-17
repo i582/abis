@@ -6,7 +6,7 @@ contract CoffeePoolCurveFiStable {
     storage: CoffeePoolCurveFiStableStorage
     incomingMessages: CoffeePoolCurveFiStableIncomingMessage
     outgoingMessages: CoffeePoolCurveFiStableOutgoingMessage
-    thrownErrors: CoffeePoolCurveFiStableErrors
+    thrownErrors: Errors
 }
 
 /// Runtime persistent Pool storage loaded by `contracts/pool/include/storage.fc`.
@@ -721,7 +721,7 @@ struct CoffeePoolCurveFiStableEstimateLiquidityDepositAmountReply {
 }
 
 /// Coffee CurveFi stable Pool error codes.
-enum CoffeePoolCurveFiStableErrors {
+enum Errors {
     /// Unsupported opcode.
     UnknownOpcode = 6
     /// Attached value cannot cover downstream gas or notification forwarding.

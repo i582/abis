@@ -55,7 +55,7 @@ get fun `test evaa blank decodes local master upgrade header and emits revert ca
     expect(txs).toHaveSuccessfulTx({
         from: master.address,
         to: blank.address,
-        exitCode: EvaaBlankErrors.UserCodeVersionMismatch,
+        exitCode: Errors.UserCodeVersionMismatch,
     });
     expect(txs).toHaveSuccessfulTx<EvaaBlankRevertCall>({
         from: blank.address,

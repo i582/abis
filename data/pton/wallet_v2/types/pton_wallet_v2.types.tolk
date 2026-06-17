@@ -6,7 +6,7 @@ contract PtonWalletV2 {
     storage: PtonWalletV2Storage
     incomingMessages: PtonWalletV2IncomingMessage
     outgoingMessages: PtonWalletV2OutgoingMessage
-    thrownErrors: PtonWalletV2Errors
+    thrownErrors: Errors
 }
 
 /// Persistent pTON wallet state stored in the root data cell.
@@ -114,7 +114,7 @@ struct PtonWalletV2WalletDataReply {
 }
 
 /// pTON wallet exit-code catalog from ston-fi/pton-contracts.
-enum PtonWalletV2Errors {
+enum Errors {
     /// Incoming value is not enough for the requested transfer and gas reserve.
     InsufficientGas = 83
     /// Refund address in `ton_transfer` is not a standard address.

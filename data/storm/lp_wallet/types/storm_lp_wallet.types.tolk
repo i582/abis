@@ -7,7 +7,7 @@ contract StormLpWallet {
     incomingMessages: StormLpWalletIncomingMessage
     outgoingMessages: StormLpWalletOutgoingMessage
     forceAbiExport: StormLpWalletBouncedKnownBody
-    thrownErrors: StormLpWalletErrors
+    thrownErrors: Errors
 }
 
 /// Runtime LP Jetton wallet storage parsed by get_wallet_data and every internal-message branch.
@@ -143,7 +143,7 @@ struct GetStormLpWalletDataReply {
 }
 
 /// Storm LP wallet exit-code catalog.
-enum StormLpWalletErrors {
+enum Errors {
     /// Sender is not the stored owner for owner-only transfer, burn, or excess request.
     UnauthorizedOwner = 705
     /// Transfer or burn would make the stored LP Jetton balance negative.

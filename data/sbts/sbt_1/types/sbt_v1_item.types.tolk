@@ -8,7 +8,7 @@ contract SbtV1Item {
     incomingMessages: SbtV1ItemIncomingMessage
     outgoingMessages: SbtV1ItemOutgoingMessage
     forceAbiExport: SbtV1ItemInit
-    thrownErrors: SbtV1ItemErrors
+    thrownErrors: ItemErrors
 }
 
 /// Deployment storage present before the collection initializes the SBT item.
@@ -198,7 +198,7 @@ struct SbtV1ItemDataReply {
 }
 
 /// Collection-owned SBT item exit-code catalog from Getgems FunC source.
-enum SbtV1ItemErrors {
+enum ItemErrors {
     /// Sender is not authorized for owner-only or authority-only operations.
     UnauthorizedOwnerOrAuthority = 401
     /// Revoke was requested after the SBT had already been revoked.

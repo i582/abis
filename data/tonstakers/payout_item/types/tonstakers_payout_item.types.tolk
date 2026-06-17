@@ -7,7 +7,7 @@ contract TonstakersPayoutItem {
     storageAtDeployment: TonstakersPayoutItemDeploymentStorage
     incomingMessages: TonstakersPayoutItemIncomingMessage
     outgoingMessages: TonstakersPayoutItemOutgoingMessage
-    thrownErrors: TonstakersPayoutItemErrors
+    thrownErrors: Errors
 }
 
 /// Deployment storage created by the payout collection before `init_nft`.
@@ -154,7 +154,7 @@ struct TonstakersPayoutItemNftDataReply {
 }
 
 /// Payout item exit-code catalog.
-enum TonstakersPayoutItemErrors {
+enum Errors {
     /// Address workchain is not basechain.
     InvalidWorkchain = 333
     /// Sender is not authorized for transfer or burn.

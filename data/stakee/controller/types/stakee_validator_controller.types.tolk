@@ -8,7 +8,7 @@ contract StakeeValidatorController {
     outgoingMessages: StakeeValidatorControllerOutgoingMessage
     forceAbiExport: StakeeValidatorControllerEmptyBody
         | StakeeValidatorControllerBouncedKnownBody
-    thrownErrors: StakeeValidatorControllerErrors
+    thrownErrors: ControllerErrors
 }
 
 /// Shared static role cell referenced from the controller static-data cell.
@@ -356,7 +356,7 @@ struct StakeeValidatorControllerRequestWindowTimeReply {
 }
 
 /// Controller exit-code catalog.
-enum StakeeValidatorControllerErrors {
+enum ControllerErrors {
     /// Message opcode is unsupported in the active dispatcher branch.
     UnknownOp = 0xffff
     /// Sender does not match the role required by the operation.

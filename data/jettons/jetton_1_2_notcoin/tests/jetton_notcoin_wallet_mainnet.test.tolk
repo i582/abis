@@ -82,7 +82,7 @@ get fun `test jetton notcoin wallet rejects unauthorized owner transfer and burn
     expect(transferTxs).toHaveFailedTx<JettonNotcoinWalletTransfer>({
         from: sender.address,
         to: wallet.address,
-        exitCode: JettonNotcoinWalletErrors.UnauthorizedOwner,
+        exitCode: WalletErrors.UnauthorizedOwner,
     });
 
     val burnTxs = wallet.sendJettonNotcoinWalletBurn(
@@ -96,7 +96,7 @@ get fun `test jetton notcoin wallet rejects unauthorized owner transfer and burn
     expect(burnTxs).toHaveFailedTx<JettonNotcoinWalletBurn>({
         from: sender.address,
         to: wallet.address,
-        exitCode: JettonNotcoinWalletErrors.UnauthorizedOwner,
+        exitCode: WalletErrors.UnauthorizedOwner,
     });
 
     expect(wallet.getWalletData().balance).toEqual(before.balance);

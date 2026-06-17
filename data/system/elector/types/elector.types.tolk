@@ -16,7 +16,7 @@ contract Elector {
         | ElectorNewStakeReturnReason
         | ElectorComplaintError
         | ElectorComplaintVoteStatus
-    thrownErrors: ElectorErrors
+    thrownErrors: Errors
 }
 
 /// Credit value returned to a masterchain wallet address hash.
@@ -552,7 +552,7 @@ enum ElectorComplaintVoteStatus {
 }
 
 /// Source-level Elector exit-code catalog.
-enum ElectorErrors {
+enum Errors {
     /// Invalid tagged complaint, complaint-status, or complaint-pricing cell.
     InvalidTaggedCell = 9
     /// Complaint-vote signature does not match the current validator public key.

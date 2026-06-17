@@ -7,7 +7,7 @@ contract DedustVaultJettonV2 {
     incomingMessages: DedustVaultJettonV2IncomingMessage
     outgoingMessages: DedustVaultJettonV2OutgoingMessage
     forceAbiExport: DedustVaultJettonV2ForwardPayload | DedustVaultJettonV2ProvideWalletAddress
-    thrownErrors: DedustVaultJettonV2Errors
+    thrownErrors: Errors
 }
 
 /// Runtime storage loaded by the verified Jetton Vault code root data cell.
@@ -318,7 +318,7 @@ type DedustVaultJettonV2OutgoingMessage =
     | DedustVaultJettonV2ProvideWalletAddress
 
 /// DeDust Jetton Vault v2 exit-code catalog.
-enum DedustVaultJettonV2Errors {
+enum Errors {
     /// Jetton notification sender is not the stored vault wallet.
     InvalidJettonWalletSender = 257
     /// Factory message sender is not the stored Factory.

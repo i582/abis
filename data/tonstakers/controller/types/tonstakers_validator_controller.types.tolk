@@ -8,7 +8,7 @@ contract TonstakersValidatorController {
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage
     forceAbiExport: TonstakersValidatorControllerEmptyBody
         | TonstakersValidatorControllerBouncedKnownBody
-    thrownErrors: TonstakersValidatorControllerErrors
+    thrownErrors: Errors
 }
 
 /// Shared static role cell referenced from the controller static-data cell.
@@ -356,7 +356,7 @@ struct TonstakersValidatorControllerRequestWindowTimeReply {
 }
 
 /// Controller exit-code catalog.
-enum TonstakersValidatorControllerErrors {
+enum Errors {
     /// Message opcode is unsupported in the active dispatcher branch.
     UnknownOp = 0xffff
     /// Sender does not match the role required by the operation.

@@ -7,7 +7,7 @@ contract TelemintNftItem {
     incomingMessages: TelemintNftItemIncomingMessage
     outgoingMessages: TelemintNftItemOutgoingMessage
     forceAbiExport: TelemintNftItemBidInfo
-    thrownErrors: TelemintNftItemErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent item data: immutable config plus optional initialized item state.
@@ -324,7 +324,7 @@ struct TelemintDnsResolveReply {
 }
 
 /// TeleMint item exit-code catalog from official FunC source.
-enum TelemintNftItemErrors {
+enum Errors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Remaining balance after storage, forward amount, and fees would be negative.

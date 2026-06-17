@@ -6,7 +6,7 @@ contract HipoBill {
     storage: HipoBillStorage
     incomingMessages: HipoBillIncomingMessage
     outgoingMessages: HipoBillOutgoingMessage
-    thrownErrors: HipoBillErrors
+    thrownErrors: Errors
 }
 
 /// Persistent Bill state stored in the root data cell by `load_data`/`save_data`.
@@ -201,7 +201,7 @@ struct HipoBillNftDataReply {
 }
 
 /// Bill exit-code catalog from Hipo Finance `constants.fc`.
-enum HipoBillErrors {
+enum Errors {
     /// Sender is not the stored collection for collection-only ops or not the stored owner for owner-only ops.
     AccessDenied = 103
     /// Burn was requested after the bill had already been revoked.

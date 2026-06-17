@@ -7,7 +7,7 @@ contract StonfiLpWalletV1 {
     incomingMessages: StonfiLpWalletV1IncomingMessage
     outgoingMessages: StonfiLpWalletV1OutgoingMessage
     forceAbiExport: StonfiLpWalletV1BouncedKnownBody
-    thrownErrors: StonfiLpWalletV1Errors
+    thrownErrors: Errors
 }
 
 /// Persistent LP Jetton wallet state stored in the root data cell.
@@ -134,7 +134,7 @@ struct GetStonfiLpWalletV1DataReply {
 }
 
 /// Source-level exit-code catalog for the STON.fi LP wallet.
-enum StonfiLpWalletV1Errors {
+enum Errors {
     /// Sender is not the stored owner for transfer or burn requests.
     UnauthorizedOwner = 705
     /// Transfer or burn would make the stored LP Jetton balance negative.

@@ -70,7 +70,7 @@ get fun `test nft v1 item rejects unauthorized transfer`() {
     expect(txs).toHaveFailedTx<NftV1Transfer>({
         from: sender.address,
         to: item.address,
-        exitCode: NftV1ItemErrors.UnauthorizedOwner,
+        exitCode: ItemErrors.UnauthorizedOwner,
     });
     expect(item.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }

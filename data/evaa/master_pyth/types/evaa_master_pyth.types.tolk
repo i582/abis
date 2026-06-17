@@ -9,7 +9,7 @@ contract EvaaMasterPyth {
     forceAbiExport: EvaaMasterPythGetConfigReply
         | EvaaMasterPythGetUIVariablesReply
         | EvaaMasterPythGetOraclesInfoReply
-    thrownErrors: EvaaMasterPythErrors
+    thrownErrors: Errors
 }
 
 /// Runtime master data root.
@@ -1108,7 +1108,7 @@ type EvaaMasterPythOutgoingMessage =
     | EvaaMasterPythGetStoreResponse
 
 /// Static EVAA master exit-code catalog.
-enum EvaaMasterPythErrors {
+enum Errors {
     /// Insufficient fees for adding assets to reserves.
     AddToReserveNotEnoughFees = 0xa9e9
     /// Insufficient fees for reserve-claim transaction.

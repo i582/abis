@@ -6,7 +6,7 @@ contract PtonMinterV2 {
     storage: PtonMinterV2Storage
     incomingMessages: PtonMinterV2IncomingMessage
     outgoingMessages: PtonMinterV2OutgoingMessage
-    thrownErrors: PtonMinterV2Errors
+    thrownErrors: Errors
 }
 
 /// Persistent pTON minter state stored in the root data cell.
@@ -92,7 +92,7 @@ struct PtonMinterV2VersionReply {
 }
 
 /// pTON minter exit-code catalog from ston-fi/pton-contracts.
-enum PtonMinterV2Errors {
+enum Errors {
     /// Incoming value is not enough to deploy a wallet and preserve storage reserves.
     InsufficientGas = 83
     /// Address is outside workchain 0 where the reference implementation operates.

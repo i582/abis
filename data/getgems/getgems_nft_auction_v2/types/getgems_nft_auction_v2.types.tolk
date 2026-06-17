@@ -8,7 +8,7 @@ contract GetgemsNftAuctionV2 {
     incomingExternal: GetgemsNftAuctionV2IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV2OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV2EmergencyRelayTail
-    thrownErrors: GetgemsNftAuctionV2Errors
+    thrownErrors: Errors
 }
 
 /// Referenced fee configuration cell used for marketplace and royalty payouts.
@@ -181,7 +181,7 @@ struct GetgemsNftAuctionV2SaleDataReply {
 }
 
 /// V2 exit-code catalog from actually thrown source branches.
-enum GetgemsNftAuctionV2Errors {
+enum Errors {
     /// Cancel or stop sender is not authorized for the current auction state.
     UnauthorizedAddress = 403
     /// Bid amount is below the first-bid or next-bid threshold.

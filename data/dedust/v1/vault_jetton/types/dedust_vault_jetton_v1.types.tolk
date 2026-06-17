@@ -7,7 +7,7 @@ contract DedustVaultJettonV1 {
     incomingMessages: DedustVaultJettonV1IncomingMessage
     outgoingMessages: DedustVaultJettonV1OutgoingMessage
     forceAbiExport: DedustVaultJettonV1ForwardPayload | DedustVaultJettonV1ProvideWalletAddress | DedustVaultJettonV1BouncedProvideWalletAddress
-    thrownErrors: DedustVaultJettonV1Errors
+    thrownErrors: Errors
 }
 
 /// Runtime storage loaded by the v1 Jetton Vault root data cell.
@@ -312,7 +312,7 @@ type DedustVaultJettonV1OutgoingMessage =
     | DedustVaultJettonV1ProvideWalletAddress
 
 /// DeDust Jetton Vault v1 exit-code catalog.
-enum DedustVaultJettonV1Errors {
+enum Errors {
     /// Wallet-discovery response sender is not the stored Jetton minter.
     InvalidJettonMinterSender = 257
     /// Factory message sender is not the stored Factory.

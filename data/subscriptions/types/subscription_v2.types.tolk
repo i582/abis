@@ -8,7 +8,7 @@ contract SubscriptionV2 {
     incomingMessages: SubscriptionV2IncomingMessage
     incomingExternal: SubscriptionV2IncomingExternalMessage
     outgoingMessages: SubscriptionV2OutgoingMessage
-    thrownErrors: SubscriptionV2Errors
+    thrownErrors: Errors
 }
 
 /// Precompiled wallet request cached in subscription storage.
@@ -265,7 +265,7 @@ struct SubscriptionV2CronInfoReply {
 }
 
 /// Source-level exit-code catalog.
-enum SubscriptionV2Errors {
+enum Errors {
     /// Attached value is below the required payment or storage budget.
     NotEnoughFunds = 460
     /// External cron request arrived before the charge date.

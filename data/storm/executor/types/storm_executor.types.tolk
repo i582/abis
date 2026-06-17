@@ -8,7 +8,7 @@ contract StormExecutor {
     incomingMessages: StormExecutorIncomingMessage
     outgoingMessages: StormExecutorOutgoingMessage
     forceAbiExport: StormExecutorInitPayload
-    thrownErrors: StormExecutorErrors
+    thrownErrors: Errors
 }
 
 /// Deployment storage before the collection initializes the executor item.
@@ -173,7 +173,7 @@ struct StormExecutorNftDataReply {
 }
 
 /// Executor item exit codes.
-enum StormExecutorErrors {
+enum Errors {
     /// Sender is not the current owner.
     NotAnOwner = 351
     /// Vault or owner address is not in basechain workchain 0.

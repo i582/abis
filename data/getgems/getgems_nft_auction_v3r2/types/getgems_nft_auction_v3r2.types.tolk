@@ -10,7 +10,7 @@ contract GetgemsNftAuctionV3R2 {
     forceAbiExport: GetgemsNftAuctionV3R2Bid
         | GetgemsNftAuctionV3R2ExternalActivation
         | GetgemsNftAuctionV3R2EmergencyRelayBox
-    thrownErrors: GetgemsNftAuctionV3R2Errors
+    thrownErrors: Errors
 }
 
 /// Fee configuration cell referenced from the auction root storage.
@@ -189,7 +189,7 @@ struct GetgemsNftAuctionV3R2SaleDataReply {
 }
 
 /// Callsite-proven exit-code catalog for Getgems NFT auction V3R2.
-enum GetgemsNftAuctionV3R2Errors {
+enum Errors {
     /// Sender is not authorized for cancel/stop.
     UnauthorizedAddress = 403
     /// Bid amount is below the required minimum.

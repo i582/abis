@@ -6,7 +6,7 @@ contract DedustVaultNativeV1 {
     storage: DedustVaultNativeV1Storage
     incomingMessages: DedustVaultNativeV1IncomingMessage
     outgoingMessages: DedustVaultNativeV1OutgoingMessage
-    thrownErrors: DedustVaultNativeV1Errors
+    thrownErrors: Errors
 }
 
 /// Runtime storage loaded by the Native Vault v1 root data cell.
@@ -259,7 +259,7 @@ type DedustVaultNativeV1OutgoingMessage =
     | DedustVaultNativeV1Payout
 
 /// DeDust Native Vault v1 exit-code catalog.
-enum DedustVaultNativeV1Errors {
+enum Errors {
     /// Factory message sender is not the stored Factory.
     InvalidFactorySender = 259
     /// Asset tag, user payload, or proof shape is invalid for this Vault.

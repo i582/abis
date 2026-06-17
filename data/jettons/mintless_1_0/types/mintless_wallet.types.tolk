@@ -6,7 +6,7 @@ contract MintlessJettonWallet {
     storage: MintlessJettonWalletStorage
     incomingMessages: MintlessJettonWalletIncomingMessage
     outgoingMessages: MintlessJettonWalletOutgoingMessage
-    thrownErrors: MintlessJettonWalletErrors
+    thrownErrors: WalletErrors
 }
 
 /// Persistent mintless wallet state stored in the root data cell.
@@ -140,7 +140,7 @@ struct GetMintlessJettonWalletDataReply {
 }
 
 /// Mintless v1.0 wallet exit-code catalog from official FunC source.
-enum MintlessJettonWalletErrors {
+enum WalletErrors {
     /// Transfer or burn would make the stored jetton balance negative.
     InsufficientJettonBalance = 47
     /// Transfer, burn, or claim funding is below the required gas/forward-fee budget.

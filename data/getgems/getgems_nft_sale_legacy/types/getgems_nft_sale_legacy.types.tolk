@@ -7,7 +7,7 @@ contract GetgemsNftSaleLegacy {
     incomingMessages: GetgemsNftSaleLegacyIncomingMessage
     outgoingMessages: GetgemsNftSaleLegacyOutgoingMessage
     forceAbiExport: GetgemsNftSaleLegacyEmptyBuy
-    thrownErrors: GetgemsNftSaleLegacyErrors
+    thrownErrors: Errors
 }
 
 /// Fee distribution cell referenced from the root legacy sale storage.
@@ -116,7 +116,7 @@ struct GetgemsNftSaleLegacySaleDataReply {
 }
 
 /// Source-level exit-code catalog for Getgems legacy NFT sale.
-enum GetgemsNftSaleLegacyErrors {
+enum Errors {
     /// Purchase did not attach `fullPrice + 1 TON`.
     NotEnoughTonsForSale = 450
     /// Uninitialized sale was messaged by an address other than marketplace or NFT.

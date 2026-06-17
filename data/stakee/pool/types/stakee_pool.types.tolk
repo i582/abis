@@ -9,7 +9,7 @@ contract StakeePool {
     forceAbiExport: StakeePoolEventMessage
         | StakeePoolPayoutData
         | StakeePoolPayoutInitData
-    thrownErrors: StakeePoolErrors
+    thrownErrors: PoolErrors
 }
 
 /// Signed coin value encoded by Stakee as `Coins` magnitude followed by a one-bit sign.
@@ -660,7 +660,7 @@ struct StakeePoolControllerLoanPositionReply {
 }
 
 /// Pool exit-code catalog.
-enum StakeePoolErrors {
+enum PoolErrors {
     /// Message opcode is unsupported, or a loan-position getter could not find the requested controller.
     UnknownOperation = 0xffff
     /// Sender does not match the role, minter, or derived controller expected by a branch.

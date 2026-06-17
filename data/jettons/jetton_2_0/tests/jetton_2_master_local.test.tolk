@@ -75,7 +75,7 @@ get fun `test jetton v2 master accepts discovery and top up but rejects non admi
     expect(changeAdminTxs).toHaveFailedTx<Jetton2MasterChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: Jetton2MasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
     expect(master.getJettonData().adminAddress).toEqual(before.adminAddress);
 }

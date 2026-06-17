@@ -212,7 +212,7 @@ type CoffeePoolCreatorOutgoingMessage =
     | CoffeePoolCreatorExcesses
 
 /// PoolCreator error codes.
-enum CoffeePoolCreatorErrors {
+enum PoolCreatorErrors {
     /// Incoming opcode is not supported by PoolCreator.
     UnknownOpcode = 6
     /// Deposit asset is not one of the two assets bound to this helper.

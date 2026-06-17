@@ -91,7 +91,7 @@ get fun `test sbt v1 item rejects transfer`() {
     expect(txs).toHaveFailedTx<SbtV1ItemTransfer>({
         from: sender.address,
         to: item.address,
-        exitCode: SbtV1ItemErrors.TransferRejected,
+        exitCode: ItemErrors.TransferRejected,
     });
     expect(item.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }
@@ -112,6 +112,6 @@ get fun `test sbt v1 item rejects unauthorized prove ownership`() {
     expect(txs).toHaveFailedTx<SbtV1ItemProveOwnership>({
         from: sender.address,
         to: item.address,
-        exitCode: SbtV1ItemErrors.UnauthorizedOwnerOrAuthority,
+        exitCode: ItemErrors.UnauthorizedOwnerOrAuthority,
     });
 }

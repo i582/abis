@@ -7,7 +7,7 @@ contract WhalesPool {
     incomingMessages: WhalesPoolIncomingMessage
     outgoingMessages: WhalesPoolOutgoingMessage
     forceAbiExport: WhalesPoolExtras | WhalesPoolProxyStateTail
-    thrownErrors: WhalesPoolErrors
+    thrownErrors: Errors
 }
 
 /// Pool-wide accounting stored in a referenced balance cell.
@@ -458,7 +458,7 @@ struct WhalesPoolSupportedInterfacesReply {
 }
 
 /// Source-level exit-code catalog for Whales Nominators pool.
-enum WhalesPoolErrors {
+enum Errors {
     /// Address parsing or address domain check failed.
     InvalidAddress = 70
     /// Message body, value, state, or operation parameter is invalid.

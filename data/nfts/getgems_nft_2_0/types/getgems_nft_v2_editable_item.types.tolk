@@ -8,7 +8,7 @@ contract GetgemsNftEditableItemV2 {
     incomingMessages: GetgemsNftEditableItemV2IncomingMessage
     outgoingMessages: GetgemsNftEditableItemV2OutgoingMessage
     forceAbiExport: GetgemsNftEditableItemV2MintInit | GetgemsNftEditableItemV2MintForwardTail
-    thrownErrors: GetgemsNftEditableItemV2Errors
+    thrownErrors: EditableItemErrors
 }
 
 /// Deployment storage present before the collection initializes the editable item.
@@ -167,7 +167,7 @@ struct GetgemsNftEditableItemV2DataReply {
 }
 
 /// Getgems NFT editable item v2 exit-code catalog from source.
-enum GetgemsNftEditableItemV2Errors {
+enum EditableItemErrors {
     /// Address workchain is not the configured base workchain.
     InvalidWorkchain = 333
     /// Transfer sender is not the owner, or editorship sender is not the editor.

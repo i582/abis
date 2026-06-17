@@ -9,11 +9,11 @@ contract Config {
     incomingExternal: ConfigIncomingExternalMessage
     outgoingMessages: ConfigOutgoingMessage
     storage: ConfigStorage
-    thrownErrors: ConfigErrors
+    thrownErrors: Errors
 }
 
 /// Config contract exit codes.
-enum ConfigErrors {
+enum Errors {
     /// Validator set cell tag or descriptor is invalid.
     InvalidValidatorSet = 9
     /// External signed action opcode is not supported.

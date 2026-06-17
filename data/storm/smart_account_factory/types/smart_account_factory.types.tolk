@@ -6,7 +6,7 @@ contract SmartAccountFactory {
     storage: SmartAccountFactoryStorage
     incomingMessages: SmartAccountFactoryIncomingMessage
     outgoingMessages: SmartAccountFactoryOutgoingMessage
-    thrownErrors: SmartAccountFactoryErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage for SmartAccountFactory.
@@ -235,7 +235,7 @@ struct SmartAccountFactoryRoyaltyParams {
 }
 
 /// SmartAccountFactory exit codes.
-enum SmartAccountFactoryErrors {
+enum Errors {
     /// Deployment request did not attach enough balance for deploy and storage fees.
     NotEnoughGasToDeploy = 150
     /// Sender is not authorized for the requested factory operation.

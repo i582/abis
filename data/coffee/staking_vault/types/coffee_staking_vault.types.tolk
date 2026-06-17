@@ -182,7 +182,7 @@ type CoffeeStakingVaultOutgoingMessage =
     | CoffeeStakingVaultDepositToMaster
     | CoffeeStakingVaultJettonRefund
 
-enum CoffeeStakingVaultErrors {
+enum Errors {
     /// Locked Jetton amount must be positive.
     InvalidAmount = 80
     /// Dictionary lookup or dictionary value validation failed.

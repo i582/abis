@@ -6,7 +6,7 @@ contract DedustPoolV1 {
     storage: DedustPoolV1Storage
     incomingMessages: DedustPoolV1IncomingMessage
     outgoingMessages: DedustPoolV1OutgoingMessage
-    thrownErrors: DedustPoolV1Errors
+    thrownErrors: Errors
 }
 
 /// Runtime Pool storage loaded from the v1 root data cell.
@@ -469,7 +469,7 @@ struct DedustPoolV1JettonDataReply {
 }
 
 /// DeDust Pool v1 exit-code catalog.
-enum DedustPoolV1Errors {
+enum Errors {
     /// LP burn notification or protocol-fee sender is not authorized.
     InvalidLpOrFeeSender = 257
     /// Control message sender is not the stored Factory/proof address.

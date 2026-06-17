@@ -6,7 +6,7 @@ contract SingleNominatorV11 {
     storage: SingleNominatorV11Storage
     incomingMessages: SingleNominatorV11IncomingMessage
     outgoingMessages: SingleNominatorV11OutgoingMessage
-    thrownErrors: SingleNominatorV11Errors
+    thrownErrors: Errors
 }
 
 /// Persistent Single Nominator state stored in the root data cell.
@@ -184,7 +184,7 @@ struct SingleNominatorV11PoolDataReply {
 }
 
 /// Single Nominator v1.1 exit-code catalog.
-enum SingleNominatorV11Errors {
+enum Errors {
     /// Pool contract is not deployed on the masterchain for a new-stake request.
     WrongNominatorWorkchain = 8192
     /// New-stake query id is zero.

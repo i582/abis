@@ -6,7 +6,7 @@ contract Jetton2Wallet {
     storage: Jetton2WalletStorage
     incomingMessages: Jetton2WalletIncomingMessage
     outgoingMessages: Jetton2WalletOutgoingMessage
-    thrownErrors: Jetton2WalletErrors
+    thrownErrors: WalletErrors
 }
 
 /// Persistent Jetton v2.0 wallet state stored in the root data cell.
@@ -128,7 +128,7 @@ struct GetJetton2WalletDataReply {
 }
 
 /// Jetton v2.0 wallet exit-code catalog from official FunC source.
-enum Jetton2WalletErrors {
+enum WalletErrors {
     /// Transfer or burn would make the stored jetton balance negative.
     InsufficientJettonBalance = 47
     /// Transfer or burn funding is below the required gas/forward-fee budget.

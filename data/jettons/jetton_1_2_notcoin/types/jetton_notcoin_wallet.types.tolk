@@ -6,7 +6,7 @@ contract JettonNotcoinWallet {
     storage: JettonNotcoinWalletStorage
     incomingMessages: JettonNotcoinWalletIncomingMessage
     outgoingMessages: JettonNotcoinWalletOutgoingMessage
-    thrownErrors: JettonNotcoinWalletErrors
+    thrownErrors: WalletErrors
 }
 
 /// Persistent Notcoin-style wallet state stored in the root data cell.
@@ -130,7 +130,7 @@ struct GetJettonNotcoinWalletDataReply {
 }
 
 /// Jetton 1.2 / Notcoin-style wallet exit-code catalog from official FunC source.
-enum JettonNotcoinWalletErrors {
+enum WalletErrors {
     /// Transfer or burn would make the stored jetton balance negative.
     InsufficientJettonBalance = 47
     /// Transfer or burn funding is below the required gas/forward-fee budget.

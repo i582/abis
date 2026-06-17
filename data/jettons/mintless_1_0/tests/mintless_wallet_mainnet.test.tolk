@@ -91,7 +91,7 @@ get fun `test mintless wallet rejects unauthorized owner transfer and burn`() {
     expect(transferTxs).toHaveFailedTx<MintlessJettonWalletTransfer>({
         from: sender.address,
         to: wallet.address,
-        exitCode: MintlessJettonWalletErrors.UnauthorizedOwner,
+        exitCode: WalletErrors.UnauthorizedOwner,
     });
 
     val burnTxs = wallet.sendMintlessJettonWalletBurn(
@@ -105,7 +105,7 @@ get fun `test mintless wallet rejects unauthorized owner transfer and burn`() {
     expect(burnTxs).toHaveFailedTx<MintlessJettonWalletBurn>({
         from: sender.address,
         to: wallet.address,
-        exitCode: MintlessJettonWalletErrors.UnauthorizedOwner,
+        exitCode: WalletErrors.UnauthorizedOwner,
     });
 
     expect(wallet.getWalletData().balance).toEqual(before.balance);
@@ -124,6 +124,6 @@ get fun `test mintless wallet rejects unknown opcode`() {
     expect(txs).toHaveFailedTx({
         from: sender.address,
         to: wallet.address,
-        exitCode: MintlessJettonWalletErrors.UnsupportedOperation,
+        exitCode: WalletErrors.UnsupportedOperation,
     });
 }

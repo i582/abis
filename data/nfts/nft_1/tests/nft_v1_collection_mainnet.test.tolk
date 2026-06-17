@@ -73,7 +73,7 @@ get fun `test nft v1 collection rejects unauthorized admin change`() {
     expect(txs).toHaveFailedTx<NftV1ChangeAdmin>({
         from: sender.address,
         to: collection.address,
-        exitCode: NftV1CollectionErrors.UnauthorizedAdmin,
+        exitCode: CollectionErrors.UnauthorizedAdmin,
     });
     expect(collection.getCollectionData().adminAddress).toEqual(before.adminAddress);
 }
@@ -95,7 +95,7 @@ get fun `test nft v1 editable collection rejects unauthorized content change`() 
     expect(txs).toHaveFailedTx<NftV1ChangeContent>({
         from: sender.address,
         to: collection.address,
-        exitCode: NftV1CollectionErrors.UnauthorizedAdmin,
+        exitCode: CollectionErrors.UnauthorizedAdmin,
     });
     expect(collection.getCollectionData().collectionMetadata.hash()).toEqual(
         before.collectionMetadata.hash(),

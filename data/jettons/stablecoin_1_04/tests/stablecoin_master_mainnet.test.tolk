@@ -95,7 +95,7 @@ get fun `test stablecoin master rejects unauthorized admin messages`() {
     expect(changeAdminTxs).toHaveFailedTx<StablecoinMasterChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: StablecoinMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     val changeMetadataTxs = master.sendStablecoinMasterChangeMetadataUri(
@@ -107,7 +107,7 @@ get fun `test stablecoin master rejects unauthorized admin messages`() {
     expect(changeMetadataTxs).toHaveFailedTx<StablecoinMasterChangeMetadataUri>({
         from: sender.address,
         to: master.address,
-        exitCode: StablecoinMasterErrors.UnauthorizedAdmin,
+        exitCode: MasterErrors.UnauthorizedAdmin,
     });
 
     expect(master.getJettonData().adminAddress).toEqual(before.adminAddress);

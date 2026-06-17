@@ -6,7 +6,7 @@ contract JettonNotcoinMaster {
     storage: JettonNotcoinMasterStorage
     incomingMessages: JettonNotcoinMasterIncomingMessage
     outgoingMessages: JettonNotcoinMasterOutgoingMessage
-    thrownErrors: JettonNotcoinMasterErrors
+    thrownErrors: MasterErrors
 }
 
 /// Persistent Notcoin-style minter state stored in the root data cell.
@@ -166,7 +166,7 @@ struct GetJettonNotcoinDataReply {
 }
 
 /// Jetton 1.2 / Notcoin-style minter exit-code catalog from official FunC source.
-enum JettonNotcoinMasterErrors {
+enum MasterErrors {
     /// Nested mint payload opcode is not `internal_transfer`.
     InvalidNestedOperation = 72
     /// Sender is not the stored admin or pending admin for the requested admin action.

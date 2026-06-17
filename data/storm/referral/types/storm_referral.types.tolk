@@ -8,7 +8,7 @@ contract StormReferral {
     incomingMessages: StormReferralIncomingMessage
     outgoingMessages: StormReferralOutgoingMessage
     forceAbiExport: StormReferralParameters | StormReferralInitPayload
-    thrownErrors: StormReferralErrors
+    thrownErrors: Errors
 }
 
 /// Deployment storage before the collection initializes the referral item.
@@ -212,7 +212,7 @@ struct GetReferralDataReply {
 }
 
 /// Referral item exit codes.
-enum StormReferralErrors {
+enum Errors {
     /// Sender is not the current owner.
     NotAnOwner = 301
     /// Vault or owner address is not in basechain workchain 0.

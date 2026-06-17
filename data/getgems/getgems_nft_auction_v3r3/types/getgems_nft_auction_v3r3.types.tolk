@@ -8,7 +8,7 @@ contract GetgemsNftAuctionV3R3 {
     incomingExternal: GetgemsNftAuctionV3R3IncomingExternalMessage
     outgoingMessages: GetgemsNftAuctionV3R3OutgoingMessage
     forceAbiExport: GetgemsNftAuctionV3R3EmptyBid
-    thrownErrors: GetgemsNftAuctionV3R3Errors
+    thrownErrors: Errors
 }
 
 /// Fee address cell referenced from root auction storage.
@@ -246,7 +246,7 @@ struct GetgemsNftAuctionV3R3AuctionDataReply {
 }
 
 /// Source-level exit-code catalog for Getgems NFT auction V3R3.
-enum GetgemsNftAuctionV3R3Errors {
+enum Errors {
     /// Sender is not authorized for the command.
     UnauthorizedAddress = 403
     /// Bid or externally ended profit is below the required threshold.

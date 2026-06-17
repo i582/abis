@@ -665,7 +665,7 @@ struct GetPoolTokensReply {
 }
 
 /// Source-level exit-code catalog observed in the verified Pool code.
-enum BidaskPoolErrors {
+enum Errors {
     /// Internal message value is too small for the operation's gas budget.
     InsufficientGasForOperation = 83
     /// Contract or derived address is not in the expected workchain.

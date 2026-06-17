@@ -7,7 +7,7 @@ contract StakeedWallet {
     incomingMessages: StakeedWalletIncomingMessage
     outgoingMessages: StakeedWalletOutgoingMessage
     forceAbiExport: StakeedWalletBouncedKnownBody
-    thrownErrors: StakeedWalletErrors
+    thrownErrors: WalletErrors
 }
 
 /// Runtime STAKEED wallet state stored in the root data cell.
@@ -269,7 +269,7 @@ struct StakeedDaoWalletDataReply {
 }
 
 /// STAKEED wallet exit-code catalog.
-enum StakeedWalletErrors {
+enum WalletErrors {
     /// Destination owner address is not in the base workchain.
     WrongWorkchain = 333
     /// Sender is not the stored wallet owner for owner-only operations.

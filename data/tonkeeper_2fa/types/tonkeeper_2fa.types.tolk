@@ -15,7 +15,7 @@ contract Tonkeeper2fa {
         | Tonkeeper2faWalletSetSignatureAuthAction
         | Tonkeeper2faWalletAddExtensionAction
         | Tonkeeper2faWalletDeleteExtensionAction
-    thrownErrors: Tonkeeper2faErrors
+    thrownErrors: Errors
 }
 
 /// Pre-install data cell used when the extension address is derived and deployed.
@@ -257,7 +257,7 @@ struct Tonkeeper2faDelegationStateReply {
 }
 
 /// Tonkeeper 2FA exit-code catalog.
-enum Tonkeeper2faErrors {
+enum Errors {
     /// Install was attempted after the extension had already been installed.
     ExtensionAlreadyInstalled = 160
     /// Internal sender is not the controlled wallet.

@@ -61,7 +61,7 @@ get fun `test getgems nft editable item v2 rejects unauthorized edit content`() 
     expect(txs).toHaveFailedTx<GetgemsNftEditableItemV2EditContent>({
         from: sender.address,
         to: item.address,
-        exitCode: GetgemsNftEditableItemV2Errors.UnauthorizedEditContent,
+        exitCode: EditableItemErrors.UnauthorizedEditContent,
     });
     expect(item.getNftData().content!.hash()).toEqual(before.content!.hash());
 }
@@ -85,7 +85,7 @@ get fun `test getgems nft editable item v2 rejects unauthorized transfer editors
     expect(txs).toHaveFailedTx<GetgemsNftEditableItemV2TransferEditorship>({
         from: sender.address,
         to: item.address,
-        exitCode: GetgemsNftEditableItemV2Errors.UnauthorizedOwnerOrEditor,
+        exitCode: EditableItemErrors.UnauthorizedOwnerOrEditor,
     });
     expect(item.getEditor()).toEqual(before);
 }

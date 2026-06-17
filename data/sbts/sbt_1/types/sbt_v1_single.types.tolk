@@ -6,7 +6,7 @@ contract SbtV1Single {
     storage: SbtV1SingleStorage
     incomingMessages: SbtV1SingleIncomingMessage
     outgoingMessages: SbtV1SingleOutgoingMessage
-    thrownErrors: SbtV1SingleErrors
+    thrownErrors: SingleErrors
 }
 
 /// Runtime storage for the Getgems single SBT variant.
@@ -213,7 +213,7 @@ struct SbtV1SingleDataReply {
 }
 
 /// Single SBT exit-code catalog from Getgems FunC source.
-enum SbtV1SingleErrors {
+enum SingleErrors {
     /// New editor address is outside the configured base workchain.
     InvalidWorkchain = 333
     /// Sender is not authorized for owner-only, authority-only, or editor-only operations.

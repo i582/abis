@@ -43,7 +43,7 @@ type JettonDiscoveryIncomingMessage = ProvideWalletAddress
 type JettonDiscoveryOutgoingMessage = TakeWalletAddress
 
 /// Standalone discovery helper exit-code catalog from token-contract source.
-enum JettonDiscoveryErrors {
+enum Errors {
     /// `provide_wallet_address` message value cannot cover the response budget.
     InsufficientProvideWalletAddressValue = 75
     /// Incoming internal message opcode is not supported by the helper.

@@ -61,7 +61,7 @@ type HipoLibrarianIncomingMessage =
 type HipoLibrarianOutgoingMessage = HipoLibrarianGasExcess
 
 /// Hipo Librarian exit-code catalog documented from shared source constants.
-enum HipoLibrarianErrors {
+enum Errors {
     /// Sender is not the Treasury address stored in Librarian data.
     AccessDenied = 103
     /// Incoming internal message opcode is not supported by the Librarian dispatcher.

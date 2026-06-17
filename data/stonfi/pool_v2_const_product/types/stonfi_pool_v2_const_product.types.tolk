@@ -6,7 +6,7 @@ contract StonfiPoolV2ConstProduct {
     storage: StonfiPoolV2ConstProductStorage
     incomingMessages: StonfiPoolV2ConstProductIncomingMessage
     outgoingMessages: StonfiPoolV2ConstProductOutgoingMessage
-    thrownErrors: StonfiPoolV2ConstProductErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent ConstantProduct pool state stored by `storage::save`; mirrors the common PoolData fields exposed by `get_pool_data`.
@@ -498,7 +498,7 @@ struct StonfiPoolV2ConstProductJettonDataReply {
 }
 
 /// Source-level exit-code catalog for the ConstantProduct Pool paths represented here.
-enum StonfiPoolV2ConstProductErrors {
+enum Errors {
     /// `provide_wallet_address` message value cannot cover the response budget.
     InsufficientProvideWalletAddressValue = 75
     /// Burn, collect, or liquidity flow would produce zero output.

@@ -61,7 +61,7 @@ get fun `test nft v1 editable item rejects unauthorized edit content`() {
     expect(txs).toHaveFailedTx<NftV1EditableEditContent>({
         from: sender.address,
         to: item.address,
-        exitCode: NftV1EditableItemErrors.UnauthorizedEditContent,
+        exitCode: EditableItemErrors.UnauthorizedEditContent,
     });
     expect(item.getNftData().content!.hash()).toEqual(before.content!.hash());
 }
@@ -85,7 +85,7 @@ get fun `test nft v1 editable item rejects unauthorized editorship transfer`() {
     expect(txs).toHaveFailedTx<NftV1EditableTransferEditorship>({
         from: sender.address,
         to: item.address,
-        exitCode: NftV1EditableItemErrors.UnauthorizedOwnerOrEditor,
+        exitCode: EditableItemErrors.UnauthorizedOwnerOrEditor,
     });
     expect(item.getEditor()).toEqual(beforeEditor);
 }

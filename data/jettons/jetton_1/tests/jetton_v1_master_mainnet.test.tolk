@@ -41,7 +41,7 @@ get fun `test jetton v1 master rejects unauthorized admin change`() {
     expect(txs).toHaveFailedTx<JettonV1ChangeAdmin>({
         from: sender.address,
         to: master.address,
-        exitCode: JettonV1MasterErrors.UnauthorizedAdmin,
+        exitCode: Errors.UnauthorizedAdmin,
     });
     expect(master.getJettonData().adminAddress).toEqual(before.adminAddress);
 }

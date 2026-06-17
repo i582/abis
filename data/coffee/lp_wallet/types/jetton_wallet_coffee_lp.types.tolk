@@ -7,7 +7,7 @@ contract JettonWalletCoffeeLp {
     incomingMessages: JettonWalletCoffeeLpIncomingMessage
     outgoingMessages: JettonWalletCoffeeLpOutgoingMessage
     forceAbiExport: JettonWalletCoffeeLpBouncedKnownBody
-    thrownErrors: JettonWalletCoffeeLpErrors
+    thrownErrors: LpWalletErrors
 }
 
 /// Persistent Jetton wallet state stored in the root data cell.
@@ -138,7 +138,7 @@ struct GetJettonWalletCoffeeLpDataReply {
 }
 
 /// Coffee LP Jetton wallet error codes.
-enum JettonWalletCoffeeLpErrors {
+enum LpWalletErrors {
     /// Incoming opcode is not supported by the wallet.
     UnknownOpcode = 6
     /// Transfer destination owner is outside the base workchain.

@@ -6,7 +6,7 @@ contract BemoUnstakeRequest {
     storage: BemoUnstakeRequestStorage
     incomingMessages: BemoUnstakeRequestIncomingMessage
     outgoingMessages: BemoUnstakeRequestOutgoingMessage
-    thrownErrors: BemoUnstakeRequestErrors
+    thrownErrors: Errors
 }
 
 /// Persistent Unstake Request state stored in the root data cell.
@@ -88,7 +88,7 @@ struct BemoUnstakeRequestDataReply {
 }
 
 /// Unstake Request exit-code catalog proven from the verified library decompile.
-enum BemoUnstakeRequestErrors {
+enum Errors {
     /// Financial sent a body opcode other than deploy/update or return.
     UnsupportedFinancialOperation = 65535
     /// Unlock was attempted after this request had already fired or was not initialized.

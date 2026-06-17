@@ -6,7 +6,7 @@ contract DedustV2Cpmm {
     storage: DedustV2CpmmStorage
     incomingMessages: DedustV2CpmmIncomingMessage
     outgoingMessages: DedustV2CpmmOutgoingMessage
-    thrownErrors: DedustV2CpmmErrors
+    thrownErrors: Errors
     forceAbiExport: DedustV2CpmmPaymentPayload | DedustV2CpmmPayJetton | DedustV2CpmmPoolConfig | DedustV2CpmmPoolFees | DedustV2CpmmPoolUpdatedState | DedustV2CpmmSwapFees | DedustV2CpmmExtendedPayoutConfig | DedustV2CpmmBasicPayoutConfig
 }
 
@@ -739,7 +739,7 @@ type DedustV2CpmmOutgoingMessage =
     | DedustV2CpmmWithdrawalEvent
 
 /// CPMM v2 exit-code catalog from official docs and verified decompile.
-enum DedustV2CpmmErrors {
+enum Errors {
     /// Pool is not in the uninitialized state.
     NotUninitialized = 20,
     /// Pool is not in the initializing state.

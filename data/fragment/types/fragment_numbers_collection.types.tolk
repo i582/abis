@@ -6,7 +6,7 @@ contract FragmentNumbersCollection {
     storage: FragmentNumbersCollectionStorage
     incomingMessages: FragmentNumbersCollectionIncomingMessage
     outgoingMessages: FragmentNumbersCollectionOutgoingMessage
-    thrownErrors: FragmentNumbersCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent collection data.
@@ -100,7 +100,7 @@ struct FragmentNumbersCollectionDataReply {
 }
 
 /// Fragment anonymous number collection exit-code catalog.
-enum FragmentNumbersCollectionErrors {
+enum Errors {
     /// Text payload length is invalid.
     InvalidLength = 201
     /// Signed deploy request signature is invalid.

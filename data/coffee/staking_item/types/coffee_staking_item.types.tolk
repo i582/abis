@@ -150,7 +150,7 @@ type CoffeeStakingItemOutgoingMessage =
     | CoffeeStakingItemUnlockNotification
     | CoffeeStakingItemExtendNotification
 
-enum CoffeeStakingItemErrors {
+enum Errors {
     /// Contract is not initialized.
     NotInitialized = 99
     /// Contract is already initialized.

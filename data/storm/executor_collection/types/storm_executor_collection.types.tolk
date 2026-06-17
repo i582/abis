@@ -7,7 +7,7 @@ contract StormExecutorCollection {
     incomingMessages: StormExecutorCollectionIncomingMessage
     outgoingMessages: StormExecutorCollectionOutgoingMessage
     forceAbiExport: StormExecutorCollectionContent
-    thrownErrors: StormExecutorCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent storage.
@@ -154,7 +154,7 @@ struct StormExecutorCollectionDataReply {
 }
 
 /// Executor collection exit codes.
-enum StormExecutorCollectionErrors {
+enum Errors {
     /// Sender is not the stored admin address.
     NotAnOwner = 351
     /// Provide-vaults request attached less than 0.01 TON.

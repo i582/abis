@@ -6,7 +6,7 @@ contract AquaUsdMasterVault {
     storage: AquaUsdMasterVaultStorage
     incomingMessages: AquaUsdMasterVaultIncomingMessage
     outgoingMessages: AquaUsdMasterVaultOutgoingMessage
-    thrownErrors: AquaUsdMasterVaultErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent storage split into four referenced sections.
@@ -254,7 +254,7 @@ struct GetAquaAssetsReply {
 }
 
 /// Aqua USD master vault exit-code catalog.
-enum AquaUsdMasterVaultErrors {
+enum Errors {
     /// Requested asset amount must be positive.
     InvalidAmount = 60
     /// Wallet discovery response budget is insufficient.

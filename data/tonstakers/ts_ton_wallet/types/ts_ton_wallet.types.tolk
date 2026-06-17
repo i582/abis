@@ -7,7 +7,7 @@ contract TsTonWallet {
     incomingMessages: TsTonWalletIncomingMessage
     outgoingMessages: TsTonWalletOutgoingMessage
     forceAbiExport: TsTonWalletBouncedKnownBody
-    thrownErrors: TsTonWalletErrors
+    thrownErrors: Errors
 }
 
 /// Runtime tsTON wallet state stored in the root data cell.
@@ -269,7 +269,7 @@ struct TsTonDaoWalletDataReply {
 }
 
 /// tsTON wallet exit-code catalog.
-enum TsTonWalletErrors {
+enum Errors {
     /// Destination owner address is not in the base workchain.
     WrongWorkchain = 333
     /// Sender is not the stored wallet owner for owner-only operations.

@@ -6,7 +6,7 @@ contract StormVammCoinm {
     storage: StormVammCoinmStorage
     incomingMessages: StormVammCoinmIncomingMessage
     outgoingMessages: StormVammCoinmOutgoingMessage
-    thrownErrors: StormVammCoinmErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage parsed from the CoinM VAMM data cell.
@@ -1421,7 +1421,7 @@ struct GetSettlementOracleDataReply {
 }
 
 /// CoinM VAMM exit codes.
-enum StormVammCoinmErrors {
+enum Errors {
     /// Invalid vault address.
     InvalidVaultAddress = 157
     /// Invalid AMM address.

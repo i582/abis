@@ -7,7 +7,7 @@ contract FragmentNumbersItem {
     incomingMessages: FragmentNumbersItemIncomingMessage
     outgoingMessages: FragmentNumbersItemOutgoingMessage
     forceAbiExport: FragmentNumbersItemBidInfo
-    thrownErrors: FragmentNumbersItemErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent item data.
@@ -305,7 +305,7 @@ struct FragmentNumbersItemRoyaltyParamsReply {
 }
 
 /// Fragment number item exit-code catalog.
-enum FragmentNumbersItemErrors {
+enum Errors {
     /// Text payload length is invalid.
     InvalidLength = 201
     /// Remaining balance after storage, forward amount, and fees would be negative.

@@ -6,7 +6,7 @@ contract CoffeePoolConstantProduct {
     storage: CoffeePoolConstantProductStorage
     incomingMessages: CoffeePoolConstantProductIncomingMessage
     outgoingMessages: CoffeePoolConstantProductOutgoingMessage
-    thrownErrors: CoffeePoolConstantProductErrors
+    thrownErrors: PoolErrors
 }
 
 /// Runtime persistent Pool storage loaded by `contracts/pool/include/storage.fc`.
@@ -711,7 +711,7 @@ struct CoffeePoolConstantProductEstimateLiquidityDepositAmountReply {
 }
 
 /// Coffee constant-product Pool error codes.
-enum CoffeePoolConstantProductErrors {
+enum PoolErrors {
     /// Unsupported opcode.
     UnknownOpcode = 6
     /// Attached value cannot cover downstream gas or notification forwarding.

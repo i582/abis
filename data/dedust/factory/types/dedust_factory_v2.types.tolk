@@ -6,7 +6,7 @@ contract DedustFactoryV2 {
     storage: DedustFactoryV2Storage
     incomingMessages: DedustFactoryV2IncomingMessage
     outgoingMessages: DedustFactoryV2OutgoingMessage
-    thrownErrors: DedustFactoryV2Errors
+    thrownErrors: Errors
 }
 
 /// Runtime Factory storage loaded by the verified v2 code root data cell.
@@ -338,7 +338,7 @@ type DedustFactoryV2OutgoingMessage =
     | DedustFactoryV2DepositAsset
 
 /// DeDust Factory v2 exit-code catalog.
-enum DedustFactoryV2Errors {
+enum Errors {
     /// Incoming administration message sender is not the current Factory owner.
     InvalidOwnerSender = 256
     /// Ownership acceptance sender is not the pending owner.

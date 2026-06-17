@@ -102,7 +102,7 @@ get fun `test jetton v2 wallet top up and rejected messages`() {
     expect(unauthorizedTransferTxs).toHaveFailedTx<Jetton2WalletTransfer>({
         from: attacker.address,
         to: wallet.address,
-        exitCode: Jetton2WalletErrors.UnauthorizedOwner,
+        exitCode: WalletErrors.UnauthorizedOwner,
     });
 
     val unknownBody = beginCell().storeUint(0x12345678, 32).storeUint(44, 64).endCell();
@@ -114,7 +114,7 @@ get fun `test jetton v2 wallet top up and rejected messages`() {
     expect(unknownTxs).toHaveFailedTx({
         from: attacker.address,
         to: wallet.address,
-        exitCode: Jetton2WalletErrors.UnsupportedOperation,
+        exitCode: WalletErrors.UnsupportedOperation,
     });
 
     expect(wallet.getWalletData().balance).toEqual(10);

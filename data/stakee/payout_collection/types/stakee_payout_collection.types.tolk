@@ -12,7 +12,7 @@ contract StakeePayoutCollection {
         | StakeePayoutCollectionPendingJettonDistribution
         | StakeePayoutCollectionStartedTonDistribution
         | StakeePayoutCollectionStartedJettonDistribution
-    thrownErrors: StakeePayoutCollectionErrors
+    thrownErrors: Errors
 }
 
 /// Runtime storage shape after at least one payout NFT has been minted.
@@ -235,7 +235,7 @@ struct StakeePayoutCollectionIssuedBillsReply {
 }
 
 /// Payout collection exit-code catalog.
-enum StakeePayoutCollectionErrors {
+enum Errors {
     /// Burn notification arrived before distribution was started.
     BurnBeforeDistribution = 66
     /// Collection has not been initialized with a distribution state ref.

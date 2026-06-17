@@ -7,7 +7,7 @@ contract GetgemsNftFixpriceSaleV3R3 {
     incomingMessages: GetgemsNftFixpriceSaleV3R3IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV3R3OutgoingMessage
     forceAbiExport: GetgemsNftFixpriceSaleV3R3EmptyBuy
-    thrownErrors: GetgemsNftFixpriceSaleV3R3Errors
+    thrownErrors: Errors
 }
 
 /// Fee distribution cell referenced from the root sale storage.
@@ -194,7 +194,7 @@ struct GetgemsNftFixpriceSaleV3R3FixPriceDataReply {
 }
 
 /// Source-level exit-code catalog for Getgems fixed-price sale V3R3.
-enum GetgemsNftFixpriceSaleV3R3Errors {
+enum Errors {
     /// Sale was already bought or cancelled.
     AlreadySoldOrCancelled = 404
     /// Marketplace raw resend attempted send mode bit 32.

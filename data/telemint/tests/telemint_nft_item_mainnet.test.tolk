@@ -72,7 +72,7 @@ get fun `test telemint nft item rejects unauthorized transfer`() {
     expect(txs).toHaveFailedTx<TelemintNftItemTransfer>({
         from: sender.address,
         to: item.address,
-        exitCode: TelemintNftItemErrors.ForbiddenTransfer,
+        exitCode: Errors.ForbiddenTransfer,
     });
     expect(item.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }

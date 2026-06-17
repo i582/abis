@@ -6,7 +6,7 @@ contract LockerBill {
     storage: LockerBillStorage
     incomingMessages: LockerBillIncomingMessage
     outgoingMessages: LockerBillOutgoingMessage
-    thrownErrors: LockerBillErrors
+    thrownErrors: BillErrors
 }
 
 /// Persistent state stored by a deterministic per-user LockerBill.
@@ -66,7 +66,7 @@ struct GetLockerBillDataReply {
 }
 
 /// LockerBill exit-code catalog from the official FunC source.
-enum LockerBillErrors {
+enum BillErrors {
     /// Internal body is not a zero-op text comment when a text command is expected.
     OnlyTextCommentsSupported = 61
     /// Text command byte is not one of the accepted actions.

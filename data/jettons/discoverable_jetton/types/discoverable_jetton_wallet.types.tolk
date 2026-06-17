@@ -6,7 +6,7 @@ contract DiscoverableJettonWallet {
     storage: DiscoverableJettonWalletStorage
     incomingMessages: DiscoverableJettonWalletIncomingMessage
     outgoingMessages: DiscoverableJettonWalletOutgoingMessage
-    thrownErrors: DiscoverableJettonWalletErrors
+    thrownErrors: Errors
 }
 
 /// Persistent wallet state stored in the root data cell.
@@ -123,7 +123,7 @@ struct GetDiscoverableJettonWalletDataReply {
 }
 
 /// Discoverable Jetton wallet exit-code catalog from source variants.
-enum DiscoverableJettonWalletErrors {
+enum Errors {
     /// Sender is not the stored owner for transfer or burn requests.
     UnauthorizedOwner = 705
     /// Transfer or burn would make the stored jetton balance negative.

@@ -7,7 +7,7 @@ contract FragmentUsernameItem {
     incomingMessages: FragmentUsernameItemIncomingMessage
     outgoingMessages: FragmentUsernameItemOutgoingMessage
     forceAbiExport: FragmentUsernameItemBidInfo
-    thrownErrors: FragmentUsernameItemErrors
+    thrownErrors: Errors
 }
 
 /// Root persistent item data.
@@ -324,7 +324,7 @@ struct FragmentUsernameItemDnsResolveReply {
 }
 
 /// Fragment username item exit-code catalog.
-enum FragmentUsernameItemErrors {
+enum Errors {
     /// DNS subdomain length is not byte-aligned.
     BadSubdomainLength = 70
     /// Text payload length is invalid.

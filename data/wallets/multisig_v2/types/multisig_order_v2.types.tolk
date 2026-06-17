@@ -7,7 +7,7 @@ contract MultisigOrderV2 {
     storageAtDeployment: MultisigOrderV2DeploymentStorage
     incomingMessages: MultisigOrderV2IncomingMessage
     outgoingMessages: MultisigOrderV2OutgoingMessage
-    thrownErrors: MultisigOrderV2Errors
+    thrownErrors: OrderErrors
 }
 
 /// Deployment data used before an order contract receives its init message.
@@ -135,7 +135,7 @@ struct GetMultisigOrderV2DataReply {
 }
 
 /// Multisig Order V2 exit-code catalog from official source and local schema.
-enum MultisigOrderV2Errors {
+enum OrderErrors {
     /// Init sender is not the parent main multisig address.
     UnauthorizedInit = 104
     /// Repeated init data does not match the already initialized order.

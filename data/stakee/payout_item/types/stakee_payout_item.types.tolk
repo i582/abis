@@ -7,7 +7,7 @@ contract StakeePayoutItem {
     storageAtDeployment: StakeePayoutItemDeploymentStorage
     incomingMessages: StakeePayoutItemIncomingMessage
     outgoingMessages: StakeePayoutItemOutgoingMessage
-    thrownErrors: StakeePayoutItemErrors
+    thrownErrors: PayoutItemErrors
 }
 
 /// Deployment storage created by the payout collection before `init_nft`.
@@ -154,7 +154,7 @@ struct StakeePayoutItemNftDataReply {
 }
 
 /// Payout item exit-code catalog.
-enum StakeePayoutItemErrors {
+enum PayoutItemErrors {
     /// Address workchain is not basechain.
     InvalidWorkchain = 333
     /// Sender is not authorized for transfer or burn.

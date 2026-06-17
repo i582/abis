@@ -152,7 +152,7 @@ struct GetNftV2EditableDataReply {
 }
 
 /// NFT 2.0 editable item exit-code catalog from the reference FunC sources.
-enum NftV2EditableItemErrors {
+enum EditableItemErrors {
     /// Address workchain is not basechain.
     InvalidWorkchain = 333
     /// Transfer sender is not the current owner, or editorship sender is not the current editor.

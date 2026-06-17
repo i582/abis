@@ -10,7 +10,7 @@ contract FragmentMarketappProxyJetton {
         | FragmentMarketappProxyJettonSecondarySend
         | FragmentMarketappProxyJettonSignedTransferPayload
         | FragmentMarketappProxyJettonTransfer
-    thrownErrors: FragmentMarketappProxyJettonErrors
+    thrownErrors: Errors
 }
 
 /// Proxy persistent data used for Ed25519 authorization and admin raw-send control.
@@ -135,7 +135,7 @@ type FragmentMarketappProxyJettonIncomingMessage =
 type FragmentMarketappProxyJettonOutgoingMessage = FragmentMarketappProxyJettonTransfer
 
 /// Exit-code catalog for this proxy variant.
-enum FragmentMarketappProxyJettonErrors {
+enum Errors {
     /// Signature over the signed routing payload is invalid.
     InvalidSignature = 403
     /// Admin relay send mode uses a forbidden flag.

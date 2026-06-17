@@ -6,7 +6,7 @@ contract TsTonMinter {
     storage: TsTonMinterStorage
     incomingMessages: TsTonMinterIncomingMessage
     outgoingMessages: TsTonMinterOutgoingMessage
-    thrownErrors: TsTonMinterErrors
+    thrownErrors: Errors
 }
 
 /// Persistent minter state stored in the account data cell.
@@ -273,7 +273,7 @@ struct GetTsTonMinterJettonDataReply {
 }
 
 /// tsTON minter exit-code catalog.
-enum TsTonMinterErrors {
+enum Errors {
     /// Sender is not the stored admin for mint requests.
     UnauthorizedMintRequest = 73
     /// Burn notification did not come from the deterministic wallet for the reported owner.

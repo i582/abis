@@ -10,7 +10,7 @@ contract GetgemsNftOfferV1R3 {
     forceAbiExport: GetgemsNftOfferV1R3InitialFunding
         | GetgemsNftOfferV1R3MarketplaceCancelPayload
         | GetgemsNftOfferV1R3RawSendAction
-    thrownErrors: GetgemsNftOfferV1R3Errors
+    thrownErrors: Errors
 }
 
 /// Referenced marketplace and royalty fee configuration cell.
@@ -217,7 +217,7 @@ struct GetgemsNftOfferV1R3OfferDataV2Reply {
 }
 
 /// Exit-code catalog proven by V1R3 FunC throw sites.
-enum GetgemsNftOfferV1R3Errors {
+enum Errors {
     /// Offer is already accepted or cancelled.
     OfferAlreadyComplete = 404
     /// Emergency relay send mode includes bit 32.

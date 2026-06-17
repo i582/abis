@@ -6,7 +6,7 @@ contract MintlessJettonMaster {
     storage: MintlessJettonMasterStorage
     incomingMessages: MintlessJettonMasterIncomingMessage
     outgoingMessages: MintlessJettonMasterOutgoingMessage
-    thrownErrors: MintlessJettonMasterErrors
+    thrownErrors: MasterErrors
 }
 
 /// Persistent mintless minter state stored in the root data cell.
@@ -176,7 +176,7 @@ struct GetMintlessWalletStateInitAndSaltReply {
 }
 
 /// Mintless v1.0 minter exit-code catalog from official FunC source.
-enum MintlessJettonMasterErrors {
+enum MasterErrors {
     /// Nested mint payload opcode is not `internal_transfer`.
     InvalidNestedOperation = 72
     /// Sender is not the stored admin or pending admin for the requested admin action.

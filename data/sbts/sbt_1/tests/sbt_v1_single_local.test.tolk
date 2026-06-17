@@ -105,7 +105,7 @@ get fun `test sbt v1 single local rejects transfer`() {
     expect(txs).toHaveFailedTx<SbtV1SingleTransfer>({
         from: sender.address,
         to: single.address,
-        exitCode: SbtV1SingleErrors.TransferRejected,
+        exitCode: SingleErrors.TransferRejected,
     });
     expect(single.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }
@@ -149,7 +149,7 @@ get fun `test sbt v1 single local rejects unauthorized edit content`() {
     expect(txs).toHaveFailedTx<SbtV1SingleEditContent>({
         from: sender.address,
         to: single.address,
-        exitCode: SbtV1SingleErrors.UnauthorizedEditContent,
+        exitCode: SingleErrors.UnauthorizedEditContent,
     });
 }
 
@@ -200,6 +200,6 @@ get fun `test sbt v1 single local rejects unauthorized transfer editorship`() {
     expect(txs).toHaveFailedTx<SbtV1SingleTransferEditorship>({
         from: sender.address,
         to: single.address,
-        exitCode: SbtV1SingleErrors.UnauthorizedOwnerAuthorityOrEditor,
+        exitCode: SingleErrors.UnauthorizedOwnerAuthorityOrEditor,
     });
 }

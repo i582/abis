@@ -59,7 +59,7 @@ get fun `test discoverable jetton wallet rejects unauthorized transfer`() {
     expect(txs).toHaveFailedTx<JettonTransfer>({
         from: sender.address,
         to: wallet.address,
-        exitCode: DiscoverableJettonWalletErrors.UnauthorizedOwner,
+        exitCode: Errors.UnauthorizedOwner,
     });
     expect(wallet.getWalletData().balance).toEqual(before.balance);
 }

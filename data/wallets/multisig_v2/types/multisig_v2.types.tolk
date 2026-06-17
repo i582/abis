@@ -7,7 +7,7 @@ contract MultisigV2 {
     incomingMessages: MultisigV2IncomingMessage
     outgoingMessages: MultisigV2OutgoingMessage
     forceAbiExport: MultisigV2OrderAction
-    thrownErrors: MultisigV2Errors
+    thrownErrors: MultisigErrors
 }
 
 /// Persistent Multisig V2 state stored in the root data cell.
@@ -134,7 +134,7 @@ struct GetMultisigV2DataReply {
 }
 
 /// Main Multisig V2 exit-code catalog from official source and local schema.
-enum MultisigV2Errors {
+enum MultisigErrors {
     /// New-order sender is not the selected signer/proposer at the supplied index.
     UnauthorizedNewOrder = 1007
     /// New-order seqno is neither the next seqno nor the all-ones auto-seqno marker.

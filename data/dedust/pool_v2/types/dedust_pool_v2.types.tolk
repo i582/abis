@@ -6,7 +6,7 @@ contract DedustPoolV2 {
     storage: DedustPoolV2Storage
     incomingMessages: DedustPoolV2IncomingMessage
     outgoingMessages: DedustPoolV2OutgoingMessage
-    thrownErrors: DedustPoolV2Errors
+    thrownErrors: Errors
 }
 
 /// Runtime Pool storage loaded by the verified v2 Pool code root data cell.
@@ -453,7 +453,7 @@ struct DedustPoolV2JettonDataReply {
 }
 
 /// DeDust Pool v2 exit-code catalog.
-enum DedustPoolV2Errors {
+enum Errors {
     /// LP burn notification sender is not the deterministic LP wallet.
     InvalidLpWalletSender = 257
     /// Control message sender is not the stored Factory/proof address.

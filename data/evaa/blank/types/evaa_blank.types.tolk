@@ -6,7 +6,7 @@ contract EvaaBlank {
     storage: EvaaBlankStorage
     incomingMessages: EvaaBlankIncomingMessage
     outgoingMessages: EvaaBlankOutgoingMessage
-    forceAbiExport: EvaaBlankErrors
+    forceAbiExport: Errors
 }
 
 /// Blank state-init storage used for deterministic user address calculation.
@@ -66,7 +66,7 @@ type EvaaBlankIncomingMessage = EvaaBlankIncomingUpgrade
 type EvaaBlankOutgoingMessage = EvaaBlankRevertCall
 
 /// EVAA blank exit-code catalog.
-enum EvaaBlankErrors {
+enum Errors {
     /// Bounced internal message reached blank code.
     BouncedOnBlank = 24831
     /// Incoming internal sender is not the stored master/platform address.

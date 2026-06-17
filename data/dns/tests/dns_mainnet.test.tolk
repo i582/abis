@@ -161,7 +161,7 @@ get fun `test dns domain item rejects unauthorized transfer`() {
     expect(txs).toHaveFailedTx<DnsDomainItemTransfer>({
         from: sender.address,
         to: item.address,
-        exitCode: DnsDomainItemErrors.UnauthorizedTransfer,
+        exitCode: DomainItemErrors.UnauthorizedTransfer,
     });
     expect(item.getNftData().ownerAddress).toEqual(before.ownerAddress);
 }
