@@ -8,7 +8,7 @@ contract JettonMinter {
     storage: MinterStorage
     incomingMessages: JettonMinterIncomingMessage
     outgoingMessages: JettonMinterOutgoingMessage
-    thrownErrors: JettonMinterErrors
+    thrownErrors: Errors
 }
 
 /// Raw TEP-74 forward payload tail after the Either tag is decoded.
@@ -185,7 +185,7 @@ struct (0x00) OnchainMetadataReply {
 }
 
 /// Exit-code catalog used by the Tolk jetton template minter.
-enum JettonMinterErrors {
+enum Errors {
     /// Wallet balance would become negative.
     BalanceError = 47
     /// Attached TON value is below the required gas budget.

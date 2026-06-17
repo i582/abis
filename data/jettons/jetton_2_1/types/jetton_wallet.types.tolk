@@ -6,7 +6,7 @@ contract JettonWallet {
     storage: WalletStorage
     incomingMessages: JettonWalletIncomingMessage
     outgoingMessages: JettonWalletOutgoingMessage
-    thrownErrors: JettonWalletErrors
+    thrownErrors: Errors
 }
 
 /// Raw TEP-74 forward payload tail after the Either tag is decoded.
@@ -143,7 +143,7 @@ struct JettonWalletDataReply {
 }
 
 /// Exit-code catalog used by the Tolk jetton template wallet.
-enum JettonWalletErrors {
+enum Errors {
     /// Wallet balance would become negative.
     BalanceError = 47
     /// Attached TON value is below the required gas budget.

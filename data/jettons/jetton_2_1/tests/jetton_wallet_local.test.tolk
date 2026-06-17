@@ -117,7 +117,7 @@ get fun `test jetton 2.1 wallet rejects unauthorized transfer and unknown opcode
     expect(transferTxs).toHaveFailedTx<AskToTransfer>({
         from: attacker.address,
         to: wallet.address,
-        exitCode: JettonWalletErrors.NotOwner,
+        exitCode: Errors.NotOwner,
     });
 
     val unknownBody = beginCell().storeUint(0x12345678, 32).storeUint(42, 64).endCell();

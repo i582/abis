@@ -132,7 +132,7 @@ get fun `test jetton 2.1 minter mints and rejects unauthorized admin`() {
     expect(rejectedTxs).toHaveFailedTx<ChangeMinterAdmin>({
         from: attacker.address,
         to: minter.address,
-        exitCode: JettonMinterErrors.NotOwner,
+        exitCode: Errors.NotOwner,
     });
     expect(minter.getJettonData().adminAddress).toEqual(admin.address);
 }
