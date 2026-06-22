@@ -236,7 +236,10 @@ scope = "contract"
 
 [contracts.JettonWallet]
 types = "jetton_2_1/types/jetton_wallet.types.tolk"
-hashes = ["7bfa53bce90ce26cd368ec2989eba2bd15d286104742f0e04659f485a03012ba"]
+hashes = [
+  "7bfa53bce90ce26cd368ec2989eba2bd15d286104742f0e04659f485a03012ba",
+  "6e61044e411f8fcab01f2060e0d1517436968bb6c665ec898173644b94a1132d",
+]
 known_addresses = []
 
 [[contracts.JettonWallet.links]]
