@@ -1,0 +1,59 @@
+[project]
+name = "omniston"
+
+[metadata]
+category = "TON DEX routing and referral fee contracts"
+description = "Omniston Fee-Vault Minter and referral fee collection contracts."
+
+[sources]
+stonfi_omniston_docs = "https://docs.ston.fi/developer-section/omniston"
+stonfi_omniston_sdk_docs = "https://docs.ston.fi/developer-section/omniston/sdk"
+stonfi_omniston_nodejs_sdk_docs = "https://docs.ston.fi/developer-section/omniston/sdk/nodejs"
+stonfi_omniston_react_sdk_docs = "https://docs.ston.fi/developer-section/omniston/sdk/react"
+stonfi_omniston_referral_fees = "https://docs.ston.fi/developer-section/omniston/referral-fees"
+stonfi_omniston_sdk_repo = "https://github.com/ston-fi/omniston-sdk"
+stonfi_omniston_sdk_npm = "https://www.npmjs.com/package/@ston-fi/omniston-sdk"
+stonfi_omniston_sdk_react_npm = "https://www.npmjs.com/package/@ston-fi/omniston-sdk-react"
+stonfi_dex_vault_withdrawal_example = "https://github.com/ston-fi/sdk/tree/main/examples/next-js-app/app/vault"
+stonfi_api_swagger = "https://api.ston.fi/swagger-ui/#/"
+
+[[links]]
+kind = "docs"
+title = "STON.fi Omniston Protocol"
+url = "https://docs.ston.fi/developer-section/omniston"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "STON.fi Omniston SDK"
+url = "https://docs.ston.fi/developer-section/omniston/sdk"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "Omniston demo app"
+url = "https://omniston.ston.fi"
+scope = "project"
+
+[contracts.OmnistonFeeVault]
+display_name = "Omniston Fee-Vault Minter"
+types = "types/omniston_fee_vault.types.tolk"
+hashes = [
+  "edcc62f1752297fbda2408c09ca420b3af9528102e33b9e0a0ebe38553c18fec",
+  "6cda351c3c0ee368873a5ea10f53b9a47a55aacdc8deb3fd103c2f968c952527",
+  "e82ca5b820228565747a837c7634bef30bb48f5297937b2141fe5f6118ffaa4c",
+  "fc8df8be21d83d3876984d7859c078c916dfd7654bc465bf9cd64602eeb4c587",
+]
+known_addresses = ["EQCcJf2KFlH9xIx3dztytxxRFk3KQZKEYBr-f0nFIO1h3dvv"]
+
+[[contracts.OmnistonFeeVault.links]]
+kind = "docs"
+title = "STON.fi Omniston referral fees guide"
+url = "https://docs.ston.fi/developer-section/omniston/referral-fees"
+scope = "contract"
+
+[[contracts.OmnistonFeeVault.instances]]
+name = "Omniston Fee-Vault Minter"
+address = "EQCcJf2KFlH9xIx3dztytxxRFk3KQZKEYBr-f0nFIO1h3dvv"
+hash = "fc8df8be21d83d3876984d7859c078c916dfd7654bc465bf9cd64602eeb4c587"
+label = "Omniston Fee-Vault Minter"

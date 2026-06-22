@@ -2,7 +2,7 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **203 contract entries**.
+Current catalog size: **204 contract entries**.
 
 Each curated project group normally includes:
 
@@ -33,6 +33,7 @@ Each curated project group normally includes:
 | Project | Coverage | Contract entries |
 | --- | --- | --- |
 | STON.fi | DEX core v1 router, pool, LP account, LP wallet, plus v2 router, pool variants, LP account, LP wallet, and vault. | `StonfiRouterV1`, `StonfiPoolV1`, `StonfiLpAccountV1`, `StonfiLpWalletV1`, `StonfiRouterV2`, `StonfiPoolV2ConstProduct`, `StonfiPoolV2Stableswap`, `StonfiPoolV2WeightedStableswap`, `StonfiPoolV2WeightedConstProduct`, `StonfiLpAccountV2`, `StonfiLpWalletV2`, `StonfiVaultV2` |
+| Omniston | Standalone STON.fi Omniston Fee-Vault Minter for DeDust/Tonco referral-fee vault derivation, fee deposits, and payout routing. | `OmnistonFeeVault` |
 | DeDust | Protocol v1 factory, native vault, jetton vault, pool, liquidity deposit, v2 core contracts, separately curated library-backed CPMM pool family, and Uranus v3 launchpad contracts. | `DedustFactoryV1`, `DedustVaultNativeV1`, `DedustVaultJettonV1`, `DedustPoolV1`, `DedustLiquidityDepositV1`, `DedustFactoryV2`, `DedustVaultNativeV2`, `DedustVaultJettonV2`, `DedustPoolV2`, `DedustLiquidityDepositV2`, `DedustV2Cpmm`, `DedustUranusFactoryV3`, `DedustUranusMemeV3`, `DedustUranusMemeWalletV3` |
 | Coffee Swap | DEX factory/init, vaults, pool variants, pool creator, liquidity depository, LP wallet, staking, CrossDex, and MEV Protector. | `CoffeeFactory`, `CoffeeInit`, `CoffeeVaultNative`, `CoffeeVaultJetton`, `CoffeeVaultExtra`, `CoffeePoolConstantProduct`, `CoffeePoolCurveFiStable`, `CoffeePoolCreator`, `CoffeeLiquidityDepository`, `JettonWalletCoffeeLp`, `CoffeeStakingMaster`, `CoffeeStakingVault`, `CoffeeStakingItem`, `CoffeeCrossDex`, `CoffeeMevProtector` |
 | TONCO | Router, pool, account, pool factory, and position NFT. | `Router`, `Pool`, `Account`, `PoolFactory`, `PositionNFT` |
