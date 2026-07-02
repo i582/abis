@@ -11,6 +11,8 @@ contract StonfiRouterV1 {
         | StonfiRouterV1SetFeesPoolInfo
         | StonfiRouterV1SwapForwardPayload
         | StonfiRouterV1ProvideLpForwardPayload
+        | StonfiSwapOk
+        | StonfiSwapOkRef
         | StonfiRouterV1PoolSwapAddresses
 }
 
@@ -63,6 +65,7 @@ struct StonfiRouterV1SetFeesPoolInfo {
 }
 
 /// User Jetton forward payload for swapping one Jetton type through the Router.
+@overflow1023_policy("suppress")
 struct (0x25938561) StonfiRouterV1SwapForwardPayload {
     /// Router-owned wallet address of the other token in the pair.
     tokenWallet: address
@@ -70,10 +73,8 @@ struct (0x25938561) StonfiRouterV1SwapForwardPayload {
     minOut: coins
     /// Address receiving output tokens after the swap.
     toAddress: address
-    /// One-bit referral flag; when set, `refAddressTail` contains a referral MsgAddress.
-    hasRefAddress: uint1
-    /// Tail is empty when `hasRefAddress` is zero, otherwise it contains the referral address without an extra Maybe tag.
-    refAddressTail: RemainingBitsAndRefs
+    /// Optional referrer address carried as TL-B `Maybe MsgAddress`.
+    referralAddress: any_address?
 }
 
 /// User Jetton forward payload for adding liquidity through the Router.
@@ -83,6 +84,12 @@ struct (0xfcf9e58f) StonfiRouterV1ProvideLpForwardPayload {
     /// Minimum required LP token amount.
     minLpOut: coins
 }
+
+/// Empty Jetton forward payload marker emitted for successful STON.fi v1 swaps.
+struct (0xc64370e5) StonfiSwapOk {}
+
+/// Empty Jetton forward payload marker emitted for successful STON.fi v1 swaps with referral flow.
+struct (0x45078540) StonfiSwapOkRef {}
 
 /// Referenced address cell carried by Router-to-Pool `swap`.
 struct StonfiRouterV1PoolSwapAddresses {

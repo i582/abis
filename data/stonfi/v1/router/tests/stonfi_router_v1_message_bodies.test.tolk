@@ -45,11 +45,30 @@ get fun `test stonfi router v1 decodes toncenter jetton notify with swap payload
     expect(swapPayload.tokenWallet).toEqual(address(TOKEN0_WALLET));
     expect(swapPayload.minOut).toEqual(51397514);
     expect(swapPayload.toAddress).toEqual(address(USER_ADDRESS));
-    expect(swapPayload.hasRefAddress).toEqual(0);
-    expectNoTail(swapPayload.refAddressTail);
+    expect(swapPayload.referralAddress).toBeNull();
     expect(swapPayload.toCell().hash()).toEqual(swapPayloadCell.hash());
 
     println("STONFI_ROUTER_V1_JETTON_NOTIFY_TX={} LT={}", txHash, txLt);
+}
+
+get fun `test stonfi router v1 decodes jetton transfer swap forward payload ref`() {
+    val bodyHex = "b5ee9c720101020100a90001ac0f8a7ea50000000000000001213a1800ef3b9902a271b2a01c8938a523cfe24e71847aaeb6a620001ed44a77ac0e709d00231a77d7ca0bb285fa160af0597e31d286089f57110c8b663764cb7e71fcd6240814dc938101009b25938561801d1971bdf55bcfad5b19c0c4a539d8e674d0827d847d4f765a0365803b92de938c03e4d59b4b5d00231a77d7ca0bb285fa160af0597e31d286089f57110c8b663764cb7e71fcd62410";
+    val body = parseCellFromHex(bodyHex);
+    val decoded = StonfiRouterV1JettonTransfer.fromCell(body);
+    var forwardPayload = decoded.forwardPayload;
+    val swapPayloadCell = loadForwardPayloadRef(mutate forwardPayload);
+    val swapPayload = StonfiRouterV1SwapForwardPayload.fromCell(swapPayloadCell);
+
+    expectCellOpcode(body, 0x0f8a7ea5);
+    expectCellOpcode(swapPayloadCell, 0x25938561);
+    expect(decoded.queryId).toEqual(1);
+    expect(decoded.amount).toEqual(5025);
+    expect(decoded.customPayload).toBeNull();
+    expect(decoded.forwardTonAmount).toEqual(175000000);
+    expect(swapPayload.minOut).toEqual(2140685575598);
+    expect(swapPayload.toAddress).toEqual(decoded.responseDestination);
+    expect(swapPayload.referralAddress).toBeNull();
+    expect(swapPayload.toCell().hash()).toEqual(swapPayloadCell.hash());
 }
 
 get fun `test stonfi router v1 decodes toncenter swap body sent to pool`() {
