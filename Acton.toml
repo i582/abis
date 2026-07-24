@@ -543,6 +543,18 @@ src = "data/pton/wallet_v2/testdata/PtonWalletV2.boc"
 types = "data/pton/wallet_v2/types/pton_wallet_v2.types.tolk"
 depends = []
 
+[contracts.WtonMinter]
+display-name = "Wrapped TON Minter"
+src = "data/megatonfi/testdata/WtonMinter.boc"
+types = "data/megatonfi/types/wton_minter.types.tolk"
+depends = []
+
+[contracts.WtonWallet]
+display-name = "Wrapped TON Wallet"
+src = "data/megatonfi/testdata/WtonWallet.boc"
+types = "data/megatonfi/types/wton_wallet.types.tolk"
+depends = []
+
 [contracts.ToncoRouter]
 display-name = "TONCO Router"
 src = "data/tonco/router/testdata/ToncoRouter.boc"
@@ -837,6 +849,12 @@ src = "data/storm/position_manager/testdata/storm_position_manager_library.boc"
 types = "data/storm/position_manager/types/storm_position_manager.types.tolk"
 depends = []
 
+[contracts.StormPositionManagerLegacy]
+display-name = "Storm Trade Position Manager — Legacy Empty Notifications"
+src = "data/storm/position_manager_legacy/testdata/StormPositionManagerLegacy.boc"
+types = "data/storm/position_manager_legacy/types/storm_position_manager_legacy.types.tolk"
+depends = []
+
 [contracts.StormReferralCollection]
 display-name = "Storm Trade Referral Collection"
 src = "data/storm/referral_collection/testdata/StormReferralCollection.boc"
@@ -1089,6 +1107,18 @@ src = "data/cron/testdata/Cron.boc"
 types = "data/cron/types/cron.types.tolk"
 depends = []
 
+[contracts.AsyncPaymentChannel]
+display-name = "TON Asynchronous Payment Channel"
+src = "data/payment_channels/async/testdata/AsyncPaymentChannel.boc"
+types = "data/payment_channels/async/types/payment_channel.types.tolk"
+depends = []
+
+[contracts.GramMiner]
+display-name = "GRAM Miner"
+src = "data/gram/testdata/GramMiner.boc"
+types = "data/gram/types/gram_miner.types.tolk"
+depends = []
+
 [contracts.SubscriptionV2]
 display-name = "Tonkeeper Subscription V2"
 src = "data/subscriptions/testdata/SubscriptionV2.boc"
@@ -1123,6 +1153,12 @@ depends = []
 display-name = "Aqua USD Master Vault"
 src = "data/aqua/testdata/AquaUsdMasterVault.boc"
 types = "data/aqua/types/aqua_usd_master_vault.types.tolk"
+depends = []
+
+[contracts.DaolamaVault]
+display-name = "DAOLama TON Vault"
+src = "data/daolama/testdata/daolama_vault_current.boc"
+types = "data/daolama/types/daolama_vault.types.tolk"
 depends = []
 
 [contracts.FragmentUsernameCollection]
@@ -1175,6 +1211,10 @@ depends = []
 
 [scripts]
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
+daolama-message-bodies-test = "acton test data/daolama/tests/daolama_vault_message_bodies.test.tolk --show-bodies"
+daolama-storage-test = "acton test data/daolama/tests/daolama_vault_storage.test.tolk --show-bodies"
+wton-message-bodies-test = "acton test data/megatonfi/tests/wton_message_bodies.test.tolk --show-bodies"
+wton-storage-test = "acton test data/megatonfi/tests/wton_storage.test.tolk --show-bodies"
 pyth-oracle-storage-test = "acton test data/pyth_oracle/tests/pyth_oracle_storage.test.tolk --show-bodies"
 pyth-oracle-message-bodies-test = "acton test data/pyth_oracle/tests/pyth_oracle_message_bodies.test.tolk --show-bodies"
 aqua-usd-master-vault-storage-test = "acton test data/aqua/tests/aqua_usd_master_vault_storage.test.tolk --show-bodies"
@@ -1195,6 +1235,11 @@ system-elector-mainnet-test = "acton test data/system/elector/tests/elector_main
 system-config-storage-test = "acton test data/system/config/tests/config_storage.test.tolk --fork-net mainnet --fork-block-number 71907711 --show-bodies"
 cron-mainnet-test = "acton test data/cron/tests/cron_storage.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
 cron-message-bodies-test = "acton test data/cron/tests/cron_message_bodies.test.tolk --show-bodies"
+payment-channel-storage-test = "acton test data/payment_channels/async/tests/payment_channel_storage.test.tolk --show-bodies"
+payment-channel-message-bodies-test = "acton test data/payment_channels/async/tests/payment_channel_message_bodies.test.tolk --show-bodies"
+payment-channel-mainnet-test = "acton test data/payment_channels/async/tests/payment_channel_mainnet.test.tolk --fork-net mainnet --fork-block-number 58429533 --show-bodies"
+gram-miner-storage-test = "acton test data/gram/tests/gram_miner_storage.test.tolk --show-bodies"
+gram-miner-message-bodies-test = "acton test data/gram/tests/gram_miner_message_bodies.test.tolk --show-bodies"
 subscription-v1-mainnet-test = "acton test data/subscriptions/tests/subscription_v1_storage.test.tolk --fork-net mainnet --fork-block-number 16895880 --show-bodies"
 subscription-v1-message-bodies-test = "acton test data/subscriptions/tests/subscription_v1_message_bodies.test.tolk --show-bodies"
 subscription-v2-mainnet-test = "acton test data/subscriptions/tests/subscription_v2_storage.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
@@ -1228,6 +1273,8 @@ storm-vamm-mainnet-test = "acton test data/storm/vamm/tests/storm_vamm_mainnet.t
 storm-vamm-coinm-mainnet-test = "acton test data/storm/vamm_coinm/tests/storm_vamm_coinm_mainnet.test.tolk --fork-net mainnet --fork-block-number 71589284 --show-bodies"
 storm-smart-account-factory-mainnet-test = "acton test data/storm/smart_account_factory/tests/smart_account_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 71591177 --show-bodies"
 storm-position-manager-mainnet-test = "acton test data/storm/position_manager/tests/storm_position_manager_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588633 --show-bodies"
+storm-position-manager-legacy-mainnet-test = "acton test data/storm/position_manager_legacy/tests/storm_position_manager_legacy_mainnet.test.tolk --fork-net mainnet --fork-block-number 81741761 --show-bodies"
+storm-position-manager-legacy-message-bodies-test = "acton test data/storm/position_manager_legacy/tests/storm_position_manager_legacy_message_bodies.test.tolk --show-bodies"
 storm-referral-collection-mainnet-test = "acton test data/storm/referral_collection/tests/storm_referral_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
 storm-referral-mainnet-test = "acton test data/storm/referral/tests/storm_referral_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
 storm-executor-collection-mainnet-test = "acton test data/storm/executor_collection/tests/storm_executor_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 71588122 --show-bodies"
@@ -1356,6 +1403,7 @@ compile-all-contracts = "acton build"
 run-mainnet-block-tests = """
 set -e
 acton run cron-mainnet-test
+acton run payment-channel-mainnet-test
 acton run subscription-v1-mainnet-test
 acton run subscription-v2-mainnet-test
 acton run tonkeeper-2fa-mainnet-test
@@ -1374,6 +1422,7 @@ acton run storm-vamm-mainnet-test
 acton run storm-vamm-coinm-mainnet-test
 acton run storm-smart-account-factory-mainnet-test
 acton run storm-position-manager-mainnet-test
+acton run storm-position-manager-legacy-mainnet-test
 acton run storm-referral-collection-mainnet-test
 acton run storm-referral-mainnet-test
 acton run storm-executor-collection-mainnet-test

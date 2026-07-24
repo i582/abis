@@ -2,7 +2,7 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **204 contract entries**.
+Current catalog size: **214 contract entries**.
 
 Each curated project group normally includes:
 
@@ -38,7 +38,8 @@ Each curated project group normally includes:
 | Coffee Swap | DEX factory/init, vaults, pool variants, pool creator, liquidity depository, LP wallet, staking, CrossDex, and MEV Protector. | `CoffeeFactory`, `CoffeeInit`, `CoffeeVaultNative`, `CoffeeVaultJetton`, `CoffeeVaultExtra`, `CoffeePoolConstantProduct`, `CoffeePoolCurveFiStable`, `CoffeePoolCreator`, `CoffeeLiquidityDepository`, `JettonWalletCoffeeLp`, `CoffeeStakingMaster`, `CoffeeStakingVault`, `CoffeeStakingItem`, `CoffeeCrossDex`, `CoffeeMevProtector` |
 | TONCO | Router, pool, account, pool factory, and position NFT. | `Router`, `Pool`, `Account`, `PoolFactory`, `PositionNFT` |
 | Bidask | DLMM/DAMM pool factory, pool, range, LP multitoken, internal liquidity vault, DAMM pool, and DAMM LP wallet. | `BidaskPoolFactory`, `BidaskPool`, `BidaskRange`, `BidaskLpMultitoken`, `BidaskInternalLiquidityVault`, `BidaskDammPool`, `BidaskDammLpWallet` |
-| Storm Trade | Perpetual DEX vaults, vAMMs, smart accounts, factory, position manager, referral/executor collections and items, prelaunch, LP minter/wallet, and proxy sender. | `StormVault`, `StormVaultNative`, `StormVamm`, `StormVammCoinm`, `SmartAccount`, `SmartAccountBlank`, `SmartAccountFactory`, `StormPositionManager`, `StormReferral`, `StormReferralCollection`, `StormExecutor`, `StormExecutorCollection`, `StormPrelaunch`, `StormLpMinter`, `StormLpWallet`, `StormProxySender` |
+| Storm Trade | Perpetual DEX vaults, vAMMs, smart accounts, factory, current and legacy position managers, referral/executor collections and items, prelaunch, LP minter/wallet, and proxy sender. | `StormVault`, `StormVaultNative`, `StormVamm`, `StormVammCoinm`, `SmartAccount`, `SmartAccountBlank`, `SmartAccountFactory`, `StormPositionManager`, `StormPositionManagerLegacy`, `StormReferral`, `StormReferralCollection`, `StormExecutor`, `StormExecutorCollection`, `StormPrelaunch`, `StormLpMinter`, `StormLpWallet`, `StormProxySender` |
+| Megaton Finance | Wrapped TON jetton minter and wallet used by Megaton Finance. | `WtonMinter`, `WtonWallet` |
 
 ### Staking And Validator Protocols
 
@@ -61,6 +62,7 @@ Each curated project group normally includes:
 | Pyth Oracle | Pyth price oracle contract for feed updates, governance state, guardian sets, and price getters. | `PythOracle` |
 | Affluent | Pools, accounts, batch, multiply vaults, lending vaults, and FactorialTON jetton contracts. | `Pool`, `Account`, `Batch`, `MultiplyVault`, `MultiplyVaultV2`, `LendingVault`, `FactorialTonMinter`, `FactorialTonWallet` |
 | Locker | Locker and locker bill contracts. | `Locker`, `LockerBill` |
+| DAOLama | TON liquidity vault and TON-DLP jetton master interface. | `DaolamaVault` |
 
 ### Marketplaces, NFT Apps, And Distribution
 
@@ -73,9 +75,11 @@ Each curated project group normally includes:
 
 ### Payments, Automation, And Wallet Tooling
 
-| Project | Coverage | Contract entries |
-| --- | --- | --- |
-| Invoices | Payload-only invoice body ABI for TON and Jetton payment payloads. | `InvoicesPayloadInterface` |
-| Tonkeeper Subscriptions | Subscription V1 and V2 wallet/plugin contracts. | `SubscriptionV1`, `SubscriptionV2` |
+| Project | Coverage                                                                                | Contract entries |
+| --- |-----------------------------------------------------------------------------------------| --- |
+| Invoices | Payload-only invoice body ABI for TON and Jetton payment payloads.                      | `InvoicesPayloadInterface` |
+| Payment Channels | Asynchronous two-party payment channel with cooperative and uncooperative settlement.   | `AsyncPaymentChannel` |
+| GRAM | Proof-of-work GRAM miner with adaptive complexity and signed administration.            | `GramMiner` |
+| Tonkeeper Subscriptions | Subscription V1 and V2 wallet/plugin contracts.                                         | `SubscriptionV1`, `SubscriptionV2` |
 | TON Cron | Cron interface implementations with `get_cron_info` and `cron_trigger` external bodies. | `Cron` |
-| Tonkeeper 2FA | Tonkeeper 2FA wallet extension contract. | `Tonkeeper2fa` |
+| Tonkeeper 2FA | Tonkeeper 2FA wallet extension contract.                                                | `Tonkeeper2fa` |
