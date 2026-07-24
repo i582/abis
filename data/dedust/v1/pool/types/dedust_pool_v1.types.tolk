@@ -468,7 +468,7 @@ struct DedustPoolV1JettonDataReply {
     jettonWalletCode: cell
 }
 
-/// DeDust Pool v1 exit-code catalog.
+/// DeDust Pool v1 exit codes.
 enum Errors {
     /// LP burn notification or protocol-fee sender is not authorized.
     InvalidLpOrFeeSender = 257

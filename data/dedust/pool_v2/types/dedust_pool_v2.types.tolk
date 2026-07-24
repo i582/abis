@@ -1,4 +1,4 @@
-/// DeDust Protocol v2 Pool interface covering volatile and stable pools sharing the verified live code hash.
+/// DeDust Protocol v2 Pool interface for volatile and stable asset pairs.
 contract DedustPoolV2 {
     author: "DeDust"
     version: "2.0"
@@ -9,7 +9,7 @@ contract DedustPoolV2 {
     thrownErrors: Errors
 }
 
-/// Runtime Pool storage loaded by the verified v2 Pool code root data cell.
+/// Runtime Pool storage encoded in the root persistent-data cell.
 struct DedustPoolV2Storage {
     /// Pool proof containing Factory address, contract type, and pair identity.
     proof: Cell<DedustPoolV2PoolProof>
@@ -66,7 +66,7 @@ struct (0b0001) DedustPoolV2JettonAsset {
     address: bits256
 }
 
-/// Asset variants proven by saved SDK artifacts, the local Toncenter TL-B excerpt, and live examples.
+/// Asset variants accepted by this Pool implementation.
 type DedustPoolV2Asset =
     | DedustPoolV2NativeAsset
     | DedustPoolV2JettonAsset
@@ -139,7 +139,7 @@ struct DedustPoolV2LiquidityDepositProof {
     params: Cell<DedustPoolV2LiquidityDepositProofParams>
 }
 
-/// Exact-input swap kind used by SDK and observed live swap bodies.
+/// Exact-input swap kind that fixes the supplied input amount.
 struct (0b0) DedustPoolV2GivenIn {}
 
 /// Exact-output swap kind listed in docs but not used by the SDK examples.
@@ -258,6 +258,48 @@ struct (0x7bdd97de) DedustPoolV2JettonBurnNotification {
     responseDestination: address?
 }
 
+/// Authorized update of the quote provider for one Pool asset.
+struct (0xabb46b3d) DedustPoolV2ConfigureQuoteProvider {
+    /// Request identifier copied through the control flow.
+    queryId: uint64
+    /// Pool asset whose quote provider is updated.
+    asset: DedustPoolV2Asset
+    /// Quote-provider address, or `addr_none` to disable the provider.
+    quoteProviderAddr: address?
+}
+
+/// Quote-provider request to refresh the cached quote for one Pool asset.
+struct (0x6873c90c) DedustPoolV2SyncAssetQuote {
+    /// Request identifier copied through the quote-refresh flow.
+    queryId: uint64
+    /// Pool asset whose quote is refreshed.
+    asset: DedustPoolV2Asset
+}
+
+/// Request for the current reserves, LP supply, and optionally both Pool assets.
+struct (0x6e24728d) DedustPoolV2ProvidePoolState {
+    /// Request identifier copied into the state reply.
+    queryId: uint64
+    /// Whether the state reply should include both serialized Pool assets.
+    includeAssets: bool
+}
+
+/// Authorized update of the Pool trade-fee numerator.
+struct (0xc015297f) DedustPoolV2ConfigureTradeFee {
+    /// Request identifier for the configuration operation.
+    queryId: uint64
+    /// New trade-fee numerator; the denominator is fixed at 10000.
+    tradeFee: uint16
+}
+
+/// Authorized request to return excess balance to a destination.
+struct (0x26c63ab7) DedustPoolV2ResetGas {
+    /// Request identifier for the gas-reset operation.
+    queryId: uint64
+    /// Destination that receives the excess balance.
+    responseDestination: address
+}
+
 /// Pool-to-Vault payout request used by swap and withdrawal flows.
 struct (0xad4eb6f5) DedustPoolV2PayOutFromPool {
     /// Query id copied from the Pool operation.
@@ -270,6 +312,28 @@ struct (0xad4eb6f5) DedustPoolV2PayOutFromPool {
     recipientAddr: address?
     /// Optional recipient payload forwarded by the Vault payout.
     payload: cell?
+}
+
+/// Optional Pool asset pair included in a state reply.
+struct DedustPoolV2PoolStateAssets {
+    /// First sorted Pool asset.
+    asset0: DedustPoolV2Asset
+    /// Second sorted Pool asset.
+    asset1: DedustPoolV2Asset
+}
+
+/// Pool-state reply containing current reserves, LP supply, and optional assets.
+struct (0xbddd4954) DedustPoolV2TakePoolState {
+    /// Request identifier copied from `DedustPoolV2ProvidePoolState`.
+    queryId: uint64
+    /// Current asset0 reserve.
+    reserve0: coins
+    /// Current asset1 reserve.
+    reserve1: coins
+    /// Current total LP Jetton supply.
+    totalSupply: coins
+    /// Referenced Pool asset pair when requested by the caller.
+    assets: Cell<DedustPoolV2PoolStateAssets>?
 }
 
 /// Pool-to-Liquidity-Deposit success callback after LP accounting succeeds.
@@ -368,16 +432,22 @@ struct (0x3aa870a6) DedustPoolV2WithdrawalEvent {
     reserve1: coins
 }
 
-/// Internal message bodies accepted by the verified Pool v2 code hash.
+/// Internal message bodies accepted by the Pool v2 dispatcher.
 type DedustPoolV2IncomingMessage =
     | DedustPoolV2SwapExternal
     | DedustPoolV2SwapPeer
     | DedustPoolV2DepositLiquidityAll
     | DedustPoolV2JettonBurnNotification
+    | DedustPoolV2ConfigureQuoteProvider
+    | DedustPoolV2SyncAssetQuote
+    | DedustPoolV2ProvidePoolState
+    | DedustPoolV2ConfigureTradeFee
+    | DedustPoolV2ResetGas
 
 /// Internal payout/callback bodies and external event bodies emitted by Pool v2.
 type DedustPoolV2OutgoingMessage =
     | DedustPoolV2PayOutFromPool
+    | DedustPoolV2TakePoolState
     | DedustPoolV2SwapPeer
     | DedustPoolV2FulfillDeposit
     | DedustPoolV2RejectDeposit
@@ -406,7 +476,7 @@ struct DedustPoolV2GetAssetsReply {
 struct DedustPoolV2GetTradeFeeReply {
     /// Trade-fee numerator.
     tradeFeeNumerator: uint16
-    /// Trade-fee denominator, observed as 10000.
+    /// Trade-fee denominator, equal to 10000.
     tradeFeeDenominator: uint16
 }
 

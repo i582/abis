@@ -147,3 +147,84 @@ get fun `test dedust pool v2 decodes toncenter swap peer body`() {
 
     println("DEDUST_POOL_V2_SWAP_PEER_TX={} LT={}", txHash, txLt);
 }
+
+get fun `test dedust pool v2 decodes real configure trade fee body`() {
+    val txHash = "Kb8DpReYTjGOPpz0wCX2HnYWLtt1uE4qyGlVccMwizk=";
+    val txLt = "47528786000001";
+    val bodyBoc = "te6cckEBAQEAEAAAHMAVKX8AAAAAAAAAAAAFKlHsVg==";
+    val body = parseCellFromBase64(bodyBoc);
+    val decoded = DedustPoolV2ConfigureTradeFee.fromCell(body);
+
+    expect(decoded.queryId).toEqual(0);
+    expect(decoded.tradeFee).toEqual(5);
+    expect(decoded.toCell().hash()).toEqual(body.hash());
+
+    println("DEDUST_POOL_V2_CONFIGURE_TRADE_FEE_TX={} LT={}", txHash, txLt);
+}
+
+get fun `test dedust pool v2 decodes real reset gas body`() {
+    val txHash = "U4Vy5aFOi4o4HmiwrXcbEXCD5/LjW/ttagAlzMndGK4=";
+    val txLt = "83309911000013";
+    val bodyBoc = "te6cckEBAQEAMAAAWybGOrcAAAAAAAAAAIAGbMnzAnwX+ybWJmZsXet1Jb+BbAKyNKwRXRmt8LYB1pBcU3m+";
+    val body = parseCellFromBase64(bodyBoc);
+    val decoded = DedustPoolV2ResetGas.fromCell(body);
+
+    expect(decoded.queryId).toEqual(0);
+    expect(decoded.responseDestination).toEqual(
+        address("0:33664F9813E0BFD936B1333362EF5BA92DFC0B601591A5608AE8CD6F85B00EB4"),
+    );
+    expect(decoded.toCell().hash()).toEqual(body.hash());
+
+    println("DEDUST_POOL_V2_RESET_GAS_TX={} LT={}", txHash, txLt);
+}
+
+get fun `test dedust pool v2 decodes source layout control messages`() {
+    val quoteProviderBody = beginCell()
+        .storeUint(0xabb46b3d, 32)
+        .storeUint(11, 64)
+        .storeUint(0, 4)
+        .storeUint(0, 2)
+        .endCell();
+    val quoteProvider = DedustPoolV2ConfigureQuoteProvider.fromCell(quoteProviderBody);
+    expect(quoteProvider.queryId).toEqual(11);
+    expectNativeAsset(quoteProvider.asset);
+    expect(quoteProvider.quoteProviderAddr).toBeNull();
+
+    val syncBody = beginCell()
+        .storeUint(0x6873c90c, 32)
+        .storeUint(12, 64)
+        .storeUint(1, 4)
+        .storeInt(0, 8)
+        .storeUint(DEDUST_POOL_V2_USDT_MINTER, 256)
+        .endCell();
+    val sync = DedustPoolV2SyncAssetQuote.fromCell(syncBody);
+    expect(sync.queryId).toEqual(12);
+    expectJettonAsset(sync.asset, DEDUST_POOL_V2_USDT_MINTER);
+
+    val provideBody = beginCell()
+        .storeUint(0x6e24728d, 32)
+        .storeUint(13, 64)
+        .storeBool(true)
+        .endCell();
+    val provide = DedustPoolV2ProvidePoolState.fromCell(provideBody);
+    expect(provide.queryId).toEqual(13);
+    expect(provide.includeAssets).toBeTrue();
+}
+
+get fun `test dedust pool v2 decodes source layout pool state reply`() {
+    val body = beginCell()
+        .storeUint(0xbddd4954, 32)
+        .storeUint(14, 64)
+        .storeCoins(101)
+        .storeCoins(202)
+        .storeCoins(303)
+        .storeMaybeRef(null)
+        .endCell();
+    val decoded = DedustPoolV2TakePoolState.fromCell(body);
+
+    expect(decoded.queryId).toEqual(14);
+    expect(decoded.reserve0).toEqual(101);
+    expect(decoded.reserve1).toEqual(202);
+    expect(decoded.totalSupply).toEqual(303);
+    expect(decoded.assets).toBeNull();
+}

@@ -12,19 +12,21 @@ import "../types/dedust_pool_v2.types"
 struct DedustPoolV2 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun DedustPoolV2.fromStorage(
     storage: DedustPoolV2Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DedustPoolV2 {
     val stateInit = ContractState {
         code: build("DedustPoolV2"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DedustPoolV2 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DedustPoolV2 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun DedustPoolV2.deploy(self, from: address, config: SendParams = {}): SendResul
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }
@@ -144,6 +150,87 @@ fun DedustPoolV2.sendDedustPoolV2JettonBurnNotification(
         value: config.value,
         dest: self.address,
         body: DedustPoolV2JettonBurnNotification { queryId, amount, sender, responseDestination },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustPoolV2.sendDedustPoolV2ConfigureQuoteProvider(
+    self,
+    from: address,
+    queryId: uint64,
+    asset: DedustPoolV2Asset,
+    quoteProviderAddr: address?,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustPoolV2ConfigureQuoteProvider { queryId, asset, quoteProviderAddr },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustPoolV2.sendDedustPoolV2SyncAssetQuote(
+    self,
+    from: address,
+    queryId: uint64,
+    asset: DedustPoolV2Asset,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustPoolV2SyncAssetQuote { queryId, asset },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustPoolV2.sendDedustPoolV2ProvidePoolState(
+    self,
+    from: address,
+    queryId: uint64,
+    includeAssets: bool,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustPoolV2ProvidePoolState { queryId, includeAssets },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustPoolV2.sendDedustPoolV2ConfigureTradeFee(
+    self,
+    from: address,
+    queryId: uint64,
+    tradeFee: uint16,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustPoolV2ConfigureTradeFee { queryId, tradeFee },
+    });
+    return net.send(from, genericMsg);
+}
+
+fun DedustPoolV2.sendDedustPoolV2ResetGas(
+    self,
+    from: address,
+    queryId: uint64,
+    responseDestination: address,
+    config: SendParams = {},
+): SendResultList {
+    val genericMsg = createMessage({
+        bounce: config.bounce,
+        value: config.value,
+        dest: self.address,
+        body: DedustPoolV2ResetGas { queryId, responseDestination },
     });
     return net.send(from, genericMsg);
 }
