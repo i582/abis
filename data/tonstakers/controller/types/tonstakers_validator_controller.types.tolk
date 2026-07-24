@@ -8,6 +8,7 @@ contract TonstakersValidatorController {
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage
     forceAbiExport: TonstakersValidatorControllerEmptyBody
         | TonstakersValidatorControllerBouncedKnownBody
+        | TonstakersValidatorControllerNewStakeE0505d0e
     thrownErrors: Errors
 }
 
@@ -168,6 +169,24 @@ struct (0x4e73744b) TonstakersValidatorControllerNewStake {
     signature: Cell<bits512>
 }
 
+/// Requests validator stake placement using the `0xe0505d0e` message format.
+struct (0xe0505d0e) TonstakersValidatorControllerNewStakeE0505d0e {
+    /// Non-zero query id used to correlate the Elector response.
+    queryId: uint64
+    /// TON amount the controller should send to Elector.
+    stakeValue: coins
+    /// Validator Ed25519 public key.
+    validatorPubkey: uint256
+    /// Election round timestamp.
+    stakeAt: uint32
+    /// Maximum stake factor scaled by 65536.
+    maxFactor: uint32
+    /// Validator ADNL address.
+    adnlAddr: uint256
+    /// Ed25519 signature over the Elector new-stake request.
+    signature: Cell<bits512>
+}
+
 /// Validator command that asks the pool for a loan during the request window.
 struct (0x6335b11a) TonstakersValidatorControllerSendRequestLoan {
     /// Query id copied into the outgoing pool `request_loan` body.
@@ -267,7 +286,7 @@ struct (0x30026327) TonstakersValidatorControllerValidatorWithdrawal {
 /// Empty body emitted for value-only excess or bounty transfers.
 struct TonstakersValidatorControllerEmptyBody {}
 
-/// Protocol bounce body observed from failed controller requests.
+/// Protocol bounce body returned for failed controller requests.
 struct (0xffffffff) TonstakersValidatorControllerBouncedKnownBody {
     /// Original bounced opcode after the TVM bounce prefix.
     originalOpcode: uint32
@@ -355,9 +374,9 @@ struct TonstakersValidatorControllerRequestWindowTimeReply {
     until: uint32
 }
 
-/// Controller exit-code catalog.
+/// Controller exit codes.
 enum Errors {
-    /// Message opcode is unsupported in the active dispatcher branch.
+    /// Message opcode is unsupported by the controller dispatcher.
     UnknownOp = 0xffff
     /// Sender does not match the role required by the operation.
     WrongSender = 0x9283

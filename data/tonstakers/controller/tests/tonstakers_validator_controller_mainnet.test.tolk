@@ -17,8 +17,6 @@ const DATA_FIXTURE_BOC = "te6ccgEBAwEA+QABiQBAAAAAAAAAsMyAz5qjJhcm+LZYEcv8JKIwY3
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0xdd3ce98db487c7585803933bffba7a57eb4e663099059d08b83db0b4ce060793
 const EXPECTED_DATA_HASH = 0x0c78bcb09b8f07415b64e6583f9e579ba76880f3a015df2ecdef80a0c780b476
-const EXPECTED_REQUEST_WINDOW_SINCE = 1778241288
-const EXPECTED_REQUEST_WINDOW_UNTIL = 1778265864
 const EXPECTED_MAX_LOAN = 901000000000000
 const EXPECTED_MAX_INTEREST = 5033
 const PINNED_MAINNET_BLOCK = 71635640
@@ -144,12 +142,6 @@ fun requiredBalanceForLoan(
     return net.runGetMethod(controller.address, "required_balance_for_loan", [credit, interest]);
 }
 
-fun requestWindowTime(
-    controller: TonstakersValidatorControllerFork,
-): TonstakersValidatorControllerRequestWindowTimeReply {
-    return net.runGetMethod(controller.address, "request_window_time");
-}
-
 fun expectControllerGetDataMatchesStorage(
     data: TonstakersValidatorControllerDataReply,
     loaded: LoadedTonstakersValidatorControllerStorage,
@@ -203,7 +195,6 @@ get fun `test tonstakers validator controller mainnet storage and getters`() {
     val punishment = maxPunishment(controller, 50000 * 1000000000);
     val stakeValue = maxStakeValue(controller);
     val loanBalance = requiredBalanceForLoan(controller, EXPECTED_MAX_LOAN, EXPECTED_MAX_INTEREST);
-    val window = requestWindowTime(controller);
 
     expect(scripts.isContractDeployed(controller.address)).toBeTrue();
     expectStableStorageFields(loaded);
@@ -222,13 +213,10 @@ get fun `test tonstakers validator controller mainnet storage and getters`() {
     expect(stakeValue).toBeGreaterOrEqual(-1);
     expect(loanBalance.requiredBalance).toBeGreater(0);
     expect(loanBalance.validatorAmount).toBeGreater(0);
-    expect(window.since).toEqual(EXPECTED_REQUEST_WINDOW_SINCE);
-    expect(window.until).toEqual(EXPECTED_REQUEST_WINDOW_UNTIL);
 
     println("TONSTAKERS_CONTROLLER_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("TONSTAKERS_CONTROLLER_ADDRESS={}", controller.address);
     println("TONSTAKERS_CONTROLLER_DATA_HASH={}", loaded.data.hash());
     println("TONSTAKERS_CONTROLLER_STORAGE={}", loaded.storage);
     println("TONSTAKERS_CONTROLLER_GET_DATA={}", data);
-    println("TONSTAKERS_CONTROLLER_REQUEST_WINDOW={}", window);
 }

@@ -8,6 +8,7 @@ description = "Tonstakers liquid staking pool, tsTON jetton, validator controlle
 [sources]
 tonstakers_sdk = "https://github.com/tonstakers/tonstakers-sdk"
 liquid_staking_contract_repo = "https://github.com/ton-blockchain/liquid-staking-contract"
+liquid_staking_interaction_tlb = "https://github.com/ton-blockchain/liquid-staking-contract/blob/1f4e9badbed52a4cf80cc58e4bb36ed375c6c8e7/contracts/interaction.tlb"
 jetton_dao_submodule = "https://github.com/EmelyanenkoK/jetton_dao/tree/02fed5d124effd57ea50be77044b209ad800a621"
 local_research_plan = "data/tonstakers/research/plan.md"
 local_research_results = "data/tonstakers/research/results.md"
@@ -26,6 +27,12 @@ kind = "source"
 title = "TON liquid staking source"
 url = "https://github.com/ton-blockchain/liquid-staking-contract"
 scope = "project"
+
+[[links]]
+kind = "schema"
+title = "TON liquid staking interaction TL-B"
+url = "https://github.com/ton-blockchain/liquid-staking-contract/blob/1f4e9badbed52a4cf80cc58e4bb36ed375c6c8e7/contracts/interaction.tlb"
+scope = "TonstakersValidatorController"
 
 [[links]]
 kind = "sdk"

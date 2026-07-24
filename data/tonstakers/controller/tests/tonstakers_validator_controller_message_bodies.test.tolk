@@ -15,6 +15,8 @@ const EXPECTED_LOAN_QUERY_ID = 1731646226
 const EXPECTED_MIN_LOAN = 499000000000000
 const EXPECTED_MAX_LOAN = 901000000000000
 const EXPECTED_MAX_INTEREST = 5033
+const DOCUMENTED_NEW_STAKE_BODY_HASH = 0x35498cab5b7f4af4b272f0dc077aae2b5480497261ac98ba78a3e18b9ccfb4e0
+const DOCUMENTED_NEW_STAKE_SIGNATURE_HASH = 0x8471aa3c8468af8d42aa223ab488c0ca37fd9a91125a0820a13cf978da6703ff
 
 fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
@@ -96,7 +98,7 @@ get fun `test tonstakers controller decodes real bounced return unused loan body
 
     expect(bounced.originalOpcode).toEqual(0xed7378a6);
     expect(bounced.queryId).toEqual(0);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println(
         "TONSTAKERS_CONTROLLER_BOUNCE_FIXTURE={} TX={} LT={}",
@@ -178,4 +180,27 @@ get fun `test tonstakers controller decodes real elector recover ok and repaymen
         txHash,
         txLt,
     );
+}
+
+get fun `test tonstakers controller decodes e0505d0e new stake layout`() {
+    // No 0xe0505d0e body was present in the latest-50M mainnet snapshot.
+    // This fixed BoC is an independently encoded conformance vector for the
+    // exact upstream interaction.tlb layout, not a claimed mainnet message.
+    val bodyBoc = "te6cckEBAgEAoAABteBQXQ4RIjNEVWZ3iGLXmIPSAAASNFZ4mrze8BI0VniavN7wEjRWeJq83vASNFZ4mrze9qGKUAAAEAAP7cuph2VDIQ/ty6mHZUMhD+3LqYdlQyEP7cuph2VDIQgBAIBaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpa3aJ6vQ==";
+    val body = parseCellFromBase64(bodyBoc);
+    val message = TonstakersValidatorControllerNewStakeE0505d0e.fromCell(body);
+
+    expect(body.hash()).toEqual(DOCUMENTED_NEW_STAKE_BODY_HASH);
+    expect(message.queryId).toEqual(0x1122334455667788);
+    expect(message.stakeValue).toEqual(50000000000000);
+    expect(message.validatorPubkey).toEqual(
+        0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef,
+    );
+    expect(message.stakeAt).toEqual(1780000000);
+    expect(message.maxFactor).toEqual(65536);
+    expect(message.adnlAddr).toEqual(
+        0xfedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210,
+    );
+    expect(message.signature.hash()).toEqual(DOCUMENTED_NEW_STAKE_SIGNATURE_HASH);
+    expect(message.toCell().hash()).toEqual(body.hash());
 }
