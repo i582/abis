@@ -23,20 +23,20 @@ fun expectInlineEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void 
     expect(payload.remainingBitsCount()).toEqual(1);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadUint(1)).toEqual(0);
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun expectProvideVaultRequestTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.loadCoins()).toEqual(11976048);
     expect(tail.loadAddress()).toEqual(address(PROVIDE_ORIGIN_ADDRESS));
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 fun expectVaultsReplyTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.loadAddress()).toEqual(address(PROVIDE_VAULT_ADDRESS));
     expect(tail.loadCoins()).toEqual(11976048);
     expect(tail.loadAddress()).toEqual(address(PROVIDE_ORIGIN_ADDRESS));
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 fun expectInitialBalances(balances: map<uint256, coins>): void {

@@ -4,28 +4,27 @@ import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
-import "../types/storm_position_manager.types"
-import "../wrappers/StormPositionManager.gen"
+import "../types/storm_position_manager_legacy.types"
+import "../wrappers/StormPositionManagerLegacy.gen"
 
-const EXPECTED_CODE_HASH = 0x18c7ed8bf5d65996f0a19ec48e93c5f674cc0fbad210ca5b8e06ff7e03c7589e
-const PINNED_MAINNET_BLOCK = 71588633
+const EXPECTED_LEGACY_CODE_HASH = 0x8b96b5976adb19f320ae9f5ce766d3d4e383b06703c0b1771b35d6fa5936c45f
+const PINNED_MAINNET_BLOCK = 81741761
+const MAINNET_LEGACY_POSITION_MANAGER_ADDRESS = "EQDtv6ZjIj1mCbeD9Agi7Ug1Rubp58w3nIn8BME8rNiwm9Wz"
+const MAINNET_TRADER_ADDRESS = "EQAvCSdbLjTb2zoEvoRduNRbg1qA-W2pw6z5ZaECPGAPZZ5p"
+const MAINNET_VAULT_ADDRESS = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
+const MAINNET_VAMM_ADDRESS = "EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"
+const MAINNET_REFERRAL_ADDRESS = "EQDsxj5macZLMLOvVpzp64Po622-S9iNghQA7WRqCkuoW4x9"
 
-const MAINNET_POSITION_MANAGER_ADDRESS = "EQCoTFvejJcAm5J0gZYLS88Ce0PATCRV4hF5MEdfGaLZuAPm"
-const MAINNET_TRADER_ADDRESS = "0:d831edf7b738514f7c7783719e1f3775ba5af00bd08226f737bb58c63db945d1"
-const MAINNET_VAULT_ADDRESS = "0:33e9e84d7cbefff0d23b395875420e3a1ecb82e241692be89c7ea2bd27716b77"
-const MAINNET_VAMM_ADDRESS = "0:3c9316d4a2f2b6a76d69e794bd89903499b5f798f66eb3afeb0241e2a16f6236"
-const MAINNET_REFERRAL_ADDRESS = "0:ecc63e6669c64b30b3af569ce9eb83e8eb6dbe4bd88d821400ed646a0a4ba85b"
-
-fun mainnetStormPositionManager(): StormPositionManagerLibrary {
-    return StormPositionManagerLibrary.fromAddress(address(MAINNET_POSITION_MANAGER_ADDRESS));
+fun mainnetLegacyPositionManager(): StormPositionManagerLegacy {
+    return StormPositionManagerLegacy.fromAddress(address(MAINNET_LEGACY_POSITION_MANAGER_ADDRESS));
 }
 
 fun expectEmptyCell(cellValue: cell): void {
     expect(cellValue.hash()).toEqual(createEmptyCell().hash());
 }
 
-fun loadStormPositionManagerStorageFromFork(
-    pm: StormPositionManagerLibrary,
+fun loadLegacyPositionManagerStorageFromFork(
+    pm: StormPositionManagerLegacy,
 ): StormPositionManagerStorage {
     val account = testing.getAccountState(pm.address);
     expect(account).toBeNotNull();
@@ -37,27 +36,27 @@ fun loadStormPositionManagerStorageFromFork(
             val data = accountState.stateInit.data;
             expect(code).toBeNotNull();
             expect(data).toBeNotNull();
-            expect(code!.hash()).toEqual(EXPECTED_CODE_HASH);
+            expect(code!.hash()).toEqual(EXPECTED_LEGACY_CODE_HASH);
             return StormPositionManagerStorage.fromCell(data!);
         }
         TlbAccountStateUninit => {
-            Assert.fail("Storm PositionManager representative account is uninitialized");
+            Assert.fail("Legacy Storm PositionManager representative account is uninitialized");
         }
         TlbAccountStateFrozen => {
-            Assert.fail("Storm PositionManager representative account is frozen");
+            Assert.fail("Legacy Storm PositionManager representative account is frozen");
         }
     }
 }
 
-get fun `test storm position manager mainnet storage and getters`() {
-    val pm = mainnetStormPositionManager();
-    val storage = loadStormPositionManagerStorageFromFork(pm);
+get fun `test legacy storm position manager mainnet storage and getters`() {
+    val pm = mainnetLegacyPositionManager();
+    val storage = loadLegacyPositionManagerStorageFromFork(pm);
     val getterData = pm.getPositionManagerData();
     val contractData = pm.getPositionManagerContractData();
 
     expect(scripts.isContractDeployed(pm.address)).toBeTrue();
     expect(pm.getVersion()).toEqual(4);
-    expect(pm.getIsInited()).toBeTrue();
+    expect(pm.getIsInited()).toEqual(storage.referralData != null);
 
     expect(storage.traderAddress).toEqual(address(MAINNET_TRADER_ADDRESS));
     expect(storage.vaultAddress).toEqual(address(MAINNET_VAULT_ADDRESS));
@@ -70,6 +69,8 @@ get fun `test storm position manager mainnet storage and getters`() {
 
     val referralData = storage.referralData!.load();
     expect(referralData.referralAddress).toEqual(address(MAINNET_REFERRAL_ADDRESS));
+    expect(referralData.discount).toEqual(50000000);
+    expect(referralData.rebate).toEqual(100000000);
 
     expect(getterData.traderAddress).toEqual(storage.traderAddress);
     expect(getterData.vaultAddress).toEqual(storage.vaultAddress);
@@ -81,8 +82,8 @@ get fun `test storm position manager mainnet storage and getters`() {
     expect(getterData.referralData.hash()).toEqual(storage.referralData!.hash());
     expect(contractData.hash()).toBeGreater(0);
 
-    println("STORM_POSITION_MANAGER_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
-    println("STORM_POSITION_MANAGER_ADDRESS={}", pm.address);
-    println("STORM_POSITION_MANAGER_STORAGE={}", storage);
-    println("STORM_POSITION_MANAGER_GETTER_DATA={}", getterData);
+    println("STORM_POSITION_MANAGER_LEGACY_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
+    println("STORM_POSITION_MANAGER_LEGACY_ADDRESS={}", pm.address);
+    println("STORM_POSITION_MANAGER_LEGACY_STORAGE={}", storage);
+    println("STORM_POSITION_MANAGER_LEGACY_GETTER_DATA={}", getterData);
 }

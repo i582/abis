@@ -19,7 +19,7 @@ fun expectProvideVaultsTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.loadAddress()).toEqual(address(PROVIDE_VAULT_ADDRESS));
     expect(tail.loadCoins()).toEqual(11976048);
     expect(tail.loadAddress()).toEqual(address(PROVIDE_ORIGIN_ADDRESS));
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 fun expectInitialBalances(balances: map<uint256, coins>): void {

@@ -72,7 +72,7 @@ get fun `test storm referral decodes toncenter provide fees body`() {
     var parsed = body.beginParse();
 
     expect(parsed.loadUint(32)).toEqual(0x7e43f5fc);
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_PROVIDE_FEES_TX={} LT={}", txHash, txLt);
@@ -90,7 +90,7 @@ get fun `test storm referral decodes toncenter vaults reply body`() {
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_LOOKUP_VAULT));
     expect(requestTail.loadCoins()).toEqual(3699766);
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_LOOKUP_ORIGIN));
-    expectNoTail(mutate requestTail);
+    expectNoTail(requestTail);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_VAULTS_REPLY_TX={} LT={}", txHash, txLt);
@@ -149,7 +149,7 @@ get fun `test storm referral decodes toncenter provide vaults request body`() {
     expect(decoded.vaultAddress).toEqual(address(STORM_REFERRAL_LOOKUP_VAULT));
     expect(requestTail.loadCoins()).toEqual(3699766);
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_LOOKUP_ORIGIN));
-    expectNoTail(mutate requestTail);
+    expectNoTail(requestTail);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_PROVIDE_VAULTS_TX={} LT={}", txHash, txLt);

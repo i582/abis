@@ -55,7 +55,7 @@ get fun `test storm referral collection decodes toncenter mint request body`() {
     expect(decoded.refType as int).toEqual(0);
     expect(mintTail.loadAddress()).toEqual(address(STORM_REFERRAL_OWNER));
     expect(mintTail.loadAddress()).toEqual(address(STORM_REFERRAL_OWNER));
-    expectNoTail(mutate mintTail);
+    expectNoTail(mintTail);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_COLLECTION_MINT_TX={} LT={}", txHash, txLt);
@@ -90,7 +90,7 @@ get fun `test storm referral collection decodes toncenter provide vaults body`()
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_LOOKUP_VAULT));
     expect(requestTail.loadCoins()).toEqual(819793);
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_COLLECTION_LOOKUP_ORIGIN));
-    expectNoTail(mutate requestTail);
+    expectNoTail(requestTail);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_COLLECTION_PROVIDE_VAULTS_TX={} LT={}", txHash, txLt);
@@ -108,7 +108,7 @@ get fun `test storm referral collection decodes toncenter vaults reply body`() {
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_LOOKUP_VAULT));
     expect(requestTail.loadCoins()).toEqual(819793);
     expect(requestTail.loadAddress()).toEqual(address(STORM_REFERRAL_COLLECTION_LOOKUP_ORIGIN));
-    expectNoTail(mutate requestTail);
+    expectNoTail(requestTail);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("STORM_REFERRAL_COLLECTION_VAULTS_REPLY_TX={} LT={}", txHash, txLt);

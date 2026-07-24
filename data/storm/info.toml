@@ -14,6 +14,7 @@ storm_api_config = "https://api5.storm.tg/api/config"
 local_research_plan = "data/storm/research/plan.md"
 local_research_results = "data/storm/research/results.md"
 local_shared_research = "data/storm/research/shared.md"
+local_position_manager_legacy_research = "data/storm/research/storm_position_manager_legacy.md"
 local_schema = "data/storm/research/source/local/storm.xml"
 local_toncenter_tlb = "data/storm/research/source/local/toncenter-schemes.tlb"
 local_api_snapshot = "data/storm/research/source/api"
@@ -150,6 +151,37 @@ raw_address = "0:A84C5BDE8C97009B927481960B4BCF027B43C04C2455E2117930475F19A2D9B
 trader = "0:D831EDF7B738514F7C7783719E1F3775BA5AF00BD08226F737BB58C63DB945D1"
 vault = "0:33E9E84D7CBEFFF0D23B395875420E3A1ECB82E241692BE89C7EA2BD27716B77"
 vamm = "0:3C9316D4A2F2B6A76D69E794BD89903499B5F798F66EB3AFEB0241E2A16F6236"
+network = "mainnet"
+
+[contracts.StormPositionManagerLegacy]
+display_name = "Storm Trade Position Manager — Legacy Empty Notifications"
+types = "position_manager_legacy/types/storm_position_manager_legacy.types.tolk"
+hashes = [
+  "8b96b5976adb19f320ae9f5ce766d3d4e383b06703c0b1771b35d6fa5936c45f",
+  "4993da0f3c8d0d4b0bcdabd9fdea93cba3534d1d5aaf03ce4b033382e51acc68",
+  "d8e28595d7e8b2c1e506b62fec95f91e076bba2f8260f5da78b11bd0093ae7f0",
+]
+known_addresses = [
+  "EQDtv6ZjIj1mCbeD9Agi7Ug1Rubp58w3nIn8BME8rNiwm9Wz",
+  "EQC2DtJs9lNMsqdOFOfXYGz5Q6Wc7utDRE8sQqSrGuchrz2x",
+  "EQClRfrgmpoVryZ425hiA5v5i5Tw3TDwzrYOgprlmciQA_xu",
+]
+
+[contracts.StormPositionManagerLegacy.instances.ton_coinm_8b96]
+address = "EQDtv6ZjIj1mCbeD9Agi7Ug1Rubp58w3nIn8BME8rNiwm9Wz"
+raw_address = "0:EDBFA663223D6609B783F40822ED483546E6E9E7CC379C89FC04C13CACD8B09B"
+vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
+vamm = "EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"
+network = "mainnet"
+
+[contracts.StormPositionManagerLegacy.instances.variant_4993]
+address = "EQC2DtJs9lNMsqdOFOfXYGz5Q6Wc7utDRE8sQqSrGuchrz2x"
+raw_address = "0:B60ED26CF6534CB2A74E14E7D7606CF943A59CEEEB43444F2C42A4AB1AE721AF"
+network = "mainnet"
+
+[contracts.StormPositionManagerLegacy.instances.variant_d8e2]
+address = "EQClRfrgmpoVryZ425hiA5v5i5Tw3TDwzrYOgprlmciQA_xu"
+raw_address = "0:A545FAE09A9A15AF2678DB9862039BF98B94F0DD30F0CEB60E829AE599C89003"
 network = "mainnet"
 
 [contracts.StormReferral]

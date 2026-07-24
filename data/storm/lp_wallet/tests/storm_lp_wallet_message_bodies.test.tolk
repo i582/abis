@@ -16,7 +16,7 @@ fun expectAbsentMaybeRefTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(1);
     expect(tail.remainingRefsCount()).toEqual(0);
     expect(tail.loadBool()).toBeFalse();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 fun expectRefBackedForwardPayload(mutate payload: RemainingBitsAndRefs): void {

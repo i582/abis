@@ -30,13 +30,13 @@ fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
     expect(payload.loadBool()).toBeTrue();
 
     val payloadCell = payload.loadRef();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
     return payloadCell;
 }
 
 fun expectRefEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void {
     var payloadBody = loadForwardPayloadRef(mutate payload).beginParse();
-    expectEmptySlice(mutate payloadBody);
+    expectEmptySlice(payloadBody);
 }
 
 fun expectExtraRefundText(mutate payload: RemainingBitsAndRefs): void {
@@ -49,7 +49,7 @@ fun expectExtraRefundText(mutate payload: RemainingBitsAndRefs): void {
     expect(text.loadUint(64)).toEqual(0x4454206f7220544f);
     expect(text.loadUint(64)).toEqual(0x4e20617265207365);
     expect(text.loadUint(64)).toEqual(0x6e74206261636b2e);
-    expectEmptySlice(mutate text);
+    expectEmptySlice(text);
 }
 
 get fun `test storm prelaunch decodes toncenter provide wallet address body`() {
@@ -260,7 +260,7 @@ get fun `test storm prelaunch decodes toncenter rewards complete notify body`() 
     expect(payload.remainingBitsCount()).toEqual(267);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadAddress()).toEqual(address(STORM_PRELAUNCH_ADMIN_ADDRESS));
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 
     println("STORM_PRELAUNCH_REWARDS_COMPLETE_NOTIFY_TX={} LT={}", txHash, txLt);
 }

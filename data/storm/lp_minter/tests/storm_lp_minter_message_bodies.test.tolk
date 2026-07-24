@@ -18,7 +18,7 @@ fun expectInlineEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void 
     expect(payload.remainingBitsCount()).toEqual(1);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 get fun `test storm lp minter decodes real mint request body`() {
@@ -66,7 +66,7 @@ get fun `test storm lp minter parses real burn notification prefix and response 
     expect(parsed.loadCoins()).toEqual(1593909206374);
     expect(parsed.loadAddress()).toEqual(address(LP_BURN_OWNER));
     expect(parsed.loadAddress()).toEqual(address(LP_BURN_RESPONSE));
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
 
     println("STORM_LP_MINTER_BURN_NOTIFICATION_TX={} LT={}", txHash, txLt);
 }

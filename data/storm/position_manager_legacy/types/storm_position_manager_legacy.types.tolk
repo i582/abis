@@ -1,8 +1,8 @@
-/// Storm Trade PositionManager v4 interface.
-contract StormPositionManager {
+/// Storm Trade PositionManager v4 interface with legacy empty order notifications.
+contract StormPositionManagerLegacy {
     author: "Storm Trade"
-    version: "4"
-    description: "Storm Trade Position Manager is a per-trader market account that tracks open positions, orders, and referral terms for one vAMM."
+    version: "4-legacy-notifications"
+    description: "Storm Trade Position Manager v4 variant that tracks one trader market account and emits the legacy empty order-created and order-canceled notifications."
     storage: StormPositionManagerStorage
     incomingMessages: StormPositionManagerIncomingMessage
     outgoingMessages: StormPositionManagerOutgoingMessage
@@ -245,7 +245,7 @@ struct Signatures {
     data: cell
 }
 
-/// Alias used by oracle payloads for the active single-price data layout.
+/// Single-price data layout used by oracle payloads.
 type OraclePriceData = PriceData
 
 /// Referral fee withdrawal request accepted by the PositionManager.
@@ -272,7 +272,7 @@ struct (0xa39843f4) StormCreateOrder {
     orderType: uint4
     /// Optional gas/notification recipient; `addr_none` falls back to the trader.
     gasToAddress: address?
-    /// Ref payload decoded by `OrderData`; kept raw because auth path depends on order type.
+    /// Referenced order payload; its interpretation depends on the order type.
     order: cell
 }
 
@@ -370,24 +370,12 @@ struct (0x8865b402) StormProvideOrder {
     oraclePayload: Cell<OraclePayload>
 }
 
-/// Order-created notification sent to the selected gas or redirect address.
-struct (0x80f4c55b) StormOrderCreated {
-    /// Four-bit created order type.
-    orderType: uint4
-    /// Three-bit created order index.
-    orderIndex: uint3
-    /// Direction bit of the created order.
-    direction: uint1
+/// Empty order-created notification sent to the selected gas or redirect address.
+struct (0x3a943ce6) StormLegacyOrderCreated {
 }
 
-/// Order-canceled notification sent to the selected gas or redirect address.
-struct (0x7db85c00) StormOrderCanceled {
-    /// Four-bit canceled order type.
-    orderType: uint4
-    /// Three-bit canceled order index.
-    orderIndex: uint3
-    /// Direction bit of the canceled order.
-    direction: uint1
+/// Empty order-canceled notification sent to the selected gas or redirect address.
+struct (0x69d08679) StormLegacyOrderCanceled {
 }
 
 /// Execution or error notification sent to gas or redirect addresses.
@@ -446,8 +434,8 @@ type StormPositionManagerIncomingMessage =
 
 /// Internal message bodies emitted by PositionManager v4.
 type StormPositionManagerOutgoingMessage =
-    | StormOrderCreated
-    | StormOrderCanceled
+    | StormLegacyOrderCreated
+    | StormLegacyOrderCanceled
     | StormPositionManagerExecutionResult
     | StormPositionManagerVaultFailure
     | StormExecuteOrderToVamm
