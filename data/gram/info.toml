@@ -1,0 +1,26 @@
+[project]
+name = "gram"
+
+[sources]
+ton_pow_testgiver = "https://github.com/ton-blockchain/ton/blob/f064b1047a5671ec5a435462d5639792274fb32e/crypto/smartcont/pow-testgiver-code.fc"
+toncenter_account = "https://toncenter.com/api/v3/accountStates?address=0:A1C02DBDDEFAAE9831CA6BCDB4823F15D791CA3053D40F5791C29BD457F07447"
+
+[[links]]
+kind = "source"
+title = "TON Core PoW TestGiver source"
+url = "https://github.com/ton-blockchain/ton/blob/f064b1047a5671ec5a435462d5639792274fb32e/crypto/smartcont/pow-testgiver-code.fc"
+scope = "GramMiner"
+
+[contracts.GramMiner]
+types = "types/gram_miner.types.tolk"
+hashes = ["ccae6ffb603c7d3e779ab59ec267ffc22dc1ebe0af9839902289a7a83e4c00f1"]
+known_addresses = [
+    "EQChwC293vqumDHKa820gj8V15HKMFPUD1eRwpvUV_B0R8gz",
+]
+
+[contracts.GramMiner.instances.mainnet]
+address = "EQChwC293vqumDHKa820gj8V15HKMFPUD1eRwpvUV_B0R8gz"
+raw_address = "0:A1C02DBDDEFAAE9831CA6BCDB4823F15D791CA3053D40F5791C29BD457F07447"
+code_hash = "ccae6ffb603c7d3e779ab59ec267ffc22dc1ebe0af9839902289a7a83e4c00f1"
+code_boc = "testdata/GramMiner.boc"
+data_boc = "testdata/GramMiner.data.boc"
