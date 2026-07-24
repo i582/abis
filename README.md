@@ -4,6 +4,8 @@ This repository contains curated TON ABI data for protocol and contract families
 
 Current catalog size: **214 contract entries**.
 
+Across all tracked `data/**/*.types.tolk` files, the catalog declares **857 unique opcodes** and **405 unique get-method names**.
+
 Each curated project group normally includes:
 
 - `info.toml` with catalog metadata, contract entries, known hashes, known addresses, and source links.
