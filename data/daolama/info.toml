@@ -1,0 +1,52 @@
+[project]
+name = "daolama"
+
+[metadata]
+category = "lending"
+description = "DAOLama TON liquidity vault and TON-DLP jetton master"
+website = "https://daolama.co"
+docs = "https://docs.daolama.co/daolama/daolama-en"
+telegram = "https://t.me/daolama"
+
+[sources]
+tongo = "https://github.com/tonkeeper/tongo/blob/8d64ed2b9d258b0ff1c3d8d91874929835746003/abi/schemas/daolama.xml"
+docs = "https://docs.daolama.co/daolama/daolama-en"
+lp_metadata = "https://assets.daolama.co/lp-token/ton-dlp.json"
+ton_docs_jettons = "https://docs.ton.org/llms/contracts/standard/tokens/jettons/api/content.md"
+ton_docs_tlb = "https://docs.ton.org/llms/foundations/tlb/syntax-and-semantics/content.md"
+local_schema = "sources/schemas/daolama.xml"
+local_generated_types = "sources/tolk-schemas/daolama_vault.types.tolk"
+local_research_plan = "data/daolama/research/plan.md"
+local_research_results = "data/daolama/research/results.md"
+local_current_decompile = "data/daolama/research/func/daolama_vault_688036db.fc"
+local_message_body_evidence = "data/daolama/research/daolama_vault_message_bodies.md"
+
+[[links]]
+kind = "website"
+title = "DAOLama"
+url = "https://daolama.co"
+scope = "project"
+
+[[links]]
+kind = "docs"
+title = "DAOLama documentation"
+url = "https://docs.daolama.co/daolama/daolama-en"
+scope = "project"
+
+[contracts.DaolamaVault]
+display_name = "DAOLama TON Vault / TON-DLP minter"
+types = "types/daolama_vault.types.tolk"
+hashes = [
+  "688036dbfddf491278b7698c3e715f359168adb9fa856e28ab279aa4c84da45e",
+]
+known_addresses = [
+  "EQCkeTvOSTBwBtP06X2BX7THj_dlX67PhgYRGuKfjWtB9FVb",
+]
+
+[[contracts.DaolamaVault.instances]]
+name = "DAOLama TON Vault"
+symbol = "TON-DLP"
+decimals = 9
+address = "EQCkeTvOSTBwBtP06X2BX7THj_dlX67PhgYRGuKfjWtB9FVb"
+hash = "688036dbfddf491278b7698c3e715f359168adb9fa856e28ab279aa4c84da45e"
+label = "DAOLama TON lending vault and TON-DLP jetton master"

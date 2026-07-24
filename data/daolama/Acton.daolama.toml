@@ -1,0 +1,18 @@
+[package]
+name = "daolama-abi"
+description = "Local DAOLama TON Vault ABI fixture manifest"
+version = "0.1.0"
+
+[contracts.DaolamaVault]
+display-name = "DAOLama TON Vault"
+src = "data/daolama/testdata/daolama_vault_current.boc"
+types = "data/daolama/types/daolama_vault.types.tolk"
+depends = []
+
+[import-mappings]
+acton = ".acton"
+gen = "gen"
+
+[scripts]
+daolama-message-bodies-test = "acton test data/daolama/tests/daolama_vault_message_bodies.test.tolk --manifest-path data/daolama/Acton.daolama.toml"
+daolama-storage-test = "acton test data/daolama/tests/daolama_vault_storage.test.tolk --manifest-path data/daolama/Acton.daolama.toml"
