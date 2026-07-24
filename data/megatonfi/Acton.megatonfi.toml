@@ -1,0 +1,24 @@
+[package]
+name = "megatonfi-wton-abi"
+description = "Local Megaton Finance WTON ABI fixture manifest"
+version = "0.1.0"
+
+[contracts.WtonMinter]
+display-name = "Wrapped TON Minter"
+src = "data/megatonfi/testdata/WtonMinter.boc"
+types = "data/megatonfi/types/wton_minter.types.tolk"
+depends = []
+
+[contracts.WtonWallet]
+display-name = "Wrapped TON Wallet"
+src = "data/megatonfi/testdata/WtonWallet.boc"
+types = "data/megatonfi/types/wton_wallet.types.tolk"
+depends = []
+
+[import-mappings]
+acton = ".acton"
+gen = "gen"
+
+[scripts]
+wton-message-bodies-test = "acton test data/megatonfi/tests/wton_message_bodies.test.tolk --manifest-path data/megatonfi/Acton.megatonfi.toml"
+wton-storage-test = "acton test data/megatonfi/tests/wton_storage.test.tolk --manifest-path data/megatonfi/Acton.megatonfi.toml"
