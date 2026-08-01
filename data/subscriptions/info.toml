@@ -13,7 +13,7 @@ types = "types/subscription_v1.types.tolk"
 hashes = ["52161446bb3e6f811f3ceb163c8be33710fe41086c3a047ee928c2d94743fc2d"]
 known_addresses = ["EQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihei2s"]
 
-[[contracts.SubscriptionV1.instances]]
+[contracts.SubscriptionV1.instances.verified_plugin]
 name = "Verified Subscription V1 plugin"
 address = "EQCYmewN6-iZF_R-g4f-AyRt3RMSEPDAT8wvKgKSMqihei2s"
 code_hash = "52161446bb3e6f811f3ceb163c8be33710fe41086c3a047ee928c2d94743fc2d"
@@ -26,12 +26,12 @@ known_addresses = [
   "EQATE41fW6ln2woQd6QQ_oILO97JLiVLjNtxPz8cCmXiqglY",
 ]
 
-[[contracts.SubscriptionV2.instances]]
+[contracts.SubscriptionV2.instances.active]
 name = "Active Subscription V2 fixture"
 address = "EQCPpDopkQKPVHTlTDgbIjyFfCU8k9_yuHT_-8osbMGcnDfC"
 code_hash = "48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"
 
-[[contracts.SubscriptionV2.instances]]
+[contracts.SubscriptionV2.instances.deploy_destruct]
 name = "Subscription V2 deploy/destruct fixture"
 address = "EQATE41fW6ln2woQd6QQ_oILO97JLiVLjNtxPz8cCmXiqglY"
 code_hash = "48942963827c5147fe935cd22e88ba418011fe656eab78b79c5c6343d84d421a"

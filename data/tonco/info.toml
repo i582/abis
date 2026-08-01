@@ -51,7 +51,7 @@ kind = "docs"
 title = "TONCO Router docs"
 url = "https://docs.tonco.io/technical-reference/contracts/router"
 
-[[contracts.Router.instances]]
+[contracts.Router.instances.mainnet]
 name = "TONCO mainnet router"
 address = "EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"
 code_hash = "9b9891eaa7db7becc6ccdda1bd9a8d25dc3df2817d57e4b27ec003daf81a4439"
@@ -67,7 +67,7 @@ kind = "docs"
 title = "TONCO Pool docs"
 url = "https://docs.tonco.io/technical-reference/contracts/pool"
 
-[[contracts.Pool.instances]]
+[contracts.Pool.instances.sample]
 name = "TONCO pool sample from local schema"
 address = "EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"
 code_hash = "bc947d16346c2fdc845b7a446382f59c86acb075e2a31dbfa956cd0c9e54678e"
@@ -83,7 +83,7 @@ kind = "docs"
 title = "TONCO Account docs"
 url = "https://docs.tonco.io/technical-reference/contracts/account"
 
-[[contracts.Account.instances]]
+[contracts.Account.instances.position_nft_0_owner]
 name = "TONCO AccountV3 derived from sample pool PositionNFT #0 owner"
 address = "EQAZ8g6UM2EXWMFxpFcXtrAFHCY9PFbnbHKoQt7pHH9ps5w4"
 code_hash = "a820f670f18a3afa05c5acb0f85e248c97b01b4d846aeeac4730622b832a8c20"
@@ -99,7 +99,7 @@ kind = "docs"
 title = "TONCO PoolFactory docs"
 url = "https://docs.tonco.io/technical-reference/contracts/pool_factory"
 
-[[contracts.PoolFactory.instances]]
+[contracts.PoolFactory.instances.mainnet]
 name = "TONCO mainnet PoolFactory from router state"
 address = "EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"
 code_hash = "b5b46a506af6a118fe1a1853f43dc3d53d65c36a3c2ad5722feef343ecb7b857"
@@ -115,7 +115,7 @@ kind = "docs"
 title = "TONCO Position NFT docs"
 url = "https://docs.tonco.io/technical-reference/contracts/position_nft"
 
-[[contracts.PositionNFT.instances]]
+[contracts.PositionNFT.instances.sample_0]
 name = "TONCO sample pool PositionNFT #0"
 address = "EQAFaimkHZz_KorlOZ1UbdRGjfZnvHJW2cNZff4GdswrCIHp"
 code_hash = "23091475641789bbbd415b0396a1f0a7a22701086c99dab178a353fc04ce7983"

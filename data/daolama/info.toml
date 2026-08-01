@@ -33,7 +33,7 @@ known_addresses = [
   "EQCkeTvOSTBwBtP06X2BX7THj_dlX67PhgYRGuKfjWtB9FVb",
 ]
 
-[[contracts.DaolamaVault.instances]]
+[contracts.DaolamaVault.instances.daolama_ton_vault]
 name = "DAOLama TON Vault"
 address = "EQCkeTvOSTBwBtP06X2BX7THj_dlX67PhgYRGuKfjWtB9FVb"
 code_hash = "688036dbfddf491278b7698c3e715f359168adb9fa856e28ab279aa4c84da45e"
