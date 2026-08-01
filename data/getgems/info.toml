@@ -227,3 +227,15 @@ known_addresses = ["EQCYG4hVBS9E8qPaCfKWLfSrOUW1ZVCVoJ-kWbcxkJHMri7L"]
 kind = "source"
 title = "Swap source"
 url = "https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/sources/nft-swap.fc"
+
+[contracts.GetgemsOffchainOfferV3]
+display_name = "Getgems Offchain Offer V3"
+types = "getgems_offchain_offer_v3/types/getgems_offchain_offer_v3.types.tolk"
+hashes = [
+  "0285e0ba8e03b38a80a5baf9198ad840510ac835af1e3bfe2ceac7eceba592c5",
+  "f0449dca7dd58b13607508839087668196aaef2c7df9ef5fe5b73e0a9177255e",
+]
+known_addresses = [
+  "EQAGdZASbt82oe8iSb76Thv89EeH12Ja8tsCC6vicCxrJXWt",
+  "EQAGGhOkRVO4F-pn9Yojfs68cz1OueV5CzUChx4HrGEyv70L",
+]
