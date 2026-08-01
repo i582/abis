@@ -44,7 +44,7 @@ get fun `test storage provider decodes toncenter signed external body`() {
     expect(
         outbound.hash(),
     ).toEqual(68775244706494241510735699739358728299814528923069484497345553015400313282628);
-    expectNoTail(mutate messages);
+    expectNoTail(messages);
 
     println("STORAGE_PROVIDER_SIGNED_EXTERNAL_TX={} LT={}", txHash, txLt);
 }

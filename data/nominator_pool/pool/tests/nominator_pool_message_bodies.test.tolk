@@ -58,7 +58,7 @@ get fun `test nominator pool decodes real deposit text comment body`() {
 
     expect(body.hash()).toEqual(DEPOSIT_BODY_HASH);
     expect(decoded.action).toEqual(100);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("NOMINATOR_POOL_DEPOSIT_TX={} LT={}", txHash, txLt);
 }
@@ -72,7 +72,7 @@ get fun `test nominator pool decodes real withdraw text comment body`() {
 
     expect(body.hash()).toEqual(WITHDRAW_BODY_HASH);
     expect(decoded.action).toEqual(119);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("NOMINATOR_POOL_WITHDRAW_TEXT_TX={} LT={}", txHash, txLt);
 }
@@ -90,7 +90,7 @@ get fun `test nominator pool decodes real process withdraw requests body`() {
     expect(tail.remainingBitsCount()).toEqual(24);
     expect(tail.remainingRefsCount()).toEqual(0);
     expect(tail.loadUint(24)).toEqual(100);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("NOMINATOR_POOL_PROCESS_WITHDRAW_TX={} LT={}", txHash, txLt);
 }
@@ -183,7 +183,7 @@ get fun `test nominator pool decodes real elector new stake ok body`() {
     expect(tail.remainingBitsCount()).toEqual(32);
     expect(tail.remainingRefsCount()).toEqual(0);
     expect(tail.loadUint(32)).toEqual(0);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("NOMINATOR_POOL_NEW_STAKE_OK_TX={} LT={}", txHash, txLt);
 }

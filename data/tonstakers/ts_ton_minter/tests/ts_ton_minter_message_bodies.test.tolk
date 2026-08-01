@@ -15,14 +15,14 @@ fun expectInlineEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void 
     expect(payload.remainingBitsCount()).toEqual(1);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun expectTwoBitCustomPayloadTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(2);
     expect(tail.remainingRefsCount()).toEqual(0);
     expect(tail.loadUint(2)).toEqual(2);
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 get fun `test tsTON minter decodes real incoming mint body`() {

@@ -12,14 +12,14 @@ fun expectInlineEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void 
     expect(payload.remainingBitsCount()).toEqual(1);
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun expectInlineEmptyTextCommentPayload(mutate payload: RemainingBitsAndRefs): void {
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
     expect(payload.loadUint(32)).toEqual(0);
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
@@ -28,7 +28,7 @@ fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
     expect(payload.loadBool()).toBeTrue();
 
     val payloadCell = payload.loadRef();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
     return payloadCell;
 }
 

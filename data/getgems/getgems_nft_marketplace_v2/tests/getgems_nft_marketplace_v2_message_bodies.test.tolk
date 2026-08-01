@@ -18,7 +18,7 @@ fun loadSingleSignedExternalActionMessage(
     expect(stream.loadUint(8)).toEqual(expectedMode);
 
     val messageCell = stream.loadRef();
-    expectNoTail(mutate stream);
+    expectNoTail(stream);
 
     return (messageCell as Cell<TlbMessageRelaxed<RemainingBitsAndRefs>>).load({
         assertEndAfterReading: false,
@@ -52,7 +52,7 @@ fun expectCancelOfferBody(mutate body: RemainingBitsAndRefs): void {
     expect(body.loadCoins()).toEqual(34000000);
 
     val ownerPayloadCell = body.loadRef();
-    expectNoTail(mutate body);
+    expectNoTail(body);
 
     var ownerPayload = ownerPayloadCell.beginParse();
     expect(ownerPayload.remainingBitsCount()).toEqual(816);
@@ -72,7 +72,7 @@ fun expectEmergencyProxyBody(mutate body: RemainingBitsAndRefs): void {
     expect(body.loadUint(64)).toEqual(8549106353021481429);
 
     val actionCell = body.loadRef();
-    expectNoTail(mutate body);
+    expectNoTail(body);
 
     var action = actionCell.beginParse();
     expect(action.remainingBitsCount()).toEqual(8);
@@ -80,7 +80,7 @@ fun expectEmergencyProxyBody(mutate body: RemainingBitsAndRefs): void {
     expect(action.loadUint(8)).toEqual(3);
 
     val rawMessageCell = action.loadRef();
-    expectNoTail(mutate action);
+    expectNoTail(action);
 
     val rawMessage = (rawMessageCell as Cell<TlbMessageRelaxed<RemainingBitsAndRefs>>).load({
         assertEndAfterReading: false,
@@ -106,7 +106,7 @@ fun expectEmergencyProxyBody(mutate body: RemainingBitsAndRefs): void {
     expect(nftTransfer.loadBool()).toBeFalse();
     expect(nftTransfer.loadCoins()).toEqual(1);
     expect(nftTransfer.loadBool()).toBeFalse();
-    expectNoTail(mutate nftTransfer);
+    expectNoTail(nftTransfer);
 }
 
 get fun `test getgems marketplace v2 decodes toncenter signed external cancel action body`() {
@@ -194,7 +194,7 @@ get fun `test getgems marketplace v2 decodes toncenter signed external stop text
 
     expect(forwardedBody.loadUint(32)).toEqual(0);
     expect(forwardedBody.loadUint(32)).toEqual(0x73746f70);
-    expectNoTail(mutate forwardedBody);
+    expectNoTail(forwardedBody);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_SIGNED_STOP_TX={} LT={}", txHash, txLt);
@@ -212,7 +212,7 @@ get fun `test getgems marketplace v2 decodes toncenter incoming cancel fee text 
     expect(parsed.loadUint(32)).toEqual(0);
     expect(parsed.loadUint(64)).toEqual(0x4f66666572206361);
     expect(parsed.loadUint(64)).toEqual(0x6e63656c20666565);
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
 
     println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_IN_CANCEL_FEE_TEXT_TX={} LT={}", txHash, txLt);
 }
@@ -228,7 +228,7 @@ get fun `test getgems marketplace v2 decodes toncenter incoming excess body`() {
     expect(parsed.remainingRefsCount()).toEqual(0);
     expect(parsed.loadUint(32)).toEqual(0xd53276db);
     expect(parsed.loadUint(64)).toEqual(8549106350062479961);
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
 
     println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_IN_EXCESS_TX={} LT={}", txHash, txLt);
 }
@@ -245,7 +245,7 @@ get fun `test getgems marketplace v2 decodes toncenter incoming bounce text body
     expect(parsed.loadUint(32)).toEqual(0xffffffff);
     expect(parsed.loadUint(32)).toEqual(0);
     expect(parsed.loadUint(32)).toEqual(0x73746f70);
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
 
     println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_IN_BOUNCE_TEXT_TX={} LT={}", txHash, txLt);
 }
@@ -285,7 +285,7 @@ get fun `test getgems marketplace v2 decodes toncenter outgoing stop text body`(
     expect(parsed.remainingRefsCount()).toEqual(0);
     expect(parsed.loadUint(32)).toEqual(0);
     expect(parsed.loadUint(32)).toEqual(0x73746f70);
-    expectNoTail(mutate parsed);
+    expectNoTail(parsed);
 
     println("GETGEMS_NFT_MARKETPLACE_V2_TONCENTER_OUT_STOP_TEXT_TX={} LT={}", txHash, txLt);
 }

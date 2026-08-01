@@ -68,7 +68,7 @@ get fun `test whales pool decodes real user deposit withdraw and text bodies`() 
     expect(textTail.remainingBitsCount()).toEqual(64);
     expect(textTail.remainingRefsCount()).toEqual(0);
     expect(textTail.loadUint(64)).toEqual(0x5769746864726177);
-    expectNoTail(mutate textTail);
+    expectNoTail(textTail);
     expect(text.toCell().hash()).toEqual(textBody.hash());
 
     println(

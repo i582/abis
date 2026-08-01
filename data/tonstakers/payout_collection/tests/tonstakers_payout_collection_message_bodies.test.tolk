@@ -36,7 +36,7 @@ get fun `test tonstakers payout collection decodes real incoming mint body`() {
     tail.loadCoins();
     tail.loadCoins();
     tail.loadCoins();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("TONSTAKERS_PAYOUT_COLLECTION_MINT_BODY_TX={} LT={}", txHash, txLt);
 }
@@ -63,7 +63,7 @@ get fun `test tonstakers payout collection decodes real outgoing init nft body`(
     tail.loadCoins();
     tail.loadAddress();
     tail.loadAddress();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("TONSTAKERS_PAYOUT_COLLECTION_INIT_NFT_BODY_TX={} LT={}", txHash, txLt);
 }

@@ -116,14 +116,14 @@ get fun `test tonkeeper 2fa decodes real outgoing wallet request body`() {
     expect(decoded.outActions!.hash()).toEqual(WALLET_REQUEST_OUT_ACTION_HASH);
     expect(extended.remainingBitsCount()).toEqual(1);
     expect(extended.loadBool()).toBeFalse();
-    expectNoTail(mutate extended);
+    expectNoTail(extended);
 
     var outAction = decoded.outActions!.beginParse();
     outAction.loadRef();
     expect(outAction.loadUint(32)).toEqual(0x0ec3c86d);
     expect(outAction.loadUint(8)).toEqual(3);
     val nestedMessageCell = outAction.loadRef();
-    expectNoTail(mutate outAction);
+    expectNoTail(outAction);
     expect(nestedMessageCell.hash()).toEqual(WALLET_REQUEST_NESTED_MSG_HASH);
 
     val nestedMessage = (nestedMessageCell as Cell<TlbMessageRelaxed<RemainingBitsAndRefs>>).load({

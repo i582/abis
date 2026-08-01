@@ -55,7 +55,7 @@ get fun `test hipo collection decodes toncenter mint bill body`() {
     tail.loadAddress();
     tail.loadAddress();
     tail.loadCoins();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("HIPO_COLLECTION_MINT_BILL_TX={} LT={}", txHash, txLt);
 }
@@ -85,7 +85,7 @@ get fun `test hipo collection decodes toncenter assign bill body`() {
     tail.loadAddress();
     tail.loadAddress();
     tail.loadCoins();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 
     println("HIPO_COLLECTION_ASSIGN_BILL_TX={} LT={}", txHash, txLt);
 }
