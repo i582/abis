@@ -109,6 +109,9 @@ jobs:
       - name: Build contracts
         run: acton build
 
+      - name: Check generated wrappers
+        run: cargo xtask wrappers --check
+
       - name: Build ABI catalog
         run: cargo xtask bundle --pretty
 

@@ -1,6 +1,7 @@
 mod bundle;
 mod catalog;
 mod schema;
+mod wrappers;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -22,11 +23,15 @@ enum Command {
 
     /// Generate JSON Schemas for info.toml and the public ABI catalog.
     Schema(schema::SchemaArgs),
+
+    /// Regenerate or verify all tracked Acton wrappers.
+    Wrappers(wrappers::WrappersArgs),
 }
 
 fn main() -> Result<()> {
     match Cli::parse().command {
         Command::Bundle(args) => bundle::run(args),
         Command::Schema(args) => schema::run(args),
+        Command::Wrappers(args) => wrappers::run(args),
     }
 }

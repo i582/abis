@@ -50,6 +50,25 @@ cargo xtask schema --check
 
 Commit schema changes together with the Rust type change that produced them.
 
+## Generate Acton wrappers
+
+Regenerate every tracked wrapper from the contracts registered in
+`Acton.toml` with:
+
+```sh
+cargo xtask wrappers
+```
+
+Verify that the tracked wrappers match the current Tolk types without
+modifying files:
+
+```sh
+cargo xtask wrappers --check
+```
+
+Wrapper generation runs in parallel after a single project build. Use
+`--jobs N` to set an explicit limit.
+
 ## Run checks
 
 Run the local checks used by CI:
@@ -61,6 +80,7 @@ cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
 cargo test --workspace --all-features --locked
 cargo xtask schema --check
 acton build
+cargo xtask wrappers --check
 acton fmt --check
 acton check --output-format github
 ```
