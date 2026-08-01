@@ -6,24 +6,6 @@ tongo_schema = "https://github.com/tonkeeper/tongo/blob/master/abi/schemas/invoi
 tongo_messages = "https://github.com/tonkeeper/tongo/blob/master/abi/messages.md"
 tongo_abi_package = "https://pkg.go.dev/github.com/tonkeeper/tongo/abi#InvoicePayloadMsgBody"
 
-[[links]]
-kind = "spec"
-title = "Tongo invoices schema"
-url = "https://github.com/tonkeeper/tongo/blob/master/abi/schemas/invoices.xml"
-scope = "project"
-
-[[links]]
-kind = "spec"
-title = "Tongo ABI messages"
-url = "https://github.com/tonkeeper/tongo/blob/master/abi/messages.md"
-scope = "project"
-
-[[links]]
-kind = "api"
-title = "Tongo invoice payload API"
-url = "https://pkg.go.dev/github.com/tonkeeper/tongo/abi#InvoicePayloadMsgBody"
-scope = "project"
-
 [contracts.InvoicesPayloadInterface]
 types = "types/invoices.types.tolk"
 hashes = []

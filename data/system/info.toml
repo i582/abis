@@ -46,12 +46,6 @@ known_addresses = ["Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"]
 hashes = ["c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"]
 related_asset_symbols = ["TON"]
 
-[[contracts.Config.links]]
-kind = "explorer"
-title = "TON Config verifier"
-url = "https://verifier.ton.org/Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
-scope = "contract"
-
 [contracts.Config.instances.mainnet]
 address = "Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
 raw_address = "-1:5555555555555555555555555555555555555555555555555555555555555555"

@@ -15,12 +15,6 @@ local_decompile_snapshot = "data/airdrop/research/func"
 local_v1_account_state = "data/airdrop/research/airdrop_interlocker_v1_account_state.json"
 local_v2_account_state = "data/airdrop/research/airdrop_interlocker_v2_account_state.json"
 
-[[links]]
-kind = "spec"
-title = "Tongo Airdrop schema"
-url = "https://github.com/tonkeeper/tongo/blob/master/abi/schemas/airdrop.xml"
-scope = "project"
-
 [contracts.AirdropInterlockerV1]
 display_name = "Airdrop Interlocker v1"
 types = "interlocker_v1/types/airdrop_interlocker_v1.types.tolk"
