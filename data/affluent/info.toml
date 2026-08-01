@@ -2,7 +2,6 @@
 name = "affluent"
 website = "https://affluent.org"
 app = "https://app.affluent.org"
-x = "https://x.com/AffluentOrg"
 telegram = "https://t.me/affluent"
 
 [sources]
@@ -216,21 +215,18 @@ name = "Factorial/Lending-Vault/USDT"
 address = "EQAGtgnr1G0XDilGURcOB3pUhl-Lo__J-TaJP0K4ey8cuSaW"
 code_hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
-underlying_symbol = "USDT"
 
 [[contracts.LendingVault.instances]]
 name = "Factorial/Lending-Vault/TON"
 address = "EQADQ6JcK0NMuNM5uwCcS9bjcn2RTvcxYIZjNlhIhywUrfBN"
 code_hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQDIKEz2BYLnTRWo5W5a6moZ9PXNtyOVOFF7noi8Ufv3axz_"
-underlying_symbol = "FactorialTON"
 
 [[contracts.LendingVault.instances]]
 name = "Affluent USDT Lending Vault"
 address = "EQAc65JgiTwcoC3M1VYnQcM2Ivq4DTWOtyY2k2EaBuXsKRAZ"
 code_hash = "af8bf62a1cc6e9ffb08253b9be58c83d1939f0b2d2a0aeb8b5ede513968da2ef"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
-underlying_symbol = "USDT"
 
 [contracts.FactorialTonMinter]
 types = "types/jetton_master.types.tolk"

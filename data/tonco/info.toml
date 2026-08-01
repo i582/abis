@@ -3,7 +3,6 @@ name = "tonco"
 website = "https://tonco.io"
 app = "https://app.tonco.io"
 docs = "https://docs.tonco.io"
-x = "https://x.com/Tonco_io"
 telegram = "https://t.me/tonco_welcome"
 
 [sources]

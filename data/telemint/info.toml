@@ -38,6 +38,5 @@ title = "TeleMint item source"
 url = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-item.fc"
 
 [contracts.TelemintNftItem.variants.dns_item]
-source_file = "func/nft-item.fc"
 hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
 known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]

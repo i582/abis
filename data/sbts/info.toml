@@ -38,7 +38,6 @@ title = "Getgems SBT item source"
 url = "https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/sources/sbt-item.fc"
 
 [contracts.SbtV1Item.variants.collection_item]
-source_file = "packages/contracts/sources/sbt-item.fc"
 hashes = ["2ffbf52beaf816157bfc9726dc2548327fa87ebfd2696eed27a9c2cda25c9edc"]
 known_addresses = ["EQCeAQzHYeZ4qLnXYevsOOElwxTuNdZfzwxF6vy4wegbSq5h"]
 
@@ -54,6 +53,5 @@ title = "Getgems SBT single source"
 url = "https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/sources/sbt-single.fc"
 
 [contracts.SbtV1Single.variants.single]
-source_file = "packages/contracts/sources/sbt-single.fc"
 hashes = ["68550b3df306e709935f2d3d97e226454a409ad7965c87163845ba56b0745f93"]
 known_addresses = ["EQBamoka0hrsZjwRa1qedfufUcaapBfxyQiLdRbTMDH7H1sq"]

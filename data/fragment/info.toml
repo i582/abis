@@ -11,12 +11,8 @@ url = "https://fragment.com/"
 [contracts.FragmentUsernameCollection]
 display_name = "Fragment Username Collection"
 types = "types/fragment_username_collection.types.tolk"
-wrapper = "wrappers/FragmentUsernameCollection.gen.tolk"
-code_fixture = "testdata/FragmentUsernameCollection.boc"
-data_fixture = "testdata/FragmentUsernameCollection.data.boc"
 hashes = ["4d4eb9bfa2b210d890833a712be244081fddadb07f031f361ea5cf7f1a130651"]
 known_addresses = ["EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"]
-research = "research/fragment_username_collection.md"
 
 [[contracts.FragmentUsernameCollection.links]]
 kind = "source"
@@ -30,12 +26,8 @@ network = "mainnet"
 [contracts.FragmentNumbersCollection]
 display_name = "Fragment Numbers Collection"
 types = "types/fragment_numbers_collection.types.tolk"
-wrapper = "wrappers/FragmentNumbersCollection.gen.tolk"
-code_fixture = "testdata/FragmentNumbersCollection.boc"
-data_fixture = "testdata/FragmentNumbersCollection.data.boc"
 hashes = ["88410c220f822181668269ce83eb9cc0d3b39c21999c8b55de03360a20e7c282"]
 known_addresses = ["EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"]
-research = "research/fragment_numbers_collection.md"
 
 [[contracts.FragmentNumbersCollection.links]]
 kind = "source"
@@ -49,12 +41,8 @@ network = "mainnet"
 [contracts.FragmentUsernameItem]
 display_name = "Fragment Username Item"
 types = "types/fragment_username_item.types.tolk"
-wrapper = "wrappers/FragmentUsernameItem.gen.tolk"
-code_fixture = "testdata/FragmentUsernameItem.boc"
-data_fixture = "testdata/FragmentUsernameItem.data.boc"
 hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
 known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
-research = "research/fragment_username_item.md"
 
 [[contracts.FragmentUsernameItem.links]]
 kind = "source"
@@ -68,12 +56,8 @@ network = "mainnet"
 [contracts.FragmentNumbersItem]
 display_name = "Fragment Numbers Item"
 types = "types/fragment_numbers_item.types.tolk"
-wrapper = "wrappers/FragmentNumbersItem.gen.tolk"
-code_fixture = "testdata/FragmentNumbersItem.boc"
-data_fixture = "testdata/FragmentNumbersItem.data.boc"
 hashes = ["5b092991650fbc48b3288b08acc7677b22e4c25d48458c56d2a17f23e806b6b4"]
 known_addresses = ["EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"]
-research = "research/fragment_numbers_item.md"
 
 [[contracts.FragmentNumbersItem.links]]
 kind = "source"
@@ -87,12 +71,8 @@ network = "mainnet"
 [contracts.FragmentMarketappProxyKnown]
 display_name = "Fragment MarketApp Proxy Known"
 types = "marketapp_proxy/types/fragment_marketapp_proxy_known.types.tolk"
-wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxyKnown.gen.tolk"
-code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyKnown.boc"
-data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyKnown.data.boc"
 hashes = ["e92234d14b8f1961b8c64c5506167fd52cdfb95d344185cba300edff13352030"]
 known_addresses = ["EQCYCA-47lALps90xoFFIPVznOsiHlWVKF3cEDChKgP3JYEf"]
-research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxyKnown.instances.mainnet]
 address = "EQCYCA-47lALps90xoFFIPVznOsiHlWVKF3cEDChKgP3JYEf"
@@ -101,12 +81,8 @@ network = "mainnet"
 [contracts.FragmentMarketappProxySimple]
 display_name = "Fragment MarketApp Proxy Simple"
 types = "marketapp_proxy/types/fragment_marketapp_proxy_simple.types.tolk"
-wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxySimple.gen.tolk"
-code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxySimple.boc"
-data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxySimple.data.boc"
 hashes = ["d4b299082778659ee541537db4f082d9b13fedc0f61b74cf7390ca0b255d9238"]
 known_addresses = ["EQANvQrhZdnFuw3DKsYeQwffxnTdER9TTZ_br2eT_lTu_mGz"]
-research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxySimple.instances.mainnet]
 address = "EQANvQrhZdnFuw3DKsYeQwffxnTdER9TTZ_br2eT_lTu_mGz"
@@ -115,12 +91,8 @@ network = "mainnet"
 [contracts.FragmentMarketappProxyJetton]
 display_name = "Fragment MarketApp Proxy Jetton"
 types = "marketapp_proxy/types/fragment_marketapp_proxy_jetton.types.tolk"
-wrapper = "marketapp_proxy/wrappers/FragmentMarketappProxyJetton.gen.tolk"
-code_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyJetton.boc"
-data_fixture = "marketapp_proxy/testdata/FragmentMarketappProxyJetton.data.boc"
 hashes = ["889170121b62550b64c19044c3bef93b7abbad11a0b0e672e1605096ddcc85ec"]
 known_addresses = ["EQCpwa0v6lvGA01uKGfsW1CK1Nd59aO_xVFGGHPy7JTghHTB"]
-research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxyJetton.instances.mainnet]
 address = "EQCpwa0v6lvGA01uKGfsW1CK1Nd59aO_xVFGGHPy7JTghHTB"

@@ -51,7 +51,6 @@ url = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-collect
 
 [contracts.DnsCollection.instances.ton]
 address = "EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz"
-code_fixture = "testdata/DnsCollection.boc"
 
 [contracts.DnsDomainItem]
 display_name = "TON DNS Domain Item"

@@ -51,12 +51,10 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV1Collection.variants.standard]
-source_file = "nft/nft-collection.fc"
 hashes = ["8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780"]
 known_addresses = ["EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw"]
 
 [contracts.NftV1Collection.variants.editable]
-source_file = "nft/nft-collection-editable.fc"
 hashes = ["64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca"]
 known_addresses = ["EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF"]
 
@@ -82,22 +80,18 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV1Item.variants.standard_v1_00_01]
-source_file = "nft/nft-item.fc"
 hashes = ["77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211"]
 known_addresses = ["EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V"]
 
 [contracts.NftV1Item.variants.standard_v1_02]
-source_file = "nft/nft-item.fc"
 hashes = ["28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071"]
 known_addresses = ["EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n"]
 
 [contracts.NftV1Item.variants.standard_v1_03]
-source_file = "nft/nft-item.fc"
 hashes = ["ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c"]
 known_addresses = ["EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq"]
 
 [contracts.NftV1Item.variants.simple_schema]
-source_file = "data/nfts/research/func/nft_item_simple_schema.fc"
 hashes = ["4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42"]
 known_addresses = ["EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty"]
 
@@ -118,12 +112,10 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV1EditableItem.variants.editable_v1_00_01]
-source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
 known_addresses = ["EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0"]
 
 [contracts.NftV1EditableItem.variants.editable_v1_02_03]
-source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc"]
 known_addresses = ["EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA"]
 
@@ -146,12 +138,10 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV2Collection.variants.standard]
-source_file = "nft/nft-collection.fc"
 hashes = ["8e5aab17e2e503bec75c2f453b9dacf11a98bbb2cc202994710952a7271c7780"]
 known_addresses = ["EQCSISwAJT2YNGzMZfjyRysKIXm1ahz2A1c3ulzZZ-p6lrxw"]
 
 [contracts.NftV2Collection.variants.editable]
-source_file = "nft/nft-collection-editable.fc"
 hashes = ["64bb2d4661b5f2dc1a83bf5cbbe09e92ac0b460a1b879a5519386fca4c348bca"]
 known_addresses = ["EQAgqGsCmnweWeNEpSZASL2rakJiwcwi6o_V11yabB9uouGF"]
 
@@ -178,22 +168,18 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV2Item.variants.standard_v1_00_01]
-source_file = "nft/nft-item.fc"
 hashes = ["77194588ec1d50128c6e277c6c45109c91fbbcb3439bfb61fbb1d6b532f94211"]
 known_addresses = ["EQBK2iIETYzUa94FDuTEAGuPDgLlqAH_4-S_UZR9FJ8ShV5V"]
 
 [contracts.NftV2Item.variants.standard_v1_02]
-source_file = "nft/nft-item.fc"
 hashes = ["28e16a7d412e96e0cd78d78eb02a829110473491e1d5f539a4ce2da744b92071"]
 known_addresses = ["EQDvMzcwsj3-0_E9giy8c18xCmSfDQziFvyOi9R3TfZRbE2n"]
 
 [contracts.NftV2Item.variants.standard_v1_03]
-source_file = "nft/nft-item.fc"
 hashes = ["ba4d975d2b66231c1f0a0ccca6e8ff8f7ba0610c4b7639584b8e98303dc3128c"]
 known_addresses = ["EQCZ_295fsyHHOdpZyUDQdX_tRTQsli5hTGmpipcx6kn8_zq"]
 
 [contracts.NftV2Item.variants.simple_schema]
-source_file = "data/nfts/research/func/nft_item_simple_schema.fc"
 hashes = ["4c9123828682fa6f43797ab41732bca890cae01766e0674100250516e0bf8d42"]
 known_addresses = ["EQDhZBNuiJoWgq-0xEc0A46-nIcEKAQbS-0MkWU_I2LEp3Ty"]
 
@@ -215,12 +201,10 @@ title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
 
 [contracts.NftV2EditableItem.variants.editable_v1_00_01]
-source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["7a575c44e516c4a9bf40a11acfcc8b7c82a00de17c21a130b45bc2e4000dfaeb"]
 known_addresses = ["EQDqG87vJ-dvN3_NLW2AXBheN4td6ee_CL3kfueoBfFLtTt0"]
 
 [contracts.NftV2EditableItem.variants.editable_v1_02_03]
-source_file = "nft/nft-item-editable-DRAFT.fc"
 hashes = ["e9d46f1ad4f3d05866b9800a3dc2202e4730bed1d344a54999b5e20f7f5226cc"]
 known_addresses = ["EQAe7_XAFr6htDs0R074qFecKLPTbuv89Nt2eRm4M4ho3oyA"]
 
@@ -236,7 +220,6 @@ title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
 
 [contracts.GetgemsNftCollectionV2.variants.editable]
-source_file = "packages/contracts/sources/nft-collection-editable-v2.fc"
 hashes = ["0b84497ccefe297d00beebb08a544cc6ef6230eab762692ca053fa9811399836"]
 known_addresses = ["EQCoXMPfScPFpyeBJWAwJDTGt0IedtnvUCglIQphe1KAf62u"]
 
@@ -252,7 +235,6 @@ title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
 
 [contracts.GetgemsNftItemV2.variants.standard]
-source_file = "packages/contracts/sources/nft-item-v2.fc"
 hashes = ["02e3a2370ea36b24eabff810cd84ef63dc180443d0b51adb9d3be4c0ea8f7319"]
 known_addresses = ["EQDciKcA85857MsCuXuD_kXL2My8V1Log5ZvbAw_J4VC5keQ"]
 
@@ -271,7 +253,6 @@ title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
 
 [contracts.GetgemsNftEditableItemV2.variants.editable]
-source_file = "packages/contracts/sources/nft-item-editable-v2.fc"
 hashes = ["585913bfeb388db1997d2befb1806f2c79f1821337e1b0e8fb182bdec40e28c2"]
 known_addresses = [
   "EQCQxUrLeVpeXtVQA1KDCMoPHLTsiXmHkeg4mBbePGmhudGY",
