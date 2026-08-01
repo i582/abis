@@ -21,4 +21,3 @@ hashes = ["9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf"]
 [contracts.NominatorPool.instances.representative_mainnet]
 address = "Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4"
 network = "mainnet"
-code_hash = "9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf"

@@ -19,7 +19,6 @@ known_addresses = ["EQCkR1cGmnsE45N4K0otPl5EnxnRakmGqeJUNua5fkWhales"]
 
 [contracts.WhalesPool.instances.mainnet]
 address = "EQCkR1cGmnsE45N4K0otPl5EnxnRakmGqeJUNua5fkWhales"
-code_hash = "5d6267a6d5a325b1075c0ba80a12a4a03c7f4f674eeaf28ee4165df5352e578d"
 proxy = "Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"
 network = "mainnet"
 
@@ -31,5 +30,4 @@ known_addresses = ["Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"]
 
 [contracts.WhalesProxy.instances.mainnet]
 address = "Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"
-code_hash = "6097b64a3b9db526a6b26497afeae3f224a8f639d37b6534d46df21fe0589c21"
 network = "mainnet"

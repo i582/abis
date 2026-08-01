@@ -32,7 +32,6 @@ known_addresses = ["EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"]
 
 [contracts.TonstakersPool.instances.mainnet]
 address = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
-code_hash = "192535677eed65c20ac387efe4dd7415ad9ebb9349103e87c60e592538c9dcf3"
 network = "mainnet"
 
 [contracts.TonstakersValidatorController]
@@ -43,7 +42,6 @@ known_addresses = ["Ef9bdRWdEwl7HRbeoUgbze1ZBw-SLXkl74f8roPiwZtX6NB1"]
 
 [contracts.TonstakersValidatorController.instances.catalog_verified_sample]
 address = "Ef9bdRWdEwl7HRbeoUgbze1ZBw-SLXkl74f8roPiwZtX6NB1"
-code_hash = "dd3ce98db487c7585803933bffba7a57eb4e663099059d08b83db0b4ce060793"
 network = "mainnet"
 
 [contracts.TsTonMinter]
@@ -54,7 +52,6 @@ known_addresses = ["EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"]
 
 [contracts.TsTonMinter.instances.ts_ton_mainnet]
 address = "EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"
-code_hash = "93b438a335eebb4f152bedc0cf5b0650612b8219b53f23560c47c09f37bccaba"
 network = "mainnet"
 
 [contracts.TsTonWallet]
@@ -65,7 +62,6 @@ known_addresses = ["EQCjxjmpElPdBwrLwMwkNV0XrvHQf5DGNtToiz2nz1oZITA6"]
 
 [contracts.TsTonWallet.instances.pool_wallet]
 address = "EQCjxjmpElPdBwrLwMwkNV0XrvHQf5DGNtToiz2nz1oZITA6"
-code_hash = "12bebb0dc8e202b7e26f721e2547e16bb9ebaec934f657d19f22e76d62bec878"
 minter = "EQC98_qAmNEptUtPc7W6xdHh_ZHrBUFpw5Ft_IzNU20QAJav"
 owner = "EQCkWxfyhAkim3g2DjKQQg8T5P4g-Q1-K_jErGcDJZ4i-vqR"
 network = "mainnet"
@@ -78,7 +74,6 @@ known_addresses = ["EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"]
 
 [contracts.TonstakersPayoutCollection.instances.active_withdrawal_payout]
 address = "EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"
-code_hash = "06174e58f067ca46c87fa65efe574ea0becb217cda36e351f4a979370d720ee2"
 network = "mainnet"
 
 [contracts.TonstakersPayoutItem]
@@ -89,7 +84,6 @@ known_addresses = ["EQB-R7mcrW1mSrHFxPtBxvI96YwyUU3R9_nkv8vMGS-zrZSH"]
 
 [contracts.TonstakersPayoutItem.instances.active_withdrawal_payout_item_70]
 address = "EQB-R7mcrW1mSrHFxPtBxvI96YwyUU3R9_nkv8vMGS-zrZSH"
-code_hash = "6acd958dceb085713fd3f2657993d446c238fa01dcd3c550b8f6216c79f67032"
 collection = "EQBy2utAZmI3l13S-5ZIDGRCsCifdpDgGoasDmFZBp_PVroX"
 index = 70
 network = "mainnet"

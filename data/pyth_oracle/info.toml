@@ -31,10 +31,8 @@ url = "https://github.com/pyth-network/pyth-crosschain"
 
 [contracts.PythOracle.instances.current_mainnet]
 address = "EQA5NPyjfZztDm8jcTBwTAU9NGsgJEkw19z61yecX0TlseSB"
-code_hash = "f4849f26e6a41931304eb3d7652906825dc632e68ccc7ec61cad4532699c11fe"
 network = "mainnet"
 
 [contracts.PythOracle.variants.legacy_candidate]
 address = "EQBU6k8HH6yX4Jf3d18swWbnYr31D3PJI7PgjXT-flsKHqql"
-code_hash = "553364b57e4a72918cce30a58cd219f30fb11947af185e22290c3252901a986c"
 network = "mainnet"

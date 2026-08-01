@@ -543,6 +543,96 @@ src = "data/stonfi/escrow_vault/testdata/StonfiEscrowVault.boc"
 types = "data/stonfi/escrow_vault/types/stonfi_escrow_vault.types.tolk"
 depends = []
 
+[contracts.StonksPumpVirtualMinter]
+display-name = "StonksPump Virtual Minter"
+src = "data/stonkspump/virtual_minter/testdata/StonksPumpVirtualMinterStonfi.boc"
+types = "data/stonkspump/virtual_minter/types/stonkspump_virtual_minter.types.tolk"
+depends = []
+
+[contracts.StonksPumpVirtualFactory]
+display-name = "StonksPump Virtual Factory"
+src = "data/stonkspump/virtual_factory/testdata/StonksPumpVirtualFactoryStonfi.boc"
+types = "data/stonkspump/virtual_factory/types/stonkspump_virtual_factory.types.tolk"
+depends = []
+
+[contracts.FfVault]
+display-name = "FF Vault"
+src = "data/ff_vault/vault/testdata/FfVault.boc"
+types = "data/ff_vault/vault/types/ff_vault.types.tolk"
+depends = []
+
+[contracts.VerifierSourcesRegistry]
+display-name = "Verifier Sources Registry"
+src = "data/verifier/sources_registry/testdata/VerifierSourcesRegistry.boc"
+types = "data/verifier/sources_registry/types/verifier_sources_registry.types.tolk"
+depends = []
+
+[contracts.GramboFactory]
+display-name = "Grambo Factory"
+src = "data/grambo/factory/testdata/GramboFactory.boc"
+types = "data/grambo/factory/types/grambo_factory.types.tolk"
+depends = []
+
+[contracts.GramboJettonMaster]
+display-name = "Grambo Jetton Master"
+src = "data/grambo/jetton_master/testdata/GramboJettonMaster.boc"
+types = "data/grambo/jetton_master/types/grambo_jetton_master.types.tolk"
+depends = []
+
+[contracts.GramboJettonWallet]
+display-name = "Grambo Jetton Wallet"
+src = "data/grambo/jetton_wallet/testdata/GramboJettonWallet.boc"
+types = "data/grambo/jetton_wallet/types/grambo_jetton_wallet.types.tolk"
+depends = []
+
+[contracts.CocoonRoot]
+display-name = "Cocoon Root"
+src = "data/cocoon/root/testdata/CocoonRoot.boc"
+types = "data/cocoon/root/types/cocoon_root.types.tolk"
+depends = []
+
+[contracts.CocoonProxy]
+display-name = "Cocoon Proxy"
+src = "data/cocoon/proxy/testdata/CocoonProxy.boc"
+types = "data/cocoon/proxy/types/cocoon_proxy.types.tolk"
+depends = []
+
+[contracts.CocoonClient]
+display-name = "Cocoon Client"
+src = "data/cocoon/client/testdata/CocoonClient.boc"
+types = "data/cocoon/client/types/cocoon_client.types.tolk"
+depends = []
+
+[contracts.CocoonWorker]
+display-name = "Cocoon Worker"
+src = "data/cocoon/worker/testdata/CocoonWorker.boc"
+types = "data/cocoon/worker/types/cocoon_worker.types.tolk"
+depends = []
+
+[contracts.CocoonWallet]
+display-name = "Cocoon Wallet"
+src = "data/cocoon/wallet/testdata/CocoonWallet.boc"
+types = "data/cocoon/wallet/types/cocoon_wallet.types.tolk"
+depends = []
+
+[contracts.FfVaultPosition]
+display-name = "FF Vault Position"
+src = "data/ff_vault/position/testdata/FfVaultPosition.boc"
+types = "data/ff_vault/position/types/ff_vault_position.types.tolk"
+depends = []
+
+[contracts.VerifierSourceItem]
+display-name = "Verifier Source Item"
+src = "data/verifier/source_item/testdata/VerifierSourceItem.boc"
+types = "data/verifier/source_item/types/verifier_source_item.types.tolk"
+depends = []
+
+[contracts.VerifierRegistry]
+display-name = "Verifier Registry"
+src = "data/verifier/verifier_registry/testdata/VerifierRegistry.boc"
+types = "data/verifier/verifier_registry/types/verifier_registry.types.tolk"
+depends = []
+
 [contracts.OmnistonFeeVault]
 display-name = "Omniston Fee-Vault Minter"
 src = "data/omniston/testdata/OmnistonFeeVault.boc"
@@ -1155,6 +1245,12 @@ src = "data/tonkeeper_2fa/testdata/Tonkeeper2fa.boc"
 types = "data/tonkeeper_2fa/types/tonkeeper_2fa.types.tolk"
 depends = []
 
+[contracts.MyTonWallet2fa]
+display-name = "MyTonWallet 2FA"
+src = "data/tonkeeper_2fa/mytonwallet_2fa/testdata/MyTonWallet2fa.boc"
+types = "data/tonkeeper_2fa/mytonwallet_2fa/types/mytonwallet_2fa.types.tolk"
+depends = []
+
 [contracts.Elector]
 display-name = "TON Elector"
 src = "data/system/elector/testdata/Elector.boc"
@@ -1264,6 +1360,8 @@ subscription-v2-mainnet-test = "acton test data/subscriptions/tests/subscription
 subscription-v2-message-bodies-test = "acton test data/subscriptions/tests/subscription_v2_message_bodies.test.tolk --show-bodies"
 tonkeeper-2fa-mainnet-test = "acton test data/tonkeeper_2fa/tests/tonkeeper_2fa_mainnet.test.tolk --fork-net mainnet --fork-block-number 65947764 --show-bodies"
 tonkeeper-2fa-message-bodies-test = "acton test data/tonkeeper_2fa/tests/tonkeeper_2fa_message_bodies.test.tolk --show-bodies"
+mytonwallet-2fa-mainnet-test = "acton test data/tonkeeper_2fa/mytonwallet_2fa/tests/mytonwallet_2fa_mainnet.test.tolk --fork-net mainnet --fork-block-number 83370093 --show-bodies"
+mytonwallet-2fa-message-bodies-test = "acton test data/tonkeeper_2fa/mytonwallet_2fa/tests/mytonwallet_2fa_message_bodies.test.tolk --show-bodies"
 evaa-master-pyth-mainnet-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
 evaa-master-pyth-message-bodies-test = "acton test data/evaa/master_pyth/tests/evaa_master_pyth_message_bodies.test.tolk --show-bodies"
 evaa-master-classic-mainnet-test = "acton test data/evaa/master_classic/tests/evaa_master_classic_mainnet.test.tolk --fork-net mainnet --fork-block-number 71635640 --show-bodies"
@@ -1357,6 +1455,36 @@ stonfi-escrow-position-mainnet-test = "acton test data/stonfi/escrow_position/te
 stonfi-escrow-position-message-bodies-test = "acton test data/stonfi/escrow_position/tests/stonfi_escrow_position_message_bodies.test.tolk --show-bodies"
 stonfi-escrow-vault-mainnet-test = "acton test data/stonfi/escrow_vault/tests/stonfi_escrow_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 stonfi-escrow-vault-message-bodies-test = "acton test data/stonfi/escrow_vault/tests/stonfi_escrow_vault_message_bodies.test.tolk --show-bodies"
+stonkspump-virtual-minter-mainnet-test = "acton test data/stonkspump/virtual_minter/tests/stonkspump_virtual_minter_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374121 --show-bodies"
+stonkspump-virtual-minter-message-bodies-test = "acton test data/stonkspump/virtual_minter/tests/stonkspump_virtual_minter_message_bodies.test.tolk --show-bodies"
+stonkspump-virtual-factory-getters-mainnet-test = "acton test data/stonkspump/virtual_factory/tests/stonkspump_virtual_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374121 --show-bodies"
+stonkspump-virtual-factory-message-bodies-test = "acton test data/stonkspump/virtual_factory/tests/stonkspump_virtual_factory_message_bodies.test.tolk --show-bodies"
+ff-vault-mainnet-test = "acton test data/ff_vault/vault/tests/ff_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 83373780 --show-bodies"
+ff-vault-message-bodies-test = "acton test data/ff_vault/vault/tests/ff_vault_message_bodies.test.tolk --show-bodies"
+ff-vault-position-mainnet-test = "acton test data/ff_vault/position/tests/ff_vault_position_mainnet.test.tolk --fork-net mainnet --fork-block-number 83373780 --show-bodies"
+ff-vault-position-message-bodies-test = "acton test data/ff_vault/position/tests/ff_vault_position_message_bodies.test.tolk --show-bodies"
+verifier-sources-registry-mainnet-test = "acton test data/verifier/sources_registry/tests/verifier_sources_registry_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374126 --show-bodies"
+verifier-sources-registry-message-bodies-test = "acton test data/verifier/sources_registry/tests/verifier_sources_registry_message_bodies.test.tolk --show-bodies"
+verifier-source-item-mainnet-test = "acton test data/verifier/source_item/tests/verifier_source_item_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374126 --show-bodies"
+verifier-source-item-message-bodies-test = "acton test data/verifier/source_item/tests/verifier_source_item_message_bodies.test.tolk --show-bodies"
+verifier-registry-mainnet-test = "acton test data/verifier/verifier_registry/tests/verifier_registry_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374126 --show-bodies"
+verifier-registry-message-bodies-test = "acton test data/verifier/verifier_registry/tests/verifier_registry_message_bodies.test.tolk --show-bodies"
+grambo-factory-mainnet-test = "acton test data/grambo/factory/tests/grambo_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374906 --show-bodies"
+grambo-factory-message-bodies-test = "acton test data/grambo/factory/tests/grambo_factory_message_bodies.test.tolk --show-bodies"
+grambo-jetton-master-mainnet-test = "acton test data/grambo/jetton_master/tests/grambo_jetton_master_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374906 --show-bodies"
+grambo-jetton-master-message-bodies-test = "acton test data/grambo/jetton_master/tests/grambo_jetton_master_message_bodies.test.tolk --show-bodies"
+grambo-jetton-wallet-mainnet-test = "acton test data/grambo/jetton_wallet/tests/grambo_jetton_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 83374906 --show-bodies"
+grambo-jetton-wallet-message-bodies-test = "acton test data/grambo/jetton_wallet/tests/grambo_jetton_wallet_message_bodies.test.tolk --show-bodies"
+cocoon-root-mainnet-test = "acton test data/cocoon/root/tests/cocoon_root_mainnet.test.tolk --fork-net mainnet --fork-block-number 83377290 --show-bodies"
+cocoon-root-message-bodies-test = "acton test data/cocoon/root/tests/cocoon_root_message_bodies.test.tolk --show-bodies"
+cocoon-proxy-mainnet-test = "acton test data/cocoon/proxy/tests/cocoon_proxy_mainnet.test.tolk --fork-net mainnet --fork-block-number 83377290 --show-bodies"
+cocoon-proxy-message-bodies-test = "acton test data/cocoon/proxy/tests/cocoon_proxy_message_bodies.test.tolk --show-bodies"
+cocoon-client-mainnet-test = "acton test data/cocoon/client/tests/cocoon_client_mainnet.test.tolk --fork-net mainnet --fork-block-number 83377290 --show-bodies"
+cocoon-client-message-bodies-test = "acton test data/cocoon/client/tests/cocoon_client_message_bodies.test.tolk --show-bodies"
+cocoon-worker-mainnet-test = "acton test data/cocoon/worker/tests/cocoon_worker_mainnet.test.tolk --fork-net mainnet --fork-block-number 83377290 --show-bodies"
+cocoon-worker-message-bodies-test = "acton test data/cocoon/worker/tests/cocoon_worker_message_bodies.test.tolk --show-bodies"
+cocoon-wallet-mainnet-test = "acton test data/cocoon/wallet/tests/cocoon_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 83377290 --show-bodies"
+cocoon-wallet-message-bodies-test = "acton test data/cocoon/wallet/tests/cocoon_wallet_message_bodies.test.tolk --show-bodies"
 omniston-fee-vault-mainnet-test = "acton test data/omniston/tests/omniston_fee_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 75037858 --show-bodies"
 omniston-fee-vault-message-bodies-test = "acton test data/omniston/tests/omniston_fee_vault_message_bodies.test.tolk --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"
@@ -1482,6 +1610,15 @@ acton run system-elector-storage-test
 acton run tonstakers-payout-item-message-bodies-test
 acton run wallet-highload-v1r1-test
 acton run wton-message-bodies-test
+acton run stonkspump-virtual-minter-mainnet-test
+acton run ff-vault-message-bodies-test
+acton run verifier-source-item-mainnet-test
+acton run grambo-factory-mainnet-test
+acton run cocoon-root-message-bodies-test
+acton run verifier-registry-message-bodies-test
+acton run cocoon-client-mainnet-test
+acton run grambo-jetton-master-mainnet-test
+acton run grambo-jetton-wallet-mainnet-test
 """
 
 run-test-shard-2 = """
@@ -1535,6 +1672,14 @@ acton run tonkeeper-2fa-message-bodies-test
 acton run tonstakers-pool-message-bodies-test
 acton run wallet-highload-v1r2-test
 acton run wton-storage-test
+acton run stonkspump-virtual-factory-getters-mainnet-test
+acton run ff-vault-position-message-bodies-test
+acton run verifier-source-item-message-bodies-test
+acton run grambo-factory-message-bodies-test
+acton run cocoon-root-mainnet-test
+acton run mytonwallet-2fa-mainnet-test
+acton run cocoon-worker-mainnet-test
+acton run cocoon-wallet-mainnet-test
 """
 
 run-test-shard-3 = """
@@ -1595,6 +1740,13 @@ acton run system-elector-mainnet-test
 acton run tonstakers-controller-message-bodies-test
 acton run tonstakers-ts-ton-minter-message-bodies-test
 acton run whales-pool-message-bodies-test
+acton run stonkspump-virtual-minter-message-bodies-test
+acton run ff-vault-mainnet-test
+acton run verifier-registry-mainnet-test
+acton run cocoon-proxy-message-bodies-test
+acton run mytonwallet-2fa-message-bodies-test
+acton run cocoon-client-message-bodies-test
+acton run grambo-jetton-master-message-bodies-test
 """
 
 run-test-shard-4 = """
@@ -1637,6 +1789,14 @@ acton run system-elector-message-bodies-test
 acton run tonstakers-payout-collection-message-bodies-test
 acton run tonstakers-ts-ton-wallet-message-bodies-test
 acton run whales-proxy-message-bodies-test
+acton run stonkspump-virtual-factory-message-bodies-test
+acton run ff-vault-position-mainnet-test
+acton run verifier-sources-registry-mainnet-test
+acton run verifier-sources-registry-message-bodies-test
+acton run cocoon-proxy-mainnet-test
+acton run cocoon-worker-message-bodies-test
+acton run cocoon-wallet-message-bodies-test
+acton run grambo-jetton-wallet-message-bodies-test
 """
 
 run-all-tests = """

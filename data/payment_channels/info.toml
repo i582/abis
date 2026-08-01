@@ -32,10 +32,8 @@ known_addresses = [
 
 [contracts.AsyncPaymentChannel.instances.mainnet]
 address = "EQA4Ntk6B2Sq-LbHoZ-11FFgr43o3dk5hS3w5G3OkOzHhQEG"
-code_hash = "41f5b77f02d4a96eb465197215ed00923720a6c731fa32934f9c0e80ffb85589"
 network = "mainnet"
 
 [contracts.AsyncPaymentChannel.instances.testnet]
 address = "kQClVG6IR5SgYv3p8i4RvmgF6UOdCSfxEKwzFXUgxLpyeiLk"
-code_hash = "e46cf1b78bc877b1d574588898b74be06cb926ef20f69de55e85236974f05fb8"
 network = "testnet"

@@ -6,7 +6,6 @@ description = "EVAA lending protocol Master and User contracts"
 [sources]
 evaa_contracts = "https://github.com/evaafi/contracts"
 evaa_contracts_v9_commit = "https://github.com/evaafi/contracts/commit/d9138cb24f03b53522774351aceb38c51a047eee"
-tonkeeper_tongo_evaa_schemas = "https://github.com/tonkeeper/tongo/tree/00e0cd96509b49cf9b77222e6111115b3fea76b6/abi-tolk/schemas/evaa"
 evaa_sdk = "https://github.com/evaafi/sdk"
 evaa_sdk_commit = "https://github.com/evaafi/sdk/commit/f29ea811075823b4749247fa78f9fdd23e721a9f"
 evaa_liquidator_bot = "https://github.com/evaafi/liquidator-bot-v2-pub"

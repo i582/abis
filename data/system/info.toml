@@ -5,7 +5,6 @@ description = "Official TON masterchain Elector and Config system contracts"
 
 [sources]
 ton_smartcont_source = "https://github.com/ton-blockchain/ton/tree/master/crypto/smartcont"
-config_verifier = "https://verifier.ton.org/Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
 
 [[links]]
 kind = "source"
@@ -22,7 +21,6 @@ hashes = ["6217f872c99fafcb870f2c11a362f59339be95095f70d00b9cff2f6dcd69d3dd"]
 [contracts.Elector.instances.mainnet]
 address = "Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF"
 network = "mainnet"
-code_hash = "6217f872c99fafcb870f2c11a362f59339be95095f70d00b9cff2f6dcd69d3dd"
 
 [contracts.Config]
 display_name = "TON Config"
@@ -34,4 +32,3 @@ hashes = ["c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"]
 [contracts.Config.instances.mainnet]
 address = "Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
 network = "mainnet"
-code_hash = "c4844c82c82277d65fba7dd320b390f16e89e9c106812e367b679bf0de1313e0"

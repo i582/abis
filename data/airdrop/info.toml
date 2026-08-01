@@ -11,7 +11,6 @@ known_addresses = ["EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"]
 
 [contracts.AirdropInterlockerV1.instances.claimed_sample]
 address = "EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"
-code_hash = "acd2b8ec4db7414396fa53698653ecc04a416ee3649d8f5b20b41f176ad833f0"
 network = "mainnet"
 
 [contracts.AirdropInterlockerV2]
@@ -22,5 +21,4 @@ known_addresses = ["EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"]
 
 [contracts.AirdropInterlockerV2.instances.active_sample]
 address = "EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"
-code_hash = "0ff44a96fc2481111236d8d9920fd6e29b6108215e3ec5ba761ead9602adada4"
 network = "mainnet"

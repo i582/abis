@@ -35,7 +35,6 @@ known_addresses = ["EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"]
 
 [contracts.HipoTreasury.instances.mainnet]
 address = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
-code_hash = "234682616b70138cb6d55be146ac0456ba79c2fad788f224b63058ddb5057bf2"
 network = "mainnet"
 
 [contracts.HipoParent]
@@ -46,7 +45,6 @@ known_addresses = ["EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"]
 
 [contracts.HipoParent.instances.mainnet]
 address = "EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"
-code_hash = "44377ca68af877b8f26f47f153d6a2d2de134f120348d10d016cf51c00aaf019"
 treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"
 
@@ -58,7 +56,6 @@ known_addresses = ["EQBwh1XGDsEongigw0iz-s-3pkkeMrpIKioELjbmGB9BDMbo"]
 
 [contracts.HipoWallet.instances.representative_active]
 address = "EQBwh1XGDsEongigw0iz-s-3pkkeMrpIKioELjbmGB9BDMbo"
-code_hash = "50b917d9fd5b95760993287677d04812a15aa55e6b71d0f9226ecd7c20c3d82a"
 parent = "EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"
 network = "mainnet"
 
@@ -70,7 +67,6 @@ known_addresses = ["EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"]
 
 [contracts.HipoCollection.instances.round_1780764424]
 address = "EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"
-code_hash = "9f1b492a4f05be6526d01cc3498b94961e1415e4c8ca196273fe389001da4ed6"
 treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"
 
@@ -82,7 +78,6 @@ known_addresses = ["EQDBJw5nOR8APrGY-qRcO2_9NOJvI0PXoXIphoKrYZIc9oHg"]
 
 [contracts.HipoBill.instances.collection_round_1780764424_item_0]
 address = "EQDBJw5nOR8APrGY-qRcO2_9NOJvI0PXoXIphoKrYZIc9oHg"
-code_hash = "9e2923274fd83860d5b9ad4bb34f2a6da3c93f0b25f0ae973abf27c6df359f8f"
 collection = "EQCLCScwON95erSRKhHuBDf9O8hT8ERGwCNjbS1w0JzqHDFA"
 index = 0
 network = "mainnet"
@@ -95,7 +90,6 @@ known_addresses = ["Ef_gcmy3Zh_YLOToiutmYF4nqZqohmr4OIowk-QjKQdG6bV9"]
 
 [contracts.HipoLoan.instances.round_1780764424_borrower_sample]
 address = "Ef_gcmy3Zh_YLOToiutmYF4nqZqohmr4OIowk-QjKQdG6bV9"
-code_hash = "56fb96fc4b9051deecfce8b04ce3c888990ba80fe6bd07154e351506ee9907a0"
 treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"
 
@@ -107,6 +101,5 @@ known_addresses = ["Ef-KhrzdZChlJiLZj2e1noxqrZ1rL6kGA4FWfW0SNhIfWKVV"]
 
 [contracts.HipoLibrarian.instances.mainnet]
 address = "Ef-KhrzdZChlJiLZj2e1noxqrZ1rL6kGA4FWfW0SNhIfWKVV"
-code_hash = "cb1cdae5c512e6b1ca17d1b14514d20ec9dc91e6ba0591cd28a3eb071627f628"
 treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"

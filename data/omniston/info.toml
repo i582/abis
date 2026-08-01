@@ -49,5 +49,4 @@ url = "https://docs.ston.fi/developer-section/omniston/referral-fees"
 [contracts.OmnistonFeeVault.instances.mainnet_minter]
 name = "Omniston Fee-Vault Minter"
 address = "EQCcJf2KFlH9xIx3dztytxxRFk3KQZKEYBr-f0nFIO1h3dvv"
-code_hash = "fc8df8be21d83d3876984d7859c078c916dfd7654bc465bf9cd64602eeb4c587"
 label = "Omniston Fee-Vault Minter"

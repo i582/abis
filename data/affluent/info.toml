@@ -5,7 +5,6 @@ app = "https://app.affluent.org"
 telegram = "https://t.me/affluent"
 
 [sources]
-tongo = "https://github.com/tonkeeper/tongo/blob/835e443188a680a08100c3a324f68369c1c4f400/abi/schemas/affluent.xml"
 ton_assets = "https://github.com/tonkeeper/ton-assets/blob/b2c33f2178ee1609adfe84ece763a73234127c67/jettons/affluent.yaml"
 ton_labels = "https://github.com/ton-studio/ton-labels/blob/90913ed76bb1388f014733e135758f58682223a7/assets/lending/affluent.json"
 defillama_tvl = "https://github.com/DefiLlama/DefiLlama-Adapters/blob/aad80bb9955efc4df798fa3d39045ed5031d466b/projects/factorial/affluentMarketAssets.js"
@@ -53,49 +52,41 @@ known_addresses = [
 [contracts.Pool.instances.basic_pool]
 name = "BasicPool"
 address = "EQCrEHHG4Ff8TD3PzuH5tFSwHBD3zxeXaosz48jGLebwiiNx"
-code_hash = "1b16962d99bd8a72bf63d6d136f13459b30215aabd3c3f89283c1b77273353f1"
 label = "Basic Market"
 
 [contracts.Pool.instances.advanced_pool]
 name = "AdvancedPool"
 address = "EQBCXQp2sSTJhvnV6DlBqhTsdNMZc_tJcXQJ5XjoWiy-OAge"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Advanced Market"
 
 [contracts.Pool.instances.storm_usdt_pool]
 name = "StormUsdtPool"
 address = "EQAYJdU9JFRcKAwMZv3MqD0QVjBEMGO_4mgwOJtTBOHR22ec"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Storm-USDT Market"
 
 [contracts.Pool.instances.storm_advanced_pool]
 name = "StormAdvancedPool"
 address = "EQCOA3gN3Dk-ml66zux_vuia7mTIBTENKxtomD6TDgnFZXoH"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Advanced-Storm Market"
 
 [contracts.Pool.instances.storm_ton_pool]
 name = "StormTonPool"
 address = "EQA3m4H3vTUOeXGW-o6AEyZxv6i79tR-i1f4XiW588HJoqND"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Storm-TON Market"
 
 [contracts.Pool.instances.lending_vault_pool]
 name = "LendingVaultPool"
 address = "EQBQMDjWVLeX0vAUNDTRL-aA665EItLzSvONywKDHXJRCuxB"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Vault Market"
 
 [contracts.Pool.instances.tradoor_advanced_pool]
 name = "TradoorAdvancedPool"
 address = "EQCNgBmHVBRWpMeZE7E92RM-Gecnv88LJaXAlmqn4WAfJIA9"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Advanced-Tradoor Market"
 
 [contracts.Pool.instances.ethena_pool]
 name = "EthenaPool"
 address = "EQA9iTdgsPxvk08idCXQoefGqJGLTDQFy4W34AtEj7Z_25iT"
-code_hash = "b73ff42e67397ffb1479cddf46b76f120ca4f68a7b580d3c24dc6073da517c40"
 label = "Ethena Market"
 
 [contracts.Account]
@@ -106,7 +97,6 @@ known_addresses = ["EQBoHvPL1cR3WzzNYoGvWdbcz4aE-n2mHjV0mFXwkWnAP-Cd"]
 [contracts.Account.instances.unlabelled_affluent_account]
 name = "Unlabelled Affluent account"
 address = "EQBoHvPL1cR3WzzNYoGvWdbcz4aE-n2mHjV0mFXwkWnAP-Cd"
-code_hash = "44ce8cafb3e2127d883fc94a9c237e918f9d12a6c65fcc8146339156d11c3fb9"
 label = "Unlabelled Affluent address from ton-labels"
 
 [contracts.Batch]
@@ -117,7 +107,6 @@ known_addresses = ["EQA2zgb-gK0JBknK5aN63dora40GmO2wRpQDhkL2cz1H2ZKq"]
 [contracts.Batch.instances.affluent_batch]
 name = "AffluentBatch"
 address = "EQA2zgb-gK0JBknK5aN63dora40GmO2wRpQDhkL2cz1H2ZKq"
-code_hash = "0432bae477ebbfe5c75ebfa7db38c6cd6c1f96d40227de6838f7007e5c503f94"
 
 [contracts.MultiplyVault]
 types = "types/affluent_multiply_vault.types.tolk"
@@ -135,13 +124,11 @@ url = "https://docs.affluent.org/factorial-legacy/vault-overview"
 [contracts.MultiplyVault.instances.gold_multiply_vault]
 name = "Gold Multiply Vault"
 address = "EQBowXTtxDTSMEJbrIIcYzIvSXZ9V5HW2Oo2iSW0chUzod3d"
-code_hash = "f66c149de251ffd031bdb34b79abe43a062ba16b815433691e3ec40a77f01d71"
 pools = ["EthenaPool", "AdvancedPool", "BasicPool"]
 
 [contracts.MultiplyVault.instances.ethena_vault]
 name = "Ethena Vault"
 address = "EQD3F7Ex_uxBjxEub8FgeDoYYUSIbAUVyehCb_JSiCVL369T"
-code_hash = "f66c149de251ffd031bdb34b79abe43a062ba16b815433691e3ec40a77f01d71"
 pools = ["EthenaPool"]
 
 [contracts.MultiplyVaultV2]
@@ -168,30 +155,25 @@ url = "https://docs.affluent.org/strategy-vault/oracle-verified-rfq"
 [contracts.MultiplyVaultV2.instances.ton_multiply_1]
 name = "Affluent/Strategy-Vault/TON-Multiply-1"
 address = "EQDtxQqkgIRQQR5hWlrQxiJMtLwjR3rEYNUBbEcvPDwCs1Ng"
-code_hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 pools = ["AdvancedPool", "BasicPool"]
 
 [contracts.MultiplyVaultV2.instances.usdt_multiply_1]
 name = "Affluent/Strategy-Vault/USDT-Multiply-1"
 address = "EQBzSItiC1vpDUEftDeWDyjgMutf6CIzme16gzn9iNlolpcY"
-code_hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 pools = ["AdvancedPool", "LendingVaultPool", "BasicPool"]
 
 [contracts.MultiplyVaultV2.instances.ethena_multiply_1]
 name = "Affluent/Strategy-Vault/Ethena-Multiply-1"
 address = "EQDXmtbt1-WSP00tSh6N6FH-4lX7LbnrjORClmtmuZqg4Ymm"
-code_hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 pools = ["EthenaPool"]
 
 [contracts.MultiplyVaultV2.instances.sentora_affluent]
 name = "Sentora Vault in Affluent"
 address = "EQBjpfG5fzFESWJb6K5EdjvY_yhFa6fxhcwkVff0jlK1za82"
-code_hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 
 [contracts.MultiplyVaultV2.instances.sentora_wallet]
 name = "Sentora Vault for Wallet"
 address = "EQD5O4qzJmVwuKDIfDcuM6HI7fUf1AOolgF2oiPGyqr_WZsp"
-code_hash = "9f3fee6f85b5eab94b835fdb5add8278eb39d76eee25f88b909f45c912fce44d"
 
 [contracts.LendingVault]
 types = "types/affluent_lending_vault.types.tolk"
@@ -213,19 +195,16 @@ url = "https://docs.affluent.org/factorial-legacy/vault-overview"
 [contracts.LendingVault.instances.factorial_usdt]
 name = "Factorial/Lending-Vault/USDT"
 address = "EQAGtgnr1G0XDilGURcOB3pUhl-Lo__J-TaJP0K4ey8cuSaW"
-code_hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
 
 [contracts.LendingVault.instances.factorial_ton]
 name = "Factorial/Lending-Vault/TON"
 address = "EQADQ6JcK0NMuNM5uwCcS9bjcn2RTvcxYIZjNlhIhywUrfBN"
-code_hash = "eb9d9891a32ec94425c09735f6ade73f4c171da0091f874d6e9d25247d583990"
 underlying = "EQDIKEz2BYLnTRWo5W5a6moZ9PXNtyOVOFF7noi8Ufv3axz_"
 
 [contracts.LendingVault.instances.affluent_usdt]
 name = "Affluent USDT Lending Vault"
 address = "EQAc65JgiTwcoC3M1VYnQcM2Ivq4DTWOtyY2k2EaBuXsKRAZ"
-code_hash = "af8bf62a1cc6e9ffb08253b9be58c83d1939f0b2d2a0aeb8b5ede513968da2ef"
 underlying = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
 
 [contracts.FactorialTonMinter]
@@ -241,7 +220,6 @@ url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-stan
 [contracts.FactorialTonMinter.instances.factorial_ton]
 name = "Factorial TON"
 address = "EQDIKEz2BYLnTRWo5W5a6moZ9PXNtyOVOFF7noi8Ufv3axz_"
-code_hash = "c991d0a895644e9a3daad853f4366270e8be25bb026de6e7493db57f4b256999"
 
 [contracts.FactorialTonWallet]
 types = "types/jetton_wallet.types.tolk"
@@ -263,35 +241,29 @@ url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-stan
 [contracts.FactorialTonWallet.instances.basic_market]
 name = "Basic market FactorialTON wallet"
 address = "EQAaU-r8oRCkS8DfLOMT8-BwJ7vhCqJKa_OjZ6uGceQWQhlR"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "BasicPool"
 
 [contracts.FactorialTonWallet.instances.advanced_market]
 name = "Advanced market FactorialTON wallet"
 address = "EQCnwE3JD4As-i39Dvk9MD2f2h94LdxPFvu0-xzyzH4wTFhE"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "AdvancedPool"
 
 [contracts.FactorialTonWallet.instances.vault_market]
 name = "Vault market FactorialTON wallet"
 address = "EQBxsS-WfHyJhuo6DUmqaa-4fRv00i7vFYE6oub2IL7jLa8y"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "LendingVaultPool"
 
 [contracts.FactorialTonWallet.instances.advanced_tradoor_market]
 name = "Advanced-Tradoor market FactorialTON wallet"
 address = "EQAjB_b_AdNeiYRlxgWx5CiDbFpGSMJJ6q0wzsOktfrBnyYV"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "TradoorAdvancedPool"
 
 [contracts.FactorialTonWallet.instances.storm_ton_market]
 name = "Storm-TON market FactorialTON wallet"
 address = "EQDkyPd9kJVZa90StDWtvmsY1LWCWSssLxpDQjsg8tys9Rwv"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "StormTonPool"
 
 [contracts.FactorialTonWallet.instances.advanced_storm_market]
 name = "Advanced-Storm market FactorialTON wallet"
 address = "EQB4dsOX_DJy9lQoh7nuL_Ah2nj8tEtRkb48_EDuE3cKpMuD"
-code_hash = "5984ead868e5af89236aea0594d4f6015ed93330de80792d94bf6abe2eb58656"
 owner = "StormAdvancedPool"

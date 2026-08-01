@@ -19,4 +19,3 @@ known_addresses = [
 
 [contracts.GramMiner.instances.mainnet]
 address = "EQChwC293vqumDHKa820gj8V15HKMFPUD1eRwpvUV_B0R8gz"
-code_hash = "ccae6ffb603c7d3e779ab59ec267ffc22dc1ebe0af9839902289a7a83e4c00f1"

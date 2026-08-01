@@ -20,10 +20,8 @@ known_addresses = [
 
 [contracts.Cron.instances.primary_verified]
 address = "EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"
-code_hash = "aab1db63f193a4aecaa3e3a959fc1784f1412b191a66ae870958405ba88114c7"
 network = "mainnet"
 
 [contracts.Cron.instances.trigger_body_variant]
 address = "EQBHR_AgOg4GJ1CDr_L2N8MO0rYNDL2jcZCmWriJhXiuBw3c"
-code_hash = "0dff4ded62eb31a772b6c9060317fad9aa52ae42a9eb0ae14df3c322c2473f79"
 network = "mainnet"

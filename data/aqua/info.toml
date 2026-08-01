@@ -17,5 +17,4 @@ known_addresses = ["EQAWDyxARSl3ol2G1RMLMwepr3v6Ter5ls3jiAlheKshgg0K"]
 
 [contracts.AquaUsdMasterVault.instances.mainnet_aqua_usd]
 address = "EQAWDyxARSl3ol2G1RMLMwepr3v6Ter5ls3jiAlheKshgg0K"
-code_hash = "e09817bb3befa61cd3930304e82551b047b2af3aa482a226984d43b3d1cb52d4"
 network = "mainnet"

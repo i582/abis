@@ -32,7 +32,6 @@ url = "https://github.com/orbs-network/single-nominator/releases/tag/v1.0.0"
 [contracts.SingleNominatorV10.instances.mainnet_sample]
 address = "Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"
 network = "mainnet"
-code_hash = "a42ae69eac76ffe0e452d3d4f13d387a14e46c01a5aadba5fc1d893e6c71f5ba"
 
 [contracts.SingleNominatorV11]
 display_name = "Single Nominator Pool v1.1"
@@ -44,4 +43,3 @@ known_addresses = ["Ef_blSQgiTZmBp9nTBTFFiluQ7tICOB_ZybvEv-YrXi_R7tG"]
 [contracts.SingleNominatorV11.instances.mainnet_sample]
 address = "Ef_blSQgiTZmBp9nTBTFFiluQ7tICOB_ZybvEv-YrXi_R7tG"
 network = "mainnet"
-code_hash = "cc0d39589eb2c0cfe0fde28456657a3bdd3d953955ae3f98f25664ab3c904fbd"

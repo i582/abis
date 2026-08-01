@@ -2,9 +2,9 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **215 contract entries**, **250 unique contract code hashes**, and **233 unique known contract addresses**.
+Current catalog size: **231 contract entries**, **269 unique contract code hashes**, and **253 unique known contract addresses**.
 
-Across the generated public catalog, the repository declares **900 unique opcode prefixes** and **411 unique get-method names**.
+Across the generated public catalog, the repository declares **989 unique opcode prefixes** and **440 unique get-method names**.
 
 Each curated project group normally includes:
 
@@ -22,6 +22,7 @@ Each curated project group normally includes:
 | --- | --- | --- |
 | TON System | Official masterchain Elector and Config contracts for validator elections, stake recovery, network configuration, validator-set installation, and config proposal voting. | `Elector`, `Config` |
 | Acton Testing | Built-in testing treasury contract used by Acton and TON Sandbox test environments. | `TreasuryContract` |
+| TON Verifier | On-chain source registry, verifier registry, and per-source verification records. | `VerifierSourcesRegistry`, `VerifierRegistry`, `VerifierSourceItem` |
 | Wallets | Standard wallet generations, highload wallets, vesting/lockup wallets, preprocessed wallet, and multisig v2. | `WalletV1r1`, `WalletV1r2`, `WalletV1r3`, `WalletV2r1`, `WalletV2r2`, `WalletV3r1`, `WalletV3r2`, `WalletV4r1`, `WalletV4r2`, `WalletV5r1`, `WalletHighloadV1r1`, `WalletHighloadV1r2`, `WalletHighloadV2`, `WalletHighloadV2r1`, `WalletHighloadV2r2`, `WalletHighloadV3r1`, `WalletPreprocessedV2`, `WalletVesting`, `LockupUniversal`, `LockupVesting`, `MultisigV2`, `MultisigOrderV2` |
 | Jettons | TEP-74, TEP-89, stablecoin, Notcoin, mintless, Jetton 2.0, and Scaled UI jetton interfaces. | `JettonV1Master`, `JettonV100Master`, `JettonV1Wallet`, `DiscoverableJettonMaster`, `DiscoverableJettonWallet`, `JettonDiscovery`, `StablecoinMaster`, `StablecoinWallet`, `JettonNotcoinMaster`, `JettonNotcoinWallet`, `Jetton2Master`, `Jetton2Wallet`, `MintlessJettonMaster`, `MintlessJettonWallet`, `ScaledUiJettonMaster` |
 | pTON | pTON v2.1 proxy TON minter and wallet contracts. | `PtonMinterV2`, `PtonWalletV2` |
@@ -40,6 +41,8 @@ Each curated project group normally includes:
 | Coffee Swap | DEX factory/init, vaults, pool variants, pool creator, liquidity depository, LP wallet, staking, CrossDex, and MEV Protector. | `CoffeeFactory`, `CoffeeInit`, `CoffeeVaultNative`, `CoffeeVaultJetton`, `CoffeeVaultExtra`, `CoffeePoolConstantProduct`, `CoffeePoolCurveFiStable`, `CoffeePoolCreator`, `CoffeeLiquidityDepository`, `JettonWalletCoffeeLp`, `CoffeeStakingMaster`, `CoffeeStakingVault`, `CoffeeStakingItem`, `CoffeeCrossDex`, `CoffeeMevProtector` |
 | TONCO | Router, pool, account, pool factory, and position NFT. | `Router`, `Pool`, `Account`, `PoolFactory`, `PositionNFT` |
 | Bidask | DLMM/DAMM pool factory, pool, range, LP multitoken, internal liquidity vault, DAMM pool, and DAMM LP wallet. | `BidaskPoolFactory`, `BidaskPool`, `BidaskRange`, `BidaskLpMultitoken`, `BidaskInternalLiquidityVault`, `BidaskDammPool`, `BidaskDammLpWallet` |
+| StonksPump | Virtual-liquidity Jetton minters and deployment factories for STON.fi and DeDust launch flows. | `StonksPumpVirtualMinter`, `StonksPumpVirtualFactory` |
+| Grambo | Bonding-curve launchpad registry, Jetton master, and activated Jetton wallet contracts. | `GramboFactory`, `GramboJettonMaster`, `GramboJettonWallet` |
 | Storm Trade | Perpetual DEX vaults, vAMMs, smart accounts, factory, current and legacy position managers, referral/executor collections and items, prelaunch, LP minter/wallet, and proxy sender. | `StormVault`, `StormVaultNative`, `StormVamm`, `StormVammCoinm`, `SmartAccount`, `SmartAccountBlank`, `SmartAccountFactory`, `StormPositionManager`, `StormPositionManagerLegacy`, `StormReferral`, `StormReferralCollection`, `StormExecutor`, `StormExecutorCollection`, `StormPrelaunch`, `StormLpMinter`, `StormLpWallet`, `StormProxySender` |
 | Megaton Finance | Wrapped TON jetton minter and wallet used by Megaton Finance. | `WtonMinter`, `WtonWallet` |
 
@@ -63,6 +66,7 @@ Each curated project group normally includes:
 | Aqua Protocol | Aqua USD master vault and jetton master interface. | `AquaUsdMasterVault` |
 | Pyth Oracle | Pyth price oracle contract for feed updates, governance state, guardian sets, and price getters. | `PythOracle` |
 | Affluent | Pools, accounts, batch, multiply vaults, lending vaults, and FactorialTON jetton contracts. | `Pool`, `Account`, `Batch`, `MultiplyVault`, `MultiplyVaultV2`, `LendingVault`, `FactorialTonMinter`, `FactorialTonWallet` |
+| Bidask Farming | FF farming vault and per-user NFT staking position contracts. | `FfVault`, `FfVaultPosition` |
 | Locker | Locker and locker bill contracts. | `Locker`, `LockerBill` |
 | DAOLama | TON liquidity vault and TON-DLP jetton master interface. | `DaolamaVault` |
 
@@ -82,9 +86,10 @@ Each curated project group normally includes:
 | Invoices | Payload-only invoice body ABI for TON and Jetton payment payloads.                      | `InvoicesPayloadInterface` |
 | Payment Channels | Asynchronous two-party payment channel with cooperative and uncooperative settlement.   | `AsyncPaymentChannel` |
 | GRAM | Proof-of-work GRAM miner with adaptive complexity and signed administration.            | `GramMiner` |
+| Cocoon | Confidential-compute Root, Proxy, Client, Worker, and control Wallet contracts.          | `CocoonRoot`, `CocoonProxy`, `CocoonClient`, `CocoonWorker`, `CocoonWallet` |
 | Tonkeeper Subscriptions | Subscription V1 and V2 wallet/plugin contracts.                                         | `SubscriptionV1`, `SubscriptionV2` |
 | TON Cron | Cron interface implementations with `get_cron_info` and `cron_trigger` external bodies. | `Cron` |
-| Tonkeeper 2FA | Tonkeeper 2FA wallet extension contract.                                                | `Tonkeeper2fa` |
+| Wallet 2FA Extensions | Tonkeeper and MyTonWallet wallet extension contracts.                            | `Tonkeeper2fa`, `MyTonWallet2fa` |
 
 ## Contributing
 
