@@ -537,6 +537,12 @@ src = "data/stonfi/escrow_factory/testdata/StonfiEscrowFactory.boc"
 types = "data/stonfi/escrow_factory/types/stonfi_escrow_factory.types.tolk"
 depends = []
 
+[contracts.StonfiEscrowVault]
+display-name = "STON.fi Escrow Vault"
+src = "data/stonfi/escrow_vault/testdata/StonfiEscrowVault.boc"
+types = "data/stonfi/escrow_vault/types/stonfi_escrow_vault.types.tolk"
+depends = []
+
 [contracts.OmnistonFeeVault]
 display-name = "Omniston Fee-Vault Minter"
 src = "data/omniston/testdata/OmnistonFeeVault.boc"
@@ -1349,6 +1355,8 @@ stonfi-v1-mainnet-test = "acton test data/stonfi/v1 --fork-net mainnet --fork-bl
 stonfi-mainnet-test = "acton test data/stonfi --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 stonfi-escrow-position-mainnet-test = "acton test data/stonfi/escrow_position/tests/stonfi_escrow_position_mainnet.test.tolk --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 stonfi-escrow-position-message-bodies-test = "acton test data/stonfi/escrow_position/tests/stonfi_escrow_position_message_bodies.test.tolk --show-bodies"
+stonfi-escrow-vault-mainnet-test = "acton test data/stonfi/escrow_vault/tests/stonfi_escrow_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 71167154 --show-bodies"
+stonfi-escrow-vault-message-bodies-test = "acton test data/stonfi/escrow_vault/tests/stonfi_escrow_vault_message_bodies.test.tolk --show-bodies"
 omniston-fee-vault-mainnet-test = "acton test data/omniston/tests/omniston_fee_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 75037858 --show-bodies"
 omniston-fee-vault-message-bodies-test = "acton test data/omniston/tests/omniston_fee_vault_message_bodies.test.tolk --show-bodies"
 pton-mainnet-test = "acton test data/pton --fork-net mainnet --fork-block-number 71235434 --show-bodies"

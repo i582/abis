@@ -1,5 +1,4 @@
 import "@acton/build"
-import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
 import "@acton/emulation/scripts"
@@ -109,7 +108,9 @@ get fun `test stonfi escrow factory parses pinned storage getters and derivation
     expect(version.development).toEqual("beta.3");
 
     expect(contract.getItemAddress(positionStorage.quoteId)).toEqual(address(POSITION_ADDRESS));
-    expect(contract.getVaultAddress(positionStorage.bidJettonWallet, positionOrder.bidFromUser)).toEqual(
+    expect(
+        contract.getVaultAddress(positionStorage.bidJettonWallet, positionOrder.bidFromUser),
+    ).toEqual(
         address(DERIVED_VAULT_ADDRESS),
     );
 

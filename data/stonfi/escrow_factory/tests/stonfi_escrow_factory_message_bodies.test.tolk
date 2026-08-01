@@ -77,7 +77,9 @@ get fun `test decodes successful stonfi escrow factory unlock notification and p
     val body = parseCellFromBase64(bodyBoc);
     val decoded = StonfiEscrowFactoryJettonTransferNotification.fromCell(body);
     var forwardPayload = decoded.forwardPayload;
-    val unlock = StonfiEscrowFactoryUnlockPayload.fromCell(loadReferencedForwardPayload(mutate forwardPayload));
+    val unlock = StonfiEscrowFactoryUnlockPayload.fromCell(
+        loadReferencedForwardPayload(mutate forwardPayload),
+    );
     val unlockArgs = StonfiEscrowFactoryBilateralUnlockArgs.fromCell(unlock.unlockArgs);
 
     expect(decoded.queryId).toEqual(1779809838);
