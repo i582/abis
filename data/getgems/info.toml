@@ -7,9 +7,6 @@ description = "Getgems marketplace, sale, auction, offer, raffle, swap, and depl
 
 [sources]
 getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
-local_nft_sale_schema = "schemas/nft_sale.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "website"

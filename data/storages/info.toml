@@ -9,13 +9,6 @@ description = "Official TON Storage provider and per-file storage agreement cont
 ton_storage_overview = "https://docs.ton.org/blockchain-basics/primitives/web3/ton-storage"
 ton_storage_provider_docs = "https://old-docs.ton.org/v3/guidelines/web3/ton-storage/storage-provider"
 ton_blockchain_source = "https://github.com/ton-blockchain/ton/tree/master/storage/storage-daemon/smartcont"
-local_research_plan = "data/storages/research/plan.md"
-local_research_results = "data/storages/research/results.md"
-local_provider_research = "data/storages/research/storage_provider.md"
-local_storage_contract_research = "data/storages/research/storage_contract.md"
-local_address_search = "data/storages/research/address_search.md"
-local_source_snapshot = "data/storages/research/source/ton-blockchain"
-local_schema_snapshot = "data/storages/research/source/local"
 
 [[links]]
 kind = "docs"

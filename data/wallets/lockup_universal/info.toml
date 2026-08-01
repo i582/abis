@@ -10,8 +10,6 @@ lockup_wallet_contract = "https://github.com/ton-blockchain/lockup-wallet-contra
 lockup_universal_func = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/universal/uni-lockup-wallet.fc"
 lockup_universal_readme = "https://github.com/ton-blockchain/lockup-wallet-contract/tree/main/universal"
 lockup_sender_ui = "https://toncenter.github.io/lockup-sender/"
-tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
-local_contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "docs"

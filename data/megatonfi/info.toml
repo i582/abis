@@ -14,9 +14,6 @@ verified_wallet = "https://github.com/ton-community/contract-abis/tree/fe1d9b690
 tongo = "https://github.com/tonkeeper/tongo/blob/8d64ed2b9d258b0ff1c3d8d91874929835746003/abi/schemas/megaton-fi.xml"
 ton_docs_jettons = "https://docs.ton.org/llms/contracts/standard/tokens/jettons/api/content.md"
 ton_docs_tlb = "https://docs.ton.org/llms/foundations/tlb/syntax-and-semantics/content.md"
-local_research_plan = "data/megatonfi/research/plan.md"
-local_research_results = "data/megatonfi/research/results.md"
-local_message_body_evidence = "data/megatonfi/research/wton_minter_message_bodies.md"
 
 [[links]]
 kind = "website"

@@ -14,12 +14,6 @@ docs = "https://docs.daolama.co/daolama/daolama-en"
 lp_metadata = "https://assets.daolama.co/lp-token/ton-dlp.json"
 ton_docs_jettons = "https://docs.ton.org/llms/contracts/standard/tokens/jettons/api/content.md"
 ton_docs_tlb = "https://docs.ton.org/llms/foundations/tlb/syntax-and-semantics/content.md"
-local_schema = "sources/schemas/daolama.xml"
-local_generated_types = "sources/tolk-schemas/daolama_vault.types.tolk"
-local_research_plan = "data/daolama/research/plan.md"
-local_research_results = "data/daolama/research/results.md"
-local_current_decompile = "data/daolama/research/func/daolama_vault_688036db.fc"
-local_message_body_evidence = "data/daolama/research/daolama_vault_message_bodies.md"
 
 [[links]]
 kind = "website"

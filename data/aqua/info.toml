@@ -6,18 +6,6 @@ category = "Vault and synthetic-asset protocol"
 description = "Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, and vault operation messages"
 website = "https://app.aquaprotocol.xyz/"
 
-[sources]
-local_research_plan = "research/plan.md"
-local_research_results = "research/results.md"
-local_research_note = "research/aqua_usd_master_vault.md"
-local_decompile_snapshot = "research/func/aqua_usd_master_vault.fc"
-local_pdf_snapshot = "research/source/Aqua_Protocol_202407221416.pdf"
-local_account_state = "research/aqua_usd_account_state.json"
-local_method_ids = "research/aqua_usd_method_ids.json"
-local_message_body_scan = "research/aqua_usd_message_bodies_500.md"
-local_get_jetton_data = "research/aqua_usd_get_jetton_data_raw.txt"
-local_get_assets = "research/aqua_usd_get_assets_raw.txt"
-
 [[links]]
 kind = "website"
 title = "Aqua app"

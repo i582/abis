@@ -18,12 +18,6 @@ token_contract = "https://github.com/ton-blockchain/token-contract"
 minter_contract = "https://github.com/ton-blockchain/minter-contract"
 stablecoin_contract = "https://github.com/ton-blockchain/stablecoin-contract"
 mintless_contract = "https://github.com/ton-blockchain/mintless-jetton-contract"
-local_schema = "schemas/jettons.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-local_generated_types = "gen/jetton_*.types.tolk"
-local_generated_scaled_ui_types = "gen/scaled_ui.types.tolk"
-local_generated_abis = "gen_abis/jetton_*.json"
-contracts_catalog = "contracts.json"
 tep_526 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-ui-jettons.md"
 
 [[links]]

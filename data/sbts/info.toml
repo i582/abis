@@ -12,11 +12,6 @@ ton_docs_sbt = "https://docs.ton.org/standard/tokens/nft/sbt"
 ton_docs_nft_api = "https://docs.ton.org/blockchain-basics/standard/tokens/nft/api"
 getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
 getgems_sbt_doc = "https://github.com/getgems-io/nft-contracts/blob/main/sbt.md"
-local_schema = "schemas/nfts.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-local_generated_types = "gen/sbt.types.tolk"
-local_generated_abis = "gen_abis/sbt.json"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "docs"

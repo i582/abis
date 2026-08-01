@@ -9,13 +9,6 @@ website = "https://pyth.network/"
 [sources]
 pyth_crosschain_repo = "https://github.com/pyth-network/pyth-crosschain"
 pyth_ton_docs = "https://docs.pyth.network/price-feeds/use-real-time-data/ton"
-local_research_plan = "research/plan.md"
-local_research_results = "research/results.md"
-local_research_note = "research/pyth_oracle.md"
-local_source_snapshot = "research/source/pyth-crosschain-29239b21"
-local_decompile_snapshot = "research/func"
-local_message_body_scan = "research/pyth_oracle_message_bodies_500.md"
-local_toncenter_tlb = "research/source/toncenter-schemes.tlb"
 
 [[links]]
 kind = "website"

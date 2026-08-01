@@ -5,17 +5,6 @@ name = "tonkeeper_2fa"
 category = "wallet extension"
 description = "Tonkeeper 2FA wallet extension contract"
 
-[sources]
-local_specification = "data/tonkeeper_2fa/research/source/2fa_SPECIFICATION.md"
-local_extension_func = "data/tonkeeper_2fa/research/source/tfa_extension.fc"
-local_shared_func = "data/tonkeeper_2fa/research/source/shared.fc"
-local_extension_wrapper = "data/tonkeeper_2fa/research/source/TFAExtension.ts"
-local_extension_tests = "data/tonkeeper_2fa/research/source/TFAExtension.spec.ts"
-local_compiled_boc = "data/tonkeeper_2fa/research/source/TFAExtension.compiled.json"
-local_tongo_schema = "data/tonkeeper_2fa/research/source/tongo_tonkeeper_2fa.xml"
-local_generated_types = "gen/tonkeeper_2fa.types.tolk"
-local_schema = "schemas/tonkeeper_2fa.xml"
-
 [[links]]
 kind = "website"
 title = "Tonkeeper website"

@@ -6,18 +6,6 @@ category = "TON scheduler interfaces"
 description = "TON cron interface implementations exposing get_cron_info and cron_trigger external messages"
 
 [sources]
-local_schema = "schemas/cron.xml"
-local_generated_types = "gen/cron.types.tolk"
-local_tongo_schema = "data/cron/research/source/tongo_cron.xml"
-local_toncenter_tlb = "data/cron/research/source/toncenter_schemes.tlb"
-local_primary_account_state = "data/cron/research/source/toncenter_account_state.json"
-local_trigger_variant_account_state = "data/cron/research/source/toncenter_account_state_trigger_variant.json"
-local_decompile_snapshot = "data/cron/research/func/cron.fc"
-local_disasm_snapshot = "data/cron/research/disasm/cron.tasm"
-local_message_body_evidence = "data/cron/research/cron_message_bodies.md"
-local_full_message_body_scan = "data/cron/research/cron_trigger_message_bodies.md"
-local_research_plan = "data/cron/research/plan.md"
-local_research_results = "data/cron/research/results.md"
 dune_cron_trigger_candidates = "https://dune.com/queries/7671804"
 
 [contracts.Cron]

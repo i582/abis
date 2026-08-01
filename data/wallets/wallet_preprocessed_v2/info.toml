@@ -7,9 +7,6 @@ category = "standard TON wallets"
 [sources]
 ton_docs_preprocessed_v2_spec = "https://docs.ton.org/blockchain-basics/standard/wallets/preprocessed-v2/specification"
 ton_docs_preprocessed_v2_interact = "https://docs.ton.org/standard/wallets/preprocessed-v2/interact"
-tongo_wallets_xml = "schemas/wallets.xml"
-toncenter_schemes = "source/toncenter-schemes.tlb"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "spec"

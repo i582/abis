@@ -10,7 +10,6 @@ ton_docs_wallet_v5_api = "https://docs.ton.org/blockchain-basics/standard/wallet
 ton_wallet_contract_v5 = "https://github.com/ton-blockchain/wallet-contract-v5"
 ton_wallet_contract_v5_types_tlb = "https://github.com/ton-blockchain/wallet-contract-v5/blob/main/types.tlb"
 ton_wallet_contract_v5_func = "https://github.com/ton-blockchain/wallet-contract-v5/blob/main/contracts/wallet_v5.fc"
-tongo_wallets_xml = "schemas/wallets.xml"
 
 [contracts.WalletV5r1]
 types = "types/wallet_v5r1.types.tolk"

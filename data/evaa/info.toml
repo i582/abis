@@ -12,16 +12,6 @@ tonkeeper_tongo_evaa_schemas = "https://github.com/tonkeeper/tongo/tree/00e0cd96
 evaa_sdk = "https://github.com/evaafi/sdk"
 evaa_sdk_commit = "https://github.com/evaafi/sdk/commit/f29ea811075823b4749247fa78f9fdd23e721a9f"
 evaa_liquidator_bot = "https://github.com/evaafi/liquidator-bot-v2-pub"
-local_research_plan = "data/evaa/research/plan.md"
-local_research_results = "data/evaa/research/results.md"
-local_shared_research = "data/evaa/research/shared.md"
-local_live_evidence = "data/evaa/research/live_evidence.md"
-local_contract_source = "data/evaa/research/source/evaafi-contracts"
-local_tongo_schema = "data/evaa/research/source/tongo"
-local_sdk_snapshot = "data/evaa/research/source/evaafi-sdk"
-local_pyth_message_body_evidence = "data/evaa/research/evaa_pyth_master_message_bodies.md"
-local_classic_message_body_evidence = "data/evaa/research/evaa_stable_master_message_bodies.md"
-local_user_message_body_scan = "data/evaa/research/evaa_user_message_bodies.md"
 
 [[links]]
 kind = "source"

@@ -8,13 +8,6 @@ description = "Hipo Finance hTON liquid-staking Treasury, Parent, Wallet, Loan, 
 [sources]
 hipo_contract_repo = "https://github.com/HipoFinance/contract"
 hipo_integration_guide = "https://github.com/HipoFinance/contract/blob/main/Integration.md"
-local_research_plan = "data/hipo/research/plan.md"
-local_research_results = "data/hipo/research/results.md"
-local_source_snapshot = "data/hipo/research/source/HipoFinance-contract"
-local_schema = "data/hipo/research/source/hipo_finance.xml"
-local_generated_types = "data/hipo/research/source/gen_hipo_finance.types.tolk"
-local_generated_abis = "data/hipo/research/source/gen_abis_hipo_finance.json"
-local_toncenter_snapshot = "data/hipo/research/source/toncenter"
 
 [[links]]
 kind = "website"

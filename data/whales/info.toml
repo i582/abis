@@ -7,17 +7,6 @@ description = "Ton Whales Nominators pool and proxy contracts for pooled TON sta
 
 [sources]
 upstream_tonwhales_nominators = "https://github.com/tonwhales/ton-nominators/tree/0553e1b6ddfc5c0b60505957505ce58d01bec3e7"
-local_research_plan = "data/whales/research/plan.md"
-local_research_results = "data/whales/research/results.md"
-local_pool_research = "data/whales/research/pool.md"
-local_proxy_research = "data/whales/research/proxy.md"
-local_source_snapshot = "data/whales/research/source"
-local_schema = "data/whales/research/source/whales.xml"
-local_generated_types = "data/whales/research/source/whales_pool.generated.types.tolk"
-local_pool_account_state = "data/whales/research/whales_pool_account_state.json"
-local_proxy_account_state = "data/whales/research/whales_proxy_account_state.json"
-local_pool_message_bodies = "data/whales/research/toncenter_pool_message_bodies.json"
-local_proxy_message_bodies = "data/whales/research/toncenter_proxy_message_bodies.json"
 
 [[links]]
 kind = "source"

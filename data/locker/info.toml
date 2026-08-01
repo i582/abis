@@ -11,7 +11,6 @@ locker_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/
 locker_bill_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker_bill.fc"
 common_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/common.fc"
 stdlib_func = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/imports/stdlib.fc"
-tongo_schema = "schemas/locker.xml"
 
 [[links]]
 kind = "source"

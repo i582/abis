@@ -8,8 +8,6 @@ category = "standard TON wallets"
 ton_docs_highload = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
 official_func = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet-v2-code.fc"
 official_stdlib = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/stdlib.fc"
-tongo_wallets_xml = "schemas/wallets.xml"
-toncenter_schemes = "source/toncenter-schemes.tlb"
 
 [[links]]
 kind = "docs"

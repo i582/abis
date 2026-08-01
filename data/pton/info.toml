@@ -15,9 +15,6 @@ tep_161_pr = "https://github.com/ton-blockchain/TEPs/pull/161"
 ton_docs_jetton_api = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/api"
 ton_docs_jetton_wallet_data = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/wallet-data"
 ton_docs_jetton_supply_data = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/supply-data"
-stonfi_api_routers_snapshot = "data/stonfi/research/docs/stonfi_api_routers_2026-06-04.json"
-local_schema = "schemas/ston-fi.xml"
-local_research = "data/pton/research"
 
 [[links]]
 kind = "source"

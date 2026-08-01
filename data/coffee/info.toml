@@ -8,15 +8,6 @@ description = "Coffee Swap DEX, staking, CrossDex, and MEV Protector contracts"
 [sources]
 coffee_dex = "https://github.com/swapcoffee/dex"
 coffee_docs = "https://github.com/swapcoffee/documentation"
-local_source_snapshot = "data/coffee/research/source"
-local_docs_snapshot = "data/coffee/research/docs"
-local_schema = "schemas/swap_coffee.xml"
-local_generated_types = "gen"
-local_generated_abis = "gen_abis"
-local_research_plan = "data/coffee/research/plan.md"
-local_research_results = "data/coffee/research/results.md"
-local_shared_research = "data/coffee/research/shared.md"
-local_send_site_inventory = "data/coffee/research/send_sites_grep.txt"
 
 [[links]]
 kind = "docs"

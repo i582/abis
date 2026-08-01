@@ -14,11 +14,6 @@ ton_docs_nft_reference = "https://docs.ton.org/standard/tokens/nft/nft-reference
 ton_docs_nft_2_0 = "https://docs.ton.org/standard/tokens/nft/nft-2.0"
 ton_nft_contract = "https://github.com/ton-blockchain/nft-contract"
 getgems_nft_contracts = "https://github.com/getgems-io/nft-contracts"
-local_schema = "schemas/nfts.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-local_generated_types = "gen/nft_*.types.tolk"
-local_generated_abis = "gen_abis/nft_*.json"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "docs"

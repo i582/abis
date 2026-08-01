@@ -20,12 +20,6 @@ stonfi_docs_vault_v2 = "https://docs.ston.fi/developer-section/dex/smart-contrac
 stonfi_docs_op_codes_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/op-codes"
 stonfi_dex_core_v1 = "https://github.com/ston-fi/dex-core"
 stonfi_dex_core_v2 = "https://github.com/ston-fi/dex-core-v2"
-local_source_snapshot_v1 = "data/stonfi/research/source/dex-core-v1"
-local_source_snapshot = "data/stonfi/research/source/dex-core-v2"
-local_schema = "schemas/ston-fi.xml"
-local_research_plan = "data/stonfi/research/plan.md"
-local_shared_research = "data/stonfi/research/shared.md"
-local_shared_research_v1 = "data/stonfi/research/stonfi_v1_shared.md"
 
 [[links]]
 kind = "docs"

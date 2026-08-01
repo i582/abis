@@ -5,16 +5,6 @@ name = "payment_channels"
 category = "payment channels"
 description = "TON asynchronous two-party payment channel contract with cooperative and uncooperative settlement"
 
-[sources]
-local_contract_source = "data/payment_channels/research/source/async-channel.func"
-local_tlb_schema = "data/payment_channels/research/source/scheme.tlb"
-local_readme = "data/payment_channels/research/source/README.MD"
-local_upstream_tests = "data/payment_channels/research/source/test.fc"
-local_compiled_fift = "data/payment_channels/research/source/contract.fif"
-local_testnet_decompile = "data/payment_channels/research/func/async_payment_channel_testnet_5Gzxt4.fc"
-local_research_plan = "data/payment_channels/research/plan.md"
-local_research_results = "data/payment_channels/research/results.md"
-
 [[links]]
 kind = "source"
 title = "TON asynchronous payment channel source"

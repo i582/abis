@@ -8,15 +8,6 @@ description = "Orbs Network Simple/Single Nominator Pool contracts for one owner
 [sources]
 upstream_main = "https://github.com/orbs-network/single-nominator/tree/656696b4840d9226da3d98410f0103ee4efb0402"
 upstream_v1_0_tag = "https://github.com/orbs-network/single-nominator/releases/tag/v1.0.0"
-local_research_plan = "data/single_nominator/research/plan.md"
-local_research_results = "data/single_nominator/research/results.md"
-local_v1_0_research = "data/single_nominator/research/v1_0.md"
-local_v1_1_research = "data/single_nominator/research/v1_1.md"
-local_source_snapshot = "data/single_nominator/research/source"
-local_v1_0_account_state = "data/single_nominator/research/single_nominator_v1_0_account_state.json"
-local_v1_1_account_state = "data/single_nominator/research/single_nominator_v1_1_account_state.json"
-local_v1_0_message_bodies = "data/single_nominator/research/single_nominator_v1_0_message_bodies.json"
-local_v1_1_message_bodies = "data/single_nominator/research/single_nominator_v1_1_message_bodies.json"
 
 [[links]]
 kind = "source"

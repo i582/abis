@@ -5,14 +5,6 @@ name = "stakee"
 category = "TON liquid staking contracts"
 description = "Stakee liquid staking contracts: Pool, validator controller, STAKEED minter/wallet, payout collection, and payout item."
 
-[sources]
-local_research_plan = "research/plan.md"
-local_research_results = "research/results.md"
-local_project_overview = "research/source/liquid-staking-contract/Readme.md"
-local_sdk_constants = "research/source/liquid-staking-contract/sdk_constants.ts"
-local_source_snapshot = "research/source/liquid-staking-contract"
-local_decompile_snapshot = "research/func"
-
 [[links]]
 kind = "source"
 title = "TON liquid staking source"

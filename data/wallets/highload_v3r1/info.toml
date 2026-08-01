@@ -10,8 +10,6 @@ ton_docs_highload_v3_spec = "https://docs.ton.org/standard/wallets/highload/v3/s
 official_repo = "https://github.com/ton-blockchain/highload-wallet-contract-v3"
 official_func = "https://github.com/ton-blockchain/highload-wallet-contract-v3/blob/main/contracts/highload-wallet-v3.func"
 official_tlb = "https://github.com/ton-blockchain/highload-wallet-contract-v3/blob/main/contracts/scheme.tlb"
-tongo_wallets_xml = "schemas/wallets.xml"
-toncenter_schemes = "source/toncenter-schemes.tlb"
 
 [[links]]
 kind = "docs"

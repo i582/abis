@@ -12,11 +12,6 @@ reference_dns_contracts = "https://github.com/ton-blockchain/dns-contract"
 reference_root_dns_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/root-dns.fc"
 reference_collection_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-collection.fc"
 reference_domain_item_func = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-item.fc"
-local_schema = "schemas/dns.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-local_generated_types = "gen/dns.types.tolk"
-local_generated_abi = "gen_abis/dns.json"
-local_anton_interfaces = "source/anton.json"
 
 [[links]]
 kind = "docs"

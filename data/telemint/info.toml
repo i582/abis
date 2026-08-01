@@ -12,11 +12,6 @@ telegram_telemint_tlb = "https://github.com/TelegramMessenger/telemint/blob/main
 telegram_telemint_common_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/common.fc"
 telegram_telemint_item_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-item.fc"
 telegram_telemint_collection_func = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-collection.fc"
-local_schema = "schemas/telegram.xml"
-local_toncenter_tlb = "source/toncenter-schemes.tlb"
-local_generated_types = "gen/teleitem.types.tolk"
-local_generated_abi = "gen_abis/teleitem.json"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "website"

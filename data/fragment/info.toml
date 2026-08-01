@@ -5,20 +5,6 @@ name = "fragment"
 category = "Telegram NFT auction contracts"
 description = "Telegram Fragment TeleMint contracts for username and anonymous-number collections and NFT items."
 
-[sources]
-local_research_plan = "research/plan.md"
-local_research_results = "research/results.md"
-local_common_source = "research/source/func/common.fc"
-local_username_collection_source = "research/source/func/nft-collection.fc"
-local_numbers_collection_source = "research/source/func/nft-collection-no-dns.fc"
-local_username_item_source = "research/source/func/nft-item.fc"
-local_numbers_item_source = "research/source/func/nft-item-no-dns.fc"
-local_tlb_schema = "research/source/telemint.tlb"
-marketapp_proxy_source_excerpt = "research/source/marketapp_proxy_teleclaw_fragment_service_excerpt.ts"
-marketapp_proxy_known_decompile = "research/func/marketapp_proxy_known.fc"
-marketapp_proxy_simple_decompile = "research/func/marketapp_proxy_0dbd.fc"
-marketapp_proxy_jetton_decompile = "research/func/marketapp_proxy_a9c1.fc"
-
 [[links]]
 kind = "website"
 title = "Fragment marketplace"

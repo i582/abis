@@ -5,16 +5,6 @@ name = "airdrop"
 category = "TON airdrop contracts"
 description = "Airdrop Interlocker v1 and v2 claim contracts"
 
-[sources]
-local_schema = "data/airdrop/research/source/airdrop.xml"
-local_generated_v1_types = "data/airdrop/research/source/airdrop_interlocker_v1.generated.types.tolk"
-local_generated_v2_types = "data/airdrop/research/source/airdrop_interlocker_v2.generated.types.tolk"
-local_research_plan = "data/airdrop/research/plan.md"
-local_research_results = "data/airdrop/research/results.md"
-local_decompile_snapshot = "data/airdrop/research/func"
-local_v1_account_state = "data/airdrop/research/airdrop_interlocker_v1_account_state.json"
-local_v2_account_state = "data/airdrop/research/airdrop_interlocker_v2_account_state.json"
-
 [contracts.AirdropInterlockerV1]
 display_name = "Airdrop Interlocker v1"
 types = "interlocker_v1/types/airdrop_interlocker_v1.types.tolk"

@@ -8,12 +8,6 @@ description = "Official TON masterchain Elector and Config system contracts"
 [sources]
 ton_smartcont_source = "https://github.com/ton-blockchain/ton/tree/master/crypto/smartcont"
 config_verifier = "https://verifier.ton.org/Ef9VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVbxn"
-local_source_snapshot = "data/system/research/source"
-local_account_states = "data/system/research/account_states.json"
-local_research_plan = "data/system/research/plan.md"
-local_research_results = "data/system/research/results.md"
-local_elector_research = "data/system/research/elector.md"
-local_config_research = "data/system/research/config.md"
 
 [[links]]
 kind = "source"

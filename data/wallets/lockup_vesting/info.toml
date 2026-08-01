@@ -11,8 +11,6 @@ lockup_wallet_contract = "https://github.com/ton-blockchain/lockup-wallet-contra
 lockup_vesting_func = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/vesting/vesting-lockup-wallet.fc"
 lockup_vesting_fift = "https://raw.githubusercontent.com/ton-blockchain/lockup-wallet-contract/main/vesting/vesting-lockup-wallet-code.fif"
 lockup_vesting_readme = "https://github.com/ton-blockchain/lockup-wallet-contract/tree/main/vesting"
-tongo_lockup_wallet_xml = "schemas/lockup-wallet.xml"
-local_contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "docs"

@@ -9,7 +9,6 @@ x = "https://x.com/Tonco_io"
 telegram = "https://t.me/tonco_welcome"
 
 [sources]
-local_schema = "schemas/tonco.xml"
 docs_overview = "https://docs.tonco.io/"
 docs_router = "https://docs.tonco.io/technical-reference/contracts/router.md"
 docs_pool = "https://docs.tonco.io/technical-reference/contracts/pool.md"

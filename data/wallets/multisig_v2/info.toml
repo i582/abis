@@ -6,10 +6,6 @@ category = "standard TON multisig wallets"
 
 [sources]
 ton_multisig_v2_repo = "https://github.com/ton-blockchain/multisig-contract-v2"
-ton_multisig_v2_tlb = "data/wallets/multisig_v2/research/source/multisig.tlb"
-local_schema = "schemas/multisig.xml"
-toncenter_schemes = "source/toncenter-schemes.tlb"
-contracts_catalog = "contracts.json"
 
 [[links]]
 kind = "source"
