@@ -2,7 +2,7 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **214 contract entries**, **248 unique contract code hashes**, and **231 unique known contract addresses**.
+Current catalog size: **212 contract entries**, **248 unique contract code hashes**, and **231 unique known contract addresses**.
 
 Across all tracked `data/**/*.types.tolk` files, the catalog declares **857 unique opcodes** and **405 unique get-method names**.
 

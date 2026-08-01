@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public ABI catalog schema",
+  "description": "Deterministic public catalog produced from all compilable `info.toml`\ncontract entries.",
+  "type": "object",
+  "properties": {
+    "contracts": {
+      "description": "Compiled ABI entries sorted by their stable contract IDs.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BundledContract"
+      }
+    },
+    "schemaVersion": {
+      "description": "Version of the public catalog JSON format.",
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contracts"
+  ],
+  "$defs": {
+    "BundledContract": {
+      "description": "One compiled contract entry in the public ABI catalog.",
+      "type": "object",
+      "properties": {
+        "compilerAbi": {
+          "description": "Compiler-generated ABI JSON emitted by `acton compile --abi`."
+        },
+        "displayName": {
+          "description": "Human-readable contract name.",
+          "type": "string"
+        },
+        "hashes": {
+          "description": "Sorted unique lowercase hexadecimal code hashes for this ABI.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "description": "Stable contract identifier in `<project>.<contract>` form.",
+          "type": "string"
+        },
+        "knownAddresses": {
+          "description": "Sorted unique friendly TON addresses known to use this ABI.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "links": {
+          "description": "Sorted unique project and contract references.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Link"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "displayName",
+        "hashes",
+        "knownAddresses",
+        "links",
+        "compilerAbi"
+      ]
+    },
+    "Link": {
+      "description": "External reference attached to a project or contract.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "description": "Reference category, such as `docs`, `source`, `spec`, or `website`.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Human-readable label shown to catalog consumers.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Absolute HTTP or HTTPS URL for the referenced resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "title",
+        "url"
+      ]
+    }
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABI catalog info.toml schema",
+  "description": "Parsed portion of an `info.toml` file consumed by the ABI catalog builder.\n\nAdditional TOML fields are allowed and ignored by the builder.",
+  "type": "object",
+  "properties": {
+    "contracts": {
+      "description": "Contracts keyed by their project-local contract names.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Contract"
+      }
+    },
+    "links": {
+      "description": "Links inherited by every contract declared in this file.",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Link"
+      }
+    },
+    "project": {
+      "description": "Project metadata used to namespace contract entries.",
+      "$ref": "#/$defs/Project"
+    },
+    "sources": {
+      "description": "Named source references used to establish data provenance.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {}
+    }
+  },
+  "required": [
+    "project",
+    "contracts"
+  ],
+  "$defs": {
+    "Contract": {
+      "description": "Contract fields required to compile and publish one ABI catalog entry.\n\nAdditional contract metadata and nested tables are allowed and ignored by\nthe builder.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Short description of the contract's role.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "display_name": {
+          "description": "Human-readable contract name; defaults to the contract table key.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hashes": {
+          "description": "Lowercase hexadecimal code hashes associated with this contract ABI.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "instances": {
+          "description": "Observed deployed instances of the contract.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Instance"
+          }
+        },
+        "known_addresses": {
+          "description": "Known friendly TON addresses that use this contract ABI.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "links": {
+          "description": "Links specific to this contract.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Link"
+          }
+        },
+        "profile": {
+          "description": "Named compatibility or interface profile implemented by the contract.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "types": {
+          "description": "Path to the Tolk ABI interface, relative to the containing `info.toml`.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "description": "Named variants of the contract ABI or deployment.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Variant"
+          }
+        }
+      }
+    },
+    "Instance": {
+      "description": "One observed on-chain contract instance and its semantic relationships.",
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "Friendly TON account address.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "block_seqno": {
+          "description": "Masterchain or shardchain block sequence number used for the observation.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0
+        },
+        "code_hash": {
+          "description": "Lowercase hexadecimal code hash observed at the address.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collection": {
+          "description": "Collection contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "factory": {
+          "description": "Factory contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "financial": {
+          "description": "Financial or accounting contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "index": {
+          "description": "Numeric item index within a collection or protocol sequence.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0
+        },
+        "jetton_minter": {
+          "description": "Jetton minter contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jetton_minter_hash": {
+          "description": "Lowercase hexadecimal code hash of the related jetton minter.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jetton_wallet": {
+          "description": "Jetton wallet contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label": {
+          "description": "Short label used when a full name is unnecessary.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "master": {
+          "description": "Master contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meme": {
+          "description": "Meme-token contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "minter": {
+          "description": "Minter contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Human-readable name of the observed instance.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "network": {
+          "description": "TON network on which the instance was observed.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "description": "Address or identifier of the owning account.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_address": {
+          "description": "Friendly TON address of the owning account.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parent": {
+          "description": "Parent contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pool_type": {
+          "description": "Pool implementation or market type.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pools": {
+          "description": "Pool names associated with this instance.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "proxy": {
+          "description": "Proxy contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "range": {
+          "description": "Range contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "description": "Human-readable lifecycle or protocol state.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trader": {
+          "description": "Trader account address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "treasury": {
+          "description": "Treasury contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "underlying": {
+          "description": "Underlying contract or asset address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vamm": {
+          "description": "Virtual automated market maker address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vault": {
+          "description": "Vault contract address or identifier.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "Link": {
+      "description": "External reference attached to a project or contract.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "description": "Reference category, such as `docs`, `source`, `spec`, or `website`.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Human-readable label shown to catalog consumers.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Absolute HTTP or HTTPS URL for the referenced resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "title",
+        "url"
+      ]
+    },
+    "Project": {
+      "description": "Project identity shared by all contracts in one `info.toml` file.",
+      "type": "object",
+      "properties": {
+        "app": {
+          "description": "Public web application URL.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "audit": {
+          "description": "Security audit report URL.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category": {
+          "description": "Catalog category used to group related projects.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "description": "Short description of the project and its contracts.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "docs": {
+          "description": "Project documentation URL.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Stable project name used as the contract namespace.",
+          "type": "string"
+        },
+        "project": {
+          "description": "Human-readable project name when it differs from the namespace.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "repository": {
+          "description": "Source repository URL.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "telegram": {
+          "description": "Telegram community or announcement channel URL.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "description": "Public project website.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Variant": {
+      "description": "Named contract variant with its own hashes, addresses, or deployment data.",
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "Representative friendly TON address for this variant.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "code_hash": {
+          "description": "Lowercase hexadecimal code hash for this variant.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hashes": {
+          "description": "Lowercase hexadecimal code hashes associated with this variant.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "known_addresses": {
+          "description": "Known friendly TON addresses that use this variant.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "network": {
+          "description": "TON network on which the variant was observed.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
