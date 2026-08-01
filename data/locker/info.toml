@@ -1,7 +1,5 @@
 [project]
 name = "locker"
-
-[metadata]
 repository = "https://github.com/ton-blockchain/locker-contract"
 audit = "https://github.com/ton-blockchain/locker-contract#quantstamp-audit"
 

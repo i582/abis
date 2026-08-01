@@ -1,7 +1,5 @@
 [project]
 name = "aqua"
-
-[metadata]
 category = "Vault and synthetic-asset protocol"
 description = "Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, and vault operation messages"
 website = "https://app.aquaprotocol.xyz/"

@@ -1,7 +1,5 @@
 [project]
 name = "dedust"
-
-[metadata]
 category = "TON DEX contracts"
 description = "DeDust Protocol v1 and v2 Factory, Pool, Vault, Liquidity Deposit, CPMM, and Uranus launchpad contracts"
 

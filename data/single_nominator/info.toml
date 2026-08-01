@@ -1,7 +1,5 @@
 [project]
 name = "single_nominator"
-
-[metadata]
 category = "TON validator staking pool contracts"
 description = "Orbs Network Simple/Single Nominator Pool contracts for one owner and one validator wallet"
 

@@ -1,7 +1,5 @@
 [project]
 name = "fragment"
-
-[metadata]
 category = "Telegram NFT auction contracts"
 description = "Telegram Fragment TeleMint contracts for username and anonymous-number collections and NFT items."
 

@@ -1,7 +1,5 @@
 [project]
 name = "sbts"
-
-[metadata]
 category = "TON soul-bound token contracts"
 description = "TEP-85 SBT item contracts with curated Getgems source variants"
 

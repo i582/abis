@@ -1,7 +1,5 @@
 [project]
 name = "getgems"
-
-[metadata]
 category = "TON NFT marketplace contracts"
 description = "Getgems marketplace, sale, auction, offer, raffle, swap, and deployer contracts"
 

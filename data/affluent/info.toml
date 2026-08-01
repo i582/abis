@@ -1,7 +1,5 @@
 [project]
 name = "affluent"
-
-[metadata]
 website = "https://affluent.org"
 app = "https://app.affluent.org"
 x = "https://x.com/AffluentOrg"

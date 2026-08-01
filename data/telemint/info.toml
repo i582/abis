@@ -1,7 +1,5 @@
 [project]
 name = "telemint"
-
-[metadata]
 category = "Telegram Fragment NFT contracts"
 description = "Telegram TeleMint NFT item contracts used by Fragment username and anonymous-number NFTs"
 website = "https://fragment.com/"

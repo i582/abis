@@ -1,7 +1,5 @@
 [project]
 name = "bidask"
-
-[metadata]
 category = "TON DEX contracts"
 description = "Bidask Protocol DLMM and DAMM Pool Factory, Pool, Range, LP Multitoken, Internal Liquidity Vault, DAMM Pool, and DAMM LP Wallet contracts"
 

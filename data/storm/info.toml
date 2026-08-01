@@ -1,7 +1,5 @@
 [project]
 name = "storm"
-
-[metadata]
 category = "TON perpetual DEX contracts"
 description = "Storm Trade perpetual DEX vault, vAMM, smart account, position, referral, and executor contracts"
 

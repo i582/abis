@@ -1,7 +1,5 @@
 [project]
 name = "payment_channels"
-
-[metadata]
 category = "payment channels"
 description = "TON asynchronous two-party payment channel contract with cooperative and uncooperative settlement"
 

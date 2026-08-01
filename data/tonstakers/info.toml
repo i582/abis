@@ -1,7 +1,5 @@
 [project]
 name = "tonstakers"
-
-[metadata]
 category = "TON liquid staking contracts"
 description = "Tonstakers liquid staking pool, tsTON jetton, validator controller, and payout NFT contracts"
 

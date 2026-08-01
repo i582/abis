@@ -1,7 +1,5 @@
 [project]
 name = "system"
-
-[metadata]
 category = "TON system contracts"
 description = "Official TON masterchain Elector and Config system contracts"
 

@@ -1,7 +1,5 @@
 [project]
 name = "stonfi"
-
-[metadata]
 category = "TON DEX contracts"
 description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, and Vault contracts"
 

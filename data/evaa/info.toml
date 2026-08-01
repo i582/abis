@@ -1,7 +1,5 @@
 [project]
 name = "evaa"
-
-[metadata]
 category = "TON lending contracts"
 description = "EVAA lending protocol Master and User contracts"
 

@@ -1,7 +1,5 @@
 [project]
 name = "stakee"
-
-[metadata]
 category = "TON liquid staking contracts"
 description = "Stakee liquid staking contracts: Pool, validator controller, STAKEED minter/wallet, payout collection, and payout item."
 

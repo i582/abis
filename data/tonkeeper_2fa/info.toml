@@ -1,7 +1,5 @@
 [project]
 name = "tonkeeper_2fa"
-
-[metadata]
 category = "wallet extension"
 description = "Tonkeeper 2FA wallet extension contract"
 

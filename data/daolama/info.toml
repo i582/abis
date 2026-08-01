@@ -1,7 +1,5 @@
 [project]
 name = "daolama"
-
-[metadata]
 category = "lending"
 description = "DAOLama TON liquidity vault and TON-DLP jetton master"
 website = "https://daolama.co"

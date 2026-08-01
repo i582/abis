@@ -1,7 +1,5 @@
 [project]
 name = "coffee"
-
-[metadata]
 category = "TON DEX contracts"
 description = "Coffee Swap DEX, staking, CrossDex, and MEV Protector contracts"
 

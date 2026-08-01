@@ -1,7 +1,5 @@
 [project]
 name = "wallets"
-
-[metadata]
 category = "standard TON wallets"
 
 [sources]

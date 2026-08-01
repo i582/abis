@@ -1,7 +1,5 @@
 [project]
 name = "bemo"
-
-[metadata]
 category = "TON liquid staking contracts"
 description = "Bemo v2 liquid staking Financial jetton master and Unstake Request contracts"
 

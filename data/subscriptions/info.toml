@@ -1,7 +1,5 @@
 [project]
 name = "subscriptions"
-
-[metadata]
 project = "Tonkeeper Subscriptions"
 website = "https://tonkeeper.com"
 

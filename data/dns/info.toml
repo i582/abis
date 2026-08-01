@@ -1,7 +1,5 @@
 [project]
 name = "dns"
-
-[metadata]
 category = "TON DNS"
 description = "Standard TON DNS resolver and official .ton domain item contracts"
 

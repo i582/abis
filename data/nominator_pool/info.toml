@@ -1,7 +1,5 @@
 [project]
 name = "nominator_pool"
-
-[metadata]
 category = "TON validator staking contracts"
 description = "TON Validators Nominator Pool contracts"
 

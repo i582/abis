@@ -1,7 +1,5 @@
 [project]
 name = "wallets/wallet_vesting"
-
-[metadata]
 category = "standard TON vesting wallets"
 
 [sources]

@@ -1,7 +1,5 @@
 [project]
 name = "wallets/lockup_vesting"
-
-[metadata]
 category = "standard TON lockup wallets"
 
 [sources]

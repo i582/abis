@@ -1,7 +1,5 @@
 [project]
 name = "whales"
-
-[metadata]
 category = "TON nominator staking contracts"
 description = "Ton Whales Nominators pool and proxy contracts for pooled TON staking through Elector"
 

@@ -1,7 +1,5 @@
 [project]
 name = "omniston"
-
-[metadata]
 category = "TON DEX routing and referral fee contracts"
 description = "Omniston Fee-Vault Minter and referral fee collection contracts."
 

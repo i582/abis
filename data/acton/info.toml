@@ -1,7 +1,5 @@
 [project]
 name = "acton"
-
-[metadata]
 category = "Acton built-in testing contracts"
 description = "Built-in contracts used by Acton and TON Sandbox test environments"
 

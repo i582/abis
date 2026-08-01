@@ -1,7 +1,5 @@
 [project]
 name = "megatonfi-wton"
-
-[metadata]
 category = "wrapped native token"
 description = "Wrapped TON minter and deterministic jetton wallets used by Megaton Finance"
 website = "https://wton.dev"

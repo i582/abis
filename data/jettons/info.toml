@@ -1,7 +1,5 @@
 [project]
 name = "jettons"
-
-[metadata]
 category = "TON fungible token contracts"
 description = "TEP-74 and TEP 89 Jetton masters and wallets"
 

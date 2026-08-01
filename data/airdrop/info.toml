@@ -1,7 +1,5 @@
 [project]
 name = "airdrop"
-
-[metadata]
 category = "TON airdrop contracts"
 description = "Airdrop Interlocker v1 and v2 claim contracts"
 

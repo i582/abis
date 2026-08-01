@@ -1,7 +1,5 @@
 [project]
 name = "pyth_oracle"
-
-[metadata]
 category = "Oracle contracts"
 description = "Pyth Network TON price oracle with Wormhole governance, guardian sets, price updates, parsing responses, and public getters"
 website = "https://pyth.network/"

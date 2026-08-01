@@ -1,7 +1,5 @@
 [project]
 name = "storages"
-
-[metadata]
 category = "TON Storage contracts"
 description = "Official TON Storage provider and per-file storage agreement contracts"
 

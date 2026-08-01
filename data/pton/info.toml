@@ -1,7 +1,5 @@
 [project]
 name = "pton"
-
-[metadata]
 category = "TON fungible token contracts"
 description = "pTON v2.1 proxy TON minter and wallet contracts"
 

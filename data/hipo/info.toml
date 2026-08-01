@@ -1,7 +1,5 @@
 [project]
 name = "hipo"
-
-[metadata]
 category = "TON liquid staking contracts"
 description = "Hipo Finance hTON liquid-staking Treasury, Parent, Wallet, Loan, Bill, Collection, and Librarian contracts"
 

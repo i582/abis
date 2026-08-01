@@ -1,7 +1,5 @@
 [project]
 name = "cron"
-
-[metadata]
 category = "TON scheduler interfaces"
 description = "TON cron interface implementations exposing get_cron_info and cron_trigger external messages"
 

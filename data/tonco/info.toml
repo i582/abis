@@ -1,7 +1,5 @@
 [project]
 name = "tonco"
-
-[metadata]
 website = "https://tonco.io"
 app = "https://app.tonco.io"
 docs = "https://docs.tonco.io"

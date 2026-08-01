@@ -1,7 +1,5 @@
 [project]
 name = "nfts"
-
-[metadata]
 category = "TON non-fungible token contracts"
 description = "TEP-62, TEP-64, and TEP-66 NFT contracts with curated variant metadata"
 
