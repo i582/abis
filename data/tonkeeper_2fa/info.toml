@@ -1,12 +1,7 @@
 [project]
 name = "tonkeeper_2fa"
 category = "wallet extension"
-description = "Tonkeeper 2FA wallet extension contract"
-
-[[links]]
-kind = "website"
-title = "Tonkeeper website"
-url = "https://tonkeeper.com"
+description = "Curated Tonkeeper and MyTonWallet 2FA wallet extension contracts"
 
 [contracts.Tonkeeper2fa]
 display_name = "Tonkeeper 2FA Extension"
@@ -14,5 +9,29 @@ types = "types/tonkeeper_2fa.types.tolk"
 hashes = ["c5ef19df22aee8b707bd7a181174e400a4225223c5ae40d8320f5ddd707d34a1"]
 known_addresses = ["EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"]
 
+[[contracts.Tonkeeper2fa.links]]
+kind = "website"
+title = "Tonkeeper website"
+url = "https://tonkeeper.com"
+
 [contracts.Tonkeeper2fa.instances.canonical_toncenter]
 address = "EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"
+
+[contracts.MyTonWallet2fa]
+display_name = "MyTonWallet Telegram 2FA Extension"
+types = "mytonwallet_2fa/types/mytonwallet_2fa.types.tolk"
+hashes = ["14dbe27de307b26faf75361dc5429d1a14b5288f9a82ce08727513c02835e4f7"]
+known_addresses = ["EQCrhkjs2CbHTj5tJ7Ux1J7JiiLDAD9uC6qc9p3AvXBP0-8h"]
+
+[[contracts.MyTonWallet2fa.links]]
+kind = "website"
+title = "MyTonWallet website"
+url = "https://mytonwallet.io"
+
+[[contracts.MyTonWallet2fa.links]]
+kind = "source"
+title = "MyTonWallet Telegram 2FA extension source"
+url = "https://github.com/mytonwallet-org/tg2fa-extension/tree/7cbccf059c4600a4e350f3812416f3dee640d4ca"
+
+[contracts.MyTonWallet2fa.instances.representative_mainnet]
+address = "EQCrhkjs2CbHTj5tJ7Ux1J7JiiLDAD9uC6qc9p3AvXBP0-8h"
