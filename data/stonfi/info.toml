@@ -199,3 +199,14 @@ known_addresses = ["EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"]
 address = "EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"
 code_hash = "aab1db63f193a4aecaa3e3a959fc1784f1412b191a66ae870958405ba88114c7"
 network = "mainnet"
+
+[contracts.StonfiEscrowFactory]
+display_name = "STON.fi Escrow Factory"
+types = "escrow_factory/types/stonfi_escrow_factory.types.tolk"
+hashes = ["73b47bdad91b206afed4cc55207136992b5ae00f4a244d11b41f639eba6b5e1d"]
+known_addresses = ["EQAzSd3ZA9X_E5348_RxhVqGhY3kfN6fmS0Qi-XFghbpJrBn"]
+
+[contracts.StonfiEscrowFactory.instances.primary]
+address = "EQAzSd3ZA9X_E5348_RxhVqGhY3kfN6fmS0Qi-XFghbpJrBn"
+code_hash = "73b47bdad91b206afed4cc55207136992b5ae00f4a244d11b41f639eba6b5e1d"
+network = "mainnet"

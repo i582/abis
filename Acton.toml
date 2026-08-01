@@ -531,6 +531,12 @@ src = "data/stonfi/escrow_position/testdata/StonfiEscrowPosition.boc"
 types = "data/stonfi/escrow_position/types/stonfi_escrow_position.types.tolk"
 depends = []
 
+[contracts.StonfiEscrowFactory]
+display-name = "STON.fi Escrow Factory"
+src = "data/stonfi/escrow_factory/testdata/StonfiEscrowFactory.boc"
+types = "data/stonfi/escrow_factory/types/stonfi_escrow_factory.types.tolk"
+depends = []
+
 [contracts.OmnistonFeeVault]
 display-name = "Omniston Fee-Vault Minter"
 src = "data/omniston/testdata/OmnistonFeeVault.boc"
