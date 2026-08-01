@@ -84,9 +84,6 @@ jobs:
         with:
           version: ${{ env.ACTON_VERSION }}
 
-      - name: Install Acton standard library
-        run: acton init --stdlib-only
-
       - name: Restore Cargo cache
         uses: actions/cache/restore@v4
         with:
@@ -104,11 +101,16 @@ jobs:
         id: acton-cache
         uses: actions/cache/restore@v4
         with:
-          path: build/cache/
+          path: |
+            .acton/
+            build/cache/
           key: acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-quality-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-quality-
             acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-
+
+      - name: Build contracts
+        run: acton build
 
       - name: Build ABI catalog
         run: cargo xtask bundle --pretty
@@ -119,15 +121,14 @@ jobs:
       - name: Lint Tolk
         run: acton check --output-format github
 
-      - name: Build contracts
-        run: acton run compile-all-contracts
-
       - name: Save Acton cache
         if: always()
         uses: actions/cache/save@v4
         continue-on-error: true
         with:
-          path: build/cache/
+          path: |
+            .acton/
+            build/cache/
           key: ${{ steps.acton-cache.outputs.cache-primary-key }}
 
   acton-tests:
@@ -138,6 +139,9 @@ jobs:
 
     permissions:
       contents: read
+
+    env:
+      TONCENTER_MAINNET_API_KEY: ${{ secrets.TONCENTER_API_KEY }}
 
     strategy:
       fail-fast: false
@@ -156,23 +160,23 @@ jobs:
         with:
           version: ${{ env.ACTON_VERSION }}
 
-      - name: Install Acton standard library
-        run: acton init --stdlib-only
-
       - name: Restore Acton cache
         id: acton-cache
         uses: actions/cache/restore@v4
         with:
-          path: build/cache/
+          path: |
+            .acton/
+            build/cache/
           key: acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-tests-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-tests-${{ matrix.shard }}-
             acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-quality-
             acton-${{ runner.os }}-${{ env.ACTON_VERSION }}-
 
+      - name: Build contracts
+        run: acton build
+
       - name: Run Tolk test shard
-        env:
-          TONCENTER_API_KEY: ${{ secrets.TONCENTER_API_KEY }}
         run: acton run run-test-shard-${{ matrix.shard }}
 
       - name: Save Acton cache
@@ -180,5 +184,7 @@ jobs:
         uses: actions/cache/save@v4
         continue-on-error: true
         with:
-          path: build/cache/
+          path: |
+            .acton/
+            build/cache/
           key: ${{ steps.acton-cache.outputs.cache-primary-key }}
