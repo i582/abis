@@ -2,9 +2,9 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **231 contract entries**, **269 unique contract code hashes**, and **253 unique known contract addresses**.
+Current catalog size: **236 contract entries**, **274 unique contract code hashes**, and **257 unique known contract addresses**.
 
-Across the generated public catalog, the repository declares **989 unique opcode prefixes** and **440 unique get-method names**.
+Across the generated public catalog, the repository declares **1018 unique opcode prefixes** and **464 unique get-method names**.
 
 Each curated project group normally includes:
 
@@ -38,7 +38,7 @@ Each curated project group normally includes:
 | STON.fi | DEX core v1 router, pool, LP account, LP wallet, plus v2 router, pool variants, LP account, LP wallet, vault, and the Escrow Position, Factory, and Vault family. | `StonfiRouterV1`, `StonfiPoolV1`, `StonfiLpAccountV1`, `StonfiLpWalletV1`, `StonfiRouterV2`, `StonfiPoolV2ConstProduct`, `StonfiPoolV2Stableswap`, `StonfiPoolV2WeightedStableswap`, `StonfiPoolV2WeightedConstProduct`, `StonfiLpAccountV2`, `StonfiLpWalletV2`, `StonfiVaultV2`, `StonfiEscrowPosition`, `StonfiEscrowFactory`, `StonfiEscrowVault` |
 | Omniston | Standalone STON.fi Omniston Fee-Vault Minter for DeDust/Tonco referral-fee vault derivation, fee deposits, and payout routing. | `OmnistonFeeVault` |
 | DeDust | Protocol v1 factory, native vault, jetton vault, pool, liquidity deposit, v2 core contracts, separately curated library-backed CPMM pool family, and Uranus v3 launchpad contracts. | `DedustFactoryV1`, `DedustVaultNativeV1`, `DedustVaultJettonV1`, `DedustPoolV1`, `DedustLiquidityDepositV1`, `DedustFactoryV2`, `DedustVaultNativeV2`, `DedustVaultJettonV2`, `DedustPoolV2`, `DedustLiquidityDepositV2`, `DedustV2Cpmm`, `DedustUranusFactoryV3`, `DedustUranusMemeV3`, `DedustUranusMemeWalletV3` |
-| Coffee Swap | DEX factory/init, vaults, pool variants, pool creator, liquidity depository, LP wallet, staking, CrossDex, and MEV Protector. | `CoffeeFactory`, `CoffeeInit`, `CoffeeVaultNative`, `CoffeeVaultJetton`, `CoffeeVaultExtra`, `CoffeePoolConstantProduct`, `CoffeePoolCurveFiStable`, `CoffeePoolCreator`, `CoffeeLiquidityDepository`, `JettonWalletCoffeeLp`, `CoffeeStakingMaster`, `CoffeeStakingVault`, `CoffeeStakingItem`, `CoffeeCrossDex`, `CoffeeMevProtector` |
+| Coffee Swap | DEX factory/init, vaults, pool variants, pool creator, liquidity depository, LP wallet, staking, current and historical CrossDex profiles, and MEV Protector. | `CoffeeFactory`, `CoffeeInit`, `CoffeeVaultNative`, `CoffeeVaultJetton`, `CoffeeVaultExtra`, `CoffeePoolConstantProduct`, `CoffeePoolCurveFiStable`, `CoffeePoolCreator`, `CoffeeLiquidityDepository`, `JettonWalletCoffeeLp`, `CoffeeStakingMaster`, `CoffeeStakingVault`, `CoffeeStakingItem`, `CoffeeCrossDex`, `CoffeeCrossDexLegacy`, `CoffeeCrossDexBidask`, `CoffeeMevProtector` |
 | TONCO | Router, pool, account, pool factory, and position NFT. | `Router`, `Pool`, `Account`, `PoolFactory`, `PositionNFT` |
 | Bidask | DLMM/DAMM pool factory, pool, range, LP multitoken, internal liquidity vault, DAMM pool, and DAMM LP wallet. | `BidaskPoolFactory`, `BidaskPool`, `BidaskRange`, `BidaskLpMultitoken`, `BidaskInternalLiquidityVault`, `BidaskDammPool`, `BidaskDammLpWallet` |
 | StonksPump | Virtual-liquidity Jetton minters and deployment factories for STON.fi and DeDust launch flows. | `StonksPumpVirtualMinter`, `StonksPumpVirtualFactory` |
@@ -87,6 +87,8 @@ Each curated project group normally includes:
 | Payment Channels | Asynchronous two-party payment channel with cooperative and uncooperative settlement.   | `AsyncPaymentChannel` |
 | GRAM | Proof-of-work GRAM miner with adaptive complexity and signed administration.            | `GramMiner` |
 | Cocoon | Confidential-compute Root, Proxy, Client, Worker, and control Wallet contracts.          | `CocoonRoot`, `CocoonProxy`, `CocoonClient`, `CocoonWorker`, `CocoonWallet` |
+| XTR | Telegram Stars purchase orchestration, versioned user/payment routing, and supply accounting. | `XtrMaster` |
+| TonPay | Historical Store v11 and Invoice v9 contracts confirmed from exact official sources and live deployments. | `TonpayStoreV11`, `TonpayInvoiceV9` |
 | Tonkeeper Subscriptions | Subscription V1 and V2 wallet/plugin contracts.                                         | `SubscriptionV1`, `SubscriptionV2` |
 | TON Cron | Cron interface implementations with `get_cron_info` and `cron_trigger` external bodies. | `Cron` |
 | Wallet 2FA Extensions | Tonkeeper and MyTonWallet wallet extension contracts.                            | `Tonkeeper2fa`, `MyTonWallet2fa` |

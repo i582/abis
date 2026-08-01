@@ -861,6 +861,18 @@ src = "data/coffee/cross_dex/testdata/CoffeeCrossDex.boc"
 types = "data/coffee/cross_dex/types/coffee_cross_dex.types.tolk"
 depends = []
 
+[contracts.CoffeeCrossDexLegacy]
+display-name = "Coffee CrossDex Legacy"
+src = "data/coffee/cross_dex_legacy/testdata/CoffeeCrossDexLegacy.boc"
+types = "data/coffee/cross_dex_legacy/types/coffee_cross_dex_legacy.types.tolk"
+depends = []
+
+[contracts.CoffeeCrossDexBidask]
+display-name = "Coffee CrossDex Bidask"
+src = "data/coffee/cross_dex_bidask/testdata/CoffeeCrossDexBidask.boc"
+types = "data/coffee/cross_dex_bidask/types/coffee_cross_dex_bidask.types.tolk"
+depends = []
+
 [contracts.CoffeeMevProtector]
 display-name = "Coffee MEV Protector"
 src = "data/coffee/mev_protector/testdata/CoffeeMevProtector.boc"
@@ -1323,6 +1335,24 @@ src = "data/pyth_oracle/testdata/PythOracle.boc"
 types = "data/pyth_oracle/types/pyth_oracle.types.tolk"
 depends = []
 
+[contracts.XtrMaster]
+display-name = "XTR Master"
+src = "data/xtr/master/testdata/XtrMaster.boc"
+types = "data/xtr/master/types/xtr_master.types.tolk"
+depends = []
+
+[contracts.TonpayStoreV11]
+display-name = "TonPay Store v11"
+src = "data/tonpay/store_v11/testdata/TonpayStoreV11.boc"
+types = "data/tonpay/store_v11/types/tonpay_store_v11.types.tolk"
+depends = []
+
+[contracts.TonpayInvoiceV9]
+display-name = "TonPay Invoice v9"
+src = "data/tonpay/invoice_v9/testdata/TonpayInvoiceV9.boc"
+types = "data/tonpay/invoice_v9/types/tonpay_invoice_v9.types.tolk"
+depends = []
+
 [scripts]
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
 daolama-message-bodies-test = "acton test data/daolama/tests/daolama_vault_message_bodies.test.tolk --show-bodies"
@@ -1331,6 +1361,12 @@ wton-message-bodies-test = "acton test data/megatonfi/tests/wton_message_bodies.
 wton-storage-test = "acton test data/megatonfi/tests/wton_storage.test.tolk --show-bodies"
 pyth-oracle-storage-test = "acton test data/pyth_oracle/tests/pyth_oracle_storage.test.tolk --show-bodies"
 pyth-oracle-message-bodies-test = "acton test data/pyth_oracle/tests/pyth_oracle_message_bodies.test.tolk --show-bodies"
+xtr-master-mainnet-test = "acton test data/xtr/master/tests/xtr_master_mainnet.test.tolk --fork-net mainnet --fork-block-number 80293614 --show-bodies"
+xtr-master-message-bodies-test = "acton test data/xtr/master/tests/xtr_master_message_bodies.test.tolk --show-bodies"
+tonpay-store-v11-mainnet-test = "acton test data/tonpay/store_v11/tests/tonpay_store_v11_mainnet.test.tolk --fork-net mainnet --fork-block-number 43379093 --show-bodies"
+tonpay-store-v11-message-bodies-test = "acton test data/tonpay/store_v11/tests/tonpay_store_v11_message_bodies.test.tolk --show-bodies"
+tonpay-invoice-v9-mainnet-test = "acton test data/tonpay/invoice_v9/tests/tonpay_invoice_v9_mainnet.test.tolk --fork-net mainnet --fork-block-number 43379093 --show-bodies"
+tonpay-invoice-v9-message-bodies-test = "acton test data/tonpay/invoice_v9/tests/tonpay_invoice_v9_message_bodies.test.tolk --show-bodies"
 aqua-usd-master-vault-storage-test = "acton test data/aqua/tests/aqua_usd_master_vault_storage.test.tolk --show-bodies"
 aqua-usd-master-vault-message-bodies-test = "acton test data/aqua/tests/aqua_usd_master_vault_message_bodies.test.tolk --show-bodies"
 stakee-test = "acton test data/stakee --show-bodies"
@@ -1524,6 +1560,7 @@ wallet-v3r2-mainnet-test = "acton test data/wallets/w3r2/tests/wallet_v3r2.test.
 wallet-v4r1-mainnet-test = "acton test data/wallets/w4r1/tests/wallet_v4r1.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 wallet-v4r2-mainnet-test = "acton test data/wallets/w4r2/tests/wallet_v4r2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 wallet-v5r1-mainnet-test = "acton test data/wallets/w5r1/tests/wallet_v5r1.test.tolk --fork-net mainnet --fork-block-number 70781329 --show-bodies"
+wallet-v5r1-regressions-test = "acton test data/wallets/w5r1/tests/wallet_v5r1_regressions.test.tolk --show-bodies"
 wallet-highload-v1r1-test = "acton test data/wallets/highload_v1r1/tests/wallet_highload_v1r1.test.tolk --show-bodies"
 wallet-highload-v1r2-test = "acton test data/wallets/highload_v1r2/tests/wallet_highload_v1r2.test.tolk --show-bodies"
 wallet-highload-v2-mainnet-test = "acton test data/wallets/highload_v2/tests/wallet_highload_v2.test.tolk --fork-net mainnet --fork-block-number 70789035 --show-bodies"
@@ -1547,7 +1584,11 @@ telemint-mainnet-test = "acton test data/telemint/tests --fork-net mainnet --for
 dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
-coffee-test = "acton test data/coffee --fork-net mainnet --fork-block-number 71349505 --show-bodies"
+coffee-test = "acton test data/coffee --exclude 'data/coffee/cross_dex_legacy/**' --exclude 'data/coffee/cross_dex_bidask/**' --fork-net mainnet --fork-block-number 71349505 --show-bodies"
+coffee-cross-dex-legacy-mainnet-test = "acton test data/coffee/cross_dex_legacy/tests/coffee_cross_dex_legacy_mainnet.test.tolk --fork-net mainnet --fork-block-number 48441113 --show-bodies"
+coffee-cross-dex-bidask-mainnet-test = "acton test data/coffee/cross_dex_bidask/tests/coffee_cross_dex_bidask_mainnet.test.tolk --fork-net mainnet --fork-block-number 50935347 --show-bodies"
+coffee-cross-dex-legacy-message-bodies-test = "acton test data/coffee/cross_dex_legacy/tests/coffee_cross_dex_legacy_message_bodies.test.tolk --show-bodies"
+coffee-cross-dex-bidask-message-bodies-test = "acton test data/coffee/cross_dex_bidask/tests/coffee_cross_dex_bidask_message_bodies.test.tolk --show-bodies"
 dedust-uranus-test = "acton test data/dedust/uranus --show-bodies"
 fragment-marketapp-proxy-test = "acton test data/fragment/marketapp_proxy --show-bodies"
 storm-executor-message-bodies-test = "acton test data/storm/executor/tests/storm_executor_message_bodies.test.tolk --show-bodies"
@@ -1619,6 +1660,9 @@ acton run verifier-registry-message-bodies-test
 acton run cocoon-client-mainnet-test
 acton run grambo-jetton-master-mainnet-test
 acton run grambo-jetton-wallet-mainnet-test
+acton run xtr-master-message-bodies-test
+acton run coffee-cross-dex-bidask-message-bodies-test
+acton run tonpay-store-v11-mainnet-test
 """
 
 run-test-shard-2 = """
@@ -1680,6 +1724,8 @@ acton run cocoon-root-mainnet-test
 acton run mytonwallet-2fa-mainnet-test
 acton run cocoon-worker-mainnet-test
 acton run cocoon-wallet-mainnet-test
+acton run coffee-cross-dex-legacy-mainnet-test
+acton run tonpay-invoice-v9-message-bodies-test
 """
 
 run-test-shard-3 = """
@@ -1705,6 +1751,7 @@ acton run wallet-v2r1-mainnet-test
 acton run wallet-v3r1-mainnet-test
 acton run wallet-v4r1-mainnet-test
 acton run wallet-v5r1-mainnet-test
+acton run wallet-v5r1-regressions-test
 acton run wallet-highload-v2r1-mainnet-test
 acton run wallet-highload-v3r1-mainnet-test
 acton run wallet-multisig-v2-mainnet-test
@@ -1747,6 +1794,9 @@ acton run cocoon-proxy-message-bodies-test
 acton run mytonwallet-2fa-message-bodies-test
 acton run cocoon-client-message-bodies-test
 acton run grambo-jetton-master-message-bodies-test
+acton run xtr-master-mainnet-test
+acton run coffee-cross-dex-legacy-message-bodies-test
+acton run tonpay-invoice-v9-mainnet-test
 """
 
 run-test-shard-4 = """
@@ -1797,6 +1847,8 @@ acton run cocoon-proxy-mainnet-test
 acton run cocoon-worker-message-bodies-test
 acton run cocoon-wallet-message-bodies-test
 acton run grambo-jetton-wallet-message-bodies-test
+acton run coffee-cross-dex-bidask-mainnet-test
+acton run tonpay-store-v11-message-bodies-test
 """
 
 run-all-tests = """
