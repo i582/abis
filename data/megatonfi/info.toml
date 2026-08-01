@@ -35,11 +35,8 @@ known_addresses = [
 
 [contracts.WtonMinter.instances.mainnet]
 name = "Wrapped TON"
-symbol = "WTON"
-decimals = 9
 address = "EQCajaUU1XXSAjTD-xOV7pE49fGtg4q8kF3ELCOJtGvQFQ2C"
-raw_address = "0:9A8DA514D575D20234C3FB1395EE9138F5F1AD838ABC905DC42C2389B46BD015"
-hash = "32cb6360cb659a7d9a6f12ef58b86b9de8595f9d963a978b5cd77fb913252283"
+code_hash = "32cb6360cb659a7d9a6f12ef58b86b9de8595f9d963a978b5cd77fb913252283"
 network = "mainnet"
 
 [contracts.WtonWallet]
@@ -54,7 +51,6 @@ known_addresses = [
 
 [contracts.WtonWallet.instances.message_fixture]
 address = "EQAWj6jxQqzvrqHJyCDQplG2XAYUwgeFsWRQBIoFTSoRPYVz"
-raw_address = "0:168FA8F142ACEFAEA1C9C820D0A651B65C0614C20785B16450048A054D2A113D"
 owner_address = "0:A186B2888BF01BF9CC177D7C34A45318D4CC041957DBDACEA0C0328DB8665DA2"
-hash = "c12275085ec7dd21925c33a919680186022c6f2a4ced45dbce3d3e14d438dc0f"
+code_hash = "c12275085ec7dd21925c33a919680186022c6f2a4ced45dbce3d3e14d438dc0f"
 network = "mainnet"

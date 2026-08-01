@@ -31,9 +31,7 @@ known_addresses = ["EQDEYkZr7HrYewkv1amJwkfMyrrNcZqVSAEPuOg3nr6d8FT7"]
 
 [contracts.StorageProvider.instances.mainnet_sample]
 address = "EQDEYkZr7HrYewkv1amJwkfMyrrNcZqVSAEPuOg3nr6d8FT7"
-raw_address = "0:C462466BEC7AD87B092FD5A989C247CCCABACD719A9548010FB8E8379EBE9DF0"
 network = "mainnet"
-source = "verified active account with matching code hash"
 
 [contracts.StorageContract]
 display_name = "TON Storage Contract"
@@ -46,12 +44,8 @@ known_addresses = [
 
 [contracts.StorageContract.instances.mainnet_sample]
 address = "EQCdNyptyckH9K9numWAaQIlwBq3rl1GLelUeQUYJucpC2XE"
-raw_address = "0:9D372A6DC9C907F4AF67BA6580690225C01AB7AE5D462DE95479051826E7290B"
 network = "mainnet"
-source = "verified active account with matching code hash"
 
 [contracts.StorageContract.instances.historical_message_sample]
 address = "EQAM3RWVQ18gX-b5iVxh1IT-g2qfaa12vZyYd8JDXTj1JznW"
-raw_address = "0:0CDD1595435F205FE6F9895C61D484FE836A9F69AD76BD9C9877C2435D38F527"
 network = "mainnet"
-source = "historical active account with deploy, accept, proof, and close transaction bodies"

@@ -32,20 +32,10 @@ known_addresses = [
 
 [contracts.AsyncPaymentChannel.instances.mainnet]
 address = "EQA4Ntk6B2Sq-LbHoZ-11FFgr43o3dk5hS3w5G3OkOzHhQEG"
-raw_address = "0:3836D93A0764AAF8B6C7A19FB5D45160AF8DE8DDD939852DF0E46DCE90ECC785"
-code_hash_base64 = "QfW3fwLUqW60ZRlyFe0Akjcgpscx+jKTT5wOgP+4VYk="
-data_hash_base64 = "8/SuNu7MmpOWhruoPzb9vZtJnspk9YV9rDoknjBPVaA="
-balance_nanotons = 0
-last_transaction_hash = "82uVGLNVwItvokSp+jaM2laz9lLw7UVUKxyYJNm83oI="
-last_transaction_lt = "68092282000003"
+code_hash = "41f5b77f02d4a96eb465197215ed00923720a6c731fa32934f9c0e80ffb85589"
 network = "mainnet"
 
 [contracts.AsyncPaymentChannel.instances.testnet]
 address = "kQClVG6IR5SgYv3p8i4RvmgF6UOdCSfxEKwzFXUgxLpyeiLk"
-raw_address = "0:A5546E884794A062FDE9F22E11BE6805E9439D0927F110AC33157520C4BA727A"
-code_hash_base64 = "5Gzxt4vId7HVdFiImLdL4Gy5Ju8g9p3lXoUjaXTwX7g="
-data_hash_base64 = "8gXP48RzriTcxZ1X5ADsfcLKGITVNIUtHKlzV2wNhgU="
-balance_nanotons = 103600
-last_transaction_hash = "Pn2UytPTGXN40lthi/X53x0mJerYQ1T6yUa+aKrLNzQ="
-last_transaction_lt = "45149231000014"
+code_hash = "e46cf1b78bc877b1d574588898b74be06cb926ef20f69de55e85236974f05fb8"
 network = "testnet"

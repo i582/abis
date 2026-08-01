@@ -74,7 +74,6 @@ url = "https://docs.bidask.finance/contracts/dlmm/range"
 
 [contracts.BidaskRange.instances.pool_active_range]
 address = "EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"
-pool = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
 network = "mainnet"
 
 [contracts.BidaskLpMultitoken]
@@ -109,7 +108,6 @@ known_addresses = ["EQDW_6A6NcARhuLMhP419XpPDCTqlx_dzaZ_lBcdwp4YHjYQ"]
 
 [contracts.BidaskInternalLiquidityVault.instances.pool_save_liquidity]
 address = "EQDW_6A6NcARhuLMhP419XpPDCTqlx_dzaZ_lBcdwp4YHjYQ"
-pool = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
 network = "mainnet"
 
 [contracts.BidaskDammPool]
@@ -140,6 +138,4 @@ url = "https://docs.bidask.finance/contracts/damm/lp_wallet"
 
 [contracts.BidaskDammLpWallet.instances.historical_mint_trace]
 address = "UQAQgXFtrRR75df--xawoNTSgaNZkb3YYMXveeslFSBt4Blc"
-status = "nonexist"
-pool = "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"
 network = "mainnet"

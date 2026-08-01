@@ -43,8 +43,6 @@ known_addresses = ["EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"]
 
 [contracts.StormVault.instances.usdt]
 address = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
-raw_address = "0:33E9E84D7CBEFFF0D23B395875420E3A1ECB82E241692BE89C7EA2BD27716B77"
-asset = "USDT"
 network = "mainnet"
 
 [contracts.StormVaultNative]
@@ -55,8 +53,6 @@ known_addresses = ["EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"]
 
 [contracts.StormVaultNative.instances.ton]
 address = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
-raw_address = "0:E926764FF3D272C73DDEB836975C5521C025AD68E7919A25094E2DE3198805F1"
-asset = "TON"
 network = "mainnet"
 
 [contracts.StormVamm]
@@ -67,9 +63,6 @@ known_addresses = ["EQA8kxbUovK2p21p55S9iZA0mbX3mPZus6_rAkHioW9iNjeZ"]
 
 [contracts.StormVamm.instances.ton_usdt]
 address = "EQA8kxbUovK2p21p55S9iZA0mbX3mPZus6_rAkHioW9iNjeZ"
-raw_address = "0:3C9316D4A2F2B6A76D69E794BD89903499B5F798F66EB3AFEB0241E2A16F6236"
-base_asset = "TON"
-settlement_asset = "USDT"
 vault = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
 network = "mainnet"
 
@@ -81,9 +74,6 @@ known_addresses = ["EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"]
 
 [contracts.StormVammCoinm.instances.ton_ton]
 address = "EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"
-raw_address = "0:241E480E9ADB0CDF40E2E3EC3BB0CF524FB520CCA02B2E292E734817BC291FFB"
-base_asset = "TON"
-settlement_asset = "TON"
 vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
 network = "mainnet"
 
@@ -95,8 +85,6 @@ known_addresses = ["EQAlEeKROSs9N0UbTw2lWgns8EKjaNs7HmAwVpHc-L_MMjBd"]
 
 [contracts.SmartAccount.instances.factory_deploy_sample]
 address = "EQAlEeKROSs9N0UbTw2lWgns8EKjaNs7HmAwVpHc-L_MMjBd"
-raw_address = "0:2511E291392B3D37451B4F0DA55A09ECF042A368DB3B1E60305691DCF8BFCC32"
-source = "SmartAccountFactory deploy trace"
 network = "mainnet"
 
 [contracts.SmartAccountBlank]
@@ -113,8 +101,6 @@ known_addresses = ["EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"]
 
 [contracts.SmartAccountFactory.instances.main]
 address = "EQA34l2ywiFdu_kb-HZMqLngFVDjw0DJZHo1aBokOap8xVMU"
-raw_address = "0:37E25DB2C2215DBBF91BF8764CA8B9E01550E3C340C9647A35681A2439AA7CC5"
-source = "vault whitelist"
 network = "mainnet"
 
 [contracts.StormPositionManager]
@@ -125,7 +111,6 @@ known_addresses = ["EQCoTFvejJcAm5J0gZYLS88Ce0PATCRV4hF5MEdfGaLZuAPm"]
 
 [contracts.StormPositionManager.instances.ton_usdt_trader_sample]
 address = "EQCoTFvejJcAm5J0gZYLS88Ce0PATCRV4hF5MEdfGaLZuAPm"
-raw_address = "0:A84C5BDE8C97009B927481960B4BCF027B43C04C2455E2117930475F19A2D9B8"
 trader = "0:D831EDF7B738514F7C7783719E1F3775BA5AF00BD08226F737BB58C63DB945D1"
 vault = "0:33E9E84D7CBEFFF0D23B395875420E3A1ECB82E241692BE89C7EA2BD27716B77"
 vamm = "0:3C9316D4A2F2B6A76D69E794BD89903499B5F798F66EB3AFEB0241E2A16F6236"
@@ -147,19 +132,16 @@ known_addresses = [
 
 [contracts.StormPositionManagerLegacy.instances.ton_coinm_8b96]
 address = "EQDtv6ZjIj1mCbeD9Agi7Ug1Rubp58w3nIn8BME8rNiwm9Wz"
-raw_address = "0:EDBFA663223D6609B783F40822ED483546E6E9E7CC379C89FC04C13CACD8B09B"
 vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
 vamm = "EQAkHkgOmtsM30Di4-w7sM9ST7UgzKArLikuc0gXvCkf-39Z"
 network = "mainnet"
 
 [contracts.StormPositionManagerLegacy.instances.variant_4993]
 address = "EQC2DtJs9lNMsqdOFOfXYGz5Q6Wc7utDRE8sQqSrGuchrz2x"
-raw_address = "0:B60ED26CF6534CB2A74E14E7D7606CF943A59CEEEB43444F2C42A4AB1AE721AF"
 network = "mainnet"
 
 [contracts.StormPositionManagerLegacy.instances.variant_d8e2]
 address = "EQClRfrgmpoVryZ425hiA5v5i5Tw3TDwzrYOgprlmciQA_xu"
-raw_address = "0:A545FAE09A9A15AF2678DB9862039BF98B94F0DD30F0CEB60E829AE599C89003"
 network = "mainnet"
 
 [contracts.StormReferral]
@@ -170,7 +152,6 @@ known_addresses = ["EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"]
 
 [contracts.StormReferral.instances.item_0]
 address = "EQDxf_sZ36mzlSCO0nvgAGVno8hUQ8BY5NBq7iVxxlIH9DdY"
-raw_address = "0:F17FFB19DFA9B395208ED27BE0006567A3C85443C058E4D06AEE2571C65207F4"
 collection = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
 index = 0
 network = "mainnet"
@@ -183,8 +164,6 @@ known_addresses = ["EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"]
 
 [contracts.StormReferralCollection.instances.main]
 address = "EQBQwk4uEjMlB54tkmVIuDQZSZivN3AT8ozcoa2ELqf2Im6U"
-raw_address = "0:50C24E2E123325079E2D926548B834194998AF377013F28CDCA1AD842EA7F622"
-source = "api_config.referralCollectionAddress"
 network = "mainnet"
 
 [contracts.StormExecutor]
@@ -195,7 +174,6 @@ known_addresses = ["EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"]
 
 [contracts.StormExecutor.instances.item_0]
 address = "EQDeA8aTt-gxy5nNbbqsoXRQtBYj5ND7LLOrODdUsuZm_bWD"
-raw_address = "0:DE03C693B7E831CB99CD6DBAACA17450B41623E4D0FB2CB3AB383754B2E666FD"
 collection = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
 index = 0
 network = "mainnet"
@@ -208,8 +186,6 @@ known_addresses = ["EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"]
 
 [contracts.StormExecutorCollection.instances.main]
 address = "EQAR1cNVy6K6PV2f_kdrjVziJpWZUW7_HWQV9l4pE7YBSvrZ"
-raw_address = "0:11D5C355CBA2BA3D5D9FFE476B8D5CE2269599516EFF1D6415F65E2913B6014A"
-source = "vault.get_executor_collection_address"
 network = "mainnet"
 
 [contracts.StormPrelaunch]
@@ -220,8 +196,6 @@ known_addresses = ["EQB-ayedPowUtiEAIfdNBdp_1J_VlbdvedfRyp8-3yrAhtMC"]
 
 [contracts.StormPrelaunch.instances.pre_ico]
 address = "EQB-ayedPowUtiEAIfdNBdp_1J_VlbdvedfRyp8-3yrAhtMC"
-raw_address = "0:7E6B279D3E8C14B6210021F74D05DA7FD49FD595B76F79D7D1CA9F3EDF2AC086"
-source = "api_config.preIcoAddress"
 network = "mainnet"
 
 [contracts.StormLpMinter]
@@ -235,16 +209,12 @@ known_addresses = [
 
 [contracts.StormLpMinter.instances.ton]
 address = "EQCNY2AQ3ZDYwJAqx_nzl9i9Xhd_Ex7izKJM6JTxXRnO6n1F"
-raw_address = "0:8D636010DD90D8C0902AC7F9F397D8BD5E177F131EE2CCA24CE894F15D19CEEA"
 vault = "EQDpJnZP89Jyxz3euDaXXFUhwCWtaOeRmiUJTi3jGYgF8fnj"
-asset = "TON"
 network = "mainnet"
 
 [contracts.StormLpMinter.instances.usdt]
 address = "EQCup4xxCulCcNwmOocM9HtDYPU8xe0449tQLp6a-5BLEegW"
-raw_address = "0:AEA78C710AE94270DC263A870CF47B4360F53CC5ED38E3DB502E9E9AFB904B11"
 vault = "EQAz6ehNfL7_8NI7OVh1Qg46HsuC4kFpK-icfqK9J3Frd6CJ"
-asset = "USDT"
 network = "mainnet"
 
 [contracts.StormLpWallet]
@@ -255,8 +225,6 @@ known_addresses = ["EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"]
 
 [contracts.StormLpWallet.instances.catalog_candidate]
 address = "EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"
-raw_address = "0:2518198125D9904F2F67CB7FA3BDF7063DD835BDC5F74C4160376B5D6F5E2C91"
-source = "contracts.json hash lookup for LP wallet code hash"
 network = "mainnet"
 
 [contracts.StormLibraryDeployer]

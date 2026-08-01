@@ -40,8 +40,6 @@ url = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/con
 types = "types/locker_bill.types.tolk"
 hashes = ["bb9ba6dafd7372b81ee66d7dbfca388e7384998a3ae1790b871ce672185c7829"]
 known_addresses = ["EQAMOAT3OoX8weD8Z4IlkEL-M2WQxg3Dz4KFeMBoWjkgSykt"]
-observed_method_ids = [118274]
-notes = "Official per-user bill contract for Locker. Code hash was compiled locally from current upstream FunC with local FunC v0.4.6 and verified against a live Toncenter locker_bill account."
 
 [[contracts.LockerBill.links]]
 kind = "source"

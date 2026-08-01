@@ -20,7 +20,6 @@ research = "research/stakee_pool.md"
 
 [contracts.StakeePool.instances.mainnet]
 address = "EQD2_4d91M4TVbEBVyBF8J1UwpMJc361LKVCz6bBlffMW05o"
-raw_address = "0:F6FF877DD4CE1355B101572045F09D54C29309737EB52CA542CFA6C195F7CC5B"
 network = "mainnet"
 
 [contracts.StakeeValidatorController]
@@ -35,7 +34,6 @@ research = "research/stakee_validator_controller.md"
 
 [contracts.StakeeValidatorController.instances.mainnet]
 address = "Ef8uWHmq2-BsU8q984j_JqDwtZv7SCY2bTz5eBT5GrNeAcHX"
-raw_address = "-1:2E5879AADBE06C53CABDF388FF26A0F0B59BFB4826366D3CF97814F91AB35E01"
 network = "mainnet"
 
 [contracts.StakeedMinter]
@@ -50,7 +48,6 @@ research = "research/stakeed_minter.md"
 
 [contracts.StakeedMinter.instances.mainnet]
 address = "EQCqC6EhRJ_tpWngKxL6dV0k6DSnRUrs9GSVkLbfdCqsj6TE"
-raw_address = "0:AA0BA121449FEDA569E02B12FA755D24E834A7454AECF4649590B6DF742AAC8F"
 network = "mainnet"
 
 [contracts.StakeedWallet]
@@ -65,7 +62,6 @@ research = "research/stakeed_wallet.md"
 
 [contracts.StakeedWallet.instances.mainnet]
 address = "EQAtCWVbs2vyDHr0_WLUz5J5FAZySX1R2xPCDzUJ2iNYCzOq"
-raw_address = "0:2D09655BB36BF20C7AF4FD62D4CF9279140672497D51DB13C20F3509DA23580B"
 network = "mainnet"
 
 [contracts.StakeePayoutCollection]
@@ -80,7 +76,6 @@ research = "research/stakee_payout_collection.md"
 
 [contracts.StakeePayoutCollection.instances.mainnet]
 address = "EQAov2TtT-ccMsvLz_yhUkp0MV5MG2J0fKx2qx_xu9rXcUY3"
-raw_address = "0:28BF64ED4FE71C32CBCBCFFC21D24A74315E4C1B62747CAC76AB1FF1BBDAD771"
 network = "mainnet"
 
 [contracts.StakeePayoutItem]
@@ -95,5 +90,4 @@ research = "research/stakee_payout_item.md"
 
 [contracts.StakeePayoutItem.instances.mainnet]
 address = "EQBXSRr2B-Sqw3G3ZnHNC978MaPvD0SceFDT8GoS4AR6U8xC"
-raw_address = "0:57491AF607E4AAC371B76671CD0BDEFC31A3EF0F449C7850D3F06A12E0047A53"
 network = "mainnet"

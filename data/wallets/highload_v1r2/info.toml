@@ -21,5 +21,4 @@ url = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highlo
 [contracts.WalletHighloadV1r2]
 types = "types/wallet_highload_v1r2.types.tolk"
 hashes = ["0dceed21269d66013e95b19fbb5c55a6f01adad40837baa8e521cde3a02aa46c"]
-code_hash_base64 = "Dc7tISadZgE+lbGfu1xVpvAa2tQIN7qo5SHN46AqpGw="
 known_addresses = []

@@ -25,7 +25,6 @@ url = "https://github.com/TelegramMessenger/telemint"
 
 [contracts.FragmentUsernameCollection.instances.mainnet]
 address = "EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"
-raw_address = "0:80D78A35F955A14B679FAA887FF4CD5BFC0F43B4A4EEA2A7E6927F3701B273C2"
 network = "mainnet"
 
 [contracts.FragmentNumbersCollection]
@@ -45,7 +44,6 @@ url = "https://github.com/TelegramMessenger/telemint"
 
 [contracts.FragmentNumbersCollection.instances.mainnet]
 address = "EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"
-raw_address = "0:0E41DC1DC3C9067ED24248580E12B3359818D83DEE0304FABCF80845EAFAFDB2"
 network = "mainnet"
 
 [contracts.FragmentUsernameItem]
@@ -65,7 +63,6 @@ url = "https://github.com/TelegramMessenger/telemint"
 
 [contracts.FragmentUsernameItem.instances.mainnet]
 address = "EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"
-raw_address = "0:6AB3CA65D5D24E65E5C2DE5B299D89DE0476A0ED56D0F732A4BF8229413DE79E"
 network = "mainnet"
 
 [contracts.FragmentNumbersItem]
@@ -85,7 +82,6 @@ url = "https://github.com/TelegramMessenger/telemint"
 
 [contracts.FragmentNumbersItem.instances.mainnet]
 address = "EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"
-raw_address = "0:A44250ECE39DB1FEFB2920AABF3D395497C0744B8DBB4442EBFFAD836EBA3B83"
 network = "mainnet"
 
 [contracts.FragmentMarketappProxyKnown]
@@ -100,7 +96,6 @@ research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxyKnown.instances.mainnet]
 address = "EQCYCA-47lALps90xoFFIPVznOsiHlWVKF3cEDChKgP3JYEf"
-raw_address = "0:98080FB8EE500BA6CF74C6814520F5739CEB221E5595285DDC1030A12A03F725"
 network = "mainnet"
 
 [contracts.FragmentMarketappProxySimple]
@@ -115,7 +110,6 @@ research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxySimple.instances.mainnet]
 address = "EQANvQrhZdnFuw3DKsYeQwffxnTdER9TTZ_br2eT_lTu_mGz"
-raw_address = "0:0DBD0AE165D9C5BB0DC32AC61E4307DFC674DD111F534D9FDBAF6793FE54EEFE"
 network = "mainnet"
 
 [contracts.FragmentMarketappProxyJetton]
@@ -130,5 +124,4 @@ research = "research/fragment_marketapp_proxy.md"
 
 [contracts.FragmentMarketappProxyJetton.instances.mainnet]
 address = "EQCpwa0v6lvGA01uKGfsW1CK1Nd59aO_xVFGGHPy7JTghHTB"
-raw_address = "0:A9C1AD2FEA5BC6034D6E2867EC5B508AD4D779F5A3BFC551461873F2EC94E084"
 network = "mainnet"

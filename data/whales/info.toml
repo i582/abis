@@ -16,12 +16,10 @@ display_name = "Ton Whales Nominators Pool"
 types = "pool/types/whales_pool.types.tolk"
 hashes = ["5d6267a6d5a325b1075c0ba80a12a4a03c7f4f674eeaf28ee4165df5352e578d"]
 known_addresses = ["EQCkR1cGmnsE45N4K0otPl5EnxnRakmGqeJUNua5fkWhales"]
-related_asset_symbols = ["TON"]
 
 [contracts.WhalesPool.instances.mainnet]
 address = "EQCkR1cGmnsE45N4K0otPl5EnxnRakmGqeJUNua5fkWhales"
-raw_address = "0:A44757069A7B04E393782B4A2D3E5E449F19D16A4986A9E25436E6B97E45A16A"
-code_hash_base64 = "XWJnptWjJbEHXAuoChKkoDx/T2dO6vKO5BZd9TUuV40="
+code_hash = "5d6267a6d5a325b1075c0ba80a12a4a03c7f4f674eeaf28ee4165df5352e578d"
 proxy = "Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"
 network = "mainnet"
 
@@ -30,11 +28,8 @@ display_name = "Ton Whales Nominators Proxy"
 types = "proxy/types/whales_proxy.types.tolk"
 hashes = ["6097b64a3b9db526a6b26497afeae3f224a8f639d37b6534d46df21fe0589c21"]
 known_addresses = ["Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"]
-related_asset_symbols = ["TON"]
 
 [contracts.WhalesProxy.instances.mainnet]
 address = "Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"
-raw_address = "-1:16D6F0A9035B6BF71AFA4125D2C5C552767D529BB4985FF3C259074295A5A16A"
-code_hash_base64 = "YJe2SjudtSamsmSXr+rj8iSo9jnTe2U01G3yH+BYnCE="
-pool = "EQCkR1cGmnsE45N4K0otPl5EnxnRakmGqeJUNua5fkWhales"
+code_hash = "6097b64a3b9db526a6b26497afeae3f224a8f639d37b6534d46df21fe0589c21"
 network = "mainnet"

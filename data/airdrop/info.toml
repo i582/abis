@@ -11,11 +11,7 @@ known_addresses = ["EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"]
 
 [contracts.AirdropInterlockerV1.instances.claimed_sample]
 address = "EQAEJuROARXd5NePsr6NJujD67mQslW5KI004drUaBt2ILCT"
-raw_address = "0:0426E44E0115DDE4D78FB2BE8D26E8C3EBB990B255B9288D34E1DAD4681B7620"
-code_hash_base64 = "rNK47E23QUOW+lNphlPswEpBbuNknY9bILQfF2rYM/A="
-last_transaction_hash = "eYMUmlAgJPk0bV0leBD8jbrKXYz81A1L6DrLiXnH+AA="
-last_transaction_lt = "57453075000003"
-last_transaction_time_utc = "2025-05-22T14:29:17Z"
+code_hash = "acd2b8ec4db7414396fa53698653ecc04a416ee3649d8f5b20b41f176ad833f0"
 network = "mainnet"
 
 [contracts.AirdropInterlockerV2]
@@ -26,9 +22,5 @@ known_addresses = ["EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"]
 
 [contracts.AirdropInterlockerV2.instances.active_sample]
 address = "EQAAbnoy7xE86q9Hw6X5NhKIdFFNGhKLWhzt63f2Dw-KjISf"
-raw_address = "0:006E7A32EF113CEAAF47C3A5F936128874514D1A128B5A1CEDEB77F60F0F8A8C"
-code_hash_base64 = "D/RKlvwkgRESNtjZkg/W4pthCCFePsW6dh6tlgKtraQ="
-last_transaction_hash = "K3pSiJzOSHXycZ0uSMVWicgJpDSNp74CvIrY17SsTxo="
-last_transaction_lt = "82025063000003"
-last_transaction_time_utc = "2026-06-06T23:36:54Z"
+code_hash = "0ff44a96fc2481111236d8d9920fd6e29b6108215e3ec5ba761ead9602adada4"
 network = "mainnet"

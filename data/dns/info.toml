@@ -51,8 +51,6 @@ url = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-collect
 
 [contracts.DnsCollection.instances.ton]
 address = "EQC3dNlesgVD8YbAazcauIrXBPfiVhMMr5YYk2in0Mtsz0Bz"
-raw_address = "0:b774d95eb20543f186c06b371ab88ad704f7e256130caf96189368a7d0cb6ccf"
-domain = ".ton"
 code_fixture = "testdata/DnsCollection.boc"
 
 [contracts.DnsDomainItem]
@@ -75,13 +73,10 @@ url = "https://github.com/ton-blockchain/dns-contract/blob/main/func/nft-item.fc
 
 [contracts.DnsDomainItem.instances.foundation_ton]
 address = "EQB43-VCmf17O7YMd51fAvOjcMkCw46N_3JMCoegH_ZDo40e"
-domain = "foundation.ton"
 
 [contracts.DnsDomainItem.instances.wallet_ton]
 address = "EQBpLYDnP5uKD7qpT0ihg2CkpthgdmLwNdZbCQ5Zy0OPCra1"
-domain = "wallet.ton"
 
 [contracts.DnsDomainItem.instances.petrmakhnev_ton]
 address = "EQAPA39ZpqDXHsT0FJ1KQ3rhXTn7UctxiIeZ6aX8s7VEYguv"
-domain = "petrmakhnev.ton"
 state = "active auction"

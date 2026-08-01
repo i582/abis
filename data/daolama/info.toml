@@ -35,8 +35,6 @@ known_addresses = [
 
 [[contracts.DaolamaVault.instances]]
 name = "DAOLama TON Vault"
-symbol = "TON-DLP"
-decimals = 9
 address = "EQCkeTvOSTBwBtP06X2BX7THj_dlX67PhgYRGuKfjWtB9FVb"
-hash = "688036dbfddf491278b7698c3e715f359168adb9fa856e28ab279aa4c84da45e"
+code_hash = "688036dbfddf491278b7698c3e715f359168adb9fa856e28ab279aa4c84da45e"
 label = "DAOLama TON lending vault and TON-DLP jetton master"

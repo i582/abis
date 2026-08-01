@@ -102,7 +102,6 @@ known_addresses = ["EQDa4VOnTYlLvDJ0gZjNYm5PXfSmmtL6Vs6A_CZEtXCNICq_"]
 
 [contracts.DedustVaultNativeV2.instances.ton]
 address = "EQDa4VOnTYlLvDJ0gZjNYm5PXfSmmtL6Vs6A_CZEtXCNICq_"
-asset = "TON"
 factory = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
 network = "mainnet"
 
@@ -114,7 +113,6 @@ known_addresses = ["EQAYqo4u7VF0fa4DPAebk4g9lBytj2VFny7pzXR0trjtXQaO"]
 
 [contracts.DedustVaultJettonV2.instances.usdt]
 address = "EQAYqo4u7VF0fa4DPAebk4g9lBytj2VFny7pzXR0trjtXQaO"
-asset = "USDT"
 jetton_minter = "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"
 jetton_wallet = "EQCI2sZ8zq25yub6rHEY8FwPqV3zbCqS5oasOdljENCjh0bs"
 factory = "EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67"
@@ -137,15 +135,11 @@ url = "https://docs.dedust.io/reference/pool"
 [contracts.DedustPoolV2.instances.volatile_ton_usdt]
 address = "EQA-X_yo3fzzbDbJ_0bzFWKqtRuZFIRa1sJsveZJ1YpViO3r"
 pool_type = "volatile"
-asset0 = "TON"
-asset1 = "USDT"
 network = "mainnet"
 
 [contracts.DedustPoolV2.instances.stable_ton_wston]
 address = "EQABt8YegyD7VJnZdFVwom8wwqp0E0X8tN2Y6NhrDmbrnSXP"
 pool_type = "stable"
-asset0 = "TON"
-asset1 = "wsTON"
 network = "mainnet"
 
 [contracts.DedustLiquidityDepositV2]
@@ -156,8 +150,6 @@ known_addresses = []
 
 [contracts.DedustLiquidityDepositV2.instances.trace_yudq]
 address = "EQCDfi69jD02bImrXQGB_PXAOq3UO95ywF1-6Bnxkh90uU9Q"
-status = "destroyed_same_trace"
-trace_hash = "yudqNJUTA3R9/i1p5htaeLs5UkzI+MrR+Qzzo5JIPsA="
 network = "mainnet"
 
 [contracts.DedustV2Cpmm]
@@ -178,8 +170,6 @@ url = "https://hub-beta.dedust.io/docs/cpmm-v2/reference/pool"
 
 [contracts.DedustV2Cpmm.instances.lfg_ton]
 address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
-asset0 = "TON"
-asset1 = "LFG"
 network = "mainnet"
 
 [contracts.DedustUranusFactoryV3]
@@ -210,7 +200,6 @@ url = "https://hub-beta.dedust.io/docs/uranus/reference/meme"
 
 [contracts.DedustUranusMemeV3.instances.rastagram]
 address = "EQA6dGeKIcHUVQghKGmGe1fEfyfYaYyLC594PkYO5uIbEqT4"
-symbol = "RASTA"
 network = "mainnet"
 
 [contracts.DedustUranusMemeWalletV3]

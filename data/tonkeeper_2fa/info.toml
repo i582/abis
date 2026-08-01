@@ -16,4 +16,3 @@ known_addresses = ["EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"]
 
 [contracts.Tonkeeper2fa.instances.canonical_toncenter]
 address = "EQAhPLqGHIVPVYg5-lbvo3B6tSFG3qtOz1MHIew3YdF1oP_w"
-raw_address = "0:213CBA861C854F558839FA56EFA3707AB52146DEAB4ECF530721EC3761D175A0"
