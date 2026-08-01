@@ -11,13 +11,19 @@ import "../wrappers/JettonWalletCoffeeLp.gen"
 import "../../pool_constant_product/wrappers/CoffeePoolConstantProduct.gen"
 
 const FIXTURE_BOC_PATH = "data/coffee/lp_wallet/testdata/JettonWalletCoffeeLp.boc"
+const LEGACY_FIXTURE_BOC_PATH = "data/coffee/lp_wallet/testdata/CoffeeLpWalletLegacy.boc"
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
 const EXPECTED_CODE_HASH = 0xe5ce6005c0b710d9b2cae507dcaf195df8ace3d6869c7d90b17a7bf5a1bbf858
+const EXPECTED_LEGACY_CODE_HASH = 0xd7c38fa994a8282657209f93ebc5dfe908a5f06d2e41f0c085e917bc4f54a2b3
 const PINNED_MAINNET_BLOCK = 71349505
 
 const MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS = "EQA5NdnaYUsyg0E7MZuIRdvdCFfstdBr7CQoppfvhqqGkYnJ"
 const MAINNET_COFFEE_LP_WALLET_ADDRESS = "EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW"
 const MAINNET_COFFEE_LP_OWNER_ADDRESS = "EQCz79ULW8EogUnE-8vw2AmqYAQbAX3PcdlHV_VQ75zkKjrF"
+
+const LEGACY_COFFEE_POOL_ADDRESS = "EQB0AeMyqqi44eIzuZmR75bGVZDcTwzq46TUNa60oydhhyFf"
+const LEGACY_COFFEE_LP_WALLET_ADDRESS = "EQASySS__bN_7fgV2JEfYFaSxHQPgATJoUJLSKtDd4Gjg0x5"
+const LEGACY_COFFEE_LP_OWNER_ADDRESS = "EQBe8MlKiJ7cMXR5HKZ2rmLro-zDEjjMhQijmC8LYaVlx85C"
 
 fun mainnetCoffeeLpWallet(): JettonWalletCoffeeLp {
     return JettonWalletCoffeeLp.fromAddress(address(MAINNET_COFFEE_LP_WALLET_ADDRESS));
@@ -27,6 +33,14 @@ fun mainnetCoffeePoolConstantProduct(): CoffeePoolConstantProduct {
     return CoffeePoolConstantProduct.fromAddress(
         address(MAINNET_COFFEE_POOL_CONSTANT_PRODUCT_ADDRESS),
     );
+}
+
+fun legacyCoffeeLpWallet(): JettonWalletCoffeeLp {
+    return JettonWalletCoffeeLp.fromAddress(address(LEGACY_COFFEE_LP_WALLET_ADDRESS));
+}
+
+fun legacyCoffeePool(): CoffeePoolConstantProduct {
+    return CoffeePoolConstantProduct.fromAddress(address(LEGACY_COFFEE_POOL_ADDRESS));
 }
 
 fun hasBocMagic(bytes: slice): bool {
@@ -75,6 +89,15 @@ get fun `test jetton wallet coffee lp code boc fixture is real and hash verified
     expect(code.hash()).toEqual(EXPECTED_CODE_HASH);
 }
 
+get fun `test legacy jetton wallet coffee lp code boc fixture is real and hash verified`() {
+    val rawBoc = fs.readBytes(LEGACY_FIXTURE_BOC_PATH);
+    expect(rawBoc).toBeNotNull();
+    expect(hasBocMagic(rawBoc!)).toBeTrue();
+
+    val code = build("JettonWalletCoffeeLp", LEGACY_FIXTURE_BOC_PATH);
+    expect(code.hash()).toEqual(EXPECTED_LEGACY_CODE_HASH);
+}
+
 get fun `test jetton wallet coffee lp mainnet storage and getter`() {
     val wallet = mainnetCoffeeLpWallet();
     val pool = mainnetCoffeePoolConstantProduct();
@@ -103,4 +126,49 @@ get fun `test jetton wallet coffee lp mainnet storage and getter`() {
     println("COFFEE_LP_WALLET_ADDRESS={}", wallet.address);
     println("COFFEE_LP_WALLET_STORAGE={}", storage);
     println("COFFEE_LP_WALLET_DATA={}", walletData);
+}
+
+get fun `test legacy jetton wallet coffee lp mainnet storage and getter`() {
+    val wallet = legacyCoffeeLpWallet();
+    val pool = legacyCoffeePool();
+    val account = testing.getAccountState(wallet.address);
+    expect(account).toBeNotNull();
+
+    val accountState = account!.storage.state;
+    match (accountState) {
+        TlbAccountStateActive => {
+            val code = accountState.stateInit.code;
+            val data = accountState.stateInit.data;
+            expect(code).toBeNotNull();
+            expect(data).toBeNotNull();
+            expect(code!.hash()).toEqual(EXPECTED_LEGACY_CODE_HASH);
+            expect(code!.hash()).toEqual(
+                build("JettonWalletCoffeeLp", LEGACY_FIXTURE_BOC_PATH).hash(),
+            );
+
+            val storage = JettonWalletCoffeeLpStorage.fromCell(data!);
+            val walletData = wallet.getWalletData();
+            val derivedWallet = pool.getWalletAddress(address(LEGACY_COFFEE_LP_OWNER_ADDRESS));
+
+            expect(scripts.isContractDeployed(wallet.address)).toBeTrue();
+            expect(derivedWallet).toEqual(wallet.address);
+            expect(storage.balance).toEqual(walletData.balance);
+            expect(storage.balance).toBeGreater(0);
+            expect(storage.ownerAddress).toEqual(address(LEGACY_COFFEE_LP_OWNER_ADDRESS));
+            expect(storage.ownerAddress).toEqual(walletData.ownerAddress);
+            expect(storage.jettonMasterAddress).toEqual(address(LEGACY_COFFEE_POOL_ADDRESS));
+            expect(storage.jettonMasterAddress).toEqual(walletData.jettonMasterAddress);
+            expect(storage.jettonWalletCode.hash()).toEqual(EXPECTED_LEGACY_CODE_HASH);
+            expect(storage.jettonWalletCode.hash()).toEqual(walletData.jettonWalletCode.hash());
+
+            expectInternalAddress(storage.ownerAddress);
+            expectInternalAddress(storage.jettonMasterAddress);
+        }
+        TlbAccountStateUninit => {
+            Assert.fail("Legacy Coffee LP Jetton wallet mainnet fixture account is uninitialized");
+        }
+        TlbAccountStateFrozen => {
+            Assert.fail("Legacy Coffee LP Jetton wallet mainnet fixture account is frozen");
+        }
+    }
 }

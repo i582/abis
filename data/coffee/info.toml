@@ -176,8 +176,14 @@ network = "mainnet"
 [contracts.JettonWalletCoffeeLp]
 display_name = "Coffee Swap LP Jetton Wallet"
 types = "lp_wallet/types/jetton_wallet_coffee_lp.types.tolk"
-hashes = ["e5ce6005c0b710d9b2cae507dcaf195df8ace3d6869c7d90b17a7bf5a1bbf858"]
-known_addresses = ["EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW"]
+hashes = [
+  "e5ce6005c0b710d9b2cae507dcaf195df8ace3d6869c7d90b17a7bf5a1bbf858",
+  "d7c38fa994a8282657209f93ebc5dfe908a5f06d2e41f0c085e917bc4f54a2b3",
+]
+known_addresses = [
+  "EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW",
+  "EQASySS__bN_7fgV2JEfYFaSxHQPgATJoUJLSKtDd4Gjg0x5",
+]
 
 [[contracts.JettonWalletCoffeeLp.links]]
 kind = "source"
@@ -187,6 +193,13 @@ url = "https://github.com/swapcoffee/dex/blob/4d3c1ca6d2898919ec5a8f410caf5f0803
 [contracts.JettonWalletCoffeeLp.instances.ton_ces_owner]
 address = "EQCqz8MB5IT4u0PsNCM2CvozKPjat8IMLfPqT3tFUAdGd1qW"
 owner = "EQCz79ULW8EogUnE-8vw2AmqYAQbAX3PcdlHV_VQ75zkKjrF"
+network = "mainnet"
+
+[contracts.JettonWalletCoffeeLp.instances.legacy_wallet]
+address = "EQASySS__bN_7fgV2JEfYFaSxHQPgATJoUJLSKtDd4Gjg0x5"
+owner = "EQBe8MlKiJ7cMXR5HKZ2rmLro-zDEjjMhQijmC8LYaVlx85C"
+master = "EQB0AeMyqqi44eIzuZmR75bGVZDcTwzq46TUNa60oydhhyFf"
+block_seqno = 47561702
 network = "mainnet"
 
 [contracts.CoffeeStakingMaster]
@@ -282,4 +295,15 @@ network = "mainnet"
 
 [contracts.CoffeeMevProtector.instances.trace]
 address = "EQA-DPojxodVPAbhpXDH5eCrbE4n13zhwEYMCZ2vwq19WojJ"
+network = "mainnet"
+
+[contracts.CoffeeMevProtectorLegacy]
+display_name = "Coffee Swap MEV Protector Legacy"
+types = "mev_protector/types/coffee_mev_protector_legacy.types.tolk"
+hashes = ["58fbc2dba2684d38b80bfce3dc5a9ffce00af9b464c7b4dc21cf57e3aae11f1c"]
+known_addresses = ["EQCtOvKAjx29tqdz7aRtvcB9X3pvzMdZIStY6SaaXOPnBtys"]
+
+[contracts.CoffeeMevProtectorLegacy.instances.original]
+address = "EQCtOvKAjx29tqdz7aRtvcB9X3pvzMdZIStY6SaaXOPnBtys"
+block_seqno = 46383851
 network = "mainnet"
