@@ -241,6 +241,32 @@ known_addresses = ["EQA9Jk48tAGwHcfRz8IyRw0YWj66Y9kz5zhhf5lCuSlMTlKm"]
 address = "EQA9Jk48tAGwHcfRz8IyRw0YWj66Y9kz5zhhf5lCuSlMTlKm"
 network = "mainnet"
 
+[contracts.CoffeeCrossDexLegacy]
+display_name = "Coffee CrossDex Legacy"
+types = "cross_dex_legacy/types/coffee_cross_dex_legacy.types.tolk"
+hashes = ["fea9c6a1ef5eab2c5ca94d6bef1e33994c5786abeb5264760e150da33bfb3677"]
+known_addresses = ["EQA9Jk48tAGwHcfRz8IyRw0YWj66Y9kz5zhhf5lCuSlMTlKm"]
+
+[contracts.CoffeeCrossDexLegacy.instances.mainnet]
+address = "EQA9Jk48tAGwHcfRz8IyRw0YWj66Y9kz5zhhf5lCuSlMTlKm"
+code_hash = "fea9c6a1ef5eab2c5ca94d6bef1e33994c5786abeb5264760e150da33bfb3677"
+block_seqno = 48441113
+state = "historical; upgraded at masterchain block 48441114"
+network = "mainnet"
+
+[contracts.CoffeeCrossDexBidask]
+display_name = "Coffee CrossDex Bidask"
+types = "cross_dex_bidask/types/coffee_cross_dex_bidask.types.tolk"
+hashes = ["a63cbf47d55370fe2baebb4bf284bd401e717db4a0ab0e49f4b3b3cc7c0f5652"]
+known_addresses = ["EQCde_kCc5MIx_yoao6Pv3BsUbpSi4yxMtPSVOrgepmCTCDs"]
+
+[contracts.CoffeeCrossDexBidask.instances.mainnet]
+address = "EQCde_kCc5MIx_yoao6Pv3BsUbpSi4yxMtPSVOrgepmCTCDs"
+code_hash = "a63cbf47d55370fe2baebb4bf284bd401e717db4a0ab0e49f4b3b3cc7c0f5652"
+block_seqno = 50935347
+state = "active"
+network = "mainnet"
+
 [contracts.CoffeeMevProtector]
 display_name = "Coffee MEV Protector"
 types = "mev_protector/types/coffee_mev_protector.types.tolk"
