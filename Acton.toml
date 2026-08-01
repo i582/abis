@@ -1353,6 +1353,66 @@ src = "data/tonpay/invoice_v9/testdata/TonpayInvoiceV9.boc"
 types = "data/tonpay/invoice_v9/types/tonpay_invoice_v9.types.tolk"
 depends = []
 
+[contracts.MoonBooster]
+display-name = "Moon.cx Booster"
+src = "data/moon/booster/testdata/MoonBooster.boc"
+types = "data/moon/booster/types/moon_booster.types.tolk"
+depends = []
+
+[contracts.MoonPool]
+display-name = "Moon.cx Pool"
+src = "data/moon/pool/testdata/MoonPool.boc"
+types = "data/moon/pool/types/moon_pool.types.tolk"
+depends = []
+
+[contracts.MoonOrderFactory]
+display-name = "Moon Order Factory"
+src = "data/moon/order_factory/testdata/MoonOrderFactory.boc"
+types = "data/moon/order_factory/types/moon_order_factory.types.tolk"
+depends = []
+
+[contracts.MoonOrderOld]
+display-name = "Moon Order Old"
+src = "data/moon/order/old/testdata/MoonOrderOld.boc"
+types = "data/moon/order/old/types/moon_order_old.types.tolk"
+depends = []
+
+[contracts.MoonOrderNew]
+display-name = "Moon Order New"
+src = "data/moon/order/new/testdata/MoonOrderNew.boc"
+types = "data/moon/order/new/types/moon_order_new.types.tolk"
+depends = []
+
+[contracts.MegatonRouter]
+display-name = "Megaton Router"
+src = "data/megatonfi/router/testdata/MegatonRouter.boc"
+types = "data/megatonfi/router/types/megaton_router.types.tolk"
+depends = []
+
+[contracts.MegatonExchange]
+display-name = "Megaton Finance Exchange"
+src = "data/megatonfi/exchange/testdata/MegatonExchange.boc"
+types = "data/megatonfi/exchange/types/megaton_exchange.types.tolk"
+depends = []
+
+[contracts.GetgemsOffchainOfferV3]
+display-name = "Getgems Offchain Offer V3"
+src = "data/getgems/getgems_offchain_offer_v3/testdata/GetgemsOffchainOfferV3.boc"
+types = "data/getgems/getgems_offchain_offer_v3/types/getgems_offchain_offer_v3.types.tolk"
+depends = []
+
+[contracts.CoffeeMevProtectorLegacy]
+display-name = "Coffee Swap MEV Protector Legacy"
+src = "data/coffee/mev_protector/testdata/CoffeeMevProtectorLegacy.boc"
+types = "data/coffee/mev_protector/types/coffee_mev_protector_legacy.types.tolk"
+depends = []
+
+[contracts.StonksPumpCustomJettonWallet]
+display-name = "StonksPump Custom Jetton Wallet"
+src = "data/stonkspump/custom_jetton_wallet/testdata/StonksPumpCustomJettonWallet.boc"
+types = "data/stonkspump/custom_jetton_wallet/types/stonkspump_custom_jetton_wallet.types.tolk"
+depends = []
+
 [scripts]
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
 daolama-message-bodies-test = "acton test data/daolama/tests/daolama_vault_message_bodies.test.tolk --show-bodies"
@@ -1583,8 +1643,8 @@ getgems-nft-2-mainnet-test = "acton test data/nfts/getgems_nft_2_0/tests --fork-
 telemint-mainnet-test = "acton test data/telemint/tests --fork-net mainnet --fork-block-number 71005889 --show-bodies"
 dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
-getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
-coffee-test = "acton test data/coffee --exclude 'data/coffee/cross_dex_legacy/**' --exclude 'data/coffee/cross_dex_bidask/**' --fork-net mainnet --fork-block-number 71349505 --show-bodies"
+getgems-mainnet-test = "acton test data/getgems --exclude 'data/getgems/getgems_offchain_offer_v3/**' --fork-net mainnet --show-bodies"
+coffee-test = "acton test data/coffee --exclude 'data/coffee/cross_dex_legacy/**' --exclude 'data/coffee/cross_dex_bidask/**' --exclude 'data/coffee/mev_protector/tests/coffee_mev_protector_legacy_*.tolk' --fork-net mainnet --fork-block-number 71349505 --show-bodies"
 coffee-cross-dex-legacy-mainnet-test = "acton test data/coffee/cross_dex_legacy/tests/coffee_cross_dex_legacy_mainnet.test.tolk --fork-net mainnet --fork-block-number 48441113 --show-bodies"
 coffee-cross-dex-bidask-mainnet-test = "acton test data/coffee/cross_dex_bidask/tests/coffee_cross_dex_bidask_mainnet.test.tolk --fork-net mainnet --fork-block-number 50935347 --show-bodies"
 coffee-cross-dex-legacy-message-bodies-test = "acton test data/coffee/cross_dex_legacy/tests/coffee_cross_dex_legacy_message_bodies.test.tolk --show-bodies"
@@ -1607,6 +1667,29 @@ storm-vamm-coinm-message-bodies-test = "acton test data/storm/vamm_coinm/tests/s
 storm-vault-message-bodies-test = "acton test data/storm/vault/tests/storm_vault_message_bodies.test.tolk --show-bodies"
 storm-vault-native-message-bodies-test = "acton test data/storm/vault_native/tests/storm_vault_native_message_bodies.test.tolk --show-bodies"
 subscription-v2-getters-mainnet-test = "acton test data/subscriptions/tests/subscription_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71629580 --show-bodies"
+moon-booster-mainnet-test = "acton test data/moon/booster/tests/moon_booster_mainnet.test.tolk --fork-net mainnet --fork-block-number 47400261 --show-bodies"
+moon-booster-message-bodies-test = "acton test data/moon/booster/tests/moon_booster_message_bodies.test.tolk --show-bodies"
+moon-pool-mainnet-test = "acton test data/moon/pool/tests/moon_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
+moon-pool-message-bodies-test = "acton test data/moon/pool/tests/moon_pool_message_bodies.test.tolk --show-bodies"
+moon-order-factory-mainnet-test = "acton test data/moon/order_factory/tests/moon_order_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
+moon-order-old-mainnet-test = "acton test data/moon/order/old/tests/moon_order_old_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
+moon-order-new-mainnet-test = "acton test data/moon/order/new/tests/moon_order_new_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
+moon-order-factory-message-bodies-test = "acton test data/moon/order_factory/tests/moon_order_factory_message_bodies.test.tolk --show-bodies"
+moon-order-old-message-bodies-test = "acton test data/moon/order/old/tests/moon_order_old_message_bodies.test.tolk --show-bodies"
+moon-order-new-message-bodies-test = "acton test data/moon/order/new/tests/moon_order_new_message_bodies.test.tolk --show-bodies"
+megaton-router-message-bodies-test = "acton test data/megatonfi/router/tests/megaton_router_message_bodies.test.tolk --show-bodies"
+megaton-router-storage-test = "acton test data/megatonfi/router/tests/megaton_router_storage.test.tolk --show-bodies"
+megaton-router-mainnet-test = "acton test data/megatonfi/router/tests/megaton_router_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400411 --show-bodies"
+megaton-exchange-message-bodies-test = "acton test data/megatonfi/exchange/tests/megaton_exchange_message_bodies.test.tolk --show-bodies"
+megaton-exchange-storage-test = "acton test data/megatonfi/exchange/tests/megaton_exchange_storage.test.tolk --show-bodies"
+megaton-exchange-mainnet-test = "acton test data/megatonfi/exchange/tests/megaton_exchange_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400134 --show-bodies"
+getgems-offchain-offer-v3-fixtures-test = "acton test data/getgems/getgems_offchain_offer_v3/tests/getgems_offchain_offer_v3_fixtures.test.tolk --show-bodies"
+getgems-offchain-offer-v3-message-bodies-test = "acton test data/getgems/getgems_offchain_offer_v3/tests/getgems_offchain_offer_v3_message_bodies.test.tolk --show-bodies"
+getgems-offchain-offer-v3-mainnet-test = "acton test data/getgems/getgems_offchain_offer_v3/tests/getgems_offchain_offer_v3_mainnet.test.tolk --fork-net mainnet --fork-block-number 83402613 --show-bodies"
+coffee-mev-protector-legacy-mainnet-test = "acton test data/coffee/mev_protector/tests/coffee_mev_protector_legacy_mainnet.test.tolk --fork-net mainnet --fork-block-number 46383851 --show-bodies"
+coffee-mev-protector-legacy-message-bodies-test = "acton test data/coffee/mev_protector/tests/coffee_mev_protector_legacy_message_bodies.test.tolk --show-bodies"
+stonkspump-custom-jetton-wallet-mainnet-test = "acton test data/stonkspump/custom_jetton_wallet/tests/stonkspump_custom_jetton_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 83402780 --show-bodies"
+stonkspump-custom-jetton-wallet-message-bodies-test = "acton test data/stonkspump/custom_jetton_wallet/tests/stonkspump_custom_jetton_wallet_message_bodies.test.tolk --show-bodies"
 
 compile-all-contracts = "acton build"
 run-test-shard-1 = """
@@ -1663,6 +1746,12 @@ acton run grambo-jetton-wallet-mainnet-test
 acton run xtr-master-message-bodies-test
 acton run coffee-cross-dex-bidask-message-bodies-test
 acton run tonpay-store-v11-mainnet-test
+acton run moon-booster-message-bodies-test
+acton run moon-pool-mainnet-test
+acton run megaton-exchange-message-bodies-test
+acton run getgems-offchain-offer-v3-fixtures-test
+acton run coffee-mev-protector-legacy-message-bodies-test
+acton run moon-order-factory-message-bodies-test
 """
 
 run-test-shard-2 = """
@@ -1726,6 +1815,12 @@ acton run cocoon-worker-mainnet-test
 acton run cocoon-wallet-mainnet-test
 acton run coffee-cross-dex-legacy-mainnet-test
 acton run tonpay-invoice-v9-message-bodies-test
+acton run moon-booster-mainnet-test
+acton run moon-pool-message-bodies-test
+acton run megaton-router-storage-test
+acton run getgems-offchain-offer-v3-message-bodies-test
+acton run coffee-mev-protector-legacy-mainnet-test
+acton run moon-order-old-message-bodies-test
 """
 
 run-test-shard-3 = """
@@ -1797,6 +1892,11 @@ acton run grambo-jetton-master-message-bodies-test
 acton run xtr-master-mainnet-test
 acton run coffee-cross-dex-legacy-message-bodies-test
 acton run tonpay-invoice-v9-mainnet-test
+acton run moon-order-factory-mainnet-test
+acton run moon-order-old-mainnet-test
+acton run megaton-router-message-bodies-test
+acton run megaton-exchange-storage-test
+acton run stonkspump-custom-jetton-wallet-message-bodies-test
 """
 
 run-test-shard-4 = """
@@ -1849,6 +1949,12 @@ acton run cocoon-wallet-message-bodies-test
 acton run grambo-jetton-wallet-message-bodies-test
 acton run coffee-cross-dex-bidask-mainnet-test
 acton run tonpay-store-v11-message-bodies-test
+acton run moon-order-new-mainnet-test
+acton run megaton-router-mainnet-test
+acton run megaton-exchange-mainnet-test
+acton run getgems-offchain-offer-v3-mainnet-test
+acton run stonkspump-custom-jetton-wallet-mainnet-test
+acton run moon-order-new-message-bodies-test
 """
 
 run-all-tests = """
