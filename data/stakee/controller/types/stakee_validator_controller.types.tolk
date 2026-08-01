@@ -6,8 +6,7 @@ contract StakeeValidatorController {
     storage: StakeeValidatorControllerStorage
     incomingMessages: StakeeValidatorControllerIncomingMessage
     outgoingMessages: StakeeValidatorControllerOutgoingMessage
-    forceAbiExport: StakeeValidatorControllerEmptyBody
-        | StakeeValidatorControllerBouncedKnownBody
+    forceAbiExport: StakeeValidatorControllerEmptyBody | StakeeValidatorControllerBouncedKnownBody
     thrownErrors: ControllerErrors
 }
 

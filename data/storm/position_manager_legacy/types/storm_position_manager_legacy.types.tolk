@@ -371,12 +371,10 @@ struct (0x8865b402) StormProvideOrder {
 }
 
 /// Empty order-created notification sent to the selected gas or redirect address.
-struct (0x3a943ce6) StormLegacyOrderCreated {
-}
+struct (0x3a943ce6) StormLegacyOrderCreated {}
 
 /// Empty order-canceled notification sent to the selected gas or redirect address.
-struct (0x69d08679) StormLegacyOrderCanceled {
-}
+struct (0x69d08679) StormLegacyOrderCanceled {}
 
 /// Execution or error notification sent to gas or redirect addresses.
 struct (0x2089a59f) StormPositionManagerExecutionResult {

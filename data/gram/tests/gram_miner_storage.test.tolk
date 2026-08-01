@@ -16,6 +16,7 @@ fun hasBocMagic(bytes: slice): bool {
     }
     return bytes.preloadUint(32) == EXPECTED_BOC_MAGIC;
 }
+
 get fun `test gram miner code and data fixtures are real bocs`() {
     val rawCode = fs.readBytes(CODE_BOC_PATH);
     val rawData = fs.readBytes(DATA_BOC_PATH);

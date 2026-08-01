@@ -16,8 +16,12 @@ fun expectInlineEmptyForwardPayload(tail: RemainingBitsAndRefs): void {
 }
 
 get fun `test stakeed minter decodes real mint and internal transfer bodies`() {
-    val mint = StakeedMinterMint.fromCell(parseCellFromBase64("te6cckEBAQEAOgAAbxZ0sKAAAAAAAAAnEYAEkONu1FSqU087eqqmkF5j8ooh/hFAobZe+8Gkb7Ev6SoEXLYqlIC+vCAB/gpPRA=="));
-    val transfer = StakeedMinterJettonInternalTransfer.fromCell(parseCellFromBase64("te6cckEBAQEAOgAAbxeNRRkAAAAAAAAnEVAi5bFUogASQ427UVKpTTzt6qqaQXmPyiiH+EUChtl77waRvsS/pKAvrwgCfNJmHw=="));
+    val mint = StakeedMinterMint.fromCell(
+        parseCellFromBase64("te6cckEBAQEAOgAAbxZ0sKAAAAAAAAAnEYAEkONu1FSqU087eqqmkF5j8ooh/hFAobZe+8Gkb7Ev6SoEXLYqlIC+vCAB/gpPRA=="),
+    );
+    val transfer = StakeedMinterJettonInternalTransfer.fromCell(
+        parseCellFromBase64("te6cckEBAQEAOgAAbxeNRRkAAAAAAAAnEVAi5bFUogASQ427UVKpTTzt6qqaQXmPyiiH+EUChtl77waRvsS/pKAvrwgCfNJmHw=="),
+    );
 
     expect(mint.queryId).toEqual(10001);
     expect(mint.toAddress).toEqual(address(EXPECTED_OWNER));
@@ -33,8 +37,12 @@ get fun `test stakeed minter decodes real mint and internal transfer bodies`() {
 }
 
 get fun `test stakeed minter decodes real burn notification and burned body`() {
-    val burn = StakeedMinterBurnNotification.fromCell(parseCellFromBase64("te6cckEBAgEAWgABp3vdl94AAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9cAEAASDcfH/C"));
-    val burned = StakeedMinterJettonsBurned.fromCell(parseCellFromBase64("te6cckEBAQEAVgAApzGbDNwAAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9SMd5vW0="));
+    val burn = StakeedMinterBurnNotification.fromCell(
+        parseCellFromBase64("te6cckEBAgEAWgABp3vdl94AAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9cAEAASDcfH/C"),
+    );
+    val burned = StakeedMinterJettonsBurned.fromCell(
+        parseCellFromBase64("te6cckEBAQEAVgAApzGbDNwAAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9SMd5vW0="),
+    );
 
     expect(burn.queryId).toEqual(0);
     expect(burn.jettonAmount).toEqual(3146493689);

@@ -15,7 +15,10 @@ fun loadSimpleCodeFixture(): cell {
     expect(data).toBeNotNull();
     val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
-    return build("FragmentMarketappProxySimple", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxySimple.boc");
+    return build(
+        "FragmentMarketappProxySimple",
+        "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxySimple.boc",
+    );
 }
 
 fun loadSimpleDataFixture(): cell {
@@ -23,7 +26,10 @@ fun loadSimpleDataFixture(): cell {
     expect(data).toBeNotNull();
     val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
-    return build("FragmentMarketappProxySimpleData", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxySimple.data.boc");
+    return build(
+        "FragmentMarketappProxySimpleData",
+        "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxySimple.data.boc",
+    );
 }
 
 get fun `test marketapp proxy simple parses saved mainnet storage fixture`() {
@@ -36,5 +42,7 @@ get fun `test marketapp proxy simple parses saved mainnet storage fixture`() {
     expect(storage.publicKey).toEqual(
         bits256FromUint(0xafe029d50c74a91ada33de266e3a639bd7ff5517fccd3a3a3417bec9af8736cf),
     );
-    expect(storage.adminAddress).toEqual(address("EQBXCwdud0ECN-BNThLHaGJXKAzovUK4iBGt40XbSVZ_mvcv"));
+    expect(storage.adminAddress).toEqual(
+        address("EQBXCwdud0ECN-BNThLHaGJXKAzovUK4iBGt40XbSVZ_mvcv"),
+    );
 }

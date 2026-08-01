@@ -19,7 +19,9 @@ get fun `test fragment numbers item decodes real collection deploy body`() {
     expect(decoded.bid).toEqual(99000000000);
     expect(decoded.tokenInfo.hash()).toBeGreater(0);
     expect(decoded.nftContent.hash()).toBeGreater(0);
-    expect(auctionConfig.beneficiaryAddress).toEqual(address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"));
+    expect(auctionConfig.beneficiaryAddress).toEqual(
+        address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"),
+    );
     expect(auctionConfig.initialMinBid).toEqual(99000000000);
     expect(auctionConfig.maxBid).toEqual(99000000000);
     expect(auctionConfig.minBidStep).toEqual(5);
@@ -27,7 +29,9 @@ get fun `test fragment numbers item decodes real collection deploy body`() {
     expect(auctionConfig.duration).toEqual(604800);
     expect(royalty.numerator).toEqual(5);
     expect(royalty.denominator).toEqual(100);
-    expect(royalty.destination!).toEqual(address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"));
+    expect(royalty.destination!).toEqual(
+        address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"),
+    );
 
     println("FRAGMENT_NUMBERS_ITEM_DEPLOY_TX={} LT={} BODY={}", txHash, txLt, decoded);
 }
@@ -55,7 +59,14 @@ get fun `test fragment numbers item decodes real transfer responses`() {
     expect(assigned.forwardPayload.remainingBitsCount()).toEqual(2);
     expect(assigned.forwardPayload.remainingRefsCount()).toEqual(1);
 
-    println("FRAGMENT_NUMBERS_ITEM_TRANSFER_TX={} LT={} TRANSFER={} ASSIGNED={} EXCESS={}", txHash, txLt, transfer, assigned, excess);
+    println(
+        "FRAGMENT_NUMBERS_ITEM_TRANSFER_TX={} LT={} TRANSFER={} ASSIGNED={} EXCESS={}",
+        txHash,
+        txLt,
+        transfer,
+        assigned,
+        excess,
+    );
 }
 
 get fun `test fragment numbers item decodes real auction settlement notifications`() {
@@ -70,5 +81,11 @@ get fun `test fragment numbers item decodes real auction settlement notification
     expect(fillUp.queryId).toEqual(33926188000005);
     expect(assigned.queryId).toEqual(33926188000005);
 
-    println("FRAGMENT_NUMBERS_ITEM_SETTLEMENT_TX={} LT={} ASSIGNED={} FILL_UP={}", txHash, txLt, assigned, fillUp);
+    println(
+        "FRAGMENT_NUMBERS_ITEM_SETTLEMENT_TX={} LT={} ASSIGNED={} FILL_UP={}",
+        txHash,
+        txLt,
+        assigned,
+        fillUp,
+    );
 }

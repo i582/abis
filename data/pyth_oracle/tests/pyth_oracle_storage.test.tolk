@@ -57,7 +57,9 @@ fun expectPythStorageCore(loaded: LoadedPythOracleStorage): void {
     expect(loaded.priceFeeds.singleUpdateFee).toEqual(EXPECTED_SINGLE_UPDATE_FEE);
     expect(loaded.priceFeeds.latestPriceFeeds.isEmpty()).toBeFalse();
     expect(loaded.dataSources.isValidDataSource.isEmpty()).toBeFalse();
-    expect(loaded.guardianSets.currentGuardianSetIndex).toEqual(EXPECTED_CURRENT_GUARDIAN_SET_INDEX);
+    expect(loaded.guardianSets.currentGuardianSetIndex).toEqual(
+        EXPECTED_CURRENT_GUARDIAN_SET_INDEX,
+    );
     expect(loaded.guardianSets.guardianSets.isEmpty()).toBeFalse();
     expect(loaded.governance.chainId).toEqual(EXPECTED_CHAIN_ID);
     expect(loaded.governance.governanceChainId).toEqual(EXPECTED_GOVERNANCE_CHAIN_ID);
@@ -97,20 +99,32 @@ get fun `test pyth oracle local wrapper getters match saved storage`() {
     expect(oracle.getSingleUpdateFee()).toEqual(loaded.priceFeeds.singleUpdateFee);
     expect(oracle.getChainId()).toEqual(loaded.governance.chainId);
     expect(oracle.getGovernanceChainId()).toEqual(loaded.governance.governanceChainId);
-    expect(oracle.getCurrentGuardianSetIndex()).toEqual(loaded.guardianSets.currentGuardianSetIndex);
-    val storedGuardianSet = loaded.guardianSets.guardianSets
+    expect(oracle.getCurrentGuardianSetIndex()).toEqual(
+        loaded.guardianSets.currentGuardianSetIndex,
+    );
+    val storedGuardianSet = loaded
+        .guardianSets
+        .guardianSets
         .mustGet(loaded.guardianSets.currentGuardianSetIndex)
         .guardianSet
         .load();
-    val getterGuardianSet = oracle.getGuardianSet(loaded.guardianSets.currentGuardianSetIndex as int);
+    val getterGuardianSet = oracle.getGuardianSet(
+        loaded.guardianSets.currentGuardianSetIndex as int,
+    );
     expect(getterGuardianSet.expirationTime).toEqual(storedGuardianSet.expirationTime as int);
     expect(getterGuardianSet.keys).toHaveLength(getterGuardianSet.keyCount);
     expect(getterGuardianSet.keys.mustGet(0 as uint8)).toEqual(
         storedGuardianSet.keys.mustGet(0 as uint8),
     );
-    expect(oracle.getGovernanceDataSource().hash()).toEqual(loaded.governance.governanceDataSource.hash());
-    expect(oracle.getGovernanceDataSourceIndex()).toEqual(loaded.governance.governanceDataSourceIndex);
-    expect(oracle.getLastExecutedGovernanceSequence()).toEqual(loaded.governance.lastExecutedGovernanceSequence);
+    expect(oracle.getGovernanceDataSource().hash()).toEqual(
+        loaded.governance.governanceDataSource.hash(),
+    );
+    expect(oracle.getGovernanceDataSourceIndex()).toEqual(
+        loaded.governance.governanceDataSourceIndex,
+    );
+    expect(oracle.getLastExecutedGovernanceSequence()).toEqual(
+        loaded.governance.lastExecutedGovernanceSequence,
+    );
 }
 
 get fun `test pyth oracle wrapper compiles from mainnet address`() {

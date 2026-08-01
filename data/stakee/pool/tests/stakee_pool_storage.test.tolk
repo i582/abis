@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/expect"
 import "../types/stakee_pool.types"
 import "../wrappers/StakeePool.gen"
@@ -166,8 +166,24 @@ get fun `test stakee pool local wrapper full-data decodes borrower maps`() {
     expect(scripts.isContractDeployed(pool.address)).toBeTrue();
 
     val fullData = pool.getPoolFullDataRaw();
-    val [currentBorrowers, currentRoundId, _, _, _, _, _] = fullData.currentRoundBorrowers;
-    val [prevBorrowers, prevRoundId, _, _, _, _, _] = fullData.prevRoundBorrowers;
+    val [
+        currentBorrowers,
+        currentRoundId,
+        _,
+        _,
+        _,
+        _,
+        _,
+    ] = fullData.currentRoundBorrowers;
+    val [
+        prevBorrowers,
+        prevRoundId,
+        _,
+        _,
+        _,
+        _,
+        _,
+    ] = fullData.prevRoundBorrowers;
     expect(currentRoundId).toEqual(loaded.currentRound.roundId as int);
     expect(currentBorrowers).toHaveLength(
         loaded.currentRound.activeBorrowers as int,

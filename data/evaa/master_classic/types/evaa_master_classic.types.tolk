@@ -1252,7 +1252,10 @@ get fun getUpdatedRates(
 }
 
 /// Return updated rates for every asset.
-get fun getUpdatedRatesForAllAssets(timeElapsed: int): map<uint256, EvaaMasterClassicPackedAssetRate> {
+get fun getUpdatedRatesForAllAssets(timeElapsed: int): map<
+    uint256,
+    EvaaMasterClassicPackedAssetRate,
+> {
     throw 0;
 }
 

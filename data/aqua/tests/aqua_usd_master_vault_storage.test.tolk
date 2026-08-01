@@ -27,7 +27,9 @@ get fun `test aqua usd master vault code and data fixtures are real BoCs`() {
     expect(hasBocMagic(rawDataBoc!)).toBeTrue();
 
     expect(build("AquaUsdMasterVault", CODE_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_CODE_HASH);
-    expect(build("AquaUsdMasterVaultData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_DATA_HASH);
+    expect(build("AquaUsdMasterVaultData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_DATA_HASH,
+    );
 }
 
 get fun `test aqua usd master vault parses saved mainnet storage fixture`() {

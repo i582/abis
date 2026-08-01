@@ -107,7 +107,12 @@ get fun `test omniston fee vault decodes toncenter native fee distribution`() {
     expectCellOpcode(body, 0x474f86cf);
     expect(decoded.queryId).toEqual(10568723219022197647);
     expect(decoded.route).toBeNotNull();
-    expectNativeRoutePayload(decoded.route!.load(), address(NATIVE_ROUTE_ADDRESS), address(FEE_RECIPIENT), 50);
+    expectNativeRoutePayload(
+        decoded.route!.load(),
+        address(NATIVE_ROUTE_ADDRESS),
+        address(FEE_RECIPIENT),
+        50,
+    );
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("OMNISTON_FEE_VAULT_NATIVE_FEE_TX={} LT={}", txHash, txLt);
@@ -122,7 +127,12 @@ get fun `test omniston fee vault decodes toncenter wrapped native distribution`(
 
     expectCellOpcode(body, 0xc0ffee36);
     expect(decoded.queryId).toEqual(965481746780802888);
-    expectNativeRoutePayload(decoded.payload.load(), address(WRAPPED_NATIVE_ROUTE_ADDRESS), address(FEE_RECIPIENT), 50);
+    expectNativeRoutePayload(
+        decoded.payload.load(),
+        address(WRAPPED_NATIVE_ROUTE_ADDRESS),
+        address(FEE_RECIPIENT),
+        50,
+    );
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
     println("OMNISTON_FEE_VAULT_WRAPPED_NATIVE_TX={} LT={}", txHash, txLt);

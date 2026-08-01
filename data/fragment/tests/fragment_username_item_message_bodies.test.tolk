@@ -19,7 +19,9 @@ get fun `test fragment username item decodes real collection deploy body`() {
     expect(decoded.bid).toEqual(5050000000000);
     expect(decoded.tokenInfo.hash()).toBeGreater(0);
     expect(decoded.nftContent.hash()).toBeGreater(0);
-    expect(auctionConfig.beneficiaryAddress).toEqual(address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"));
+    expect(auctionConfig.beneficiaryAddress).toEqual(
+        address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"),
+    );
     expect(auctionConfig.initialMinBid).toEqual(5050000000000);
     expect(auctionConfig.maxBid).toEqual(0);
     expect(auctionConfig.minBidStep).toEqual(5);
@@ -27,7 +29,9 @@ get fun `test fragment username item decodes real collection deploy body`() {
     expect(auctionConfig.duration).toEqual(604800);
     expect(royalty.numerator).toEqual(5);
     expect(royalty.denominator).toEqual(100);
-    expect(royalty.destination!).toEqual(address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"));
+    expect(royalty.destination!).toEqual(
+        address("0:408DA3B28B6C065A593E10391269BAAA9C5F8CAEBC0C69D9F0AABBAB2A99256B"),
+    );
 
     println("FRAGMENT_USERNAME_ITEM_DEPLOY_TX={} LT={} BODY={}", txHash, txLt, decoded);
 }
@@ -50,7 +54,13 @@ get fun `test fragment username item decodes real start auction and ok bodies`()
     expect(auctionConfig.minExtendTime).toEqual(3600);
     expect(auctionConfig.duration).toEqual(604800);
 
-    println("FRAGMENT_USERNAME_ITEM_START_AUCTION_TX={} LT={} REQUEST={} OK={}", txHash, txLt, request, ok);
+    println(
+        "FRAGMENT_USERNAME_ITEM_START_AUCTION_TX={} LT={} REQUEST={} OK={}",
+        txHash,
+        txLt,
+        request,
+        ok,
+    );
 }
 
 get fun `test fragment username item decodes real transfer responses`() {
@@ -76,7 +86,14 @@ get fun `test fragment username item decodes real transfer responses`() {
     expect(assigned.forwardPayload.remainingBitsCount()).toEqual(1);
     expect(assigned.forwardPayload.remainingRefsCount()).toEqual(0);
 
-    println("FRAGMENT_USERNAME_ITEM_TRANSFER_TX={} LT={} TRANSFER={} ASSIGNED={} EXCESS={}", txHash, txLt, transfer, assigned, excess);
+    println(
+        "FRAGMENT_USERNAME_ITEM_TRANSFER_TX={} LT={} TRANSFER={} ASSIGNED={} EXCESS={}",
+        txHash,
+        txLt,
+        transfer,
+        assigned,
+        excess,
+    );
 }
 
 get fun `test fragment username item decodes real auction settlement notifications`() {
@@ -91,5 +108,11 @@ get fun `test fragment username item decodes real auction settlement notificatio
     expect(fillUp.queryId).toEqual(34521791000001);
     expect(assigned.queryId).toEqual(34521791000001);
 
-    println("FRAGMENT_USERNAME_ITEM_SETTLEMENT_TX={} LT={} ASSIGNED={} FILL_UP={}", txHash, txLt, assigned, fillUp);
+    println(
+        "FRAGMENT_USERNAME_ITEM_SETTLEMENT_TX={} LT={} ASSIGNED={} FILL_UP={}",
+        txHash,
+        txLt,
+        assigned,
+        fillUp,
+    );
 }

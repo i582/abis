@@ -54,8 +54,15 @@ fun expectRoundReplyMatchesStorage(
     reply: TonstakersPoolRoundDataTuple,
     storage: TonstakersPoolRoundData,
 ): void {
-    val [borrowersDict, roundId, activeBorrowers, borrowed, expectedRepayment, returned, profit] =
-        reply;
+    val [
+        borrowersDict,
+        roundId,
+        activeBorrowers,
+        borrowed,
+        expectedRepayment,
+        returned,
+        profit,
+    ] = reply;
     expect(roundId).toEqual(storage.roundId);
     expect(activeBorrowers).toEqual(storage.activeBorrowers);
     expect(borrowed).toEqual(storage.borrowed);

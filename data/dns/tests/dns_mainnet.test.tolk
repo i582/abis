@@ -60,16 +60,23 @@ get fun `test dns collection mainnet getters storage and dnsresolve`() {
     val resolved = collection.dnsresolve(dnsFoundationSubdomain(), 0);
     val nextResolver = DnsCollectionNextResolverRecord.fromCell(resolved.result);
     val rootResolved = collection.dnsresolve(dnsSelfSubdomain(), 0);
-    val individualContent = collection.getNftContent(foundationStorage.itemIndex as int, foundationStorage.content);
+    val individualContent = collection.getNftContent(
+        foundationStorage.itemIndex as int,
+        foundationStorage.content,
+    );
 
     expect(scripts.isContractDeployed(collection.address)).toBeTrue();
-    expect(build("DnsCollection", DNS_COLLECTION_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_DNS_COLLECTION_CODE_HASH);
+    expect(build("DnsCollection", DNS_COLLECTION_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_DNS_COLLECTION_CODE_HASH,
+    );
     expect(storage.toCell().hash()).toEqual(EXPECTED_DNS_COLLECTION_DATA_HASH);
     expect(collectionData.nextItemIndex).toEqual(-1);
     expect(collectionData.collectionContent.hash()).toEqual(storage.collectionContent.hash());
     expect(collectionData.ownerAddress).toBeNoneAddress();
     expect(content.offchainTag).toEqual(1);
-    expect(storage.nftItemCode.hash()).toEqual(build("DnsDomainItem", "data/dns/testdata/DnsDomainItem.boc").hash());
+    expect(storage.nftItemCode.hash()).toEqual(
+        build("DnsDomainItem", "data/dns/testdata/DnsDomainItem.boc").hash(),
+    );
     expect(foundationAddress).toEqual(foundationItem.address);
     expect(resolved.resolvedBits).toEqual(80);
     expect(nextResolver.resolver).toEqual(foundationItem.address);
@@ -131,7 +138,9 @@ get fun `test dns domain item mainnet auction storage uses addr none owner`() {
     expect(data.ownerAddress).toBeNoneAddress();
     expect(editor).toBeNoneAddress();
     expect(storage.auction).toBeNotNull();
-    expect(auctionInfo.maxBidAddress.castToInternal()).toEqual(storage.auction!.load().maxBidAddress);
+    expect(auctionInfo.maxBidAddress.castToInternal()).toEqual(
+        storage.auction!.load().maxBidAddress,
+    );
     expect(auctionInfo.maxBidAmount).toEqual(storage.auction!.load().maxBidAmount);
     expect(auctionInfo.auctionEndTime).toEqual(storage.auction!.load().auctionEndTime);
 

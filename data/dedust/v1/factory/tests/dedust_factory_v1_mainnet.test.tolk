@@ -122,7 +122,10 @@ get fun `test dedust factory v1 mainnet storage and getters`() {
     println("DEDUST_FACTORY_V1_CONFIG_HASH={}", storage.config.hash());
     println("DEDUST_FACTORY_V1_POOL_CODE_VERSION={}", config.poolCodeVersion);
     println("DEDUST_FACTORY_V1_POOL_CODE_HASH={}", config.poolCode.hash());
-    println("DEDUST_FACTORY_V1_LIQUIDITY_DEPOSIT_CODE_VERSION={}", config.liquidityDepositCodeVersion);
+    println(
+        "DEDUST_FACTORY_V1_LIQUIDITY_DEPOSIT_CODE_VERSION={}",
+        config.liquidityDepositCodeVersion,
+    );
     println("DEDUST_FACTORY_V1_LIQUIDITY_DEPOSIT_CODE_HASH={}", config.liquidityDepositCode.hash());
     println("DEDUST_FACTORY_V1_OWNER={}", ownership.ownerAddress);
     println("DEDUST_FACTORY_V1_VERSION={}", version);

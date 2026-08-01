@@ -1,8 +1,8 @@
 import "@acton/build"
-import "@acton/emulation/scripts"
-import "@acton/emulation/testing"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
 import "@acton/types/transaction"
@@ -62,9 +62,14 @@ get fun `test dedust jetton vault v1 live candidates do not provide active v1 st
         }
     }
 
-    expect(scripts.isContractDeployed(address(FACTORY_DERIVED_USDT_V1_VAULT_CANDIDATE))).toBeFalse();
+    expect(
+        scripts.isContractDeployed(address(FACTORY_DERIVED_USDT_V1_VAULT_CANDIDATE)),
+    ).toBeFalse();
 
     println("DEDUST_JETTON_VAULT_V1_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("DEDUST_JETTON_VAULT_V1_CATALOG_CANDIDATE_IS_V2={}", catalogCandidate.address);
-    println("DEDUST_JETTON_VAULT_V1_FACTORY_DERIVED_USDT_CANDIDATE_UNINIT={}", FACTORY_DERIVED_USDT_V1_VAULT_CANDIDATE);
+    println(
+        "DEDUST_JETTON_VAULT_V1_FACTORY_DERIVED_USDT_CANDIDATE_UNINIT={}",
+        FACTORY_DERIVED_USDT_V1_VAULT_CANDIDATE,
+    );
 }

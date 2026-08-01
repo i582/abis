@@ -129,10 +129,14 @@ fun expectTreasuryStateMatchesStorage(
     expect(state.participations).toHaveLength(1);
     expect(state.oldParents).toBeEmpty();
     val stateParticipation = state.participations.mustGet(EXPECTED_CURRENT_ROUND_SINCE as uint32);
-    val storageParticipation = storage.participations.mustGet(EXPECTED_CURRENT_ROUND_SINCE as uint32);
+    val storageParticipation = storage
+        .participations
+        .mustGet(EXPECTED_CURRENT_ROUND_SINCE as uint32);
     expect(stateParticipation.state).toEqual(storageParticipation.state);
     expect(stateParticipation.staked).toHaveLength(1);
-    expect(stateParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount).toEqual(
+    expect(
+        stateParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
+    ).toEqual(
         storageParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
     );
 
@@ -145,7 +149,9 @@ fun expectTreasuryStateMatchesStorage(
     expect(participation.accrued).toBeEmpty();
     expect(participation.staked).toHaveLength(1);
     expect(participation.recovering).toBeEmpty();
-    expect(participation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount).toEqual(
+    expect(
+        participation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
+    ).toEqual(
         storageParticipation.staked.mustGet(EXPECTED_ACTIVE_BORROWER_HASH as uint256).loanAmount,
     );
 

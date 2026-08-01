@@ -17,9 +17,13 @@ get fun `test marketapp proxy simple decodes real buy body with root secondary r
 
     val decoded = FragmentMarketappProxySimpleBuy.fromCell(body);
     val request = decoded.request.load();
-    expect(request.destination).toEqual(address("EQCFJEP4WZ_mpdo0_kMEmsTgvrMHG7K_tWY16pQhKHwoOoy2"));
+    expect(request.destination).toEqual(
+        address("EQCFJEP4WZ_mpdo0_kMEmsTgvrMHG7K_tWY16pQhKHwoOoy2"),
+    );
     expect(request.amount).toEqual(4140900000);
-    expect(request.forwardPayload.hash()).toEqual(0xfdfe6852426fc40af33246ab608089f99254f6e8dba8fd77d92c55d0a3c1cfc2);
+    expect(
+        request.forwardPayload.hash(),
+    ).toEqual(0xfdfe6852426fc40af33246ab608089f99254f6e8dba8fd77d92c55d0a3c1cfc2);
     expectNoTail(request.extra);
 
     var extra = decoded.extra;
@@ -27,8 +31,12 @@ get fun `test marketapp proxy simple decodes real buy body with root secondary r
     expect(extra.remainingRefsCount()).toEqual(1);
     val secondary = FragmentMarketappProxySimpleSecondarySend.fromCell(extra.loadRef());
     expectNoTail(extra);
-    expect(secondary.destination).toEqual(address("EQAJRNzeddUmCpn84Zb3P1uXyEzJfyVb1v0QDLrwtp04l6Bc"));
-    expect(secondary.forwardPayload.hash()).toEqual(0x68cc4ffbf3e7a6f31b825f2efe595f0e4f8f4c49bac6cf32c2b46806decd8e3a);
+    expect(secondary.destination).toEqual(
+        address("EQAJRNzeddUmCpn84Zb3P1uXyEzJfyVb1v0QDLrwtp04l6Bc"),
+    );
+    expect(
+        secondary.forwardPayload.hash(),
+    ).toEqual(0x68cc4ffbf3e7a6f31b825f2efe595f0e4f8f4c49bac6cf32c2b46806decd8e3a);
     expectNoTail(secondary.extra);
 
     println("FRAGMENT_MARKETAPP_PROXY_SIMPLE_BUY_TX={} LT={}", txHash, txLt);

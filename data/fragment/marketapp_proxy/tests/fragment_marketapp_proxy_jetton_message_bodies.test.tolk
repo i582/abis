@@ -24,9 +24,13 @@ get fun `test marketapp proxy jetton decodes real buy body with signed false sec
 
     val decoded = FragmentMarketappProxyJettonBuy.fromCell(body);
     var request = decoded.request.load();
-    expect(request.destination).toEqual(address("EQCFJEP4WZ_mpdo0_kMEmsTgvrMHG7K_tWY16pQhKHwoOoy2"));
+    expect(request.destination).toEqual(
+        address("EQCFJEP4WZ_mpdo0_kMEmsTgvrMHG7K_tWY16pQhKHwoOoy2"),
+    );
     expect(request.amount).toEqual(1742300000);
-    expect(request.forwardPayload.hash()).toEqual(0xc77d3e69328eedb15c7e41a1af077728ef1664002c0cce4dbc0c5d354844bee8);
+    expect(
+        request.forwardPayload.hash(),
+    ).toEqual(0xc77d3e69328eedb15c7e41a1af077728ef1664002c0cce4dbc0c5d354844bee8);
     expectFalseMaybeTail(mutate request.extra);
 
     val extra = decoded.extra;

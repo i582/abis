@@ -15,7 +15,10 @@ fun loadJettonCodeFixture(): cell {
     expect(data).toBeNotNull();
     val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
-    return build("FragmentMarketappProxyJetton", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyJetton.boc");
+    return build(
+        "FragmentMarketappProxyJetton",
+        "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyJetton.boc",
+    );
 }
 
 fun loadJettonDataFixture(): cell {
@@ -23,7 +26,10 @@ fun loadJettonDataFixture(): cell {
     expect(data).toBeNotNull();
     val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
-    return build("FragmentMarketappProxyJettonData", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyJetton.data.boc");
+    return build(
+        "FragmentMarketappProxyJettonData",
+        "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyJetton.data.boc",
+    );
 }
 
 get fun `test marketapp proxy jetton parses saved mainnet storage fixture`() {
@@ -36,5 +42,7 @@ get fun `test marketapp proxy jetton parses saved mainnet storage fixture`() {
     expect(storage.publicKey).toEqual(
         bits256FromUint(0x4c74159e5365fbf058865d93b9952da6dbd80a6745674896f4edbf615d87be96),
     );
-    expect(storage.adminAddress).toEqual(address("EQCanLgK370WYvUQh2bXM1WsLAMwT9odJaR5Zw40781ysx2O"));
+    expect(storage.adminAddress).toEqual(
+        address("EQCanLgK370WYvUQh2bXM1WsLAMwT9odJaR5Zw40781ysx2O"),
+    );
 }

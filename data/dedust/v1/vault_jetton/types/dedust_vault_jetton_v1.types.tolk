@@ -6,7 +6,9 @@ contract DedustVaultJettonV1 {
     storage: DedustVaultJettonV1Storage
     incomingMessages: DedustVaultJettonV1IncomingMessage
     outgoingMessages: DedustVaultJettonV1OutgoingMessage
-    forceAbiExport: DedustVaultJettonV1ForwardPayload | DedustVaultJettonV1ProvideWalletAddress | DedustVaultJettonV1BouncedProvideWalletAddress
+    forceAbiExport: DedustVaultJettonV1ForwardPayload
+        | DedustVaultJettonV1ProvideWalletAddress
+        | DedustVaultJettonV1BouncedProvideWalletAddress
     thrownErrors: Errors
 }
 

@@ -7,7 +7,9 @@ const EXPECTED_PREV = "0:2A3EFB321DCDA0CA0C6FAAEDCE764B350279FF6ABCAF8E9346952E3
 const EXPECTED_NEXT = "0:855B2C18758F8A058EF85419196B2A9B306C8653BBCE1A164EEC31A75FA87551"
 
 get fun `test stakee payout collection decodes real mint body`() {
-    val mint = StakeePayoutCollectionMintNft.fromCell(parseCellFromBase64("te6cckEBAQEAOQAAbRZ0sKAAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNSgL68IAF/pFEU"));
+    val mint = StakeePayoutCollectionMintNft.fromCell(
+        parseCellFromBase64("te6cckEBAQEAOQAAbRZ0sKAAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNSgL68IAF/pFEU"),
+    );
 
     expect(mint.queryId).toEqual(0);
     expect(mint.owner).toEqual(address(EXPECTED_OWNER));
@@ -17,7 +19,9 @@ get fun `test stakee payout collection decodes real mint body`() {
 }
 
 get fun `test stakee payout collection decodes real outgoing init nft body`() {
-    val init = StakeePayoutCollectionInitNft.fromCell(parseCellFromBase64("te6cckEBAQEAdwAA6RMvmkUAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNTAAqPvsyHc2gygxvqu3Odks1Ann/aryvjpNGlS476rUSqoAQq2WDDrHxQLHfCoMjLWVTZg2Qynd5w0LJ3YY06/UOqjJ97wxs="));
+    val init = StakeePayoutCollectionInitNft.fromCell(
+        parseCellFromBase64("te6cckEBAQEAdwAA6RMvmkUAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNTAAqPvsyHc2gygxvqu3Odks1Ann/aryvjpNGlS476rUSqoAQq2WDDrHxQLHfCoMjLWVTZg2Qynd5w0LJ3YY06/UOqjJ97wxs="),
+    );
 
     expect(init.queryId).toEqual(0);
     expect(init.owner).toEqual(address(EXPECTED_OWNER));

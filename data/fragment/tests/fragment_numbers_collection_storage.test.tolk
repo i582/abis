@@ -21,8 +21,12 @@ get fun `test fragment numbers collection code and data fixtures are real BoCs`(
     expect(hasBocMagic(rawCodeBoc!)).toBeTrue();
     expect(hasBocMagic(rawDataBoc!)).toBeTrue();
 
-    expect(build("FragmentNumbersCollection", CODE_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_CODE_HASH);
-    expect(build("FragmentNumbersCollectionData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_DATA_HASH);
+    expect(build("FragmentNumbersCollection", CODE_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_CODE_HASH,
+    );
+    expect(build("FragmentNumbersCollectionData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_DATA_HASH,
+    );
 }
 
 get fun `test fragment numbers collection parses saved mainnet storage fixture`() {

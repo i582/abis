@@ -12,7 +12,9 @@ get fun `test dedust uranus factory v3 decodes live deploy meme body`() {
 
     expect(decoded.queryId).toEqual(0);
     expect(decoded.presetId).toEqual(4);
-    expect(decoded.metadata.uri).toEqual("ipfs://bafkreihgn5sh2aks43f2cqbrypbm7har3m2yi655blzwhaugnkd6cuojcu");
+    expect(
+        decoded.metadata.uri,
+    ).toEqual("ipfs://bafkreihgn5sh2aks43f2cqbrypbm7har3m2yi655blzwhaugnkd6cuojcu");
     expect(decoded.initialBuy).toEqual(9000000000);
     expect(decoded.partnerConfig).toBeNull();
     expect(decoded.referrerConfig).toBeNull();

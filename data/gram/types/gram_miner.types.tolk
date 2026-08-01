@@ -7,8 +7,7 @@ contract GramMiner {
     incomingMessages: GramMinerIncomingMessage
     incomingExternal: GramMinerExternalBody
     outgoingMessages: GramMinerOutgoingMessage
-    forceAbiExport: GramRescaleComplexity
-        | GramSignedAdminRequest
+    forceAbiExport: GramRescaleComplexity | GramSignedAdminRequest
     thrownErrors: Errors
 }
 

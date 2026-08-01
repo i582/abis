@@ -129,7 +129,9 @@ get fun `test omniston fee vault mainnet getters storage and derived address`() 
     expect(scripts.isContractDeployed(vault.address)).toBeTrue();
     expectMinterDataMatchesStorage(minterData, storage);
     expect(minterData.id).toEqual(EXPECTED_MINTER_ID);
-    expect(minterData.adminAddress.castToInternal()).toEqual(address(MAINNET_OMNISTON_ADMIN_ADDRESS));
+    expect(minterData.adminAddress.castToInternal()).toEqual(
+        address(MAINNET_OMNISTON_ADMIN_ADDRESS),
+    );
     expect(minterData.tempUpgradeUntil).toEqual(0);
 
     expect(version.major).toEqual(0);

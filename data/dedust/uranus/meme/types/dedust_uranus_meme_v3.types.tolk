@@ -363,45 +363,45 @@ type DedustUranusMemeV3OutgoingMessage =
 /// Uranus exit-code catalog shared by Factory, Meme, and Meme Wallet.
 enum Errors {
     /// Bonding curve parameters are malformed.
-    BondingCurveParametersMalformed = 20,
+    BondingCurveParametersMalformed = 20
     /// Output amount is below the supplied slippage limit.
-    SlippageExceeded = 21,
+    SlippageExceeded = 21
     /// Selected meme preset does not exist.
-    PresetNotExist = 22,
+    PresetNotExist = 22
     /// Attached TON value is not enough for the requested operation.
-    MessageValueTooLow = 23,
+    MessageValueTooLow = 23
     /// Meme state was already initialized.
-    AlreadyInitialized = 24,
+    AlreadyInitialized = 24
     /// Sender is not authorized for the operation.
-    SenderUnauthorized = 25,
+    SenderUnauthorized = 25
     /// Initial buy exceeds the configured limit.
-    InitialBuyLimitExceeded = 26,
+    InitialBuyLimitExceeded = 26
     /// Requested amount exceeds the available balance.
-    BalanceExceeded = 27,
+    BalanceExceeded = 27
     /// Meme state has not been initialized yet.
-    NotInitialized = 28,
+    NotInitialized = 28
     /// Meme already graduated and no longer accepts curve trading.
-    AlreadyGraduated = 29,
+    AlreadyGraduated = 29
     /// Cross-workchain transfer is rejected.
-    CrossWorkchainTransfer = 30,
+    CrossWorkchainTransfer = 30
     /// Supplied address is incorrect for the operation.
-    IncorrectAddress = 31,
+    IncorrectAddress = 31
     /// Selected fee preset does not exist.
-    FeePresetNotExist = 34,
+    FeePresetNotExist = 34
     /// Selected total-supply preset does not exist.
-    TotalSupplyPresetNotExist = 35,
+    TotalSupplyPresetNotExist = 35
     /// Fundraising target is outside the accepted range.
-    RaisingFundsOutOfRange = 36,
+    RaisingFundsOutOfRange = 36
     /// Partner fee is outside the accepted range.
-    PartnerFeeOutOfRange = 37,
+    PartnerFeeOutOfRange = 37
     /// On-sell supply percentage is outside the accepted range.
-    OnSellSupplyPercentOutOfRange = 38,
+    OnSellSupplyPercentOutOfRange = 38
     /// Migrated CPMM pool partner fee is outside the accepted range.
-    PoolPartnerFeeOutOfRange = 39,
+    PoolPartnerFeeOutOfRange = 39
     /// Invalid low-level tag in a bounced wallet flow.
-    InvalidTag = 63,
+    InvalidTag = 63
     /// Incoming message body tag is unknown.
-    UnknownOperation = 65535,
+    UnknownOperation = 65535
 }
 
 /// Return the current Meme bonding-curve and fee state.

@@ -11,8 +11,12 @@ fun expectNoTail(tail: RemainingBitsAndRefs): void {
 }
 
 get fun `test stakee pool decodes real deposit and withdrawal bodies`() {
-    val deposit = StakeePoolDeposit.fromCell(parseCellFromBase64("te6cckEBAQEADgAAGEfVQ5EAAAAAAAAnEcKvVbM="));
-    val withdraw = StakeePoolWithdraw.fromCell(parseCellFromBase64("te6cckEBAQEAVgAApzGbDNwAAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9SMd5vW0="));
+    val deposit = StakeePoolDeposit.fromCell(
+        parseCellFromBase64("te6cckEBAQEADgAAGEfVQ5EAAAAAAAAnEcKvVbM="),
+    );
+    val withdraw = StakeePoolWithdraw.fromCell(
+        parseCellFromBase64("te6cckEBAQEAVgAApzGbDNwAAAAAAAAAAEu4uu+YAAjXq4hg35WzG3zNwa3eCaxPl8hHlPAJFcIc8td2ut3rAAEa9XEMG/K2Y2+ZuDW7wTWJ8vkI8p4BIrhDnlru11u9SMd5vW0="),
+    );
 
     expect(deposit.queryId).toEqual(10001);
     expectNoTail(deposit.tail);
@@ -25,8 +29,12 @@ get fun `test stakee pool decodes real deposit and withdrawal bodies`() {
 }
 
 get fun `test stakee pool decodes real outgoing withdrawal and payout mint bodies`() {
-    val withdrawal = StakeePoolWithdrawal.fromCell(parseCellFromBase64("te6cckEBAQEADgAAGAp3U1wAAAAAAAAAALkbG1U="));
-    val mint = StakeePayoutMint.fromCell(parseCellFromBase64("te6cckEBAQEAOgAAbxZ0sKAAAAAAAAAnEYAEkONu1FSqU087eqqmkF5j8ooh/hFAobZe+8Gkb7Ev6SoEXLYqlIC+vCAB/gpPRA=="));
+    val withdrawal = StakeePoolWithdrawal.fromCell(
+        parseCellFromBase64("te6cckEBAQEADgAAGAp3U1wAAAAAAAAAALkbG1U="),
+    );
+    val mint = StakeePayoutMint.fromCell(
+        parseCellFromBase64("te6cckEBAQEAOgAAbxZ0sKAAAAAAAAAnEYAEkONu1FSqU087eqqmkF5j8ooh/hFAobZe+8Gkb7Ev6SoEXLYqlIC+vCAB/gpPRA=="),
+    );
 
     expect(withdrawal.queryId).toEqual(0);
     expect(mint.queryId).toEqual(10001);

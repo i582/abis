@@ -809,7 +809,15 @@ fun emptyTonstakersPoolRoundDataReply(): TonstakersPoolRoundDataReply {
 }
 
 fun emptyTonstakersPoolRoundDataTuple(): TonstakersPoolRoundDataTuple {
-    return [[], 0, 0, 0, 0, 0, 0];
+    return [
+        [],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ];
 }
 
 fun emptyTonstakersPoolFullDataReply(): TonstakersPoolFullDataReply {

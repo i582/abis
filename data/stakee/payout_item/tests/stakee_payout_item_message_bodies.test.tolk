@@ -17,7 +17,9 @@ fun expectInlineEmptyForwardPayload(tail: RemainingBitsAndRefs): void {
 }
 
 get fun `test stakee payout item decodes real init body`() {
-    val init = StakeePayoutItemInit.fromCell(parseCellFromBase64("te6cckEBAQEAdwAA6RMvmkUAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNTAAqPvsyHc2gygxvqu3Odks1Ann/aryvjpNGlS476rUSqoAQq2WDDrHxQLHfCoMjLWVTZg2Qynd5w0LJ3YY06/UOqjJ97wxs="));
+    val init = StakeePayoutItemInit.fromCell(
+        parseCellFromBase64("te6cckEBAQEAdwAA6RMvmkUAAAAAAAAAAIAdFyJ4WcSgmZYWtlNsWpYzrqFHMJ+zmMxIxNwCEo8L1OjWVoNTAAqPvsyHc2gygxvqu3Odks1Ann/aryvjpNGlS476rUSqoAQq2WDDrHxQLHfCoMjLWVTZg2Qynd5w0LJ3YY06/UOqjJ97wxs="),
+    );
 
     expect(init.queryId).toEqual(0);
     expect(init.ownerAddress).toEqual(address(EXPECTED_OWNER));
@@ -27,7 +29,9 @@ get fun `test stakee payout item decodes real init body`() {
 }
 
 get fun `test stakee payout item decodes real ownership assigned body`() {
-    val assigned = StakeePayoutItemOwnershipAssigned.fromCell(parseCellFromBase64("te6cckEBAQEADwAAGQUTjZEAAAAAAAAAABAk/v7w"));
+    val assigned = StakeePayoutItemOwnershipAssigned.fromCell(
+        parseCellFromBase64("te6cckEBAQEADwAAGQUTjZEAAAAAAAAAABAk/v7w"),
+    );
 
     expect(assigned.queryId).toEqual(0);
     expect(assigned.previousOwnerAddress).toBeNull();

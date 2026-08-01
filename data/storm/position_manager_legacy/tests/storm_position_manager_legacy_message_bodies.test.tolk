@@ -22,7 +22,11 @@ get fun `test legacy storm position manager decodes real order-created notificat
     expectEmptyOpcodeBody(body, 0x3a943ce6);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("STORM_LEGACY_ORDER_CREATED_TX={} LT={}", "0qGUYCSuq2Ek3NwDqVHhAK10NiCM/jjDz/rUaxINGzI=", "82380159000006");
+    println(
+        "STORM_LEGACY_ORDER_CREATED_TX={} LT={}",
+        "0qGUYCSuq2Ek3NwDqVHhAK10NiCM/jjDz/rUaxINGzI=",
+        "82380159000006",
+    );
 }
 
 get fun `test legacy storm position manager decodes real order-canceled notification`() {
@@ -37,5 +41,9 @@ get fun `test legacy storm position manager decodes real order-canceled notifica
     expectEmptyOpcodeBody(body, 0x69d08679);
     expect(decoded.toCell().hash()).toEqual(body.hash());
 
-    println("STORM_LEGACY_ORDER_CANCELED_TX={} LT={}", "NwN34HlhoozH1IqAkHgVdHduM25MKqeLMHbRc9Xm4CQ=", "81882307000004");
+    println(
+        "STORM_LEGACY_ORDER_CANCELED_TX={} LT={}",
+        "NwN34HlhoozH1IqAkHgVdHduM25MKqeLMHbRc9Xm4CQ=",
+        "81882307000004",
+    );
 }

@@ -128,12 +128,21 @@ fun expectTypedMapGettersMatchStorage(
     expect(getterAssetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
     expect(getterAssetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
     expect(getterUpdatedRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
-    expect(getterUiVariables.assetDynamicsCollection.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
-    expect(getterUiVariables.assetsRates.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
-    expect(getterUiVariables.assetsReserves.isEmpty()).toEqual(storage.assetDynamicsCollection.isEmpty());
+    expect(getterUiVariables.assetDynamicsCollection.isEmpty()).toEqual(
+        storage.assetDynamicsCollection.isEmpty(),
+    );
+    expect(getterUiVariables.assetsRates.isEmpty()).toEqual(
+        storage.assetDynamicsCollection.isEmpty(),
+    );
+    expect(getterUiVariables.assetsReserves.isEmpty()).toEqual(
+        storage.assetDynamicsCollection.isEmpty(),
+    );
 
     expectAssetDynamicsMatch(getterAssetsData.mustGet(assetId), expectedDynamics);
-    expectAssetDynamicsMatch(getterUiVariables.assetDynamicsCollection.mustGet(assetId), expectedDynamics);
+    expectAssetDynamicsMatch(
+        getterUiVariables.assetDynamicsCollection.mustGet(assetId),
+        expectedDynamics,
+    );
     expectAssetConfigMatch(getterAssetsConfig.mustGet(assetId), expectedConfig);
     expect(assetsRate.sRate as int).toEqual(scalarRates.sRate);
     expect(assetsRate.bRate as int).toEqual(scalarRates.bRate);

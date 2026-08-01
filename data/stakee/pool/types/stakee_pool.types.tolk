@@ -6,9 +6,7 @@ contract StakeePool {
     storage: StakeePoolStorage
     incomingMessages: StakeePoolIncomingMessage
     outgoingMessages: StakeePoolOutgoingMessage
-    forceAbiExport: StakeePoolEventMessage
-        | StakeePoolPayoutData
-        | StakeePoolPayoutInitData
+    forceAbiExport: StakeePoolEventMessage | StakeePoolPayoutData | StakeePoolPayoutInitData
     thrownErrors: PoolErrors
 }
 
@@ -809,7 +807,15 @@ fun emptyStakeePoolRoundDataReply(): StakeePoolRoundDataReply {
 }
 
 fun emptyStakeePoolRoundDataTuple(): StakeePoolRoundDataTuple {
-    return [[], 0, 0, 0, 0, 0, 0];
+    return [
+        [],
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ];
 }
 
 fun emptyStakeePoolFullDataReply(): StakeePoolFullDataReply {

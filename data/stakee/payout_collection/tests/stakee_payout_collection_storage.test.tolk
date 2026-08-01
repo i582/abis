@@ -24,7 +24,9 @@ get fun `test stakee payout collection code and data fixtures are real BoCs`() {
     expect(rawData).toBeNotNull();
     expect(hasBocMagic(rawCode!)).toBeTrue();
     expect(hasBocMagic(rawData!)).toBeTrue();
-    expect(build("StakeePayoutCollectionData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(EXPECTED_DATA_HASH);
+    expect(build("StakeePayoutCollectionData", DATA_FIXTURE_BOC_PATH).hash()).toEqual(
+        EXPECTED_DATA_HASH,
+    );
 }
 
 get fun `test stakee payout collection parses saved mainnet storage fixture`() {

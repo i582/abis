@@ -7,7 +7,14 @@ contract DedustV2Cpmm {
     incomingMessages: DedustV2CpmmIncomingMessage
     outgoingMessages: DedustV2CpmmOutgoingMessage
     thrownErrors: Errors
-    forceAbiExport: DedustV2CpmmPaymentPayload | DedustV2CpmmPayJetton | DedustV2CpmmPoolConfig | DedustV2CpmmPoolFees | DedustV2CpmmPoolUpdatedState | DedustV2CpmmSwapFees | DedustV2CpmmExtendedPayoutConfig | DedustV2CpmmBasicPayoutConfig
+    forceAbiExport: DedustV2CpmmPaymentPayload
+        | DedustV2CpmmPayJetton
+        | DedustV2CpmmPoolConfig
+        | DedustV2CpmmPoolFees
+        | DedustV2CpmmPoolUpdatedState
+        | DedustV2CpmmSwapFees
+        | DedustV2CpmmExtendedPayoutConfig
+        | DedustV2CpmmBasicPayoutConfig
 }
 
 /// Inline two-bit mode tag stored after the root dictionary.
@@ -169,13 +176,13 @@ struct DedustV2CpmmReferrerConfig {
 }
 
 /// Strategy for swap fee collection.
-enum DedustV2CpmmFeeIn : uint2 {
+enum DedustV2CpmmFeeIn: uint2 {
     /// Fees are collected in the input asset.
-    Both = 0b00,
+    Both = 0b00
     /// Fees are collected in asset X.
-    AssetX = 0b01,
+    AssetX = 0b01
     /// Fees are collected in asset Y.
-    AssetY = 0b10,
+    AssetY = 0b10
 }
 
 /// Pool immutable configuration.
@@ -741,63 +748,63 @@ type DedustV2CpmmOutgoingMessage =
 /// CPMM v2 exit-code catalog from official docs and verified decompile.
 enum Errors {
     /// Pool is not in the uninitialized state.
-    NotUninitialized = 20,
+    NotUninitialized = 20
     /// Pool is not in the initializing state.
-    NotInitializing = 21,
+    NotInitializing = 21
     /// Pool has not completed initialization.
-    NotInitialized = 22,
+    NotInitialized = 22
     /// Sender is not authorized for the requested operation.
-    SenderUnauthorized = 23,
+    SenderUnauthorized = 23
     /// Wallet resolver returned an unsupported address.
-    WalletCannotBeResolved = 24,
+    WalletCannotBeResolved = 24
     /// Attached message value is too low for gas and forwarding.
-    MessageValueTooLow = 25,
+    MessageValueTooLow = 25
     /// Pool initialization used duplicate assets.
-    DuplicateOfAssets = 26,
+    DuplicateOfAssets = 26
     /// Payment asset is unrelated to this pool.
-    UnrelatedAsset = 28,
+    UnrelatedAsset = 28
     /// Input value is lower than required.
-    ValueTooLow = 29,
+    ValueTooLow = 29
     /// Slippage limit was exceeded.
-    SlippageExceeded = 30,
+    SlippageExceeded = 30
     /// Asset type is not supported.
-    AssetNotSupported = 31,
+    AssetNotSupported = 31
     /// Address is in an unexpected workchain.
-    WrongWorkchain = 32,
+    WrongWorkchain = 32
     /// Operation deadline has passed.
-    DeadlineExceeded = 33,
+    DeadlineExceeded = 33
     /// Pool has zero liquidity.
-    ZeroLiquidity = 34,
+    ZeroLiquidity = 34
     /// Creator fee exceeds the allowed maximum.
-    MaxCreatorFeeExceeded = 35,
+    MaxCreatorFeeExceeded = 35
     /// Position or pool liquidity is insufficient.
-    NotEnoughLiquidity = 36,
+    NotEnoughLiquidity = 36
     /// Swaps are not active.
-    SwapNotActive = 37,
+    SwapNotActive = 37
     /// Deposits are not active.
-    DepositNotActive = 38,
+    DepositNotActive = 38
     /// Jetton wallet is already registered.
-    WalletAlreadyRegistered = 39,
+    WalletAlreadyRegistered = 39
     /// Jetton wallet is not registered.
-    WalletNotRegistered = 40,
+    WalletNotRegistered = 40
     /// Wallet-resolution callback came from an unknown resolver.
-    UnknownResolver = 41,
+    UnknownResolver = 41
     /// Reward asset is not allowed.
-    RewardIsNotAllowed = 42,
+    RewardIsNotAllowed = 42
     /// Reward duration exceeds the configured maximum.
-    MaxRewardDurationExceeded = 43,
+    MaxRewardDurationExceeded = 43
     /// Reward duration is zero.
-    ZeroDurationReward = 44,
+    ZeroDurationReward = 44
     /// Reward top-up would dilute the current reward rate.
-    RewardBudgetDilution = 45,
+    RewardBudgetDilution = 45
     /// Reward program is not active.
-    RewardIsNotActive = 46,
+    RewardIsNotActive = 46
     /// Swap or deposit input amount is zero.
-    ZeroInputAmount = 47,
+    ZeroInputAmount = 47
     /// Tagged-union or forwarded-payload layout check failed.
-    InvalidTag = 63,
+    InvalidTag = 63
     /// Fallback rejection for unsupported operation codes.
-    UnknownOperation = 65535,
+    UnknownOperation = 65535
 }
 
 get fun get_position_address(ownerAddress: address): address {
