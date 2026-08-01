@@ -1,7 +1,7 @@
 [project]
 name = "stonfi"
 category = "TON DEX contracts"
-description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, and Vault contracts"
+description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, Vault, and Escrow contracts"
 
 [sources]
 stonfi_docs_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1"
@@ -188,3 +188,14 @@ known_addresses = ["EQBCFLAnWCc_heRtp78zmT_1h2XhyX7wcEwaiNHry27Mtxw6"]
 kind = "docs"
 title = "STON.fi Vault v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/vault"
+
+[contracts.StonfiEscrowPosition]
+display_name = "STON.fi Escrow Position"
+types = "escrow_position/types/stonfi_escrow_position.types.tolk"
+hashes = ["aab1db63f193a4aecaa3e3a959fc1784f1412b191a66ae870958405ba88114c7"]
+known_addresses = ["EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"]
+
+[contracts.StonfiEscrowPosition.instances.primary]
+address = "EQAaKWRLpempuPro_iWQLxVMBOmy7xE-wB_THkpF0J9-0bKf"
+code_hash = "aab1db63f193a4aecaa3e3a959fc1784f1412b191a66ae870958405ba88114c7"
+network = "mainnet"
