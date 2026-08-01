@@ -1,0 +1,62 @@
+[project]
+name = "cocoon"
+website = "https://github.com/TelegramMessenger/cocoon"
+
+[sources]
+contracts = "https://github.com/TelegramMessenger/cocoon-contracts/tree/edafcb2b9a74403ba343e0826772af77ec431277"
+runtime = "https://github.com/TelegramMessenger/cocoon"
+
+[[links]]
+kind = "repository"
+title = "COCOON runtime configuration"
+url = "https://github.com/TelegramMessenger/cocoon"
+
+[[links]]
+kind = "repository"
+title = "COCOON contracts"
+url = "https://github.com/TelegramMessenger/cocoon-contracts/tree/edafcb2b9a74403ba343e0826772af77ec431277"
+
+[contracts.CocoonRoot]
+types = "root/types/cocoon_root.types.tolk"
+hashes = ["fb89a08fc6ce8ada74d067a0c2f62793f868e7cd5e8e01b5ed0247c568642908"]
+known_addresses = ["EQCns7bYSp0igFvS1wpb5wsZjCKCV19MD5AVzI4EyxsnU73k"]
+
+[contracts.CocoonRoot.instances.production_root]
+name = "COCOON production Root"
+address = "EQCns7bYSp0igFvS1wpb5wsZjCKCV19MD5AVzI4EyxsnU73k"
+
+[contracts.CocoonProxy]
+types = "proxy/types/cocoon_proxy.types.tolk"
+hashes = ["279a4a96d50e93018f20fecac379712afd0052597cbe93fffec32be68c9787fd"]
+known_addresses = ["EQDGkQM7RIWp6yGW79i8oV3zJ-vdnpV68pdZ2W8mrpE3cJ2y"]
+
+[contracts.CocoonProxy.instances.production_proxy]
+name = "COCOON production Proxy"
+address = "EQDGkQM7RIWp6yGW79i8oV3zJ-vdnpV68pdZ2W8mrpE3cJ2y"
+
+[contracts.CocoonClient]
+types = "client/types/cocoon_client.types.tolk"
+hashes = ["b81f091aee4e88708650755a859cfa436d2c968726b85b0569911bb734dd77d3"]
+known_addresses = ["EQBjzlfkW3bNBeA-z9Fw5a_iQrmfwD2SGtJO_Bsqjc84K7tw"]
+
+[contracts.CocoonClient.instances.representative_client]
+name = "COCOON representative Client"
+address = "EQBjzlfkW3bNBeA-z9Fw5a_iQrmfwD2SGtJO_Bsqjc84K7tw"
+
+[contracts.CocoonWorker]
+types = "worker/types/cocoon_worker.types.tolk"
+hashes = ["b100aeadcb1b1cb9274172044c1c27b041748ef4d2bbb8fe0f5c4da4dae67a3c"]
+known_addresses = ["EQApvPxqhVE0mRjg-ZxlogKyfr_BUJ2ppEzcp7i8Ahupo4RD"]
+
+[contracts.CocoonWorker.instances.representative_worker]
+name = "COCOON representative Worker"
+address = "EQApvPxqhVE0mRjg-ZxlogKyfr_BUJ2ppEzcp7i8Ahupo4RD"
+
+[contracts.CocoonWallet]
+types = "wallet/types/cocoon_wallet.types.tolk"
+hashes = ["7a48f05ceef40f06cabbaa39c1c5a67b24e8bb59d8cf8a74e49988a5f44cf66a"]
+known_addresses = ["EQBGsVa8sS32TOmXMjT2ueLcyEvdzla9RHwB8e9d5mDnxRJS"]
+
+[contracts.CocoonWallet.instances.representative_wallet]
+name = "COCOON representative Wallet"
+address = "EQBGsVa8sS32TOmXMjT2ueLcyEvdzla9RHwB8e9d5mDnxRJS"
