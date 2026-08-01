@@ -14,7 +14,6 @@ anton_catalog = "source/anton.json"
 kind = "docs"
 title = "Highload wallet documentation"
 url = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
-scope = "standard"
 
 [contracts.WalletHighloadV2r1]
 types = "types/wallet_highload_v2r1.types.tolk"

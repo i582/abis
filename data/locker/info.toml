@@ -17,13 +17,11 @@ tongo_schema = "schemas/locker.xml"
 kind = "source"
 title = "TON Locker source"
 url = "https://github.com/ton-blockchain/locker-contract"
-scope = "project"
 
 [[links]]
 kind = "audit"
 title = "TON Locker audit"
 url = "https://github.com/ton-blockchain/locker-contract#quantstamp-audit"
-scope = "project"
 
 [contracts.Locker]
 types = "types/locker.types.tolk"
@@ -40,7 +38,6 @@ known_addresses = [
 kind = "source"
 title = "TON Locker contract source"
 url = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker.fc"
-scope = "contract"
 
 [contracts.LockerBill]
 types = "types/locker_bill.types.tolk"
@@ -53,4 +50,3 @@ notes = "Official per-user bill contract for Locker. Code hash was compiled loca
 kind = "source"
 title = "TON Locker bill source"
 url = "https://raw.githubusercontent.com/ton-blockchain/locker-contract/main/contracts/locker_bill.fc"
-scope = "contract"

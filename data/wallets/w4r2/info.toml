@@ -18,13 +18,11 @@ toncenter_v3_account_states = "https://toncenter.com/api/v3/accountStates"
 kind = "docs"
 title = "TON Wallet V4 documentation"
 url = "https://docs.ton.org/standard/wallets/v4"
-scope = "contract"
 
 [[links]]
 kind = "source"
 title = "TON Wallet V4 source"
 url = "https://github.com/ton-blockchain/wallet-contract"
-scope = "contract"
 
 [contracts.WalletV4r2]
 types = "types/wallet_v4r2.types.tolk"

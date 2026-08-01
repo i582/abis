@@ -18,13 +18,11 @@ toncenter_v3_account_states = "https://toncenter.com/api/v3/accountStates"
 kind = "docs"
 title = "TON wallet history"
 url = "https://docs.ton.org/blockchain-basics/standard/wallets/history"
-scope = "standard"
 
 [[links]]
 kind = "source"
 title = "Wallet V1 source"
 url = "https://raw.githubusercontent.com/ton-blockchain/ton/master/crypto/smartcont/new-wallet.fif"
-scope = "contract"
 
 [contracts.WalletV1r3]
 types = "types/wallet_v1r3.types.tolk"

@@ -17,7 +17,6 @@ local_decompile_snapshot = "research/func"
 kind = "source"
 title = "TON liquid staking source"
 url = "https://github.com/ton-blockchain/liquid-staking-contract"
-scope = "project"
 
 [contracts.StakeePool]
 display_name = "Stakee Staking Pool"

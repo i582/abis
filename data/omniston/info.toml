@@ -21,19 +21,16 @@ stonfi_api_swagger = "https://api.ston.fi/swagger-ui/#/"
 kind = "docs"
 title = "STON.fi Omniston Protocol"
 url = "https://docs.ston.fi/developer-section/omniston"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "STON.fi Omniston SDK"
 url = "https://docs.ston.fi/developer-section/omniston/sdk"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "Omniston demo app"
 url = "https://omniston.ston.fi"
-scope = "project"
 
 [contracts.OmnistonFeeVault]
 display_name = "Omniston Fee-Vault Minter"
@@ -50,7 +47,6 @@ known_addresses = ["EQCcJf2KFlH9xIx3dztytxxRFk3KQZKEYBr-f0nFIO1h3dvv"]
 kind = "docs"
 title = "STON.fi Omniston referral fees guide"
 url = "https://docs.ston.fi/developer-section/omniston/referral-fees"
-scope = "contract"
 
 [[contracts.OmnistonFeeVault.instances]]
 name = "Omniston Fee-Vault Minter"

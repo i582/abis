@@ -22,7 +22,6 @@ decompiled_subscription_v1 = "research/func/subscription_v1.fc"
 kind = "website"
 title = "Tonkeeper website"
 url = "https://tonkeeper.com"
-scope = "project"
 
 [contracts.SubscriptionV1]
 types = "types/subscription_v1.types.tolk"

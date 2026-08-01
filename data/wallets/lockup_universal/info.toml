@@ -17,13 +17,11 @@ local_contracts_catalog = "contracts.json"
 kind = "docs"
 title = "TON lockup wallet documentation"
 url = "https://docs.ton.org/blockchain-basics/standard/wallets/lockup"
-scope = "standard"
 
 [[links]]
 kind = "source"
 title = "Lockup wallet source"
 url = "https://github.com/ton-blockchain/lockup-wallet-contract"
-scope = "project"
 
 [contracts.LockupUniversal]
 types = "types/lockup_universal.types.tolk"

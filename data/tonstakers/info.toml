@@ -26,19 +26,16 @@ local_generated_controller_abi = "gen_abis/validator_controller.json"
 kind = "source"
 title = "TON liquid staking source"
 url = "https://github.com/ton-blockchain/liquid-staking-contract"
-scope = "project"
 
 [[links]]
-kind = "schema"
+kind = "spec"
 title = "TON liquid staking interaction TL-B"
 url = "https://github.com/ton-blockchain/liquid-staking-contract/blob/1f4e9badbed52a4cf80cc58e4bb36ed375c6c8e7/contracts/interaction.tlb"
-scope = "TonstakersValidatorController"
 
 [[links]]
 kind = "sdk"
 title = "Tonstakers SDK"
 url = "https://github.com/tonstakers/tonstakers-sdk"
-scope = "project"
 
 [contracts.TonstakersPool]
 display_name = "Tonstakers Staking Pool"

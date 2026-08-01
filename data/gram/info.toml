@@ -9,7 +9,6 @@ toncenter_account = "https://toncenter.com/api/v3/accountStates?address=0:A1C02D
 kind = "source"
 title = "TON Core PoW TestGiver source"
 url = "https://github.com/ton-blockchain/ton/blob/f064b1047a5671ec5a435462d5639792274fb32e/crypto/smartcont/pow-testgiver-code.fc"
-scope = "GramMiner"
 
 [contracts.GramMiner]
 types = "types/gram_miner.types.tolk"

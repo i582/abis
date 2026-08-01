@@ -15,7 +15,6 @@ local_research_results = "data/nominator_pool/research/results.md"
 kind = "source"
 title = "TON nominator pool source"
 url = "https://github.com/ton-blockchain/nominator-pool/tree/2f35c36b5ad662f10fd7b01ef780c3f1949c399d"
-scope = "project"
 
 [contracts.NominatorPool]
 display_name = "TON Validators Nominator Pool"

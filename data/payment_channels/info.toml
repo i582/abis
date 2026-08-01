@@ -19,19 +19,16 @@ local_research_results = "data/payment_channels/research/results.md"
 kind = "source"
 title = "TON asynchronous payment channel source"
 url = "https://github.com/ton-blockchain/payment-channels/blob/e605580c3fb1feb22d80be9a0cddfcd05671c347/func/async-channel.func"
-scope = "contract"
 
 [[links]]
 kind = "spec"
 title = "TON asynchronous payment channel TL-B schema"
 url = "https://github.com/ton-blockchain/payment-channels/blob/e605580c3fb1feb22d80be9a0cddfcd05671c347/scheme.tlb"
-scope = "contract"
 
 [[links]]
-kind = "documentation"
+kind = "docs"
 title = "TON asynchronous payment channel protocol"
 url = "https://github.com/ton-blockchain/payment-channels/blob/e605580c3fb1feb22d80be9a0cddfcd05671c347/README.MD"
-scope = "project"
 
 [contracts.AsyncPaymentChannel]
 display_name = "TON Asynchronous Payment Channel"

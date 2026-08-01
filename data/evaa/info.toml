@@ -27,13 +27,11 @@ local_user_message_body_scan = "data/evaa/research/evaa_user_message_bodies.md"
 kind = "source"
 title = "EVAA contracts source"
 url = "https://github.com/evaafi/contracts"
-scope = "project"
 
 [[links]]
 kind = "sdk"
 title = "EVAA SDK"
 url = "https://github.com/evaafi/sdk"
-scope = "project"
 
 [contracts.EvaaMasterPyth]
 display_name = "EVAA Master Pyth"

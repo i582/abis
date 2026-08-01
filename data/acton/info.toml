@@ -13,7 +13,6 @@ local_treasury_source_snapshot = "data/acton/treasury/research/func/treasury.fc"
 kind = "source"
 title = "Sandbox treasury source"
 url = "https://github.com/ton-org/sandbox/blob/main/src/treasury/treasury.fc"
-scope = "contract"
 
 [contracts.TreasuryContract]
 display_name = "TreasuryContract"

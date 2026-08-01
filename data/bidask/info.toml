@@ -30,19 +30,16 @@ local_generated_abis = "gen_abis"
 kind = "docs"
 title = "Bidask documentation"
 url = "https://docs.bidask.finance"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "Bidask architecture"
 url = "https://docs.bidask.finance/Architecture"
-scope = "project"
 
 [[links]]
 kind = "sdk"
 title = "Bidask SDK"
 url = "https://github.com/bidask-protocol/bidask-sdk"
-scope = "project"
 
 [contracts.BidaskPoolFactory]
 display_name = "Bidask DLMM Pool Factory"
@@ -54,7 +51,6 @@ known_addresses = ["EQAuBZGak9BdkxuCC9gWUsY4Em3jog94BI4eRzX-3_Bidask"]
 kind = "docs"
 title = "DLMM pool factory docs"
 url = "https://docs.bidask.finance/contracts/dlmm/Pool_factory"
-scope = "contract"
 
 [contracts.BidaskPoolFactory.instances.mainnet]
 address = "EQAuBZGak9BdkxuCC9gWUsY4Em3jog94BI4eRzX-3_Bidask"
@@ -70,7 +66,6 @@ known_addresses = ["EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"]
 kind = "docs"
 title = "DLMM pool docs"
 url = "https://docs.bidask.finance/contracts/dlmm/Pool"
-scope = "contract"
 
 [contracts.BidaskPool.instances.recent_factory_deploy]
 address = "EQDWP1o1Ov-3_URrkoz5XmJ3kUXS9uhAN9L9DKOe3Z_huoQh"
@@ -87,7 +82,6 @@ known_addresses = ["EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"]
 kind = "docs"
 title = "DLMM range docs"
 url = "https://docs.bidask.finance/contracts/dlmm/range"
-scope = "contract"
 
 [contracts.BidaskRange.instances.pool_active_range]
 address = "EQDW7k0yROoOvyfSpSi4SVj5ZRYimiaE4uJElsTfTfW--e5b"
@@ -107,7 +101,6 @@ known_addresses = [
 kind = "docs"
 title = "DLMM LP multitoken docs"
 url = "https://docs.bidask.finance/contracts/dlmm/Lp_multitoken"
-scope = "contract"
 
 [contracts.BidaskLpMultitoken.instances.range_mint_a]
 address = "EQDW-sWKZPwoMucVoSKSIproQoVWG4aEy-Bvtbk8cDmuvAFw"
@@ -140,7 +133,6 @@ known_addresses = ["EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"]
 kind = "docs"
 title = "DAMM pool docs"
 url = "https://docs.bidask.finance/contracts/damm/pool"
-scope = "contract"
 
 [contracts.BidaskDammPool.instances.mainnet]
 address = "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"
@@ -156,7 +148,6 @@ known_addresses = []
 kind = "docs"
 title = "DAMM LP wallet docs"
 url = "https://docs.bidask.finance/contracts/damm/lp_wallet"
-scope = "contract"
 
 [contracts.BidaskDammLpWallet.instances.historical_mint_trace]
 address = "UQAQgXFtrRR75df--xawoNTSgaNZkb3YYMXveeslFSBt4Blc"

@@ -22,7 +22,6 @@ local_get_assets = "research/aqua_usd_get_assets_raw.txt"
 kind = "website"
 title = "Aqua app"
 url = "https://app.aquaprotocol.xyz/"
-scope = "project"
 
 [contracts.AquaUsdMasterVault]
 display_name = "Aqua USD Master Vault"

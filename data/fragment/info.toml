@@ -23,7 +23,6 @@ marketapp_proxy_jetton_decompile = "research/func/marketapp_proxy_a9c1.fc"
 kind = "website"
 title = "Fragment marketplace"
 url = "https://fragment.com/"
-scope = "project"
 
 [contracts.FragmentUsernameCollection]
 display_name = "Fragment Username Collection"
@@ -39,7 +38,6 @@ research = "research/fragment_username_collection.md"
 kind = "source"
 title = "Telegram TeleMint source"
 url = "https://github.com/TelegramMessenger/telemint"
-scope = "contract"
 
 [contracts.FragmentUsernameCollection.instances.mainnet]
 address = "EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi"
@@ -60,7 +58,6 @@ research = "research/fragment_numbers_collection.md"
 kind = "source"
 title = "Telegram TeleMint source"
 url = "https://github.com/TelegramMessenger/telemint"
-scope = "contract"
 
 [contracts.FragmentNumbersCollection.instances.mainnet]
 address = "EQAOQdwdw8kGftJCSFgOErM1mBjYPe4DBPq8-AhF6vr9si5N"
@@ -81,7 +78,6 @@ research = "research/fragment_username_item.md"
 kind = "source"
 title = "Telegram TeleMint source"
 url = "https://github.com/TelegramMessenger/telemint"
-scope = "contract"
 
 [contracts.FragmentUsernameItem.instances.mainnet]
 address = "EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"
@@ -102,7 +98,6 @@ research = "research/fragment_numbers_item.md"
 kind = "source"
 title = "Telegram TeleMint source"
 url = "https://github.com/TelegramMessenger/telemint"
-scope = "contract"
 
 [contracts.FragmentNumbersItem.instances.mainnet]
 address = "EQCkQlDs452x_vspIKq_PTlUl8B0S427RELr_62Dbro7g3om"

@@ -17,13 +17,11 @@ anton_catalog = "source/anton.json"
 kind = "docs"
 title = "Highload wallet documentation"
 url = "https://docs.ton.org/v3/documentation/smart-contracts/contracts-specs/highload-wallet"
-scope = "standard"
 
 [[links]]
 kind = "source"
 title = "Highload wallet source"
 url = "https://github.com/ton-blockchain/ton/blob/master/crypto/smartcont/highload-wallet-code.fc"
-scope = "contract"
 
 [contracts.WalletHighloadV1r1]
 types = "types/wallet_highload_v1r1.types.tolk"

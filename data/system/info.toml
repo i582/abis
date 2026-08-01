@@ -19,7 +19,6 @@ local_config_research = "data/system/research/config.md"
 kind = "source"
 title = "TON system contracts source"
 url = "https://github.com/ton-blockchain/ton/tree/master/crypto/smartcont"
-scope = "project"
 
 [contracts.Elector]
 display_name = "TON Elector"

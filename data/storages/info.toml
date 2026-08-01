@@ -21,19 +21,16 @@ local_schema_snapshot = "data/storages/research/source/local"
 kind = "docs"
 title = "TON Storage overview"
 url = "https://docs.ton.org/blockchain-basics/primitives/web3/ton-storage"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "Storage provider guide"
 url = "https://old-docs.ton.org/v3/guidelines/web3/ton-storage/storage-provider"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "TON Storage contracts source"
 url = "https://github.com/ton-blockchain/ton/tree/master/storage/storage-daemon/smartcont"
-scope = "project"
 
 [contracts.StorageProvider]
 display_name = "TON Storage Provider"

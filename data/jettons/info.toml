@@ -30,19 +30,16 @@ tep_526 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-u
 kind = "docs"
 title = "TON Jetton comparison"
 url = "https://docs.ton.org/blockchain-basics/standard/tokens/jettons/comparison"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-74 Jetton standard"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-89 Jetton wallet discovery"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
-scope = "standard"
 
 [contracts.JettonV1Master]
 types = "jetton_1/types/jetton_v1_master.types.tolk"
@@ -53,7 +50,6 @@ known_addresses = ["EQALtan2kEPuvdpa0ulG65UyQr2PYD_nldkGmM7sa_xgoCwr"]
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [contracts.JettonV100Master]
 types = "jetton_1/types/jetton_v1_00_master.types.tolk"
@@ -64,7 +60,6 @@ known_addresses = []
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [contracts.JettonV1Wallet]
 types = "jetton_1/types/jetton_v1_wallet.types.tolk"
@@ -82,7 +77,6 @@ known_addresses = ["EQA_wAw2-rhLg-kCypeJW8dcrPKWcHZ9VccrZd_6RPjqYpfR"]
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [contracts.DiscoverableJettonMaster]
 types = "discoverable_jetton/types/discoverable_jetton_master.types.tolk"
@@ -97,13 +91,11 @@ known_addresses = ["EQDOxsDBUkJYfX2musuy4yG-7o6VSMIMdqEsktTjI3HX3vUb"]
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [[contracts.DiscoverableJettonMaster.links]]
 kind = "source"
 title = "TON minter contract source"
 url = "https://github.com/ton-blockchain/minter-contract"
-scope = "contract"
 
 [contracts.DiscoverableJettonWallet]
 types = "discoverable_jetton/types/discoverable_jetton_wallet.types.tolk"
@@ -120,13 +112,11 @@ known_addresses = ["EQDt0qeoHwip8CtuUeNsaKjK-g0rwL7zUunKAnv0NCTZDSs3"]
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [[contracts.DiscoverableJettonWallet.links]]
 kind = "source"
 title = "TON minter contract source"
 url = "https://github.com/ton-blockchain/minter-contract"
-scope = "contract"
 
 [contracts.JettonDiscovery]
 types = "discoverable_jetton/types/jetton_discovery.types.tolk"
@@ -140,7 +130,6 @@ known_addresses = []
 kind = "source"
 title = "TON token contract source"
 url = "https://github.com/ton-blockchain/token-contract"
-scope = "contract"
 
 [contracts.StablecoinMaster]
 types = "stablecoin_1_04/types/stablecoin_master.types.tolk"
@@ -151,7 +140,6 @@ known_addresses = ["EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs"]
 kind = "source"
 title = "TON stablecoin source"
 url = "https://github.com/ton-blockchain/stablecoin-contract"
-scope = "contract"
 
 [contracts.StablecoinWallet]
 types = "stablecoin_1_04/types/stablecoin_wallet.types.tolk"
@@ -165,7 +153,6 @@ known_addresses = ["EQAmJs8wtwK93thF78iD76RQKf9Z3v2sxM57iwpZZtdQAiVM"]
 kind = "source"
 title = "TON stablecoin source"
 url = "https://github.com/ton-blockchain/stablecoin-contract"
-scope = "contract"
 
 [contracts.JettonNotcoinMaster]
 types = "jetton_1_2_notcoin/types/jetton_notcoin_master.types.tolk"
@@ -179,7 +166,6 @@ known_addresses = ["EQAvlWFDxGF2lXm67y4yzC17wYKD9A0guwPkMs1gOsM__NOT"]
 kind = "source"
 title = "Notcoin contract source"
 url = "https://github.com/OpenBuilders/notcoin-contract"
-scope = "contract"
 
 [contracts.JettonNotcoinWallet]
 types = "jetton_1_2_notcoin/types/jetton_notcoin_wallet.types.tolk"
@@ -194,7 +180,6 @@ known_addresses = ["EQAtRMiPzUFf6--gle-_Z2WGl0XH8To-r5hHk_B8JPCqTjcD"]
 kind = "source"
 title = "Notcoin contract source"
 url = "https://github.com/OpenBuilders/notcoin-contract"
-scope = "contract"
 
 [contracts.Jetton2Master]
 types = "jetton_2_0/types/jetton_2_master.types.tolk"
@@ -207,7 +192,6 @@ known_addresses = []
 kind = "source"
 title = "TON Jetton 2.0 source"
 url = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
-scope = "contract"
 
 [contracts.Jetton2Wallet]
 types = "jetton_2_0/types/jetton_2_wallet.types.tolk"
@@ -221,7 +205,6 @@ known_addresses = []
 kind = "source"
 title = "TON Jetton 2.0 source"
 url = "https://github.com/ton-blockchain/jetton-contract/tree/jetton-2.0"
-scope = "contract"
 
 [contracts.JettonMinter]
 types = "jetton_2_1/types/jetton_minter.types.tolk"
@@ -232,7 +215,6 @@ known_addresses = []
 kind = "source"
 title = "Acton Tolk jetton template source"
 url = "https://github.com/ton-blockchain/acton/tree/master/src/commands/new/templates/jetton"
-scope = "contract"
 
 [contracts.JettonWallet]
 types = "jetton_2_1/types/jetton_wallet.types.tolk"
@@ -246,7 +228,6 @@ known_addresses = []
 kind = "source"
 title = "Acton Tolk jetton template source"
 url = "https://github.com/ton-blockchain/acton/tree/master/src/commands/new/templates/jetton"
-scope = "contract"
 
 [contracts.MintlessJettonMaster]
 types = "mintless_1_0/types/mintless_master.types.tolk"
@@ -257,7 +238,6 @@ known_addresses = ["EQAJ8uWd7EBqsmpSWaRdf_I-8R8-XHwh3gsNKhy-UrdrPcUo"]
 kind = "source"
 title = "TON mintless jetton source"
 url = "https://github.com/ton-blockchain/mintless-jetton-contract"
-scope = "contract"
 
 [contracts.MintlessJettonWallet]
 types = "mintless_1_0/types/mintless_wallet.types.tolk"
@@ -271,7 +251,6 @@ known_addresses = ["EQD1MISQQCRISJVAyLVdwEo8WiFAxSX173eUHTFPz2FdfJ42"]
 kind = "source"
 title = "TON mintless jetton source"
 url = "https://github.com/ton-blockchain/mintless-jetton-contract"
-scope = "contract"
 
 [contracts.ScaledUiJettonMaster]
 display_name = "Scaled UI Jetton Master Interface"
@@ -286,4 +265,3 @@ known_addresses = [
 kind = "spec"
 title = "TEP-526 Scaled UI Jettons"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0526-scaled-ui-jettons.md"
-scope = "standard"

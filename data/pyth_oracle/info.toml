@@ -21,7 +21,6 @@ local_toncenter_tlb = "research/source/toncenter-schemes.tlb"
 kind = "website"
 title = "Pyth Network"
 url = "https://pyth.network/"
-scope = "project"
 
 [contracts.PythOracle]
 display_name = "Pyth Oracle"
@@ -33,13 +32,11 @@ known_addresses = ["EQA5NPyjfZztDm8jcTBwTAU9NGsgJEkw19z61yecX0TlseSB"]
 kind = "docs"
 title = "Pyth price feeds on TON"
 url = "https://docs.pyth.network/price-feeds/use-real-time-data/ton"
-scope = "contract"
 
 [[contracts.PythOracle.links]]
 kind = "source"
 title = "Pyth crosschain source"
 url = "https://github.com/pyth-network/pyth-crosschain"
-scope = "project"
 
 [contracts.PythOracle.instances.current_mainnet]
 address = "EQA5NPyjfZztDm8jcTBwTAU9NGsgJEkw19z61yecX0TlseSB"

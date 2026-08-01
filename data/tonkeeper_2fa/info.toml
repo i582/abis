@@ -20,7 +20,6 @@ local_schema = "schemas/tonkeeper_2fa.xml"
 kind = "website"
 title = "Tonkeeper website"
 url = "https://tonkeeper.com"
-scope = "project"
 
 [contracts.Tonkeeper2fa]
 display_name = "Tonkeeper 2FA Extension"

@@ -24,25 +24,21 @@ contracts_catalog = "contracts.json"
 kind = "docs"
 title = "TON NFT reference"
 url = "https://docs.ton.org/standard/tokens/nft/nft-reference"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-62 NFT standard"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0062-nft-standard.md"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-64 Token data standard"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0064-token-data-standard.md"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-66 NFT royalty standard"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0066-nft-royalty-standard.md"
-scope = "standard"
 
 [contracts.NftV1Collection]
 types = "nft_1/types/nft_v1_collection.types.tolk"
@@ -60,7 +56,6 @@ known_addresses = [
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV1Collection.variants.standard]
 source_file = "nft/nft-collection.fc"
@@ -92,7 +87,6 @@ known_addresses = [
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV1Item.variants.standard_v1_00_01]
 source_file = "nft/nft-item.fc"
@@ -129,7 +123,6 @@ known_addresses = [
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV1EditableItem.variants.editable_v1_00_01]
 source_file = "nft/nft-item-editable-DRAFT.fc"
@@ -158,7 +151,6 @@ profile = "ton_docs_nft_2_0"
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV2Collection.variants.standard]
 source_file = "nft/nft-collection.fc"
@@ -191,7 +183,6 @@ profile = "ton_docs_nft_2_0"
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV2Item.variants.standard_v1_00_01]
 source_file = "nft/nft-item.fc"
@@ -229,7 +220,6 @@ profile = "ton_docs_nft_2_0"
 kind = "source"
 title = "TON NFT contract source"
 url = "https://github.com/ton-blockchain/nft-contract"
-scope = "contract"
 
 [contracts.NftV2EditableItem.variants.editable_v1_00_01]
 source_file = "nft/nft-item-editable-DRAFT.fc"
@@ -251,7 +241,6 @@ profile = "getgems_nft_2_0"
 kind = "source"
 title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
-scope = "contract"
 
 [contracts.GetgemsNftCollectionV2.variants.editable]
 source_file = "packages/contracts/sources/nft-collection-editable-v2.fc"
@@ -268,7 +257,6 @@ profile = "getgems_nft_2_0"
 kind = "source"
 title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
-scope = "contract"
 
 [contracts.GetgemsNftItemV2.variants.standard]
 source_file = "packages/contracts/sources/nft-item-v2.fc"
@@ -288,7 +276,6 @@ profile = "getgems_nft_2_0"
 kind = "source"
 title = "Getgems NFT source"
 url = "https://github.com/getgems-io/nft-contracts"
-scope = "contract"
 
 [contracts.GetgemsNftEditableItemV2.variants.editable]
 source_file = "packages/contracts/sources/nft-item-editable-v2.fc"

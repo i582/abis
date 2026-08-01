@@ -23,25 +23,21 @@ local_research = "data/pton/research"
 kind = "source"
 title = "pTON contract source"
 url = "https://github.com/ston-fi/pton-contracts"
-scope = "project"
 
 [[links]]
 kind = "spec"
 title = "pTON TLB specs"
 url = "https://github.com/ston-fi/pton-contracts/blob/main/docs/specs.tlb"
-scope = "project"
 
 [[links]]
 kind = "spec"
 title = "TEP-74 Jetton standard"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
-scope = "standard"
 
 [[links]]
 kind = "spec"
 title = "TEP-89 wallet discovery"
 url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0089-jetton-wallet-discovery.md"
-scope = "standard"
 
 [contracts.PtonMinterV2]
 display_name = "pTON Minter V2"
@@ -53,7 +49,6 @@ known_addresses = ["EQBnGWMCf3-FZZq1W4IWcWiGAc3PHuZ0_H-7sad2oY00o83S"]
 kind = "source"
 title = "pTON minter source"
 url = "https://github.com/ston-fi/pton-contracts/blob/main/contracts/minter.fc"
-scope = "contract"
 
 [contracts.PtonWalletV2]
 display_name = "pTON Wallet V2"
@@ -68,4 +63,3 @@ known_addresses = [
 kind = "source"
 title = "pTON wallet source"
 url = "https://github.com/ston-fi/pton-contracts/blob/main/contracts/wallet.fc"
-scope = "contract"

@@ -31,31 +31,26 @@ local_shared_research_v1 = "data/stonfi/research/stonfi_v1_shared.md"
 kind = "docs"
 title = "STON.fi v1 contracts"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "STON.fi v2 contracts"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "STON.fi DEX core v1"
 url = "https://github.com/ston-fi/dex-core"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "STON.fi DEX core v2"
 url = "https://github.com/ston-fi/dex-core-v2"
-scope = "project"
 
 [[links]]
 kind = "sdk"
 title = "STON.fi TypeScript SDK"
 url = "https://github.com/ston-fi/sdk"
-scope = "project"
 
 [contracts.StonfiRouterV1]
 display_name = "STON.fi Router V1"
@@ -67,7 +62,6 @@ known_addresses = ["EQB3ncyBUTjZUA5EnFKR5_EnOMI9V1tTEAAPaiU71gc4TiUt"]
 kind = "docs"
 title = "STON.fi Router v1 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/router"
-scope = "contract"
 
 [contracts.StonfiPoolV1]
 display_name = "STON.fi Pool V1"
@@ -79,7 +73,6 @@ known_addresses = ["EQD8TJ8xEWB1SpnRE4d89YO3jl0W0EiBnNS4IBaHaUmdfizE"]
 kind = "docs"
 title = "STON.fi Pool v1 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/pool"
-scope = "contract"
 
 [contracts.StonfiLpAccountV1]
 display_name = "STON.fi LP Account V1"
@@ -91,7 +84,6 @@ known_addresses = ["EQBflFgUQWx0fSFdbmUdIr_VtQU99Zn1z1ey6iKB_Av1yF3v"]
 kind = "docs"
 title = "STON.fi LpAccount v1 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/lpaccount"
-scope = "contract"
 
 [contracts.StonfiLpWalletV1]
 display_name = "STON.fi LP Wallet V1"
@@ -103,7 +95,6 @@ known_addresses = ["EQC47gPA2YMcmg2l_SscPm9pXILg-D98DjpQVZckEdeLaVH7"]
 kind = "docs"
 title = "STON.fi LpWallet v1 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1/lpwallet"
-scope = "contract"
 
 [contracts.StonfiRouterV2]
 display_name = "STON.fi Router V2"
@@ -128,7 +119,6 @@ known_addresses = [
 kind = "docs"
 title = "STON.fi Router v2 documentation"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/router"
-scope = "contract"
 
 [contracts.StonfiPoolV2ConstProduct]
 display_name = "STON.fi Pool V2 ConstantProduct"
@@ -140,7 +130,6 @@ known_addresses = ["EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4"]
 kind = "docs"
 title = "STON.fi Pool v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
-scope = "contract"
 
 [contracts.StonfiPoolV2Stableswap]
 display_name = "STON.fi Pool V2 StableSwap"
@@ -152,7 +141,6 @@ known_addresses = ["EQDmFQFfmQHA2zril2F3yQswZAYc-k1hN6CK0il1izLe2892"]
 kind = "docs"
 title = "STON.fi Pool v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
-scope = "contract"
 
 [contracts.StonfiPoolV2WeightedStableswap]
 display_name = "STON.fi Pool V2 WeightedStableSwap"
@@ -164,7 +152,6 @@ known_addresses = ["EQBjiBVhFLQVCMS8mKMA3gS823m9Xeu9aXiZUYD4TP8GDvui"]
 kind = "docs"
 title = "STON.fi Pool v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
-scope = "contract"
 
 [contracts.StonfiPoolV2WeightedConstProduct]
 display_name = "STON.fi Pool V2 WeightedConstProduct"
@@ -176,7 +163,6 @@ known_addresses = ["EQACLNvkL_2D2XBW_XKqGybPRkeb5URZntsEI6vFxzcHC_YK"]
 kind = "docs"
 title = "STON.fi Pool v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/pool"
-scope = "contract"
 
 [contracts.StonfiLpAccountV2]
 display_name = "STON.fi LP Account V2"
@@ -188,7 +174,6 @@ known_addresses = []
 kind = "docs"
 title = "STON.fi LpAccount v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/lpaccount"
-scope = "contract"
 
 [contracts.StonfiLpWalletV2]
 display_name = "STON.fi LP Wallet V2"
@@ -200,7 +185,6 @@ known_addresses = ["EQBtRf9VN6DK5IDOejdA53RhahjLCpAL5lwE_riSiCVymAEU"]
 kind = "docs"
 title = "STON.fi LpWallet v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/lpwallet"
-scope = "contract"
 
 [contracts.StonfiVaultV2]
 display_name = "STON.fi Vault V2"
@@ -212,4 +196,3 @@ known_addresses = ["EQBCFLAnWCc_heRtp78zmT_1h2XhyX7wcEwaiNHry27Mtxw6"]
 kind = "docs"
 title = "STON.fi Vault v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/vault"
-scope = "contract"

@@ -22,13 +22,11 @@ local_message_body_evidence = "data/megatonfi/research/wton_minter_message_bodie
 kind = "website"
 title = "Wrapped TON"
 url = "https://wton.dev"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "Wrapped TON contracts"
 url = "https://github.com/ozys-io/wrapped-ton/tree/b1cab2919b925caecd140af25b796934b01ae5af"
-scope = "project"
 
 [contracts.WtonMinter]
 display_name = "Wrapped TON Minter"

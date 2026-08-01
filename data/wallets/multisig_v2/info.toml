@@ -15,7 +15,6 @@ contracts_catalog = "contracts.json"
 kind = "source"
 title = "TON Multisig V2 source"
 url = "https://github.com/ton-blockchain/multisig-contract-v2"
-scope = "project"
 
 [contracts.MultisigV2]
 types = "types/multisig_v2.types.tolk"

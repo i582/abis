@@ -25,7 +25,6 @@ local_disasm_snapshot = "data/bemo/research/disasm"
 kind = "docs"
 title = "Bemo v2 developer docs"
 url = "https://docs.bemo.fi/developers/bemo-v2"
-scope = "project"
 
 [contracts.BemoFinancial]
 display_name = "Bemo v2 Financial"
@@ -38,13 +37,11 @@ related_asset_symbols = ["bmTON"]
 kind = "docs"
 title = "Bemo v2 stake docs"
 url = "https://docs.bemo.fi/developers/bemo-v2/stake"
-scope = "contract"
 
 [[contracts.BemoFinancial.links]]
 kind = "docs"
 title = "Bemo bmTON rate docs"
 url = "https://docs.bemo.fi/developers/bemo-v2/how-to-get-ton-bmton-rate"
-scope = "contract"
 
 [contracts.BemoFinancial.instances.bmton_mainnet]
 address = "EQCSxGZPHqa3TtnODgMan8CEM0jf6HpY-uon_NMeFgjKqkEY"
@@ -68,13 +65,11 @@ known_addresses = [
 kind = "docs"
 title = "Bemo v2 unstake docs"
 url = "https://docs.bemo.fi/developers/bemo-v2/unstake"
-scope = "contract"
 
 [[contracts.BemoUnstakeRequest.links]]
 kind = "docs"
 title = "Bemo unstake tracking docs"
 url = "https://docs.bemo.fi/developers/bemo-v2/tracking-unstake-requests"
-scope = "contract"
 
 [contracts.BemoUnstakeRequest.instances.active_sample]
 address = "EQB8if4poFsD7UKWnYIESQs2tN83Oe1CKqPAxnOeA-5O_CqF"

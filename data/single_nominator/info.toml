@@ -22,13 +22,11 @@ local_v1_1_message_bodies = "data/single_nominator/research/single_nominator_v1_
 kind = "source"
 title = "Orbs Single Nominator source"
 url = "https://github.com/orbs-network/single-nominator/tree/656696b4840d9226da3d98410f0103ee4efb0402"
-scope = "project"
 
 [[links]]
 kind = "audit"
 title = "Single Nominator audit"
 url = "https://github.com/orbs-network/single-nominator/blob/main/certik-audit.pdf"
-scope = "project"
 
 [contracts.SingleNominatorV10]
 display_name = "Single Nominator Pool v1.0"
@@ -43,7 +41,6 @@ related_asset_symbols = ["TON"]
 kind = "source"
 title = "Single Nominator v1.0 release"
 url = "https://github.com/orbs-network/single-nominator/releases/tag/v1.0.0"
-scope = "contract"
 
 [contracts.SingleNominatorV10.instances.mainnet_sample]
 address = "Ef8eWpCZ7U0WWxCFEnXsae_3GTPnAWyolMp6KkWAWetQcjZj"

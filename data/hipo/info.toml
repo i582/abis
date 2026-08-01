@@ -20,25 +20,21 @@ local_toncenter_snapshot = "data/hipo/research/source/toncenter"
 kind = "website"
 title = "Hipo website"
 url = "https://hipo.finance"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "Hipo docs"
 url = "https://docs.hipo.finance"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "Hipo contract source"
 url = "https://github.com/HipoFinance/contract"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "Hipo integration guide"
 url = "https://github.com/HipoFinance/contract/blob/main/Integration.md"
-scope = "project"
 
 [contracts.HipoTreasury]
 display_name = "Hipo Finance Treasury"

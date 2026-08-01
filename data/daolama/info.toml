@@ -25,13 +25,11 @@ local_message_body_evidence = "data/daolama/research/daolama_vault_message_bodie
 kind = "website"
 title = "DAOLama"
 url = "https://daolama.co"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "DAOLama documentation"
 url = "https://docs.daolama.co/daolama/daolama-en"
-scope = "project"
 
 [contracts.DaolamaVault]
 display_name = "DAOLama TON Vault / TON-DLP minter"

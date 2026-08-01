@@ -22,19 +22,16 @@ contracts_catalog = "contracts.json"
 kind = "website"
 title = "Fragment marketplace"
 url = "https://fragment.com/"
-scope = "project"
 
 [[links]]
 kind = "source"
 title = "Telegram TeleMint source"
 url = "https://github.com/TelegramMessenger/telemint"
-scope = "project"
 
 [[links]]
 kind = "spec"
 title = "Telegram TeleMint TL-B"
 url = "https://github.com/TelegramMessenger/telemint/blob/main/telemint.tlb"
-scope = "project"
 
 [contracts.TelemintNftItem]
 display_name = "Telemint NFT Item"
@@ -46,7 +43,6 @@ known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
 kind = "source"
 title = "TeleMint item source"
 url = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-item.fc"
-scope = "contract"
 
 [contracts.TelemintNftItem.variants.dns_item]
 source_file = "func/nft-item.fc"

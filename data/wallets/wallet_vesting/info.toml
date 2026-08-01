@@ -16,13 +16,11 @@ local_contracts_catalog = "contracts.json"
 kind = "docs"
 title = "TON vesting documentation"
 url = "https://docs.ton.org/standard/vesting"
-scope = "standard"
 
 [[links]]
 kind = "source"
 title = "Vesting wallet source"
 url = "https://github.com/ton-blockchain/vesting-contract"
-scope = "project"
 
 [contracts.WalletVesting]
 types = "types/wallet_vesting.types.tolk"

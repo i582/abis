@@ -34,19 +34,16 @@ tonviewer_pool = "https://tonviewer.com/EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7Km
 kind = "website"
 title = "TONCO website"
 url = "https://tonco.io"
-scope = "project"
 
 [[links]]
 kind = "docs"
 title = "TONCO documentation"
 url = "https://docs.tonco.io/"
-scope = "project"
 
 [[links]]
 kind = "sdk"
 title = "TONCO TypeScript SDK"
 url = "https://github.com/cryptoalgebra/tonco-sdk"
-scope = "project"
 
 [contracts.Router]
 types = "router/types/tonco_router.types.tolk"
@@ -57,7 +54,6 @@ known_addresses = ["EQC_-t0nCnOFMdp7E7qPxAOCbCWGFz-e3pwxb6tTvFmshjt5"]
 kind = "docs"
 title = "TONCO Router docs"
 url = "https://docs.tonco.io/technical-reference/contracts/router"
-scope = "contract"
 
 [[contracts.Router.instances]]
 name = "TONCO mainnet router"
@@ -74,7 +70,6 @@ known_addresses = ["EQBk33mIwYXYAytv4beERPqjfdNHaQuSfpaRY7KmNmHqpVLY"]
 kind = "docs"
 title = "TONCO Pool docs"
 url = "https://docs.tonco.io/technical-reference/contracts/pool"
-scope = "contract"
 
 [[contracts.Pool.instances]]
 name = "TONCO pool sample from local schema"
@@ -91,7 +86,6 @@ known_addresses = ["EQAZ8g6UM2EXWMFxpFcXtrAFHCY9PFbnbHKoQt7pHH9ps5w4"]
 kind = "docs"
 title = "TONCO Account docs"
 url = "https://docs.tonco.io/technical-reference/contracts/account"
-scope = "contract"
 
 [[contracts.Account.instances]]
 name = "TONCO AccountV3 derived from sample pool PositionNFT #0 owner"
@@ -108,7 +102,6 @@ known_addresses = ["EQCXrVg3we6FKI4NKjBe9vlJKM5aGcDQB61LdfI_KmN_2Kj2"]
 kind = "docs"
 title = "TONCO PoolFactory docs"
 url = "https://docs.tonco.io/technical-reference/contracts/pool_factory"
-scope = "contract"
 
 [[contracts.PoolFactory.instances]]
 name = "TONCO mainnet PoolFactory from router state"
@@ -125,7 +118,6 @@ known_addresses = ["EQAFaimkHZz_KorlOZ1UbdRGjfZnvHJW2cNZff4GdswrCIHp"]
 kind = "docs"
 title = "TONCO Position NFT docs"
 url = "https://docs.tonco.io/technical-reference/contracts/position_nft"
-scope = "contract"
 
 [[contracts.PositionNFT.instances]]
 name = "TONCO sample pool PositionNFT #0"
