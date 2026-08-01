@@ -1,7 +1,8 @@
 [project]
 name = "megatonfi-wton"
-category = "wrapped native token"
-description = "Wrapped TON minter and deterministic jetton wallets used by Megaton Finance"
+project = "Megaton Finance"
+category = "DEX and wrapped native token contracts"
+description = "Megaton Finance router, exchange, wrapped TON minter, and deterministic jetton wallet contracts"
 website = "https://wton.dev"
 docs = "https://github.com/ozys-io/wrapped-ton"
 
@@ -48,4 +49,40 @@ known_addresses = [
 [contracts.WtonWallet.instances.message_fixture]
 address = "EQAWj6jxQqzvrqHJyCDQplG2XAYUwgeFsWRQBIoFTSoRPYVz"
 owner_address = "0:A186B2888BF01BF9CC177D7C34A45318D4CC041957DBDACEA0C0328DB8665DA2"
+network = "mainnet"
+
+[contracts.MegatonRouter]
+display_name = "Megaton Router"
+types = "router/types/megaton_router.types.tolk"
+hashes = ["cb97a903780dc5e37eab03de61f2dfce18f91db05c4ada8dd3f73f0c0fb3d862"]
+known_addresses = [
+  "EQAWcJ0nO3WtNlSmUjKcqv4735YCviRqu7LMNJoPXsdHVLC9",
+  "EQAxC3GzQBgjlvW6CJAwgaHvarTfVxo8p7Be_6RMSjsPki6s",
+]
+
+[contracts.MegatonRouter.instances.mainnet_primary]
+address = "EQAWcJ0nO3WtNlSmUjKcqv4735YCviRqu7LMNJoPXsdHVLC9"
+network = "mainnet"
+
+[contracts.MegatonRouter.instances.mainnet_secondary]
+address = "EQAxC3GzQBgjlvW6CJAwgaHvarTfVxo8p7Be_6RMSjsPki6s"
+network = "mainnet"
+
+[contracts.MegatonExchange]
+display_name = "Megaton Finance Exchange / LP Jetton Master"
+types = "exchange/types/megaton_exchange.types.tolk"
+hashes = ["0045aba569e0fd4e4124b3d5162764038dc0c0c5e849d32ebee585471d085c7c"]
+known_addresses = [
+  "EQCocXc3t9WDrQ2gnq6kD3gJ7ENvA-LJ9PmFhSGX_pG3gHtO",
+  "EQDl29-P2VOxFDl64XAZleUcytGYS_8o5PvxjCLCKgU0eUUJ",
+]
+
+[contracts.MegatonExchange.instances.oapm_ousdc]
+name = "Megaton LP oAPM-oUSDC"
+address = "EQCocXc3t9WDrQ2gnq6kD3gJ7ENvA-LJ9PmFhSGX_pG3gHtO"
+network = "mainnet"
+
+[contracts.MegatonExchange.instances.kai_ousdc]
+name = "Megaton LP KAI-oUSDC"
+address = "EQDl29-P2VOxFDl64XAZleUcytGYS_8o5PvxjCLCKgU0eUUJ"
 network = "mainnet"
