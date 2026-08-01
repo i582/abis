@@ -1,0 +1,35 @@
+[project]
+name = "stonkspump"
+category = "TON launchpad contracts"
+description = "StonksPump virtual-liquidity Jetton minter and deployment factory contracts"
+
+[sources]
+integration_guide = "https://gist.github.com/Doggetti/d9feff85d2a1496a76c02337f9f7c85a"
+project = "https://stonkslabs.com/launch/ton"
+
+[contracts.StonksPumpVirtualMinter]
+display_name = "StonksPump Virtual Minter"
+types = "virtual_minter/types/stonkspump_virtual_minter.types.tolk"
+hashes = [
+  "3353e1472a235ae3d198a9fa80b84127e18bc266ba19f18ef4aa53d18e37a165",
+  "c6f6ff1f075b48837d4b1235c6d0782b5f0c87260a953a9e798b78994ba6d3f3",
+]
+known_addresses = [
+  "EQDQD7VxjuodGDa20e-oacYLIncmKe047qDSWhrGWFub4p_1",
+  "EQC6hmpBin9yWETFLauGG__smUguoGYBlRzwAL9Qy_lbhQhP",
+]
+
+[contracts.StonksPumpVirtualFactory]
+display_name = "StonksPump Virtual Factory"
+types = "virtual_factory/types/stonkspump_virtual_factory.types.tolk"
+hashes = [
+  "44903ee5b721b0d191240c5a92ed33b8cd9b6148b59a3b38b74d90dac68e2d2c",
+  "be5990668fddb2c5233c82306fa23bb0628e2ed2181a484fca932ddbced6eca6",
+  "be563231237e067c923158c6f8a79a7c71c6c3f6dd0e73556d1ee350cff7502c",
+]
+known_addresses = [
+  "EQDC9EI4cr5mG68Bw3gcErGwSNjRum_11UedLmyLYzBuanXZ",
+  "EQDXi8Anz-CjMUTZsWlrA2sf3ItzYq9O43iGDOOlz_N_wabJ",
+  "EQB6LdK8fjkBe-H9oupkUH9xWDouKwwwvW_r-P66kit913n_",
+  "EQDEcx-hDfCH4ktFKAaz_PV7lqIlv1R38oCPEyar8DOE0zCs",
+]
