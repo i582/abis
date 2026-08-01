@@ -59,9 +59,16 @@ get fun `test decodes real pyth success response accepted by ff vault`() {
     val body = parseCellFromBase64(bodyBoc);
     val decoded = FfVaultPythResponseSuccess.fromCell(body);
     val operation = FfVaultStakeOperation.fromCell(decoded.operation);
+    var rawOperation = decoded.operation.beginParse();
 
     expect(decoded.feedsCount).toEqual(1);
     expect(decoded.initialSender).toEqual(address(VAULT_ADDRESS));
+    expect(rawOperation.loadUint(32)).toEqual(0x7A294FDC);
+    expect(rawOperation.loadUint(64)).toEqual(0);
+    expect(rawOperation.loadAddress()).toEqual(address(DEPOSITOR_ADDRESS));
+    expect(rawOperation.loadCoins()).toEqual(operation.assetAmount);
+    expect(rawOperation.remainingBitsCount()).toEqual(0);
+    expect(rawOperation.remainingRefsCount()).toEqual(0);
     expect(operation.queryId).toEqual(0);
     expect(operation.depositAddress).toEqual(address(DEPOSITOR_ADDRESS));
     expect(operation.assetAmount > 0).toBeTrue();

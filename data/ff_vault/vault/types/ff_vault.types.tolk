@@ -5,7 +5,11 @@ contract FfVault {
     storage: FfVaultStorage
     incomingMessages: FfVaultIncomingMessage
     outgoingMessages: FfVaultOutgoingMessage
-    forceAbiExport: FfVaultAssetDeposit | FfVaultStableDeposit | FfVaultPositionData
+    forceAbiExport: FfVaultAssetDeposit
+        | FfVaultStableDeposit
+        | FfVaultPositionData
+        | FfVaultStakeOperation
+        | FfVaultUnstakeOperation
     thrownErrors: FfVaultErrors
 }
 

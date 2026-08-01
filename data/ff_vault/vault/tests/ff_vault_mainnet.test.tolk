@@ -1,10 +1,12 @@
 import "@acton/build"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/assert"
 import "@acton/testing/expect"
+import "@acton/types/message"
 import "@acton/types/transaction"
 import "../types/ff_vault.types"
 import "../wrappers/FfVault.gen"
@@ -100,4 +102,37 @@ get fun `test ff vault parses pinned storage and all getters`() {
     val nftContent = contract.getNftContent(0, createEmptyCell());
     expect(nftContent.beginParse().remainingBitsCount() > 0).toBeTrue();
     println("FF_VAULT_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
+}
+
+get fun `test ff vault embeds unstake operation in pinned pyth request`() {
+    val contract = vault();
+    val queryId = 0x1020304050607080;
+    val amountToUnstake = 17;
+    val itemIndex = 0;
+    val priceUpdateData = beginCell().storeUint(0xA5, 8).endCell();
+    val result = testing.processSingleTraceStep(
+        address(ADMIN_ADDRESS),
+        createMessage({
+            bounce: false,
+            value: ton("1"),
+            dest: contract.address,
+            body: FfVaultUnstakeExecute { queryId, priceUpdateData, amountToUnstake, itemIndex },
+        }),
+    );
+
+    expect(result.outMessages.size()).toEqual(1);
+    val request = result.outMessages.at<FfVaultPythParsePriceFeedUpdates>(0).loadBody();
+    val operation = FfVaultUnstakeOperation.fromCell(request.operation);
+    var rawOperation = request.operation.beginParse();
+
+    expect(rawOperation.loadUint(32)).toEqual(0x97004D72);
+    expect(rawOperation.loadUint(64)).toEqual(queryId);
+    expect(rawOperation.loadCoins()).toEqual(amountToUnstake);
+    expect(rawOperation.loadUint(64)).toEqual(itemIndex);
+    expect(rawOperation.remainingBitsCount()).toEqual(0);
+    expect(rawOperation.remainingRefsCount()).toEqual(0);
+    expect(operation.queryId).toEqual(queryId);
+    expect(operation.amountToUnstake).toEqual(amountToUnstake);
+    expect(operation.itemIndex).toEqual(itemIndex);
+    expect(request.targetAddress.castToInternal()).toEqual(contract.address);
 }
