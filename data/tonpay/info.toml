@@ -1,0 +1,35 @@
+[project]
+name = "tonpay"
+category = "payments"
+description = "TonPay merchant stores and per-purchase invoices"
+
+[sources]
+store_v11 = "https://github.com/TheTonpay/tonpay-core/tree/8193c8c613978feb49f2a178ec12f7b20009351f"
+invoice_v9 = "https://github.com/TheTonpay/tonpay-core/tree/dede04edba5f2ea541f9f77dc0d361d9651946a8"
+
+[[links]]
+kind = "repository"
+title = "TonPay core SDK"
+url = "https://github.com/TheTonpay/tonpay-core"
+
+[contracts.TonpayStoreV11]
+display_name = "TonPay Store v11"
+types = "store_v11/types/tonpay_store_v11.types.tolk"
+hashes = ["2874029233d8beb6c653424e933c51e235763f64912d49e07cc51d70113cd113"]
+known_addresses = ["EQCtRWrkfxovf-H02xc5CjHpC4t3VnxAIrCg6LJaaYflj4RY"]
+
+[contracts.TonpayStoreV11.instances.ton_byte]
+name = "TON Byte Store"
+address = "EQCtRWrkfxovf-H02xc5CjHpC4t3VnxAIrCg6LJaaYflj4RY"
+network = "mainnet"
+
+[contracts.TonpayInvoiceV9]
+display_name = "TonPay Invoice v9"
+types = "invoice_v9/types/tonpay_invoice_v9.types.tolk"
+hashes = ["c92f0bd5246f774b4346ee96fd7e950744ca0ca2804ee15163494363ea166892"]
+known_addresses = ["EQAPo0i7Xo_ydl1Xn_O-Lq0-5SwAr10HE9oFWZawJ18v2Ohv"]
+
+[contracts.TonpayInvoiceV9.instances.ton_byte_purchase]
+name = "TON Byte purchase invoice"
+address = "EQAPo0i7Xo_ydl1Xn_O-Lq0-5SwAr10HE9oFWZawJ18v2Ohv"
+network = "mainnet"
