@@ -33,3 +33,21 @@ known_addresses = [
   "EQB6LdK8fjkBe-H9oupkUH9xWDouKwwwvW_r-P66kit913n_",
   "EQDEcx-hDfCH4ktFKAaz_PV7lqIlv1R38oCPEyar8DOE0zCs",
 ]
+
+[contracts.StonksPumpCustomJettonWallet]
+display_name = "StonksPump Custom Jetton Wallet"
+types = "custom_jetton_wallet/types/stonkspump_custom_jetton_wallet.types.tolk"
+hashes = ["f31884376a58f60f280248bba7b3eda78e5e7b4eaf88865f43f895ca43ec3c2d"]
+known_addresses = [
+  "EQDqO2Hu0l3XjTYJG3frrHw9KJhnTIEMF-gphKPKX8a2X0AA",
+  "EQCh1J0bsHbUvGtRMRdKhMR2wDv5y1cSXcz6vevB6N0N0ET2",
+]
+
+[contracts.StonksPumpCustomJettonWallet.instances.representative]
+address = "EQDqO2Hu0l3XjTYJG3frrHw9KJhnTIEMF-gphKPKX8a2X0AA"
+network = "mainnet"
+block_seqno = 83402780
+
+[contracts.StonksPumpCustomJettonWallet.instances.tax_receiver]
+address = "EQCh1J0bsHbUvGtRMRdKhMR2wDv5y1cSXcz6vevB6N0N0ET2"
+network = "mainnet"
