@@ -1397,106 +1397,232 @@ telemint-mainnet-test = "acton test data/telemint/tests --fork-net mainnet --for
 dns-mainnet-test = "acton test data/dns/tests --fork-net mainnet --fork-block-number 71167154 --show-bodies"
 sbt-1-mainnet-test = "acton test data/sbts/sbt_1/tests --fork-net mainnet --fork-block-number 70789035 --show-bodies"
 getgems-mainnet-test = "acton test data/getgems --fork-net mainnet --show-bodies"
+coffee-test = "acton test data/coffee --fork-net mainnet --fork-block-number 71349505 --show-bodies"
+dedust-uranus-test = "acton test data/dedust/uranus --show-bodies"
+fragment-marketapp-proxy-test = "acton test data/fragment/marketapp_proxy --show-bodies"
+storm-executor-message-bodies-test = "acton test data/storm/executor/tests/storm_executor_message_bodies.test.tolk --show-bodies"
+storm-executor-collection-message-bodies-test = "acton test data/storm/executor_collection/tests/storm_executor_collection_message_bodies.test.tolk --show-bodies"
+storm-lp-minter-message-bodies-test = "acton test data/storm/lp_minter/tests/storm_lp_minter_message_bodies.test.tolk --show-bodies"
+storm-lp-wallet-message-bodies-test = "acton test data/storm/lp_wallet/tests/storm_lp_wallet_message_bodies.test.tolk --show-bodies"
+storm-position-manager-message-bodies-test = "acton test data/storm/position_manager/tests/storm_position_manager_message_bodies.test.tolk --show-bodies"
+storm-prelaunch-message-bodies-test = "acton test data/storm/prelaunch/tests/storm_prelaunch_message_bodies.test.tolk --show-bodies"
+storm-referral-message-bodies-test = "acton test data/storm/referral/tests/storm_referral_message_bodies.test.tolk --show-bodies"
+storm-referral-collection-message-bodies-test = "acton test data/storm/referral_collection/tests/storm_referral_collection_message_bodies.test.tolk --show-bodies"
+storm-smart-account-mainnet-test = "acton test data/storm/smart_account/tests/smart_account_mainnet.test.tolk --fork-net mainnet --fork-block-number 71591177 --show-bodies"
+storm-smart-account-blank-local-test = "acton test data/storm/smart_account_blank/tests/smart_account_blank_local.test.tolk --show-bodies"
+storm-smart-account-factory-message-bodies-test = "acton test data/storm/smart_account_factory/tests/smart_account_factory_message_bodies.test.tolk --show-bodies"
+storm-vamm-message-bodies-test = "acton test data/storm/vamm/tests/storm_vamm_message_bodies.test.tolk --show-bodies"
+storm-vamm-coinm-message-bodies-test = "acton test data/storm/vamm_coinm/tests/storm_vamm_coinm_message_bodies.test.tolk --show-bodies"
+storm-vault-message-bodies-test = "acton test data/storm/vault/tests/storm_vault_message_bodies.test.tolk --show-bodies"
+storm-vault-native-message-bodies-test = "acton test data/storm/vault_native/tests/storm_vault_native_message_bodies.test.tolk --show-bodies"
+subscription-v2-getters-mainnet-test = "acton test data/subscriptions/tests/subscription_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 71629580 --show-bodies"
 
 compile-all-contracts = "acton build"
-
-run-mainnet-block-tests = """
+run-test-shard-1 = """
 set -e
 acton run cron-mainnet-test
-acton run payment-channel-mainnet-test
-acton run subscription-v1-mainnet-test
-acton run subscription-v2-mainnet-test
 acton run tonkeeper-2fa-mainnet-test
-acton run evaa-master-pyth-mainnet-test
-acton run evaa-master-classic-mainnet-test
-acton run nominator-pool-mainnet-test
 acton run single-nominator-v1-0-mainnet-test
-acton run single-nominator-v1-1-mainnet-test
-acton run whales-pool-mainnet-test
-acton run whales-proxy-mainnet-test
 acton run airdrop-interlocker-v1-mainnet-test
-acton run airdrop-interlocker-v2-mainnet-test
-acton run storm-vault-mainnet-test
-acton run storm-vault-native-mainnet-test
 acton run storm-vamm-mainnet-test
-acton run storm-vamm-coinm-mainnet-test
-acton run storm-smart-account-factory-mainnet-test
-acton run storm-position-manager-mainnet-test
 acton run storm-position-manager-legacy-mainnet-test
-acton run storm-referral-collection-mainnet-test
-acton run storm-referral-mainnet-test
-acton run storm-executor-collection-mainnet-test
 acton run storm-executor-mainnet-test
-acton run storm-lp-minter-mainnet-test
-acton run storm-lp-wallet-mainnet-test
-acton run storm-prelaunch-mainnet-test
 acton run storage-provider-mainnet-test
-acton run storage-contract-mainnet-test
-acton run bemo-financial-mainnet-test
-acton run bemo-unstake-request-mainnet-test
 acton run hipo-treasury-mainnet-test
-acton run hipo-parent-mainnet-test
-acton run hipo-wallet-mainnet-test
-acton run hipo-collection-mainnet-test
 acton run hipo-bill-mainnet-test
-acton run hipo-loan-mainnet-test
-acton run hipo-librarian-mainnet-test
-acton run tonstakers-pool-mainnet-test
 acton run tonstakers-controller-mainnet-test
-acton run tonstakers-ts-ton-minter-mainnet-test
-acton run tonstakers-ts-ton-wallet-mainnet-test
-acton run tonstakers-payout-collection-mainnet-test
 acton run tonstakers-payout-item-mainnet-test
-acton run dedust-factory-v2-mainnet-test
-acton run dedust-factory-v2-storage-test
-acton run dedust-vault-native-v2-mainnet-test
 acton run dedust-vault-native-v2-storage-test
-acton run dedust-vault-jetton-v2-mainnet-test
-acton run dedust-pool-v2-mainnet-test
-acton run dedust-liquidity-deposit-v2-storage-test
 acton run stonfi-mainnet-test
+acton run coffee-test
+acton run fragment-marketapp-proxy-test
+acton run aqua-usd-master-vault-storage-test
+acton run bidask-damm-lp-wallet-message-bodies-test
+acton run bidask-internal-liquidity-vault-storage-test
+acton run bidask-pool-storage-test
+acton run daolama-message-bodies-test
+acton run dedust-pool-v2-message-bodies-test
+acton run dedust-vault-jetton-v2-message-bodies-test
+acton run evaa-master-classic-message-bodies-test
+acton run gram-miner-message-bodies-test
+acton run hipo-collection-message-bodies-test
+acton run hipo-parent-message-bodies-test
+acton run invoices-message-bodies-test
+acton run omniston-fee-vault-message-bodies-test
+acton run pyth-oracle-message-bodies-test
+acton run storage-contract-message-bodies-test
+acton run storm-lp-minter-message-bodies-test
+acton run storm-prelaunch-message-bodies-test
+acton run storm-smart-account-factory-message-bodies-test
+acton run storm-vault-message-bodies-test
+acton run subscription-v2-message-bodies-test
+acton run system-elector-storage-test
+acton run tonstakers-payout-item-message-bodies-test
+acton run wallet-highload-v1r1-test
+acton run wton-message-bodies-test
+"""
+
+run-test-shard-2 = """
+set -e
+acton run payment-channel-mainnet-test
+acton run evaa-master-pyth-mainnet-test
+acton run single-nominator-v1-1-mainnet-test
+acton run airdrop-interlocker-v2-mainnet-test
+acton run storm-vamm-coinm-mainnet-test
+acton run storm-referral-collection-mainnet-test
+acton run storm-lp-minter-mainnet-test
+acton run storage-contract-mainnet-test
+acton run hipo-parent-mainnet-test
+acton run hipo-loan-mainnet-test
+acton run tonstakers-ts-ton-minter-mainnet-test
+acton run dedust-factory-v2-mainnet-test
+acton run dedust-vault-jetton-v2-mainnet-test
 acton run omniston-fee-vault-mainnet-test
-acton run pton-mainnet-test
-acton run bidask-pool-mainnet-test
 acton run bidask-internal-liquidity-vault-mainnet-test
-acton run bidask-damm-pool-mainnet-test
-acton run tonco-router-mainnet-test
-acton run tonco-pool-mainnet-test
-acton run tonco-account-mainnet-test
-acton run tonco-pool-factory-mainnet-test
-acton run tonco-position-nft-v3-mainnet-test
 acton run tonco-mainnet-test
-acton run locker-mainnet-test
-acton run lockup-universal-mainnet-test
-acton run wallet-vesting-mainnet-test
-acton run wallet-v1r1-mainnet-test
-acton run wallet-v1r2-mainnet-test
-acton run wallet-v1r3-mainnet-test
-acton run wallet-v2r1-mainnet-test
-acton run wallet-v2r2-mainnet-test
-acton run wallet-v3r1-mainnet-test
-acton run wallet-v3r2-mainnet-test
-acton run wallet-v4r1-mainnet-test
-acton run wallet-v4r2-mainnet-test
-acton run wallet-v5r1-mainnet-test
-acton run wallet-highload-v2-mainnet-test
-acton run wallet-highload-v2r1-mainnet-test
-acton run wallet-highload-v2r2-mainnet-test
-acton run wallet-highload-v3r1-mainnet-test
-acton run wallet-preprocessed-v2-mainnet-test
-acton run wallet-multisig-v2-mainnet-test
-acton run jetton-1-mainnet-test
 acton run discoverable-jetton-mainnet-test
+acton run mintless-mainnet-test
+acton run nft-2-mainnet-test
+acton run dns-mainnet-test
+acton run fragment-test
+acton run dedust-uranus-test
+acton run jetton-2-1-test
+acton run jetton-2-test
+acton run airdrop-interlocker-v2-message-bodies-test
+acton run bemo-financial-message-bodies-test
+acton run bidask-damm-lp-wallet-storage-test
+acton run bidask-lp-multitoken-local-test
+acton run bidask-range-local-test
+acton run daolama-storage-test
+acton run dedust-v2-cpmm-message-bodies-test
+acton run evaa-blank-code-test
+acton run evaa-master-pyth-message-bodies-test
+acton run gram-miner-storage-test
+acton run hipo-librarian-message-bodies-test
+acton run hipo-treasury-message-bodies-test
+acton run lockup-vesting-test
+acton run payment-channel-message-bodies-test
+acton run pyth-oracle-storage-test
+acton run storage-provider-message-bodies-test
+acton run storm-lp-wallet-message-bodies-test
+acton run storm-referral-collection-message-bodies-test
+acton run storm-smart-account-mainnet-test
+acton run storm-vault-native-message-bodies-test
+acton run system-config-storage-test
+acton run tonkeeper-2fa-message-bodies-test
+acton run tonstakers-pool-message-bodies-test
+acton run wallet-highload-v1r2-test
+acton run wton-storage-test
+"""
+
+run-test-shard-3 = """
+set -e
+acton run subscription-v1-mainnet-test
+acton run evaa-master-classic-mainnet-test
+acton run whales-pool-mainnet-test
+acton run storm-vault-mainnet-test
+acton run storm-smart-account-factory-mainnet-test
+acton run storm-referral-mainnet-test
+acton run storm-lp-wallet-mainnet-test
+acton run bemo-financial-mainnet-test
+acton run hipo-wallet-mainnet-test
+acton run hipo-librarian-mainnet-test
+acton run tonstakers-ts-ton-wallet-mainnet-test
+acton run dedust-factory-v2-storage-test
+acton run dedust-pool-v2-mainnet-test
+acton run pton-mainnet-test
+acton run locker-mainnet-test
+acton run wallet-vesting-mainnet-test
+acton run wallet-v1r2-mainnet-test
+acton run wallet-v2r1-mainnet-test
+acton run wallet-v3r1-mainnet-test
+acton run wallet-v4r1-mainnet-test
+acton run wallet-v5r1-mainnet-test
+acton run wallet-highload-v2r1-mainnet-test
+acton run wallet-highload-v3r1-mainnet-test
+acton run wallet-multisig-v2-mainnet-test
 acton run stablecoin-mainnet-test
 acton run jetton-notcoin-mainnet-test
-acton run mintless-mainnet-test
-acton run scaled-ui-mainnet-test
 acton run nft-1-mainnet-test
-acton run nft-2-mainnet-test
-acton run getgems-nft-2-mainnet-test
 acton run telemint-mainnet-test
-acton run dns-mainnet-test
 acton run sbt-1-mainnet-test
+acton run stakee-test
+acton run dedust-v1-mainnet-test
+acton run airdrop-interlocker-v1-message-bodies-test
+acton run aqua-usd-master-vault-message-bodies-test
+acton run bemo-unstake-request-message-bodies-test
+acton run bidask-damm-pool-storage-test
+acton run bidask-pool-factory-local-test
+acton run cron-message-bodies-test
+acton run dedust-liquidity-deposit-v2-message-bodies-test
+acton run dedust-v2-cpmm-storage-test
+acton run evaa-blank-message-bodies-test
+acton run evaa-user-storage-test
+acton run hipo-bill-message-bodies-test
+acton run hipo-loan-message-bodies-test
+acton run hipo-wallet-message-bodies-test
+acton run nominator-pool-message-bodies-test
+acton run payment-channel-storage-test
+acton run single-nominator-v1-0-message-bodies-test
+acton run storm-executor-collection-message-bodies-test
+acton run storm-position-manager-legacy-message-bodies-test
+acton run storm-referral-message-bodies-test
+acton run storm-vamm-coinm-message-bodies-test
+acton run subscription-v1-message-bodies-test
+acton run system-elector-mainnet-test
+acton run tonstakers-controller-message-bodies-test
+acton run tonstakers-ts-ton-minter-message-bodies-test
+acton run whales-pool-message-bodies-test
+"""
+
+run-test-shard-4 = """
+set -e
+acton run subscription-v2-mainnet-test
+acton run nominator-pool-mainnet-test
+acton run whales-proxy-mainnet-test
+acton run storm-vault-native-mainnet-test
+acton run storm-position-manager-mainnet-test
+acton run storm-executor-collection-mainnet-test
+acton run storm-prelaunch-mainnet-test
+acton run bemo-unstake-request-mainnet-test
+acton run hipo-collection-mainnet-test
+acton run tonstakers-pool-mainnet-test
+acton run tonstakers-payout-collection-mainnet-test
+acton run dedust-vault-native-v2-mainnet-test
+acton run dedust-liquidity-deposit-v2-storage-test
+acton run bidask-pool-mainnet-test
+acton run bidask-damm-pool-mainnet-test
+acton run lockup-universal-mainnet-test
+acton run wallet-v1r1-mainnet-test
+acton run wallet-v1r3-mainnet-test
+acton run wallet-v2r2-mainnet-test
+acton run wallet-v3r2-mainnet-test
+acton run wallet-v4r2-mainnet-test
+acton run wallet-highload-v2-mainnet-test
+acton run wallet-highload-v2r2-mainnet-test
+acton run wallet-preprocessed-v2-mainnet-test
+acton run jetton-1-mainnet-test
+acton run scaled-ui-mainnet-test
+acton run getgems-nft-2-mainnet-test
+acton run getgems-mainnet-test
+acton run single-nominator-v1-1-message-bodies-test
+acton run storm-executor-message-bodies-test
+acton run storm-position-manager-message-bodies-test
+acton run storm-smart-account-blank-local-test
+acton run storm-vamm-message-bodies-test
+acton run subscription-v2-getters-mainnet-test
+acton run system-elector-message-bodies-test
+acton run tonstakers-payout-collection-message-bodies-test
+acton run tonstakers-ts-ton-wallet-message-bodies-test
+acton run whales-proxy-message-bodies-test
+"""
+
+run-all-tests = """
+set -e
+acton run run-test-shard-1
+acton run run-test-shard-2
+acton run run-test-shard-3
+acton run run-test-shard-4
 """
 
 [lint]

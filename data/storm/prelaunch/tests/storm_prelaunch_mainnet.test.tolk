@@ -73,5 +73,4 @@ get fun `test storm prelaunch mainnet storage and getters`() {
     println("STORM_PRELAUNCH_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("STORM_PRELAUNCH_ADDRESS={}", prelaunch.address);
     println("STORM_PRELAUNCH_STORAGE={}", storage);
-    println("STORM_PRELAUNCH_GETTER_DATA={}", getterData);
 }

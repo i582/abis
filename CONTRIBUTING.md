@@ -24,3 +24,11 @@ Verify that both files match the current Rust types without modifying them with:
 ```sh
 cargo xtask schema --check
 ```
+
+## Run all Tolk tests
+
+Run every tracked `*.test.tolk` file exactly once with:
+
+```sh
+acton run run-all-tests
+```
