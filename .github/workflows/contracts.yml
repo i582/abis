@@ -84,6 +84,9 @@ jobs:
         with:
           version: ${{ env.ACTON_VERSION }}
 
+      - name: Install Acton standard library
+        run: acton init --stdlib-only
+
       - name: Restore Cargo cache
         uses: actions/cache/restore@v4
         with:
@@ -152,6 +155,9 @@ jobs:
         uses: ton-blockchain/setup-acton@2d38fd579e1bf8753a3e0cff9ad695612b98a676 # v1.0.0
         with:
           version: ${{ env.ACTON_VERSION }}
+
+      - name: Install Acton standard library
+        run: acton init --stdlib-only
 
       - name: Restore Acton cache
         id: acton-cache

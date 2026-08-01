@@ -100,6 +100,9 @@ get fun `test subscription v2 mainnet storage and getters`() {
     val contract = mainnetSubscriptionV2();
     val loaded = loadSubscriptionV2StorageFromFork(contract);
     val storage = loaded.storage;
+    expect(storage.chargeDate).toBeGreater(0);
+    testing.setNow(storage.chargeDate - 1);
+
     val subscriptionInfo = contract.getSubscriptionInfo();
     val paymentInfo = contract.getPaymentInfo();
     val reservedAmount = contract.getReservedAmount();
@@ -113,7 +116,6 @@ get fun `test subscription v2 mainnet storage and getters`() {
     expect(storage.callerFee).toEqual(0);
     expect(storage.rewardAddress).toBeNull();
     expect(storage.lastRequestTime).toEqual(0);
-    expect(storage.chargeDate).toBeGreater(0);
     expect(contract.getIsSubscriptionActive()).toBeTrue();
     expect(reservedAmount).toBeGreater(storage.callerFee);
     expect(cronInfo.reward).toEqual(storage.callerFee);
