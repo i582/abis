@@ -12,19 +12,21 @@ import "../types/whales_pool.types"
 struct WhalesPool {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun WhalesPool.fromStorage(
     storage: WhalesPoolStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): WhalesPool {
     val stateInit = ContractState {
         code: build("WhalesPool"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return WhalesPool { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return WhalesPool { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun WhalesPool.deploy(self, from: address, config: SendParams = {}): SendResultL
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

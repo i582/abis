@@ -12,19 +12,21 @@ import "../types/telemint_nft_item.types"
 struct TelemintNftItem {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun TelemintNftItem.fromStorage(
     storage: TelemintNftItemStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): TelemintNftItem {
     val stateInit = ContractState {
         code: build("TelemintNftItem"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return TelemintNftItem { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return TelemintNftItem { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun TelemintNftItem.deploy(self, from: address, config: SendParams = {}): SendRe
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

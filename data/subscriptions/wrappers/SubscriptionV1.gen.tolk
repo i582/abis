@@ -12,19 +12,21 @@ import "../types/subscription_v1.types"
 struct SubscriptionV1 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun SubscriptionV1.fromStorage(
     storage: SubscriptionV1Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): SubscriptionV1 {
     val stateInit = ContractState {
         code: build("SubscriptionV1"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return SubscriptionV1 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return SubscriptionV1 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun SubscriptionV1.deploy(self, from: address, config: SendParams = {}): SendRes
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

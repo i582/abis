@@ -12,19 +12,21 @@ import "../types/coffee_pool_constant_product.types"
 struct CoffeePoolConstantProduct {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun CoffeePoolConstantProduct.fromStorage(
     storage: CoffeePoolConstantProductStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): CoffeePoolConstantProduct {
     val stateInit = ContractState {
         code: build("CoffeePoolConstantProduct"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return CoffeePoolConstantProduct { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return CoffeePoolConstantProduct { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun CoffeePoolConstantProduct.deploy(self, from: address, config: SendParams = {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

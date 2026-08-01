@@ -12,19 +12,21 @@ import "../types/mintless_master.types"
 struct MintlessJettonMaster {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun MintlessJettonMaster.fromStorage(
     storage: MintlessJettonMasterStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): MintlessJettonMaster {
     val stateInit = ContractState {
         code: build("MintlessJettonMaster"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return MintlessJettonMaster { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return MintlessJettonMaster { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun MintlessJettonMaster.deploy(self, from: address, config: SendParams = {}): S
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

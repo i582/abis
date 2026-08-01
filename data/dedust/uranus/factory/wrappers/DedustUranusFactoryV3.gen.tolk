@@ -12,19 +12,21 @@ import "../types/dedust_uranus_factory_v3.types"
 struct DedustUranusFactoryV3 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun DedustUranusFactoryV3.fromStorage(
     storage: DedustUranusFactoryV3Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DedustUranusFactoryV3 {
     val stateInit = ContractState {
         code: build("DedustUranusFactoryV3"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DedustUranusFactoryV3 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DedustUranusFactoryV3 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun DedustUranusFactoryV3.deploy(self, from: address, config: SendParams = {}): 
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

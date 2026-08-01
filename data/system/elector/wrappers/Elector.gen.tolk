@@ -12,16 +12,21 @@ import "../types/elector.types"
 struct Elector {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
-fun Elector.fromStorage(storage: ElectorStorage, toShard: AddressShardingOptions? = null): Elector {
+fun Elector.fromStorage(
+    storage: ElectorStorage,
+    toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
+): Elector {
     val stateInit = ContractState {
         code: build("Elector"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return Elector { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return Elector { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -37,7 +42,11 @@ fun Elector.deploy(self, from: address, config: SendParams = {}): SendResultList
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

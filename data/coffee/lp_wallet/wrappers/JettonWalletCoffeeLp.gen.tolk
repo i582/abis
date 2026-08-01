@@ -12,19 +12,21 @@ import "../types/jetton_wallet_coffee_lp.types"
 struct JettonWalletCoffeeLp {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun JettonWalletCoffeeLp.fromStorage(
     storage: JettonWalletCoffeeLpStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): JettonWalletCoffeeLp {
     val stateInit = ContractState {
         code: build("JettonWalletCoffeeLp"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return JettonWalletCoffeeLp { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return JettonWalletCoffeeLp { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun JettonWalletCoffeeLp.deploy(self, from: address, config: SendParams = {}): S
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

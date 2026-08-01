@@ -12,19 +12,21 @@ import "../types/dedust_pool_v1.types"
 struct DedustPoolV1 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun DedustPoolV1.fromStorage(
     storage: DedustPoolV1Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DedustPoolV1 {
     val stateInit = ContractState {
         code: build("DedustPoolV1"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DedustPoolV1 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DedustPoolV1 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun DedustPoolV1.deploy(self, from: address, config: SendParams = {}): SendResul
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

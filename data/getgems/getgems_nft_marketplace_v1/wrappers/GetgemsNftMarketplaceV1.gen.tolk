@@ -12,19 +12,21 @@ import "../types/getgems_nft_marketplace_v1.types"
 struct GetgemsNftMarketplaceV1 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun GetgemsNftMarketplaceV1.fromStorage(
     storage: GetgemsNftMarketplaceV1Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): GetgemsNftMarketplaceV1 {
     val stateInit = ContractState {
         code: build("GetgemsNftMarketplaceV1"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return GetgemsNftMarketplaceV1 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return GetgemsNftMarketplaceV1 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun GetgemsNftMarketplaceV1.deploy(self, from: address, config: SendParams = {})
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

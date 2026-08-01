@@ -11,16 +11,20 @@ import "../types/dns_root_resolver.types"
 struct DnsRootResolver {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
-fun DnsRootResolver.fromStorage(toShard: AddressShardingOptions? = null): DnsRootResolver {
+fun DnsRootResolver.fromStorage(
+    toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
+): DnsRootResolver {
     val stateInit = ContractState {
         code: build("DnsRootResolver"),
         data: createEmptyCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DnsRootResolver { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DnsRootResolver { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -36,7 +40,11 @@ fun DnsRootResolver.deploy(self, from: address, config: SendParams = {}): SendRe
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

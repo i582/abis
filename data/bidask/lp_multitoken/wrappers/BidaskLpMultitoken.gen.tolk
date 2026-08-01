@@ -12,19 +12,21 @@ import "../types/bidask_lp_multitoken.types"
 struct BidaskLpMultitoken {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun BidaskLpMultitoken.fromStorage(
     storage: BidaskLpMultitokenStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): BidaskLpMultitoken {
     val stateInit = ContractState {
         code: build("BidaskLpMultitoken"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return BidaskLpMultitoken { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return BidaskLpMultitoken { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun BidaskLpMultitoken.deploy(self, from: address, config: SendParams = {}): Sen
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

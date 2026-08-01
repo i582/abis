@@ -12,19 +12,21 @@ import "../types/coffee_vault_jetton.types"
 struct CoffeeVaultJetton {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun CoffeeVaultJetton.fromStorage(
     storage: CoffeeVaultJettonInactiveStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): CoffeeVaultJetton {
     val stateInit = ContractState {
         code: build("CoffeeVaultJetton"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return CoffeeVaultJetton { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return CoffeeVaultJetton { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun CoffeeVaultJetton.deploy(self, from: address, config: SendParams = {}): Send
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

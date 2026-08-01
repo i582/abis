@@ -12,16 +12,21 @@ import "../types/config.types"
 struct Config {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
-fun Config.fromStorage(storage: ConfigStorage, toShard: AddressShardingOptions? = null): Config {
+fun Config.fromStorage(
+    storage: ConfigStorage,
+    toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
+): Config {
     val stateInit = ContractState {
         code: build("Config"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return Config { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return Config { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -37,7 +42,11 @@ fun Config.deploy(self, from: address, config: SendParams = {}): SendResultList 
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

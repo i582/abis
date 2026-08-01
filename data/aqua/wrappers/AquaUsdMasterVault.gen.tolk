@@ -12,19 +12,21 @@ import "../types/aqua_usd_master_vault.types"
 struct AquaUsdMasterVault {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun AquaUsdMasterVault.fromStorage(
     storage: AquaUsdMasterVaultStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): AquaUsdMasterVault {
     val stateInit = ContractState {
         code: build("AquaUsdMasterVault"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return AquaUsdMasterVault { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return AquaUsdMasterVault { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun AquaUsdMasterVault.deploy(self, from: address, config: SendParams = {}): Sen
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

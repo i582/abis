@@ -12,19 +12,21 @@ import "../types/wallet_preprocessed_v2.types"
 struct WalletPreprocessedV2 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun WalletPreprocessedV2.fromStorage(
     storage: WalletPreprocessedV2Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): WalletPreprocessedV2 {
     val stateInit = ContractState {
         code: build("WalletPreprocessedV2"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return WalletPreprocessedV2 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return WalletPreprocessedV2 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun WalletPreprocessedV2.deploy(self, from: address, config: SendParams = {}): S
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

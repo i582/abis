@@ -12,19 +12,21 @@ import "../types/coffee_cross_dex.types"
 struct CoffeeCrossDex {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun CoffeeCrossDex.fromStorage(
     storage: CoffeeCrossDexStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): CoffeeCrossDex {
     val stateInit = ContractState {
         code: build("CoffeeCrossDex"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return CoffeeCrossDex { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return CoffeeCrossDex { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun CoffeeCrossDex.deploy(self, from: address, config: SendParams = {}): SendRes
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

@@ -12,19 +12,21 @@ import "../types/stonfi_lp_wallet_v2.types"
 struct StonfiLpWalletV2 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun StonfiLpWalletV2.fromStorage(
     storage: StonfiLpWalletV2Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): StonfiLpWalletV2 {
     val stateInit = ContractState {
         code: build("StonfiLpWalletV2"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return StonfiLpWalletV2 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return StonfiLpWalletV2 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun StonfiLpWalletV2.deploy(self, from: address, config: SendParams = {}): SendR
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

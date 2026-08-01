@@ -12,19 +12,21 @@ import "../types/fragment_numbers_collection.types"
 struct FragmentNumbersCollection {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun FragmentNumbersCollection.fromStorage(
     storage: FragmentNumbersCollectionStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): FragmentNumbersCollection {
     val stateInit = ContractState {
         code: build("FragmentNumbersCollection"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return FragmentNumbersCollection { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return FragmentNumbersCollection { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun FragmentNumbersCollection.deploy(self, from: address, config: SendParams = {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

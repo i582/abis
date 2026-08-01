@@ -12,19 +12,21 @@ import "../types/dedust_uranus_meme_wallet_v3.types"
 struct DedustUranusMemeWalletV3 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun DedustUranusMemeWalletV3.fromStorage(
     storage: DedustUranusMemeWalletV3Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DedustUranusMemeWalletV3 {
     val stateInit = ContractState {
         code: build("DedustUranusMemeWalletV3"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DedustUranusMemeWalletV3 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DedustUranusMemeWalletV3 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun DedustUranusMemeWalletV3.deploy(self, from: address, config: SendParams = {}
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

@@ -12,6 +12,7 @@ import "../types/stakee_pool.types"
 struct StakeePool {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
@@ -25,7 +26,7 @@ fun StakeePool.fromStorage(
         data: storage.toCell(),
     };
     val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
-    return StakeePool { address, stateInit };
+    return StakeePool { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -41,7 +42,11 @@ fun StakeePool.deploy(self, from: address, config: SendParams = {}): SendResultL
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

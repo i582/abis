@@ -12,19 +12,21 @@ import "../types/fragment_marketapp_proxy_simple.types"
 struct FragmentMarketappProxySimple {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun FragmentMarketappProxySimple.fromStorage(
     storage: FragmentMarketappProxySimpleStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): FragmentMarketappProxySimple {
     val stateInit = ContractState {
         code: build("FragmentMarketappProxySimple"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return FragmentMarketappProxySimple { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return FragmentMarketappProxySimple { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -44,7 +46,11 @@ fun FragmentMarketappProxySimple.deploy(
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

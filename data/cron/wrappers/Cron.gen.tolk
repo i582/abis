@@ -12,16 +12,21 @@ import "../types/cron.types"
 struct Cron {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
-fun Cron.fromStorage(storage: CronStorage, toShard: AddressShardingOptions? = null): Cron {
+fun Cron.fromStorage(
+    storage: CronStorage,
+    toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
+): Cron {
     val stateInit = ContractState {
         code: build("Cron"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return Cron { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return Cron { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -37,7 +42,11 @@ fun Cron.deploy(self, from: address, config: SendParams = {}): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

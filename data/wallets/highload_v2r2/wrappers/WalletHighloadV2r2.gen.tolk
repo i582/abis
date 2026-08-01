@@ -12,19 +12,21 @@ import "../types/wallet_highload_v2r2.types"
 struct WalletHighloadV2r2 {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun WalletHighloadV2r2.fromStorage(
     storage: WalletHighloadV2r2Storage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): WalletHighloadV2r2 {
     val stateInit = ContractState {
         code: build("WalletHighloadV2r2"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return WalletHighloadV2r2 { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return WalletHighloadV2r2 { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun WalletHighloadV2r2.deploy(self, from: address, config: SendParams = {}): Sen
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

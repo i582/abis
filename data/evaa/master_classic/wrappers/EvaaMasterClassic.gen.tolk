@@ -12,6 +12,7 @@ import "../types/evaa_master_classic.types"
 struct EvaaMasterClassic {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
@@ -25,7 +26,7 @@ fun EvaaMasterClassic.fromStorage(
         data: storage.toCell(),
     };
     val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
-    return EvaaMasterClassic { address, stateInit };
+    return EvaaMasterClassic { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -41,7 +42,11 @@ fun EvaaMasterClassic.deploy(self, from: address, config: SendParams = {}): Send
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

@@ -12,19 +12,21 @@ import "../types/stonfi_pool_v2_weighted_stableswap.types"
 struct StonfiPoolV2WeightedStableswap {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun StonfiPoolV2WeightedStableswap.fromStorage(
     storage: StonfiPoolV2WeightedStableswapStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): StonfiPoolV2WeightedStableswap {
     val stateInit = ContractState {
         code: build("StonfiPoolV2WeightedStableswap"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return StonfiPoolV2WeightedStableswap { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return StonfiPoolV2WeightedStableswap { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -44,7 +46,11 @@ fun StonfiPoolV2WeightedStableswap.deploy(
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

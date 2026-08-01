@@ -12,19 +12,21 @@ import "../types/discoverable_jetton_wallet.types"
 struct DiscoverableJettonWallet {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun DiscoverableJettonWallet.fromStorage(
     storage: DiscoverableJettonWalletStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): DiscoverableJettonWallet {
     val stateInit = ContractState {
         code: build("DiscoverableJettonWallet"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return DiscoverableJettonWallet { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return DiscoverableJettonWallet { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun DiscoverableJettonWallet.deploy(self, from: address, config: SendParams = {}
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

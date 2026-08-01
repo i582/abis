@@ -12,19 +12,21 @@ import "../types/fragment_marketapp_proxy_known.types"
 struct FragmentMarketappProxyKnown {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun FragmentMarketappProxyKnown.fromStorage(
     storage: FragmentMarketappProxyKnownStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): FragmentMarketappProxyKnown {
     val stateInit = ContractState {
         code: build("FragmentMarketappProxyKnown"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return FragmentMarketappProxyKnown { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return FragmentMarketappProxyKnown { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -44,7 +46,11 @@ fun FragmentMarketappProxyKnown.deploy(
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }

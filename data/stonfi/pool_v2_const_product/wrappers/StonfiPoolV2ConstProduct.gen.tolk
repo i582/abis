@@ -12,19 +12,21 @@ import "../types/stonfi_pool_v2_const_product.types"
 struct StonfiPoolV2ConstProduct {
     address: address
     stateInit: ContractState? = null
+    toShard: AddressShardingOptions? = null
 }
 
 /// Creates a contract wrapper instance from the storage data
 fun StonfiPoolV2ConstProduct.fromStorage(
     storage: StonfiPoolV2ConstProductStorage,
     toShard: AddressShardingOptions? = null,
+    workchain: int8 = BASECHAIN,
 ): StonfiPoolV2ConstProduct {
     val stateInit = ContractState {
         code: build("StonfiPoolV2ConstProduct"),
         data: storage.toCell(),
     };
-    val address = AutoDeployAddress { stateInit, toShard }.calculateAddress();
-    return StonfiPoolV2ConstProduct { address, stateInit };
+    val address = AutoDeployAddress { workchain, stateInit, toShard }.calculateAddress();
+    return StonfiPoolV2ConstProduct { address, stateInit, toShard };
 }
 
 /// Creates a contract wrapper instance from the address
@@ -40,7 +42,11 @@ fun StonfiPoolV2ConstProduct.deploy(self, from: address, config: SendParams = {}
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
-        dest: { stateInit: self.stateInit },
+        dest: {
+            workchain: self.address.getWorkchain(),
+            stateInit: self.stateInit,
+            toShard: self.toShard,
+        },
     });
     return net.send(from, genericMsg);
 }
