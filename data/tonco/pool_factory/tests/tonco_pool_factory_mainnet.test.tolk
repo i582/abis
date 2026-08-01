@@ -88,7 +88,7 @@ get fun `test tonco pool factory mainnet getters storage and order address`() {
         expect(whitelist).toBeNull();
     } else {
         expect(whitelist).toBeNotNull();
-        expect(whitelist!.hash()).toEqual(storage.whitelist!.hash());
+        expect(whitelist!.hash()).toEqual(storage.whitelist.hash());
     }
 
     expect(orderAddress.orderAddress).toEqual(address(MAINNET_TONCO_ORDER_ADDRESS));

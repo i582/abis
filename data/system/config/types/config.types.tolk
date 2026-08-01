@@ -1,4 +1,3 @@
-import "@stdlib/lisp-lists"
 
 /// TON system Config contract for network parameters, validator-set installation, and config governance.
 contract Config {

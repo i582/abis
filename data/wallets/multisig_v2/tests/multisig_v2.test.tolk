@@ -192,7 +192,7 @@ get fun `test multisig order v2 local initialized getter after source init`() {
         createMessage({
             bounce: false,
             value: ton("0.2"),
-            dest: { stateInit: order.stateInit! },
+            dest: { stateInit: order.stateInit },
             body: MultisigOrderV2Init {
                 queryId: 3,
                 threshold: 2,

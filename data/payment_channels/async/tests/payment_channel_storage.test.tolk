@@ -1,7 +1,6 @@
 import "@acton/build"
 import "@acton/fmt"
 import "@acton/fs"
-import "@acton/io"
 import "@acton/testing/expect"
 import "../types/payment_channel.types"
 

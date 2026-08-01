@@ -1,6 +1,5 @@
 import "@stdlib/lisp-lists"
 import "@acton/build"
-import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
 import "@acton/emulation/scripts"

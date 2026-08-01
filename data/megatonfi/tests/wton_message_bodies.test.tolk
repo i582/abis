@@ -1,5 +1,4 @@
 import "@acton/fmt"
-import "@acton/io"
 import "@acton/testing/expect"
 import "../types/wton_minter.types"
 import "../types/wton_wallet.types"
@@ -54,7 +53,7 @@ get fun `test wton minter and wallet decode real mint internal transfer`() {
     val body = parseCellFromBase64(bodyBoc);
     val minterBody = WtonMintInternalTransfer.fromCell(body);
     val walletBody = WtonWalletInternalTransfer.fromCell(body);
-    var forwardPayload = walletBody.forwardPayload;
+    val forwardPayload = walletBody.forwardPayload;
 
     expect(minterBody.queryId).toEqual(0);
     expect(minterBody.amount).toEqual(3896636725);

@@ -28,7 +28,7 @@ get fun `test sbt v1 single local getters and storage`() {
     if (storage.authorityAddress == null) {
         expect(authorityAddress).toBeNoneAddress();
     } else {
-        expect(authorityAddress.castToInternal()).toEqual(storage.authorityAddress!);
+        expect(authorityAddress.castToInternal()).toEqual(storage.authorityAddress);
     }
     expect(revokedTime).toEqual(storage.revokedAt);
 

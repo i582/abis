@@ -83,13 +83,13 @@ get fun `test getgems nft fixprice sale v3r2 mainnet code getter and storage`() 
     if (storage.nftOwnerAddress == null) {
         expect(saleData.nftOwnerAddress).toBeNoneAddress();
     } else {
-        expect(saleData.nftOwnerAddress).toEqual(storage.nftOwnerAddress! as any_address);
+        expect(saleData.nftOwnerAddress).toEqual(storage.nftOwnerAddress as any_address);
     }
 
     if (fees.royaltyAddress == null) {
         expect(saleData.royaltyAddress).toBeNoneAddress();
     } else {
-        expect(saleData.royaltyAddress).toEqual(fees.royaltyAddress! as any_address);
+        expect(saleData.royaltyAddress).toEqual(fees.royaltyAddress as any_address);
     }
 
     println("GETGEMS_NFT_FIXPRICE_SALE_V3R2_ADDRESS={}", sale.address);

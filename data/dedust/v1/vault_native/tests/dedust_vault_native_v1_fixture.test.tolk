@@ -1,7 +1,6 @@
 import "@acton/build"
 import "@acton/fs"
 import "@acton/testing/expect"
-import "../types/dedust_vault_native_v1.types"
 import "../wrappers/DedustVaultNativeV1.gen"
 
 const FIXTURE_BOC_PATH = "data/dedust/v1/vault_native/testdata/DedustVaultNativeV1.boc"

@@ -3,7 +3,7 @@ import "@acton/io"
 import "@acton/testing/expect"
 import "../types/stonfi_pool_v1.types"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -14,7 +14,7 @@ fun loadPayToParamsRef(mutate params: RemainingBitsAndRefs): StonfiPoolV1PayToPa
     expect(params.loadBool()).toBeTrue();
 
     val paramsCell = params.loadRef();
-    expectNoTail(mutate params);
+    expectNoTail(params);
     return StonfiPoolV1PayToParams.fromCell(paramsCell);
 }
 

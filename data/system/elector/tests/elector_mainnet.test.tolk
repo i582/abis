@@ -1,6 +1,5 @@
 import "@stdlib/lisp-lists"
 import "@acton/build"
-import "@acton/fmt"
 import "@acton/io"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
@@ -66,7 +65,7 @@ fun expectCurrentElectionGetters(elector: Elector, storage: ElectorStorage): voi
         expect(extended.participants.calculateSize()).toEqual(0);
         expect(extended.electionAt).toEqual(0);
     } else {
-        val current = storage.currentElection!.load();
+        val current = storage.currentElection.load();
         expect(activeElectionId).toEqual(current.electionAt);
         expect(current.members.isEmpty()).toBeFalse();
         expect(participantList.calculateSize()).toBeGreater(0);

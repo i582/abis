@@ -51,7 +51,7 @@ get fun `test evaa user parses saved live storage fixture`() {
     val storage = EvaaUserStorage.fromCell(data);
     val principal = storage.userPrincipals.mustGet(EXPECTED_ASSET_ID);
     val reward = storage.userRewards.mustGet(EXPECTED_ASSET_ID);
-    var principalTail = principal.borrowTail;
+    val principalTail = principal.borrowTail;
 
     expect(storage.toCell().hash()).toEqual(data.hash());
     expect(storage.codeVersion).toEqual(EXPECTED_CODE_VERSION);

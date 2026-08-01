@@ -1,7 +1,6 @@
 import "@acton/build"
 import "@acton/fs"
 import "@acton/testing/expect"
-import "../types/dedust_pool_v1.types"
 import "../wrappers/DedustPoolV1.gen"
 
 const FIXTURE_BOC_PATH = "data/dedust/v1/pool/testdata/DedustPoolV1.boc"

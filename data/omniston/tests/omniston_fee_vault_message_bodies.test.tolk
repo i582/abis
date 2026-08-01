@@ -15,7 +15,7 @@ const PTON_FEE_RECIPIENT = "0:19F7A368E4B047CDC583ADA6D62BCC2B5D24F49FE6B34D43F2
 const ROUTE_TAG = 0x1a3c2fc3
 const SUCCESS_EXIT_CODE = 56647
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -31,7 +31,7 @@ fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
     expect(payload.loadBool()).toBeTrue();
 
     val payloadCell = payload.loadRef();
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
     return payloadCell;
 }
 
@@ -40,7 +40,7 @@ fun expectInlineResultCode(mutate payload: RemainingBitsAndRefs, expectedExitCod
     expect(payload.remainingRefsCount()).toEqual(0);
     expect(payload.loadBool()).toBeFalse();
     expect(payload.loadUint(32)).toEqual(expectedExitCode);
-    expectNoTail(mutate payload);
+    expectNoTail(payload);
 }
 
 fun expectFeeShares(

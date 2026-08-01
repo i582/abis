@@ -13,7 +13,7 @@ fun bits256FromUint(value: uint256): bits256 {
 fun loadKnownCodeFixture(): cell {
     val data = fs.readBytes("data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyKnown.boc");
     expect(data).toBeNotNull();
-    var bytes = data!;
+    val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
     return build("FragmentMarketappProxyKnown", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyKnown.boc");
 }
@@ -21,7 +21,7 @@ fun loadKnownCodeFixture(): cell {
 fun loadKnownDataFixture(): cell {
     val data = fs.readBytes("data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyKnown.data.boc");
     expect(data).toBeNotNull();
-    var bytes = data!;
+    val bytes = data!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
     return build("FragmentMarketappProxyKnownData", "data/fragment/marketapp_proxy/testdata/FragmentMarketappProxyKnown.data.boc");
 }

@@ -71,7 +71,7 @@ fun expectSubscriptionInfoMatchesStorage(
     expect(info.walletVersion).toEqual(storage.walletVersion);
     expect(info.beneficiary).toEqual(storage.beneficiary);
     expect(info.subscriptionId).toEqual(storage.subscriptionId);
-    expect(info.withdrawAddress).toEqual(withdrawInfo.withdrawAddress!);
+    expect(info.withdrawAddress).toEqual(withdrawInfo.withdrawAddress);
     expect(info.withdrawMsgBody.hash()).toEqual(withdrawInfo.withdrawMsgBody.hash());
     expect(info.metadata.hash()).toEqual(storage.metadata.hash());
 }

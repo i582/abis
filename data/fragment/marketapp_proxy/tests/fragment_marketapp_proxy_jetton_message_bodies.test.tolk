@@ -3,7 +3,7 @@ import "@acton/io"
 import "@acton/testing/expect"
 import "../types/fragment_marketapp_proxy_jetton.types"
 
-fun expectNoTail(mutate tail: RemainingBitsAndRefs): void {
+fun expectNoTail(tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(0);
     expect(tail.remainingRefsCount()).toEqual(0);
 }
@@ -12,7 +12,7 @@ fun expectFalseMaybeTail(mutate tail: RemainingBitsAndRefs): void {
     expect(tail.remainingBitsCount()).toEqual(1);
     expect(tail.remainingRefsCount()).toEqual(0);
     expect(tail.loadBool()).toBeFalse();
-    expectNoTail(mutate tail);
+    expectNoTail(tail);
 }
 
 get fun `test marketapp proxy jetton decodes real buy body with signed false secondary tail`() {
@@ -29,8 +29,8 @@ get fun `test marketapp proxy jetton decodes real buy body with signed false sec
     expect(request.forwardPayload.hash()).toEqual(0xc77d3e69328eedb15c7e41a1af077728ef1664002c0cce4dbc0c5d354844bee8);
     expectFalseMaybeTail(mutate request.extra);
 
-    var extra = decoded.extra;
-    expectNoTail(mutate extra);
+    val extra = decoded.extra;
+    expectNoTail(extra);
 
     println("FRAGMENT_MARKETAPP_PROXY_JETTON_BUY_TX={} LT={}", txHash, txLt);
 }

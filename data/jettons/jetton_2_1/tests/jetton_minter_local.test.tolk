@@ -35,7 +35,7 @@ fun deployJetton21Minter(admin: address): JettonMinter {
         createMessage({
             bounce: false,
             value: ton("1"),
-            dest: { stateInit: minter.stateInit! },
+            dest: { stateInit: minter.stateInit },
             body: TopUpTons {},
         }),
     );

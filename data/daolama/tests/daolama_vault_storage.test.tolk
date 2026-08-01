@@ -1,5 +1,4 @@
 import "@acton/fmt"
-import "@acton/io"
 import "@acton/testing/expect"
 import "../types/daolama_vault.types"
 

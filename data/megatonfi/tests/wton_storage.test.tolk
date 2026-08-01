@@ -13,7 +13,7 @@ const WTON_WALLET_DATA_PATH = "data/megatonfi/testdata/WtonWallet.data.boc"
 fun loadBocFixture(name: string, path: string): cell {
     val raw = fs.readBytes(path);
     expect(raw).toBeNotNull();
-    var bytes = raw!;
+    val bytes = raw!;
     expect(bytes.preloadUint(32)).toEqual(EXPECTED_BOC_MAGIC);
     return build(name, path);
 }

@@ -43,7 +43,7 @@ fun expectCellHashEqualsMaybe(actual: cell, expected: cell?): void {
     if (expected == null) {
         expect(actual.hash()).toEqual(createEmptyCell().hash());
     } else {
-        expect(actual.hash()).toEqual(expected!.hash());
+        expect(actual.hash()).toEqual(expected.hash());
     }
 }
 

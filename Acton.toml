@@ -1501,6 +1501,7 @@ acton run sbt-1-mainnet-test
 
 [lint]
 exclude = ["scripts/**"]
+max-warnings = 0
 
 [lint.rules]
 unused-variable = "allow"

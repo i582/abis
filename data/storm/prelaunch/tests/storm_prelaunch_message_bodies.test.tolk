@@ -35,7 +35,7 @@ fun loadForwardPayloadRef(mutate payload: RemainingBitsAndRefs): cell {
 }
 
 fun expectRefEmptyForwardPayload(mutate payload: RemainingBitsAndRefs): void {
-    var payloadBody = loadForwardPayloadRef(mutate payload).beginParse();
+    val payloadBody = loadForwardPayloadRef(mutate payload).beginParse();
     expectEmptySlice(payloadBody);
 }
 

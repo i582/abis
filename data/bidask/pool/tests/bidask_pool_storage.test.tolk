@@ -123,7 +123,7 @@ fun expectBidaskPoolGettersMatchStorage(pool: BidaskPool, storage: BidaskPoolSto
         expect(farmingInfo.previousCall).toEqual(0);
         expect(farmingInfo.endOfFarming).toEqual(0);
     } else {
-        val farmingData = storage.farmingData!.load();
+        val farmingData = storage.farmingData.load();
         expect(farmingInfo.distributedXAmount).toEqual(farmingData.distributedXAmount as int);
         expect(farmingInfo.distributedYAmount).toEqual(farmingData.distributedYAmount as int);
         expect(farmingInfo.farmingXPerSecond).toEqual(farmingData.farmingXPerSecond as int);

@@ -94,7 +94,7 @@ get fun `test tonstakers controller decodes real bounced return unused loan body
     val bounced = TonstakersValidatorControllerBouncedKnownBody.fromCell(
         parseCellFromBase64(bouncedBodyBoc),
     );
-    var tail = bounced.tail;
+    val tail = bounced.tail;
 
     expect(bounced.originalOpcode).toEqual(0xed7378a6);
     expect(bounced.queryId).toEqual(0);

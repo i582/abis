@@ -60,7 +60,7 @@ fun expectAnyAddressEqualsNullable(actual: any_address, expected: address?): voi
     if (expected == null) {
         expect(actual).toBeNoneAddress();
     } else {
-        expect(actual.castToInternal()).toEqual(expected!);
+        expect(actual.castToInternal()).toEqual(expected);
     }
 }
 

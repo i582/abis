@@ -39,7 +39,7 @@ get fun `test aqua decodes real jetton transfer notification body`() {
     val txLt = "67588881000006";
     val bodyBoc = "te6cckEBAgEAUQABZnNi0JxUbeTvAg5R4VgTiT7gCAClGS6oP+wyWI15n4Daz3ffspVH/0qcg0+esAkHwD22OQEAMgAAAABCT09TVCDQuNGJ0Lgg0LIgRXh0b27O8/f5";
     val decoded = AquaJettonTransferNotification.fromCell(parseCellFromBase64(bodyBoc));
-    var payload = decoded.forwardPayload;
+    val payload = decoded.forwardPayload;
 
     expect(decoded.queryId).toEqual(6083770386830217697);
     expect(decoded.amount).toEqual(555000000000);

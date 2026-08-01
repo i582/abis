@@ -31,13 +31,13 @@ get fun `test mintless master public getters work on mainnet`() {
     if (storage.adminAddress == null) {
         expect(data.adminAddress).toBeNoneAddress();
     } else {
-        expect(data.adminAddress.castToInternal()).toEqual(storage.adminAddress!);
+        expect(data.adminAddress.castToInternal()).toEqual(storage.adminAddress);
     }
 
     if (storage.nextAdminAddress == null) {
         expect(nextAdminAddress).toBeNoneAddress();
     } else {
-        expect(nextAdminAddress.castToInternal()).toEqual(storage.nextAdminAddress!);
+        expect(nextAdminAddress.castToInternal()).toEqual(storage.nextAdminAddress);
     }
 
     println("MINTLESS_MASTER_GET_JETTON_DATA={}", data);

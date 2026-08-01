@@ -104,7 +104,7 @@ get fun `test bidask damm pool mainnet storage and safe getters`() {
         expect(farmingInfo.previousCall).toEqual(0);
         expect(farmingInfo.endOfFarming).toEqual(0);
     } else {
-        val farming = storage.farming!.load();
+        val farming = storage.farming.load();
         expect(farmingInfo.farmingXPerSecond).toEqual(farming.farmingXPerSecond);
         expect(farmingInfo.farmingYPerSecond).toEqual(farming.farmingYPerSecond);
         expect(farmingInfo.previousCall).toEqual(farming.previousCall);

@@ -27,7 +27,7 @@ fun deployJetton21Wallet(owner: address, minter: address, balance: coins): Jetto
         createMessage({
             bounce: false,
             value: ton("1"),
-            dest: { stateInit: wallet.stateInit! },
+            dest: { stateInit: wallet.stateInit },
             body: TopUpTons {},
         }),
     );

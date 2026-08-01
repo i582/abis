@@ -54,7 +54,7 @@ get fun `test nominator pool decodes real deposit text comment body`() {
     val txLt = "65761862000001";
     val body = parseCellFromBase64("te6cckEBAQEABwAACgAAAABkSdX8Kw==");
     val decoded = NominatorPoolTextCommand.fromCell(body);
-    var tail = decoded.tail;
+    val tail = decoded.tail;
 
     expect(body.hash()).toEqual(DEPOSIT_BODY_HASH);
     expect(decoded.action).toEqual(100);
@@ -68,7 +68,7 @@ get fun `test nominator pool decodes real withdraw text comment body`() {
     val txLt = "64768504000001";
     val body = parseCellFromBase64("te6cckEBAQEABwAACgAAAAB30uHyKA==");
     val decoded = NominatorPoolTextCommand.fromCell(body);
-    var tail = decoded.tail;
+    val tail = decoded.tail;
 
     expect(body.hash()).toEqual(WITHDRAW_BODY_HASH);
     expect(decoded.action).toEqual(119);
