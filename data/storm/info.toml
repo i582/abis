@@ -227,16 +227,6 @@ known_addresses = ["EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"]
 address = "EQAlGBmBJdmQTy9ny3-jvfcGPdg1vcX3TEFgN2tdb14skfhI"
 network = "mainnet"
 
-[contracts.StormLibraryDeployer]
-display_name = "Storm Trade Library Deployer"
-hashes = []
-known_addresses = []
-
-[contracts.StormPWallet]
-display_name = "Storm Trade PWallet"
-hashes = []
-known_addresses = []
-
 [contracts.StormProxySender]
 display_name = "Storm Trade Proxy Sender"
 types = "proxy_sender/types/storm_proxy_sender.types.tolk"
