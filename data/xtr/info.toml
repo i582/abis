@@ -1,0 +1,12 @@
+[project]
+name = "xtr"
+
+[contracts.XtrMaster]
+types = "master/types/xtr_master.types.tolk"
+hashes = ["c363366e7ed77d0c08bae1af61634ed3396310ab39a5c3adbaaae7f7e5f3cb26"]
+known_addresses = ["EQA5Fs0huec9mq2pBbfm17AjAguaoLT6mdBf2jbwxmyTazCn"]
+
+[contracts.XtrMaster.instances.mainnet]
+name = "XTR Master"
+address = "EQA5Fs0huec9mq2pBbfm17AjAguaoLT6mdBf2jbwxmyTazCn"
+label = "Pinned active mainnet master"
