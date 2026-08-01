@@ -1,0 +1,46 @@
+[project]
+name = "ton_verifier"
+category = "developer infrastructure"
+description = "On-chain registries and source records for the TON contract verification protocol"
+
+[contracts.VerifierSourcesRegistry]
+display_name = "TON Verifier Sources Registry"
+types = "sources_registry/types/verifier_sources_registry.types.tolk"
+hashes = ["148ab33241d58ed70920f3c9b924d97fe9948e9b6f320a9904d65b2da169895d"]
+known_addresses = ["EQD-BJSVUJviud_Qv7Ymfd3qzXdrmV525e3YDzWQoHIAiInL"]
+
+[[contracts.VerifierSourcesRegistry.links]]
+kind = "source"
+title = "Official verifier contracts source revision"
+url = "https://github.com/ton-community/contract-verifier-contracts/tree/a045baa22b0d0b1f549028942d31f6510165994d"
+
+[contracts.VerifierSourcesRegistry.instances.canonical_mainnet]
+address = "EQD-BJSVUJviud_Qv7Ymfd3qzXdrmV525e3YDzWQoHIAiInL"
+
+[contracts.VerifierSourceItem]
+display_name = "TON Verifier Source Item"
+types = "source_item/types/verifier_source_item.types.tolk"
+hashes = ["5459cb725307a812e6534a2f15b4f06701d2ae6726999f6d513f5747917d325a"]
+known_addresses = ["EQAH627ToTDvfkjhyhApoL2Zh9m8hKztrXniYKevoWigsCid"]
+
+[[contracts.VerifierSourceItem.links]]
+kind = "source"
+title = "Official verifier contracts source revision"
+url = "https://github.com/ton-community/contract-verifier-contracts/tree/a045baa22b0d0b1f549028942d31f6510165994d"
+
+[contracts.VerifierSourceItem.instances.representative_mainnet]
+address = "EQAH627ToTDvfkjhyhApoL2Zh9m8hKztrXniYKevoWigsCid"
+
+[contracts.VerifierRegistry]
+display_name = "TON Verifier Registry"
+types = "verifier_registry/types/verifier_registry.types.tolk"
+hashes = ["ac498fc3c594b302d0e3ea812971e070d7e5376e0e7031d9f3663c42d3f0a687"]
+known_addresses = ["EQDn0lCfJbUPhD6ST-Lwh8bj-9xcc24_G_C1QAk6uBAfaeMN"]
+
+[[contracts.VerifierRegistry.links]]
+kind = "source"
+title = "Official verifier contracts source revision"
+url = "https://github.com/ton-community/contract-verifier-contracts/tree/a045baa22b0d0b1f549028942d31f6510165994d"
+
+[contracts.VerifierRegistry.instances.canonical_mainnet]
+address = "EQDn0lCfJbUPhD6ST-Lwh8bj-9xcc24_G_C1QAk6uBAfaeMN"
