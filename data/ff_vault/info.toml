@@ -1,0 +1,27 @@
+[project]
+name = "ff_vault"
+category = "TON staking and farming contracts"
+description = "Bidask Farming FF Vault and NFT staking position contracts"
+
+[sources]
+bidask_docs = "https://docs.bidask.finance"
+
+[contracts.FfVault]
+display_name = "Bidask Farming FF Vault"
+types = "vault/types/ff_vault.types.tolk"
+hashes = ["84a329794f85d2cb99d5bede2ecf5471597477afa9680935f8869a2a9395ceaf"]
+known_addresses = ["EQBMTi0nonch8rj6P5mT4TyWlunXAbL0mPmBKU7OKv3t2koO"]
+
+[contracts.FfVault.instances.representative_mainnet]
+address = "EQBMTi0nonch8rj6P5mT4TyWlunXAbL0mPmBKU7OKv3t2koO"
+network = "mainnet"
+
+[contracts.FfVaultPosition]
+display_name = "Bidask Farming FF Vault Position"
+types = "position/types/ff_vault_position.types.tolk"
+hashes = ["76d2a7fb965d894f2ba76b09a58a2750219b2d9a8821c87a8504306859a578f5"]
+known_addresses = ["EQAUqDx1sb-zXEk7rDLfD_3aWIOxyOwt0ktjvcwlc_dacqDH"]
+
+[contracts.FfVaultPosition.instances.representative_mainnet]
+address = "EQAUqDx1sb-zXEk7rDLfD_3aWIOxyOwt0ktjvcwlc_dacqDH"
+network = "mainnet"
