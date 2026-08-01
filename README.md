@@ -85,3 +85,11 @@ Each curated project group normally includes:
 | Tonkeeper Subscriptions | Subscription V1 and V2 wallet/plugin contracts.                                         | `SubscriptionV1`, `SubscriptionV2` |
 | TON Cron | Cron interface implementations with `get_cron_info` and `cron_trigger` external bodies. | `Cron` |
 | Tonkeeper 2FA | Tonkeeper 2FA wallet extension contract.                                                | `Tonkeeper2fa` |
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for build, schema, and test workflows.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
