@@ -234,6 +234,16 @@ struct SmartAccountFactoryRoyaltyParams {
     royaltyAddress: address
 }
 
+/// NFT collection identity returned by the SmartAccount Factory.
+struct SmartAccountFactoryCollectionDataReply {
+    /// Sentinel next-item index; this revision derives SmartAccount items from address hashes.
+    nextItemIndex: int
+    /// Collection metadata loaded from the first content reference.
+    collectionMetadata: cell
+    /// Factory admin address exposed as the collection owner.
+    adminAddress: address
+}
+
 /// SmartAccountFactory exit codes.
 enum Errors {
     /// Deployment request did not attach enough balance for deploy and storage fees.
@@ -265,5 +275,15 @@ get fun royalty_params(): SmartAccountFactoryRoyaltyParams {
 
 /// Return the deterministic blank SmartAccount address for the supplied item index.
 get fun get_nft_address_by_index(itemIndex: int): address {
+    throw 0;
+}
+
+/// Return collection metadata and admin identity from populated factory content.
+get fun get_collection_data(): SmartAccountFactoryCollectionDataReply {
+    throw 0;
+}
+
+/// Combine the stored common-content prefix with an item's individual content cell.
+get fun get_nft_content(itemIndex: int, individualContent: cell): cell {
     throw 0;
 }

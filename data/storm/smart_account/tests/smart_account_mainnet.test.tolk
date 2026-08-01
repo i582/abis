@@ -1,4 +1,5 @@
 import "@acton/build"
+import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
 import "@acton/emulation/scripts"
@@ -20,6 +21,7 @@ const EXPECTED_CODE_HASH = 0x91beb72642b69dd1217ddf6f488a9391b4d4b83d0131856b115
 const EXPECTED_NATIVE_VAULT_BALANCE = 106127368
 const EXPECTED_HOT_PUBLIC_KEY = 87239587847142616048295798838787664456457434067972149231226244021718341634210
 const EXPECTED_COLD_PUBLIC_KEY = 77954538618246219238076980304107513279290426602386175610114018503125127500440
+const REAL_EXCESSES_BODY_BOC = "te6cckEBAQEADgAAGNUydtsAAAAAAAAAAPfBmNw="
 
 fun mainnetSmartAccount(): SmartAccount {
     return SmartAccount.fromAddress(address(MAINNET_SMART_ACCOUNT_ADDRESS));
@@ -81,6 +83,7 @@ get fun `test smart account mainnet storage and getters`() {
     val vaultBalance = account.getVaultBalance(nativeVaultAddress);
     val zeroPosition = account.getPosition(zeroPositionKey());
     val processed = account.processed(0, 0, 0);
+    val nftData = account.getNftData();
     val keysStorage = storage.keys.load();
     val highloadStorage = storage.highloadData.load();
 
@@ -122,10 +125,23 @@ get fun `test smart account mainnet storage and getters`() {
     expect(zeroPosition.locked).toBeFalse();
     expect(zeroPosition.position).toBeNull();
     expect(processed).toBeTrue();
+    expect(nftData.isInitialized).toBeTrue();
+    expect(nftData.itemIndex).toBeGreater(0);
+    expect(nftData.collectionAddress).toEqual(storage.factoryAddress);
+    expect(nftData.ownerAddress).toEqual(storage.ownerAddress);
+    expect(nftData.content.beginParse().remainingBitsCount()).toBeGreater(0);
 
     println("STORM_SMART_ACCOUNT_PINNED_MAINNET_BLOCK={}", PINNED_MAINNET_BLOCK);
     println("STORM_SMART_ACCOUNT_ADDRESS={}", account.address);
     println("STORM_SMART_ACCOUNT_STORAGE={}", storage);
     println("STORM_SMART_ACCOUNT_KEYS_DATA={}", keysData);
     println("STORM_SMART_ACCOUNT_HIGHLOAD_DATA={}", highloadData);
+}
+
+get fun `test smart account decodes standard excesses body`() {
+    val body = parseCellFromBase64(REAL_EXCESSES_BODY_BOC);
+    val decoded = SmartAccountExcesses.fromCell(body);
+
+    expect(decoded.queryId).toEqual(0);
+    expect(decoded.toCell().hash()).toEqual(body.hash());
 }

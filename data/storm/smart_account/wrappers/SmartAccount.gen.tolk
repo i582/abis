@@ -281,6 +281,10 @@ fun SmartAccount.getStorageData(self): GetStorageDataReply {
     return net.runGetMethod(self.address, "get_storage_data");
 }
 
+fun SmartAccount.getNftData(self): SmartAccountNftDataReply {
+    return net.runGetMethod(self.address, "get_nft_data");
+}
+
 fun SmartAccount.getUserPublicKeys(self): map<uint256, cell> {
     return net.runGetMethod(self.address, "get_user_public_keys");
 }

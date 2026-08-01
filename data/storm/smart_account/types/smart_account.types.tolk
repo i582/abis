@@ -838,6 +838,12 @@ struct (0x512cbd25) StormWithdrawRequest {
     ownerAddress: address
 }
 
+/// Standard excess-value response emitted after successful balance and key operations.
+struct (0xd53276db) SmartAccountExcesses {
+    /// Query id copied from the triggering request.
+    queryId: uint64
+}
+
 /// Smart Account Incoming Message union or alias used by SmartAccount.
 type SmartAccountIncomingMessage =
     | StormNotifyUpdatePosition
@@ -859,6 +865,7 @@ type SmartAccountOutgoingMessage =
     | TakePositionV22
     | StormDepositRevert
     | StormWithdrawRequest
+    | SmartAccountExcesses
 
 /// Get Storage Data Reply layout used by SmartAccount.
 struct GetStorageDataReply {
@@ -910,6 +917,20 @@ struct GetPositionReply {
     locked: bool
     /// Position payload or optional position cell.
     position: Cell<PositionData>?
+}
+
+/// NFT-compatible identity data returned by the initialized SmartAccount.
+struct SmartAccountNftDataReply {
+    /// True while the account runs the ordinary SmartAccount code.
+    isInitialized: bool
+    /// Account-address hash exposed as the NFT item index.
+    itemIndex: int
+    /// Factory address exposed as the NFT collection address.
+    collectionAddress: address
+    /// SmartAccount owner address.
+    ownerAddress: address
+    /// URI suffix cell containing `/0:<account-hash>.json`.
+    content: cell
 }
 
 /// SmartAccount exit-code catalog.
@@ -994,6 +1015,11 @@ enum Errors {
 
 /// Getter returning SmartAccount storage data.
 get fun get_storage_data(): GetStorageDataReply {
+    throw 0;
+}
+
+/// Return initialized NFT identity derived from the account address and stored owner.
+get fun get_nft_data(): SmartAccountNftDataReply {
     throw 0;
 }
 

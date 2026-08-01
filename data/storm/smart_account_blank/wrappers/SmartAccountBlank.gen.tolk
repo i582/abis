@@ -154,3 +154,7 @@ fun SmartAccountBlank.sendAny(
 fun SmartAccountBlank.getBlankStorageData(self): GetBlankStorageDataReply {
     return net.runGetMethod(self.address, "get_blank_storage_data");
 }
+
+fun SmartAccountBlank.getNftData(self): SmartAccountBlankNftDataReply {
+    return net.runGetMethod(self.address, "get_nft_data");
+}

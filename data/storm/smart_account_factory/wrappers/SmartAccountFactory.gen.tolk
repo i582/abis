@@ -238,3 +238,11 @@ fun SmartAccountFactory.royaltyParams(self): SmartAccountFactoryRoyaltyParams {
 fun SmartAccountFactory.getNftAddressByIndex(self, itemIndex: int): address {
     return net.runGetMethod(self.address, "get_nft_address_by_index", [itemIndex]);
 }
+
+fun SmartAccountFactory.getCollectionData(self): SmartAccountFactoryCollectionDataReply {
+    return net.runGetMethod(self.address, "get_collection_data");
+}
+
+fun SmartAccountFactory.getNftContent(self, itemIndex: int, individualContent: cell): cell {
+    return net.runGetMethod(self.address, "get_nft_content", [itemIndex, individualContent]);
+}

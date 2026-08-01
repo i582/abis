@@ -2,8 +2,12 @@ import "@acton/build"
 import "@acton/fmt"
 import "@acton/fs"
 import "@acton/io"
+import "@acton/emulation/network"
+import "@acton/emulation/scripts"
+import "@acton/emulation/testing"
 import "@acton/testing/expect"
 import "../types/smart_account_blank.types"
+import "../wrappers/SmartAccountBlank.gen"
 
 const FIXTURE_BOC_PATH = "data/storm/smart_account_blank/testdata/SmartAccountBlank.boc"
 const EXPECTED_BOC_MAGIC = 0xb5ee9c72
@@ -14,6 +18,7 @@ const EXPECTED_HOT_PUBLIC_KEY = 872395878471426160482957988387876644564574340679
 const EXPECTED_COLD_PUBLIC_KEY = 77954538618246219238076980304107513279290426602386175610114018503125127500440
 const EXPECTED_NATIVE_VAULT_ADDRESS = "0:E926764FF3D272C73DDEB836975C5521C025AD68E7919A25094E2DE3198805F1"
 const EXPECTED_DEPLOY_OWNER_ADDRESS = "0:FBE207CDA150784FFD2A2489DCF96B75448BF9DD4B7060B3D30BBBAB770F700B"
+const REAL_EXCESSES_BODY_BOC = "te6cckEBAQEADgAAGNUydtsAAAAAAAAAAPfBmNw="
 
 fun hasBocMagic(bytes: slice): bool {
     if (bytes.remainingBitsCount() < 32) {
@@ -41,6 +46,35 @@ get fun `test smart account blank transient code boc fixture is real`() {
 
     val code = build("SmartAccountBlank", FIXTURE_BOC_PATH);
     expect(code.hash()).toEqual(EXPECTED_TRANSIENT_CODE_HASH);
+}
+
+get fun `test smart account blank local nft identity getter`() {
+    val deployer = testing.treasury("storm-smart-account-blank-deployer");
+    val owner = testing.treasury("storm-smart-account-blank-owner");
+    val contract = SmartAccountBlank.fromStorage({
+        saType: 1,
+        factoryAddress: deployer.address,
+        ownerAddress: owner.address,
+        balances: [],
+    });
+
+    contract.deploy(deployer.address, { value: ton("1"), bounce: false });
+    expect(scripts.isContractDeployed(contract.address)).toBeTrue();
+
+    val nftData = contract.getNftData();
+    expect(nftData.isInitialized).toBeFalse();
+    expect(nftData.itemIndex).toBeGreater(0);
+    expect(nftData.collectionAddress).toEqual(deployer.address);
+    expect(nftData.ownerAddress).toEqual(owner.address);
+    expect(nftData.content.beginParse().remainingBitsCount()).toBeGreater(0);
+}
+
+get fun `test smart account blank decodes standard excesses body`() {
+    val body = parseCellFromBase64(REAL_EXCESSES_BODY_BOC);
+    val decoded = SmartAccountBlankExcesses.fromCell(body);
+
+    expect(decoded.queryId).toEqual(0);
+    expect(decoded.toCell().hash()).toEqual(body.hash());
 }
 
 get fun `test smart account blank decodes real factory init body`() {

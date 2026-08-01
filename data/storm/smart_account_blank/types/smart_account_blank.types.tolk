@@ -152,6 +152,12 @@ struct (0x5b27f9c5) StormDepositRevert {
     ownerAddress: address
 }
 
+/// Standard excess-value response emitted after referral-fee processing or initialization.
+struct (0xd53276db) SmartAccountBlankExcesses {
+    /// Query id copied from the triggering request.
+    queryId: uint64
+}
+
 /// Smart Account Blank Incoming Message union or alias used by SmartAccountBlank.
 type SmartAccountBlankIncomingMessage =
     | StormDepositNotify
@@ -159,8 +165,10 @@ type SmartAccountBlankIncomingMessage =
     | StormInitSa
     | StormDepositNotifyWithDeploy
 
-/// Smart Account Blank Outgoing Message union or alias used by SmartAccountBlank.
-type SmartAccountBlankOutgoingMessage = StormDepositRevert
+/// Internal message bodies emitted by the transient SmartAccount.
+type SmartAccountBlankOutgoingMessage =
+    | StormDepositRevert
+    | SmartAccountBlankExcesses
 
 /// Get Blank Storage Data Reply layout used by SmartAccountBlank.
 struct GetBlankStorageDataReply {
@@ -174,6 +182,20 @@ struct GetBlankStorageDataReply {
     balances: map<address, coins>
 }
 
+/// NFT-compatible identity data returned by the transient SmartAccount.
+struct SmartAccountBlankNftDataReply {
+    /// False while the account still runs the transient blank code.
+    isInitialized: bool
+    /// Account-address hash exposed as the NFT item index.
+    itemIndex: int
+    /// Factory address exposed as the NFT collection address.
+    collectionAddress: address
+    /// Owner address stored for the future ordinary SmartAccount.
+    ownerAddress: address
+    /// URI suffix cell containing `/0:<account-hash>.json`.
+    content: cell
+}
+
 /// SmartAccountBlank exit-code catalog.
 enum Errors {
     /// Sender is not authorized for the initialization or deposit-with-deploy path.
@@ -184,5 +206,10 @@ enum Errors {
 
 /// Getter returning transient blank SmartAccount storage data.
 get fun get_blank_storage_data(): GetBlankStorageDataReply {
+    throw 0;
+}
+
+/// Return transient NFT identity derived from the account address and stored owner.
+get fun get_nft_data(): SmartAccountBlankNftDataReply {
     throw 0;
 }

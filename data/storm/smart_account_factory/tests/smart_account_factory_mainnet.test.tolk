@@ -1,4 +1,5 @@
 import "@acton/io"
+import "@acton/emulation/network"
 import "@acton/emulation/scripts"
 import "@acton/emulation/testing"
 import "@acton/testing/assert"
@@ -82,4 +83,42 @@ get fun `test smart account factory mainnet storage and getters`() {
     println("STORM_SMART_ACCOUNT_FACTORY_DATA={}", factoryData);
     println("STORM_SMART_ACCOUNT_FACTORY_MIN_FEES={}", minFees);
     println("STORM_SMART_ACCOUNT_FACTORY_ITEM_0={}", item0Address);
+}
+
+get fun `test smart account factory collection getters with populated content`() {
+    val liveFactory = mainnetSmartAccountFactory();
+    val liveStorage = loadSmartAccountFactoryStorageFromFork(liveFactory);
+    val deployer = testing.treasury("storm-smart-account-factory-content-deployer");
+    val collectionMetadata = beginCell().storeUint(0x434f4c4c, 32).endCell();
+    val commonContentPrefix = beginCell().storeUint(0x69706673, 32).endCell();
+    val individualContent = beginCell().storeUint(0x4954454d, 32).endCell();
+    val populatedContent = beginCell()
+        .storeRef(collectionMetadata)
+        .storeRef(commonContentPrefix)
+        .endCell();
+    val factory = SmartAccountFactory.fromStorage({
+        adminAddress: deployer.address,
+        highloadTimeout: liveStorage.highloadTimeout,
+        hotPublicKey: liveStorage.hotPublicKey,
+        coldPublicKey: liveStorage.coldPublicKey,
+        content: populatedContent,
+        saOrdinaryVersion: liveStorage.saOrdinaryVersion,
+        saOrdinaryCode: liveStorage.saOrdinaryCode,
+    });
+
+    factory.deploy(deployer.address, { value: ton("1"), bounce: false });
+    expect(scripts.isContractDeployed(factory.address)).toBeTrue();
+
+    val collectionData = factory.getCollectionData();
+    expect(collectionData.nextItemIndex).toEqual(-1);
+    expect(collectionData.collectionMetadata.hash()).toEqual(collectionMetadata.hash());
+    expect(collectionData.adminAddress).toEqual(deployer.address);
+
+    val fullContent = factory.getNftContent(0, individualContent);
+    var contentSlice = fullContent.beginParse();
+    expect(contentSlice.loadUint(8)).toEqual(1);
+    expect(contentSlice.loadUint(32)).toEqual(0x69706673);
+    expect(contentSlice.loadRef().hash()).toEqual(individualContent.hash());
+    expect(contentSlice.remainingBitsCount()).toEqual(0);
+    expect(contentSlice.remainingRefsCount()).toEqual(0);
 }
