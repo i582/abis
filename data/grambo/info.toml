@@ -1,0 +1,38 @@
+[project]
+name = "grambo"
+website = "https://grambo.fun"
+
+[[links]]
+kind = "website"
+title = "Grambo"
+url = "https://grambo.fun"
+
+[contracts.GramboFactory]
+types = "factory/types/grambo_factory.types.tolk"
+hashes = ["3833e26240f2a83ffd29ee9b71c5ca600dbc04eddd4e41f588aa7716701689c2"]
+known_addresses = ["EQApINKePo4Vq1l_W6ZAvYkJf5ORc9eamxxCtFcb79pfCM-h"]
+
+[contracts.GramboFactory.instances.mainnet_registry]
+name = "Grambo Factory"
+address = "EQApINKePo4Vq1l_W6ZAvYkJf5ORc9eamxxCtFcb79pfCM-h"
+label = "Mainnet registry"
+
+[contracts.GramboJettonMaster]
+types = "jetton_master/types/grambo_jetton_master.types.tolk"
+hashes = ["4ebda3bf29d21ade055af1d8670db72b49f331edbc453f8185b513be6f64e376"]
+known_addresses = ["EQBom4slLIetxxKbAMYRD61BQwsxRnR_Tm0AO5ejiXsSYuYT"]
+
+[contracts.GramboJettonMaster.instances.mainnet_bonding_curve]
+name = "Grambo Jetton Master"
+address = "EQBom4slLIetxxKbAMYRD61BQwsxRnR_Tm0AO5ejiXsSYuYT"
+label = "Pinned mainnet bonding curve"
+
+[contracts.GramboJettonWallet]
+types = "jetton_wallet/types/grambo_jetton_wallet.types.tolk"
+hashes = ["a9879cae0815190084adbbdf5a9be7816e7215e0fdc9a22c6dcdf1540b83e36f"]
+known_addresses = ["EQCI95BVEikEt6g3ksm4W-HEPP8FMUa_Bi3f7r1CPQJlxGdv"]
+
+[contracts.GramboJettonWallet.instances.mainnet_activated_wallet]
+name = "Grambo Jetton Wallet"
+address = "EQCI95BVEikEt6g3ksm4W-HEPP8FMUa_Bi3f7r1CPQJlxGdv"
+label = "Pinned active wallet"
