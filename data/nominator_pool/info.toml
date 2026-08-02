@@ -15,9 +15,21 @@ url = "https://github.com/ton-blockchain/nominator-pool/tree/2f35c36b5ad662f10fd
 display_name = "TON Validators Nominator Pool"
 types = "pool/types/nominator_pool.types.tolk"
 description = "Validator-managed TON nominator pool with deposits, withdrawals, validator operations, Elector stake messages, and config-proposal voting."
-known_addresses = ["Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4"]
-hashes = ["9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf"]
+known_addresses = [
+  "Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4",
+  "Ef9_YdqILIo-z4aUI0HTgM2Mu9ZcYxyKhvUKVzPEc-71ZN04",
+]
+hashes = [
+  "9a3ec14bc098f6b44064c305222caea2800f17dda85ee6a8198a7095ede10dcf",
+  "a78c23dbc9f5093339d17e28afbe97e28a963411a20286856c9f76ae1ef6f130",
+]
 
 [contracts.NominatorPool.instances.representative_mainnet]
 address = "Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4"
 network = "mainnet"
+
+[contracts.NominatorPool.instances.a78c23_mainnet]
+address = "Ef9_YdqILIo-z4aUI0HTgM2Mu9ZcYxyKhvUKVzPEc-71ZN04"
+network = "mainnet"
+block_seqno = 83587997
+code_hash = "a78c23dbc9f5093339d17e28afbe97e28a963411a20286856c9f76ae1ef6f130"

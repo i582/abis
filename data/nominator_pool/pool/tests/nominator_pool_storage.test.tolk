@@ -145,7 +145,7 @@ fun expectNominatorPoolGettersMatchStorage(
     expect(data.configProposalVotings.isEmpty()).toEqual(storage.configProposalVotings.isEmpty());
     expect(hasWithdrawRequests).toEqual(!storage.withdrawRequests.isEmpty());
     expect(nominators.calculateSize()).toEqual(storage.nominatorsCount);
-    expect(votes.calculateSize()).toBeGreaterOrEqual(0);
+    expect(votes.calculateSize()).toEqual(0);
 }
 
 get fun `test nominator pool code and data bocs are real and hash verified`() {

@@ -424,27 +424,3 @@ get fun list_votes(): lisp_list<NominatorPoolListVotesEntry> {
 get fun list_voters(proposalHash: uint256): lisp_list<NominatorPoolListVotersEntry> {
     throw 0;
 }
-
-fun emptyNominatorPoolDataReply(): NominatorPoolDataReply {
-    return {
-        state: 0,
-        nominatorsCount: 0,
-        stakeAmountSent: 0,
-        validatorAmount: 0,
-        validatorAddress: 0,
-        validatorRewardShare: 0,
-        maxNominatorsCount: 0,
-        minValidatorStake: 0,
-        minNominatorStake: 0,
-        nominators: [],
-        withdrawRequests: [],
-        stakeAt: 0,
-        savedValidatorSetHash: 0,
-        validatorSetChangesCount: 0,
-        validatorSetChangeTime: 0,
-        stakeHeldFor: 0,
-        configProposalVotings: [],
-    };
-}
-
-fun assertNominatorPoolKnownErrors(): void {}
