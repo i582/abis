@@ -1,0 +1,29 @@
+[project]
+name = "tgUSD"
+category = "Liquid staking"
+description = "Torch Finance tgUSD staking contracts that issue stgUSD shares and manage delayed tgUSD withdrawals"
+
+[sources]
+repository = "https://github.com/torch-core/torch-tgusd-contract/tree/126ba7825bed44598ec438afa03ee7ec9717a6aa"
+docs = "https://doc.torch.finance/"
+
+[[links]]
+kind = "source"
+title = "Torch Finance tgUSD staking source"
+url = "https://github.com/torch-core/torch-tgusd-contract/tree/126ba7825bed44598ec438afa03ee7ec9717a6aa/contracts/tgusd-staking"
+
+[[links]]
+kind = "docs"
+title = "Torch Finance documentation"
+url = "https://doc.torch.finance/"
+
+[contracts.TgUsdLiquidStaking]
+display_name = "tgUSD Liquid Staking"
+types = "liquid_staking/types/tgusd_liquid_staking.types.tolk"
+hashes = ["5012a44c584f85ce0af2b6032b9308743db065a5a407ec8d2ad855dd24ac55ff"]
+known_addresses = ["EQDsRxOvYyhOAi-zHBSN2NkHcjwFB1aaMSnqJG7Chm14x02P"]
+
+[contracts.TgUsdLiquidStaking.instances.mainnet]
+name = "tgUSD Liquid Staking"
+address = "EQDsRxOvYyhOAi-zHBSN2NkHcjwFB1aaMSnqJG7Chm14x02P"
+label = "Pinned active mainnet staking contract"
