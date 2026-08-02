@@ -2,9 +2,9 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **247 contract entries**, **287 unique contract code hashes**, and **276 unique known contract addresses**.
+Current catalog size: **248 contract entries**, **288 unique contract code hashes**, and **278 unique known contract addresses**.
 
-Across the generated public catalog, the repository declares **1097 unique opcode prefixes** and **489 unique get-method names**.
+Across the generated public catalog, the repository declares **1097 unique opcode prefixes** and **491 unique get-method names**.
 
 Each curated project group normally includes:
 
@@ -46,6 +46,7 @@ Each curated project group normally includes:
 | Storm Trade | Perpetual DEX vaults, vAMMs, smart accounts, factory, current and legacy position managers, referral/executor collections and items, prelaunch, LP minter/wallet, and proxy sender. | `StormVault`, `StormVaultNative`, `StormVamm`, `StormVammCoinm`, `SmartAccount`, `SmartAccountBlank`, `SmartAccountFactory`, `StormPositionManager`, `StormPositionManagerLegacy`, `StormReferral`, `StormReferralCollection`, `StormExecutor`, `StormExecutorCollection`, `StormPrelaunch`, `StormLpMinter`, `StormLpWallet`, `StormProxySender` |
 | Megaton Finance | Router, exchange/LP Jetton master, wrapped TON minter, and deterministic wrapped TON wallet. | `MegatonRouter`, `MegatonExchange`, `WtonMinter`, `WtonWallet` |
 | Moon.cx | Constant-product pool, CLMM range, booster, order factory, and both historical order revisions. | `MoonPool`, `MoonClmmRange`, `MoonBooster`, `MoonOrderFactory`, `MoonOrderOld`, `MoonOrderNew` |
+| Signed Cross-DEX | Private signed executor with replay protection and callback-driven multi-protocol routing. | `SignedCrossDexExecutor` |
 
 ### Staking And Validator Protocols
 

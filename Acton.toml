@@ -1419,7 +1419,15 @@ src = "data/stonkspump/custom_jetton_wallet/testdata/StonksPumpCustomJettonWalle
 types = "data/stonkspump/custom_jetton_wallet/types/stonkspump_custom_jetton_wallet.types.tolk"
 depends = []
 
+[contracts.SignedCrossDexExecutor]
+display-name = "Signed Cross-DEX Executor"
+src = "data/signed_cross_dex/executor/testdata/SignedCrossDexExecutor.boc"
+types = "data/signed_cross_dex/executor/types/signed_cross_dex_executor.types.tolk"
+depends = []
+
 [scripts]
+signed-cross-dex-executor-mainnet-test = "acton test data/signed_cross_dex/executor/tests/signed_cross_dex_executor_mainnet.test.tolk --fork-net mainnet --fork-block-number 83514993 --show-bodies"
+signed-cross-dex-executor-message-bodies-test = "acton test data/signed_cross_dex/executor/tests/signed_cross_dex_executor_message_bodies.test.tolk --show-bodies"
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
 daolama-message-bodies-test = "acton test data/daolama/tests/daolama_vault_message_bodies.test.tolk --show-bodies"
 daolama-storage-test = "acton test data/daolama/tests/daolama_vault_storage.test.tolk --show-bodies"
@@ -1965,6 +1973,8 @@ acton run megaton-exchange-mainnet-test
 acton run getgems-offchain-offer-v3-mainnet-test
 acton run stonkspump-custom-jetton-wallet-mainnet-test
 acton run moon-order-new-message-bodies-test
+acton run signed-cross-dex-executor-mainnet-test
+acton run signed-cross-dex-executor-message-bodies-test
 """
 
 run-all-tests = """

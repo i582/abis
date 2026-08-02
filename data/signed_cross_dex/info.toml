@@ -1,0 +1,21 @@
+[project]
+name = "signed-cross-dex"
+category = "TON cross-DEX execution contracts"
+description = "Private signed executors that run callback-driven routes across multiple TON DEX protocols"
+
+[contracts.SignedCrossDexExecutor]
+display_name = "Signed Cross-DEX Executor"
+types = "executor/types/signed_cross_dex_executor.types.tolk"
+hashes = ["5f47950a564bac34703f1b01bd95dcd7343ca80b3c014548fcdf7205d46336c3"]
+known_addresses = [
+  "EQChhrKIi_Ab-cwXfXw0pFMY1MwEGVfb2s6gwDKNuGZdolkm",
+  "EQBFHZOptyigRwtM3vW2mU94iDU4Bzh_fvMl1ld0TMqlGcoM",
+]
+
+[contracts.SignedCrossDexExecutor.instances.executor_1]
+address = "EQChhrKIi_Ab-cwXfXw0pFMY1MwEGVfb2s6gwDKNuGZdolkm"
+network = "mainnet"
+
+[contracts.SignedCrossDexExecutor.instances.executor_2]
+address = "EQBFHZOptyigRwtM3vW2mU94iDU4Bzh_fvMl1ld0TMqlGcoM"
+network = "mainnet"
