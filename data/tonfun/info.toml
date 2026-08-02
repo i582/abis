@@ -1,0 +1,42 @@
+[project]
+name = "TonFun"
+category = "TON token launchpad"
+description = "TonFun bonding-curve Jetton wallet revisions"
+
+[sources]
+tep_74 = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+acton_verifier = "https://verifier.acton.monster/api/v1/openapi.json"
+
+[[links]]
+kind = "spec"
+title = "TEP-74 Jetton standard"
+url = "https://github.com/ton-blockchain/TEPs/blob/master/text/0074-jettons-standard.md"
+
+[contracts.TonFunBclWalletV1]
+display_name = "TonFun BCL Wallet V1"
+types = "wallet/types/tonfun_bcl_wallet_v1.types.tolk"
+hashes = ["9db2219b2f2aaf9a29122a1163fa342c74dda4c87927a9b23efb789c288db857"]
+known_addresses = ["EQD6YuwVisup4eCrh41COcRx0va2_ZXc-bGQ0JG0Ca9WCwIx"]
+
+[contracts.TonFunBclWalletV2]
+display_name = "TonFun BCL Wallet V2"
+types = "wallet/types/tonfun_bcl_wallet_v2.types.tolk"
+hashes = ["226830546dc9ab1687dc72bc8a5edcc60210391a7c60698c4fe226618d778d68"]
+known_addresses = ["EQBuUZeNbRdzvKKN8nZFd2Auu_6f03AXl4rvzFo2vTPmx60Q"]
+
+[[contracts.TonFunBclWalletV2.links]]
+kind = "source"
+title = "Acton verified FunC source bundle"
+url = "https://verifier.acton.monster/api/v1/verification/source?code_hash=226830546dc9ab1687dc72bc8a5edcc60210391a7c60698c4fe226618d778d68"
+
+[contracts.TonFunBclWalletV1.instances.representative]
+address = "EQD6YuwVisup4eCrh41COcRx0va2_ZXc-bGQ0JG0Ca9WCwIx"
+name = "TonFun BCL wallet v1 representative"
+label = "TonFun BCL Wallet V1 representative"
+network = "mainnet"
+
+[contracts.TonFunBclWalletV2.instances.representative]
+address = "EQBuUZeNbRdzvKKN8nZFd2Auu_6f03AXl4rvzFo2vTPmx60Q"
+name = "TonFun BCL wallet v2 representative"
+label = "TonFun BCL Wallet V2 representative"
+network = "mainnet"

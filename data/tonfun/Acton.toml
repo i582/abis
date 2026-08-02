@@ -1,0 +1,24 @@
+[package]
+name = "tonfun-wallets"
+description = "Focused ABI validation for TonFun BCL Jetton wallet revisions"
+version = "0.1.0"
+
+[import-mappings]
+acton = ".acton"
+
+[contracts.TonFunBclWalletV1]
+display-name = "TonFunBclWalletV1"
+src = "data/tonfun/wallet/testdata/TonFunBclWalletV1.boc"
+types = "data/tonfun/wallet/types/tonfun_bcl_wallet_v1.types.tolk"
+depends = []
+
+[contracts.TonFunBclWalletV2]
+display-name = "TonFunBclWalletV2"
+src = "data/tonfun/wallet/testdata/TonFunBclWalletV2.boc"
+types = "data/tonfun/wallet/types/tonfun_bcl_wallet_v2.types.tolk"
+depends = []
+
+[scripts]
+wallet-v1-mainnet-test = "acton test --manifest-path data/tonfun/Acton.toml data/tonfun/wallet/tests/tonfun_bcl_wallet_v1_mainnet.test.tolk --fork-net mainnet --fork-block-number 41153367 --show-bodies"
+wallet-v2-mainnet-test = "acton test --manifest-path data/tonfun/Acton.toml data/tonfun/wallet/tests/tonfun_bcl_wallet_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 42790177 --show-bodies"
+wallet-message-bodies-test = "acton test --manifest-path data/tonfun/Acton.toml data/tonfun/wallet/tests/tonfun_bcl_wallet_message_bodies.test.tolk --show-bodies"
