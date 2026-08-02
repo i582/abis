@@ -1,0 +1,39 @@
+[project]
+name = "jvault"
+category = "TON staking contracts"
+description = "JVault staking pool, pool factory, and per-owner staking wallet interfaces"
+
+[sources]
+website = "https://jvault.xyz"
+source = "https://github.com/JVault-app/staking-v2"
+dabi = "https://github.com/disintar/dABI/tree/e5bebb6a2a647664e975efe35ee65e4c8ad98a69/schema/interfaces/jvault_staking"
+
+[contracts.JVaultPool]
+display_name = "JVault Staking Pool"
+types = "pool/types/jvault_pool.types.tolk"
+hashes = ["29905cc7fb23a1da60ef69823f71e78e7152a0da226e67c8f83ab34378f5014a"]
+known_addresses = ["EQDaC-uD4Q0GkTnG9lXqPb5HKgyUhlzcQVJOHJDnDyVNUdik"]
+
+[contracts.JVaultPool.instances.representative_mainnet]
+address = "EQDaC-uD4Q0GkTnG9lXqPb5HKgyUhlzcQVJOHJDnDyVNUdik"
+network = "mainnet"
+
+[contracts.JVaultPoolFactory]
+display_name = "JVault Pool Factory"
+types = "pool_factory/types/jvault_pool_factory.types.tolk"
+hashes = ["7527c9e2128d8e22a20c9ecee14c3b5ba4da1742eb9ac24dfbdc19784e0ab4fb"]
+known_addresses = ["EQAYS3AO2NaFr5-wl1CU8QMiCxrP0OEXYn82iqnuST9FKo9I"]
+
+[contracts.JVaultPoolFactory.instances.representative_mainnet]
+address = "EQAYS3AO2NaFr5-wl1CU8QMiCxrP0OEXYn82iqnuST9FKo9I"
+network = "mainnet"
+
+[contracts.JVaultStakingWallet]
+display_name = "JVault Staking Wallet"
+types = "staking_wallet/types/jvault_staking_wallet.types.tolk"
+hashes = ["bc09e075b6b44d00c1e0ecd395b2be605630118ed9067a9980ba0c3daea314c1"]
+known_addresses = ["EQCJXjA_I-dvImmRg9Mm5lhJAJGHZeQ0bEWAAtQAfTtPu-xc"]
+
+[contracts.JVaultStakingWallet.instances.representative_mainnet]
+address = "EQCJXjA_I-dvImmRg9Mm5lhJAJGHZeQ0bEWAAtQAfTtPu-xc"
+network = "mainnet"
