@@ -1,0 +1,86 @@
+[project]
+name = "gaspump"
+category = "TON token launchpad"
+description = "GasPump bonding-curve Jetton master revisions V0 through V5"
+telegram = "https://t.me/gaspump_bot"
+
+[[links]]
+kind = "sdk"
+title = "GasPump SDK"
+url = "https://github.com/gas111-bot/gaspump-sdk/tree/719fb14f95c2b9bda6a921bc01e51a222b270413"
+
+[[links]]
+kind = "source"
+title = "TON ETL GasPump parser"
+url = "https://github.com/ton-studio/ton-etl/blob/e6bd50cc6cedb00b7ed08b7edcf2adf8a5e146fa/parser/parsers/message/gaspump.py"
+
+[[links]]
+kind = "source"
+title = "Initial TON ETL GasPump parser"
+url = "https://github.com/ton-studio/ton-etl/blob/30aab7cec8f083c96491c7cf390e2b52b396282d/parser/parsers/message/gaspump.py"
+
+[sources]
+sdk = "https://github.com/gas111-bot/gaspump-sdk/tree/719fb14f95c2b9bda6a921bc01e51a222b270413"
+event_parser = "https://github.com/ton-studio/ton-etl/blob/e6bd50cc6cedb00b7ed08b7edcf2adf8a5e146fa/parser/parsers/message/gaspump.py"
+event_parser_initial = "https://github.com/ton-studio/ton-etl/blob/30aab7cec8f083c96491c7cf390e2b52b396282d/parser/parsers/message/gaspump.py"
+
+[contracts.GasPumpMasterV0]
+types = "master/types/gaspump_master_v0.types.tolk"
+hashes = ["ea8c761468304a776a1f4971062b2ce81301336ade35334d28fbb9ca33554d17"]
+known_addresses = ["EQAlIOIqpzzuAdHxYGVz5TCxOybNwRTvWv2zdmhK0OBp0t-z"]
+
+[contracts.GasPumpMasterV0.instances.mainnet_v0]
+name = "GasPump Master V0"
+address = "EQAlIOIqpzzuAdHxYGVz5TCxOybNwRTvWv2zdmhK0OBp0t-z"
+label = "Pinned mainnet V0 master"
+
+[contracts.GasPumpMasterV1]
+types = "master/types/gaspump_master_v1.types.tolk"
+hashes = ["cc7245578a202c2fb6fee3758c241906cf48037c44694105e64a917568c33a5c"]
+known_addresses = ["EQCxOvhNxktsigfh760fgWR8eYhAhEhLVYbbATeRz8B6s9Df"]
+
+[contracts.GasPumpMasterV1.instances.mainnet_v1]
+name = "GasPump Master V1"
+address = "EQCxOvhNxktsigfh760fgWR8eYhAhEhLVYbbATeRz8B6s9Df"
+label = "Pinned mainnet V1 master"
+
+[contracts.GasPumpMasterV2]
+types = "master/types/gaspump_master_v2_v3.types.tolk"
+hashes = [
+  "7a95403c57c7852080f1f1566e3e6b5a731437051a87e8464e5d32977f956958",
+  "b3cc4415154a9f3b347b4fa71dd0e8d4df623a66861cc9d07b103c95fd5e9645",
+]
+known_addresses = [
+  "EQAlrMn0CB2gCbSYaZTo7t_l3d063RETWvcp8v0IG0ya3GYH",
+  "EQDgIa5eizZd87mm063uOr1ZO1EvEDE8m-e7dG-pcH8hsimp",
+]
+
+[contracts.GasPumpMasterV2.instances.mainnet_v2]
+name = "GasPump Master V2"
+address = "EQAlrMn0CB2gCbSYaZTo7t_l3d063RETWvcp8v0IG0ya3GYH"
+label = "Pinned mainnet V2 master"
+
+[contracts.GasPumpMasterV2.instances.mainnet_v3]
+name = "GasPump Master V3"
+address = "EQDgIa5eizZd87mm063uOr1ZO1EvEDE8m-e7dG-pcH8hsimp"
+label = "Pinned mainnet V3 master"
+
+[contracts.GasPumpMasterV4]
+types = "master/types/gaspump_master_v4.types.tolk"
+hashes = ["af978967b56eac90117d045eb23d330abea41ba407eed6ae02cd05d921ae1ba5"]
+known_addresses = ["EQAG9pTWO5z_Al9wG61a5_pCv90UfO1mFxDWPzTCyBF9VXcI"]
+
+[contracts.GasPumpMasterV4.instances.mainnet_v4]
+name = "GasPump Master V4"
+address = "EQAG9pTWO5z_Al9wG61a5_pCv90UfO1mFxDWPzTCyBF9VXcI"
+label = "Pinned mainnet V4 master"
+
+[contracts.GasPumpMasterV5]
+types = "master/types/gaspump_master_v5.types.tolk"
+hashes = ["c70f23f2d4fcbadd837e4505bc6eb69f5e30791aa9bbf4b08884e9e6706de14e"]
+known_addresses = ["EQAOvnyeuFkxx0QohTVzRNP3_kU4j7ES-u-K5xQ9FoUneVFC"]
+
+[contracts.GasPumpMasterV5.instances.mainnet_v5]
+name = "GasPump Master V5"
+address = "EQAOvnyeuFkxx0QohTVzRNP3_kU4j7ES-u-K5xQ9FoUneVFC"
+label = "Pinned mainnet V5 master"
