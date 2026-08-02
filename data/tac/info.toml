@@ -1,0 +1,19 @@
+[project]
+name = "TAC"
+category = "Cross-chain infrastructure"
+description = "TAC-origin Jetton contracts that bridge TON assets with TAC EVM tokens"
+
+[sources]
+project = "https://docs.tac.build/sdk/overview"
+sdk = "https://github.com/TacBuild/tac-sdk/tree/6446a4dda50833f3efd3a88fd3c0576248564055"
+dabi = "https://github.com/disintar/dABI/blob/137ebce9c5cadcf51a9f5a92f6c897d3ef6b08c2/schema/interfaces/TAC/jetton.yaml"
+
+[contracts.TacJetton]
+display_name = "TAC Jetton Master"
+types = "jetton/types/tac_jetton.types.tolk"
+hashes = [
+  "c74c2ca7311c8c6edcacacc06c319b8c5b4a7be7cc00e7b4ffb7bf78514ce6bf",
+]
+known_addresses = [
+  "EQBWHKpEx-l1VFDwLCfi8wKkqM4I38pUr0gAUJtJLqyx0-72",
+]
