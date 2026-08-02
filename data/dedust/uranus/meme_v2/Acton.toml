@@ -1,0 +1,20 @@
+[package]
+name = "dedust-uranus-meme-v2"
+description = "Focused ABI validation for the DeDust Uranus Meme V2 revision"
+version = "0.1.0"
+
+[contracts.DedustUranusMemeV2]
+display-name = "DedustUranusMemeV2"
+src = "data/dedust/uranus/meme_v2/testdata/DedustUranusMemeV2.boc"
+types = "data/dedust/uranus/meme_v2/types/dedust_uranus_meme_v2.types.tolk"
+depends = []
+
+[lint]
+max-warnings = 0
+
+[lint.rules]
+unused-variable = "allow"
+name-case-checker = "allow"
+
+[import-mappings]
+acton = ".acton"

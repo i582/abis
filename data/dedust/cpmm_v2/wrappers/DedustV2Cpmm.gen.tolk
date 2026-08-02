@@ -370,18 +370,18 @@ fun DedustV2Cpmm.sendDedustV2CpmmPayoutReward(
     return net.send(from, genericMsg);
 }
 
-fun DedustV2Cpmm.sendDedustV2CpmmOpcodeF287e089(
+fun DedustV2Cpmm.sendDedustV2CpmmUpgradePoolCode(
     self,
     from: address,
     queryId: uint64,
-    payload: cell,
+    nextCode: cell,
     config: SendParams = {},
 ): SendResultList {
     val genericMsg = createMessage({
         bounce: config.bounce,
         value: config.value,
         dest: self.address,
-        body: DedustV2CpmmOpcodeF287e089 { queryId, payload },
+        body: DedustV2CpmmUpgradePoolCode { queryId, nextCode },
     });
     return net.send(from, genericMsg);
 }

@@ -16,23 +16,23 @@ get fun `test dedust v2 cpmm storage parses saved mainnet data cell`() {
     val data = parseCellFromBase64(DATA_BOC_BASE64);
     val storage = DedustV2CpmmStorage.fromCell(data);
 
-    expect(storage.walletRegistryState.hash()).toBeGreater(0);
-    expect(storage.feeState.hash()).toBeGreater(0);
-    expect(storage.assetState.hash()).toBeGreater(0);
-    expect(storage.rootDictionary).toBeNull();
+    expect(storage.config.hash()).toBeGreater(0);
+    expect(storage.fees.hash()).toBeGreater(0);
+    expect(storage.extra.hash()).toBeGreater(0);
+    expect(storage.rewards.entries.isEmpty()).toBeTrue();
     expect(storage.depositActive).toBeTrue();
     expect(storage.swapActive).toBeTrue();
     expect(storage.liquidity).toEqual(612372435695794);
     expect(storage.reserveX).toEqual(1264308124684);
     expect(storage.reserveY).toEqual(296604912019870737);
 
-    match (storage.mode) {
-        DedustV2CpmmModeIdle => {
+    match (storage.status) {
+        DedustV2CpmmStatusUninitialized => {
             expect(false).toBeTrue();
         }
-        DedustV2CpmmModeWithAddress => {
+        DedustV2CpmmStatusInitializing => {
             expect(false).toBeTrue();
         }
-        DedustV2CpmmModeSettled => {}
+        DedustV2CpmmStatusInitialized => {}
     }
 }

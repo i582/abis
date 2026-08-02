@@ -153,10 +153,16 @@ address = "EQCDfi69jD02bImrXQGB_PXAOq3UO95ywF1-6Bnxkh90uU9Q"
 network = "mainnet"
 
 [contracts.DedustV2Cpmm]
-display_name = "DeDust V2 CPMM"
+display_name = "DeDust CPMM v2 Pool"
 types = "cpmm_v2/types/dedust_v2_cpmm.types.tolk"
-hashes = ["5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"]
-known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
+hashes = [
+  "5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367",
+  "3997a5c1ee8923e93cf3a6a98ea3ef9482c64dd8aea2ba8365689e14d99c760d",
+]
+known_addresses = [
+  "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf",
+  "EQAEGspJNRpLvMDXeLrD8QcUNSNAP61jwgFQIJlOEPDCtwwi",
+]
 
 [[contracts.DedustV2Cpmm.links]]
 kind = "docs"
@@ -169,8 +175,45 @@ title = "DeDust CPMM pool reference"
 url = "https://hub-beta.dedust.io/docs/cpmm-v2/reference/pool"
 
 [contracts.DedustV2Cpmm.instances.lfg_ton]
+name = "DeDust CPMM v2 PoolV2 LFG/TON pool"
+label = "cpmm-v2 PoolV2"
 address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
+code_hash = "5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"
 network = "mainnet"
+pool_type = "cpmm-v2 PoolV2"
+
+[contracts.DedustV2Cpmm.instances.cpmm_3997a5]
+name = "DeDust CPMM v2 PoolV1 representative pool"
+label = "cpmm-v2 PoolV1"
+address = "EQAEGspJNRpLvMDXeLrD8QcUNSNAP61jwgFQIJlOEPDCtwwi"
+network = "mainnet"
+block_seqno = 83579636
+code_hash = "3997a5c1ee8923e93cf3a6a98ea3ef9482c64dd8aea2ba8365689e14d99c760d"
+pool_type = "cpmm-v2 PoolV1"
+
+[contracts.DedustV2Cpmm.variants.pool_v1]
+address = "EQAEGspJNRpLvMDXeLrD8QcUNSNAP61jwgFQIJlOEPDCtwwi"
+code_hash = "3997a5c1ee8923e93cf3a6a98ea3ef9482c64dd8aea2ba8365689e14d99c760d"
+known_addresses = ["EQAEGspJNRpLvMDXeLrD8QcUNSNAP61jwgFQIJlOEPDCtwwi"]
+network = "mainnet"
+
+[contracts.DedustV2Cpmm.variants.pool_v2]
+address = "EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"
+code_hash = "5851780d2386e989b9ab956da7cec5c69a667b9e525f628dcba5eb02c1ee0367"
+known_addresses = ["EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf"]
+network = "mainnet"
+
+[contracts.DedustX1000WalletV1]
+display_name = "DeDust x1000 Wallet V1"
+types = "x1000_wallet_v1/types/dedust_x1000_wallet_v1.types.tolk"
+hashes = ["43d44716d326a832ced56a6b60a02cb67630e04f5785fe89f8784a110cf36151"]
+known_addresses = ["EQDP5uHBEMdxjA_zACkOUZIinRsKFkT-UvFfBRdMpfghVsD_"]
+
+[contracts.DedustX1000WalletV1.instances.mainnet]
+address = "EQDP5uHBEMdxjA_zACkOUZIinRsKFkT-UvFfBRdMpfghVsD_"
+network = "mainnet"
+block_seqno = 52337416
+code_hash = "43d44716d326a832ced56a6b60a02cb67630e04f5785fe89f8784a110cf36151"
 
 [contracts.DedustUranusFactoryV3]
 display_name = "DeDust Uranus Factory V3"
@@ -186,6 +229,23 @@ url = "https://hub-beta.dedust.io/docs/uranus/reference/meme-factory"
 [contracts.DedustUranusFactoryV3.instances.mainnet]
 address = "EQA6ivhIOBQJvqO1SY3IvutmluM1d817gZDeEjiaVNBLePd3"
 network = "mainnet"
+
+[contracts.DedustUranusMemeV2]
+display_name = "DeDust Uranus Meme V2"
+types = "uranus/meme_v2/types/dedust_uranus_meme_v2.types.tolk"
+hashes = ["722d37be518ee0d4b6714077727ed60724bf379e8f1479c220b853d1af3cf00d"]
+known_addresses = ["EQAO_1qemostkDtMfhp7XU0nOsAkQ_tLUO5YJeNMrj3dRAaH"]
+
+[[contracts.DedustUranusMemeV2.links]]
+kind = "docs"
+title = "Uranus Meme reference"
+url = "https://hub-beta.dedust.io/docs/uranus/reference/meme"
+
+[contracts.DedustUranusMemeV2.instances.creator_sample]
+address = "EQAO_1qemostkDtMfhp7XU0nOsAkQ_tLUO5YJeNMrj3dRAaH"
+network = "mainnet"
+block_seqno = 58340099
+code_hash = "722d37be518ee0d4b6714077727ed60724bf379e8f1479c220b853d1af3cf00d"
 
 [contracts.DedustUranusMemeV3]
 display_name = "DeDust Uranus Meme V3"

@@ -1,4 +1,4 @@
-/// DeDust V2 CPMM pool interface reconstructed from the verified library-backed pool code at `EQD026kOv4j6-56O6y8kbaaFZdQhVkh4RbEGrQND7XJMlgLf`.
+/// Shared interface of the DeDust CPMM v2 PoolV1 and PoolV2 revisions.
 contract DedustV2Cpmm {
     author: "DeDust"
     version: "2.0"
@@ -17,36 +17,36 @@ contract DedustV2Cpmm {
         | DedustV2CpmmBasicPayoutConfig
 }
 
-/// Inline two-bit mode tag stored after the root dictionary.
-struct (0b00) DedustV2CpmmModeIdle {}
+/// Pool has not started initialization.
+struct (0b00) DedustV2CpmmStatusUninitialized {}
 
-/// Two-bit mode tag variant with an embedded address.
-struct (0b01) DedustV2CpmmModeWithAddress {
-    /// Embedded internal address carried by the mode tag.
-    address: address
+/// Pool is initializing under the specified initiator.
+struct (0b01) DedustV2CpmmStatusInitializing {
+    /// Address that initiated pool initialization.
+    initiatorAddress: address
 }
 
-/// Inline two-bit mode tag used by the live representative pool.
-struct (0b10) DedustV2CpmmModeSettled {}
+/// Pool initialization is complete.
+struct (0b10) DedustV2CpmmStatusInitialized {}
 
-/// Root mode tag reconstructed from `set_data(...)` sites in the verified decompile.
-type DedustV2CpmmMode =
-    | DedustV2CpmmModeIdle
-    | DedustV2CpmmModeWithAddress
-    | DedustV2CpmmModeSettled
+/// Persistent pool lifecycle state.
+type DedustV2CpmmStatus =
+    | DedustV2CpmmStatusUninitialized
+    | DedustV2CpmmStatusInitializing
+    | DedustV2CpmmStatusInitialized
 
-/// Root persistent CPMM storage loaded directly from the saved mainnet data cell.
+/// Root persistent storage shared by CPMM v2 PoolV1 and PoolV2.
 struct DedustV2CpmmStorage {
-    /// First referenced state cell with the owner address and wallet registry dictionaries returned through `get_pool_data`.
-    walletRegistryState: cell
-    /// Second referenced state cell with protocol-fee and LP-fee accumulators.
-    feeState: cell
-    /// Third referenced state cell with asset addresses, fee settings, and auxiliary collections.
-    assetState: cell
-    /// Root dictionary cell persisted alongside the three referenced state cells.
-    rootDictionary: cell?
-    /// Inline pool mode tag.
-    mode: DedustV2CpmmMode
+    /// Referenced immutable asset, fee, activation, and reward configuration.
+    config: Cell<DedustV2CpmmPoolConfig>
+    /// Referenced protocol, creator, and LP fee accumulators.
+    fees: Cell<DedustV2CpmmPoolFees>
+    /// Referenced controller and wallet-resolution registries.
+    extra: Cell<DedustV2CpmmPoolExtra>
+    /// Active reward programs indexed by a two-bit reward slot.
+    rewards: DedustV2CpmmPoolRewards
+    /// Inline pool lifecycle state.
+    status: DedustV2CpmmStatus
     /// Deposit gate flag returned by `get_pool_data`.
     depositActive: bool
     /// Swap gate flag returned by `get_pool_data`.
@@ -67,16 +67,16 @@ struct DedustV2CpmmPoolDataReply {
     depositActive: bool
     /// Swap gate flag.
     swapActive: bool
-    /// Asset X address; the live TON/LFG example returns `addr_none` for native TON.
+    /// Asset X address; native TON is represented by `addr_none`.
     assetX: address?
-    /// Asset Y address.
-    assetY: address
-    /// Registry cell keyed by asset addresses.
-    walletsByAssets: cell
-    /// Registry cell keyed by wallet addresses.
-    assetsByWallets: cell
-    /// Raw resolution tuple returned by the live getter.
-    walletsResolutions: tuple
+    /// Asset Y address; native TON is represented by `addr_none`.
+    assetY: address?
+    /// Optional dictionary cell keyed by asset-address hashes.
+    walletsByAssets: cell?
+    /// Optional dictionary cell keyed by wallet-address hashes.
+    assetsByWallets: cell?
+    /// Optional dictionary cell keyed by wallet-address hashes.
+    walletsResolutions: cell?
     /// Pool base fee in basis points.
     baseFeeBps: int32
     /// Current reserve of asset X.
@@ -90,15 +90,15 @@ struct DedustV2CpmmPoolDataReply {
     /// Protocol fee balance for asset Y.
     protocolFeeY: int
     /// Creator fee balance for asset X.
-    createdFeeX: int
+    creatorFeeX: int
     /// Creator fee balance for asset Y.
-    createdFeeY: int
-    /// Accumulated LP fee-per-token for asset X.
-    xLpFeePerToken: int
-    /// Accumulated LP fee-per-token for asset Y.
-    yLpFeePerToken: int
-    /// Raw rewards tuple returned by the live getter.
-    rewards: tuple
+    creatorFeeY: int
+    /// Accumulated fee per unit of liquidity for asset X.
+    xFeePerLiquidity: int
+    /// Accumulated fee per unit of liquidity for asset Y.
+    yFeePerLiquidity: int
+    /// Optional dictionary cell keyed by two-bit reward identifiers.
+    rewards: cell?
 }
 
 /// CPMM v2 payment payload variants carried by `PayNative` or `PayJetton`.
@@ -185,14 +185,26 @@ enum DedustV2CpmmFeeIn: uint2 {
     AssetY = 0b10
 }
 
+/// Asset identifier used by CPMM v2; `addr_none` denotes native TON.
+struct DedustV2CpmmAsset {
+    /// Jetton root address, or `addr_none` for the native asset.
+    value: address?
+}
+
+/// Unsigned Q120.120 fixed-point accumulator encoded as `varuint32`.
+struct DedustV2CpmmQ120X120 {
+    /// Raw fixed-point numerator with 120 fractional bits.
+    value: varuint32
+}
+
 /// Pool immutable configuration.
 struct DedustV2CpmmPoolConfig {
     /// Asset X identifier.
-    assetX: address?
+    assetX: DedustV2CpmmAsset
     /// Asset Y identifier.
-    assetY: address?
+    assetY: DedustV2CpmmAsset
     /// Pool creator address.
-    creatorAddress: address
+    creatorAddress: address?
     /// Base swap fee in basis points.
     baseFeeBPS: uint16
     /// Creator fee in basis points.
@@ -229,13 +241,16 @@ type DedustV2CpmmActivation =
 /// Reward program configuration.
 struct DedustV2CpmmRewardConfig {
     /// Reward asset identifier.
-    asset: address?
+    asset: DedustV2CpmmAsset
     /// Maximum reward duration in seconds.
     maxDuration: uint40
 }
 
 /// Active reward programs by reward index.
-type DedustV2CpmmPoolRewards = map<uint2, DedustV2CpmmPoolReward>
+struct DedustV2CpmmPoolRewards {
+    /// Reward state keyed by a two-bit reward slot.
+    entries: map<uint2, DedustV2CpmmPoolReward>
+}
 
 /// Active reward state.
 struct DedustV2CpmmPoolReward {
@@ -243,8 +258,8 @@ struct DedustV2CpmmPoolReward {
     remainingTime: uint40
     /// Remaining reward budget.
     remainingBudget: coins
-    /// Accumulated reward per liquidity token.
-    rewardsPerToken: varuint32
+    /// Accumulated reward per liquidity token in Q120.120 form.
+    rewardsPerToken: DedustV2CpmmQ120X120
     /// Last reward state update timestamp.
     lastUpdate: uint40
 }
@@ -259,10 +274,28 @@ struct DedustV2CpmmPoolFees {
     creatorFeeX: coins
     /// Accumulated creator fees in asset Y.
     creatorFeeY: coins
-    /// Accumulated LP fee per token in asset X.
-    xFeePerToken: varuint32
-    /// Accumulated LP fee per token in asset Y.
-    yFeePerToken: varuint32
+    /// Accumulated LP fee per token in asset X, encoded as Q120.120.
+    xFeePerToken: DedustV2CpmmQ120X120
+    /// Accumulated LP fee per token in asset Y, encoded as Q120.120.
+    yFeePerToken: DedustV2CpmmQ120X120
+}
+
+/// Wallet and asset lookup dictionaries maintained by the pool.
+struct DedustV2CpmmPoolWallets {
+    /// Asset-hash keys mapped to pool-owned jetton wallet addresses.
+    walletsByAssets: map<uint256, address>
+    /// Wallet-address hashes mapped to their pool asset identifiers.
+    assetsByWallets: map<uint256, DedustV2CpmmAsset>
+    /// Resolver-address hashes mapped to the assets they resolve.
+    resolutions: map<uint256, DedustV2CpmmAsset>
+}
+
+/// Controller and wallet-resolution state referenced by root storage.
+struct DedustV2CpmmPoolExtra {
+    /// Controller authorized for administrative pool operations.
+    controller: address
+    /// Wallet and asset lookup dictionaries.
+    wallets: DedustV2CpmmPoolWallets
 }
 
 /// Compact post-operation pool state used in events.
@@ -300,22 +333,22 @@ struct DedustV2CpmmExtendedPayoutConfig {
     fulfill: DedustV2CpmmPayoutOptions
     /// Rejection payout options.
     reject: DedustV2CpmmPayoutOptions
-    /// Excess gas recipient.
-    excessesTo: address
+    /// Excess gas recipient, or `addr_none` to use the operation fallback.
+    excessesTo: address?
 }
 
 /// Single-path payout configuration.
 struct DedustV2CpmmBasicPayoutConfig {
     /// Payout options.
     options: DedustV2CpmmPayoutOptions
-    /// Excess gas recipient.
-    excessesTo: address
+    /// Excess gas recipient, or `addr_none` to use the operation fallback.
+    excessesTo: address?
 }
 
 /// Payout destination and notification options.
 struct DedustV2CpmmPayoutOptions {
-    /// Asset recipient.
-    destination: address
+    /// Asset recipient, or `addr_none` to use the operation fallback.
+    destination: address?
     /// Extra gas attached to the downstream notification.
     extraGas: coins
     /// Optional downstream payload.
@@ -324,7 +357,7 @@ struct DedustV2CpmmPayoutOptions {
     wrapPayload: bool
 }
 
-/// Incoming native-payment swap body accepted by the verified CPMM pool.
+/// Incoming native-asset payment body.
 struct (0xa5a7cbf8) DedustV2CpmmPayNative {
     /// Query id copied through the swap flow.
     queryId: uint64
@@ -512,25 +545,25 @@ struct (0x9e17fbbe) DedustV2CpmmPayoutReward {
     excessesTo: address
 }
 
-/// Observed incoming body parsed by the `0xf287e089` dispatch branch.
-struct (0xf287e089) DedustV2CpmmOpcodeF287e089 {
+/// Administrative request that replaces the pool implementation code.
+struct (0xf287e089) DedustV2CpmmUpgradePoolCode {
     /// Query id carried by the body.
     queryId: uint64
-    /// Referenced opaque payload cell.
-    payload: cell
+    /// Referenced next pool code cell.
+    nextCode: cell
 }
 
-/// Wallet address callback emitted during asset resolution.
-struct (0x2c76b973) DedustV2CpmmTakeWalletAddressResult {
+/// Wallet-address request emitted to an asset resolver.
+struct (0x2c76b973) DedustV2CpmmProvideWalletAddress {
     /// Query id copied into the callback.
     queryId: uint64
-    /// Resolved wallet address.
-    walletAddress: address
-    /// Optional owner-address marker.
-    includeOwnerAddress: uint1
+    /// Owner address whose wallet must be resolved.
+    ownerAddress: address?
+    /// Whether the response should include the owner address.
+    includeOwnerAddress: bool
 }
 
-/// Standard excess message emitted by the verified CPMM pool.
+/// Standard excess-value response.
 struct (0xd53276db) DedustV2CpmmExcess {
     /// Query id copied into the refund.
     queryId: uint64
@@ -546,7 +579,7 @@ struct (0xce185bd7) DedustV2CpmmInitPoolResult {
     customPayload: cell?
 }
 
-/// Short callback emitted by the verified CPMM pool.
+/// Payout callback carrying amount, status, and an optional payload.
 struct (0x3216ca09) DedustV2CpmmCallback3216ca09 {
     /// Query id copied into the callback.
     queryId: uint64
@@ -558,100 +591,99 @@ struct (0x3216ca09) DedustV2CpmmCallback3216ca09 {
     payload: cell?
 }
 
-/// Referenced payload used by `0xbc1531a9`.
-struct DedustV2CpmmOpcodeBc1531a9Details {
-    /// Leading address copied into the details cell.
-    address0: address
-    /// Coins argument copied into the details cell.
-    amount0: coins
-    /// Optional referenced cell copied into the details cell.
-    payload0: cell?
-    /// One-bit flag copied into the details cell.
-    flag0: uint1
-    /// Trailing address copied into the details cell.
-    address1: address
+/// Position request to withdraw liquidity and optionally claim fees.
+struct (0xbc1531a9) DedustV2CpmmWithdrawLiquidity {
+    /// Query id copied into the position request.
+    queryId: uint64
+    /// Liquidity amount to withdraw.
+    liquidity: coins
+    /// Minimum acceptable asset X output.
+    minimalXOut: coins
+    /// Minimum acceptable asset Y output.
+    minimalYOut: coins
+    /// Position's last asset X fee-per-token checkpoint.
+    xFeePerToken: DedustV2CpmmQ120X120
+    /// Position's last asset Y fee-per-token checkpoint.
+    yFeePerToken: DedustV2CpmmQ120X120
+    /// Position reward checkpoints keyed by reward slot.
+    rewards: DedustV2CpmmPoolRewards
+    /// Whether accrued position fees should be claimed automatically.
+    autoClaimFees: bool
+    /// Referenced payout configuration for the withdrawn assets.
+    payoutConfig: Cell<DedustV2CpmmBasicPayoutConfig>
 }
 
-/// Outgoing body emitted by the `0xbc1531a9` send site.
-struct (0xbc1531a9) DedustV2CpmmOpcodeBc1531a9 {
-    /// Query id copied into the body.
+/// Position request crediting newly minted liquidity.
+@overflow1023_policy("suppress")
+struct (0x855afcbd) DedustV2CpmmCreditLiquidity {
+    /// Query id copied into the position request.
     queryId: uint64
-    /// First coins argument.
-    amount0: coins
-    /// Second coins argument.
-    amount1: coins
-    /// Third coins argument.
-    amount2: coins
-    /// First varuint32 value.
-    value0: varuint32
-    /// Second varuint32 value.
-    value1: varuint32
-    /// Optional referenced payload.
-    payload0: cell?
-    /// One-bit flag.
-    flag0: uint1
-    /// Referenced details cell.
-    details: Cell<DedustV2CpmmOpcodeBc1531a9Details>
+    /// Liquidity amount credited to the position.
+    liquidity: coins
+    /// Share of the credited liquidity that remains locked.
+    lockedLiquidityShare: uint16
+    /// Extra TON attached to the position notification.
+    notifyExtraGas: coins
+    /// Optional notification payload.
+    notifyPayload: cell?
+    /// Excess gas recipient, or `addr_none` for the operation fallback.
+    excessesTo: address?
+    /// Current asset X fee-per-token accumulator.
+    xFeePerToken: DedustV2CpmmQ120X120
+    /// Current asset Y fee-per-token accumulator.
+    yFeePerToken: DedustV2CpmmQ120X120
+    /// Current reward accumulators keyed by reward slot.
+    rewards: DedustV2CpmmPoolRewards
 }
 
-/// Outgoing body emitted by the `0x855afcbd` send site.
-struct (0x855afcbd) DedustV2CpmmOpcode855afcbd {
-    /// Query id copied into the body.
+/// Position request to claim all currently available fees.
+struct (0x25f19752) DedustV2CpmmClaimAvailableFees {
+    /// Query id copied into the position request.
     queryId: uint64
-    /// First coins argument.
-    amount0: coins
-    /// Unsigned 16-bit parameter.
-    value0: uint16
-    /// Second coins argument.
-    amount1: coins
-    /// Optional referenced payload.
-    payload0: cell?
-    /// Trailing address argument.
-    address0: address
-    /// First varuint32 value.
-    value1: varuint32
-    /// Second varuint32 value.
-    value2: varuint32
-    /// Optional referenced payload.
-    payload1: cell?
+    /// Excess gas recipient, or `addr_none` for the operation fallback.
+    excessesTo: address?
+    /// Current asset X fee-per-token accumulator.
+    xFeePerToken: DedustV2CpmmQ120X120
+    /// Current asset Y fee-per-token accumulator.
+    yFeePerToken: DedustV2CpmmQ120X120
 }
 
-/// Outgoing body emitted by the `0x25f19752` send site.
-struct (0x25f19752) DedustV2CpmmOpcode25f19752 {
-    /// Query id copied into the body.
+/// Requested snapshot of pool state and selected optional sections.
+struct (0x870a9579) DedustV2CpmmTakePoolState {
+    /// Query id copied from the state request.
     queryId: uint64
-    /// Trailing address argument.
-    address0: address
-    /// First varuint32 value.
-    value0: varuint32
-    /// Second varuint32 value.
-    value1: varuint32
+    /// Current pool lifecycle state.
+    status: DedustV2CpmmStatus
+    /// Whether deposits are active.
+    depositActive: bool
+    /// Whether swaps are active.
+    swapActive: bool
+    /// Current LP liquidity amount.
+    liquidity: coins
+    /// Current reserve of asset X.
+    reserveX: coins
+    /// Current reserve of asset Y.
+    reserveY: coins
+    /// Optional referenced pool configuration requested by the caller.
+    config: Cell<DedustV2CpmmPoolConfig>?
+    /// Optional referenced fee accumulators requested by the caller.
+    fees: Cell<DedustV2CpmmPoolFees>?
+    /// Optional inline reward-state section requested by the caller.
+    rewards: DedustV2CpmmPoolRewards?
+    /// Optional current code hash requested by the caller.
+    codeHash: uint256?
 }
 
-/// Outgoing body emitted by the `0x870a9579` send site.
-struct (0x870a9579) DedustV2CpmmOpcode870a9579 {
-    /// Query id copied into the body.
+/// Position request to claim one reward program.
+struct (0x2e0cccba) DedustV2CpmmClaimPositionReward {
+    /// Query id copied into the position request.
     queryId: uint64
-    /// Remaining opaque payload after the query id.
-    payload: RemainingBitsAndRefs
-}
-
-/// Outgoing body emitted by the `0x2e0cccba` send site.
-struct (0x2e0cccba) DedustV2CpmmOpcode2e0cccba {
-    /// Query id copied into the body.
-    queryId: uint64
-    /// Two-bit mode value.
-    mode: uint2
-    /// First unsigned 40-bit value.
-    value0: uint40
-    /// Coins argument.
-    amount0: coins
-    /// Varuint32 value.
-    value1: varuint32
-    /// Second unsigned 40-bit value.
-    value2: uint40
-    /// Trailing address or fallback slice.
-    address0: address
+    /// Reward program index.
+    rewardIndex: uint2
+    /// Current state of the selected reward program.
+    reward: DedustV2CpmmPoolReward
+    /// Excess gas recipient, or `addr_none` for the operation fallback.
+    excessesTo: address?
 }
 
 /// Result envelope emitted according to payout options.
@@ -662,7 +694,7 @@ struct (0xe8db4696) DedustV2CpmmPayoutPayload {
     payload: cell?
 }
 
-/// Outgoing swap event emitted by the verified CPMM pool.
+/// Outgoing swap event.
 struct (0x78e79ba4) DedustV2CpmmSwapEvent {
     /// Swap direction: true for X to Y.
     xToY: bool
@@ -712,6 +744,7 @@ struct (0xc0d77b54) DedustV2CpmmWithdrawalEvent {
     nextState: Cell<DedustV2CpmmPoolUpdatedState>
 }
 
+/// Internal message bodies accepted by CPMM v2 pools.
 type DedustV2CpmmIncomingMessage =
     | DedustV2CpmmInitPool
     | DedustV2CpmmTakeWalletAddress
@@ -728,24 +761,25 @@ type DedustV2CpmmIncomingMessage =
     | DedustV2CpmmProvidePoolState
     | DedustV2CpmmClaimReward
     | DedustV2CpmmPayoutReward
-    | DedustV2CpmmOpcodeF287e089
+    | DedustV2CpmmUpgradePoolCode
 
+/// Internal and external-out message bodies emitted by CPMM v2 pools.
 type DedustV2CpmmOutgoingMessage =
-    | DedustV2CpmmTakeWalletAddressResult
+    | DedustV2CpmmProvideWalletAddress
     | DedustV2CpmmExcess
     | DedustV2CpmmInitPoolResult
     | DedustV2CpmmCallback3216ca09
     | DedustV2CpmmPayoutPayload
-    | DedustV2CpmmOpcode855afcbd
-    | DedustV2CpmmOpcode25f19752
-    | DedustV2CpmmOpcodeBc1531a9
-    | DedustV2CpmmOpcode870a9579
-    | DedustV2CpmmOpcode2e0cccba
+    | DedustV2CpmmCreditLiquidity
+    | DedustV2CpmmClaimAvailableFees
+    | DedustV2CpmmWithdrawLiquidity
+    | DedustV2CpmmTakePoolState
+    | DedustV2CpmmClaimPositionReward
     | DedustV2CpmmSwapEvent
     | DedustV2CpmmDepositEvent
     | DedustV2CpmmWithdrawalEvent
 
-/// CPMM v2 exit-code catalog from official docs and verified decompile.
+/// CPMM v2 pool exit codes.
 enum Errors {
     /// Pool is not in the uninitialized state.
     NotUninitialized = 20
@@ -807,10 +841,12 @@ enum Errors {
     UnknownOperation = 65535
 }
 
+/// Return the deterministic position contract address for `ownerAddress`.
 get fun get_position_address(ownerAddress: address): address {
     throw 0;
 }
 
+/// Return pool status, assets, reserves, fee accumulators, and rewards.
 get fun get_pool_data(): DedustV2CpmmPoolDataReply {
     throw 0;
 }
