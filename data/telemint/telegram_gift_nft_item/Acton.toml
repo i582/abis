@@ -1,0 +1,17 @@
+[package]
+name = "telegram-gift-nft-item"
+description = "Focused ABI validation for Telegram Gift NFT item revisions"
+version = "0.1.0"
+
+[import-mappings]
+acton = ".acton"
+
+[contracts.TelegramGiftNftItem]
+display-name = "TelegramGiftNftItem"
+src = "data/telemint/telegram_gift_nft_item/testdata/TelegramGiftNftItem.boc"
+types = "data/telemint/telegram_gift_nft_item/types/telegram_gift_nft_item.types.tolk"
+depends = []
+
+[scripts]
+mainnet-test = "acton test --manifest-path data/telemint/telegram_gift_nft_item/Acton.toml data/telemint/telegram_gift_nft_item/tests/telegram_gift_nft_item_mainnet.test.tolk --fork-net mainnet --fork-block-number 50502689 --show-bodies"
+message-bodies-test = "acton test --manifest-path data/telemint/telegram_gift_nft_item/Acton.toml data/telemint/telegram_gift_nft_item/tests/telegram_gift_nft_item_message_bodies.test.tolk --show-bodies"

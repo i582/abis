@@ -1,7 +1,7 @@
 [project]
 name = "telemint"
 category = "Telegram Fragment NFT contracts"
-description = "Telegram TeleMint NFT item contracts used by Fragment username and anonymous-number NFTs"
+description = "Telegram TeleMint NFT item contracts used by Fragment usernames, anonymous numbers, and collectible gifts"
 website = "https://fragment.com/"
 
 [sources]
@@ -40,3 +40,45 @@ url = "https://github.com/TelegramMessenger/telemint/blob/main/func/nft-item.fc"
 [contracts.TelemintNftItem.variants.dns_item]
 hashes = ["a7a2616a4d639a076c2f67e7cce0423fd2a1c2ee550ad651c1eda16ee13bcaca"]
 known_addresses = ["EQBqs8pl1dJOZeXC3lspnYneBHag7VbQ9zKkv4IpQT3nnn5g"]
+
+[contracts.TelegramGiftNftItem]
+display_name = "Telegram Gift NFT Item"
+types = "telegram_gift_nft_item/types/telegram_gift_nft_item.types.tolk"
+hashes = [
+    "8b711e6809672c0335dc61d1da1dcc4059c973248af707bd586245085ea70b32",
+    "30dcd7d5b6fcf5968c2791e1e31ad732f2672f2986e1d6970eb03cca22d23251",
+]
+known_addresses = [
+    "EQDKDP1Rn3YxArW-ydnjr0NZLqNi-3c_oxnqCcTxYsFx4IUQ",
+    "EQCYes1qwzGAo1SI75JGWMgy6lgEKU6jv_VaM7FxJE3QrGzu",
+]
+
+[contracts.TelegramGiftNftItem.instances.desk_calendar_45754]
+name = "DeskCalendar45754"
+address = "EQDKDP1Rn3YxArW-ydnjr0NZLqNi-3c_oxnqCcTxYsFx4IUQ"
+label = "Desk Calendar #45754"
+network = "mainnet"
+
+[contracts.TelegramGiftNftItem.instances.peppermint_1]
+name = "Peppermint1"
+address = "EQCYes1qwzGAo1SI75JGWMgy6lgEKU6jv_VaM7FxJE3QrGzu"
+label = "peppermint #1"
+network = "mainnet"
+
+[[contracts.TelegramGiftNftItem.links]]
+kind = "source"
+title = "ton-etl Telegram Gift NFT classification"
+url = "https://github.com/ton-studio/ton-etl/blob/4f928bd3baf1e333c642382e9ccf7acf0e0edb39/parser/parsers/accounts/nfts_parser.py"
+
+[[contracts.TelegramGiftNftItem.links]]
+kind = "source"
+title = "Telegram TeleMint item source family"
+url = "https://github.com/TelegramMessenger/telemint/blob/1e47b28ac80608f4b5da2cdf2b60105da262ffcc/func/nft-item.fc"
+
+[contracts.TelegramGiftNftItem.variants.flexible_auction_deadline]
+hashes = ["8b711e6809672c0335dc61d1da1dcc4059c973248af707bd586245085ea70b32"]
+known_addresses = ["EQDKDP1Rn3YxArW-ydnjr0NZLqNi-3c_oxnqCcTxYsFx4IUQ"]
+
+[contracts.TelegramGiftNftItem.variants.duration_only_auction_deadline]
+hashes = ["30dcd7d5b6fcf5968c2791e1e31ad732f2672f2986e1d6970eb03cca22d23251"]
+known_addresses = ["EQCYes1qwzGAo1SI75JGWMgy6lgEKU6jv_VaM7FxJE3QrGzu"]
