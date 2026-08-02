@@ -116,7 +116,10 @@ url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/router"
 display_name = "STON.fi Pool V2 ConstantProduct"
 types = "pool_v2_const_product/types/stonfi_pool_v2_const_product.types.tolk"
 hashes = ["ec614ea4aaea3f7768606f1c1632b3374d3de096a1e7c4ba43c8009c487fee9d"]
-known_addresses = ["EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4"]
+known_addresses = [
+  "EQCGScrZe1xbyWqWDvdI6mzP-GAcAWFv6ZXuaJOuSqemxku4",
+  "EQC-NefK7qY1ciFR2gfguwexDvrvE2IqB7J7jafZTJnPQgik",
+]
 
 [[contracts.StonfiPoolV2ConstProduct.links]]
 kind = "docs"

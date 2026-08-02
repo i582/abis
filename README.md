@@ -2,9 +2,9 @@
 
 This repository contains curated TON ABI data for protocol and contract families.
 
-Current catalog size: **248 contract entries**, **288 unique contract code hashes**, and **278 unique known contract addresses**.
+Current catalog size: **253 contract entries**, **293 unique contract code hashes**, and **284 unique known contract addresses**.
 
-Across the generated public catalog, the repository declares **1097 unique opcode prefixes** and **491 unique get-method names**.
+Across the generated public catalog, the repository declares **1107 unique opcode prefixes** and **551 unique get-method names**.
 
 Each curated project group normally includes:
 
@@ -47,6 +47,7 @@ Each curated project group normally includes:
 | Megaton Finance | Router, exchange/LP Jetton master, wrapped TON minter, and deterministic wrapped TON wallet. | `MegatonRouter`, `MegatonExchange`, `WtonMinter`, `WtonWallet` |
 | Moon.cx | Constant-product pool, CLMM range, booster, order factory, and both historical order revisions. | `MoonPool`, `MoonClmmRange`, `MoonBooster`, `MoonOrderFactory`, `MoonOrderOld`, `MoonOrderNew` |
 | Signed Cross-DEX | Private signed executor with replay protection and callback-driven multi-protocol routing. | `SignedCrossDexExecutor` |
+| ForTON FRT/GRAM Route | Five-contract coordinator, dispatcher, orchestrator, worker, and executor chain for a routed Jetton exchange through a STON.fi pool. | `FrtGramAdapterCoordinator`, `FrtGramAdapterDispatcher`, `FrtGramAdapterOrchestrator`, `FrtGramAdapterWorker`, `FrtGramAdapterExecutor` |
 
 ### Staking And Validator Protocols
 

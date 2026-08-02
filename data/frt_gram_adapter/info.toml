@@ -1,0 +1,59 @@
+[project]
+name = "frt-gram-adapter"
+category = "TON routed exchange contracts"
+description = "Five ForTON contracts that coordinate and execute a routed Jetton exchange through a STON.fi pool."
+
+[contracts.FrtGramAdapterCoordinator]
+display_name = "FRT/GRAM Adapter Coordinator"
+types = "types/frt_gram_coordinator.types.tolk"
+hashes = ["dec2e3a6bfbb5839a0207d76bb91ba27e1e8bd5215848ce3555f7532c4408245"]
+known_addresses = ["EQAOYIpqiuS0blDySfqSPKHhYoJRRV8RxUHGQUw_hw8WUQth"]
+
+[contracts.FrtGramAdapterCoordinator.instances.trace]
+address = "EQAOYIpqiuS0blDySfqSPKHhYoJRRV8RxUHGQUw_hw8WUQth"
+network = "mainnet"
+block_seqno = 83536151
+
+[contracts.FrtGramAdapterDispatcher]
+display_name = "FRT/GRAM Adapter Dispatcher"
+types = "types/frt_gram_dispatcher.types.tolk"
+hashes = ["e343e4dc1a3b1c6fcbf4dcc0c5c15a61a7d86fa11f647cfed568f5a2693a3aa6"]
+known_addresses = ["EQBazGjn2UgiOom47yy_fGdRoxU1tWNBNqWnkil5T9fP-xuK"]
+
+[contracts.FrtGramAdapterDispatcher.instances.trace]
+address = "EQBazGjn2UgiOom47yy_fGdRoxU1tWNBNqWnkil5T9fP-xuK"
+network = "mainnet"
+block_seqno = 83536151
+
+[contracts.FrtGramAdapterOrchestrator]
+display_name = "FRT/GRAM Adapter Orchestrator"
+types = "types/frt_gram_orchestrator.types.tolk"
+hashes = ["492a2a4afcf063f5e83ee09fee03dc569e298d79465095ba357dc78d70d74116"]
+known_addresses = ["EQD9m4NA8WNC5UCq8aprfptsdi6mkGblH59W8Id8Dlo6AXXp"]
+
+[contracts.FrtGramAdapterOrchestrator.instances.trace]
+address = "EQD9m4NA8WNC5UCq8aprfptsdi6mkGblH59W8Id8Dlo6AXXp"
+network = "mainnet"
+block_seqno = 83536151
+
+[contracts.FrtGramAdapterWorker]
+display_name = "FRT/GRAM Adapter Worker"
+types = "types/frt_gram_worker.types.tolk"
+hashes = ["9932b5fd61bb9ed0533ad3787f956b6783163920f7071ebfe1581aa1feb1f8c9"]
+known_addresses = ["EQBAwM79vmhxxLpSqrTdznRYTcyP2bJEa-s97wxx4jeO8HwK"]
+
+[contracts.FrtGramAdapterWorker.instances.trace]
+address = "EQBAwM79vmhxxLpSqrTdznRYTcyP2bJEa-s97wxx4jeO8HwK"
+network = "mainnet"
+block_seqno = 83536151
+
+[contracts.FrtGramAdapterExecutor]
+display_name = "FRT/GRAM Adapter Executor"
+types = "types/frt_gram_executor.types.tolk"
+hashes = ["249c127b9790738bbb4d8da018bd2c03b8d5f85d04d4b038cb5594bc5c73b969"]
+known_addresses = ["EQAG_1ccmTW0aBW97sKa0xEqMJuY-INSAG9JQPYsVW473RLf"]
+
+[contracts.FrtGramAdapterExecutor.instances.trace]
+address = "EQAG_1ccmTW0aBW97sKa0xEqMJuY-INSAG9JQPYsVW473RLf"
+network = "mainnet"
+block_seqno = 83536151

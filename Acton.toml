@@ -1425,7 +1425,43 @@ src = "data/signed_cross_dex/executor/testdata/SignedCrossDexExecutor.boc"
 types = "data/signed_cross_dex/executor/types/signed_cross_dex_executor.types.tolk"
 depends = []
 
+[contracts.FrtGramAdapterCoordinator]
+display-name = "FRT/GRAM Adapter Coordinator"
+src = "data/frt_gram_adapter/testdata/FrtGramAdapterCoordinator.boc"
+types = "data/frt_gram_adapter/types/frt_gram_coordinator.types.tolk"
+depends = []
+
+[contracts.FrtGramAdapterDispatcher]
+display-name = "FRT/GRAM Adapter Dispatcher"
+src = "data/frt_gram_adapter/testdata/FrtGramAdapterDispatcher.boc"
+types = "data/frt_gram_adapter/types/frt_gram_dispatcher.types.tolk"
+depends = []
+
+[contracts.FrtGramAdapterOrchestrator]
+display-name = "FRT/GRAM Adapter Orchestrator"
+src = "data/frt_gram_adapter/testdata/FrtGramAdapterOrchestrator.boc"
+types = "data/frt_gram_adapter/types/frt_gram_orchestrator.types.tolk"
+depends = []
+
+[contracts.FrtGramAdapterWorker]
+display-name = "FRT/GRAM Adapter Worker"
+src = "data/frt_gram_adapter/testdata/FrtGramAdapterWorker.boc"
+types = "data/frt_gram_adapter/types/frt_gram_worker.types.tolk"
+depends = []
+
+[contracts.FrtGramAdapterExecutor]
+display-name = "FRT/GRAM Adapter Executor"
+src = "data/frt_gram_adapter/testdata/FrtGramAdapterExecutor.boc"
+types = "data/frt_gram_adapter/types/frt_gram_executor.types.tolk"
+depends = []
+
 [scripts]
+frt-gram-adapter-mainnet-test = "acton test data/frt_gram_adapter/tests/frt_gram_adapter_mainnet.test.tolk --fork-net mainnet --fork-block-number 83536151 --show-bodies"
+frt-gram-coordinator-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_coordinator_message_bodies.test.tolk --show-bodies"
+frt-gram-dispatcher-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_dispatcher_message_bodies.test.tolk --show-bodies"
+frt-gram-orchestrator-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_orchestrator_message_bodies.test.tolk --show-bodies"
+frt-gram-worker-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_worker_message_bodies.test.tolk --show-bodies"
+frt-gram-executor-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_executor_message_bodies.test.tolk --show-bodies"
 signed-cross-dex-executor-mainnet-test = "acton test data/signed_cross_dex/executor/tests/signed_cross_dex_executor_mainnet.test.tolk --fork-net mainnet --fork-block-number 83514993 --show-bodies"
 signed-cross-dex-executor-message-bodies-test = "acton test data/signed_cross_dex/executor/tests/signed_cross_dex_executor_message_bodies.test.tolk --show-bodies"
 invoices-message-bodies-test = "acton test data/invoices/tests/invoices_message_bodies.test.tolk --show-bodies"
@@ -1975,6 +2011,12 @@ acton run stonkspump-custom-jetton-wallet-mainnet-test
 acton run moon-order-new-message-bodies-test
 acton run signed-cross-dex-executor-mainnet-test
 acton run signed-cross-dex-executor-message-bodies-test
+acton run frt-gram-adapter-mainnet-test
+acton run frt-gram-coordinator-message-bodies-test
+acton run frt-gram-dispatcher-message-bodies-test
+acton run frt-gram-orchestrator-message-bodies-test
+acton run frt-gram-worker-message-bodies-test
+acton run frt-gram-executor-message-bodies-test
 """
 
 run-all-tests = """
