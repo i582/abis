@@ -113,8 +113,14 @@ network = "mainnet"
 [contracts.BidaskDammPool]
 display_name = "Bidask DAMM Pool"
 types = "damm_pool/types/bidask_damm_pool.types.tolk"
-hashes = ["760f60fe228f87c709ec85690bf592904c20386f06cbe4c478faf9453eded124"]
-known_addresses = ["EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"]
+hashes = [
+  "760f60fe228f87c709ec85690bf592904c20386f06cbe4c478faf9453eded124",
+  "d7ceccfcb49243dc7fddfa0037a195c73236b76d5581f8f5ece0fbee4d6d82b6",
+]
+known_addresses = [
+  "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi",
+  "EQDs6EBg0IfDk1FmWqy4vBdvYDJIM4r2bk9P8TUpu1lGhoOY",
+]
 
 [[contracts.BidaskDammPool.links]]
 kind = "docs"
@@ -123,6 +129,10 @@ url = "https://docs.bidask.finance/contracts/damm/pool"
 
 [contracts.BidaskDammPool.instances.mainnet]
 address = "EQDqTVF57qRXQwHnD5Zj-fM1Iy40V8v2DWrV3TQ1SRP3mGwi"
+network = "mainnet"
+
+[contracts.BidaskDammPool.instances.d7ce_revision]
+address = "EQDs6EBg0IfDk1FmWqy4vBdvYDJIM4r2bk9P8TUpu1lGhoOY"
 network = "mainnet"
 
 [contracts.BidaskDammLpWallet]
