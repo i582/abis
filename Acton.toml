@@ -1455,6 +1455,126 @@ src = "data/frt_gram_adapter/testdata/FrtGramAdapterExecutor.boc"
 types = "data/frt_gram_adapter/types/frt_gram_executor.types.tolk"
 depends = []
 
+[contracts.JVaultPool]
+display-name = "JVault Staking Pool"
+src = "data/jvault/pool/testdata/JVaultPool.boc"
+types = "data/jvault/pool/types/jvault_pool.types.tolk"
+depends = []
+
+[contracts.JVaultPoolFactory]
+display-name = "JVault Pool Factory"
+src = "data/jvault/pool_factory/testdata/JVaultPoolFactory.boc"
+types = "data/jvault/pool_factory/types/jvault_pool_factory.types.tolk"
+depends = []
+
+[contracts.JVaultStakingWallet]
+display-name = "JVault Staking Wallet"
+src = "data/jvault/staking_wallet/testdata/JVaultStakingWallet.boc"
+types = "data/jvault/staking_wallet/types/jvault_staking_wallet.types.tolk"
+depends = []
+
+[contracts.TsusdeVault]
+display-name = "tsUSDe Vault"
+src = "data/tsusde/vault/testdata/TsusdeVault.boc"
+types = "data/tsusde/vault/types/tsusde_vault.types.tolk"
+depends = []
+
+[contracts.TsusdeWallet]
+display-name = "tsUSDe Wallet"
+src = "data/tsusde/wallet/testdata/TsusdeWallet.boc"
+types = "data/tsusde/wallet/types/tsusde_wallet.types.tolk"
+depends = []
+
+[contracts.StonfiFarmCollection]
+display-name = "STON.fi Farm Collection"
+src = "data/stonfi/farm_collection/testdata/StonfiFarmCollection.boc"
+types = "data/stonfi/farm_collection/types/stonfi_farm_collection.types.tolk"
+depends = []
+
+[contracts.StonfiFarmNft]
+display-name = "STON.fi Farm NFT"
+src = "data/stonfi/farm_nft/testdata/StonfiFarmNft.boc"
+types = "data/stonfi/farm_nft/types/stonfi_farm_nft.types.tolk"
+depends = []
+
+[contracts.TacJetton]
+display-name = "TAC Jetton Master"
+src = "data/tac/jetton/testdata/TacJetton.boc"
+types = "data/tac/jetton/types/tac_jetton.types.tolk"
+depends = []
+
+[contracts.TgUsdLiquidStaking]
+display-name = "tgUSD Liquid Staking"
+src = "data/tgusd/testdata/TgUsdLiquidStaking.boc"
+types = "data/tgusd/liquid_staking/types/tgusd_liquid_staking.types.tolk"
+depends = []
+
+[contracts.WhalesLiquidStaking]
+display-name = "Ton Whales Liquid Staking Pool"
+src = "data/whales/liquid_staking/testdata/WhalesLiquidStaking.boc"
+types = "data/whales/liquid_staking/types/whales_liquid_staking.types.tolk"
+depends = []
+
+[contracts.DedustX1000WalletV1]
+display-name = "DeDust x1000 Wallet V1"
+src = "data/dedust/x1000_wallet_v1/testdata/DedustX1000WalletV1.boc"
+types = "data/dedust/x1000_wallet_v1/types/dedust_x1000_wallet_v1.types.tolk"
+depends = []
+
+[contracts.DedustUranusMemeV2]
+display-name = "DeDust Uranus Meme V2"
+src = "data/dedust/uranus/meme_v2/testdata/DedustUranusMemeV2.boc"
+types = "data/dedust/uranus/meme_v2/types/dedust_uranus_meme_v2.types.tolk"
+depends = []
+
+[contracts.GasPumpMasterV0]
+display-name = "GasPump Master V0"
+src = "data/gaspump/master/testdata/GasPumpMasterV0.boc"
+types = "data/gaspump/master/types/gaspump_master_v0.types.tolk"
+depends = []
+
+[contracts.GasPumpMasterV1]
+display-name = "GasPump Master V1"
+src = "data/gaspump/master/testdata/GasPumpMasterV1.boc"
+types = "data/gaspump/master/types/gaspump_master_v1.types.tolk"
+depends = []
+
+[contracts.GasPumpMasterV2]
+display-name = "GasPump Master V2"
+src = "data/gaspump/master/testdata/GasPumpMasterV2.boc"
+types = "data/gaspump/master/types/gaspump_master_v2_v3.types.tolk"
+depends = []
+
+[contracts.GasPumpMasterV4]
+display-name = "GasPump Master V4"
+src = "data/gaspump/master/testdata/GasPumpMasterV4.boc"
+types = "data/gaspump/master/types/gaspump_master_v4.types.tolk"
+depends = []
+
+[contracts.GasPumpMasterV5]
+display-name = "GasPump Master V5"
+src = "data/gaspump/master/testdata/GasPumpMasterV5.boc"
+types = "data/gaspump/master/types/gaspump_master_v5.types.tolk"
+depends = []
+
+[contracts.TelegramGiftNftItem]
+display-name = "Telegram Gift NFT Item"
+src = "data/telemint/telegram_gift_nft_item/testdata/TelegramGiftNftItem.boc"
+types = "data/telemint/telegram_gift_nft_item/types/telegram_gift_nft_item.types.tolk"
+depends = []
+
+[contracts.TonFunBclWalletV1]
+display-name = "TonFun BCL Wallet V1"
+src = "data/tonfun/wallet/testdata/TonFunBclWalletV1.boc"
+types = "data/tonfun/wallet/types/tonfun_bcl_wallet_v1.types.tolk"
+depends = []
+
+[contracts.TonFunBclWalletV2]
+display-name = "TonFun BCL Wallet V2"
+src = "data/tonfun/wallet/testdata/TonFunBclWalletV2.boc"
+types = "data/tonfun/wallet/types/tonfun_bcl_wallet_v2.types.tolk"
+depends = []
+
 [scripts]
 frt-gram-adapter-mainnet-test = "acton test data/frt_gram_adapter/tests/frt_gram_adapter_mainnet.test.tolk --fork-net mainnet --fork-block-number 83536151 --show-bodies"
 frt-gram-coordinator-message-bodies-test = "acton test data/frt_gram_adapter/tests/frt_gram_coordinator_message_bodies.test.tolk --show-bodies"
@@ -1743,6 +1863,44 @@ coffee-mev-protector-legacy-message-bodies-test = "acton test data/coffee/mev_pr
 stonkspump-custom-jetton-wallet-mainnet-test = "acton test data/stonkspump/custom_jetton_wallet/tests/stonkspump_custom_jetton_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 83402780 --show-bodies"
 stonkspump-custom-jetton-wallet-message-bodies-test = "acton test data/stonkspump/custom_jetton_wallet/tests/stonkspump_custom_jetton_wallet_message_bodies.test.tolk --show-bodies"
 
+jvault-pool-mainnet-test = "acton test data/jvault/pool/tests/jvault_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 43915595 --show-bodies"
+jvault-pool-message-bodies-test = "acton test data/jvault/pool/tests/jvault_pool_message_bodies.test.tolk --show-bodies"
+jvault-pool-factory-mainnet-test = "acton test data/jvault/pool_factory/tests/jvault_pool_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 43915595 --show-bodies"
+jvault-pool-factory-message-bodies-test = "acton test data/jvault/pool_factory/tests/jvault_pool_factory_message_bodies.test.tolk --show-bodies"
+jvault-staking-wallet-mainnet-test = "acton test data/jvault/staking_wallet/tests/jvault_staking_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 43915595 --show-bodies"
+jvault-staking-wallet-message-bodies-test = "acton test data/jvault/staking_wallet/tests/jvault_staking_wallet_message_bodies.test.tolk --show-bodies"
+tsusde-vault-mainnet-test = "acton test data/tsusde/vault/tests/tsusde_vault_mainnet.test.tolk --fork-net mainnet --fork-block-number 54216500 --show-bodies"
+tsusde-vault-message-bodies-test = "acton test data/tsusde/vault/tests/tsusde_vault_message_bodies.test.tolk --show-bodies"
+tsusde-wallet-mainnet-test = "acton test data/tsusde/wallet/tests/tsusde_wallet_mainnet.test.tolk --fork-net mainnet --fork-block-number 48269304 --show-bodies"
+tsusde-wallet-message-bodies-test = "acton test data/tsusde/wallet/tests/tsusde_wallet_message_bodies.test.tolk --show-bodies"
+stonfi-farm-collection-mainnet-test = "acton test data/stonfi/farm_collection/tests/stonfi_farm_collection_mainnet.test.tolk --fork-net mainnet --fork-block-number 41537629 --show-bodies"
+stonfi-farm-collection-message-bodies-test = "acton test data/stonfi/farm_collection/tests/stonfi_farm_collection_message_bodies.test.tolk --show-bodies"
+stonfi-farm-nft-mainnet-test = "acton test data/stonfi/farm_nft/tests/stonfi_farm_nft_mainnet.test.tolk --fork-net mainnet --fork-block-number 41537629 --show-bodies"
+stonfi-farm-nft-message-bodies-test = "acton test data/stonfi/farm_nft/tests/stonfi_farm_nft_message_bodies.test.tolk --show-bodies"
+stonfi-router-v2-revisions-mainnet-test = "acton test data/stonfi/router_v2/tests/stonfi_router_v2_revisions_mainnet.test.tolk --fork-net mainnet --fork-block-number 83585844 --show-bodies"
+tac-jetton-mainnet-test = "acton test data/tac/jetton/tests/tac_jetton_mainnet.test.tolk --fork-net mainnet --fork-block-number 51369544 --show-bodies"
+tac-jetton-message-bodies-test = "acton test data/tac/jetton/tests/tac_jetton_message_bodies.test.tolk --show-bodies"
+tgusd-liquid-staking-mainnet-test = "acton test data/tgusd/liquid_staking/tests/tgusd_liquid_staking_mainnet.test.tolk --fork-net mainnet --fork-block-number 49133473 --show-bodies"
+tgusd-liquid-staking-message-bodies-test = "acton test data/tgusd/liquid_staking/tests/tgusd_liquid_staking_message_bodies.test.tolk --show-bodies"
+whales-liquid-staking-mainnet-test = "acton test data/whales/liquid_staking/tests/whales_liquid_staking_mainnet.test.tolk --fork-net mainnet --fork-block-number 41143667 --show-bodies"
+whales-liquid-staking-message-bodies-test = "acton test data/whales/liquid_staking/tests/whales_liquid_staking_message_bodies.test.tolk --show-bodies"
+dedust-x1000-wallet-v1-mainnet-test = "acton test data/dedust/x1000_wallet_v1/tests/dedust_x1000_wallet_v1_mainnet.test.tolk --fork-net mainnet --fork-block-number 52337416 --show-bodies"
+dedust-uranus-meme-v2-mainnet-test = "acton test data/dedust/uranus/meme_v2/tests/dedust_uranus_meme_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 58340099 --show-bodies"
+dedust-v2-cpmm-revision-3997a5-mainnet-test = "acton test data/dedust/cpmm_v2/tests/dedust_v2_cpmm_revision_3997a5.test.tolk --fork-net mainnet --fork-block-number 83579636 --show-bodies"
+bidask-damm-pool-d7cecc-mainnet-test = "acton test data/bidask/damm_pool/tests/bidask_damm_pool_d7cecc_mainnet.test.tolk --fork-net mainnet --fork-block-number 55222276 --show-bodies"
+gaspump-master-v0-mainnet-test = "acton test data/gaspump/master/tests/gaspump_master_v0_mainnet.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+gaspump-master-v1-mainnet-test = "acton test data/gaspump/master/tests/gaspump_master_v1_mainnet.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+gaspump-master-v2-v3-mainnet-test = "acton test data/gaspump/master/tests/gaspump_master_v2_v3_mainnet.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+gaspump-master-v4-mainnet-test = "acton test data/gaspump/master/tests/gaspump_master_v4_mainnet.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+gaspump-master-v5-mainnet-test = "acton test data/gaspump/master/tests/gaspump_master_v5_mainnet.test.tolk --fork-net mainnet --fork-block-number 71819864 --show-bodies"
+gaspump-events-test = "acton test data/gaspump/master/tests/gaspump_master_events.test.tolk --show-bodies"
+telegram-gift-nft-item-mainnet-test = "acton test data/telemint/telegram_gift_nft_item/tests/telegram_gift_nft_item_mainnet.test.tolk --fork-net mainnet --fork-block-number 50502689 --show-bodies"
+telegram-gift-nft-item-message-bodies-test = "acton test data/telemint/telegram_gift_nft_item/tests/telegram_gift_nft_item_message_bodies.test.tolk --show-bodies"
+tonfun-bcl-wallet-v1-mainnet-test = "acton test data/tonfun/wallet/tests/tonfun_bcl_wallet_v1_mainnet.test.tolk --fork-net mainnet --fork-block-number 41153367 --show-bodies"
+tonfun-bcl-wallet-v2-mainnet-test = "acton test data/tonfun/wallet/tests/tonfun_bcl_wallet_v2_mainnet.test.tolk --fork-net mainnet --fork-block-number 42790177 --show-bodies"
+tonfun-bcl-wallet-message-bodies-test = "acton test data/tonfun/wallet/tests/tonfun_bcl_wallet_message_bodies.test.tolk --show-bodies"
+nominator-pool-a78c23-mainnet-test = "acton test data/nominator_pool/pool/tests/nominator_pool_a78c23_mainnet.test.tolk --fork-net mainnet --fork-block-number 83587997 --show-bodies"
+
 compile-all-contracts = "acton build"
 run-test-shard-1 = """
 set -e
@@ -1805,6 +1963,15 @@ acton run megaton-exchange-message-bodies-test
 acton run getgems-offchain-offer-v3-fixtures-test
 acton run coffee-mev-protector-legacy-message-bodies-test
 acton run moon-order-factory-message-bodies-test
+acton run jvault-pool-mainnet-test
+acton run jvault-pool-factory-mainnet-test
+acton run jvault-staking-wallet-mainnet-test
+acton run stonfi-farm-collection-mainnet-test
+acton run stonfi-farm-nft-mainnet-test
+acton run tac-jetton-mainnet-test
+acton run tgusd-liquid-staking-mainnet-test
+acton run whales-liquid-staking-mainnet-test
+acton run dedust-x1000-wallet-v1-mainnet-test
 """
 
 run-test-shard-2 = """
@@ -1874,6 +2041,16 @@ acton run megaton-router-storage-test
 acton run getgems-offchain-offer-v3-message-bodies-test
 acton run coffee-mev-protector-legacy-mainnet-test
 acton run moon-order-old-message-bodies-test
+acton run tsusde-vault-mainnet-test
+acton run tsusde-wallet-mainnet-test
+acton run stonfi-router-v2-revisions-mainnet-test
+acton run bidask-damm-pool-d7cecc-mainnet-test
+acton run gaspump-master-v0-mainnet-test
+acton run gaspump-master-v1-mainnet-test
+acton run gaspump-master-v2-v3-mainnet-test
+acton run telegram-gift-nft-item-mainnet-test
+acton run tonfun-bcl-wallet-v1-mainnet-test
+acton run dedust-v2-cpmm-revision-3997a5-mainnet-test
 """
 
 run-test-shard-3 = """
@@ -1950,6 +2127,24 @@ acton run moon-order-old-mainnet-test
 acton run megaton-router-message-bodies-test
 acton run megaton-exchange-storage-test
 acton run stonkspump-custom-jetton-wallet-message-bodies-test
+acton run tsusde-vault-message-bodies-test
+acton run tsusde-wallet-message-bodies-test
+acton run stonfi-farm-collection-message-bodies-test
+acton run stonfi-farm-nft-message-bodies-test
+acton run tac-jetton-message-bodies-test
+acton run gaspump-master-v4-mainnet-test
+acton run gaspump-master-v5-mainnet-test
+acton run gaspump-events-test
+acton run telegram-gift-nft-item-message-bodies-test
+acton run tonfun-bcl-wallet-v2-mainnet-test
+acton run tonfun-bcl-wallet-message-bodies-test
+acton run dedust-uranus-meme-v2-mainnet-test
+acton run nominator-pool-a78c23-mainnet-test
+acton run jvault-pool-message-bodies-test
+acton run jvault-pool-factory-message-bodies-test
+acton run jvault-staking-wallet-message-bodies-test
+acton run tgusd-liquid-staking-message-bodies-test
+acton run whales-liquid-staking-message-bodies-test
 """
 
 run-test-shard-4 = """
