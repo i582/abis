@@ -1,7 +1,7 @@
 [project]
 name = "stonfi"
 category = "TON DEX contracts"
-description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, Vault, and Escrow contracts"
+description = "STON.fi DEX core v1 and v2 Router, Pool, LP Account, LP Wallet, Vault, Escrow, and Farm contracts"
 
 [sources]
 stonfi_docs_v1 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v1"
@@ -18,6 +18,7 @@ stonfi_docs_vault_v2 = "https://docs.ston.fi/developer-section/dex/smart-contrac
 stonfi_docs_op_codes_v2 = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/op-codes"
 stonfi_dex_core_v1 = "https://github.com/ston-fi/dex-core"
 stonfi_dex_core_v2 = "https://github.com/ston-fi/dex-core-v2"
+stonfi_sdk = "https://github.com/ston-fi/sdk"
 
 [[links]]
 kind = "docs"
@@ -97,6 +98,10 @@ hashes = [
   "f451dd294a06530b6e4ec99790a595c1ac421829f78b9231245f8b51cba72556",
   "29a542d36e4196a8719faf33e58e855c8f07bdb0b25897bf3a283ca017c97965",
   "0679c28b77b86f5ef808b14fb96554ed96e163211a836a7cf412bcb59a8c1a45",
+  "5c327aefd0f71a8c71a907f95e4655e4e72d403e118f255356075a0e8d6db547",
+  "f9502b55cf962dac6d86af158405af50b281fb110cabfafb9a198db46f75b154",
+  "c39a85ac98055c68309bcc6570432d88cc68a586e0dec124b607564a12cec3eb",
+  "5a19635c1dc8780c352c18b7cd6c2b0e6835ca4b9926608119cb032d12719aaa",
 ]
 known_addresses = [
   "EQCS4UEa5UaJLzOyyKieqQOQ2P9M-7kXpkO5HnP3Bv250cN3",
@@ -105,12 +110,59 @@ known_addresses = [
   "EQBjK_kjY5R_DoyTRff109VzFrSlKFCC_gOOWIMtyEvCcv2J",
   "EQAiLV677BgHNXEUuDJ3Cw8K5WOiJSO86xh8YQq2LthJEoED",
   "EQACn16m9OrZ-mw186M4NlIpVP8Tb3q6SV9aX8NjSgVfJTo9",
+  "EQAz1D0ZUiG_9XCyjrJ1-xTx-CnmnQ3J3LMKQ7sZTr-XlNZP",
+  "EQBqgCTdrtSod76UrcOeALSiLCp3WuNIFQBQvyjjlQMvwLkc",
+  "EQD11suHkrO_1Mb5IIdYFx5ZPy38MuHoeHx6dA-QRaD8w0UJ",
+  "EQC67o2-2UzR1cJFrUGL5M7OAnLgG8oY_tHaTgGmR63LQNV-",
+  "EQAsa5p_UWxUDaU9n9bo3CAv2xRNrNFjadhm70JQAesdVt_5",
+  "EQBd9vfWfn6MOqBYEEYFeyFqliOYln1znFklfp8B02zlS_Lq",
 ]
 
 [[contracts.StonfiRouterV2.links]]
 kind = "docs"
 title = "STON.fi Router v2 documentation"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/router"
+
+[[contracts.StonfiRouterV2.links]]
+kind = "source"
+title = "STON.fi Router v2 source"
+url = "https://github.com/ston-fi/dex-core-v2/tree/af0a955cc835af9697cd383e201fefcbe1a6a87e/contracts/router"
+
+[contracts.StonfiRouterV2.instances.weighted_stableswap_f451dd]
+address = "EQAz1D0ZUiG_9XCyjrJ1-xTx-CnmnQ3J3LMKQ7sZTr-XlNZP"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "f451dd294a06530b6e4ec99790a595c1ac421829f78b9231245f8b51cba72556"
+
+[contracts.StonfiRouterV2.instances.stableswap_4895b7]
+address = "EQBqgCTdrtSod76UrcOeALSiLCp3WuNIFQBQvyjjlQMvwLkc"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "4895b7fc5908648bcc77aad2373eae0526c4780a426ffd444c249230116791ce"
+
+[contracts.StonfiRouterV2.instances.constant_product_5c327a]
+address = "EQD11suHkrO_1Mb5IIdYFx5ZPy38MuHoeHx6dA-QRaD8w0UJ"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "5c327aefd0f71a8c71a907f95e4655e4e72d403e118f255356075a0e8d6db547"
+
+[contracts.StonfiRouterV2.instances.constant_product_f9502b]
+address = "EQC67o2-2UzR1cJFrUGL5M7OAnLgG8oY_tHaTgGmR63LQNV-"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "f9502b55cf962dac6d86af158405af50b281fb110cabfafb9a198db46f75b154"
+
+[contracts.StonfiRouterV2.instances.constant_product_rev1_c39a85]
+address = "EQAsa5p_UWxUDaU9n9bo3CAv2xRNrNFjadhm70JQAesdVt_5"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "c39a85ac98055c68309bcc6570432d88cc68a586e0dec124b607564a12cec3eb"
+
+[contracts.StonfiRouterV2.instances.constant_product_rev1_5a1963]
+address = "EQBd9vfWfn6MOqBYEEYFqliOYln1znFklfp8B02zlS_Lq"
+network = "mainnet"
+block_seqno = 83585844
+code_hash = "5a19635c1dc8780c352c18b7cd6c2b0e6835ca4b9926608119cb032d12719aaa"
 
 [contracts.StonfiPoolV2ConstProduct]
 display_name = "STON.fi Pool V2 ConstantProduct"
@@ -191,6 +243,40 @@ known_addresses = ["EQBCFLAnWCc_heRtp78zmT_1h2XhyX7wcEwaiNHry27Mtxw6"]
 kind = "docs"
 title = "STON.fi Vault v2 docs"
 url = "https://docs.ston.fi/developer-section/dex/smart-contracts/v2/vault"
+
+[contracts.StonfiFarmCollection]
+display_name = "STON.fi Farm Collection V3.1"
+types = "farm_collection/types/stonfi_farm_collection.types.tolk"
+hashes = ["9b94ca12bff3dee0201ec84d859c56a2b1078fb4aa559df679dce35a9e02ee6c"]
+known_addresses = ["EQDZsV30R-YiBeZ-NyITRQW4-VtQBJlBN7OoyDvmdPD-f2Mh"]
+
+[contracts.StonfiFarmCollection.instances.primary]
+address = "EQDZsV30R-YiBeZ-NyITRQW4-VtQBJlBN7OoyDvmdPD-f2Mh"
+network = "mainnet"
+block_seqno = 41537629
+code_hash = "9b94ca12bff3dee0201ec84d859c56a2b1078fb4aa559df679dce35a9e02ee6c"
+
+[[contracts.StonfiFarmCollection.links]]
+kind = "sdk"
+title = "STON.fi Farm v3 SDK"
+url = "https://github.com/ston-fi/sdk/tree/ac55bb07f6f12cd3ff28fabe8edc05c1a8e51e68/packages/sdk/src/contracts/farm/v3"
+
+[contracts.StonfiFarmNft]
+display_name = "STON.fi Farm NFT V3"
+types = "farm_nft/types/stonfi_farm_nft.types.tolk"
+hashes = ["752c43866175a1f972799ed0c7a3e469f337a0b58c6cf43f82807998b1fc7329"]
+known_addresses = ["EQD4UDBmiTlw3vtGye3MvZDyjcrcDvq8dMgoxHRiL6zyzrMz"]
+
+[contracts.StonfiFarmNft.instances.primary]
+address = "EQD4UDBmiTlw3vtGye3MvZDyjcrcDvq8dMgoxHRiL6zyzrMz"
+network = "mainnet"
+block_seqno = 41537629
+code_hash = "752c43866175a1f972799ed0c7a3e469f337a0b58c6cf43f82807998b1fc7329"
+
+[[contracts.StonfiFarmNft.links]]
+kind = "sdk"
+title = "STON.fi Farm v3 SDK"
+url = "https://github.com/ston-fi/sdk/tree/ac55bb07f6f12cd3ff28fabe8edc05c1a8e51e68/packages/sdk/src/contracts/farm/v3"
 
 [contracts.StonfiEscrowPosition]
 display_name = "STON.fi Escrow Position"
