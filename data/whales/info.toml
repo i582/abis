@@ -1,10 +1,12 @@
 [project]
 name = "whales"
 category = "TON nominator staking contracts"
-description = "Ton Whales Nominators pool and proxy contracts for pooled TON staking through Elector"
+description = "Ton Whales Nominators and liquid-staking pool contracts for pooled TON staking"
 
 [sources]
 upstream_tonwhales_nominators = "https://github.com/tonwhales/ton-nominators/tree/0553e1b6ddfc5c0b60505957505ce58d01bec3e7"
+dabi_liquid_staking = "https://github.com/disintar/dABI/blob/137ebce9c5cadcf51a9f5a92f6c897d3ef6b08c2/schema/interfaces/whales/liquid-staking.yaml"
+tonwhales_wallet_liquid_staking = "https://github.com/tonwhales/wallet/blob/a2503f79d14868d65349ad7035d18389c6e2f996/app/utils/LiquidStakingContract.ts"
 
 [[links]]
 kind = "source"
@@ -30,4 +32,14 @@ known_addresses = ["Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"]
 
 [contracts.WhalesProxy.instances.mainnet]
 address = "Ef8W1vCpA1tr9xr6QSXSxcVSdn1Sm7SYX_PCWQdClaWhales"
+network = "mainnet"
+
+[contracts.WhalesLiquidStaking]
+display_name = "Ton Whales Liquid Staking Pool"
+types = "liquid_staking/types/whales_liquid_staking.types.tolk"
+hashes = ["b6e75696f4a86dcfda59c97554131a6b9e58acd395ae7e4add1c450e5dc07483"]
+known_addresses = ["EQB0SoxuGDx5qjVt0P_bPICFeWdFLBmVopHhjgfs0q-wsTON"]
+
+[contracts.WhalesLiquidStaking.instances.mainnet]
+address = "EQB0SoxuGDx5qjVt0P_bPICFeWdFLBmVopHhjgfs0q-wsTON"
 network = "mainnet"

@@ -1,0 +1,10 @@
+[package]
+name = "whales-liquid-staking"
+description = "Focused ABI validation for the Ton Whales liquid-staking pool"
+version = "0.1.0"
+
+[contracts.WhalesLiquidStaking]
+display-name = "WhalesLiquidStaking"
+src = "data/whales/liquid_staking/testdata/WhalesLiquidStaking.boc"
+types = "data/whales/liquid_staking/types/whales_liquid_staking.types.tolk"
+depends = []
