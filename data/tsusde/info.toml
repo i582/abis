@@ -1,0 +1,34 @@
+[project]
+name = "tsUSDe"
+category = "reward-bearing stablecoin vault and Jetton"
+description = "Ethena tsUSDe vault and governed timelocked Jetton wallet contracts"
+
+[sources]
+official_addresses = "https://docs.ethena.fi/solution-design/key-addresses"
+vault_verified_source = "https://github.com/ton-community/contract-abis/tree/fe1d9b690646ef86927dc7dc554e0829139b18ea/verified/9d/54931c9d43e8699d2382095e8237b5acb1beecaf236d337210acd0b43cd19d/orbs.com"
+wallet_verified_source = "https://github.com/ton-community/contract-abis/tree/fe1d9b690646ef86927dc7dc554e0829139b18ea/verified/d3/624ca5def8b5d8fb3b929f6554a37f989e06b873fd49442cea94a3bd671940/orbs.com"
+dabi = "https://github.com/disintar/dABI/tree/137ebce9c5cadcf51a9f5a92f6c897d3ef6b08c2/schema/interfaces/ethena"
+
+[contracts.TsusdeVault]
+display_name = "tsUSDe Vault"
+types = "vault/types/tsusde_vault.types.tolk"
+hashes = ["9d54931c9d43e8699d2382095e8237b5acb1beecaf236d337210acd0b43cd19d"]
+known_addresses = ["EQChGuD1u0e7KUWHH5FaYh_ygcLXhsdG2nSHPXHW8qqnpZXW"]
+
+[contracts.TsusdeVault.instances.representative_mainnet]
+name = "tsUSDe Vault"
+address = "EQChGuD1u0e7KUWHH5FaYh_ygcLXhsdG2nSHPXHW8qqnpZXW"
+label = "Pinned active mainnet vault"
+network = "mainnet"
+
+[contracts.TsusdeWallet]
+display_name = "tsUSDe Wallet"
+types = "wallet/types/tsusde_wallet.types.tolk"
+hashes = ["d3624ca5def8b5d8fb3b929f6554a37f989e06b873fd49442cea94a3bd671940"]
+known_addresses = ["EQDjJT1i9vgNpsbctFwYCMEgtADsTfoeEnaD4QSWCUY1X8zf"]
+
+[contracts.TsusdeWallet.instances.representative_mainnet]
+name = "tsUSDe Wallet"
+address = "EQDjJT1i9vgNpsbctFwYCMEgtADsTfoeEnaD4QSWCUY1X8zf"
+label = "Pinned active mainnet wallet"
+network = "mainnet"
