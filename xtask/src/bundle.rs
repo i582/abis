@@ -115,6 +115,7 @@ pub fn run(args: BundleArgs) -> Result<()> {
     json.push(b'\n');
 
     write_atomic(&out_path, &json)?;
+    update_readme_stats(&root, &bundle)?;
 
     eprintln!(
         "Wrote {} ({} contracts, {} bytes)",
@@ -126,6 +127,85 @@ pub fn run(args: BundleArgs) -> Result<()> {
         eprintln!("Skipped {skipped} catalog entries without a types field");
     }
 
+    Ok(())
+}
+
+fn update_readme_stats(root: &Path, bundle: &Bundle) -> Result<()> {
+    let readme_path = root.join("README.md");
+    let readme = fs::read_to_string(&readme_path)
+        .with_context(|| format!("failed to read {}", display_path(root, &readme_path)))?;
+
+    let mut hashes = HashSet::new();
+    let mut addresses = HashSet::new();
+    let mut opcode_prefixes = HashSet::new();
+    let mut get_methods = HashSet::new();
+
+    for contract in &bundle.contracts {
+        hashes.extend(contract.hashes.iter().cloned());
+        addresses.extend(contract.known_addresses.iter().cloned());
+
+        if let Some(declarations) = contract
+            .compiler_abi
+            .get("declarations")
+            .and_then(JsonValue::as_array)
+        {
+            for declaration in declarations {
+                if let Some(prefix) = declaration.get("prefix") {
+                    opcode_prefixes.insert(prefix.to_string());
+                }
+            }
+        }
+
+        if let Some(methods) = contract
+            .compiler_abi
+            .get("get_methods")
+            .and_then(JsonValue::as_array)
+        {
+            for method in methods {
+                if let Some(name) = method.get("name").and_then(JsonValue::as_str) {
+                    get_methods.insert(name.to_owned());
+                }
+            }
+        }
+    }
+
+    let catalog_line = format!(
+        "Current catalog size: **{} contract entries**, **{} unique contract code hashes**, and **{} unique known contract addresses**.",
+        bundle.contracts.len(),
+        hashes.len(),
+        addresses.len(),
+    );
+    let abi_line = format!(
+        "Across the generated public catalog, the repository declares **{} unique opcode prefixes** and **{} unique get-method names**.",
+        opcode_prefixes.len(),
+        get_methods.len(),
+    );
+
+    let mut replaced_catalog = false;
+    let mut replaced_abi = false;
+    let updated = readme
+        .lines()
+        .map(|line| {
+            if line.starts_with("Current catalog size:") {
+                replaced_catalog = true;
+                catalog_line.as_str()
+            } else if line.starts_with("Across the generated public catalog,") {
+                replaced_abi = true;
+                abi_line.as_str()
+            } else {
+                line
+            }
+        })
+        .collect::<Vec<_>>()
+        .join("\n")
+        + "\n";
+
+    if !replaced_catalog || !replaced_abi {
+        bail!("README.md does not contain the catalog statistics markers");
+    }
+
+    write_atomic(&readme_path, updated.as_bytes())?;
+    eprintln!("Updated README.md catalog statistics");
     Ok(())
 }
 

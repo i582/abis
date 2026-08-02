@@ -1365,6 +1365,12 @@ src = "data/moon/pool/testdata/MoonPool.boc"
 types = "data/moon/pool/types/moon_pool.types.tolk"
 depends = []
 
+[contracts.MoonClmmRange]
+display-name = "Moon.cx CLMM Range"
+src = "data/moon/clmm_range/testdata/MoonClmmRange.boc"
+types = "data/moon/clmm_range/types/moon_clmm_range.types.tolk"
+depends = []
+
 [contracts.MoonOrderFactory]
 display-name = "Moon Order Factory"
 src = "data/moon/order_factory/testdata/MoonOrderFactory.boc"
@@ -1671,6 +1677,8 @@ moon-booster-mainnet-test = "acton test data/moon/booster/tests/moon_booster_mai
 moon-booster-message-bodies-test = "acton test data/moon/booster/tests/moon_booster_message_bodies.test.tolk --show-bodies"
 moon-pool-mainnet-test = "acton test data/moon/pool/tests/moon_pool_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
 moon-pool-message-bodies-test = "acton test data/moon/pool/tests/moon_pool_message_bodies.test.tolk --show-bodies"
+moon-clmm-range-mainnet-test = "acton test data/moon/clmm_range/tests/moon_clmm_range_mainnet.test.tolk --fork-net mainnet --fork-block-number 83416870 --show-bodies"
+moon-clmm-range-message-bodies-test = "acton test data/moon/clmm_range/tests/moon_clmm_range_message_bodies.test.tolk --show-bodies"
 moon-order-factory-mainnet-test = "acton test data/moon/order_factory/tests/moon_order_factory_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
 moon-order-old-mainnet-test = "acton test data/moon/order/old/tests/moon_order_old_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
 moon-order-new-mainnet-test = "acton test data/moon/order/new/tests/moon_order_new_mainnet.test.tolk --fork-net mainnet --fork-block-number 83400035 --show-bodies"
@@ -1714,6 +1722,7 @@ acton run aqua-usd-master-vault-storage-test
 acton run bidask-damm-lp-wallet-message-bodies-test
 acton run bidask-internal-liquidity-vault-storage-test
 acton run bidask-pool-storage-test
+acton run moon-clmm-range-message-bodies-test
 acton run daolama-message-bodies-test
 acton run dedust-pool-v2-message-bodies-test
 acton run dedust-vault-jetton-v2-message-bodies-test
@@ -1916,6 +1925,7 @@ acton run dedust-vault-native-v2-mainnet-test
 acton run dedust-liquidity-deposit-v2-storage-test
 acton run bidask-pool-mainnet-test
 acton run bidask-damm-pool-mainnet-test
+acton run moon-clmm-range-mainnet-test
 acton run lockup-universal-mainnet-test
 acton run wallet-v1r1-mainnet-test
 acton run wallet-v1r3-mainnet-test

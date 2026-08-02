@@ -2,7 +2,7 @@
 name = "moon"
 project = "Moon.cx"
 category = "DEX and trading contracts"
-description = "Moon.cx liquidity pool, order routing, and boost contracts"
+description = "Moon.cx constant-product and concentrated-liquidity pools, order routing, and boost contracts"
 
 [contracts.MoonBooster]
 display_name = "Moon.cx Booster"
@@ -25,6 +25,56 @@ known_addresses = ["EQCMpWCnDHVhMnUspAaKxagkXuW0NGhMq6Y-HCW_BO20e-Ju"]
 name = "Moon.cx TON/USDT Pool"
 address = "EQCMpWCnDHVhMnUspAaKxagkXuW0NGhMq6Y-HCW_BO20e-Ju"
 network = "mainnet"
+
+[contracts.MoonClmmRange]
+display_name = "Moon.cx CLMM Range"
+types = "clmm_range/types/moon_clmm_range.types.tolk"
+hashes = ["dfa9fd42df3347715c99841052ac7395927fa3bf00dec27912ae922387beac91"]
+known_addresses = [
+  "EQCzsA2cULtgsoTSGi47JsR-R7KGjkSVQdQY5cJqR2GJJ00w",
+  "EQA0VcBwsHdubKdLypMORAFbfSQZiY4hvhTqP7OWCIDIDb5-",
+  "EQBb9cFMLiLJFgoTDazfcZQsL9OUrTPIWQ29-FFpTOKbBQEX",
+  "EQAAkNGC_1PjTYB84UkTvUkCbY-nKuTrdyfB-MkOwVuHJwfl",
+]
+
+[[contracts.MoonClmmRange.links]]
+kind = "docs"
+title = "Moon.cx CLMM SDK documentation"
+url = "https://moon.cx/docs/clmm"
+
+[[contracts.MoonClmmRange.links]]
+kind = "sdk"
+title = "Official Moon.cx SDK"
+url = "https://www.npmjs.com/package/@mooncx/sdk"
+
+[[contracts.MoonClmmRange.links]]
+kind = "api"
+title = "Moon.cx CLMM pool registry"
+url = "https://api.moon.cx/clmm/pools"
+
+[contracts.MoonClmmRange.instances.ton_usdt_mainnet]
+name = "Moon.cx TON/USD₮ CLMM Range 0"
+address = "EQCzsA2cULtgsoTSGi47JsR-R7KGjkSVQdQY5cJqR2GJJ00w"
+network = "mainnet"
+block_seqno = 83416870
+
+[contracts.MoonClmmRange.instances.ton_utya_mainnet]
+name = "Moon.cx TON/UTYA CLMM Range 0"
+address = "EQA0VcBwsHdubKdLypMORAFbfSQZiY4hvhTqP7OWCIDIDb5-"
+network = "mainnet"
+block_seqno = 83416870
+
+[contracts.MoonClmmRange.instances.ton_redo_mainnet]
+name = "Moon.cx TON/REDO CLMM Range 0"
+address = "EQBb9cFMLiLJFgoTDazfcZQsL9OUrTPIWQ29-FFpTOKbBQEX"
+network = "mainnet"
+block_seqno = 83416870
+
+[contracts.MoonClmmRange.instances.ton_bolt_mainnet]
+name = "Moon.cx TON/BOLT CLMM Range 0"
+address = "EQAAkNGC_1PjTYB84UkTvUkCbY-nKuTrdyfB-MkOwVuHJwfl"
+network = "mainnet"
+block_seqno = 83416870
 
 [contracts.MoonOrderFactory]
 display_name = "Moon.cx Order Factory"
