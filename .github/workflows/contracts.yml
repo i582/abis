@@ -13,7 +13,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions: {}
+permissions: { }
 
 env:
   ACTON_VERSION: "trunk"
@@ -30,12 +30,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
       - name: Cache Cargo
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
         with:
           shared-key: workspace
           save-if: ${{ github.ref == 'refs/heads/master' }}
@@ -66,7 +66,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
@@ -76,14 +76,13 @@ jobs:
           version: ${{ env.ACTON_VERSION }}
 
       - name: Cache Cargo
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
         with:
           shared-key: workspace
           save-if: ${{ github.ref == 'refs/heads/master' }}
 
-      - name: Restore Acton cache
-        id: acton-cache
-        uses: actions/cache/restore@v4
+      - name: Cache Acton
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: |
             .acton/
@@ -105,16 +104,6 @@ jobs:
       - name: Lint Tolk
         run: acton check --output-format github
 
-      - name: Save Acton cache
-        if: always()
-        uses: actions/cache/save@v4
-        continue-on-error: true
-        with:
-          path: |
-            .acton/
-            build/cache/
-          key: ${{ steps.acton-cache.outputs.cache-primary-key }}
-
   acton-tests:
     name: Tolk tests (shard ${{ matrix.shard }}/4)
     needs: acton-quality
@@ -131,11 +120,11 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: [ 1, 2, 3, 4 ]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
@@ -144,9 +133,8 @@ jobs:
         with:
           version: ${{ env.ACTON_VERSION }}
 
-      - name: Restore Acton cache
-        id: acton-cache
-        uses: actions/cache/restore@v4
+      - name: Cache Acton
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: |
             .acton/
@@ -160,13 +148,3 @@ jobs:
 
       - name: Run Tolk test shard
         run: acton run run-test-shard-${{ matrix.shard }}
-
-      - name: Save Acton cache
-        if: always()
-        uses: actions/cache/save@v4
-        continue-on-error: true
-        with:
-          path: |
-            .acton/
-            build/cache/
-          key: ${{ steps.acton-cache.outputs.cache-primary-key }}
