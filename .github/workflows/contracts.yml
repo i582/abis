@@ -3,11 +3,9 @@ name: CI
 on:
   push:
     branches:
-      - main
       - master
   pull_request:
     branches:
-      - main
       - master
   workflow_dispatch:
 
@@ -37,17 +35,10 @@ jobs:
           persist-credentials: false
 
       - name: Cache Cargo
-        uses: actions/cache@v4
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}-${{ hashFiles('Cargo.toml', 'xtask/Cargo.toml', 'xtask/src/**/*.rs') }}
-          restore-keys: |
-            cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}-
-            cargo-${{ runner.os }}-
+          shared-key: workspace
+          save-if: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Check Rust formatting
         run: cargo fmt --all -- --check
@@ -84,18 +75,11 @@ jobs:
         with:
           version: ${{ env.ACTON_VERSION }}
 
-      - name: Restore Cargo cache
-        uses: actions/cache/restore@v4
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}-${{ hashFiles('Cargo.toml', 'xtask/Cargo.toml', 'xtask/src/**/*.rs') }}
-          restore-keys: |
-            cargo-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}-
-            cargo-${{ runner.os }}-
+          shared-key: workspace
+          save-if: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Restore Acton cache
         id: acton-cache
