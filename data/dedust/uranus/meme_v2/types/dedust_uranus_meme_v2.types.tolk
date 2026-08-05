@@ -57,7 +57,7 @@ struct DedustUranusMemeV2BondingCurve {
     beta: coins
     /// Supply amount allocated for curve sells.
     onSellSupply: coins
-    /// TON raised so far.
+    /// GRAM raised so far.
     raisedFunds: coins
     /// Current circulating supply.
     currentSupply: coins
@@ -97,7 +97,7 @@ struct DedustUranusMemeV2TradeFees {
 struct (0x796f5a0c) DedustUranusMemeV2InitMeme {
     /// Deployment query id copied from the Factory request.
     queryId: uint64
-    /// Initial TON amount used for the creator buy.
+    /// Initial GRAM amount used for the creator buy.
     initialBuy: coins
     /// Optional inline partner attribution.
     partnerConfig: DedustUranusMemeV2PartnerConfig?
@@ -109,11 +109,11 @@ struct (0x796f5a0c) DedustUranusMemeV2InitMeme {
 struct (0x94826557) DedustUranusMemeV2BuyMessage {
     /// Caller-selected tracing id.
     queryId: uint64
-    /// TON input amount accounted by the bonding curve.
+    /// GRAM input amount accounted by the bonding curve.
     amount: coins
     /// Minimum acceptable token output.
     minimalAmountOut: coins
-    /// Address receiving excess TON and callbacks.
+    /// Address receiving excess GRAM and callbacks.
     excessesTo: address
     /// Optional ref-backed partner attribution.
     partnerConfig: Cell<DedustUranusMemeV2PartnerConfig>?
@@ -127,11 +127,11 @@ struct (0x646ad424) DedustUranusMemeV2SellMessage {
     queryId: uint64
     /// Token amount sold into the curve.
     amount: coins
-    /// Minimum acceptable TON output.
+    /// Minimum acceptable GRAM output.
     minimalAmountOut: coins
     /// Owner address that initiated the sell.
     from: address
-    /// Optional address receiving excess TON and callbacks.
+    /// Optional address receiving excess GRAM and callbacks.
     excessesTo: address?
     /// Optional ref-backed partner attribution.
     partnerConfig: Cell<DedustUranusMemeV2PartnerConfig>?
@@ -200,7 +200,7 @@ struct (0xce185bd7) DedustUranusMemeV2CpmmInitResult {
 struct (0xa0aa6bc2) DedustUranusMemeV2BuyEvent {
     /// Trader address.
     traderAddress: address
-    /// TON input amount.
+    /// GRAM input amount.
     amountIn: coins
     /// Token output amount.
     amountOut: coins
@@ -208,7 +208,7 @@ struct (0xa0aa6bc2) DedustUranusMemeV2BuyEvent {
     fees: DedustUranusMemeV2TradeFees
     /// Current circulating supply after the buy.
     currentSupply: coins
-    /// Raised TON after the buy.
+    /// Raised GRAM after the buy.
     raisedFunds: coins
     /// Whether the token is graduated after the buy.
     isGraduated: bool
@@ -221,13 +221,13 @@ struct (0x3ab0fccc) DedustUranusMemeV2SellEvent {
     traderAddress: address
     /// Token input amount.
     amountIn: coins
-    /// TON output amount.
+    /// GRAM output amount.
     amountOut: coins
     /// Trade fee breakdown.
     fees: DedustUranusMemeV2TradeFees
     /// Current circulating supply after the sell.
     currentSupply: coins
-    /// Raised TON after the sell.
+    /// Raised GRAM after the sell.
     raisedFunds: coins
 }
 
@@ -271,7 +271,7 @@ struct DedustUranusMemeV2GetMemeDataReply {
     onSellSupply: int
     /// Trading fee in basis points.
     tradeFeeBps: uint16
-    /// TON raised so far.
+    /// GRAM raised so far.
     raisedFunds: int
     /// Current circulating supply.
     currentSupply: int
@@ -315,7 +315,7 @@ type DedustUranusMemeV2OutgoingMessage =
 enum DedustUranusMemeV2Errors {
     /// Output amount is below the supplied slippage limit.
     SlippageExceeded = 21
-    /// Attached TON value is not enough for the requested operation.
+    /// Attached GRAM value is not enough for the requested operation.
     MessageValueTooLow = 23
     /// Meme state was already initialized.
     AlreadyInitialized = 24

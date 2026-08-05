@@ -59,7 +59,7 @@ struct (0x5fcc3d14) GetgemsDeployerNftTransfer {
     responseAddress: address
     /// Always absent in the compiled deployer BoC.
     customPayload: cell?
-    /// Always zero; no nanotons are forwarded in the NFT ownership notification.
+    /// Always zero; no nanograms are forwarded in the NFT ownership notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; compiled code emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs

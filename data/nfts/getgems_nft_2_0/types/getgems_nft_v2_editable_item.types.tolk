@@ -38,7 +38,7 @@ type GetgemsNftEditableItemV2MintForwardPayload = RemainingBitsAndRefs
 
 /// Optional tail layout after editable mint init body when source emits initial ownership_assigned.
 struct GetgemsNftEditableItemV2MintForwardTail {
-    /// Nanotons forwarded to the initial owner notification; absent when the raw tail is empty.
+    /// Nanograms forwarded to the initial owner notification; absent when the raw tail is empty.
     forwardTonAmount: coins
     /// Raw remaining payload copied into the initial ownership_assigned message.
     forwardPayload: GetgemsNftEditableItemV2MintForwardPayload
@@ -66,7 +66,7 @@ struct (0x5fcc3d14) GetgemsNftEditableItemV2Transfer {
     responseDestination: address?
     /// Optional referenced custom payload parsed for layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -88,7 +88,7 @@ struct (0x1c04412a) GetgemsNftEditableItemV2TransferEditorship {
     responseDestination: address?
     /// Optional referenced custom payload parsed for layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new editor notification.
+    /// Nanograms forwarded to the new editor notification.
     forwardTonAmount: coins
     /// Raw `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

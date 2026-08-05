@@ -12,9 +12,9 @@ struct GasPumpBondingCurveParameters {
     maxSupply: int
     /// Supply allocated to the bonding-curve phase.
     bondingCurveMaxSupply: int
-    /// TON target that ends the bonding-curve phase.
+    /// GRAM target that ends the bonding-curve phase.
     maxTonAmount: int
-    /// TON amount reserved for DEX deployment.
+    /// GRAM amount reserved for DEX deployment.
     dexFeeAmount: int
 }
 
@@ -32,9 +32,9 @@ struct GasPumpFullJettonData {
     walletCode: cell
     /// Trading phase: zero for curve trading, one for DEX deployment, and two for DEX trading.
     tradeState: int
-    /// TON retained by the bonding curve.
+    /// GRAM retained by the bonding curve.
     bondingCurveBalance: int
-    /// TON accumulated as protocol commission.
+    /// GRAM accumulated as protocol commission.
     commissionBalance: int
     /// GasPump contract revision stored on chain.
     version: int
@@ -51,9 +51,9 @@ struct GasPumpFullJettonData {
     )
     /// Protocol commission in promille.
     commissionPromille: int
-    /// Current contract balance in nanotons.
+    /// Current contract balance in nanograms.
     tonBalance: int
-    /// Current Jetton price in nanotons.
+    /// Current Jetton price in nanograms.
     priceNanotons: int
     /// Jetton supply not yet sold by the curve.
     supplyLeft: int
@@ -109,7 +109,7 @@ struct GasPumpCurveParametersStorage {
     tail: RemainingBitsAndRefs
 }
 
-/// Supply and TON limits persisted by the bonding curve.
+/// Supply and GRAM limits persisted by the bonding curve.
 struct GasPumpCurveLimitsStorage {
     /// Second curve coefficient.
     beta: uint256
@@ -117,9 +117,9 @@ struct GasPumpCurveLimitsStorage {
     maxSupply: coins
     /// Supply allocated to the bonding-curve phase.
     bondingCurveMaxSupply: coins
-    /// TON target that ends the bonding-curve phase.
+    /// GRAM target that ends the bonding-curve phase.
     maxTonAmount: coins
-    /// TON amount reserved for DEX deployment.
+    /// GRAM amount reserved for DEX deployment.
     dexFeeAmount: coins
     /// Reserved tail retained for byte-exact forward compatibility.
     tail: RemainingBitsAndRefs
@@ -157,13 +157,13 @@ struct (0x67617300) GasPumpDeploymentEvent {
 struct (0x67617301) GasPumpDeployAndBuyEvent {
     /// Buyer address.
     from: address
-    /// TON attached to the initial purchase before accounting.
+    /// GRAM attached to the initial purchase before accounting.
     inputTonAmount: coins
-    /// TON credited to the curve after fees and forwarding costs.
+    /// GRAM credited to the curve after fees and forwarding costs.
     tonAmount: coins
     /// Jetton amount delivered to the buyer.
     jettonAmount: coins
-    /// TON commission retained by the protocol.
+    /// GRAM commission retained by the protocol.
     feeTonAmount: coins
     /// True when the purchase exceeded the remaining bonding-curve capacity.
     bondingCurveOverflow: bool
@@ -173,13 +173,13 @@ struct (0x67617301) GasPumpDeployAndBuyEvent {
 struct (0x67617302) GasPumpBuyEvent {
     /// Buyer address.
     from: address
-    /// TON attached to the purchase before accounting.
+    /// GRAM attached to the purchase before accounting.
     inputTonAmount: coins
-    /// TON credited to the curve after fees and forwarding costs.
+    /// GRAM credited to the curve after fees and forwarding costs.
     tonAmount: coins
     /// Jetton amount delivered to the buyer.
     jettonAmount: coins
-    /// TON commission retained by the protocol.
+    /// GRAM commission retained by the protocol.
     feeTonAmount: coins
     /// True when the purchase exceeded the remaining bonding-curve capacity.
     bondingCurveOverflow: bool
@@ -189,11 +189,11 @@ struct (0x67617302) GasPumpBuyEvent {
 struct (0x67617303) GasPumpSellEvent {
     /// Seller address.
     from: address
-    /// TON returned to the seller after commission.
+    /// GRAM returned to the seller after commission.
     tonAmount: coins
     /// Jetton amount burned by the seller.
     jettonAmount: coins
-    /// TON commission retained by the protocol.
+    /// GRAM commission retained by the protocol.
     feeTonAmount: coins
 }
 
@@ -226,13 +226,13 @@ struct (0x67617304) GasPumpUnwrapEvent {
     jettonAmount: coins
 }
 
-/// Three TON amounts reported when GasPump starts the DEX deposit flow.
+/// Three GRAM amounts reported when GasPump starts the DEX deposit flow.
 struct (0x67617305) GasPumpDexDepositEvent {
-    /// First TON amount supplied to the DEX transition.
+    /// First GRAM amount supplied to the DEX transition.
     amount0: coins
-    /// Second TON amount supplied to the DEX transition.
+    /// Second GRAM amount supplied to the DEX transition.
     amount1: coins
-    /// Third TON amount retained for the transition.
+    /// Third GRAM amount retained for the transition.
     amount2: coins
 }
 
@@ -288,9 +288,9 @@ struct (0x00000400) GasPumpMessage00000400 {
     payload: RemainingBitsAndRefs
 }
 
-/// Owner-authorized TON withdrawal body.
+/// Owner-authorized GRAM withdrawal body.
 struct (0x1dce79ba) GasPumpMessage1dce79ba {
-    /// TON amount to send.
+    /// GRAM amount to send.
     amount: coins
     /// Internal destination of the withdrawal.
     destination: address
@@ -304,7 +304,7 @@ struct (0x268800bd) GasPumpMessage268800bd {
 
 /// Owner-authorized value transfer.
 struct (0x5b22c66d) GasPumpMessage5b22c66d {
-    /// TON amount to transfer.
+    /// GRAM amount to transfer.
     amount: coins
     /// Internal destination of the transfer.
     destination: address
@@ -339,7 +339,7 @@ struct (0x9b618389) GasPumpMessage9b618389 {
     bounce: bool
     /// Internal destination of the outgoing message.
     destination: address
-    /// TON value written to the outgoing message.
+    /// GRAM value written to the outgoing message.
     value: int257
     /// TVM send mode passed to `send_raw_message`.
     sendMode: int257
@@ -391,9 +391,9 @@ struct (0x178d4519) GasPumpJettonInternalTransfer {
     amount: coins
     /// Address that owns or originated the transferred Jettons.
     from: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address
-    /// TON forwarded with the wallet notification.
+    /// GRAM forwarded with the wallet notification.
     forwardTonAmount: coins
     /// `Either Cell ^Cell` forward payload, including its selector bit.
     forwardPayload: RemainingBitsAndRefs
@@ -407,11 +407,11 @@ struct (0x0f8a7ea5) GasPumpJettonTransfer {
     amount: coins
     /// Destination owner of the transferred Jettons.
     destination: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address
     /// Optional custom payload reference.
     customPayload: cell?
-    /// TON forwarded with the transfer.
+    /// GRAM forwarded with the transfer.
     forwardTonAmount: coins
     /// `Either Cell ^Cell` forward payload, including its selector bit.
     forwardPayload: RemainingBitsAndRefs
@@ -449,7 +449,7 @@ struct (0x00000015) GasPumpDexMessage15 {
     queryId: uint64
     /// GasPump master address.
     master: address
-    /// TON forwarded to the DEX-side contract.
+    /// GRAM forwarded to the DEX-side contract.
     forwardTonAmount: coins
     /// Referenced TEP-74 internal-transfer body.
     transfer: Cell<GasPumpJettonInternalTransfer>

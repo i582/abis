@@ -25,9 +25,9 @@ struct StonfiEscrowVaultStorage {
     owner: address
 }
 
-/// TON value and success/rejection bodies forwarded by an escrow action.
+/// GRAM value and success/rejection bodies forwarded by an escrow action.
 struct StonfiEscrowVaultForwardParams {
-    /// TON value attached to the forwarded message.
+    /// GRAM value attached to the forwarded message.
     value: coins
     /// Optional body used when the action succeeds.
     successPayload: cell?
@@ -103,9 +103,9 @@ struct StonfiEscrowVaultLockAdditionalDataMore {
 
 /// Settlement and forwarding metadata supplied with a Vault lock.
 struct StonfiEscrowVaultLockAdditionalData {
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// TON amount reserved as the order's safe deposit.
+    /// GRAM amount reserved as the order's safe deposit.
     tonSafeDeposit: coins
     /// Whether the user's fill is returned through an Escrow Vault.
     userFillToVault: bool
@@ -137,9 +137,9 @@ struct StonfiEscrowVaultInternalLockExtra {
     refFee: address?
     /// Referral fee tier in protocol basis points.
     refFeeTier: uint16
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: coins
     /// Whether rejected bid assets are refunded through a Vault.
     refundToVault: bool
@@ -217,7 +217,7 @@ struct (0x4bd679ff) StonfiEscrowVaultUnlock {
     refundToVault: bool
     /// Referenced condition-specific unlock arguments.
     unlockArgs: Cell<StonfiEscrowVaultBilateralUnlockArgs>
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Referenced recipient and refund addresses.
     extraFields: Cell<StonfiEscrowVaultUnlockExtraFields>
@@ -231,7 +231,7 @@ struct (0x5809e482) StonfiEscrowVaultWithdrawTokens {
     queryId: uint64
     /// Jetton amount removed from the Vault balance.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Optional forwarding parameters for the withdrawal.
     withdrawForwardParams: Cell<StonfiEscrowVaultForwardParams>?
@@ -243,9 +243,9 @@ struct (0x555edf4b) StonfiEscrowVaultDepositTokens {
     queryId: uint64
     /// Jetton amount added to the Vault balance.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// Nanotons forwarded to the owner notification.
+    /// Nanograms forwarded to the owner notification.
     forwardTonAmount: coins
     /// Optional body forwarded to the owner notification.
     forwardPayload: cell?
@@ -279,7 +279,7 @@ struct (0x30fe22ab) StonfiEscrowVaultMinterInternalUnlock {
     jettonWallet: address?
     /// Jetton amount unlocked in basic token units.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Referenced quote, routing, and forwarding metadata.
     additionalData: Cell<StonfiEscrowVaultUnlockAdditionalData>
@@ -295,7 +295,7 @@ struct (0x2c3b4692) StonfiEscrowVaultMinterInternalWithdrawTokens {
     collectedFees: coins
     /// Vault owner whose assets are withdrawn.
     owner: address?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Optional forwarding parameters for the withdrawal.
     forwardParams: Cell<StonfiEscrowVaultForwardParams>?
@@ -361,7 +361,7 @@ enum StonfiEscrowVaultErrors {
     InsufficientGas = 33565
     /// The requested Jetton amount is zero or exceeds the credited balance.
     InvalidAmount = 34643
-    /// The supplied TON safe deposit is below the required minimum.
+    /// The supplied GRAM safe deposit is below the required minimum.
     InsufficientSafeDeposit = 34650
     /// A configured forward value is below the required minimum.
     InsufficientForwardValue = 34651

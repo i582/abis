@@ -2,7 +2,7 @@
 contract TonpayInvoiceV9 {
     author: "TonPay"
     version: "9"
-    description: "TonPay Invoice records a TON payment request, enforces optional customer identity, and distributes paid value."
+    description: "TonPay Invoice records a GRAM payment request, enforces optional customer identity, and distributes paid value."
     storage: TonpayInvoiceV9Storage
     incomingMessages: TonpayInvoiceV9IncomingMessage
     outgoingMessages: TonpayInvoiceV9OutgoingMessage
@@ -32,7 +32,7 @@ struct TonpayInvoiceV9Storage {
     invoiceId: Cell<TonpayInvoiceV9Text>
     /// Referenced merchant metadata text.
     metadata: Cell<TonpayInvoiceV9Text>
-    /// Required payment amount in nanotons.
+    /// Required payment amount in nanograms.
     amount: uint64
     /// Signed two-bit paid flag; paid is encoded as `-1`.
     paid: int2
@@ -43,7 +43,7 @@ struct TonpayInvoiceV9Storage {
 /// Empty deployment or top-up body returned to the sender.
 struct TonpayInvoiceV9EmptyBody {}
 
-/// TON payment request accepted from a customer or the deploying Store.
+/// GRAM payment request accepted from a customer or the deploying Store.
 struct (0xf53a02d3) TonpayInvoiceV9Pay {
     /// Caller-selected correlation id.
     queryId: uint64
@@ -63,7 +63,7 @@ struct (0x48c504f3) TonpayInvoiceV9Edit {
     invoiceId: Cell<TonpayInvoiceV9Text>
     /// Replacement merchant metadata text.
     metadata: Cell<TonpayInvoiceV9Text>
-    /// Replacement payment amount in nanotons.
+    /// Replacement payment amount in nanograms.
     amount: uint64
 }
 
@@ -122,7 +122,7 @@ struct TonpayInvoiceV9DataReply {
     invoiceId: cell
     /// Merchant metadata text cell.
     metadata: cell
-    /// Required amount in nanotons.
+    /// Required amount in nanograms.
     amount: int
     /// Signed paid flag.
     paid: int
@@ -138,7 +138,7 @@ enum TonpayInvoiceV9Errors {
     InvoiceDeactivated = 61441
     /// Invoice was already paid.
     InvoiceAlreadyPaid = 61442
-    /// Attached TON does not cover the required amount.
+    /// Attached GRAM does not cover the required amount.
     NotEnoughTon = 61443
     /// Sender does not match the enforced customer or Store-provided payer.
     InvalidCustomer = 61444
@@ -185,7 +185,7 @@ get fun get_invoice_metadata(): cell {
     throw 0;
 }
 
-/// Return the required amount in nanotons.
+/// Return the required amount in nanograms.
 get fun get_invoice_amount(): int {
     throw 0;
 }

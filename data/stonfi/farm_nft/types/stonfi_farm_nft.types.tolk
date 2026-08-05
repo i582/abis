@@ -79,7 +79,7 @@ struct (0x2d673d98) StonfiFarmNftUnstakeCompleted {
     claimedPerUnit: map<uint8, uint150>
 }
 
-/// Owner-only request to retain the required reserve and return excess TON.
+/// Owner-only request to retain the required reserve and return excess GRAM.
 struct (0x42a0fb43) StonfiFarmNftResetGas {
     /// Query identifier copied into the excess-value response.
     queryId: uint64
@@ -101,7 +101,7 @@ struct (0x5fcc3d14) StonfiFarmNftTransfer {
     responseDestination: address?
     /// Optional custom payload from the inherited NFT transfer layout.
     customPayload: cell?
-    /// Nanotons requested for the ownership-assigned notification.
+    /// Nanograms requested for the ownership-assigned notification.
     forwardTonAmount: coins
     /// Inline or referenced forward payload from the inherited NFT transfer layout.
     forwardPayload: RemainingBitsAndRefs
@@ -301,7 +301,7 @@ struct StonfiFarmNftDataReply {
 enum StonfiFarmNftErrors {
     /// Sender address is outside the base workchain.
     InvalidWorkchain = 20085
-    /// Attached TON does not cover the required reserve and downstream messages.
+    /// Attached GRAM does not cover the required reserve and downstream messages.
     InsufficientAttachedValue = 20083
     /// Current lifecycle status does not allow the requested operation.
     InvalidStatus = 20803

@@ -34,7 +34,7 @@ struct (0x0f8a7ea5) JettonWalletCoffeeLpTransfer {
     responseAddress: address?
     /// Optional custom payload.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -50,7 +50,7 @@ struct (0x178d4519) JettonWalletCoffeeLpInternalTransfer {
     fromAddress: address
     /// Optional response address for an `excesses` refund.
     responseAddress: address?
-    /// Nanotons forwarded to the owner notification.
+    /// Nanograms forwarded to the owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -68,7 +68,7 @@ struct (0x595f07bc) JettonWalletCoffeeLpBurn {
     customPayload: cell?
 }
 
-/// Standard Jetton owner notification emitted when forwarded TON is attached.
+/// Standard Jetton owner notification emitted when forwarded GRAM is attached.
 struct (0x7362d09c) JettonWalletCoffeeLpTransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64

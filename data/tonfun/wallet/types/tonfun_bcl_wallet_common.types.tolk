@@ -18,11 +18,11 @@ struct (0x0f8a7ea5) TonFunBclWalletTransfer {
     amount: coins
     /// Owner address whose deterministic wallet receives the transfer.
     destination: address
-    /// Optional destination for returned excess TON.
+    /// Optional destination for returned excess GRAM.
     responseDestination: address?
     /// Optional referenced application payload ignored by the wallet.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -36,9 +36,9 @@ struct (0x178d4519) TonFunBclWalletInternalTransfer {
     amount: coins
     /// Source owner, or `addr_none` for a master-originated mint.
     fromAddress: address?
-    /// Optional destination for returned excess TON.
+    /// Optional destination for returned excess GRAM.
     responseAddress: address?
-    /// Nanotons forwarded to the receiving owner.
+    /// Nanograms forwarded to the receiving owner.
     forwardTonAmount: coins
     /// TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -50,7 +50,7 @@ struct (0x595f07bc) TonFunBclWalletBurn {
     queryId: uint64
     /// Jetton amount removed from the wallet balance.
     amount: coins
-    /// Optional destination for excess TON returned by the master.
+    /// Optional destination for excess GRAM returned by the master.
     responseDestination: address?
     /// Optional referenced application payload ignored by the wallet.
     customPayload: cell?
@@ -68,7 +68,7 @@ struct (0x742b36d8) TonFunBclWalletSell {
     queryId: uint64
     /// Jetton amount removed from the wallet balance for sale.
     amount: coins
-    /// Minimum TON amount accepted from the bonding curve.
+    /// Minimum GRAM amount accepted from the bonding curve.
     minReceiveAmount: coins
     /// Optional referenced referral data forwarded unchanged to the master.
     referral: cell?
@@ -94,7 +94,7 @@ struct (0x7362d09c) TonFunBclWalletTransferNotification {
 
 /// Standard excess-value response.
 struct (0xd53276db) TonFunBclWalletExcesses {
-    /// Query identifier associated with the returned TON.
+    /// Query identifier associated with the returned GRAM.
     queryId: uint64
 }
 
@@ -106,7 +106,7 @@ struct (0x7bdd97de) TonFunBclWalletBurnNotification {
     amount: coins
     /// Wallet owner reported to the master.
     ownerAddress: address
-    /// Optional destination for excess TON returned by the master.
+    /// Optional destination for excess GRAM returned by the master.
     responseDestination: address?
 }
 
@@ -116,7 +116,7 @@ struct (0x68e870fe) TonFunBclWalletSellNotification {
     queryId: uint64
     /// Jetton amount removed from the wallet balance.
     amount: coins
-    /// Minimum TON amount accepted by the owner.
+    /// Minimum GRAM amount accepted by the owner.
     minReceiveAmount: coins
     /// Wallet owner that initiated the sale.
     ownerAddress: address
@@ -160,7 +160,7 @@ struct GetTonFunBclWalletDataReply {
 enum TonFunBclWalletErrors {
     /// Transfer, burn, or sell would make the Jetton balance negative.
     InsufficientJettonBalance = 47
-    /// Attached TON does not cover the transfer, burn, sell, or unlock fee budget.
+    /// Attached GRAM does not cover the transfer, burn, sell, or unlock fee budget.
     NotEnoughGas = 48
     /// TEP-74 forward payload has an invalid `Either` shape.
     InvalidMessage = 49

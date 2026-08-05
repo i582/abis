@@ -1,4 +1,4 @@
-/// Old TON lockup vesting wallet with V3-style external messages and linear unlock schedule.
+/// Old GRAM lockup vesting wallet with V3-style external messages and linear unlock schedule.
 contract LockupVesting {
     author: "TON Core"
     version: "1.0"

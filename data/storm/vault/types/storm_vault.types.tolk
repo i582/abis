@@ -423,7 +423,7 @@ struct (0x0f8a7ea5) JettonTransfer {
     responseDestination: address
     /// Optional custom payload cell.
     customPayload: cell?
-    /// Forward TON amount attached to the transfer notification.
+    /// Forward GRAM amount attached to the transfer notification.
     forwardTonAmount: coins
     /// Raw forward payload bits and refs.
     forwardPayload: RemainingBitsAndRefs

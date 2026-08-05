@@ -115,7 +115,7 @@ struct StonfiSwapV2DexPayload {
     tokenWallet1: address
     /// Address where refunded Jettons are sent if routing or swap validation fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Execution deadline timestamp for this transaction.
     txDeadline: uint64
@@ -129,7 +129,7 @@ struct (0x6664de2a) StonfiRouterV2SwapForwardPayload {
     tokenWallet1: address
     /// Address where refunded Jettons are sent if routing or swap validation fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Execution deadline timestamp for this transaction.
     txDeadline: uint64
@@ -143,7 +143,7 @@ struct (0x69cf1a5b) StonfiRouterV2CrossSwapForwardPayload {
     tokenWallet1: address
     /// Address where refunded Jettons are sent if the chained swap fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Execution deadline timestamp for the chained swap.
     txDeadline: uint64
@@ -173,7 +173,7 @@ struct StonfiProvideLpV2DexPayload {
     tokenWallet1: address
     /// Address where refunded Jettons are sent if routing or Pool validation fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Execution deadline timestamp for this transaction.
     txDeadline: uint64
@@ -187,7 +187,7 @@ struct (0x37c096df) StonfiRouterV2ProvideLpForwardPayload {
     tokenWallet1: address
     /// Address where refunded Jettons are sent if routing or Pool validation fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Execution deadline timestamp for this transaction.
     txDeadline: uint64
@@ -213,7 +213,7 @@ struct (0x38a6022f) StonfiRouterV2UpdateStatus {
     queryId: uint64
 }
 
-/// Admin `reset_gas` request that reserves Router storage balance and returns excess TON to admin.
+/// Admin `reset_gas` request that reserves Router storage balance and returns excess GRAM to admin.
 struct (0x29d22935) PtonResetGas {
     /// Caller-selected query id; source does not inspect it after context parsing.
     queryId: uint64
@@ -225,7 +225,7 @@ struct StonfiRouterV2SetFeesJettonInfo {
     jettonWallet0: address
     /// Address of the Router's wallet of the second Jetton.
     jettonWallet1: address
-    /// Address where TON excesses are sent; `addr_none` is replaced with the message sender.
+    /// Address where GRAM excesses are sent; `addr_none` is replaced with the message sender.
     excessesRecipient: address?
 }
 
@@ -251,7 +251,7 @@ struct (0x66d0dff2) StonfiRouterV2ResetPoolGas {
     jettonWallet0: address
     /// Address of the Router's wallet of the second Jetton.
     jettonWallet1: address
-    /// Address where TON excesses are sent; `addr_none` is replaced with the message sender.
+    /// Address where GRAM excesses are sent; `addr_none` is replaced with the message sender.
     excessesRecipient: address?
 }
 
@@ -263,7 +263,7 @@ struct (0x2af4607c) StonfiRouterV2UpdatePoolStatus {
     jettonWallet0: address
     /// Address of the Router's wallet of the second Jetton.
     jettonWallet1: address
-    /// Address where TON excesses are sent; `addr_none` is replaced with the message sender.
+    /// Address where GRAM excesses are sent; `addr_none` is replaced with the message sender.
     excessesRecipient: address?
 }
 
@@ -343,7 +343,7 @@ struct (0x2b8b3b62) StonfiRouterV2SetStableSwapParams {
     leftJettonWallet: address
     /// Address of the Router's wallet of the second Jetton.
     rightJettonWallet: address
-    /// Address where TON excesses are sent; `addr_none` is replaced with the message sender.
+    /// Address where GRAM excesses are sent; `addr_none` is replaced with the message sender.
     excessesRecipient: address?
 }
 
@@ -353,7 +353,7 @@ struct StonfiRouterV2WeightedSetParamsRefData {
     leftJettonWallet: address
     /// Address of the Router's wallet of the second Jetton.
     rightJettonWallet: address
-    /// Address where TON excesses are sent; `addr_none` is replaced with the message sender.
+    /// Address where GRAM excesses are sent; `addr_none` is replaced with the message sender.
     excessesRecipient: address?
 }
 
@@ -393,7 +393,7 @@ struct (0x657b54f5) StonfiPayToV2 {
     queryId: uint64
     /// Receiver address for the outgoing Jetton transfer.
     toAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Original transaction sender used for cross-swap continuation.
     originalCaller: address
@@ -411,7 +411,7 @@ struct (0x63381632) StonfiPayVaultV2 {
     queryId: uint64
     /// Referral-fee owner used to derive the target Vault.
     owner: address
-    /// Address where TON excesses are sent after the Vault deposit.
+    /// Address where GRAM excesses are sent after the Vault deposit.
     excessesAddress: address
     /// Referenced additional-data cell with referral-fee amounts and token wallet addresses.
     additionalInfo: Cell<StonfiPayVaultV2AdditionalInfo>
@@ -481,7 +481,7 @@ struct (0x0490f09b) StonfiDepositRefFeeV2 {
     queryId: uint64
     /// Referral-fee Jetton amount in basic token units deposited into the derived Vault.
     jettonAmount: coins
-    /// Address where TON excesses are sent after the Vault reserves storage balance.
+    /// Address where GRAM excesses are sent after the Vault reserves storage balance.
     excessesAddress: address
 }
 
@@ -497,7 +497,7 @@ struct (0x0f8a7ea5) StonfiRouterV2JettonTransfer {
     responseDestination: address
     /// Optional payload attached to the transfer.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner with the transfer notification.
+    /// Nanograms forwarded to the destination owner with the transfer notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -513,7 +513,7 @@ struct (0x75930d63) StonfiRouterV2PoolInternalSetFees {
     newProtocolFee: uint16
     /// Address that receives protocol fees.
     newProtocolFeeAddress: address
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesAddress: address
 }
 
@@ -521,7 +521,7 @@ struct (0x75930d63) StonfiRouterV2PoolInternalSetFees {
 struct (0x29d22935) StonfiRouterV2PoolResetGas {
     /// Query id copied from the admin `reset_pool_gas` request.
     queryId: uint64
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesRecipient: address
 }
 
@@ -529,7 +529,7 @@ struct (0x29d22935) StonfiRouterV2PoolResetGas {
 struct (0x62752512) StonfiRouterV2PoolInternalUpdateStatus {
     /// Query id copied from the admin `update_pool_status` request.
     queryId: uint64
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesRecipient: address
 }
 
@@ -553,7 +553,7 @@ struct (0xf163444a) StonfiRouterV2PoolInternalSetParamsRaw {
 struct (0xf163444a) StonfiRouterV2PoolInternalSetStableSwapParams {
     /// Query id copied from the admin `set_params` request.
     queryId: uint64
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesAddress: address
     /// New StableSwap amplification coefficient.
     newAmp: uint32
@@ -569,7 +569,7 @@ struct StonfiRouterV2PoolInternalWeightedStableSwapParamsAdditionalData {
 struct (0xf163444a) StonfiRouterV2PoolInternalSetWeightedStableSwapParams {
     /// Query id copied from the admin `set_params` request.
     queryId: uint64
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesAddress: address
     /// Pool side wallet whose weight is being initialized.
     sideWallet: address
@@ -587,7 +587,7 @@ struct (0xf163444a) StonfiRouterV2PoolInternalSetWeightedStableSwapParams {
 struct (0xf163444a) StonfiRouterV2PoolInternalSetWeightedConstProductParams {
     /// Query id copied from the admin `set_params` request.
     queryId: uint64
-    /// Address where TON excesses are sent after Router-side `addr_none` substitution.
+    /// Address where GRAM excesses are sent after Router-side `addr_none` substitution.
     excessesAddress: address
     /// Pool side wallet whose weight is being initialized.
     sideWallet: address

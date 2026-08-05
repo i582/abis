@@ -49,7 +49,7 @@ struct DedustPoolV1Config {
     feeCollectorAddr: address?
 }
 
-/// Native TON asset tag.
+/// Native GRAM asset tag.
 struct (0b0000) DedustPoolV1NativeAsset {}
 
 /// Jetton asset tag with minter workchain and account hash.
@@ -318,7 +318,7 @@ struct (0x178d4519) DedustPoolV1JettonInternalTransfer {
     fromAddress: address
     /// Response address for LP wallet excesses.
     responseAddress: address?
-    /// Nanotons forwarded to the LP wallet owner.
+    /// Nanograms forwarded to the LP wallet owner.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

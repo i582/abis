@@ -197,7 +197,7 @@ struct (0x6378509f) StonfiRouterV1FinalizeUpgrades {
     queryId: uint64
 }
 
-/// Admin request that returns Router excess TON to the admin after reserving storage balance.
+/// Admin request that returns Router excess GRAM to the admin after reserving storage balance.
 struct (0x42a0fb43) StonfiRouterV1ResetGas {
     /// Caller-selected query id parsed by the Router dispatcher.
     queryId: uint64
@@ -275,7 +275,7 @@ struct (0x0f8a7ea5) StonfiRouterV1JettonTransfer {
     responseDestination: address
     /// Optional standard Jetton custom payload; Router v1 transfers leave it absent.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward-payload tail; Router v1 encodes a 32-bit status inline.
     forwardPayload: RemainingBitsAndRefs

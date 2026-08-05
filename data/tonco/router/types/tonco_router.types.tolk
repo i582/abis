@@ -149,7 +149,7 @@ struct (0xa1daa96d) Routerv3PayTo {
     payTo: ToncoPayToPayload
 }
 
-/// Admin command that returns Router excess TON after preserving storage reserve.
+/// Admin command that returns Router excess GRAM after preserving storage reserve.
 struct (0x42a0fb43) Routerv3ResetGas {
     /// Query id for tracing the reset-gas command.
     queryId: uint64
@@ -205,11 +205,11 @@ struct Poolv3SwapParamsCell {
 struct Poolv3SwapPayloadsCell {
     /// Target receiver for successful swap output.
     targetAddress: address
-    /// TON amount forwarded on successful swap.
+    /// GRAM amount forwarded on successful swap.
     okForwardAmount: coins
     /// Optional payload forwarded on successful swap.
     okForwardPayload: cell?
-    /// TON amount forwarded on returned/refunded flow.
+    /// GRAM amount forwarded on returned/refunded flow.
     retForwardAmount: coins
     /// Optional payload forwarded on returned/refunded flow.
     retForwardPayload: cell?
@@ -366,11 +366,11 @@ struct PayToCoinsinfoWithPayloadCell {
 
 /// Referenced per-token forward payload data inside pay-to callbacks.
 struct PayToPayloadCell {
-    /// TON amount forwarded with token0 payout payload.
+    /// GRAM amount forwarded with token0 payout payload.
     payloadAmount0: coins
     /// Optional payload cell forwarded with token0 payout.
     payloadCell0: cell?
-    /// TON amount forwarded with token1 payout payload.
+    /// GRAM amount forwarded with token1 payout payload.
     payloadAmount1: coins
     /// Optional payload cell forwarded with token1 payout.
     payloadCell1: cell?
@@ -415,15 +415,15 @@ type ToncoPayToPayload =
 struct ToncoPoolSwapForwardPayloadMultihopCell {
     /// Next-hop target address.
     targetAddress: address
-    /// TON amount forwarded on successful hop.
+    /// GRAM amount forwarded on successful hop.
     okForwardAmount: coins
     /// Optional payload forwarded on successful hop.
     okForwardPayload: cell?
-    /// TON amount forwarded on returned/refunded hop.
+    /// GRAM amount forwarded on returned/refunded hop.
     retForwardAmount: coins
     /// Optional payload forwarded on returned/refunded hop.
     retForwardPayload: cell?
-    /// Address receiving excess TON from multihop processing.
+    /// Address receiving excess GRAM from multihop processing.
     excessAddress: address
 }
 

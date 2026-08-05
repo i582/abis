@@ -11,7 +11,7 @@ contract FrtGramAdapterOrchestrator {
 struct FrtGramAdapterOrchestratorStorage {
     /// Address authorized to control the orchestrator.
     ownerAddress: address
-    /// Primary stored TON amount.
+    /// Primary stored GRAM amount.
     primaryAmount: coins
     /// First 16-bit state value.
     parameter0: uint16
@@ -21,7 +21,7 @@ struct FrtGramAdapterOrchestratorStorage {
     parameter1: uint16
     /// Optional stored address.
     optionalAddress: address?
-    /// Secondary stored TON amount.
+    /// Secondary stored GRAM amount.
     secondaryAmount: coins
     /// Second 32-bit state value.
     stateValue1: uint32
@@ -49,7 +49,7 @@ struct (0x9a1f0f0c) FrtGramOrchestratorWorkRequest {
 struct (0x9a1f0f0e) FrtGramOrchestratorWorkerDispatch {
     /// 32-bit request identifier passed to the worker.
     sequence: uint32
-    /// TON amount passed to the worker.
+    /// GRAM amount passed to the worker.
     amount: coins
     /// Worker destination address.
     destination: address
@@ -63,7 +63,7 @@ struct (0x9a1f0f0f) FrtGramOrchestratorWorkerResult {
     routeIndex: uint16
     /// 32-bit request identifier.
     sequence: uint32
-    /// TON amount reported by the worker.
+    /// GRAM amount reported by the worker.
     amount: coins
     /// First result address.
     workerAddress: address
@@ -75,7 +75,7 @@ struct (0x9a1f0f0f) FrtGramOrchestratorWorkerResult {
 
 /// Continuation sent from the orchestrator to the dispatcher.
 struct (0x9a1f0f1b) FrtGramOrchestratorContinuation {
-    /// TON amount assigned to the next continuation.
+    /// GRAM amount assigned to the next continuation.
     amount: coins
     /// 16-bit continuation value.
     routeIndex: uint16
@@ -97,12 +97,12 @@ type FrtGramAdapterOrchestratorOutgoingMessage =
     | FrtGramOrchestratorWorkerDispatch
     | FrtGramOrchestratorContinuation
 
-/// Return the control address, primary TON amount, and first 16-bit value.
+/// Return the control address, primary GRAM amount, and first 16-bit value.
 get fun info(): (address, coins, uint16) {
     throw 0;
 }
 
-/// Return a TON amount from the optional nested state.
+/// Return a GRAM amount from the optional nested state.
 get fun get_method_71958_cjwb(): coins {
     throw 0;
 }
@@ -147,7 +147,7 @@ get fun get_method_92936_fmrj(first: int, second: int): bool {
     throw 0;
 }
 
-/// Return the secondary stored TON amount.
+/// Return the secondary stored GRAM amount.
 get fun get_method_95225_eczj(): coins {
     throw 0;
 }

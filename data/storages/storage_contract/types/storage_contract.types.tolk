@@ -14,7 +14,7 @@ contract StorageContract {
 struct StorageContractStorage {
     /// Whether the provider has accepted and activated the agreement.
     active: bool
-    /// Client balance available to pay storage rewards, in nanotons.
+    /// Client balance available to pay storage rewards, in nanograms.
     balance: coins
     /// Provider address authorized for accept, proof, withdraw, and close flows.
     provider: address
@@ -24,7 +24,7 @@ struct StorageContractStorage {
     fileSize: uint64
     /// Next random proof challenge index.
     nextProof: uint64
-    /// Storage price in nanotons per MiB per day.
+    /// Storage price in nanograms per MiB per day.
     ratePerMbDay: coins
     /// Maximum allowed span between proofs, in seconds.
     maxSpan: uint32
@@ -130,7 +130,7 @@ type StorageContractOutgoingMessage =
 struct StorageContractDataReply {
     /// Current active flag returned by the contract.
     active: bool
-    /// Current client balance in nanotons.
+    /// Current client balance in nanograms.
     balance: coins
     /// Provider address stored in contract data.
     provider: address
@@ -140,7 +140,7 @@ struct StorageContractDataReply {
     fileSize: uint64
     /// Next random proof challenge index.
     nextProof: uint64
-    /// Storage price in nanotons per MiB per day.
+    /// Storage price in nanograms per MiB per day.
     ratePerMbDay: coins
     /// Maximum allowed proof span, in seconds.
     maxSpan: uint32

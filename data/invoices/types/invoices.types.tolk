@@ -2,7 +2,7 @@
 contract Invoices {
     author: "Unknown"
     version: "1.0"
-    description: "TON Invoices payloads help wallets and payment apps recognize invoice payments and jetton-forwarded payment details."
+    description: "GRAM Invoices payloads help wallets and payment apps recognize invoice payments and jetton-forwarded payment details."
     incomingMessages: InvoicesIncomingMessage
     forceAbiExport: InvoicesJettonPayload
 }

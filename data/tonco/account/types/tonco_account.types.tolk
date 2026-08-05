@@ -50,7 +50,7 @@ struct (0x3ebe5431) Accountv3AddLiquidity {
     tickUpper: int24
 }
 
-/// User command that returns excess TON after preserving account storage reserve.
+/// User command that returns excess GRAM after preserving account storage reserve.
 struct (0x42a0fb43) Accountv3ResetGas {
     /// Query id for tracing the reset-gas command.
     queryId: uint64

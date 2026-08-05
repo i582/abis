@@ -33,7 +33,7 @@ struct (0x0f8a7ea5) WtonWalletTransfer {
     responseDestination: address?
     /// Optional transfer-specific payload.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient owner.
+    /// Nanograms forwarded to the recipient owner.
     forwardTonAmount: coins
     /// Inline or referenced payload forwarded with a transfer notification.
     forwardPayload: RemainingBitsAndRefs
@@ -49,7 +49,7 @@ struct (0x178d4519) WtonWalletInternalTransfer {
     fromAddress: address
     /// Address that receives remaining message value.
     responseDestination: address?
-    /// Nanotons forwarded to this wallet's owner.
+    /// Nanograms forwarded to this wallet's owner.
     forwardTonAmount: coins
     /// Optional inline or referenced notification payload.
     forwardPayload: RemainingBitsAndRefs
@@ -83,13 +83,13 @@ struct (0x178d4519) WtonWalletOutgoingInternalTransfer {
     fromAddress: address
     /// Address that receives remaining message value.
     responseDestination: address?
-    /// Nanotons forwarded to the destination owner.
+    /// Nanograms forwarded to the destination owner.
     forwardTonAmount: coins
     /// Inline or referenced notification payload.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Notification emitted to an owner when forwarded TON is non-zero.
+/// Notification emitted to an owner when forwarded GRAM is non-zero.
 struct (0x7362d09c) WtonWalletTransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64
@@ -113,7 +113,7 @@ struct (0x7bdd97de) WtonWalletBurnNotification {
     queryId: uint64
     /// Burned WTON amount.
     amount: coins
-    /// Wallet owner whose TON must be released.
+    /// Wallet owner whose GRAM must be released.
     ownerAddress: address
     /// Response destination supplied by the minter.
     responseDestination: address?

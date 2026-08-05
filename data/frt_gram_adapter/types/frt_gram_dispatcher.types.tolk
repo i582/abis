@@ -43,7 +43,7 @@ struct (0x9a1f0c0a) FrtGramDispatcherRouteRequest {
     action: uint8
     /// Next route destination.
     destination: address
-    /// TON amount carried into the route.
+    /// GRAM amount carried into the route.
     amount: coins
     /// Callback or excess destination.
     responseAddress: address
@@ -55,11 +55,11 @@ struct (0x9a1f0c0a) FrtGramDispatcherRouteRequest {
 
 /// Route continuation received from the orchestrator.
 struct (0x9a1f0f1b) FrtGramDispatcherContinuation {
-    /// TON amount assigned to the continuation.
+    /// GRAM amount assigned to the continuation.
     amount: coins
     /// Stored 16-bit route value.
     routeIndex: uint16
-    /// Additional TON amount reserved for the continuation.
+    /// Additional GRAM amount reserved for the continuation.
     reserve: coins
     /// Continuation destination address.
     destination: address
@@ -69,13 +69,13 @@ struct (0x9a1f0f1b) FrtGramDispatcherContinuation {
 
 /// Execution result returned by the executor.
 struct (0x9a1f0d08) FrtGramDispatcherExecutionResult {
-    /// TON amount reported by the executor.
+    /// GRAM amount reported by the executor.
     amount: coins
     /// Destination that receives the subsequent callback.
     responseDestination: address
     /// Whether execution succeeded.
     success: bool
-    /// Second TON amount reported by execution.
+    /// Second GRAM amount reported by execution.
     secondaryAmount: coins
 }
 
@@ -83,7 +83,7 @@ struct (0x9a1f0d08) FrtGramDispatcherExecutionResult {
 struct (0x9a1f0c0d) FrtGramDispatcherCoordinatorCallback {
     /// Whether the dispatched route completed successfully.
     success: bool
-    /// TON amount returned by the route.
+    /// GRAM amount returned by the route.
     amount: coins
 }
 
@@ -106,7 +106,7 @@ get fun get_method_70452_bobg(): cell {
     throw 0;
 }
 
-/// Return the fixed 0.05 TON amount used by the dispatcher.
+/// Return the fixed 0.05 GRAM amount used by the dispatcher.
 get fun storageReserve(): int {
     throw 0;
 }

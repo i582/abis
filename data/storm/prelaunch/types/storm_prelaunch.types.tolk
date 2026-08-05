@@ -138,7 +138,7 @@ struct (0x0f8a7ea5) StormPrelaunchJettonTransfer {
     responseDestination: address
     /// Optional custom payload; live send sites use null.
     customPayload: cell?
-    /// TON amount forwarded with the jetton transfer.
+    /// GRAM amount forwarded with the jetton transfer.
     forwardTonAmount: coins
     /// Raw forward payload copied or built by the live code.
     forwardPayload: RemainingBitsAndRefs

@@ -2,7 +2,7 @@
 contract TonstakersValidatorController {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers Validator Controller is the validator-side account that stakes pooled TON and returns round results to the pool."
+    description: "Tonstakers Validator Controller is the validator-side account that stakes pooled GRAM and returns round results to the pool."
     storage: TonstakersValidatorControllerStorage
     incomingMessages: TonstakersValidatorControllerIncomingMessage
     outgoingMessages: TonstakersValidatorControllerOutgoingMessage
@@ -143,7 +143,7 @@ struct (0xf0fd2250) TonstakersValidatorControllerUpdateValidatorHash {
     queryId: uint64
 }
 
-/// Validator command that withdraws TON from the controller wallet back to validator.
+/// Validator command that withdraws GRAM from the controller wallet back to validator.
 struct (0x8efed779) TonstakersValidatorControllerWithdrawValidator {
     /// Query id copied into the outgoing validator withdrawal notification.
     queryId: uint64
@@ -155,7 +155,7 @@ struct (0x8efed779) TonstakersValidatorControllerWithdrawValidator {
 struct (0x4e73744b) TonstakersValidatorControllerNewStake {
     /// Non-zero query id copied into the outgoing Elector `new_stake` body and Elector response.
     queryId: uint64
-    /// TON amount sent to Elector as the message value.
+    /// GRAM amount sent to Elector as the message value.
     stakeValue: coins
     /// Validator public key forwarded to Elector.
     validatorPubkey: bits256
@@ -173,7 +173,7 @@ struct (0x4e73744b) TonstakersValidatorControllerNewStake {
 struct (0xe0505d0e) TonstakersValidatorControllerNewStakeE0505d0e {
     /// Non-zero query id used to correlate the Elector response.
     queryId: uint64
-    /// TON amount the controller should send to Elector.
+    /// GRAM amount the controller should send to Elector.
     stakeValue: coins
     /// Validator Ed25519 public key.
     validatorPubkey: uint256
@@ -279,7 +279,7 @@ struct (0x47657424) TonstakersValidatorControllerElectorRecoverStake {
 
 /// Validator notification body emitted after a successful withdrawal request.
 struct (0x30026327) TonstakersValidatorControllerValidatorWithdrawal {
-    /// Query id copied from `withdraw_validator`; withdrawal amount is the TON message value.
+    /// Query id copied from `withdraw_validator`; withdrawal amount is the GRAM message value.
     queryId: uint64
 }
 
@@ -390,9 +390,9 @@ enum Errors {
     TooEarlyStakeRecoverAttemptCount = 0xf600
     /// Stake recovery was requested before the unfreeze timing condition was met.
     TooEarlyStakeRecoverAttemptTime = 0xf601
-    /// Attached TON is below the Elector recover-stake operation value.
+    /// Attached GRAM is below the Elector recover-stake operation value.
     TooLowRecoverStakeValue = 0xf602
-    /// Attached TON is below the minimum request-loan operation value.
+    /// Attached GRAM is below the minimum request-loan operation value.
     TooLowRequestLoanValue = 0xf604
     /// Validator-set change counter would exceed the accepted bound.
     TooMuchValidatorSetCounts = 0xf700
@@ -404,7 +404,7 @@ enum Errors {
     IncorrectWithdrawalAmount = 0xf801
     /// New-stake query id is zero, so Elector confirmation could not be correlated.
     IncorrectNewStakeQueryId = 0xf900
-    /// Attached TON is below the controller new-stake operation fee.
+    /// Attached GRAM is below the controller new-stake operation fee.
     IncorrectNewStakeRequestValue = 0xf901
     /// New-stake value is below the minimum stake.
     IncorrectNewStakeValueLtMinimum = 0xf902

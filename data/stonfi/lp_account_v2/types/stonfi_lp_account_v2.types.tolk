@@ -20,21 +20,21 @@ struct StonfiLpAccountV2Storage {
     amount1: coins
 }
 
-/// Referenced refund and TON-excess destinations used by liquidity-add messages.
+/// Referenced refund and GRAM-excess destinations used by liquidity-add messages.
 struct StonfiLpAccountV2RefundExcessFields {
     /// Address that receives tokens if liquidity minting is not successful.
     refundAddress: address
-    /// Address that receives remaining TON excesses.
+    /// Address that receives remaining GRAM excesses.
     excessAddress: address
 }
 
-/// Referenced receiver, refund, and TON-excess destinations in `cb_add_liquidity` additional data.
+/// Referenced receiver, refund, and GRAM-excess destinations in `cb_add_liquidity` additional data.
 struct StonfiLpAccountV2CbAddLiquidityAdditionalFields {
     /// Owner address for newly minted liquidity tokens.
     toUserAddress: address
     /// Address that receives tokens if liquidity minting is not successful.
     refundAddress: address
-    /// Address that receives remaining TON excesses.
+    /// Address that receives remaining GRAM excesses.
     excessAddress: address
 }
 
@@ -48,7 +48,7 @@ struct (0x50c6a654) StonfiLpAccountV2AddLiquidity {
     newAmount1: coins
     /// Minimum required amount of liquidity tokens to receive; zero keeps funds pending.
     minLpOut: coins
-    /// Forward TON amount used with `custom_payload_cs` in the eventual transfer notification.
+    /// Forward GRAM amount used with `custom_payload_cs` in the eventual transfer notification.
     fwdAmount: coins
     /// If set, minting is attempted only when both stored token balances are non-zero.
     bothPositive: uint1
@@ -56,7 +56,7 @@ struct (0x50c6a654) StonfiLpAccountV2AddLiquidity {
     toUser: address
     /// Optional payload forwarded in the eventual LP token transfer notification.
     customPayloadCs: cell?
-    /// Referenced refund and TON-excess destinations.
+    /// Referenced refund and GRAM-excess destinations.
     additionalFields: Cell<StonfiLpAccountV2RefundExcessFields>
 }
 
@@ -80,17 +80,17 @@ struct (0x0ff8bfc6) StonfiLpAccountV2DirectAddLiquidity {
     am1: coins
     /// Minimum required amount of liquidity tokens to receive; must be non-zero for this command.
     minLpOut: coins
-    /// Forward TON amount used with `custom_payload_cs` in the eventual transfer notification.
+    /// Forward GRAM amount used with `custom_payload_cs` in the eventual transfer notification.
     fwdAmount: coins
     /// Owner address for newly minted liquidity tokens.
     toUser: address
     /// Optional payload forwarded in the eventual LP token transfer notification.
     customPayloadCs: cell?
-    /// Referenced refund and TON-excess destinations.
+    /// Referenced refund and GRAM-excess destinations.
     additionalFields: Cell<StonfiLpAccountV2RefundExcessFields>
 }
 
-/// User-originated `reset_gas` command that reserves LP Account storage TON and returns the rest to the owner.
+/// User-originated `reset_gas` command that reserves LP Account storage GRAM and returns the rest to the owner.
 struct (0x29d22935) StonfiLpAccountV2ResetGas {
     /// Query id for the gas reset command.
     queryId: uint64
@@ -114,11 +114,11 @@ struct (0x06ecd527) StonfiLpAccountV2CbAddLiquidity {
     userAddress: address
     /// Minimum required amount of liquidity tokens to receive.
     minLpOut: coins
-    /// Forward TON amount used with `custom_payload_cs` in the eventual transfer notification.
+    /// Forward GRAM amount used with `custom_payload_cs` in the eventual transfer notification.
     fwdAmount: coins
     /// Optional payload forwarded in the eventual LP token transfer notification.
     customPayloadCs: cell?
-    /// Referenced receiver, refund, and TON-excess destinations.
+    /// Referenced receiver, refund, and GRAM-excess destinations.
     additionalFields: Cell<StonfiLpAccountV2CbAddLiquidityAdditionalFields>
 }
 

@@ -24,9 +24,9 @@ contract MoonPool {
 struct MoonPoolDeploymentStorage {
     /// Factory or administrator allowed to initialize and configure the pool.
     adminAddress: address
-    /// Asset 1 Jetton master, or `addr_none` when asset 1 is native TON.
+    /// Asset 1 Jetton master, or `addr_none` when asset 1 is native GRAM.
     asset1Id: address?
-    /// Asset 2 Jetton master, or `addr_none` when asset 2 is native TON.
+    /// Asset 2 Jetton master, or `addr_none` when asset 2 is native GRAM.
     asset2Id: address?
 }
 
@@ -34,9 +34,9 @@ struct MoonPoolDeploymentStorage {
 struct MoonPoolStorage {
     /// Factory or administrator allowed to collect fees and update configuration.
     adminAddress: address
-    /// Pool wallet for asset 1, or `addr_none` when asset 1 is native TON.
+    /// Pool wallet for asset 1, or `addr_none` when asset 1 is native GRAM.
     asset1Wallet: address?
-    /// Pool wallet for asset 2, or `addr_none` when asset 2 is native TON.
+    /// Pool wallet for asset 2, or `addr_none` when asset 2 is native GRAM.
     asset2Wallet: address?
     /// Swap fee deducted from input amounts in basis points.
     swapFeeBps: uint8
@@ -70,9 +70,9 @@ struct MoonPoolBalances {
 
 /// Asset identifiers and LP Jetton metadata retained by the pool.
 struct MoonPoolAssetsAndContent {
-    /// Asset 1 Jetton master, or `addr_none` for native TON.
+    /// Asset 1 Jetton master, or `addr_none` for native GRAM.
     asset1Id: address?
-    /// Asset 2 Jetton master, or `addr_none` for native TON.
+    /// Asset 2 Jetton master, or `addr_none` for native GRAM.
     asset2Id: address?
     /// TEP-64 metadata content for the pool LP Jetton.
     lpJettonContent: cell
@@ -80,7 +80,7 @@ struct MoonPoolAssetsAndContent {
 
 /// Asset identifier and amount cell accepted by pool quote getters.
 struct MoonPoolAssetAmount {
-    /// Jetton master address, or `addr_none` for native TON.
+    /// Jetton master address, or `addr_none` for native GRAM.
     assetId: address?
     /// Amount of the selected asset in its smallest units.
     amount: coins
@@ -100,7 +100,7 @@ struct MoonPoolSwapParams {
     minOut: coins
     /// Unix deadline; zero disables expiration checking.
     deadline: uint64
-    /// Address receiving unused TON, or `addr_none` to use the swap sender.
+    /// Address receiving unused GRAM, or `addr_none` to use the swap sender.
     excessAddress: address?
     /// Optional referral address that receives the configured referral fee.
     referralAddress: address?
@@ -126,9 +126,9 @@ struct (0b1) MoonPoolJettonForwardPayloadInRef {
 struct (0x6fd43893) MoonPoolInitialize {
     /// Query identifier copied into the initial LP mint.
     queryId: uint64
-    /// Pool wallet for asset 1, or `addr_none` for native TON.
+    /// Pool wallet for asset 1, or `addr_none` for native GRAM.
     asset1Wallet: address?
-    /// Pool wallet for asset 2, or `addr_none` for native TON.
+    /// Pool wallet for asset 2, or `addr_none` for native GRAM.
     asset2Wallet: address?
     /// Initial swap fee in basis points.
     swapFeeBps: uint8
@@ -176,7 +176,7 @@ struct (0xb31db781) MoonPoolDepositLiquidityForwardPayload {
     minLpOut: coins
 }
 
-/// Adds native TON to the pool reserve without minting LP Jettons.
+/// Adds native GRAM to the pool reserve without minting LP Jettons.
 struct (0x96aa1586) MoonPoolBoost {
     /// Query identifier used by Jetton notification and excess flows.
     queryId: uint64
@@ -184,7 +184,7 @@ struct (0x96aa1586) MoonPoolBoost {
 
 /// Pool boost payload carried inside a Jetton transfer notification.
 struct (0x96aa1586) MoonPoolBoostForwardPayload {
-    /// Address receiving excess TON after the reserve is increased.
+    /// Address receiving excess GRAM after the reserve is increased.
     responseAddress: address
 }
 
@@ -311,9 +311,9 @@ struct (0x178d4519) MoonPoolJettonInternalTransfer {
     amount: coins
     /// Previous LP Jetton owner; the pool uses its own address while minting.
     fromAddress: address
-    /// Optional address receiving excess TON.
+    /// Optional address receiving excess GRAM.
     responseAddress: address?
-    /// Nanotons forwarded with the destination wallet notification.
+    /// Nanograms forwarded with the destination wallet notification.
     forwardTonAmount: coins
     /// Inline or referenced forward payload.
     @abi.clientType(MoonPoolJettonForwardPayloadInline | MoonPoolJettonForwardPayloadInRef)
@@ -328,11 +328,11 @@ struct (0x0f8a7ea5) MoonPoolJettonTransfer {
     amount: coins
     /// Owner address receiving the transferred Jettons.
     destination: address
-    /// Optional address receiving excess TON from the wallet.
+    /// Optional address receiving excess GRAM from the wallet.
     responseDestination: address?
     /// Optional application payload passed to the destination wallet.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// Nanotons forwarded with the destination wallet notification.
+    /// Nanograms forwarded with the destination wallet notification.
     forwardTonAmount: coins
     /// Inline or referenced Moon result or arbitrary continuation payload.
     @abi.clientType(MoonPoolJettonForwardPayloadInline | MoonPoolJettonForwardPayloadInRef)
@@ -414,11 +414,11 @@ type MoonPoolOutgoingMessage =
 
 /// Asset and reserve tuple returned by `get_reserves`.
 struct MoonPoolReservesReply {
-    /// Asset 1 Jetton master, or `addr_none` for native TON.
+    /// Asset 1 Jetton master, or `addr_none` for native GRAM.
     asset1Id: any_address
     /// Current reserve of asset 1.
     asset1Reserve: int
-    /// Asset 2 Jetton master, or `addr_none` for native TON.
+    /// Asset 2 Jetton master, or `addr_none` for native GRAM.
     asset2Id: any_address
     /// Current reserve of asset 2.
     asset2Reserve: int
@@ -426,17 +426,17 @@ struct MoonPoolReservesReply {
 
 /// Asset identifiers returned by `get_assets`.
 struct MoonPoolAssetsReply {
-    /// Asset 1 Jetton master, or `addr_none` for native TON.
+    /// Asset 1 Jetton master, or `addr_none` for native GRAM.
     asset1Id: any_address
-    /// Asset 2 Jetton master, or `addr_none` for native TON.
+    /// Asset 2 Jetton master, or `addr_none` for native GRAM.
     asset2Id: any_address
 }
 
 /// Pool wallet addresses returned by `get_wallets`.
 struct MoonPoolWalletsReply {
-    /// Pool wallet for asset 1, or `addr_none` for native TON.
+    /// Pool wallet for asset 1, or `addr_none` for native GRAM.
     asset1Wallet: any_address
-    /// Pool wallet for asset 2, or `addr_none` for native TON.
+    /// Pool wallet for asset 2, or `addr_none` for native GRAM.
     asset2Wallet: any_address
 }
 
@@ -460,11 +460,11 @@ struct MoonPoolCollectedFeesReply {
 
 /// Proportional reserve amounts returned by `get_estimated_lp_burn`.
 struct MoonPoolEstimatedLpBurnReply {
-    /// Asset 1 Jetton master, or `addr_none` for native TON.
+    /// Asset 1 Jetton master, or `addr_none` for native GRAM.
     asset1Id: any_address
     /// Estimated asset 1 amount returned for the burned LP amount.
     asset1Amount: int
-    /// Asset 2 Jetton master, or `addr_none` for native TON.
+    /// Asset 2 Jetton master, or `addr_none` for native GRAM.
     asset2Id: any_address
     /// Estimated asset 2 amount returned for the burned LP amount.
     asset2Amount: int
@@ -563,7 +563,7 @@ enum MoonPoolErrors {
     InvalidSender = 300
     /// A native-liquidity operation was requested for a non-native asset side.
     NativeLiquidityUnavailable = 420
-    /// Attached TON value cannot cover the operation gas budget.
+    /// Attached GRAM value cannot cover the operation gas budget.
     InsufficientValue = 500
     /// Native deposit or boost value is below the accepted minimum.
     DepositValueTooSmall = 510

@@ -45,7 +45,7 @@ struct DedustLiquidityDepositV1StorageDetails {
     asset1TargetBalance: coins
 }
 
-/// Native TON asset tag used by DeDust asset and pool parameter cells.
+/// Native GRAM asset tag used by DeDust asset and pool parameter cells.
 struct (0b0000) DedustAssetNative {}
 
 /// Jetton asset tag used by DeDust asset and pool parameter cells.

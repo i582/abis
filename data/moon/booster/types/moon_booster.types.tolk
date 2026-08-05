@@ -1,8 +1,8 @@
-/// MoonCX booster that releases TON or Jettons to a pool in scheduled rounds.
+/// MoonCX booster that releases GRAM or Jettons to a pool in scheduled rounds.
 contract MoonBooster {
     author: "MoonCX"
     version: "1.0"
-    description: "MoonCX pool booster with administrator-controlled funding, scheduled tick-tock payouts, and TON or Jetton boost delivery."
+    description: "MoonCX pool booster with administrator-controlled funding, scheduled tick-tock payouts, and GRAM or Jetton boost delivery."
     storage: MoonBoosterStorage
     storageAtDeployment: MoonBoosterDeploymentStorage
     incomingMessages: MoonBoosterIncomingMessage
@@ -13,7 +13,7 @@ contract MoonBooster {
 
 /// Per-round boost schedule stored by an active booster.
 struct MoonBoosterBoostData {
-    /// TON or Jetton amount released in each round, in the asset's elementary units.
+    /// GRAM or Jetton amount released in each round, in the asset's elementary units.
     amountPerRound: coins
     /// Unix timestamp from which the first round can be released.
     startTime: uint64
@@ -23,7 +23,7 @@ struct MoonBoosterBoostData {
     roundInterval: uint64
     /// Total number of scheduled rounds.
     roundCount: uint16
-    /// Jetton wallet used for Jetton boosts, or `addr_none` for direct TON boosts.
+    /// Jetton wallet used for Jetton boosts, or `addr_none` for direct GRAM boosts.
     jettonWallet: address?
 }
 
@@ -133,13 +133,13 @@ struct (0x0f8a7ea5) MoonBoosterJettonTransfer {
     responseDestination: address?
     /// Optional Jetton-wallet custom payload; the booster emits none.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// TON amount forwarded with the Jetton transfer notification.
+    /// GRAM amount forwarded with the Jetton transfer notification.
     forwardTonAmount: coins
     /// Inline or referenced payload forwarded by the destination Jetton wallet.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Direct TON boost request sent to the MoonCX pool.
+/// Direct GRAM boost request sent to the MoonCX pool.
 struct (0x96aa1586) MoonBoosterPoolBoost {
     /// Request identifier; scheduled tick-tock payouts use zero.
     queryId: uint64
@@ -190,6 +190,6 @@ enum MoonBoosterErrors {
     UnauthorizedSender = 300
     /// The operation is invalid for the current lifecycle state or schedule time.
     InvalidState = 410
-    /// The incoming message does not carry enough TON for the selected operation.
+    /// The incoming message does not carry enough GRAM for the selected operation.
     InsufficientValue = 500
 }

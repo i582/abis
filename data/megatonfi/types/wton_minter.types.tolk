@@ -2,7 +2,7 @@
 contract WtonMinter {
     author: "Ozys / Megaton Finance"
     version: "202301191"
-    description: "WTON wraps deposited TON one-for-one, burns WTON for withdrawals, and implements TEP-74/TEP-89 discovery."
+    description: "WTON wraps deposited GRAM one-for-one, burns WTON for withdrawals, and implements TEP-74/TEP-89 discovery."
     storage: WtonMinterStorage
     incomingMessages: WtonMinterIncomingMessage
     outgoingMessages: WtonMinterOutgoingMessage
@@ -23,7 +23,7 @@ struct WtonMinterStorage {
     walletCode: cell
 }
 
-/// Deposit attached TON and mint the requested WTON amount.
+/// Deposit attached GRAM and mint the requested WTON amount.
 struct (0x77a33521) WtonDeposit {
     /// Caller-selected correlation id copied to an excess response.
     queryId: uint64
@@ -31,7 +31,7 @@ struct (0x77a33521) WtonDeposit {
     amount: coins
 }
 
-/// Ask the minter to burn the caller's WTON wallet balance and release TON.
+/// Ask the minter to burn the caller's WTON wallet balance and release GRAM.
 struct (0x47d1895f) WtonWithdraw {
     /// Caller-selected correlation id.
     queryId: uint64
@@ -43,9 +43,9 @@ struct (0x47d1895f) WtonWithdraw {
 struct (0x7bdd97de) WtonBurnNotification {
     /// Query id copied from the wallet burn.
     queryId: uint64
-    /// Burned WTON amount released as nanotons.
+    /// Burned WTON amount released as nanograms.
     amount: coins
-    /// WTON owner that receives the released TON.
+    /// WTON owner that receives the released GRAM.
     ownerAddress: address
     /// Address supplied by the minter as the burn-response destination.
     responseDestination: address?
@@ -112,7 +112,7 @@ struct (0x178d4519) WtonMintInternalTransfer {
     fromAddress: address
     /// Depositor address that receives remaining wallet value.
     responseDestination: address?
-    /// Forwarded nanotons; the minter emits zero for deposits.
+    /// Forwarded nanograms; the minter emits zero for deposits.
     forwardTonAmount: coins
 }
 
@@ -155,7 +155,7 @@ type WtonMinterOutgoingMessage =
 struct WtonJettonData {
     /// Total issued WTON amount.
     totalSupply: int
-    /// Always true; TON deposits may mint new WTON.
+    /// Always true; GRAM deposits may mint new WTON.
     mintable: bool
     /// Current WTON administrator.
     adminAddress: address
@@ -171,7 +171,7 @@ enum WtonMinterErrors {
     UnauthorizedAdmin = 73
     /// Attached value is below required gas or a burn notification came from another wallet.
     InvalidValueOrWallet = 74
-    /// Requested amount exceeds attached TON/supply, or a discovery request lacks gas.
+    /// Requested amount exceeds attached GRAM/supply, or a discovery request lacks gas.
     InvalidAmountOrDiscoveryValue = 75
     /// Incoming opcode is not supported.
     UnsupportedOperation = 65535

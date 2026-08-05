@@ -32,18 +32,18 @@ struct (0x0f8a7ea5) AskToTransfer {
     jettonAmount: coins
     /// Destination owner address that receives jettons.
     transferRecipient: address
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     sendExcessesTo: address?
     /// Optional custom payload cell carried by the transfer request.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail forwarded to the recipient owner notification.
     @abi.clientType(PayloadInline | PayloadInRef)
     forwardPayload: ForwardPayloadRemainder
 }
 
-/// Owner notification emitted when an incoming transfer carries forward TON.
+/// Owner notification emitted when an incoming transfer carries forward GRAM.
 struct (0x7362d09c) TransferNotificationForRecipient {
     /// Query id copied from the internal transfer.
     queryId: uint64
@@ -64,9 +64,9 @@ struct (0x178d4519) InternalTransferStep {
     jettonAmount: coins
     /// Owner address that initiated the transfer, or null for mint-originated transfers.
     transferInitiator: address?
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     sendExcessesTo: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail used by recipient notification logic.
     @abi.clientType(PayloadInline | PayloadInRef)
@@ -85,7 +85,7 @@ struct (0x595f07bc) AskToBurn {
     queryId: uint64
     /// Jetton amount debited and burned in base units.
     jettonAmount: coins
-    /// Optional address that receives excess TON from the minter.
+    /// Optional address that receives excess GRAM from the minter.
     sendExcessesTo: address?
     /// Optional custom payload cell carried by the burn request.
     customPayload: cell?
@@ -99,7 +99,7 @@ struct (0x7bdd97de) BurnNotificationForMinter {
     jettonAmount: coins
     /// Owner address whose wallet burned jettons.
     burnInitiator: address
-    /// Optional address that receives remaining TON after burn accounting.
+    /// Optional address that receives remaining GRAM after burn accounting.
     sendExcessesTo: address?
 }
 
@@ -146,7 +146,7 @@ struct JettonWalletDataReply {
 enum Errors {
     /// Wallet balance would become negative.
     BalanceError = 47
-    /// Attached TON value is below the required gas budget.
+    /// Attached GRAM value is below the required gas budget.
     NotEnoughGas = 48
     /// Message payload shape or forward payload Either layout is invalid.
     InvalidMessage = 49

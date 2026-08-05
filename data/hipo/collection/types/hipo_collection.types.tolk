@@ -25,7 +25,7 @@ struct HipoCollectionStorage {
 struct (0x4b2d7871) HipoCollectionMintBill {
     /// Query id copied into the outgoing `assign_bill` body.
     queryId: uint64
-    /// TON amount represented by the bill, encoded as TL-B `Coins`.
+    /// GRAM amount represented by the bill, encoded as TL-B `Coins`.
     amount: coins
     /// True when the bill represents an unstake burn path; false for minting tokens.
     unstake: bool
@@ -33,7 +33,7 @@ struct (0x4b2d7871) HipoCollectionMintBill {
     owner: address
     /// Parent hTON address passed through to bill and treasury token accounting.
     parent: address
-    /// Nanotons forwarded for NFT ownership assignment handling.
+    /// Nanograms forwarded for NFT ownership assignment handling.
     ownershipAssignedAmount: coins
 }
 
@@ -41,7 +41,7 @@ struct (0x4b2d7871) HipoCollectionMintBill {
 struct (0x840f6369) HipoCollectionBillBurned {
     /// Query id copied into follow-up burn and treasury callback messages.
     queryId: uint64
-    /// TON or token amount represented by the burned bill.
+    /// GRAM or token amount represented by the burned bill.
     amount: coins
     /// Selects outgoing `burn_tokens` when true and `mint_tokens` when false.
     unstake: bool
@@ -65,7 +65,7 @@ struct (0x639d400a) HipoCollectionBurnAll {
 struct (0x3275dfc2) HipoCollectionAssignBill {
     /// Query id copied from the treasury `mint_bill` request.
     queryId: uint64
-    /// TON amount represented by the bill, encoded as TL-B `Coins`.
+    /// GRAM amount represented by the bill, encoded as TL-B `Coins`.
     amount: coins
     /// True when the bill represents an unstake burn path; false for minting tokens.
     unstake: bool
@@ -73,7 +73,7 @@ struct (0x3275dfc2) HipoCollectionAssignBill {
     owner: address
     /// Parent hTON address stored/assigned by the bill item.
     parent: address
-    /// Nanotons carried for the bill ownership assignment flow.
+    /// Nanograms carried for the bill ownership assignment flow.
     ownershipAssignedAmount: coins
 }
 
@@ -95,7 +95,7 @@ struct (0xc6d8b51f) HipoCollectionLastBillBurned {
 struct (0x42684479) HipoCollectionMintTokens {
     /// Query id copied from the bill callback.
     queryId: uint64
-    /// TON amount represented by the bill, encoded as TL-B `Coins`.
+    /// GRAM amount represented by the bill, encoded as TL-B `Coins`.
     coins: coins
     /// User owner address that receives minted token accounting.
     owner: address

@@ -1,7 +1,7 @@
 contract JettonMaster {
     author: "TON"
     version: "1.0"
-    description: "FactorialTON Jetton Master issues the TON-denominated token used by Affluent markets and creates user jetton wallets."
+    description: "FactorialTON Jetton Master issues the GRAM-denominated token used by Affluent markets and creates user jetton wallets."
     storage: JettonMasterStorage
     incomingMessages: JettonMasterIncomingMessage
 }

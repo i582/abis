@@ -20,13 +20,13 @@ struct StonfiVaultV2Storage {
     depositedAmount: coins
 }
 
-/// Router-originated message that increases the referrer fee tracker and returns TON excesses.
+/// Router-originated message that increases the referrer fee tracker and returns GRAM excesses.
 struct (0x0490f09b) StonfiDepositRefFeeV2 {
     /// Query id propagated from the upstream Pool/Router flow.
     queryId: uint64
     /// Amount of tokens to add to depositedAmount.
     jettonAmount: coins
-    /// Address that receives TON excesses after the Vault reserves its storage balance.
+    /// Address that receives GRAM excesses after the Vault reserves its storage balance.
     excessesAddress: address
 }
 

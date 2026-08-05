@@ -63,9 +63,9 @@ struct TonstakersPayoutCollectionContent {
     entries: map<uint256, cell>
 }
 
-/// Pending TON distribution state encoded by tag bits `started = 0, jettons = 0`.
+/// Pending GRAM distribution state encoded by tag bits `started = 0, jettons = 0`.
 struct (0b00) TonstakersPayoutCollectionPendingTonDistribution {
-    /// Initial volume before TON distribution starts; pool init stores zero.
+    /// Initial volume before GRAM distribution starts; pool init stores zero.
     volume: coins
 }
 
@@ -77,9 +77,9 @@ struct (0b01) TonstakersPayoutCollectionPendingJettonDistribution {
     jettonWallet: address
 }
 
-/// Started TON distribution state encoded by tag bits `started = 1, jettons = 0`.
+/// Started GRAM distribution state encoded by tag bits `started = 1, jettons = 0`.
 struct (0b10) TonstakersPayoutCollectionStartedTonDistribution {
-    /// Remaining TON volume to distribute across burned bills.
+    /// Remaining GRAM volume to distribute across burned bills.
     remainingVolume: coins
 }
 
@@ -132,7 +132,7 @@ struct (0x7362d09c) TonstakersPayoutCollectionTransferNotification {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Pool/admin request that starts TON distribution with the attached message value.
+/// Pool/admin request that starts GRAM distribution with the attached message value.
 struct (0x1140a64f) TonstakersPayoutCollectionStartDistribution {
     /// Query id copied into the first burn request.
     queryId: uint64
@@ -144,7 +144,7 @@ struct (0xed58b0b2) TonstakersPayoutCollectionBurnNotification {
     queryId: uint64
     /// Bill amount represented by the burned payout NFT.
     burntAmount: coins
-    /// NFT owner that receives TON or Jetton distribution share.
+    /// NFT owner that receives GRAM or Jetton distribution share.
     burnerAddress: address
     /// Burned NFT index used to verify the callback sender and advance the cursor.
     burntIndex: uint64
@@ -170,7 +170,7 @@ struct (0xf127fe4e) TonstakersPayoutCollectionBurn {
     queryId: uint64
 }
 
-/// Marker body emitted to TON distribution recipients and embedded in Jetton transfer forward payloads.
+/// Marker body emitted to GRAM distribution recipients and embedded in Jetton transfer forward payloads.
 struct (0xdb3b8abd) TonstakersPayoutCollectionDistributedAsset {
     /// Query id copied from the burn-notification flow.
     queryId: uint64
@@ -188,7 +188,7 @@ struct (0x0f8a7ea5) TonstakersPayoutCollectionJettonTransfer {
     responseDestination: address
     /// Optional custom payload, absent in distribution transfers.
     customPayload: cell?
-    /// Notification TON amount forwarded with the Jetton transfer.
+    /// Notification GRAM amount forwarded with the Jetton transfer.
     forwardTonAmount: coins
     /// Inline forward payload tail beginning with `0` then `distributed_asset#db3b8abd`.
     forwardPayload: RemainingBitsAndRefs
@@ -244,7 +244,7 @@ enum Errors {
     DistributionAlreadyStarted = 68
     /// Pending distribution is not configured for Jetton distribution.
     CannotDistributeJettons = 69
-    /// Pending distribution is not configured for TON distribution.
+    /// Pending distribution is not configured for GRAM distribution.
     CannotDistributeTons = 70
     /// Transfer notification sender is not the configured Jetton wallet.
     UnknownJettonWallet = 71
@@ -256,7 +256,7 @@ enum Errors {
     UnauthorizedBurnNotification = 74
     /// Jetton transfer notification sender is not admin or `addr_none`.
     UnauthorizedTransferSource = 79
-    /// TON distribution start request sender is not the stored admin/pool address.
+    /// GRAM distribution start request sender is not the stored admin/pool address.
     UnauthorizedStartRequest = 80
     /// Init distribution ref was empty.
     EmptyDistributionCell = 333

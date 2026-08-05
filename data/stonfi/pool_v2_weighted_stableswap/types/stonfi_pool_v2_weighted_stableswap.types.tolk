@@ -66,11 +66,11 @@ struct StonfiPoolV2WeightedStableswapSwapBody {
     minOut: coins
     /// Output receiver; `addr_none` makes the pool use `fromUser`.
     receiver: address?
-    /// Nanotons forwarded with the router payout transfer.
+    /// Nanograms forwarded with the router payout transfer.
     fwdGas: coins
     /// Optional payload forwarded on successful payout.
     customPayload: cell?
-    /// Nanotons forwarded if the swap is refunded.
+    /// Nanograms forwarded if the swap is refunded.
     refundFwdGas: coins
     /// Optional payload forwarded on refund payout.
     refundPayload: cell?
@@ -88,7 +88,7 @@ struct StonfiPoolV2WeightedStableswapSwapDexPayload {
     tokenWallet1: address
     /// Address used by the pool when it refunds input tokens.
     refundAddress: address
-    /// Address used by router payouts for excess TON.
+    /// Address used by router payouts for excess GRAM.
     excessesAddress: address
     /// Unix timestamp after which the swap is refunded.
     txDeadline: uint64
@@ -104,7 +104,7 @@ struct StonfiPoolV2WeightedStableswapProvideLpBody {
     toAddress: address
     /// One-bit flag requiring both sides of the LP Account balance to be positive before minting.
     bothPositive: uint1
-    /// Nanotons forwarded by the eventual LP wallet mint notification.
+    /// Nanograms forwarded by the eventual LP wallet mint notification.
     fwdAmount: coins
     /// Optional custom payload forwarded to the LP wallet mint path.
     customPayload: cell?
@@ -118,7 +118,7 @@ struct StonfiPoolV2WeightedStableswapProvideLpDexPayload {
     tokenWallet1: address
     /// Address used by the pool/router path when liquidity is refunded.
     refundAddress: address
-    /// Address used for excess TON after liquidity processing.
+    /// Address used for excess GRAM after liquidity processing.
     excessesAddress: address
     /// Unix timestamp after which the liquidity operation is refunded.
     txDeadline: uint64
@@ -132,7 +132,7 @@ struct StonfiPoolV2WeightedStableswapCbAddLiquidityAdditionalFields {
     toUserAddress: address
     /// Destination used when the pool pushes liquidity back to a fresh LP Account for refunding.
     refundAddress: address
-    /// Destination for excess TON after mint or refund handling.
+    /// Destination for excess GRAM after mint or refund handling.
     excessAddress: address
 }
 
@@ -140,13 +140,13 @@ struct StonfiPoolV2WeightedStableswapCbAddLiquidityAdditionalFields {
 struct StonfiPoolV2WeightedStableswapAddLiquidityAdditionalFields {
     /// Destination used by the pool/router path when liquidity is refunded.
     refundAddress: address?
-    /// Destination for excess TON after liquidity handling.
+    /// Destination for excess GRAM after liquidity handling.
     excessAddress: address
 }
 
 /// Referenced payout amounts and token wallets in router `pay_to`.
 struct StonfiPoolV2WeightedStableswapPayToAdditionalInfo {
-    /// Nanotons forwarded from router to the final Jetton recipient.
+    /// Nanograms forwarded from router to the final Jetton recipient.
     fwdTonAmount: coins
     /// Token0 amount to transfer through the router path.
     amount0Out: coins
@@ -248,7 +248,7 @@ struct (0x06ecd527) StonfiPoolV2WeightedStableswapCbAddLiquidity {
     userAddress: address
     /// Minimum LP Jettons accepted by the user.
     minLpOut: coins
-    /// Nanotons forwarded by the eventual LP wallet mint notification.
+    /// Nanograms forwarded by the eventual LP wallet mint notification.
     fwdAmount: coins
     /// Optional custom payload forwarded to the LP wallet mint path.
     customPayloadCs: cell?
@@ -282,7 +282,7 @@ struct (0x1ee4911e) StonfiPoolV2WeightedStableswapCollectFees {
     maybePayload1: cell?
 }
 
-/// Router admin request that reserves pool storage rent and returns remaining TON.
+/// Router admin request that reserves pool storage rent and returns remaining GRAM.
 struct (0x29d22935) StonfiPoolV2WeightedStableswapResetGas {
     /// Query id carried by the STON.fi message builder.
     queryId: uint64
@@ -300,7 +300,7 @@ struct (0x75930d63) StonfiPoolV2WeightedStableswapInternalSetFees {
     newProtocolFee: uint16
     /// Address for receiving collected protocol fees.
     newProtocolFeeAddress: address
-    /// Address where TON excesses will be sent.
+    /// Address where GRAM excesses will be sent.
     excessesAddress: address
 }
 
@@ -348,7 +348,7 @@ struct (0x2c76b973) StonfiPoolV2WeightedStableswapProvideWalletAddress {
 struct (0xf163444a) StonfiPoolV2WeightedStableswapInternalSetParams {
     /// Query id carried by the STON.fi message builder.
     queryId: uint64
-    /// Address where TON excesses will be sent after the update.
+    /// Address where GRAM excesses will be sent after the update.
     excessesAddress: address
     /// Side wallet used by source to decide whether `newW` is stored directly as token 0 weight or as its complement.
     sideWallet: address
@@ -376,7 +376,7 @@ struct (0x657b54f5) StonfiPoolV2WeightedStableswapPayTo {
     queryId: uint64
     /// Final owner address that receives router Jetton transfers.
     toAddress: address
-    /// Address used by the router for excess TON.
+    /// Address used by the router for excess GRAM.
     excessesAddress: address
     /// Original user/caller address reported for diagnostics and routing.
     originalCaller: address
@@ -394,7 +394,7 @@ struct (0x63381632) StonfiPoolV2WeightedStableswapPayVault {
     queryId: uint64
     /// Referral owner whose Vault receives fees.
     owner: address
-    /// Address used for excess TON after Vault deposit routing.
+    /// Address used for excess GRAM after Vault deposit routing.
     excessesAddress: address
     /// Referenced referral-fee amounts and token wallet addresses.
     additionalInfo: Cell<StonfiPoolV2WeightedStableswapPayVaultAdditionalInfo>
@@ -410,7 +410,7 @@ struct (0x50c6a654) StonfiPoolV2WeightedStableswapAddLiquidity {
     newAmount1: coins
     /// Minimum LP Jettons accepted by the user.
     minLpOut: coins
-    /// Nanotons forwarded by the eventual LP wallet mint notification.
+    /// Nanograms forwarded by the eventual LP wallet mint notification.
     fwdAmount: coins
     /// One-bit flag requiring both token balances to be positive before minting.
     bothPositive: uint1
@@ -432,7 +432,7 @@ struct (0x178d4519) StonfiPoolV2WeightedStableswapLpWalletInternalTransfer {
     fromAddress: address
     /// Optional response address for LP wallet excesses.
     responseAddress: address?
-    /// Nanotons forwarded to the LP wallet owner notification.
+    /// Nanograms forwarded to the LP wallet owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` tail; the pool source writes it with `store_maybe_ref`.
     forwardPayload: RemainingBitsAndRefs

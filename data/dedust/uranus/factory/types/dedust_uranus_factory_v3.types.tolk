@@ -45,7 +45,7 @@ struct (0x6ff416dc) DedustUranusDeployMeme {
     presetId: uint4
     /// Meme metadata URI.
     metadata: DedustUranusMemeMetadata
-    /// Initial TON amount used for the creator buy.
+    /// Initial GRAM amount used for the creator buy.
     initialBuy: coins
     /// Optional inline partner attribution.
     partnerConfig: DedustUranusPartnerConfig?
@@ -77,7 +77,7 @@ struct (0x632f5d1c) DedustUranusDeployCustomizedMeme {
     poolLiquidityOwnerAddress: address?
     /// Metadata URI encoded as a Tolk string.
     metadataUri: string
-    /// Initial TON amount used for the creator buy.
+    /// Initial GRAM amount used for the creator buy.
     initialBuy: coins
     /// Optional ref-backed partner attribution.
     partnerConfig: Cell<DedustUranusPartnerConfig>?
@@ -89,7 +89,7 @@ struct (0x632f5d1c) DedustUranusDeployCustomizedMeme {
 struct (0x796f5a0c) DedustUranusInitMeme {
     /// Deployment query id copied from the Factory request.
     queryId: uint64
-    /// Initial TON amount used for the creator buy.
+    /// Initial GRAM amount used for the creator buy.
     initialBuy: coins
     /// Optional inline partner attribution.
     partnerConfig: DedustUranusPartnerConfig?
@@ -113,7 +113,7 @@ enum Errors {
     SlippageExceeded = 21
     /// Selected meme preset does not exist.
     PresetNotExist = 22
-    /// Attached TON value is not enough for the requested operation.
+    /// Attached GRAM value is not enough for the requested operation.
     MessageValueTooLow = 23
     /// Meme state was already initialized.
     AlreadyInitialized = 24

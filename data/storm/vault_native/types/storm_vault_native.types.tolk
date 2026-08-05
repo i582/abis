@@ -2,7 +2,7 @@
 contract StormVaultNative {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade Native Vault holds TON for native-margin markets, backing trader deposits, withdrawals, staking, and LP liquidity."
+    description: "Storm Trade Native Vault holds GRAM for native-margin markets, backing trader deposits, withdrawals, staking, and LP liquidity."
     storage: StormVaultNativeStorage
     incomingMessages: StormVaultNativeIncomingMessage
     outgoingMessages: StormVaultNativeOutgoingMessage
@@ -122,11 +122,11 @@ struct NotificationPayloadV2 {
     positionData: Cell<PositionData>?
 }
 
-/// Native TON deposit body.
+/// Native GRAM deposit body.
 struct (0x29bb3721) StormDepositNative {
     /// Native deposit query id.
     queryId: uint64
-    /// Native TON amount declared in the body.
+    /// Native GRAM amount declared in the body.
     amount: coins
     /// Receiver smart-account owner address.
     receiverAddress: address
@@ -138,7 +138,7 @@ struct (0x29bb3721) StormDepositNative {
 
 /// Native vault staking request.
 struct (0xc89a3ee4) StormVaultStake {
-    /// Native TON amount to stake.
+    /// Native GRAM amount to stake.
     amount: coins
 }
 

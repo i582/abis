@@ -19,7 +19,7 @@ struct MegatonRouterStorage {
     rewardJettonMaster: address
     /// Whether transfer notifications use the direct-return path instead of pool lookup.
     directTransferEnabled: bool
-    /// Configured TON amount forwarded when a routed transfer reaches a registered pool.
+    /// Configured GRAM amount forwarded when a routed transfer reaches a registered pool.
     routedTransferTonAmount: coins
     /// Referenced operational role addresses.
     roles: Cell<MegatonRouterRoles>
@@ -129,7 +129,7 @@ struct (0xf2c8682b) MegatonRouterPoolCreated {
     token0: address
     /// Second Jetton master in the pool.
     token1: address
-    /// Pool TON configuration returned by the deployed contract.
+    /// Pool GRAM configuration returned by the deployed contract.
     poolTonAmount: coins
 }
 
@@ -280,11 +280,11 @@ struct (0x743f8e58) MegatonRouterChangePoolContent {
     content: cell
 }
 
-/// Administrator request to change the TON amount forwarded during pool routing.
+/// Administrator request to change the GRAM amount forwarded during pool routing.
 struct (0x4c47f45e) MegatonRouterSetRoutedTransferTonAmount {
     /// Correlation id accepted but not otherwise used.
     queryId: uint64
-    /// New TON amount forwarded to a registered pool.
+    /// New GRAM amount forwarded to a registered pool.
     amount: coins
 }
 
@@ -379,7 +379,7 @@ struct (0xf2c8682b) MegatonRouterPoolRegisteredEvent {
     token0: address
     /// Second Jetton master in the pool.
     token1: address
-    /// Pool TON configuration returned at registration.
+    /// Pool GRAM configuration returned at registration.
     poolTonAmount: coins
     /// Updated number of registered pools.
     poolCount: uint16
@@ -405,11 +405,11 @@ struct (0x0f8a7ea5) MegatonRouterJettonTransfer {
     amount: coins
     /// Jetton recipient.
     destination: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address?
     /// Optional Jetton custom payload.
     customPayload: cell?
-    /// TON amount forwarded with the Jetton transfer notification.
+    /// GRAM amount forwarded with the Jetton transfer notification.
     forwardTonAmount: coins
     /// Optional referenced pool-routing payload.
     forwardPayload: Cell<MegatonRouterPoolDepositPayload>?

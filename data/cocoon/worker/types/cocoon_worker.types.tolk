@@ -22,9 +22,9 @@ struct CocoonWorkerParams {
     uniqueId: uint32
     /// Whether the configuration belongs to a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Prompt-token multiplier in protocol fixed-point units.
     promptTokensPriceMultiplier: uint32
@@ -38,9 +38,9 @@ struct CocoonWorkerParams {
     proxyDelayBeforeClose: uint32
     /// Seconds a Client is configured to wait before refund completion.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Optional Proxy code retained in full Root parameter cells.
     proxyCode: cell?
@@ -147,9 +147,9 @@ struct (0x4d725d2c) CocoonWorkerProxyRequest {
 
 /// Earnings split requested through `CocoonWorkerProxyRequest`.
 struct (0x08e7d036) CocoonWorkerProxyPayoutRequest {
-    /// Amount in nanotons owed to the Worker owner.
+    /// Amount in nanograms owed to the Worker owner.
     workerPart: coins
-    /// Amount in nanotons retained as Proxy earnings.
+    /// Amount in nanograms retained as Proxy earnings.
     proxyPart: coins
     /// Account that receives any excess value.
     sendExcessesTo: address

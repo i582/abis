@@ -27,7 +27,7 @@ struct (0x00000015) JettonV1Mint {
     queryId: uint64
     /// Jetton owner address whose deterministic wallet receives the mint transfer.
     toAddress: address
-    /// Nanotons attached to the wallet deployment/internal-transfer message.
+    /// Nanograms attached to the wallet deployment/internal-transfer message.
     tonAmount: coins
     /// Referenced raw wallet message body, normally `JettonInternalTransfer`.
     masterMsg: cell

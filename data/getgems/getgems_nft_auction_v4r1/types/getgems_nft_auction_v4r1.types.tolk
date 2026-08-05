@@ -1,4 +1,4 @@
-/// Getgems NFT Auction V4 R1 interface for TON and Jetton bid auctions.
+/// Getgems NFT Auction V4 R1 interface for GRAM and Jetton bid auctions.
 contract GetgemsNftAuctionV4R1 {
     author: "Getgems"
     version: "4r1"
@@ -33,7 +33,7 @@ struct GetgemsNftAuctionV4R1Storage {
     fees: Cell<GetgemsNftAuctionV4R1Fees>
     /// Referenced immutable auction configuration.
     constants: Cell<GetgemsNftAuctionV4R1Constants>
-    /// Optional referenced Jetton-mode configuration; absent for TON auctions.
+    /// Optional referenced Jetton-mode configuration; absent for GRAM auctions.
     jettonData: Cell<GetgemsNftAuctionV4R1JettonData>?
 }
 
@@ -135,13 +135,13 @@ struct (0x2bee0192) GetgemsNftAuctionV4R1SetJettonWallet {
     jettonWallet: address
 }
 
-/// TON bid command with explicit opcode and query id.
+/// GRAM bid command with explicit opcode and query id.
 struct (0x344ef025) GetgemsNftAuctionV4R1ProcessTonBid {
     /// Bid query id stored as `lastQueryId` when the bid is accepted.
     queryId: uint64
 }
 
-/// TON bid body whose opcode is the explicit zero accepted by the source.
+/// GRAM bid body whose opcode is the explicit zero accepted by the source.
 struct (0x00000000) GetgemsNftAuctionV4R1ZeroOpcodeTonBid {}
 
 /// TEP-74 Jetton transfer notification used as a Jetton bid.
@@ -184,13 +184,13 @@ struct (0x0f8a7ea5) GetgemsNftAuctionV4R1JettonTransfer {
     responseDestination: address
     /// Source always writes no custom payload ref.
     customPayload: cell?
-    /// Nanoton amount forwarded by the Jetton wallet to the destination.
+    /// Nanogram amount forwarded by the Jetton wallet to the destination.
     forwardTonAmount: coins
     /// Source writes an inline empty forward payload.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Text-comment TON refund emitted to the previous bidder when outbid in TON mode.
+/// Text-comment GRAM refund emitted to the previous bidder when outbid in GRAM mode.
 struct (0x00000000) GetgemsNftAuctionV4R1OutbidComment {
     /// Raw comment bytes after the zero comment opcode.
     text: RemainingBitsAndRefs
@@ -263,9 +263,9 @@ struct GetgemsNftAuctionV4R1AuctionDataReply {
     stepTime: uint32
     /// Last accepted bid query id.
     lastQueryId: uint64
-    /// Auction Jetton wallet, or `addr_none` in TON mode.
+    /// Auction Jetton wallet, or `addr_none` in GRAM mode.
     jettonWallet: any_address
-    /// Jetton master address, or `addr_none` in TON mode.
+    /// Jetton master address, or `addr_none` in GRAM mode.
     jettonMaster: any_address
     /// True when fee math or Jetton setup makes auction settlement unsafe.
     isBrokenState: bool
@@ -295,7 +295,7 @@ enum Errors {
     AlreadyExecuted = 1005
     /// Jetton wallet update attempted after the one-time public key was consumed or absent.
     AlreadyActivated = 1006
-    /// Attached TON value is below the command-specific processing budget.
+    /// Attached GRAM value is below the command-specific processing budget.
     NotEnoughTons = 1008
     /// Cancellation or Jetton wallet update is blocked after a bid exists.
     AlreadyHasBid = 1009
@@ -311,7 +311,7 @@ enum Errors {
     AuctionHasNotBeenActivatedYet = 1015
     /// Fee math or Jetton setup marks the auction as broken.
     AuctionIsInABrokenState = 1016
-    /// TON bid sent to Jetton auction, Jetton bid sent to TON auction, or wrong Jetton wallet sent notification.
+    /// GRAM bid sent to Jetton auction, Jetton bid sent to GRAM auction, or wrong Jetton wallet sent notification.
     WrongCurrency = 1017
     /// Incoming internal or external opcode is not recognized.
     UnknownOperation = 65535

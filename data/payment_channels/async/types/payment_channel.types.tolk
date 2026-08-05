@@ -15,9 +15,9 @@ contract AsyncPaymentChannel {
 struct AsyncPaymentChannelStorage {
     /// Whether the current channel session was initialized.
     inited: bool
-    /// TON balance assigned to party A.
+    /// GRAM balance assigned to party A.
     balanceA: coins
-    /// TON balance assigned to party B.
+    /// GRAM balance assigned to party B.
     balanceB: coins
     /// Ed25519 public key of party A.
     keyA: uint256
@@ -41,7 +41,7 @@ struct AsyncPaymentChannelStorage {
 struct AsyncPaymentChannelClosingConfig {
     /// Grace period in seconds during which the proposed state can be challenged.
     quarantineDuration: uint32
-    /// TON penalty added to the cheater's sent amount after a successful challenge.
+    /// GRAM penalty added to the cheater's sent amount after a successful challenge.
     misbehaviorFine: coins
     /// Additional period in seconds allowed for conditional settlement.
     conditionalCloseDuration: uint32
@@ -50,7 +50,7 @@ struct AsyncPaymentChannelClosingConfig {
 /// Payout configuration fixed for the deployment.
 @overflow1023_policy("suppress")
 struct AsyncPaymentChannelPaymentConfig {
-    /// TON fee retained from channel funding calculations.
+    /// GRAM fee retained from channel funding calculations.
     excessFee: coins
     /// Party A payout destination encoded as a complete `MsgAddress`.
     destinationA: any_address
@@ -60,7 +60,7 @@ struct AsyncPaymentChannelPaymentConfig {
 
 /// Conditional transfer stored in a semi-channel dictionary.
 struct AsyncPaymentChannelConditionalPayment {
-    /// TON amount released when `condition` accepts the submitted input.
+    /// GRAM amount released when `condition` accepts the submitted input.
     amount: coins
     /// Executable condition cell mutually authorized by both parties.
     condition: cell
@@ -108,7 +108,7 @@ struct AsyncPaymentChannelQuarantinedState {
     compatibilityTail: RemainingBitsAndRefs
 }
 
-/// Add TON funding attributed to each side before initialization.
+/// Add GRAM funding attributed to each side before initialization.
 struct (0x67c7d281) AsyncPaymentChannelTopUpBalance {
     /// Amount added to party A's assigned balance.
     addA: coins
@@ -262,7 +262,7 @@ struct AsyncPaymentChannelKeys {
 struct AsyncPaymentChannelClosingConfigReply {
     /// Quarantine duration in seconds.
     quarantineDuration: uint32
-    /// Misbehavior fine in nanotons.
+    /// Misbehavior fine in nanograms.
     misbehaviorFine: int
     /// Conditional settlement duration in seconds.
     conditionalCloseDuration: uint32
@@ -278,7 +278,7 @@ struct AsyncPaymentChannelCommittedSeqnos {
 
 /// Payment configuration returned by `get_channel_data`.
 struct AsyncPaymentChannelPaymentConfigReply {
-    /// Retained fee in nanotons.
+    /// Retained fee in nanograms.
     excessFee: int
     /// Party A payout `MsgAddress` returned as a stack slice.
     destinationA: slice

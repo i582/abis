@@ -1,7 +1,7 @@
 /// Processes one step of a routed exchange and returns its result.
 contract FrtGramAdapterWorker {
     author: "ForTON"
-    description: "Processes a bounded worker step and stores indexed addresses, flags, and TON amounts."
+    description: "Processes a bounded worker step and stores indexed addresses, flags, and GRAM amounts."
     storage: FrtGramAdapterWorkerStorage
     incomingMessages: FrtGramAdapterWorkerIncomingMessage
     outgoingMessages: FrtGramAdapterWorkerOutgoingMessage
@@ -41,7 +41,7 @@ struct FrtGramAdapterWorkerLookupTables {
     addresses: map<uint32, address>
     /// Eight-bit values keyed by a 32-bit index.
     flags: map<uint32, uint8>
-    /// TON amounts keyed by a 32-bit index.
+    /// GRAM amounts keyed by a 32-bit index.
     amounts: map<uint32, coins>
 }
 
@@ -49,7 +49,7 @@ struct FrtGramAdapterWorkerLookupTables {
 struct (0x9a1f0f0e) FrtGramWorkerStepRequest {
     /// 32-bit request identifier.
     sequence: uint32
-    /// TON amount passed to the worker.
+    /// GRAM amount passed to the worker.
     amount: coins
     /// Worker destination address.
     destination: address
@@ -63,7 +63,7 @@ struct (0x9a1f0f0f) FrtGramWorkerStepResult {
     routeIndex: uint16
     /// 32-bit request identifier.
     sequence: uint32
-    /// TON amount reported by the worker.
+    /// GRAM amount reported by the worker.
     amount: coins
     /// First result address.
     workerAddress: address
@@ -109,7 +109,7 @@ get fun get_method_109070_adqd(): any_address {
     throw 0;
 }
 
-/// Return the TON amount stored for an index.
+/// Return the GRAM amount stored for an index.
 get fun get_method_111858_bnct(index: int): coins {
     throw 0;
 }

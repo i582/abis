@@ -113,7 +113,7 @@ struct (0x0f8a7ea5) GramJettonTransfer {
     responseDestination: address
     /// No custom payload is emitted by the miner.
     customPayload: cell?
-    /// Zero TON is forwarded with the Jetton transfer.
+    /// Zero GRAM is forwarded with the Jetton transfer.
     forwardTonAmount: coins
     /// Inline `Either` selector and forward payload; mining rewards use an empty inline payload.
     forwardPayload: RemainingBitsAndRefs
@@ -170,7 +170,7 @@ enum Errors {
     InvalidSubwalletId = 34
     /// Signed administrative request is expired or has an invalid signature.
     ExpiredOrInvalidSignature = 35
-    /// Internal proof or initializer message carries less than 0.05 TON.
+    /// Internal proof or initializer message carries less than 0.05 GRAM.
     InsufficientInternalValue = 44
 }
 

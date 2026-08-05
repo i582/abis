@@ -1,8 +1,8 @@
-/// Ton Whales Nominators pool contract for pooled TON staking through an Elector proxy.
+/// Ton Whales Nominators pool contract for pooled GRAM staking through an Elector proxy.
 contract WhalesPool {
     author: "Ton Whales"
     version: "1.0"
-    description: "Ton Whales Nominators Pool lets TON holders pool stake with a validator, track balances, and withdraw after validation rounds."
+    description: "Ton Whales Nominators Pool lets GRAM holders pool stake with a validator, track balances, and withdraw after validation rounds."
     storage: WhalesPoolStorage
     incomingMessages: WhalesPoolIncomingMessage
     outgoingMessages: WhalesPoolOutgoingMessage
@@ -14,15 +14,15 @@ contract WhalesPool {
 struct WhalesPoolBalance {
     /// Accumulated per-coin profit scaled by the pool precision.
     profitPerCoin: int128
-    /// Total member-owned pool balance in nanotons.
+    /// Total member-owned pool balance in nanograms.
     balance: coins
-    /// TON amount currently sent to Elector staking.
+    /// GRAM amount currently sent to Elector staking.
     balanceSent: coins
-    /// TON amount prepared for member withdrawals.
+    /// GRAM amount prepared for member withdrawals.
     balanceWithdraw: coins
-    /// TON amount pending withdrawal acceptance.
+    /// GRAM amount pending withdrawal acceptance.
     balancePendingWithdraw: coins
-    /// TON amount pending deposit acceptance.
+    /// GRAM amount pending deposit acceptance.
     balancePendingDeposits: coins
 }
 
@@ -30,13 +30,13 @@ struct WhalesPoolBalance {
 struct WhalesPoolMember {
     /// Member profit-per-coin checkpoint.
     profitPerCoin: int128
-    /// Accepted member stake balance in nanotons.
+    /// Accepted member stake balance in nanograms.
     balance: coins
-    /// Pending withdrawal amount in nanotons.
+    /// Pending withdrawal amount in nanograms.
     pendingWithdraw: coins
     /// True when the member requested full withdrawal.
     pendingWithdrawAll: bool
-    /// Pending deposit amount in nanotons.
+    /// Pending deposit amount in nanograms.
     pendingDeposit: coins
     /// Amount prepared for member withdrawal payout.
     memberWithdraw: coins
@@ -48,7 +48,7 @@ struct WhalesPoolProxyState {
     stakeAt: uint32
     /// Raw validation lock end timestamp tracked by the pool.
     stakeUntil: uint32
-    /// TON amount currently sent through the proxy to Elector.
+    /// GRAM amount currently sent through the proxy to Elector.
     stakeSent: coins
     /// Query id of the active Elector request, or zero when none is pending.
     storedQueryId: uint64
@@ -74,15 +74,15 @@ struct WhalesPoolExtras {
     enabled: bool
     /// True when owner upgrade and parameter update operations are enabled.
     updatesEnabled: bool
-    /// Minimum accepted member stake in nanotons.
+    /// Minimum accepted member stake in nanograms.
     minStake: coins
-    /// Deposit operation fee in nanotons.
+    /// Deposit operation fee in nanograms.
     depositFee: coins
-    /// Withdrawal operation fee in nanotons.
+    /// Withdrawal operation fee in nanograms.
     withdrawFee: coins
     /// Pool fee share in basis-point style units.
     poolFee: coins
-    /// TON amount reserved for user receipts.
+    /// GRAM amount reserved for user receipts.
     receiptPrice: coins
 }
 
@@ -139,7 +139,7 @@ struct (0x654d518e) WhalesPoolStakeRecover {
     gasLimit: coins
 }
 
-/// Donation command that distributes attached TON as pool profit.
+/// Donation command that distributes attached GRAM as pool profit.
 struct (0x47bbe425) WhalesPoolDonate {
     /// Caller-selected query id.
     queryId: uint64
@@ -153,7 +153,7 @@ struct (0xa2065f2c) WhalesPoolStakeSend {
     queryId: uint64
     /// Gas limit reserved by the pool operation.
     gasLimit: coins
-    /// TON stake value sent to Elector.
+    /// GRAM stake value sent to Elector.
     stake: coins
     /// Validator public key forwarded to Elector.
     validatorPubkey: bits256
@@ -175,7 +175,7 @@ struct (0x1596920c) WhalesPoolStakeLockFinalize {
     gasLimit: coins
 }
 
-/// Controller or owner command that withdraws TON not owned by pool members.
+/// Controller or owner command that withdraws GRAM not owned by pool members.
 struct (0x251d6a98) WhalesPoolWithdrawUnowned {
     /// Caller-selected query id copied to the unowned-withdraw response.
     queryId: uint64
@@ -375,15 +375,15 @@ type WhalesPoolOutgoingMessage =
 
 /// Stack reply returned by `get_pool_status`.
 struct WhalesPoolStatusReply {
-    /// Total member-owned pool balance in nanotons.
+    /// Total member-owned pool balance in nanograms.
     balance: coins
-    /// TON amount currently sent to Elector staking.
+    /// GRAM amount currently sent to Elector staking.
     balanceSent: coins
-    /// TON amount pending deposit acceptance.
+    /// GRAM amount pending deposit acceptance.
     balancePendingDeposits: coins
-    /// TON amount pending withdrawal acceptance.
+    /// GRAM amount pending withdrawal acceptance.
     balancePendingWithdraw: coins
-    /// TON amount prepared for member withdrawals.
+    /// GRAM amount prepared for member withdrawals.
     balanceWithdraw: coins
 }
 
@@ -393,7 +393,7 @@ struct WhalesPoolStakingStatusReply {
     stakeAt: uint32
     /// Timestamp after which the active stake can be recovered.
     stakeUntil: uint32
-    /// TON amount currently sent through the proxy to Elector.
+    /// GRAM amount currently sent through the proxy to Elector.
     stakeSent: coins
     /// True when an Elector request is pending.
     querySent: bool
@@ -411,25 +411,25 @@ struct WhalesPoolParamsReply {
     enabled: bool
     /// True when owner upgrade and parameter update operations are enabled.
     updatesEnabled: bool
-    /// Minimum accepted member stake in nanotons.
+    /// Minimum accepted member stake in nanograms.
     minStake: coins
-    /// Deposit operation fee in nanotons.
+    /// Deposit operation fee in nanograms.
     depositFee: coins
-    /// Withdrawal operation fee in nanotons.
+    /// Withdrawal operation fee in nanograms.
     withdrawFee: coins
     /// Pool fee share in basis-point style units.
     poolFee: coins
-    /// TON amount reserved for user receipts.
+    /// GRAM amount reserved for user receipts.
     receiptPrice: coins
 }
 
 /// Stack reply returned by `get_member` and `get_member_balance`.
 struct WhalesPoolMemberBalanceReply {
-    /// Accepted member stake balance in nanotons.
+    /// Accepted member stake balance in nanograms.
     balance: coins
-    /// Pending deposit amount in nanotons.
+    /// Pending deposit amount in nanograms.
     pendingDeposit: coins
-    /// Pending withdrawal amount in nanotons.
+    /// Pending withdrawal amount in nanograms.
     pendingWithdraw: coins
     /// Amount prepared for member withdrawal payout.
     memberWithdraw: coins
@@ -439,11 +439,11 @@ struct WhalesPoolMemberBalanceReply {
 struct WhalesPoolMemberListEntry {
     /// Member address.
     member: address
-    /// Accepted member stake balance in nanotons.
+    /// Accepted member stake balance in nanograms.
     balance: coins
-    /// Pending deposit amount in nanotons.
+    /// Pending deposit amount in nanograms.
     pendingDeposit: coins
-    /// Pending withdrawal amount in nanotons.
+    /// Pending withdrawal amount in nanograms.
     pendingWithdraw: coins
     /// Amount prepared for member withdrawal payout.
     memberWithdraw: coins
@@ -469,7 +469,7 @@ enum Errors {
     InternalError = 74
     /// Deployment branch encountered an already deployed account.
     AlreadyDeployed = 75
-    /// Attached TON value is below the required operation fee.
+    /// Attached GRAM value is below the required operation fee.
     TooLowValue = 76
     /// Stake amount is outside the accepted range.
     InvalidStakeValue = 77
@@ -492,7 +492,7 @@ get fun get_controller(): address {
     throw 0;
 }
 
-/// Return TON balance not owned by pool members.
+/// Return GRAM balance not owned by pool members.
 get fun get_unowned(): coins {
     throw 0;
 }

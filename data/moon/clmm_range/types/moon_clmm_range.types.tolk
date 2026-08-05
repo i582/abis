@@ -18,9 +18,9 @@ struct MoonClmmRangeStorage {
     poolAddress: address
     /// Signed range number used by the parent pool to derive this contract address.
     rangeNumber: int16
-    /// Range Jetton wallet for asset X, or `addr_none` when X is native TON.
+    /// Range Jetton wallet for asset X, or `addr_none` when X is native GRAM.
     jettonWalletX: address?
-    /// Range Jetton wallet for asset Y, or `addr_none` when Y is native TON.
+    /// Range Jetton wallet for asset Y, or `addr_none` when Y is native GRAM.
     jettonWalletY: address?
     /// Price-bin step configured by the parent pool.
     binStep: uint16
@@ -62,9 +62,9 @@ struct MoonClmmRangeCallback {
 
 /// Swap fields stored inside the compatibility wrapper payload.
 struct MoonClmmRangeSwapPayload {
-    /// Native TON input amount.
+    /// Native GRAM input amount.
     swapAmount: coins
-    /// Address that receives unused TON and the swap result.
+    /// Address that receives unused GRAM and the swap result.
     excessAddress: address
     /// Q128 square-root price boundary at which execution must stop.
     sqrtPriceLimitX128: uint256
@@ -74,13 +74,13 @@ struct MoonClmmRangeSwapPayload {
     nextReject: Cell<MoonClmmRangeCallback>?
 }
 
-/// Direct native TON swap accepted by a Moon.cx CLMM range.
+/// Direct native GRAM swap accepted by a Moon.cx CLMM range.
 struct (0xd151210f) MoonClmmRangeSwap {
     /// Caller-selected query id copied to result messages.
     queryId: uint64
-    /// Native TON input amount.
+    /// Native GRAM input amount.
     swapAmount: coins
-    /// Address that receives unused TON and the swap result.
+    /// Address that receives unused GRAM and the swap result.
     excessAddress: address
     /// Q128 square-root price boundary at which execution must stop.
     sqrtPriceLimitX128: uint256
@@ -94,7 +94,7 @@ struct (0xd151210f) MoonClmmRangeSwap {
 struct (0x9d142643) MoonClmmRangeWrappedSwap {
     /// Query id copied to the nested swap and its result.
     queryId: uint64
-    /// Native TON amount reserved by the wrapper path.
+    /// Native GRAM amount reserved by the wrapper path.
     swapAmount: coins
     /// Referenced swap request without a repeated opcode or query id.
     swap: Cell<MoonClmmRangeSwapPayload>
@@ -108,11 +108,11 @@ struct MoonClmmRangeDepositBin {
     yAmount: coins
 }
 
-/// Direct native TON liquidity deposit into selected bins.
+/// Direct native GRAM liquidity deposit into selected bins.
 struct (0xec401442) MoonClmmRangeDepositLiquidity {
     /// Caller-selected query id copied through the deposit flow.
     queryId: uint64
-    /// Native TON amount supplied by this side of the deposit.
+    /// Native GRAM amount supplied by this side of the deposit.
     depositAmount: coins
     /// `-1` for a single-sided deposit and `0` for a paired deposit.
     isSingle: int1
@@ -134,7 +134,7 @@ struct (0x7362d09c) MoonClmmRangeJettonTransferNotification {
 
 /// Swap payload carried by a Jetton transfer notification.
 struct (0xd151210f) MoonClmmRangeSwapForwardPayload {
-    /// Address that receives unused TON and the swap result.
+    /// Address that receives unused GRAM and the swap result.
     excessAddress: address
     /// Q128 square-root price boundary at which execution must stop.
     sqrtPriceLimitX128: uint256
@@ -156,7 +156,7 @@ struct (0xec401442) MoonClmmRangeDepositLiquidityForwardPayload {
 struct (0x9d142643) MoonClmmRangeNativeSwapResult {
     /// Query id copied from the swap request.
     queryId: uint64
-    /// Output native TON amount.
+    /// Output native GRAM amount.
     amount: coins
     /// Optional application payload selected by the success callback.
     payload: cell?
@@ -172,7 +172,7 @@ struct (0x9d142643) MoonClmmRangeJettonSwapResultPayload {
 struct (0xff32da99) MoonClmmRangeNativeSwapRefund {
     /// Query id copied from the rejected swap request.
     queryId: uint64
-    /// Refunded native TON amount.
+    /// Refunded native GRAM amount.
     amount: coins
     /// Optional application payload selected by the rejection callback.
     payload: cell?
@@ -186,11 +186,11 @@ struct (0x0f8a7ea5) MoonClmmRangeJettonTransfer {
     amount: coins
     /// Destination owner address for the receiving Jetton wallet.
     destination: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address
     /// Optional custom payload for the receiving Jetton wallet.
     customPayload: cell?
-    /// Nanotons forwarded with the Jetton transfer notification.
+    /// Nanograms forwarded with the Jetton transfer notification.
     forwardTonAmount: coins
     /// Optional forward payload for the destination owner.
     forwardPayload: cell?
@@ -220,7 +220,7 @@ type MoonClmmRangeExtraExport =
 enum MoonClmmRangeErrors {
     /// Message sender is not authorized for the requested operation.
     UnauthorizedSender = 300
-    /// Attached TON value is below the operation's gas budget.
+    /// Attached GRAM value is below the operation's gas budget.
     InsufficientGas = 500
     /// Input token amount is invalid for the requested operation.
     InvalidAmount = 510

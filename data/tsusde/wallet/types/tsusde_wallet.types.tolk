@@ -33,11 +33,11 @@ struct (0x0f8a7ea5) TsusdeWalletTransfer {
     amount: coins
     /// Destination owner whose deterministic wallet receives the transfer.
     destination: address
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     responseDestination: address?
     /// Optional referenced custom payload; source validates its shape and ignores its content.
     customPayload: cell?
-    /// TON forwarded with a transfer notification.
+    /// GRAM forwarded with a transfer notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -51,11 +51,11 @@ struct (0xd750cec9) TsusdeWalletTransferTimelocked {
     amount: coins
     /// Destination owner address; source requires it to equal the stored master address.
     destination: address
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     responseDestination: address?
     /// Optional referenced custom payload; source validates its shape and ignores its content.
     customPayload: cell?
-    /// TON forwarded to the master-side redemption flow.
+    /// GRAM forwarded to the master-side redemption flow.
     forwardTonAmount: coins
     /// Raw TEP-74 payload wrapped by the wallet with the redemption-step flag.
     forwardPayload: RemainingBitsAndRefs
@@ -71,9 +71,9 @@ struct (0x178d4519) TsusdeWalletInternalTransfer {
     timelockLimit: uint64
     /// Source owner address reported by the sending wallet or minter.
     from: address?
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     responseAddress: address?
-    /// TON forwarded with the owner transfer notification.
+    /// GRAM forwarded with the owner transfer notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -89,9 +89,9 @@ struct (0xb2583ed5) TsusdeWalletInternalTransferTimelocked {
     timelockLimit: uint64
     /// Source owner address reported by the master.
     from: address?
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     responseAddress: address?
-    /// Raw tail ignored by the receiver; the canonical sender includes forward TON and payload fields.
+    /// Raw tail ignored by the receiver; the canonical sender includes forward GRAM and payload fields.
     remainder: RemainingBitsAndRefs
 }
 
@@ -101,7 +101,7 @@ struct (0x595f07bc) TsusdeWalletBurn {
     queryId: uint64
     /// Ordinary tsUSDe amount to burn, in base units.
     amount: coins
-    /// Optional address that receives excess TON after master processing.
+    /// Optional address that receives excess GRAM after master processing.
     responseDestination: address?
     /// Optional referenced custom payload; source validates its shape and ignores its content.
     customPayload: cell?
@@ -129,7 +129,7 @@ struct (0x7bdd97de) TsusdeWalletBurnNotification {
     amount: coins
     /// Wallet owner reported to the minter.
     sender: address
-    /// Optional address that receives excess TON after master processing.
+    /// Optional address that receives excess GRAM after master processing.
     responseDestination: address?
 }
 
@@ -145,7 +145,7 @@ struct (0x7362d09c) TsusdeWalletTransferNotification {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Standard response emitted when excess TON remains after transfer processing.
+/// Standard response emitted when excess GRAM remains after transfer processing.
 struct (0xd53276db) TsusdeWalletExcesses {
     /// Query id copied from the request that produced the refund.
     queryId: uint64
@@ -207,7 +207,7 @@ enum TsusdeWalletErrors {
     ContractLocked = 45
     /// Transfer or burn would make an ordinary or timelocked token balance negative.
     InsufficientJettonBalance = 47
-    /// Attached TON is below the transfer or burn fee budget.
+    /// Attached GRAM is below the transfer or burn fee budget.
     NotEnoughGas = 48
     /// TEP-74 forward payload has an invalid `Either` shape.
     InvalidMessage = 49

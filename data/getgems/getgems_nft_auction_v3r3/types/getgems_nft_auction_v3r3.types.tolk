@@ -1,4 +1,4 @@
-/// Getgems NFT auction V3R3 interface for TON-denominated auctions.
+/// Getgems NFT auction V3R3 interface for GRAM-denominated auctions.
 contract GetgemsNftAuctionV3R3 {
     author: "Getgems"
     version: "3.3"
@@ -23,9 +23,9 @@ struct GetgemsNftAuctionV3R3Fees {
 struct GetgemsNftAuctionV3R3Constants {
     /// Marketplace address authorized for administrative commands.
     marketplaceAddress: address
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
-    /// Buy-now bid ceiling in nanotons; zero disables the ceiling.
+    /// Buy-now bid ceiling in nanograms; zero disables the ceiling.
     maxBid: coins
     /// Minimum bid step percent delta stored as a 7-bit unsigned integer.
     minStep: uint7
@@ -45,7 +45,7 @@ struct GetgemsNftAuctionV3R3Storage {
     isCanceled: bool
     /// Current highest bidder, or `addr_none` before the first bid.
     lastMemberAddress: address?
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Unix timestamp of the latest accepted bid.
     lastBidAt: uint32
@@ -130,7 +130,7 @@ struct (0x5fcc3d14) GetgemsNftAuctionV3R3NftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Zero on cancellation and one nanotons on successful completion.
+    /// Zero on cancellation and one nanograms on successful completion.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -167,7 +167,7 @@ struct GetgemsNftAuctionV3R3SaleDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the auction.
     nftOwnerAddress: any_address
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Highest bidder address, or `addr_none` before the first bid.
     lastMemberAddress: any_address
@@ -185,9 +185,9 @@ struct GetgemsNftAuctionV3R3SaleDataReply {
     royaltyFeeFactor: uint32
     /// Royalty fee denominator.
     royaltyFeeBase: uint32
-    /// Buy-now bid ceiling in nanotons; zero disables the ceiling.
+    /// Buy-now bid ceiling in nanograms; zero disables the ceiling.
     maxBid: coins
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
     /// Auction creation timestamp.
     createdAt: uint32
@@ -211,7 +211,7 @@ struct GetgemsNftAuctionV3R3AuctionDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before activation.
     nftOwnerAddress: any_address
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Highest bidder address, or `addr_none` before the first bid.
     lastMemberAddress: any_address
@@ -229,7 +229,7 @@ struct GetgemsNftAuctionV3R3AuctionDataReply {
     royaltyFeeFactor: uint32
     /// Royalty fee denominator.
     royaltyFeeBase: uint32
-    /// Buy-now bid ceiling in nanotons; zero disables the ceiling.
+    /// Buy-now bid ceiling in nanograms; zero disables the ceiling.
     maxBid: coins
     /// Current next minimum bid when there is a bid, otherwise the configured first bid.
     minBid: coins
@@ -265,7 +265,7 @@ enum Errors {
     AlreadyActivated = 1006
     /// Defined in `exit-codes.func`; no source throw site was found in V3R3.
     CannotCancelEnded = 1007
-    /// Command attached less than the required 0.1 TON.
+    /// Command attached less than the required 0.1 GRAM.
     LowAmount = 1008
     /// Cancellation is forbidden after a bid exists.
     CannotCancelWithBid = 1009

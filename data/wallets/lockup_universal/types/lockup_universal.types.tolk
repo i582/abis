@@ -65,7 +65,7 @@ type LockupUniversalIncomingExternalMessage = LockupUniversalSignedExternal
 
 /// Balances returned by `get_balances` and `get_balances_at`.
 struct LockupUniversalBalances {
-    /// Current account Toncoin balance.
+    /// Current account GRAM balance.
     tonBalance: coins
     /// Still-locked restricted amount.
     totalRestrictedValue: coins
@@ -79,7 +79,7 @@ enum Errors {
     WrongSignature = 31
     /// Internal restricted-transfer config signature verification failed.
     WrongConfigSignature = 32
-    /// Internal restricted-transfer message carries less than 1 TON.
+    /// Internal restricted-transfer message carries less than 1 GRAM.
     ValueIsTooSmall = 33
     /// External request seqno does not match storage.seqno.
     WrongSeqno = 34

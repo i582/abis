@@ -33,7 +33,7 @@ struct (0x5fcc3d14) SbtV1SingleTransfer {
     responseDestination: address?
     /// Optional custom payload from the inherited NFT transfer layout.
     customPayload: cell?
-    /// Nanotons from the inherited NFT transfer layout.
+    /// Nanograms from the inherited NFT transfer layout.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -79,7 +79,7 @@ struct (0x1c04412a) SbtV1SingleTransferEditorship {
     responseDestination: address?
     /// Raw custom-payload presence bit; this source does not read a custom payload ref.
     hasCustomPayload: bool
-    /// Nanotons forwarded to the new editor notification.
+    /// Nanograms forwarded to the new editor notification.
     forwardTonAmount: coins
     /// Raw `Either Cell ^Cell` forward payload tail copied to `editorship_assigned`.
     forwardPayload: RemainingBitsAndRefs

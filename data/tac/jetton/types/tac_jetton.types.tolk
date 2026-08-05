@@ -10,7 +10,7 @@ contract TacJetton {
 
 /// Cross-chain parameters referenced by a burn notification.
 struct TacJettonBurnCrosschainPayload {
-    /// Nanotons reserved for the resulting TAC cross-chain operation.
+    /// Nanograms reserved for the resulting TAC cross-chain operation.
     crosschainTonAmount: coins
     /// Optional fee configuration forwarded to the TAC Cross-Chain Layer.
     feeData: cell?
@@ -38,9 +38,9 @@ struct (0xd7b9c06e) TacJettonMint {
     recipientAddress: address
     /// Jetton amount minted in base units.
     jettonAmount: coins
-    /// Address that receives excess TON after wallet processing.
+    /// Address that receives excess GRAM after wallet processing.
     responseAddress: address?
-    /// Nanotons forwarded by the receiving wallet.
+    /// Nanograms forwarded by the receiving wallet.
     forwardTonAmount: coins
     /// Optional payload referenced directly by the wallet internal transfer.
     forwardPayload: cell?
@@ -56,7 +56,7 @@ struct (0x7bdd97de) TacJettonBurnNotification {
     jettonAmount: coins
     /// Owner used to authenticate the deterministic sending Jetton wallet.
     ownerAddress: address
-    /// TAC Cross-Chain Layer address, or another address that receives excess TON.
+    /// TAC Cross-Chain Layer address, or another address that receives excess GRAM.
     responseAddress: address?
     /// Referenced cross-chain parameters; successful processing requires this value.
     crosschainPayload: Cell<TacJettonBurnCrosschainPayload>?
@@ -90,7 +90,7 @@ struct (0x23f78ab7) TacJettonChangeContent {
     jettonContent: cell
 }
 
-/// Admin request that withdraws TON not reserved for storage.
+/// Admin request that withdraws GRAM not reserved for storage.
 struct (0x1754ab63) TacJettonWithdrawExtraTon {
     /// Admin-selected request identifier.
     queryId: uint64
@@ -115,9 +115,9 @@ struct (0x178d4519) TacJettonInternalTransfer {
     jettonAmount: coins
     /// TAC Jetton master address used as the mint origin.
     senderAddress: address
-    /// Address that receives excess TON after wallet processing.
+    /// Address that receives excess GRAM after wallet processing.
     responseAddress: address?
-    /// Nanotons forwarded by the receiving wallet.
+    /// Nanograms forwarded by the receiving wallet.
     forwardTonAmount: coins
     /// Optional payload stored as a direct cell reference.
     forwardPayload: cell?
@@ -129,7 +129,7 @@ struct (0x6c582059) TacJettonTvmMessageToEvm {
     queryId: uint64
     /// TAC operation identifier; Jetton burns use `0xb0afa74d`.
     operation: uint32
-    /// Nanotons reserved for the cross-chain operation.
+    /// Nanograms reserved for the cross-chain operation.
     crosschainTonAmount: coins
     /// Optional fee configuration forwarded to the Cross-Chain Layer.
     feeData: cell?

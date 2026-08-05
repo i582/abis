@@ -1,15 +1,15 @@
-/// TON lending vault and TON-DLP jetton master used by DAOLama.
+/// GRAM lending vault and TON-DLP jetton master used by DAOLama.
 contract DaolamaVault {
     author: "DAOLama"
     version: "1.0"
-    description: "DAOLama TON Vault accepts signed liquidity supplies, funds NFT-backed loans, processes repayments, and issues TON-DLP jettons."
+    description: "DAOLama GRAM Vault accepts signed liquidity supplies, funds NFT-backed loans, processes repayments, and issues TON-DLP jettons."
     storage: DaolamaVaultStorage
     incomingMessages: DaolamaVaultIncomingMessage
     outgoingMessages: DaolamaVaultOutgoingMessage
     thrownErrors: DaolamaVaultErrors
 }
 
-/// Persistent scalar state and referenced configuration of the TON vault.
+/// Persistent scalar state and referenced configuration of the GRAM vault.
 struct DaolamaVaultStorage {
     /// Authorization, administration, wallet-code, and metadata configuration.
     config: Cell<DaolamaVaultConfig>
@@ -17,13 +17,13 @@ struct DaolamaVaultStorage {
     params: Cell<DaolamaVaultParams>
     /// Whether new borrow flows are disabled.
     halted: bool
-    /// Liquid nanotons available in the lending vault.
+    /// Liquid nanograms available in the lending vault.
     balance: coins
-    /// Principal nanotons currently assigned to active loans.
+    /// Principal nanograms currently assigned to active loans.
     borrowed: coins
     /// Total TON-DLP supply in base units.
     lpTokenBalance: coins
-    /// Accrued protocol fees in nanotons.
+    /// Accrued protocol fees in nanograms.
     feeCollected: coins
 }
 
@@ -41,7 +41,7 @@ struct DaolamaVaultConfig {
 
 /// Liquidity-cap and protocol-fee parameters.
 struct DaolamaVaultParams {
-    /// Maximum `balance + borrowed` amount in nanotons; zero disables the cap.
+    /// Maximum `balance + borrowed` amount in nanograms; zero disables the cap.
     maxTotalLiquidity: coins
     /// Positive repayment-profit share charged to the protocol, in thousandths.
     profitFeePerMille: uint16
@@ -73,7 +73,7 @@ struct DaolamaSupplyAuthorization {
     validUntil: uint32
     /// Signed operation tag, required to equal `0x5c11ada9`.
     operation: uint32
-    /// Authorized supply amount in nanotons.
+    /// Authorized supply amount in nanograms.
     amount: coins
 }
 
@@ -91,17 +91,17 @@ struct DaolamaLoanAuthorization {
     loanData: cell
 }
 
-/// Signed TON liquidity supply that mints TON-DLP shares.
+/// Signed GRAM liquidity supply that mints TON-DLP shares.
 struct (0x5c11ada9) DaolamaSupply {
     /// Caller-selected id copied to the TON-DLP mint transfer.
     queryId: uint64
-    /// Supplied nanotons.
+    /// Supplied nanograms.
     amount: coins
     /// Signature and signed `DaolamaSupplyAuthorization` payload.
     proof: Cell<DaolamaSupplyAuthorizationProof>
 }
 
-/// Standard TEP-74 burn notification used to withdraw underlying TON.
+/// Standard TEP-74 burn notification used to withdraw underlying GRAM.
 struct (0x7bdd97de) DaolamaLpBurnNotification {
     /// Query id copied from the TON-DLP wallet burn.
     queryId: uint64
@@ -137,7 +137,7 @@ struct (0x00000002) DaolamaRepay {
     queryId: uint64
     /// Repaid principal removed from the vault's borrowed balance.
     principal: coins
-    /// Total nanotons returned by the loan contract before fee accounting.
+    /// Total nanograms returned by the loan contract before fee accounting.
     receivedAmount: coins
     /// Optional destination for remaining message value.
     excessDestination: address?
@@ -219,7 +219,7 @@ struct (0x178d4519) DaolamaLpInternalTransfer {
     fromAddress: address
     /// Address that receives remaining message value.
     responseDestination: address?
-    /// Nanotons forwarded by the TON-DLP wallet.
+    /// Nanograms forwarded by the TON-DLP wallet.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -235,7 +235,7 @@ struct (0x5fcc3d14) DaolamaNftTransfer {
     responseDestination: address?
     /// Optional NFT custom payload.
     customPayload: cell?
-    /// Nanotons forwarded to the new NFT owner.
+    /// Nanograms forwarded to the new NFT owner.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -251,7 +251,7 @@ struct (0xd53276db) DaolamaExcesses {
 struct (0x00000001) DaolamaFundLoan {
     /// Query id copied from the initiating request.
     queryId: uint64
-    /// Principal nanotons assigned to the loan.
+    /// Principal nanograms assigned to the loan.
     amount: coins
     /// Maybe-ref signed authorization forwarded to the loan contract.
     proof: Cell<DaolamaLoanAuthorizationProof>?
@@ -268,13 +268,13 @@ type DaolamaVaultOutgoingMessage =
 struct DaolamaPoolData {
     /// Whether new borrow flows are disabled.
     halted: bool
-    /// Liquid nanotons available in the vault.
+    /// Liquid nanograms available in the vault.
     balance: int
-    /// Principal nanotons currently assigned to active loans.
+    /// Principal nanograms currently assigned to active loans.
     borrowed: int
     /// Total TON-DLP supply in base units.
     lpTokenBalance: int
-    /// Accrued protocol fees in nanotons.
+    /// Accrued protocol fees in nanograms.
     feeCollected: int
 }
 

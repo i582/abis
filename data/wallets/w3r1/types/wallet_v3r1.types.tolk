@@ -2,7 +2,7 @@
 contract WalletV3r1 {
     author: "TON Core"
     version: "3.1"
-    description: "Wallet V3 R1 is a TON wallet for holding TON with expiring requests; compared with V2, it adds wallet id separation."
+    description: "Wallet V3 R1 is a TON wallet for holding GRAM with expiring requests; compared with V2, it adds wallet id separation."
     storage: WalletV3r1Storage
     incomingExternal: WalletV3r1IncomingExternalMessage
     thrownErrors: Errors

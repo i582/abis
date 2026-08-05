@@ -44,7 +44,7 @@ struct CoffeePoolCreatorInitPoolParams {
     ammSettings: cell?
 }
 
-/// Native TON asset tag used by Coffee asset cells.
+/// Native GRAM asset tag used by Coffee asset cells.
 struct (0b00) CoffeePoolCreatorAssetNative {}
 
 /// Jetton asset tag carrying workchain and address hash.
@@ -82,7 +82,7 @@ type CoffeePoolCreatorAmm =
 struct CoffeePoolCreatorNotificationDataSingle {
     /// Receiver for the notification; `addr_none` uses the operation recipient.
     receiver: address?
-    /// Nanotons forwarded with the notification.
+    /// Nanograms forwarded with the notification.
     fwdGas: coins
     /// Referenced user payload.
     payload: cell
@@ -156,7 +156,7 @@ struct (0xc0ffee07) CoffeePoolCreatorWithdrawDeposit {
 struct (0xc0ffee2e) CoffeePoolCreatorUpdateContractInternal {
     /// Query id copied into the outgoing excesses response.
     queryId: uint64
-    /// Address receiving remaining TON after the update.
+    /// Address receiving remaining GRAM after the update.
     excessesReceiver: address
     /// Optional code/data update payload.
     update: CoffeePoolCreatorContractUpdate

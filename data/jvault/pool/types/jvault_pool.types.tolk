@@ -73,7 +73,7 @@ struct JVaultPoolAccounting {
     lockPeriods: map<uint32, JVaultPoolLockPeriodInfo>
     /// Accounts allowed to stake; an empty map disables whitelist membership.
     whitelist: map<address, bool>
-    /// Fixed TON fee charged for an instant unstake.
+    /// Fixed GRAM fee charged for an instant unstake.
     unstakeFee: coins
     /// Protocol commissions collected by the pool.
     collectedCommissions: coins
@@ -135,7 +135,7 @@ struct JVaultPoolStorageData {
     lockPeriods: cell?
     /// Raw optional account-whitelist dictionary returned as a TVM stack cell.
     whitelist: cell?
-    /// Fixed TON fee for instant unstaking.
+    /// Fixed GRAM fee for instant unstaking.
     unstakeFee: int
     /// Accumulated protocol commissions.
     collectedCommissions: int
@@ -227,7 +227,7 @@ struct (0x5b88e5cc) JVaultPoolGetStorageData {
     tail: RemainingBitsAndRefs
 }
 
-/// Administrator request to withdraw all TON not needed for the pool reserve.
+/// Administrator request to withdraw all GRAM not needed for the pool reserve.
 struct (0x37726bdb) JVaultPoolWithdrawTon {
     /// Correlation identifier copied into the excess response.
     queryId: uint64
@@ -369,11 +369,11 @@ struct (0x0f8a7ea5) JVaultPoolJettonTransfer {
     amount: coins
     /// Logical Jetton recipient.
     destination: address
-    /// Address receiving any excess TON, or `addr_none` when omitted.
+    /// Address receiving any excess GRAM, or `addr_none` when omitted.
     responseDestination: address?
     /// Optional custom payload; JVault emits no custom payload in these flows.
     customPayload: cell?
-    /// TON forwarded with the Jetton notification.
+    /// GRAM forwarded with the Jetton notification.
     forwardTonAmount: coins
     /// Optional referenced comment or application payload.
     forwardPayload: Cell<RemainingBitsAndRefs>?
@@ -389,7 +389,7 @@ struct (0xd68a4ac1) JVaultPoolReceiveJettons {
     maxDeposit: coins
     /// Instant-unstake commission in protocol basis points.
     unstakeCommission: uint16
-    /// Fixed TON fee charged for an instant unstake.
+    /// Fixed GRAM fee charged for an instant unstake.
     unstakeFee: coins
     /// Pool whitelist copied into the staking wallet.
     whitelist: map<address, bool>
@@ -511,7 +511,7 @@ type JVaultPoolOutgoingMessage =
 
 /// Exit codes thrown by the pinned pool implementation.
 enum JVaultPoolErrors {
-    /// Attached TON does not cover the required downstream messages and compute.
+    /// Attached GRAM does not cover the required downstream messages and compute.
     OutOfGas = 13
     /// Staking amount is below the configured minimum deposit.
     LessThanMinimumDeposit = 41

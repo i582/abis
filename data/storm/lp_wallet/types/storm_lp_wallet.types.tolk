@@ -34,7 +34,7 @@ struct (0x0f8a7ea5) StormLpWalletTransfer {
     responseAddress: address?
     /// Optional standard Jetton custom payload; the live code reads and ignores this maybe-ref.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw standard Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -50,7 +50,7 @@ struct (0x178d4519) StormLpWalletInternalTransfer {
     fromAddress: address
     /// Optional response destination for an excess-value refund.
     responseAddress: address?
-    /// Nanotons forwarded to the owner as a transfer notification.
+    /// Nanograms forwarded to the owner as a transfer notification.
     forwardTonAmount: coins
     /// Raw standard Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -74,7 +74,7 @@ struct (0x6d8e5e3c) StormLpWalletRequestExcesses {
     queryId: uint64
 }
 
-/// Standard Jetton transfer notification emitted to the owner when an incoming internal transfer forwards TON.
+/// Standard Jetton transfer notification emitted to the owner when an incoming internal transfer forwards GRAM.
 struct (0x7362d09c) StormLpWalletTransferNotification {
     /// Query id copied from the accepted internal transfer.
     queryId: uint64

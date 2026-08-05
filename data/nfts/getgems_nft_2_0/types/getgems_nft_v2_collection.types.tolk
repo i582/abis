@@ -73,7 +73,7 @@ struct GetgemsNftCollectionV2ItemMintInit {
 
 /// Value stored in the batch deploy dictionary.
 struct GetgemsNftCollectionV2BatchDeployItem {
-    /// Nanotons attached to the item deployment message.
+    /// Nanograms attached to the item deployment message.
     attachTonAmount: coins
     /// Raw referenced item initialization body forwarded unchanged to the deployed item.
     initParams: cell
@@ -97,7 +97,7 @@ struct (0x00000001) GetgemsNftCollectionV2DeployItem {
     queryId: uint64
     /// Item index to deploy; must not be greater than `nextItemIndex`.
     itemIndex: uint64
-    /// Nanotons attached to the item deployment message.
+    /// Nanograms attached to the item deployment message.
     attachTonAmount: coins
     /// Raw referenced item initialization body forwarded unchanged to the deployed item.
     initParams: cell

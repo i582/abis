@@ -41,9 +41,9 @@ struct FragmentUsernameCollectionRoyaltyParams {
 struct FragmentUsernameCollectionAuctionConfig {
     /// Beneficiary receiving auction proceeds after royalties.
     beneficiaryAddress: address
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     initialMinBid: coins
-    /// Instant-win bid in nanotons, or zero when disabled.
+    /// Instant-win bid in nanograms, or zero when disabled.
     maxBid: coins
     /// Minimum bid increase percent.
     minBidStep: uint8
@@ -71,7 +71,7 @@ struct (0x4637289a) FragmentUsernameCollectionDeploy {
 struct (0x299a3e15) FragmentUsernameCollectionItemDeploy {
     /// First bidder address supplied by the collection.
     senderAddress: address
-    /// First bid amount in nanotons.
+    /// First bid amount in nanograms.
     bid: coins
     /// Raw referenced token-info cell.
     tokenInfo: cell

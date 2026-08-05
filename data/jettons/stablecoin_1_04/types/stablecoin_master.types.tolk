@@ -36,7 +36,7 @@ struct (0x0f8a7ea5) StablecoinMasterForceTransfer {
     responseDestination: address?
     /// Optional referenced TEP-74 custom payload.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner's notification.
+    /// Nanograms forwarded to the destination owner's notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -72,7 +72,7 @@ struct (0x178d4519) StablecoinMasterJettonInternalTransfer {
     from: address?
     /// Optional response address for wallet `Excesses`.
     responseAddress: address?
-    /// Nanotons forwarded to the recipient owner's notification.
+    /// Nanograms forwarded to the recipient owner's notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -84,7 +84,7 @@ struct (0x642b7d07) StablecoinMasterMint {
     queryId: uint64
     /// Jetton owner address whose deterministic governed wallet receives the mint transfer.
     toAddress: address
-    /// Nanotons attached to the wallet deployment/internal-transfer message.
+    /// Nanograms attached to the wallet deployment/internal-transfer message.
     tonAmount: coins
     /// Referenced internal transfer body validated and forwarded to the recipient wallet.
     masterMsg: Cell<StablecoinMasterJettonInternalTransfer>
@@ -132,7 +132,7 @@ struct (0x235caf52) StablecoinMasterCallTo {
     queryId: uint64
     /// Governed wallet address that receives the nested wallet action.
     toAddress: address
-    /// Nanotons attached to the forwarded wallet action.
+    /// Nanograms attached to the forwarded wallet action.
     tonAmount: coins
     /// Referenced wallet action body: transfer, burn, or status update.
     masterMsg: Cell<StablecoinMasterWalletAdminAction>

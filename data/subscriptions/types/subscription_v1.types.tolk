@@ -2,7 +2,7 @@
 contract SubscriptionV1 {
     author: "Tonkeeper"
     version: "1.0"
-    description: "Tonkeeper Subscription V1 is a wallet plugin that lets apps charge recurring TON payments authorized by the wallet owner."
+    description: "Tonkeeper Subscription V1 is a wallet plugin that lets apps charge recurring GRAM payments authorized by the wallet owner."
     storage: SubscriptionV1Storage
     incomingMessages: SubscriptionV1IncomingMessage
     outgoingMessages: SubscriptionV1OutgoingMessage
@@ -14,7 +14,7 @@ struct SubscriptionV1Storage {
     wallet: address
     /// Beneficiary address receiving fallback and remaining funds.
     beneficiary: address
-    /// Subscription amount in nanotons.
+    /// Subscription amount in nanograms.
     amount: coins
     /// Subscription period in seconds.
     period: uint32
@@ -38,7 +38,7 @@ struct SubscriptionV1DataReply {
     wallet: [int, uint256]
     /// Beneficiary address parts as `(workchain, address_hash)`.
     beneficiary: [int, uint256]
-    /// Subscription amount in nanotons.
+    /// Subscription amount in nanograms.
     amount: coins
     /// Subscription period in seconds.
     period: uint32

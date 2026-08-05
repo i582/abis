@@ -44,7 +44,7 @@ struct CoffeeLiquidityDepositoryInitPoolParams {
     ammSettings: cell?
 }
 
-/// Native TON asset tag used by Coffee asset cells.
+/// Native GRAM asset tag used by Coffee asset cells.
 struct (0b00) CoffeeLiquidityDepositoryAssetNative {}
 
 /// Jetton asset tag carrying workchain and address hash.
@@ -120,7 +120,7 @@ type CoffeeLiquidityDepositoryDepositLiquidityCondition =
 struct CoffeeLiquidityDepositoryNotificationDataSingle {
     /// Receiver for the notification; `addr_none` uses the operation recipient.
     receiver: address?
-    /// Nanotons forwarded with the notification.
+    /// Nanograms forwarded with the notification.
     fwdGas: coins
     /// Referenced user payload.
     payload: cell
@@ -194,7 +194,7 @@ struct (0xc0ffee07) CoffeeLiquidityDepositoryWithdrawDeposit {
 struct (0xc0ffee2e) CoffeeLiquidityDepositoryUpdateContractInternal {
     /// Query id copied into the outgoing excesses response.
     queryId: uint64
-    /// Address receiving remaining TON after the update.
+    /// Address receiving remaining GRAM after the update.
     excessesReceiver: address
     /// Optional code/data update payload.
     update: CoffeeLiquidityDepositoryContractUpdate

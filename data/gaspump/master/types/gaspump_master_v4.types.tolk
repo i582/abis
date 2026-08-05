@@ -54,12 +54,12 @@ get fun anotherMinterAddress(): any_address {
     throw 0;
 }
 
-/// Estimates Jettons received for a TON purchase.
+/// Estimates Jettons received for a GRAM purchase.
 get fun getBuyAmount(tonAmount: int): int {
     throw 0;
 }
 
-/// Estimates TON received for a Jetton sale.
+/// Estimates GRAM received for a Jetton sale.
 get fun getSellAmount(jettonAmount: int): int {
     throw 0;
 }
@@ -76,7 +76,7 @@ get fun supported_interfaces(): GasPumpSupportedInterfaces {
 
 /// Referenced trading and accounting state introduced in revision V4.
 struct GasPumpMasterV4TradingStorage {
-    /// TON accumulated as protocol commission.
+    /// GRAM accumulated as protocol commission.
     commissionBalance: coins
     /// Revision-specific 128-bit accounting accumulator.
     accountingAccumulator: uint128
@@ -108,7 +108,7 @@ struct GasPumpMasterV4Storage {
     auxiliaryCode: cell
     /// Current trading phase.
     tradeState: uint16
-    /// TON retained by the bonding curve.
+    /// GRAM retained by the bonding curve.
     bondingCurveBalance: coins
     /// Referenced trading state and curve parameters.
     trading: Cell<GasPumpMasterV4TradingStorage>

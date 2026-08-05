@@ -92,7 +92,7 @@ struct (0x0f8a7ea5) BidaskDammLpWalletTransfer {
     responseAddress: address?
     /// Optional custom payload parsed as a referenced cell by SDK builders.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -108,7 +108,7 @@ struct (0x178d4519) BidaskDammLpWalletInternalTransfer {
     fromAddress: address
     /// Optional response address for an excesses refund.
     responseAddress: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Referenced token X/Y fee checkpoints that travel with transferred LP tokens.
     fees: Cell<BidaskDammLpWalletTransferFees>
@@ -182,7 +182,7 @@ struct (0x983b6933) BidaskDammLpWalletInternalClaim {
     forwardPayload: cell?
 }
 
-/// Standard Jetton owner notification emitted when a received LP transfer forwards TON.
+/// Standard Jetton owner notification emitted when a received LP transfer forwards GRAM.
 struct (0x7362d09c) BidaskDammLpWalletTransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64

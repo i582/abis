@@ -59,7 +59,7 @@ struct (0x178d4519) StormLpInternalTransfer {
     fromAddress: address?
     /// Response address copied from the mint request owner address.
     responseAddress: address
-    /// Forward TON amount.
+    /// Forward GRAM amount.
     forwardTonAmount: coins
     /// Raw forward payload tail.
     forwardPayload: RemainingBitsAndRefs

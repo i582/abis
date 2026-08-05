@@ -33,7 +33,7 @@ struct (0x0f8a7ea5) StablecoinWalletTransfer {
     responseDestination: address?
     /// Optional referenced custom payload; source validates the field shape and ignores content.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -49,7 +49,7 @@ struct (0x178d4519) StablecoinWalletInternalTransfer {
     from: address?
     /// Optional response address for an `Excesses` refund after processing.
     responseAddress: address?
-    /// Nanotons forwarded to the owner notification.
+    /// Nanograms forwarded to the owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -93,7 +93,7 @@ struct (0x7bdd97de) StablecoinWalletBurnNotification {
     responseDestination: address?
 }
 
-/// Owner notification emitted when an incoming transfer carries forward TON.
+/// Owner notification emitted when an incoming transfer carries forward GRAM.
 struct (0x7362d09c) StablecoinWalletTransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64

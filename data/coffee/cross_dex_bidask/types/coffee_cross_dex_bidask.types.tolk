@@ -48,7 +48,7 @@ struct (0x474f86cf) CoffeeCrossDexBidaskDedustPayout {
 struct (0x01f3835d) CoffeeCrossDexBidaskPtonTonTransfer {
     /// Query id copied from the pTON wallet.
     queryId: uint64
-    /// Native TON amount reported by pTON.
+    /// Native GRAM amount reported by pTON.
     tonAmount: coins
     /// Refund address from the pTON body; `addr_none` disables an explicit refund recipient.
     refundAddress: address?
@@ -120,13 +120,13 @@ struct (0x6f80872c) CoffeeCrossDexBidaskUpdateContract {
     data: cell?
 }
 
-/// Admin-only native TON withdrawal.
+/// Admin-only native GRAM withdrawal.
 struct (0x2bf71be6) CoffeeCrossDexBidaskWithdrawTon {
     /// Query id copied into the excess response.
     queryId: uint64
-    /// Recipient of the withdrawn TON.
+    /// Recipient of the withdrawn GRAM.
     recipient: address
-    /// TON amount added to the unreserved incoming value.
+    /// GRAM amount added to the unreserved incoming value.
     amount: coins
 }
 
@@ -160,7 +160,7 @@ struct (0x0f8a7ea5) CoffeeCrossDexBidaskJettonTransfer {
     responseDestination: address?
     /// Optional custom payload.
     customPayload: cell?
-    /// Forward TON amount.
+    /// Forward GRAM amount.
     forwardTonAmount: coins
     /// Raw TEP-74 forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

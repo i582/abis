@@ -62,7 +62,7 @@ struct FragmentNumbersItemRoyaltyParams {
 struct FragmentNumbersItemLastBid {
     /// Bidder address to receive ownership or refunds.
     bidderAddress: address
-    /// Bid amount in nanotons.
+    /// Bid amount in nanograms.
     bid: coins
     /// Unix timestamp of the bid.
     bidTs: uint32
@@ -72,7 +72,7 @@ struct FragmentNumbersItemLastBid {
 struct FragmentNumbersItemAuctionState {
     /// Referenced last bid, absent before the first successful bid.
     lastBid: Cell<FragmentNumbersItemLastBid>?
-    /// Current minimum acceptable bid in nanotons.
+    /// Current minimum acceptable bid in nanograms.
     minBid: coins
     /// Unix timestamp when the auction may be finalized.
     endTime: uint32
@@ -82,9 +82,9 @@ struct FragmentNumbersItemAuctionState {
 struct FragmentNumbersItemAuctionConfig {
     /// Beneficiary receiving auction proceeds after royalties.
     beneficiaryAddress: address
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     initialMinBid: coins
-    /// Instant-win bid in nanotons, or zero when disabled.
+    /// Instant-win bid in nanograms, or zero when disabled.
     maxBid: coins
     /// Minimum bid increase percent.
     minBidStep: uint8
@@ -106,7 +106,7 @@ struct FragmentNumbersItemAuction {
 struct (0x299a3e15) FragmentNumbersItemDeploy {
     /// First bidder address supplied by the collection.
     senderAddress: address
-    /// First bid amount in nanotons.
+    /// First bid amount in nanograms.
     bid: coins
     /// Raw referenced token-info cell.
     tokenInfo: cell
@@ -142,7 +142,7 @@ struct (0x5fcc3d14) FragmentNumbersItemTransfer {
     responseDestination: address?
     /// Optional referenced custom payload parsed for TEP-62 layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -224,7 +224,7 @@ struct (0xa43227e1) FragmentNumbersItemReturnBid {
 
 /// Payload embedded in auction-settlement `ownership_assigned` forward data.
 struct (0x38127de1) FragmentNumbersItemBidInfo {
-    /// Winning bid amount in nanotons.
+    /// Winning bid amount in nanograms.
     bid: coins
     /// Unix timestamp of the winning bid.
     bidTs: uint32
@@ -268,11 +268,11 @@ struct FragmentNumbersItemDataReply {
 struct FragmentNumbersItemAuctionStateReply {
     /// Last bidder address, or `addr_none` before the first bid.
     bidderAddress: any_address
-    /// Last bid amount in nanotons, or zero before the first bid.
+    /// Last bid amount in nanograms, or zero before the first bid.
     bid: coins
     /// Last bid unix timestamp, or zero before the first bid.
     bidTs: uint32
-    /// Current minimum acceptable bid in nanotons.
+    /// Current minimum acceptable bid in nanograms.
     minBid: coins
     /// Auction end unix timestamp.
     endTime: uint32
@@ -282,9 +282,9 @@ struct FragmentNumbersItemAuctionStateReply {
 struct FragmentNumbersItemAuctionConfigReply {
     /// Beneficiary address, or `addr_none` when no auction is active.
     beneficiaryAddress: any_address
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     initialMinBid: coins
-    /// Instant-win bid in nanotons, or zero when disabled.
+    /// Instant-win bid in nanograms, or zero when disabled.
     maxBid: coins
     /// Minimum bid increase percent.
     minBidStep: uint8

@@ -27,7 +27,7 @@ struct (0x5be57626) HipoParentProxyTokensMinted {
     queryId: uint64
     /// hTON amount minted in base units.
     tokens: coins
-    /// TON amount associated with the mint.
+    /// GRAM amount associated with the mint.
     coins: coins
     /// Owner whose deterministic wallet receives the minted tokens.
     owner: address
@@ -39,7 +39,7 @@ struct (0x5be57626) HipoParentProxyTokensMinted {
 struct (0x47daa10f) HipoParentProxySaveCoins {
     /// Query id copied into the outgoing wallet message.
     queryId: uint64
-    /// TON amount saved for the owner.
+    /// GRAM amount saved for the owner.
     coins: coins
     /// Owner whose deterministic wallet receives the save notification.
     owner: address
@@ -57,7 +57,7 @@ struct (0x688b0213) HipoParentProxyReserveTokens {
     owner: address
     /// Four-bit unstake mode from the source wallet.
     mode: uint4
-    /// TON amount assigned for ownership notification handling.
+    /// GRAM amount assigned for ownership notification handling.
     ownershipAssignedAmount: coins
 }
 
@@ -77,7 +77,7 @@ struct (0x4476fde0) HipoParentProxyTokensBurned {
     queryId: uint64
     /// hTON amount burned in base units.
     tokens: coins
-    /// TON amount associated with the burn.
+    /// GRAM amount associated with the burn.
     coins: coins
     /// Owner whose deterministic wallet receives the burn result.
     owner: address
@@ -139,7 +139,7 @@ struct (0x04dc78b7) HipoParentSetContent {
     newContent: cell
 }
 
-/// Treasury-only request that reserves storage fee and returns surplus TON.
+/// Treasury-only request that reserves storage fee and returns surplus GRAM.
 struct (0x23355ffb) HipoParentWithdrawSurplus {
     /// Query id copied into the outgoing `gas_excess` response.
     queryId: uint64
@@ -171,7 +171,7 @@ struct (0x5445efee) HipoParentTokensMinted {
     queryId: uint64
     /// hTON amount minted in base units.
     tokens: coins
-    /// TON amount associated with the mint.
+    /// GRAM amount associated with the mint.
     coins: coins
     /// Owner copied into the wallet body for bounced-message diagnostics.
     owner: address
@@ -183,7 +183,7 @@ struct (0x5445efee) HipoParentTokensMinted {
 struct (0x4cce0e74) HipoParentSaveCoins {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// TON amount saved for the owner.
+    /// GRAM amount saved for the owner.
     coins: coins
     /// Owner copied into the wallet body for bounced-message diagnostics.
     owner: address
@@ -201,7 +201,7 @@ struct (0x386a358b) HipoParentReserveTokens {
     owner: address
     /// Four-bit unstake mode forwarded to Treasury.
     mode: uint4
-    /// TON amount assigned for ownership notification handling.
+    /// GRAM amount assigned for ownership notification handling.
     ownershipAssignedAmount: coins
 }
 
@@ -219,7 +219,7 @@ struct (0x5b512e25) HipoParentTokensBurned {
     queryId: uint64
     /// hTON amount burned in base units.
     tokens: coins
-    /// TON amount associated with the burn.
+    /// GRAM amount associated with the burn.
     coins: coins
 }
 

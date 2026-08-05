@@ -2,7 +2,7 @@
 contract BemoFinancial {
     author: "Bemo"
     version: "2.0"
-    description: "Bemo v2 Financial is the bmTON jetton master and staking hub where users stake TON, receive bmTON, and start unstake requests."
+    description: "Bemo v2 Financial is the bmTON jetton master and staking hub where users stake GRAM, receive bmTON, and start unstake requests."
     storage: BemoFinancialStorage
     incomingMessages: BemoFinancialIncomingMessage
     outgoingMessages: BemoFinancialOutgoingMessage
@@ -14,11 +14,11 @@ contract BemoFinancial {
 struct BemoFinancialLockupData {
     /// Current 36-hour lockup epoch number.
     lastLockupEpoch: uint32
-    /// TON amount assigned to requests unlockable in the current epoch.
+    /// GRAM amount assigned to requests unlockable in the current epoch.
     lockupSupply: coins
-    /// TON amount assigned to requests unlockable in the next epoch.
+    /// GRAM amount assigned to requests unlockable in the next epoch.
     nextLockupSupply: coins
-    /// TON amount assigned to requests unlockable in later epochs.
+    /// GRAM amount assigned to requests unlockable in later epochs.
     laterLockupSupply: coins
     /// Next sequential Unstake Request index.
     nextUnstakeRequestIndex: uint64
@@ -31,9 +31,9 @@ struct BemoFinancialLockupData {
 struct BemoFinancialStorage {
     /// Total issued bmTON supply encoded as TL-B `Coins`.
     jettonTotalSupply: coins
-    /// Total TON pool supply tracked by Bemo, in nanotons.
+    /// Total GRAM pool supply tracked by Bemo, in nanograms.
     tonTotalSupply: coins
-    /// Accumulated protocol commission supply, in nanotons.
+    /// Accumulated protocol commission supply, in nanograms.
     commissionTotalSupply: coins
     /// Protocol commission factor in per-mille units.
     commissionFactor: uint16
@@ -51,22 +51,22 @@ struct BemoFinancialStorage {
     lockupData: Cell<BemoFinancialLockupData>
 }
 
-/// Empty incoming body treated as a simple TON stake with query id zero.
+/// Empty incoming body treated as a simple GRAM stake with query id zero.
 struct BemoFinancialEmptyStake {}
 
 /// Explicit stake request accepted by Financial.
 struct (0x4253c4d5) BemoFinancialStake {
     /// User-selected query id copied to the minted wallet internal transfer.
     queryId: uint64
-    /// Nanotons forwarded with the minted bmTON transfer notification.
+    /// Nanograms forwarded with the minted bmTON transfer notification.
     forwardTonAmount: coins
     /// Optional referenced payload forwarded to the recipient owner notification.
     forwardPayload: cell?
 }
 
-/// Maintenance deposit that increases TON supply and commission accounting.
+/// Maintenance deposit that increases GRAM supply and commission accounting.
 struct (0x4353307d) BemoFinancialDepositWithCommission {
-    /// TON amount from the attached value to add to the tracked pool supply.
+    /// GRAM amount from the attached value to add to the tracked pool supply.
     tonAmount: coins
 }
 
@@ -78,7 +78,7 @@ struct (0x7bdd97de) BemoFinancialBurnNotification {
     amount: coins
     /// Owner address reported by the burning wallet.
     ownerAddress: address
-    /// Receiver address that should receive TON or notifications after unstaking.
+    /// Receiver address that should receive GRAM or notifications after unstaking.
     receiverAddress: address
     /// Optional payload carried into the Unstake Request and final notification.
     forwardPayload: cell?
@@ -88,9 +88,9 @@ struct (0x7bdd97de) BemoFinancialBurnNotification {
 struct (0x492ab1b3) BemoFinancialUnstake {
     /// Sequential Unstake Request index used to authenticate the sender address.
     index: uint64
-    /// User address that receives the unstaked TON.
+    /// User address that receives the unstaked GRAM.
     owner: address
-    /// TON amount requested for withdrawal, in nanotons.
+    /// GRAM amount requested for withdrawal, in nanograms.
     tonAmount: coins
     /// Burned bmTON amount associated with the request.
     jettonAmount: coins
@@ -104,7 +104,7 @@ struct (0x2a158bc3) BemoFinancialProvideLegacyQuote {
     queryId: uint64
 }
 
-/// On-chain quote request for current TON and bmTON pool supplies.
+/// On-chain quote request for current GRAM and bmTON pool supplies.
 struct (0xad83913f) BemoFinancialProvideCurrentQuote {
     /// Caller-selected query id copied to the quote response.
     queryId: uint64
@@ -152,11 +152,11 @@ struct (0x792dc2c5) BemoFinancialSetCommissionAddress {
     commissionAddress: address
 }
 
-/// Operational command that sends a raw TON transfer from Financial.
+/// Operational command that sends a raw GRAM transfer from Financial.
 struct (0x13f22452) BemoFinancialOperationalTransfer {
     /// Destination address of the outgoing raw transfer.
     destination: address
-    /// Nanotons sent to `destination`.
+    /// Nanograms sent to `destination`.
     amount: coins
     /// Optional referenced body copied into the outgoing message.
     body: cell?
@@ -197,7 +197,7 @@ struct (0x178d4519) BemoFinancialInternalTransfer {
     from: address
     /// Staker address used as the wallet response address.
     responseAddress: address
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Optional referenced forward payload from the stake request.
     forwardPayload: cell?
@@ -207,7 +207,7 @@ struct (0x178d4519) BemoFinancialInternalTransfer {
 struct (0x10a1ce75) BemoFinancialDeployUnstakeRequest {
     /// Receiver or owner address stored in the Unstake Request.
     ownerAddress: address
-    /// TON amount withdrawable after the lockup, in nanotons.
+    /// GRAM amount withdrawable after the lockup, in nanograms.
     withdrawTonAmount: coins
     /// Burned bmTON amount associated with the request.
     withdrawJettonAmount: coins
@@ -237,7 +237,7 @@ struct (0x2a158bc3) BemoFinancialTakeLegacyQuote {
     queryId: uint64
     /// Total issued bmTON supply encoded as TL-B `Coins`.
     jettonTotalSupply: coins
-    /// Total TON pool supply encoded as TL-B `Coins`.
+    /// Total GRAM pool supply encoded as TL-B `Coins`.
     tonTotalSupply: coins
 }
 
@@ -245,7 +245,7 @@ struct (0x2a158bc3) BemoFinancialTakeLegacyQuote {
 struct (0x0a420458) BemoFinancialTakeCurrentQuote {
     /// Query id copied from the request.
     queryId: uint64
-    /// Current TON pool supply returned as a 128-bit integer.
+    /// Current GRAM pool supply returned as a 128-bit integer.
     tonTotalSupply: uint128
     /// Current bmTON supply returned as a 128-bit integer.
     jettonTotalSupply: uint128
@@ -275,7 +275,7 @@ struct (0x0f8a7ea5) BemoFinancialJettonTransfer {
     responseDestination: address
     /// Optional custom payload; verified branch emits none.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient notification.
+    /// Nanograms forwarded to the recipient notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -317,7 +317,7 @@ type BemoFinancialOutgoingMessage =
 struct BemoFinancialFullDataReply {
     /// Total issued bmTON supply.
     jettonTotalSupply: coins
-    /// Total TON pool supply.
+    /// Total GRAM pool supply.
     tonTotalSupply: coins
     /// Accumulated protocol commission supply.
     commissionTotalSupply: coins
@@ -337,11 +337,11 @@ struct BemoFinancialFullDataReply {
     unstakeRequestCode: cell
     /// Current 36-hour lockup epoch number.
     lastLockupEpoch: uint32
-    /// TON supply unlockable in the current epoch.
+    /// GRAM supply unlockable in the current epoch.
     lockupSupply: coins
-    /// TON supply unlockable in the next epoch.
+    /// GRAM supply unlockable in the next epoch.
     nextLockupSupply: coins
-    /// TON supply unlockable in later epochs.
+    /// GRAM supply unlockable in later epochs.
     laterLockupSupply: coins
     /// Next sequential Unstake Request index.
     nextUnstakeRequestIndex: uint64
@@ -365,7 +365,7 @@ struct BemoFinancialJettonDataReply {
 enum Errors {
     /// Staking message originated outside basechain workchain zero.
     WrongWorkchain = 333
-    /// Attached TON value is below the gas, storage, or payout budget.
+    /// Attached GRAM value is below the gas, storage, or payout budget.
     NotEnoughValue = 709
     /// Burn notification sender is not the deterministic bmTON wallet for the reported owner.
     InvalidBurnNotificationSender = 74

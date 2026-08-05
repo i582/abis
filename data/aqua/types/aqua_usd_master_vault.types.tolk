@@ -1,4 +1,4 @@
-/// Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, deposit/withdraw commands, and standard TON asset messages.
+/// Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, deposit/withdraw commands, and standard GRAM asset messages.
 contract AquaUsdMasterVault {
     author: "Aqua Protocol"
     version: "1.0"
@@ -165,11 +165,11 @@ struct (0x0f8a7ea5) AquaJettonTransfer {
     amount: coins
     /// Destination owner address.
     destination: address
-    /// Optional response address for excess TON.
+    /// Optional response address for excess GRAM.
     responseDestination: address?
     /// Optional referenced custom payload.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner.
+    /// Nanograms forwarded to the destination owner.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -181,11 +181,11 @@ struct (0x5fcc3d14) AquaNftTransfer {
     queryId: uint64
     /// New NFT owner address.
     newOwnerAddress: address
-    /// Optional response destination for excess TON.
+    /// Optional response destination for excess GRAM.
     responseDestination: address?
     /// Optional referenced custom payload.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

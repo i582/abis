@@ -2,7 +2,7 @@
 contract StakeeValidatorController {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee Validator Controller is the validator-side account that borrows pooled TON, stakes it in validation rounds, and repays the pool."
+    description: "Stakee Validator Controller is the validator-side account that borrows pooled GRAM, stakes it in validation rounds, and repays the pool."
     storage: StakeeValidatorControllerStorage
     incomingMessages: StakeeValidatorControllerIncomingMessage
     outgoingMessages: StakeeValidatorControllerOutgoingMessage
@@ -141,7 +141,7 @@ struct (0xf0fd2250) StakeeValidatorControllerUpdateValidatorHash {
     queryId: uint64
 }
 
-/// Validator command that withdraws TON from the controller wallet back to validator.
+/// Validator command that withdraws GRAM from the controller wallet back to validator.
 struct (0x8efed779) StakeeValidatorControllerWithdrawValidator {
     /// Query id copied into the outgoing validator withdrawal notification.
     queryId: uint64
@@ -153,7 +153,7 @@ struct (0x8efed779) StakeeValidatorControllerWithdrawValidator {
 struct (0x4e73744b) StakeeValidatorControllerNewStake {
     /// Non-zero query id copied into the outgoing Elector `new_stake` body and Elector response.
     queryId: uint64
-    /// TON amount sent to Elector as the message value.
+    /// GRAM amount sent to Elector as the message value.
     stakeValue: coins
     /// Validator public key forwarded to Elector.
     validatorPubkey: bits256
@@ -259,7 +259,7 @@ struct (0x47657424) StakeeValidatorControllerElectorRecoverStake {
 
 /// Validator notification body emitted after a successful withdrawal request.
 struct (0x30026327) StakeeValidatorControllerValidatorWithdrawal {
-    /// Query id copied from `withdraw_validator`; withdrawal amount is the TON message value.
+    /// Query id copied from `withdraw_validator`; withdrawal amount is the GRAM message value.
     queryId: uint64
 }
 
@@ -370,9 +370,9 @@ enum ControllerErrors {
     TooEarlyStakeRecoverAttemptCount = 0xf600
     /// Stake recovery was requested before the unfreeze timing condition was met.
     TooEarlyStakeRecoverAttemptTime = 0xf601
-    /// Attached TON is below the Elector recover-stake operation value.
+    /// Attached GRAM is below the Elector recover-stake operation value.
     TooLowRecoverStakeValue = 0xf602
-    /// Attached TON is below the minimum request-loan operation value.
+    /// Attached GRAM is below the minimum request-loan operation value.
     TooLowRequestLoanValue = 0xf604
     /// Validator-set change counter would exceed the accepted bound.
     TooMuchValidatorSetCounts = 0xf700
@@ -384,7 +384,7 @@ enum ControllerErrors {
     IncorrectWithdrawalAmount = 0xf801
     /// New-stake query id is zero, so Elector confirmation could not be correlated.
     IncorrectNewStakeQueryId = 0xf900
-    /// Attached TON is below the controller new-stake operation fee.
+    /// Attached GRAM is below the controller new-stake operation fee.
     IncorrectNewStakeRequestValue = 0xf901
     /// New-stake value is below the minimum stake.
     IncorrectNewStakeValueLtMinimum = 0xf902

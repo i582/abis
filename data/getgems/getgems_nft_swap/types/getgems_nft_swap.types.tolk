@@ -2,7 +2,7 @@
 contract GetgemsNftSwap {
     author: "Getgems"
     version: "1.0"
-    description: "Getgems NFT Swap is a two-party escrow that exchanges agreed NFTs and TON side payments between traders."
+    description: "Getgems NFT Swap is a two-party escrow that exchanges agreed NFTs and GRAM side payments between traders."
     storage: GetgemsNftSwapStorage
     incomingMessages: GetgemsNftSwapIncomingMessage
     outgoingMessages: GetgemsNftSwapOutgoingMessage
@@ -18,19 +18,19 @@ struct GetgemsNftSwapStorage {
     leftTrader: address
     /// Right participant allowed to add coins and cancel while active.
     rightTrader: address
-    /// Required left-side commission in nanotons.
+    /// Required left-side commission in nanograms.
     leftCommission: coins
-    /// Required left-side surcharge in nanotons, transferred to the right trader on completion.
+    /// Required left-side surcharge in nanograms, transferred to the right trader on completion.
     leftSurcharge: coins
-    /// Nanotons already received from the left side.
+    /// Nanograms already received from the left side.
     leftCoinsGot: coins
     /// NFT status dictionary keyed by NFT item address hash; value 0 means pending, 1 means received.
     leftNft: map<uint256, uint1>
-    /// Required right-side commission in nanotons.
+    /// Required right-side commission in nanograms.
     rightCommission: coins
-    /// Required right-side surcharge in nanotons, transferred to the left trader on completion.
+    /// Required right-side surcharge in nanograms, transferred to the left trader on completion.
     rightSurcharge: coins
-    /// Nanotons already received from the right side.
+    /// Nanograms already received from the right side.
     rightCoinsGot: coins
     /// NFT status dictionary keyed by NFT item address hash; value 0 means pending, 1 means received.
     rightNft: map<uint256, uint1>
@@ -56,11 +56,11 @@ struct (0x05138d91) GetgemsNftSwapOwnershipAssigned {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Participant command that contributes additional nanotons to the sender side.
+/// Participant command that contributes additional nanograms to the sender side.
 struct (0x00000001) GetgemsNftSwapAddCoins {
     /// Query id copied if the contribution completes the swap.
     queryId: uint64
-    /// Nanotons credited to the sender side; source rejects values greater than `msg_value`.
+    /// Nanograms credited to the sender side; source rejects values greater than `msg_value`.
     coins: coins
 }
 
@@ -96,7 +96,7 @@ struct (0x5fcc3d14) GetgemsNftSwapNftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Always zero in the body; outbound message value is `0.05 TON` except rejected returns.
+    /// Always zero in the body; outbound message value is `0.05 GRAM` except rejected returns.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -139,9 +139,9 @@ type GetgemsNftSwapOutgoingMessage =
 struct GetgemsNftSwapTradeStateReply {
     /// Lifecycle code: 1 active, 2 canceled, 3 completed.
     state: uint2
-    /// True when all left-side NFTs and nanotons are received.
+    /// True when all left-side NFTs and nanograms are received.
     leftOk: bool
-    /// True when all right-side NFTs and nanotons are received.
+    /// True when all right-side NFTs and nanograms are received.
     rightOk: bool
     /// Left participant address stored in swap state.
     leftTrader: address
@@ -151,17 +151,17 @@ struct GetgemsNftSwapTradeStateReply {
     leftNft: map<uint256, uint1>
     /// Right NFT status dictionary keyed by NFT item address hash; empty map means no entries.
     rightNft: map<uint256, uint1>
-    /// Required left-side commission in nanotons.
+    /// Required left-side commission in nanograms.
     leftCommission: int
-    /// Required left-side surcharge in nanotons.
+    /// Required left-side surcharge in nanograms.
     leftSurcharge: int
-    /// Nanotons received from the left side.
+    /// Nanograms received from the left side.
     leftCoinsGot: int
-    /// Required right-side commission in nanotons.
+    /// Required right-side commission in nanograms.
     rightCommission: int
-    /// Required right-side surcharge in nanotons.
+    /// Required right-side surcharge in nanograms.
     rightSurcharge: int
-    /// Nanotons received from the right side.
+    /// Nanograms received from the right side.
     rightCoinsGot: int
 }
 

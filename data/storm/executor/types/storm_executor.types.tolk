@@ -43,7 +43,7 @@ struct (0x4f38cae8) StormMintExecutor {
 
 /// Vault-originated balance addition.
 struct (0x5dd66579) StormAddExecutorAmount {
-    /// Nanotons added to the sender vault balance entry; schema names this field `referral_amount`.
+    /// Nanograms added to the sender vault balance entry; schema names this field `referral_amount`.
     referralAmount: coins
     /// Address that receives the acknowledgement/excess message.
     originAddr: address
@@ -81,7 +81,7 @@ struct (0x5fcc3d14) StormExecutorTransfer {
     responseDestination: address?
     /// Optional custom payload from the TEP-62 transfer layout.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -182,11 +182,11 @@ enum Errors {
     NegativeResponseValue = 357
     /// Initialization or collection callback sender is not the collection.
     NotACollection = 358
-    /// Add-amount request attached less than 0.03 TON.
+    /// Add-amount request attached less than 0.03 GRAM.
     MinAddAmountValue = 359
     /// Vault balance entry was expected but not found after whitelist merge.
     VaultWasNotAdded = 360
-    /// Claim request attached less than 0.2 TON.
+    /// Claim request attached less than 0.2 GRAM.
     MinTonForClaim = 361
     /// Requested vault balance entry was not found.
     VaultNotFound = 362

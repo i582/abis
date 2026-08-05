@@ -162,7 +162,7 @@ struct (0x6ec9dc65) StonfiFarmStakeForwardPayload {
 struct (0xe8e8e46c) StonfiFarmDepositRewardsForwardPayload {
     /// Reward-pool index receiving the transferred Jettons.
     poolIndex: uint8
-    /// Optional TON excess recipient; `addr_none` selects the original Jetton sender.
+    /// Optional GRAM excess recipient; `addr_none` selects the original Jetton sender.
     excessesAddress: address?
 }
 
@@ -324,7 +324,7 @@ struct (0xadfc18b0) StonfiFarmCollectionRejectCodeUpgrade {
     queryId: uint64
 }
 
-/// Owner-only request to retain the reserve and return excess TON.
+/// Owner-only request to retain the reserve and return excess GRAM.
 struct (0x42a0fb43) StonfiFarmCollectionResetGas {
     /// Query identifier copied into the excess-value response.
     queryId: uint64
@@ -392,11 +392,11 @@ struct (0x0f8a7ea5) StonfiFarmCollectionJettonTransfer {
     amount: coins
     /// Account that receives the Jettons.
     destination: address
-    /// Optional address that receives excess TON from the Jetton wallet.
+    /// Optional address that receives excess GRAM from the Jetton wallet.
     responseDestination: address?
     /// Optional custom payload forwarded to the recipient wallet.
     customPayload: cell?
-    /// TON amount forwarded with the Jetton notification.
+    /// GRAM amount forwarded with the Jetton notification.
     forwardTonAmount: coins
     /// Inline-or-referenced Jetton forward payload.
     forwardPayload: RemainingBitsAndRefs
@@ -486,7 +486,7 @@ struct StonfiFarmCollectionPendingDataReply {
 enum StonfiFarmCollectionErrors {
     /// An address is outside the base workchain required by this contract.
     InvalidWorkchain = 20085
-    /// Attached TON does not cover the required reserve and downstream messages.
+    /// Attached GRAM does not cover the required reserve and downstream messages.
     InsufficientAttachedValue = 20083
     /// A token, reward, or withdrawal amount is invalid for the operation.
     InvalidAmount = 20087

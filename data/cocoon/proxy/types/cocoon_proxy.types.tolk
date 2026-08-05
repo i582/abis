@@ -27,9 +27,9 @@ struct CocoonProxyParams {
     uniqueId: uint32
     /// Whether the configuration belongs to a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Prompt-token multiplier in protocol fixed-point units.
     promptTokensPriceMultiplier: uint32
@@ -43,9 +43,9 @@ struct CocoonProxyParams {
     proxyDelayBeforeClose: uint32
     /// Seconds a Client is configured to wait before refund completion.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Optional Proxy code retained in full Root parameter cells.
     proxyCode: cell?
@@ -66,9 +66,9 @@ struct CocoonProxyStorage {
     rootAddress: address
     /// Lifecycle state: zero normal, one closing, or two closed.
     state: uint2
-    /// Accrued Proxy earnings in nanotons.
+    /// Accrued Proxy earnings in nanograms.
     balance: coins
-    /// Slashable Proxy stake in nanotons.
+    /// Slashable Proxy stake in nanograms.
     stake: coins
     /// Unix timestamp associated with close completion; zero when inactive.
     unlockTs: uint32
@@ -140,7 +140,7 @@ struct (0x7610e6eb) CocoonProxyPayoutRequest {
 struct (0x9713f187) CocoonProxyIncreaseStake {
     /// Correlation identifier copied to the excess acknowledgement.
     queryId: uint64
-    /// Amount in nanotons to add to stake.
+    /// Amount in nanograms to add to stake.
     amount: coins
     /// Account that receives the excess acknowledgement.
     sendExcessesTo: address
@@ -170,9 +170,9 @@ struct (0x4d725d2c) CocoonProxyWorkerRequest {
 
 /// Worker earnings split requested through `CocoonProxyWorkerRequest`.
 struct (0x08e7d036) CocoonProxyWorkerPayoutRequest {
-    /// Amount in nanotons paid to the Worker owner.
+    /// Amount in nanograms paid to the Worker owner.
     workerPart: coins
-    /// Amount in nanotons retained as Proxy earnings.
+    /// Amount in nanograms retained as Proxy earnings.
     proxyPart: coins
     /// Account that receives the excess acknowledgement.
     sendExcessesTo: address
@@ -182,9 +182,9 @@ struct (0x08e7d036) CocoonProxyWorkerPayoutRequest {
 struct CocoonProxyClientStateData {
     /// Client lifecycle state.
     state: uint2
-    /// Client prepaid balance in nanotons.
+    /// Client prepaid balance in nanograms.
     balance: coins
-    /// Client stake in nanotons.
+    /// Client stake in nanograms.
     stake: coins
     /// Total tokens accounted by the Client.
     tokensUsed: uint64
@@ -206,7 +206,7 @@ struct (0x65448ff4) CocoonProxyClientRequest {
 
 /// Retain a Client top-up in the Proxy's account.
 struct (0x5cfc6b87) CocoonProxyClientTopUp {
-    /// Amount in nanotons transferred by the Client.
+    /// Amount in nanograms transferred by the Client.
     topUpAmount: coins
     /// Account that receives the excess acknowledgement.
     sendExcessesTo: address
@@ -217,7 +217,7 @@ struct (0xa35cb580) CocoonProxyClientRegister {}
 
 /// Refund a Client from Proxy-held funds after authorization.
 struct (0xc68ebc7b) CocoonProxyClientRefundGranted {
-    /// Amount in nanotons to return to the Client owner.
+    /// Amount in nanograms to return to the Client owner.
     amount: coins
     /// Account that receives the excess acknowledgement.
     sendExcessesTo: address
@@ -225,7 +225,7 @@ struct (0xc68ebc7b) CocoonProxyClientRefundGranted {
 
 /// Force a Client refund, potentially reducing the Proxy stake.
 struct (0xf4c354c9) CocoonProxyClientRefundForce {
-    /// Requested amount in nanotons, capped by the slashable stake.
+    /// Requested amount in nanograms, capped by the slashable stake.
     amount: coins
     /// Account that receives the excess acknowledgement.
     sendExcessesTo: address
@@ -268,19 +268,19 @@ struct CocoonProxyDataResult {
     rootAddress: address
     /// Lifecycle state: zero normal, one closing, or two closed.
     state: uint2
-    /// Accrued Proxy earnings in nanotons.
+    /// Accrued Proxy earnings in nanograms.
     balance: coins
-    /// Current slashable stake in nanotons.
+    /// Current slashable stake in nanograms.
     stake: coins
     /// Close-completion Unix timestamp, or zero when inactive.
     unlockTs: uint32
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Protocol parameter revision copied at deployment.
     paramsVersion: uint32

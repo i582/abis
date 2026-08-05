@@ -272,13 +272,13 @@ struct EvaaMasterPythNestedOperation {
     operationPayload: cell
 }
 
-/// TON supply request to master.
+/// GRAM supply request to master.
 struct (0x00000001) EvaaMasterPythSupplyMaster {
     /// Caller-selected query id.
     queryId: uint64
     /// Two-bit include-user-code flag.
     includeUserCode: int2
-    /// TON amount supplied.
+    /// GRAM amount supplied.
     supplyAmount: uint64
     /// User or subaccount owner address.
     recipientAddress: address
@@ -648,7 +648,7 @@ struct EvaaMasterPythSupplyWithdrawGeneralData {
     includeUserCode: int2
     /// Requested reference tokens dictionary or classic price cell.
     requestedRefTokens: cell
-    /// TON amount for repay remainings.
+    /// GRAM amount for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -694,7 +694,7 @@ struct EvaaMasterPythSupplyWithdrawUserGeneralData {
     assetConfigCollection: map<uint256, EvaaMasterPythAssetConfig>
     /// Asset dynamics.
     assetDynamicsCollection: map<uint256, EvaaMasterPythAssetDynamics>
-    /// TON amount for repay remainings.
+    /// GRAM amount for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -752,7 +752,7 @@ struct EvaaMasterPythSupplyWithdrawSatisfiedWithdrawData {
 
 /// General result data referenced by `supply_withdraw_satisfied`.
 struct EvaaMasterPythSupplyWithdrawSatisfiedGeneralData {
-    /// TON amount for repay remainings.
+    /// GRAM amount for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -788,7 +788,7 @@ struct EvaaMasterPythSupplyWithdrawUnsatisfiedSupplyData {
 
 /// General data referenced by `supply_withdraw_unsatisfied`.
 struct EvaaMasterPythSupplyWithdrawUnsatisfiedGeneralData {
-    /// TON amount for repay remainings.
+    /// GRAM amount for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -1213,7 +1213,7 @@ enum Errors {
     AlreadyInited = 0x80f2
     /// Input data is invalid.
     InvalidData = 0x8d00
-    /// TON asset flow is unsupported.
+    /// GRAM asset flow is unsupported.
     TonUnsupported = 0x0101
     /// Integer value is outside expected range.
     IntegerOutOfExpectedRange = 5

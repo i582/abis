@@ -18,7 +18,7 @@ struct HipoWalletStorage {
     parent: address
     /// hTON balance encoded as TL-B `Coins`.
     tokens: coins
-    /// Pending staking TON by `round_since`, encoded as `HashmapE 32 Coins`; empty map means no active staking entries.
+    /// Pending staking GRAM by `round_since`, encoded as `HashmapE 32 Coins`; empty map means no active staking entries.
     staking: map<uint32, coins>
     /// hTON amount currently reserved for unstaking.
     unstaking: coins
@@ -36,7 +36,7 @@ struct (0x0f8a7ea5) HipoWalletSendTokens {
     returnExcess: address?
     /// Optional custom payload ignored by this wallet but preserved in the standard transfer layout.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail forwarded into the peer wallet.
     forwardPayload: RemainingBitsAndRefs
@@ -52,7 +52,7 @@ struct (0x178d4519) HipoWalletReceiveTokens {
     sender: address
     /// Excess-refund address used after processing the internal transfer.
     returnExcess: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail copied to the owner notification.
     forwardPayload: RemainingBitsAndRefs
@@ -64,7 +64,7 @@ struct (0x5445efee) HipoWalletTokensMinted {
     queryId: uint64
     /// hTON amount minted to this wallet.
     tokens: coins
-    /// TON amount represented by the minted hTON, used to reduce the staking dictionary entry.
+    /// GRAM amount represented by the minted hTON, used to reduce the staking dictionary entry.
     coins: coins
     /// Owner address field carried by the parent callback; source skips it after parsing.
     owner: address
@@ -72,15 +72,15 @@ struct (0x5445efee) HipoWalletTokensMinted {
     roundSince: uint32
 }
 
-/// Parent-originated callback that records pending staking TON for a round.
+/// Parent-originated callback that records pending staking GRAM for a round.
 struct (0x4cce0e74) HipoWalletSaveCoins {
     /// Query id carried for traceability.
     queryId: uint64
-    /// TON amount added to the pending staking dictionary entry.
+    /// GRAM amount added to the pending staking dictionary entry.
     coins: coins
     /// Owner address field carried by the parent callback; source skips it after parsing.
     owner: address
-    /// Staking round key where the TON amount is accumulated.
+    /// Staking round key where the GRAM amount is accumulated.
     roundSince: uint32
 }
 
@@ -88,7 +88,7 @@ struct (0x4cce0e74) HipoWalletSaveCoins {
 struct HipoWalletUnstakeCustomPayload {
     /// Unstake mode: 0 auto, 1 instant, or 2 best.
     mode: uint4
-    /// TON amount forwarded for ownership assignment in bill/payout flows.
+    /// GRAM amount forwarded for ownership assignment in bill/payout flows.
     ownershipAssignedAmount: coins
 }
 
@@ -112,13 +112,13 @@ struct (0x1b77fd1a) HipoWalletRollbackUnstake {
     tokens: coins
 }
 
-/// Parent-originated burn completion that reduces `unstaking` and notifies the owner about withdrawn TON.
+/// Parent-originated burn completion that reduces `unstaking` and notifies the owner about withdrawn GRAM.
 struct (0x5b512e25) HipoWalletTokensBurned {
     /// Query id copied into the withdrawal notification.
     queryId: uint64
     /// hTON amount removed from the `unstaking` balance.
     tokens: coins
-    /// TON amount sent to the owner in the withdrawal notification.
+    /// GRAM amount sent to the owner in the withdrawal notification.
     coins: coins
 }
 
@@ -142,7 +142,7 @@ struct (0x63d3a76c) HipoWalletMergeWallet {
     newTokens: coins
 }
 
-/// Owner request to withdraw surplus TON while preserving the wallet storage reserve.
+/// Owner request to withdraw surplus GRAM while preserving the wallet storage reserve.
 struct (0x23355ffb) HipoWalletWithdrawSurplus {
     /// Query id copied into the gas excess response.
     queryId: uint64
@@ -202,7 +202,7 @@ struct (0x688b0213) HipoWalletProxyReserveTokens {
     owner: address
     /// Hipo unstake mode: 0 auto, 1 instant, or 2 best.
     mode: uint4
-    /// TON amount forwarded for ownership assignment in payout flows.
+    /// GRAM amount forwarded for ownership assignment in payout flows.
     ownershipAssignedAmount: coins
 }
 
@@ -222,7 +222,7 @@ struct (0xf0fa223b) HipoWalletWithdrawalNotification {
     queryId: uint64
     /// hTON amount burned from unstaking.
     tokens: coins
-    /// TON amount withdrawn to the owner.
+    /// GRAM amount withdrawn to the owner.
     coins: coins
 }
 
@@ -280,7 +280,7 @@ struct HipoWalletDataReply {
 struct HipoWalletStateReply {
     /// hTON balance returned as a TVM stack integer.
     tokens: int
-    /// Pending staking TON dictionary keyed by uint32 round.
+    /// Pending staking GRAM dictionary keyed by uint32 round.
     staking: map<uint32, coins>
     /// hTON amount currently reserved for unstaking.
     unstaking: int
@@ -288,11 +288,11 @@ struct HipoWalletStateReply {
 
 /// Structured fee tuple returned by `get_wallet_fees`.
 struct HipoWalletFeesReply {
-    /// Required TON for owner `send_tokens`, including one forward-fee estimate.
+    /// Required GRAM for owner `send_tokens`, including one forward-fee estimate.
     sendTokensFee: int
-    /// Required TON for `unstake_tokens` before optional ownership assignment amount.
+    /// Required GRAM for `unstake_tokens` before optional ownership assignment amount.
     unstakeTokensFee: int
-    /// Required TON for `upgrade_wallet`.
+    /// Required GRAM for `upgrade_wallet`.
     upgradeWalletFee: int
     /// Wallet storage reserve maintained by the contract.
     walletStorageFee: int
@@ -300,7 +300,7 @@ struct HipoWalletFeesReply {
 
 /// Hipo wallet exit-code catalog used by source throw sites.
 enum Errors {
-    /// Incoming TON is lower than the required operation fee.
+    /// Incoming GRAM is lower than the required operation fee.
     InsufficientFee = 101
     /// Requested hTON amount is zero or larger than the available balance.
     InsufficientFunds = 102

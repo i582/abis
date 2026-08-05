@@ -36,7 +36,7 @@ struct TonstakersPayoutItemStorage {
     collectionAddress: address
     /// Payout item index encoded as uint64.
     itemIndex: uint64
-    /// Bill amount stored as TON or pool-jetton nano-units depending on the collection distribution.
+    /// Bill amount stored as GRAM or pool-jetton nano-units depending on the collection distribution.
     amount: coins
     /// Previous item address authorized to burn this item during chained distribution, or `addr_none` at a chain edge.
     previousItemAddress: address?
@@ -68,7 +68,7 @@ struct (0x5fcc3d14) TonstakersPayoutItemTransfer {
     responseDestination: address?
     /// Custom-payload presence bit; remaining refs stay in `forwardPayload`.
     customPayloadPresent: bool
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

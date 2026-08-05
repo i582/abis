@@ -27,9 +27,9 @@ struct CocoonClientParams {
     uniqueId: uint32
     /// Whether the configuration belongs to a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Prompt-token multiplier in protocol fixed-point units.
     promptTokensPriceMultiplier: uint32
@@ -43,9 +43,9 @@ struct CocoonClientParams {
     proxyDelayBeforeClose: uint32
     /// Seconds this Client waits before a forced refund can complete.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Optional Proxy code retained in full Root parameter cells.
     proxyCode: cell?
@@ -69,7 +69,7 @@ struct CocoonClientConstData {
 struct CocoonClientStorage {
     /// Lifecycle state: zero normal, one closing, or two closed.
     state: uint2
-    /// Remaining prepaid inference balance in nanotons.
+    /// Remaining prepaid inference balance in nanograms.
     balance: coins
     /// Client stake retained during refund handling.
     stake: coins
@@ -139,7 +139,7 @@ struct (0xefd711e1) CocoonClientGrantRefundPayload {
 struct (0xf172e6c2) CocoonClientTopUp {
     /// Correlation identifier copied to outgoing messages.
     queryId: uint64
-    /// Amount in nanotons credited to the Client balance.
+    /// Amount in nanograms credited to the Client balance.
     topUpAmount: coins
     /// Account that receives any excess value.
     sendExcessesTo: address
@@ -149,7 +149,7 @@ struct (0xf172e6c2) CocoonClientTopUp {
 struct (0x8473b408) CocoonClientChangeSecretHashAndTopUp {
     /// Correlation identifier copied to outgoing messages.
     queryId: uint64
-    /// Amount in nanotons credited to the Client balance.
+    /// Amount in nanograms credited to the Client balance.
     topUpAmount: coins
     /// Replacement off-chain authorization hash.
     newSecretHash: uint256
@@ -181,7 +181,7 @@ struct (0xa9357034) CocoonClientChangeSecretHash {
 struct (0x6a1f6a60) CocoonClientIncreaseStake {
     /// Correlation identifier copied to outgoing messages.
     queryId: uint64
-    /// New total Client stake in nanotons; it must exceed the old value.
+    /// New total Client stake in nanograms; it must exceed the old value.
     newStake: coins
     /// Account that receives any excess value.
     sendExcessesTo: address
@@ -220,9 +220,9 @@ type CocoonClientIncomingMessage =
 struct CocoonClientStateData {
     /// Client lifecycle state.
     state: uint2
-    /// Remaining prepaid balance in nanotons.
+    /// Remaining prepaid balance in nanograms.
     balance: coins
-    /// Client stake in nanotons.
+    /// Client stake in nanograms.
     stake: coins
     /// Highest cumulative token count accepted from the Proxy.
     tokensUsed: uint64
@@ -244,7 +244,7 @@ struct (0x65448ff4) CocoonClientProxyRequest {
 
 /// Ask the Proxy to retain a Client top-up.
 struct (0x5cfc6b87) CocoonClientProxyTopUp {
-    /// Amount in nanotons transferred from the Client.
+    /// Amount in nanograms transferred from the Client.
     topUpAmount: coins
     /// Account that receives any excess value.
     sendExcessesTo: address
@@ -258,7 +258,7 @@ struct (0xa35cb580) CocoonClientProxyRegister {
 
 /// Ask the Proxy to return an authorized amount to the Client owner.
 struct (0xc68ebc7b) CocoonClientProxyRefundGranted {
-    /// Authorized amount in nanotons.
+    /// Authorized amount in nanograms.
     amount: coins
     /// Account that receives any excess value.
     sendExcessesTo: address
@@ -266,7 +266,7 @@ struct (0xc68ebc7b) CocoonClientProxyRefundGranted {
 
 /// Ask the Proxy to force a refund, potentially from Proxy stake.
 struct (0xf4c354c9) CocoonClientProxyRefundForce {
-    /// Requested refund amount in nanotons.
+    /// Requested refund amount in nanograms.
     amount: coins
     /// Account that receives any excess value.
     sendExcessesTo: address
@@ -291,9 +291,9 @@ struct CocoonClientDataResult {
     proxyPublicKey: uint256
     /// Lifecycle state: zero normal, one closing, or two closed.
     state: uint2
-    /// Remaining prepaid balance in nanotons.
+    /// Remaining prepaid balance in nanograms.
     balance: coins
-    /// Retained Client stake in nanotons.
+    /// Retained Client stake in nanograms.
     stake: coins
     /// Highest cumulative token count accepted from the Proxy.
     tokensUsed: uint64

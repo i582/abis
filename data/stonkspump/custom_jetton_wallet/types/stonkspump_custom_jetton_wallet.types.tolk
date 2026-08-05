@@ -42,11 +42,11 @@ struct (0x0f8a7ea5) StonksPumpJettonTransfer {
     amount: coins
     /// Owner address for the destination Jetton wallet.
     destination: address
-    /// Optional address that receives excess TON.
+    /// Optional address that receives excess GRAM.
     responseDestination: address?
     /// Optional referenced application payload.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail, including its inline/reference selector.
     forwardPayload: RemainingBitsAndRefs
@@ -62,9 +62,9 @@ struct (0x178d4519) StonksPumpJettonInternalTransfer {
     senderOwner: address?
     /// Referenced context copied from the sending wallet.
     transferContext: Cell<StonksPumpJettonTransferContext>
-    /// Optional address that receives excess TON.
+    /// Optional address that receives excess GRAM.
     responseDestination: address?
-    /// Nanotons forwarded to the receiving owner.
+    /// Nanograms forwarded to the receiving owner.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail, including its inline/reference selector.
     forwardPayload: RemainingBitsAndRefs
@@ -76,7 +76,7 @@ struct (0x595f07bc) StonksPumpJettonBurn {
     queryId: uint64
     /// Jetton amount removed from the wallet balance.
     amount: coins
-    /// Optional address that receives excess TON from the master.
+    /// Optional address that receives excess GRAM from the master.
     responseDestination: address?
     /// Optional referenced application payload.
     customPayload: cell?
@@ -96,7 +96,7 @@ struct (0xcc1a97ab) StonksPumpJettonTaxTransfer {
     contextAddress1: address
 }
 
-/// Empty body accepted for TON distribution and emitted by value-only payouts.
+/// Empty body accepted for GRAM distribution and emitted by value-only payouts.
 struct StonksPumpCustomJettonWalletEmptyBody {}
 
 /// Bounce body accepted when the original operation was a wallet transfer or burn notification.
@@ -132,7 +132,7 @@ struct (0x7362d09c) StonksPumpJettonTransferNotification {
 
 /// TEP-74 excess-value response.
 struct (0xd53276db) StonksPumpJettonExcess {
-    /// Request identifier associated with the returned TON.
+    /// Request identifier associated with the returned GRAM.
     queryId: uint64
 }
 
@@ -144,7 +144,7 @@ struct (0x7bdd97de) StonksPumpJettonBurnNotification {
     amount: coins
     /// Owner whose wallet burned the Jettons.
     senderOwner: address
-    /// Optional address that receives remaining TON.
+    /// Optional address that receives remaining GRAM.
     responseDestination: address?
 }
 

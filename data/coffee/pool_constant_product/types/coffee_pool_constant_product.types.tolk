@@ -35,7 +35,7 @@ struct CoffeePoolConstantProductStorage {
     lpWalletCode: cell
 }
 
-/// Native TON asset tag used by Coffee DEX asset identifiers.
+/// Native GRAM asset tag used by Coffee DEX asset identifiers.
 struct (0b00) CoffeePoolNativeAsset {}
 
 /// Jetton asset tag storing workchain byte and account hash, matching `load_asset`.
@@ -150,7 +150,7 @@ struct CoffeePoolProof {
 struct CoffeePoolNotificationDataSingle {
     /// Notification receiver; `addr_none` means the operation recipient.
     receiver: address?
-    /// Nanotons sent with the notification message.
+    /// Nanograms sent with the notification message.
     fwdGas: coins
     /// Referenced user payload wrapped into `notification#c0ffee36`.
     payload: cell
@@ -428,7 +428,7 @@ struct (0xc0ffee2d) CoffeePoolConstantProductWithdrawInternal {
 struct (0xc0ffee2b) CoffeePoolConstantProductUpdatePoolInternal {
     /// Query id propagated by the Factory.
     queryId: uint64
-    /// Address receiving excess TON; `addr_none` suppresses the excesses message.
+    /// Address receiving excess GRAM; `addr_none` suppresses the excesses message.
     excessesReceiver: address?
     /// Referenced two-flag update parameter cell.
     params: Cell<CoffeePoolUpdateParams>
@@ -438,7 +438,7 @@ struct (0xc0ffee2b) CoffeePoolConstantProductUpdatePoolInternal {
 struct (0xc0ffee2e) CoffeePoolConstantProductUpdateContractInternal {
     /// Query id propagated by the Factory.
     queryId: uint64
-    /// Address receiving excess TON after update.
+    /// Address receiving excess GRAM after update.
     excessesReceiver: address?
     /// Optional replacement code and data cells.
     update: CoffeePoolContractUpdate
@@ -610,7 +610,7 @@ struct (0x178d4519) CoffeePoolConstantProductLpWalletInternalTransfer {
     fromAddress: address
     /// LP owner or response address used by the wallet.
     responseAddress: address
-    /// Nanotons forwarded to the wallet owner notification.
+    /// Nanograms forwarded to the wallet owner notification.
     forwardTonAmount: coins
     /// Raw Jetton forward-payload tail encoded as either empty or referenced notification data.
     forwardPayload: RemainingBitsAndRefs

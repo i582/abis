@@ -1,7 +1,7 @@
 [project]
 name = "whales"
 category = "TON nominator staking contracts"
-description = "Ton Whales Nominators and liquid-staking pool contracts for pooled TON staking"
+description = "Ton Whales Nominators and liquid-staking pool contracts for pooled GRAM staking"
 
 [sources]
 upstream_tonwhales_nominators = "https://github.com/tonwhales/ton-nominators/tree/0553e1b6ddfc5c0b60505957505ce58d01bec3e7"

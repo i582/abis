@@ -149,7 +149,7 @@ struct (0x7362d09c) BidaskPoolJettonTransferNotification {
 struct (0xf2ef6c1b) BidaskPoolSwap {
     /// Caller-selected query id.
     queryId: uint64
-    /// Native TON amount participating in the swap.
+    /// Native GRAM amount participating in the swap.
     nativeAmount: coins
     /// Receiver of swap output.
     toAddress: address
@@ -171,7 +171,7 @@ struct (0xf2ef6c1b) BidaskPoolSwap {
 struct (0xc09da84e) BidaskPoolSwapV2 {
     /// Caller-selected query id.
     queryId: uint64
-    /// Native TON amount participating in the swap.
+    /// Native GRAM amount participating in the swap.
     nativeAmount: coins
     /// Receiver of swap output.
     toAddress: address
@@ -191,7 +191,7 @@ struct (0xc09da84e) BidaskPoolSwapV2 {
 struct (0x96feef7b) BidaskPoolProvide {
     /// Caller-selected query id.
     queryId: uint64
-    /// Native TON amount supplied as one side of liquidity.
+    /// Native GRAM amount supplied as one side of liquidity.
     nativeAmount: coins
     /// Deposit mode for initial, add, or update liquidity.
     depositType: uint3
@@ -209,7 +209,7 @@ struct (0x96feef7b) BidaskPoolProvide {
 struct (0xd8e04bf6) BidaskPoolDepositOnAccount {
     /// Caller-selected query id.
     queryId: uint64
-    /// Native TON amount credited to the trade account flow.
+    /// Native GRAM amount credited to the trade account flow.
     nativeAmount: coins
     /// Owner address committed into the deterministic trade account.
     userAddress: address
@@ -425,7 +425,7 @@ struct (0x96feef7b) BidaskPoolProvideForwardPayload {
 
 /// Liquidity provide payload for jetton+native pools.
 struct (0x3ea0bafc) BidaskPoolProvideBothForwardPayload {
-    /// Native TON amount paired with the received Jetton amount.
+    /// Native GRAM amount paired with the received Jetton amount.
     nativeAmount: coins
     /// Deposit mode for initial, add, or update liquidity.
     depositType: uint3
@@ -525,13 +525,13 @@ struct (0x214ad1d2) BidaskPoolSaveLiquidityInfo {
     forwardPayload: cell?
 }
 
-/// Notification carrying native TON after a Pool payout/refund.
+/// Notification carrying native GRAM after a Pool payout/refund.
 struct (0x6edd65f0) BidaskPoolNativeTransferNotification {
     /// Query id copied from the Pool operation.
     queryId: uint64
     /// Notification flag stored by the Pool.
     notificationBit: bool
-    /// Native TON amount carried by the notification.
+    /// Native GRAM amount carried by the notification.
     nativeAmount: coins
     /// Optional payload forwarded with the notification.
     forwardPayload: cell?
@@ -545,11 +545,11 @@ struct (0x0f8a7ea5) BidaskPoolJettonTransfer {
     amount: coins
     /// Destination owner address for the receiving Jetton wallet.
     destination: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address
     /// Optional custom payload for the receiving Jetton wallet.
     customPayload: cell?
-    /// Nanotons forwarded with the Jetton transfer notification.
+    /// Nanograms forwarded with the Jetton transfer notification.
     forwardTonAmount: coins
     /// Optional forward payload for the destination owner.
     forwardPayload: cell?

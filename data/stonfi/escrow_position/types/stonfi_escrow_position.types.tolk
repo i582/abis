@@ -64,23 +64,23 @@ struct StonfiEscrowPositionOrderDetails {
     ownerPublicKey: uint256?
     /// Ask asset amount pending delivery to the user.
     pendingUserReceiveAmount: coins
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: uint64
-    /// Account that receives excess TON after settlement.
+    /// Account that receives excess GRAM after settlement.
     excessesReceiver: address
 }
 
 /// Optional user-unlock forwarding state stored at the root tail.
 struct StonfiEscrowPositionStoredForward {
-    /// TON value attached to the success forward.
+    /// GRAM value attached to the success forward.
     value: coins
     /// Optional body forwarded after successful settlement.
     successPayload: cell?
 }
 
-/// TON value and success/rejection bodies forwarded by an escrow action.
+/// GRAM value and success/rejection bodies forwarded by an escrow action.
 struct StonfiEscrowPositionForwardParams {
-    /// TON value attached to the forwarded message.
+    /// GRAM value attached to the forwarded message.
     value: coins
     /// Optional body used when the action succeeds.
     successPayload: cell?
@@ -162,7 +162,7 @@ struct StonfiEscrowPositionLockMetadata {
     refFee: address?
     /// Referral fee tier in protocol basis units.
     refFeeTier: uint16
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: coins
     /// Whether the user's fill is delivered through an escrow vault.
     userFillToVault: bool
@@ -182,7 +182,7 @@ struct StonfiEscrowPositionUnlockExtraFields {
     recipient: address?
     /// Account that receives refunded ask assets.
     refundTo: address?
-    /// Account that receives excess TON.
+    /// Account that receives excess GRAM.
     excesses: address?
 }
 
@@ -218,7 +218,7 @@ struct (0x7ab06181) StonfiEscrowPositionInternalLock {
     tokenAddress: address?
     /// Bid asset amount deposited into the position.
     amount: coins
-    /// Account that receives excess TON.
+    /// Account that receives excess GRAM.
     excesses: address?
     /// Whether rejected bid assets are refunded through a vault.
     refundToVault: bool
@@ -258,7 +258,7 @@ struct (0x12b8a987) StonfiEscrowPositionWithdraw {
     queryId: uint64
     /// Condition-specific withdrawal arguments.
     withdrawArgs: cell
-    /// Account that receives excess TON.
+    /// Account that receives excess GRAM.
     excesses: address?
     /// Optional post-withdraw forwarding parameters.
     forwardParams: Cell<StonfiEscrowPositionForwardParams>?
@@ -344,15 +344,15 @@ struct StonfiEscrowPositionGetOrderDataReply {
     conditionState: cell
     /// Executable unlock-condition program.
     conditionCode: cell
-    /// Optional TON value forwarded after a user unlock.
+    /// Optional GRAM value forwarded after a user unlock.
     userUnlockForwardParams: coins?
     /// Optional success body forwarded after a user unlock.
     userUnlockForwardSuccessPayload: cell?
     /// Whether the user's fill is delivered through an escrow vault.
     userFillToVault: bool
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: uint64
-    /// Account that receives excess TON after settlement.
+    /// Account that receives excess GRAM after settlement.
     excessesReceiver: address
 }
 

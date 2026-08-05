@@ -34,17 +34,17 @@ struct (0x6bd0ce52) HipoLibrarianRemoveLibrary {
 struct (0x23355ffb) HipoLibrarianWithdrawSurplus {
     /// Caller-selected query id copied into the outgoing `gas_excess` body.
     queryId: uint64
-    /// Internal destination that receives unreserved TON with the `gas_excess` body.
+    /// Internal destination that receives unreserved GRAM with the `gas_excess` body.
     returnExcess: address
 }
 
-/// Top up the Librarian TON balance; the verified source ignores payload after the opcode.
+/// Top up the Librarian GRAM balance; the verified source ignores payload after the opcode.
 struct (0x5372158c) HipoLibrarianTopUp {
     /// Query id used by the Hipo wrapper/TL-B format; the FunC dispatcher does not consume it.
     queryId: uint64
 }
 
-/// Excess TON notification emitted after `withdraw_surplus`.
+/// Excess GRAM notification emitted after `withdraw_surplus`.
 struct (0xd53276db) HipoLibrarianGasExcess {
     /// Query id copied from the incoming `withdraw_surplus` request.
     queryId: uint64

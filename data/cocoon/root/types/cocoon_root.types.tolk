@@ -31,9 +31,9 @@ struct CocoonRootParams {
     uniqueId: uint32
     /// Whether the configuration belongs to a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Prompt-token multiplier in protocol fixed-point units.
     promptTokensPriceMultiplier: uint32
@@ -47,9 +47,9 @@ struct CocoonRootParams {
     proxyDelayBeforeClose: uint32
     /// Seconds a Client must wait before completing refund.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Optional current Proxy code cell.
     proxyCode: cell?
@@ -215,9 +215,9 @@ struct (0x6e5a646a) CocoonRootAddPublicKey {
 struct (0xc52ed8d4) CocoonRootChangeFees {
     /// Correlation identifier copied to the excess acknowledgement.
     queryId: uint64
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
 }
 
@@ -225,17 +225,17 @@ struct (0xc52ed8d4) CocoonRootChangeFees {
 struct (0x022fa189) CocoonRootChangeParams {
     /// Correlation identifier copied to the excess acknowledgement.
     queryId: uint64
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Seconds a Proxy waits before close completion.
     proxyDelayBeforeClose: uint32
     /// Seconds a Client waits before refund completion.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
 }
 
@@ -338,13 +338,13 @@ struct CocoonRootDataResult {
     uniqueId: uint32
     /// Whether this is a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Root administrator address returned as a TVM slice.
     ownerAddress: address
@@ -358,9 +358,9 @@ struct CocoonRootCurrentParamsResult {
     uniqueId: uint32
     /// Whether this is a test deployment.
     isTest: bool
-    /// Client price per token in nanotons.
+    /// Client price per token in nanograms.
     pricePerToken: coins
-    /// Worker share per token in nanotons.
+    /// Worker share per token in nanograms.
     workerFeePerToken: coins
     /// Cached-token multiplier in protocol fixed-point units.
     cachedTokensPriceMultiplier: uint32
@@ -370,9 +370,9 @@ struct CocoonRootCurrentParamsResult {
     proxyDelayBeforeClose: uint32
     /// Seconds a Client waits before refund completion.
     clientDelayBeforeClose: uint32
-    /// Minimum Proxy stake in nanotons.
+    /// Minimum Proxy stake in nanograms.
     minProxyStake: coins
-    /// Minimum Client stake in nanotons.
+    /// Minimum Client stake in nanograms.
     minClientStake: coins
     /// Hash of the embedded Proxy code, or zero when absent.
     proxyCodeHash: uint256

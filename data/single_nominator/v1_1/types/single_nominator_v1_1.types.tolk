@@ -17,15 +17,15 @@ struct SingleNominatorV11Storage {
     validatorAddress: address
 }
 
-/// Owner command that withdraws TON to the owner wallet.
+/// Owner command that withdraws GRAM to the owner wallet.
 struct (0x00001000) SingleNominatorV11Withdraw {
     /// Owner-selected query id.
     queryId: uint64
-    /// Requested withdrawal amount in nanotons.
+    /// Requested withdrawal amount in nanograms.
     amount: coins
 }
 
-/// Zero-op owner text command that withdraws the maximum available TON.
+/// Zero-op owner text command that withdraws the maximum available GRAM.
 struct (0x00000000) SingleNominatorV11TextWithdraw {
     /// ASCII command byte after the zero text-comment opcode.
     action: uint8

@@ -29,7 +29,7 @@ struct EvaaUserReward {
 
 /// Runtime storage after user-code initialization has appended reward and backup fields.
 struct EvaaUserStorage {
-    /// User code version stored as TON `Coins` in the root cell.
+    /// User code version stored as GRAM `Coins` in the root cell.
     codeVersion: coins
     /// Master contract address authorized to send upgrade-wrapped user commands.
     masterAddress: address
@@ -49,7 +49,7 @@ struct EvaaUserStorage {
 
 /// Initial user storage shape before the runtime upgrade hook appends reward and backup fields.
 struct EvaaUserDeploymentStorage {
-    /// User code version stored as TON `Coins` in the root cell.
+    /// User code version stored as GRAM `Coins` in the root cell.
     codeVersion: coins
     /// Master contract address authorized to complete initialization.
     masterAddress: address
@@ -174,7 +174,7 @@ struct EvaaUserPackedCommand {
 
 /// On-chain storage request body that stores the operation id as a `Coins` value.
 struct EvaaUserGetStoreRequest {
-    /// Request selector encoded as TON `Coins`; expected value is `0x9998`.
+    /// Request selector encoded as GRAM `Coins`; expected value is `0x9998`.
     op: coins
     /// Query id copied into the storage response.
     queryId: uint64
@@ -334,7 +334,7 @@ struct EvaaUserSwGeneralUser {
     assetConfigCollection: map<uint256, EvaaUserAssetConfig>
     /// Asset dynamics dictionary keyed by 256-bit asset id.
     assetDynamicsCollection: map<uint256, EvaaUserAssetDynamics>
-    /// TON amount reserved for repay remainings.
+    /// GRAM amount reserved for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -418,7 +418,7 @@ struct (0x0000411a) EvaaUserSupplyWithdrawSuccess {
 struct (0x00000081) EvaaUserIdleUser {
     /// Query id copied into the idle excess response.
     queryId: uint64
-    /// Address that receives remaining TON value.
+    /// Address that receives remaining GRAM value.
     originatorAddress: address
     /// Subaccount id selected by the master-side operation.
     subaccountId: int16
@@ -657,7 +657,7 @@ struct EvaaUserSupplyWithdrawSatisfiedWithdraw {
 
 /// General details for a supply-withdraw response.
 struct EvaaUserSupplyWithdrawResponseGeneral {
-    /// TON amount reserved for repay remainings.
+    /// GRAM amount reserved for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell
@@ -696,7 +696,7 @@ struct EvaaUserSupplyWithdrawEmptyWithdraw {}
 
 /// Unsatisfied supply-withdraw response general data.
 struct EvaaUserSupplyWithdrawUnsatisfiedGeneral {
-    /// TON amount reserved for repay remainings.
+    /// GRAM amount reserved for repay remainings.
     tonAmountForRepayRemainings: uint64
     /// Referenced custom response payload.
     customResponsePayload: cell

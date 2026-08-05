@@ -1,8 +1,8 @@
-/// Coffee Swap native-asset vault for routing TON swaps, deposits, pool creation, and payouts.
+/// Coffee Swap native-asset vault for routing GRAM swaps, deposits, pool creation, and payouts.
 contract CoffeeVaultNative {
     author: "swap.coffee"
     version: "1.0"
-    description: "Coffee Swap Native Vault is the TON vault users interact with when swapping, adding liquidity, or receiving native payouts on Coffee Swap."
+    description: "Coffee Swap Native Vault is the GRAM vault users interact with when swapping, adding liquidity, or receiving native payouts on Coffee Swap."
     storage: CoffeeVaultNativeStorage
     incomingMessages: CoffeeVaultNativeIncomingMessage
     outgoingMessages: CoffeeVaultNativeOutgoingMessage
@@ -27,7 +27,7 @@ struct CoffeeVaultInitData {
     asset: CoffeeAsset
 }
 
-/// Native TON asset tag.
+/// Native GRAM asset tag.
 struct (0b00) CoffeeNativeAsset {}
 
 /// Jetton asset tag with workchain byte and account hash.
@@ -155,7 +155,7 @@ struct CoffeePoolCreationParams {
 struct CoffeeNotificationDataSingle {
     /// Notification receiver; `addr_none` means the payout recipient.
     receiver: address?
-    /// TON value attached when sending a separate notification message.
+    /// GRAM value attached when sending a separate notification message.
     fwdGas: coins
     /// Referenced notification payload.
     payload: cell
@@ -243,7 +243,7 @@ struct (0xc0ffee21) CoffeePayoutInternal {
     queryId: uint64
     /// Recipient that receives the native payout.
     recipient: address
-    /// Amount of native TON released by the vault.
+    /// Amount of native GRAM released by the vault.
     amount: coins
     /// Optional notification instruction.
     notificationData: Cell<CoffeeNotificationDataSingle>?
@@ -251,11 +251,11 @@ struct (0xc0ffee21) CoffeePayoutInternal {
     proof: cell?
 }
 
-/// User-originated native TON swap request.
+/// User-originated native GRAM swap request.
 struct (0xc0ffee00) CoffeeSwapNative {
     /// User-selected query id.
     queryId: uint64
-    /// Native TON amount to swap; must be lower than inbound message value.
+    /// Native GRAM amount to swap; must be lower than inbound message value.
     amount: coins
     /// First-hop pool hash, slippage limit, and optional next step.
     step: CoffeeSwapStepParams
@@ -267,7 +267,7 @@ struct (0xc0ffee00) CoffeeSwapNative {
 struct (0xc0ffee04) CoffeeDepositLiquidityNative {
     /// User-selected query id.
     queryId: uint64
-    /// Native TON amount to deposit.
+    /// Native GRAM amount to deposit.
     inputAmount: coins
     /// Referenced deposit and pool parameters.
     params: CoffeeDepositLiquidityParams
@@ -277,7 +277,7 @@ struct (0xc0ffee04) CoffeeDepositLiquidityNative {
 struct (0xc0ffee02) CoffeeCreatePoolNative {
     /// User-selected query id.
     queryId: uint64
-    /// Native TON amount used as initial liquidity.
+    /// Native GRAM amount used as initial liquidity.
     amount: coins
     /// Pool identity tuple.
     params: CoffeePoolParams
@@ -378,7 +378,7 @@ type CoffeeVaultNativeOutgoingMessage =
 enum Errors {
     /// Incoming internal message opcode is unsupported.
     UnknownOpcode = 6
-    /// Attached TON or requested amount fails the gas requirement.
+    /// Attached GRAM or requested amount fails the gas requirement.
     NotEnoughGas = 40
     /// Internal parser or asset-ordering invariant failed.
     Unexpected = 250

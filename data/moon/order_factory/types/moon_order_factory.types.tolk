@@ -43,17 +43,17 @@ struct MoonOrderFactoryOrderParams {
 
 /// Asset master identifiers stored in the deployed order.
 struct MoonOrderFactoryAssets {
-    /// First asset Jetton master, or `addr_none` for native TON.
+    /// First asset Jetton master, or `addr_none` for native GRAM.
     asset1: address?
-    /// Second asset Jetton master, or `addr_none` for native TON.
+    /// Second asset Jetton master, or `addr_none` for native GRAM.
     asset2: address?
 }
 
 /// Asset wallet addresses stored in the deployed order.
 struct MoonOrderFactoryWallets {
-    /// Order wallet for asset 1, or `addr_none` when asset 1 is native TON.
+    /// Order wallet for asset 1, or `addr_none` when asset 1 is native GRAM.
     asset1Wallet: address?
-    /// Order wallet for asset 2, or `addr_none` when asset 2 is native TON.
+    /// Order wallet for asset 2, or `addr_none` when asset 2 is native GRAM.
     asset2Wallet: address?
 }
 
@@ -135,11 +135,11 @@ struct (0x1c4586b2) MoonOrderFactoryUpgrade {
     newStorage: Cell<MoonOrderFactoryUpgradeStorage>
 }
 
-/// Direct native-TON request to create a Moon.cx order.
+/// Direct native-GRAM request to create a Moon.cx order.
 struct (0xda067c19) MoonOrderFactoryCreateOrder {
     /// Query identifier propagated to deployment and excess messages.
     queryId: uint64
-    /// Second asset Jetton master; native TON is rejected in this direct path.
+    /// Second asset Jetton master; native GRAM is rejected in this direct path.
     asset2: address
     /// Referenced rate, lock mode, and vesting duration; the deployed code requires exactly 322 bits.
     orderParams: Cell<MoonOrderFactoryOrderParams>
@@ -149,7 +149,7 @@ struct (0xda067c19) MoonOrderFactoryCreateOrder {
 struct (0xda067c19) MoonOrderFactoryJettonCreatePayload {
     /// First asset Jetton master corresponding to the notifying wallet.
     asset1: address
-    /// Second asset Jetton master, or `addr_none` for native TON.
+    /// Second asset Jetton master, or `addr_none` for native GRAM.
     asset2: address?
     /// Referenced rate, lock mode, and vesting duration; the deployed code requires exactly 322 bits.
     orderParams: Cell<MoonOrderFactoryOrderParams>
@@ -209,7 +209,7 @@ struct (0x983432e2) MoonOrderFactoryDeployOrder {
     assets: Cell<MoonOrderFactoryAssets>
     /// Referenced native or derived asset-wallet addresses.
     wallets: Cell<MoonOrderFactoryWallets>
-    /// Initial Jetton source and amount, absent for a native-TON order.
+    /// Initial Jetton source and amount, absent for a native-GRAM order.
     funding: Cell<MoonOrderFactoryFunding>?
 }
 
@@ -221,11 +221,11 @@ struct (0x0f8a7ea5) MoonOrderFactoryJettonTransfer {
     amount: coins
     /// Destination owner of the transferred Jettons.
     destination: address
-    /// Address that receives unused TON from the destination wallet.
+    /// Address that receives unused GRAM from the destination wallet.
     responseDestination: address
     /// Optional Jetton-wallet custom payload; the historical factory emits none.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// TON amount forwarded with the transfer notification.
+    /// GRAM amount forwarded with the transfer notification.
     forwardTonAmount: coins
     /// Inline or referenced forward payload retained as raw bits and references.
     forwardPayload: RemainingBitsAndRefs
@@ -249,9 +249,9 @@ type MoonOrderFactoryOutgoingMessage =
 enum MoonOrderFactoryErrors {
     /// Sender is not authorized for the requested administrative operation.
     UnauthorizedSender = 300
-    /// Attached TON does not cover the operation's minimum processing budget.
+    /// Attached GRAM does not cover the operation's minimum processing budget.
     InsufficientAttachedValue = 500
-    /// Attached TON does not cover order or pipe deployment.
+    /// Attached GRAM does not cover order or pipe deployment.
     InsufficientDeploymentValue = 510
     /// Order parameters have an invalid bit length or invalid asset combination.
     InvalidOrderData = 700

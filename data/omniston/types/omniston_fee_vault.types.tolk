@@ -2,7 +2,7 @@
 contract OmnistonFeeVault {
     author: "Omniston"
     version: "0.4 beta2.0"
-    description: "Standalone Omniston Fee-Vault Minter that derives per-referrer vault addresses, deposits jetton referral fees, and routes remaining jettons or TON to settlement destinations."
+    description: "Standalone Omniston Fee-Vault Minter that derives per-referrer vault addresses, deposits jetton referral fees, and routes remaining jettons or GRAM to settlement destinations."
     storage: OmnistonFeeVaultStorage
     incomingMessages: OmnistonFeeVaultIncomingMessage
     outgoingMessages: OmnistonFeeVaultOutgoingMessage
@@ -49,7 +49,7 @@ struct (0b1) OmnistonPtonRoutePayloadInRef {
 struct OmnistonFeeVaultStorage {
     /// Contract instance id stored as a 64-bit integer.
     id: uint64
-    /// Admin address authorized for upgrade and TON-withdrawal commands.
+    /// Admin address authorized for upgrade and GRAM-withdrawal commands.
     adminAddress: address
     /// Unix timestamp after which a staged upgrade may be applied; zero means no pending upgrade.
     tempUpgradeUntil: uint64
@@ -65,7 +65,7 @@ struct OmnistonFeeVaultStorage {
 struct OmnistonFeeVaultMinterDataReply {
     /// Contract instance id.
     id: uint64
-    /// Admin address authorized for upgrade and TON-withdrawal commands.
+    /// Admin address authorized for upgrade and GRAM-withdrawal commands.
     adminAddress: any_address
     /// Unix timestamp after which a staged upgrade may be applied; zero means no pending upgrade.
     tempUpgradeUntil: uint64
@@ -113,7 +113,7 @@ struct (0xc0ffee36) OmnistonWrappedJettonFeePayload {
     payload: Cell<OmnistonJettonFeePayload>
 }
 
-/// Native TON route payload used directly or through pTON forwarded payload refs.
+/// Native GRAM route payload used directly or through pTON forwarded payload refs.
 struct OmnistonNativeFeePayload {
     /// Route tag stored before the address and share fields.
     routeTag: uint32
@@ -140,27 +140,27 @@ struct (0x7362d09c) OmnistonJettonFeeNotification {
     forwardPayload: OmnistonForwardPayloadRemainder
 }
 
-/// Native TON distribution request with the route payload encoded as a nullable reference.
+/// Native GRAM distribution request with the route payload encoded as a nullable reference.
 struct (0x474f86cf) OmnistonNativeFeeDistribution {
-    /// Query id copied into outgoing TON fee notifications and result callbacks.
+    /// Query id copied into outgoing GRAM fee notifications and result callbacks.
     queryId: uint64
     /// Optional referenced native route payload.
     route: Cell<OmnistonNativeFeePayload>?
 }
 
-/// Wrapped native TON distribution request carrying the route payload by reference.
+/// Wrapped native GRAM distribution request carrying the route payload by reference.
 struct (0xc0ffee36) OmnistonWrappedNativeFeeDistribution {
-    /// Query id copied into outgoing TON fee notifications and result callbacks.
+    /// Query id copied into outgoing GRAM fee notifications and result callbacks.
     queryId: uint64
     /// Referenced route payload cell.
     payload: Cell<OmnistonNativeFeePayload>
 }
 
-/// pTON TON transfer body accepted when native TON is forwarded through a pTON wallet.
+/// pTON GRAM transfer body accepted when native GRAM is forwarded through a pTON wallet.
 struct (0x01f3835d) OmnistonPtonTonTransfer {
-    /// Query id copied into outgoing TON fee notifications and result callbacks.
+    /// Query id copied into outgoing GRAM fee notifications and result callbacks.
     queryId: uint64
-    /// Native TON amount to distribute before route fees.
+    /// Native GRAM amount to distribute before route fees.
     tonAmount: coins
     /// Refund address required to be a standard internal address.
     refundAddress: address
@@ -183,11 +183,11 @@ struct (0x4187c1ac) OmnistonVaultJettonPayout {
     responseDestination: address
 }
 
-/// Admin command that sends remaining TON to a response address after reserving storage.
+/// Admin command that sends remaining GRAM to a response address after reserving storage.
 struct (0x3477ff3f) OmnistonAdminWithdrawTons {
     /// Query id copied into the excesses response.
     queryId: uint64
-    /// Address receiving the excesses response and carried TON.
+    /// Address receiving the excesses response and carried GRAM.
     responseAddress: address
 }
 
@@ -241,14 +241,14 @@ struct (0x0f8a7ea5) OmnistonJettonTransfer {
     responseDestination: address
     /// Optional custom payload, always absent in observed send sites.
     customPayload: cell?
-    /// Nanotons forwarded to the destination notification.
+    /// Nanograms forwarded to the destination notification.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail carrying an inline result code.
     @abi.clientType(OmnistonForwardPayloadInline | OmnistonForwardPayloadInRef)
     forwardPayload: OmnistonForwardPayloadRemainder
 }
 
-/// TON fee notification emitted to native route fee recipients.
+/// GRAM fee notification emitted to native route fee recipients.
 struct (0x37d3af9e) OmnistonNativeTonExcesses {
     /// Query id copied from the triggering route message.
     queryId: uint64
@@ -330,7 +330,7 @@ enum Errors {
     InvalidAddressOrSender = 32950
     /// Message address, route address, or getter address is outside workchain 0.
     WrongWorkchain = 33533
-    /// Attached TON value is below the route or upgrade processing requirement.
+    /// Attached GRAM value is below the route or upgrade processing requirement.
     InsufficientValue = 33565
     /// One of the three fee shares is outside the accepted range.
     InvalidFeeShare = 34413

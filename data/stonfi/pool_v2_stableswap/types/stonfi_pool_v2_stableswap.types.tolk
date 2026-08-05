@@ -56,11 +56,11 @@ struct StonfiPoolV2StableswapSwapBody {
     minOut: coins
     /// Final receiver, or `addr_none` to default to the original user.
     receiver: address?
-    /// Nanotons forwarded by the router with the outgoing token transfer.
+    /// Nanograms forwarded by the router with the outgoing token transfer.
     fwdGas: coins
     /// Optional custom payload forwarded on successful payout.
     customPayload: cell?
-    /// Nanotons forwarded with the refund transfer on failure.
+    /// Nanograms forwarded with the refund transfer on failure.
     refundFwdGas: coins
     /// Optional payload forwarded on refund.
     refundPayload: cell?
@@ -94,7 +94,7 @@ struct StonfiPoolV2StableswapProvideLpBody {
     toAddress: address
     /// Whether both deposited sides were expected to be positive.
     bothPositive: bool
-    /// Nanotons forwarded with the LP wallet mint notification.
+    /// Nanograms forwarded with the LP wallet mint notification.
     fwdAmount: coins
     /// Optional payload forwarded with the LP wallet mint notification.
     customPayload: cell?
@@ -136,7 +136,7 @@ struct StonfiPoolV2StableswapCbAddLiquidityAdditionalFields {
 
 /// Additional payout details referenced by Pool `pay_to` messages sent to the Router.
 struct StonfiPoolV2StableswapPayToAdditionalInfo {
-    /// Nanotons forwarded with the final jetton transfer.
+    /// Nanograms forwarded with the final jetton transfer.
     fwdTonAmount: coins
     /// Token0 amount paid by the Router.
     amount0Out: coins
@@ -220,11 +220,11 @@ struct (0x37c096df) StonfiPoolV2StableswapProvideLp {
     dexPayload: Cell<StonfiPoolV2StableswapProvideLpDexPayload>
 }
 
-/// Router-to-Pool gas reset request that leaves `storage_fee::pool` nanotons and sends remaining TON as excesses.
+/// Router-to-Pool gas reset request that leaves `storage_fee::pool` nanograms and sends remaining GRAM as excesses.
 struct (0x29d22935) StonfiPoolV2StableswapResetGas {
     /// Query id copied from the router admin request.
     queryId: uint64
-    /// Docs `excesses_address`: address where excess TON will be sent; this source stores it after `query_id`.
+    /// Docs `excesses_address`: address where excess GRAM will be sent; this source stores it after `query_id`.
     excessesRecipient: address
 }
 
@@ -240,7 +240,7 @@ struct (0x06ecd527) StonfiPoolV2StableswapCbAddLiquidity {
     userAddress: address
     /// Minimum LP tokens accepted by the user.
     minLpOut: coins
-    /// Nanotons forwarded with the LP wallet mint notification.
+    /// Nanograms forwarded with the LP wallet mint notification.
     fwdAmount: coins
     /// Optional payload forwarded with the LP wallet mint notification.
     customPayloadCs: cell?
@@ -284,7 +284,7 @@ struct (0x75930d63) StonfiPoolV2StableswapInternalSetFees {
     newProtocolFee: uint16
     /// Docs `new_protocol_fee_address`: address for receiving collected protocol fees.
     newProtocolFeeAddress: address?
-    /// Docs `excesses_address`: address where TON excesses will be sent after update.
+    /// Docs `excesses_address`: address where GRAM excesses will be sent after update.
     excessesAddress: address
 }
 
@@ -308,7 +308,7 @@ struct (0x355d097e) StonfiPoolV2StableswapInternalUpdatePoolCode {
 struct (0xf163444a) StonfiPoolV2StableswapInternalSetParams {
     /// Query id copied from the router admin request.
     queryId: uint64
-    /// Address where TON excesses will be sent after the amplification update.
+    /// Address where GRAM excesses will be sent after the amplification update.
     excessesAddress: address
     /// Replacement StableSwap amplification parameter stored as `PoolData.amp:uint32`.
     newAmp: uint32
@@ -348,7 +348,7 @@ struct (0x50c6a654) StonfiPoolV2StableswapAddLiquidity {
     newAmount1: coins
     /// Minimum LP tokens accepted by the user.
     minLpOut: coins
-    /// Nanotons forwarded with the final LP wallet mint.
+    /// Nanograms forwarded with the final LP wallet mint.
     fwdAmount: coins
     /// Whether both deposited sides are expected to be positive.
     bothPositive: bool
@@ -400,7 +400,7 @@ struct (0x178d4519) StonfiPoolV2StableswapJettonInternalTransfer {
     fromAddress: address
     /// Address that receives LP wallet excesses.
     responseAddress: address
-    /// Nanotons forwarded with the LP wallet notification.
+    /// Nanograms forwarded with the LP wallet notification.
     forwardTonAmount: coins
     /// Optional forward payload supplied by the liquidity provider.
     forwardPayload: cell?

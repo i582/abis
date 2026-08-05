@@ -56,7 +56,7 @@ struct SignedCrossDexContinuationStep {
     reserved: uint8
     /// Destination of the raw internal message emitted after a matching callback.
     destination: address
-    /// Nanotons attached to the emitted message.
+    /// Nanograms attached to the emitted message.
     value: coins
     /// Referenced raw body of the emitted internal message.
     body: cell

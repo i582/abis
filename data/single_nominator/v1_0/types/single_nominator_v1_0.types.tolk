@@ -17,11 +17,11 @@ struct SingleNominatorV10Storage {
     validatorAddress: address
 }
 
-/// Owner command that withdraws TON to the owner wallet.
+/// Owner command that withdraws GRAM to the owner wallet.
 struct (0x00001000) SingleNominatorV10Withdraw {
     /// Owner-selected query id.
     queryId: uint64
-    /// Requested withdrawal amount in nanotons.
+    /// Requested withdrawal amount in nanograms.
     amount: coins
 }
 

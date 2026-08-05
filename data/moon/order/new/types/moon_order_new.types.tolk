@@ -76,17 +76,17 @@ struct MoonOrderNewVestingState {
 
 /// Asset master identifiers retained by the order.
 struct MoonOrderNewAssets {
-    /// Offered Jetton master, or `addr_none` for native TON.
+    /// Offered Jetton master, or `addr_none` for native GRAM.
     asset1: address?
-    /// Requested Jetton master, or `addr_none` for native TON.
+    /// Requested Jetton master, or `addr_none` for native GRAM.
     asset2: address?
 }
 
 /// Asset wallet addresses retained by the order.
 struct MoonOrderNewWallets {
-    /// Order wallet for asset 1, or `addr_none` when asset 1 is native TON.
+    /// Order wallet for asset 1, or `addr_none` when asset 1 is native GRAM.
     asset1Wallet: address?
-    /// Order wallet for asset 2, or `addr_none` when asset 2 is native TON.
+    /// Order wallet for asset 2, or `addr_none` when asset 2 is native GRAM.
     asset2Wallet: address?
 }
 
@@ -104,7 +104,7 @@ struct (0x1e8d79c4) MoonOrderNewCancel {
     queryId: uint64
 }
 
-/// Direct native-TON request to fill the order.
+/// Direct native-GRAM request to fill the order.
 struct (0x99b49842) MoonOrderNewFill {
     /// Query identifier propagated to payouts and refunds.
     queryId: uint64
@@ -112,7 +112,7 @@ struct (0x99b49842) MoonOrderNewFill {
     recipient: address
     /// Optional body delivered with a Jetton payout.
     recipientPayload: Cell<RemainingBitsAndRefs>?
-    /// Address receiving a rejected payment or excess TON.
+    /// Address receiving a rejected payment or excess GRAM.
     rejectAddress: address
 }
 
@@ -122,7 +122,7 @@ struct (0x99b49842) MoonOrderNewJettonFillPayload {
     recipient: address
     /// Optional body delivered with a Jetton payout.
     recipientPayload: Cell<RemainingBitsAndRefs>?
-    /// Address receiving a rejected payment or excess TON.
+    /// Address receiving a rejected payment or excess GRAM.
     rejectAddress: address
 }
 
@@ -158,7 +158,7 @@ struct (0x983432e2) MoonOrderNewDeploy {
     assets: Cell<MoonOrderNewAssets>
     /// Referenced native or derived asset-wallet addresses.
     wallets: Cell<MoonOrderNewWallets>
-    /// Initial Jetton source and amount, absent for a native-TON order.
+    /// Initial Jetton source and amount, absent for a native-GRAM order.
     funding: Cell<MoonOrderNewFunding>?
 }
 
@@ -238,11 +238,11 @@ struct (0x0f8a7ea5) MoonOrderNewJettonTransfer {
     amount: coins
     /// Destination owner of the transferred Jettons.
     destination: address
-    /// Address that receives unused TON from the destination wallet.
+    /// Address that receives unused GRAM from the destination wallet.
     responseDestination: address
     /// Optional Jetton-wallet custom payload; the newer revision emits none.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// TON amount forwarded with the transfer notification.
+    /// GRAM amount forwarded with the transfer notification.
     forwardTonAmount: coins
     /// Inline or referenced forward payload retained as raw bits and references.
     forwardPayload: RemainingBitsAndRefs
@@ -283,9 +283,9 @@ enum MoonOrderNewErrors {
     UnauthorizedSender = 300
     /// Vesting release is unavailable or has not matured.
     VestingUnavailable = 410
-    /// Attached TON does not cover the operation's processing budget.
+    /// Attached GRAM does not cover the operation's processing budget.
     InsufficientAttachedValue = 500
-    /// Attached TON does not cover the requested settlement path.
+    /// Attached GRAM does not cover the requested settlement path.
     InsufficientSettlementValue = 510
 }
 

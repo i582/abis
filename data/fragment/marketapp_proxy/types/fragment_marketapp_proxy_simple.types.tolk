@@ -30,9 +30,9 @@ struct (0x3f2b92d2) FragmentMarketappProxySimpleBuy {
 
 /// Request cell signed by the proxy public key.
 struct FragmentMarketappProxySimpleSignedBuyRequest {
-    /// Destination that receives the primary routed TON transfer.
+    /// Destination that receives the primary routed GRAM transfer.
     destination: address
-    /// Nanotons sent with the primary routed transfer.
+    /// Nanograms sent with the primary routed transfer.
     amount: coins
     /// Body attached to the primary routed transfer.
     forwardPayload: cell
@@ -75,7 +75,7 @@ enum Errors {
     InvalidSignature = 403
     /// Admin relay send mode uses a forbidden flag.
     InvalidSendMode = 400
-    /// Incoming TON value is not greater than the primary routed amount.
+    /// Incoming GRAM value is not greater than the primary routed amount.
     InsufficientMessageValue = 1001
     /// Incoming message opcode is not supported.
     UnsupportedOperation = 65535

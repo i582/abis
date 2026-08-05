@@ -39,7 +39,7 @@ struct (0x474f86cf) CoffeeCrossDexDedustPayout {
 struct (0x01f3835d) CoffeeCrossDexPtonTonTransfer {
     /// Query id copied from the pTON wallet.
     queryId: uint64
-    /// Native TON amount reported by pTON.
+    /// Native GRAM amount reported by pTON.
     tonAmount: coins
     /// Refund address from the pTON body.
     refundAddress: address
@@ -155,7 +155,7 @@ struct (0x0f8a7ea5) CoffeeCrossDexJettonTransfer {
     responseDestination: address?
     /// Optional custom payload.
     customPayload: cell?
-    /// Forward TON amount.
+    /// Forward GRAM amount.
     forwardTonAmount: coins
     /// Raw TEP-74 forward payload tail.
     forwardPayload: RemainingBitsAndRefs

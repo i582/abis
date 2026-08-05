@@ -1,8 +1,8 @@
-/// Getgems fixed-price NFT sale V4R1 interface for TON and Jetton listings.
+/// Getgems fixed-price NFT sale V4R1 interface for GRAM and Jetton listings.
 contract GetgemsNftFixpriceSaleV4R1 {
     author: "Getgems"
     version: "4r1"
-    description: "Getgems fixed-price sale V4 R1 is a marketplace escrow contract that sells one NFT for TON or Jettons and distributes proceeds."
+    description: "Getgems fixed-price sale V4 R1 is a marketplace escrow contract that sells one NFT for GRAM or Jettons and distributes proceeds."
     storage: GetgemsNftFixpriceSaleV4R1Storage
     storageAtDeployment: GetgemsNftFixpriceSaleV4R1DeploymentStorage
     incomingMessages: GetgemsNftFixpriceSaleV4R1IncomingMessage
@@ -19,7 +19,7 @@ struct GetgemsNftFixpriceSaleV4R1Storage {
     marketplaceAddress: address
     /// Current NFT owner before purchase; null before the NFT ownership callback initializes the sale.
     nftOwnerAddress: address?
-    /// TON sale price encoded as TL-B `Coins`; zero disables TON purchases.
+    /// GRAM sale price encoded as TL-B `Coins`; zero disables GRAM purchases.
     fullTonPrice: coins
     /// Unix timestamp of successful sale, or zero for active/cancelled state.
     soldAt: uint32
@@ -39,7 +39,7 @@ struct GetgemsNftFixpriceSaleV4R1DeploymentStorage {
     marketplaceAddress: address
     /// Current NFT owner before purchase; null before the NFT ownership callback initializes the sale.
     nftOwnerAddress: address?
-    /// TON sale price encoded as TL-B `Coins`; zero disables TON purchases.
+    /// GRAM sale price encoded as TL-B `Coins`; zero disables GRAM purchases.
     fullTonPrice: coins
     /// Unix timestamp of successful sale, or zero at deployment.
     soldAt: uint32
@@ -77,10 +77,10 @@ struct GetgemsNftFixpriceSaleV4R1JettonPrice {
     jettonMaster: address
 }
 
-/// Empty internal message body; when initialized, source treats it as a TON buy with query id zero.
+/// Empty internal message body; when initialized, source treats it as a GRAM buy with query id zero.
 struct GetgemsNftFixpriceSaleV4R1EmptyTonBuy {}
 
-/// Explicit zero-op body; a text tail equal to `cancel` is treated as cancellation, otherwise as TON buy.
+/// Explicit zero-op body; a text tail equal to `cancel` is treated as cancellation, otherwise as GRAM buy.
 struct (0x00000000) GetgemsNftFixpriceSaleV4R1ZeroOpcodeBuyOrTextCancel {
     /// Unread tail after opcode zero; exact text `cancel` selects the cancel branch.
     tail: RemainingBitsAndRefs
@@ -126,11 +126,11 @@ struct (0xfb5dbf47) GetgemsNftFixpriceSaleV4R1DeployJetton {
     jettonPrices: map<uint256, GetgemsNftFixpriceSaleV4R1JettonPrice>
 }
 
-/// Seller-only command that changes the TON price and Jetton price dictionary.
+/// Seller-only command that changes the GRAM price and Jetton price dictionary.
 struct (0xfd135f7b) GetgemsNftFixpriceSaleV4R1ChangePrice {
     /// Caller-selected query id parsed by the shared dispatcher.
     queryId: uint64
-    /// Replacement TON price encoded as TL-B `Coins`; zero disables TON purchases.
+    /// Replacement GRAM price encoded as TL-B `Coins`; zero disables GRAM purchases.
     newTonPrice: coins
     /// Replacement Jetton price dictionary, possibly empty.
     newJettonPrices: map<uint256, GetgemsNftFixpriceSaleV4R1JettonPrice>
@@ -142,7 +142,7 @@ struct (0x00000003) GetgemsNftFixpriceSaleV4R1CancelSale {
     queryId: uint64
 }
 
-/// Explicit TON buy command accepted when enough nanotons are attached.
+/// Explicit GRAM buy command accepted when enough nanograms are attached.
 struct (0x00000002) GetgemsNftFixpriceSaleV4R1Buy {
     /// Query id copied into the outgoing NFT transfer body.
     queryId: uint64
@@ -166,7 +166,7 @@ struct GetgemsNftFixpriceSaleV4R1RawSendAction {
 
 /// TEP-62 NFT transfer body emitted to the NFT item on buy or cancellation.
 struct (0x5fcc3d14) GetgemsNftFixpriceSaleV4R1NftTransfer {
-    /// Query id from the buy/cancel request, or zero for empty-body and zero-op TON buys.
+    /// Query id from the buy/cancel request, or zero for empty-body and zero-op GRAM buys.
     queryId: uint64
     /// New NFT owner: buyer on purchase, previous owner on cancellation.
     newOwnerAddress: address
@@ -192,7 +192,7 @@ struct (0x0f8a7ea5) GetgemsNftFixpriceSaleV4R1JettonTransfer {
     responseDestination: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Nanoton amount forwarded by the Jetton wallet to the destination.
+    /// Nanogram amount forwarded by the Jetton wallet to the destination.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -227,7 +227,7 @@ struct GetgemsNftFixpriceSaleV4R1FixPriceDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the sale.
     nftOwnerAddress: any_address
-    /// TON sale price; zero means TON purchase is disabled.
+    /// GRAM sale price; zero means GRAM purchase is disabled.
     fullPrice: coins
     /// Marketplace fee payout stack address, or `addr_none` when the fee transfer is skipped.
     feeAddress: any_address
@@ -257,23 +257,23 @@ enum Errors {
     Mode32NotAllowed = 405
     /// Marketplace rescue was attempted within ten minutes of sale time.
     CannotExecuteCommandAtThisTime = 406
-    /// TON purchase did not attach `fullPrice + 0.1 TON`.
+    /// GRAM purchase did not attach `fullPrice + 0.1 GRAM`.
     NotEnoughTonsForSale = 450
     /// Fee, royalty, or seller proceeds calculated below zero.
     InconsistentPriceAndFees = 451
     /// Jetton notification sender is not in workchain zero.
     JettonWalletWrongWorkchain = 452
-    /// Cancellation did not attach the required 0.1 TON gas reserve.
+    /// Cancellation did not attach the required 0.1 GRAM gas reserve.
     NotEnoughTonsForCancellation = 457
     /// Cancellation sender was neither seller nor marketplace.
     UnauthorizedCancellation = 458
-    /// TON purchase attempted while TON price is zero.
+    /// GRAM purchase attempted while GRAM price is zero.
     TonPriceDisabled = 459
     /// Uninitialized sale was messaged by an address other than the NFT item.
     UnauthorizedInitiation = 500
     /// Initialization body opcode was not `ownership_assigned`.
     InvalidOpExpectedOwnershipAssigned = 501
-    /// Attached Jetton or TON amount is below the selected sale price.
+    /// Attached Jetton or GRAM amount is below the selected sale price.
     NotEnoughFundsForSale = 4501
     /// Internal message opcode is not supported.
     UnknownOperation = 65535
