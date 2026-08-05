@@ -201,7 +201,7 @@ enum Errors {
     Mode32NotAllowed = 405
     /// Marketplace raw resend attempted during the ten-minute sold-at window.
     CannotExecuteCommandAtThisTime = 406
-    /// Price change would make seller proceeds less than one nanograms.
+    /// Price change would make seller proceeds less than one nanogram.
     InconsistentPriceAndFeesOnChangePrice = 408
     /// Legacy sale-data getter detected non-positive seller proceeds.
     InconsistentPriceAndFeesOnSaleData = 409

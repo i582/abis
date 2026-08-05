@@ -25,7 +25,7 @@ Each curated project group normally includes:
 | TON Verifier | On-chain source registry, verifier registry, and per-source verification records. | `VerifierSourcesRegistry`, `VerifierRegistry`, `VerifierSourceItem` |
 | Wallets | Standard wallet generations, highload wallets, vesting/lockup wallets, preprocessed wallet, and multisig v2. | `WalletV1r1`, `WalletV1r2`, `WalletV1r3`, `WalletV2r1`, `WalletV2r2`, `WalletV3r1`, `WalletV3r2`, `WalletV4r1`, `WalletV4r2`, `WalletV5r1`, `WalletHighloadV1r1`, `WalletHighloadV1r2`, `WalletHighloadV2`, `WalletHighloadV2r1`, `WalletHighloadV2r2`, `WalletHighloadV3r1`, `WalletPreprocessedV2`, `WalletVesting`, `LockupUniversal`, `LockupVesting`, `MultisigV2`, `MultisigOrderV2` |
 | Jettons | TEP-74, TEP-89, stablecoin, Notcoin, mintless, Jetton 2.0, and Scaled UI jetton interfaces. | `JettonV1Master`, `JettonV100Master`, `JettonV1Wallet`, `DiscoverableJettonMaster`, `DiscoverableJettonWallet`, `JettonDiscovery`, `StablecoinMaster`, `StablecoinWallet`, `JettonNotcoinMaster`, `JettonNotcoinWallet`, `Jetton2Master`, `Jetton2Wallet`, `MintlessJettonMaster`, `MintlessJettonWallet`, `ScaledUiJettonMaster` |
-| pTON | pTON v2.1 proxy TON minter and wallet contracts. | `PtonMinterV2`, `PtonWalletV2` |
+| pTON | pTON v2.1 minter and wallet contracts for tokenized GRAM. | `PtonMinterV2`, `PtonWalletV2` |
 | NFTs | TEP-62, TEP-64, TEP-66, and Getgems NFT v2 collection/item variants. | `NftV1Collection`, `NftV1Item`, `NftV1EditableItem`, `NftV2Collection`, `NftV2Item`, `NftV2EditableItem`, `GetgemsNftCollectionV2`, `GetgemsNftItemV2`, `GetgemsNftEditableItemV2` |
 | SBTs | TEP-85 SBT item contracts. | `SbtV1Item`, `SbtV1Single` |
 | TON DNS | TON DNS root resolver, `.ton` collection resolver, and `.ton` domain item contracts. | `DnsRootResolver`, `DnsCollection`, `DnsDomainItem` |
@@ -75,7 +75,7 @@ Each curated project group normally includes:
 | Affluent | Pools, accounts, batch, multiply vaults, lending vaults, and FactorialTON jetton contracts. | `Pool`, `Account`, `Batch`, `MultiplyVault`, `MultiplyVaultV2`, `LendingVault`, `FactorialTonMinter`, `FactorialTonWallet` |
 | Bidask Farming | FF farming vault and per-user NFT staking position contracts. | `FfVault`, `FfVaultPosition` |
 | Locker | Locker and locker bill contracts. | `Locker`, `LockerBill` |
-| DAOLama | TON liquidity vault and TON-DLP jetton master interface. | `DaolamaVault` |
+| DAOLama | TON Vault and TON-DLP jetton master interface for GRAM liquidity. | `DaolamaVault` |
 | tsUSDe | Ethena tsUSDe vault and wallet contracts, including minting, vesting, timelock, and share accounting. | `TsusdeVault`, `TsusdeWallet` |
 
 ### Marketplaces, NFT Apps, And Distribution
@@ -91,7 +91,7 @@ Each curated project group normally includes:
 
 | Project | Coverage                                                                                | Contract entries |
 | --- |-----------------------------------------------------------------------------------------| --- |
-| Invoices | Payload-only invoice body ABI for TON and Jetton payment payloads.                      | `InvoicesPayloadInterface` |
+| Invoices | Payload-only invoice body ABI for GRAM and Jetton payment payloads.                     | `InvoicesPayloadInterface` |
 | Payment Channels | Asynchronous two-party payment channel with cooperative and uncooperative settlement.   | `AsyncPaymentChannel` |
 | GRAM | Proof-of-work GRAM miner with adaptive complexity and signed administration.            | `GramMiner` |
 | Cocoon | Confidential-compute Root, Proxy, Client, Worker, and control Wallet contracts.          | `CocoonRoot`, `CocoonProxy`, `CocoonClient`, `CocoonWorker`, `CocoonWallet` |

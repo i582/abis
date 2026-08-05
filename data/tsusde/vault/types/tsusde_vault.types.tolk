@@ -75,7 +75,7 @@ struct TsusdeVaultAddressPayload {
     addressHash: uint256
 }
 
-/// Exact classlib object carrying a fixed-width nanograms amount.
+/// Exact classlib object carrying a fixed-width amount in nanograms.
 struct TsusdeVaultCoinsPayload {
     /// Raw 350-bit classlib descriptor for the single-field `coins` class.
     classlibHeader: bits350

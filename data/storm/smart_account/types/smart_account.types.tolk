@@ -778,7 +778,7 @@ struct (0x644794b8) StormRemoveAllKeysExceptCurrent {
     publicKey: uint256
 }
 
-/// Storm GRAM-deposit layout used by SmartAccount.
+/// Storm `DepositTon` message layout used by SmartAccount.
 struct (0x5a091c43) StormDepositTon {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64

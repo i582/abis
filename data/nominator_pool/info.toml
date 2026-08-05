@@ -14,7 +14,7 @@ url = "https://github.com/ton-blockchain/nominator-pool/tree/2f35c36b5ad662f10fd
 [contracts.NominatorPool]
 display_name = "TON Validators Nominator Pool"
 types = "pool/types/nominator_pool.types.tolk"
-description = "Validator-managed GRAM nominator pool with deposits, withdrawals, validator operations, Elector stake messages, and config-proposal voting."
+description = "Validator-managed TON nominator pool with GRAM deposits and withdrawals, validator operations, Elector stake messages, and config-proposal voting."
 known_addresses = [
   "Ef-Ob4ib3dI6SyugRcZHLwLEyhsTz0Uhi9RW-AszqL1xR4D4",
   "Ef9_YdqILIo-z4aUI0HTgM2Mu9ZcYxyKhvUKVzPEc-71ZN04",

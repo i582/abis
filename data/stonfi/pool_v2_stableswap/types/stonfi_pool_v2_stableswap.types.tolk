@@ -374,7 +374,7 @@ struct (0x657b54f5) StonfiPoolV2StableswapPayTo {
     exitCode: uint32
     /// Optional payload forwarded with the payout.
     customPayload: cell?
-    /// Referenced token amount, token address, and forward-ton data.
+    /// Referenced token amount, token address, and forward-value data.
     additionalInfo: Cell<StonfiPoolV2StableswapPayToAdditionalInfo>
 }
 

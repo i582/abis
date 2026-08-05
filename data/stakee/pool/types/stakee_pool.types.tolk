@@ -12,7 +12,7 @@ contract StakeePool {
 
 /// Signed coin value encoded by Stakee as `Coins` magnitude followed by a one-bit sign.
 struct StakeePoolSignedCoins {
-    /// Absolute nanograms value.
+    /// Absolute value in nanograms.
     amount: coins
     /// True when the signed value is negative.
     negative: bool

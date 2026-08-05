@@ -751,7 +751,7 @@ get fun list_complaints(electionId: uint32): lisp_list<ElectorComplaintListEntry
     throw 0;
 }
 
-/// Return complaint storage and creation price including the one-gram processing margin.
+/// Return complaint storage and creation price including the one-GRAM processing margin.
 get fun complaint_storage_price(bits: int, refs: int, expireIn: int): coins {
     throw 0;
 }

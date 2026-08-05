@@ -1,7 +1,7 @@
 [project]
 name = "payment_channels"
 category = "payment channels"
-description = "GRAM asynchronous two-party payment channel contract with cooperative and uncooperative settlement"
+description = "TON asynchronous two-party payment channel contract with cooperative and uncooperative settlement"
 
 [[links]]
 kind = "source"

@@ -2,7 +2,7 @@
 contract DaolamaVault {
     author: "DAOLama"
     version: "1.0"
-    description: "DAOLama GRAM Vault accepts signed liquidity supplies, funds NFT-backed loans, processes repayments, and issues TON-DLP jettons."
+    description: "DAOLama TON Vault accepts signed GRAM liquidity supplies, funds NFT-backed loans, processes repayments, and issues TON-DLP jettons."
     storage: DaolamaVaultStorage
     incomingMessages: DaolamaVaultIncomingMessage
     outgoingMessages: DaolamaVaultOutgoingMessage

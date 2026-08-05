@@ -502,7 +502,7 @@ struct (0xc0ffee2e) CoffeeFactoryUpdateContractInternal {
     update: CoffeeFactoryContractUpdate
 }
 
-/// Standard GRAM excesses response emitted after successful local admin updates.
+/// Standard excess-value response emitted after successful local admin updates.
 struct (0xd53276db) CoffeeFactoryExcesses {
     /// Query id copied from the admin request.
     queryId: uint64

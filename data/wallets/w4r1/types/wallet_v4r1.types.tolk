@@ -23,7 +23,7 @@ struct WalletV4r1Storage {
     plugins: map<bits264, void>
 }
 
-/// Standard GRAM currency collection used by plugin fund requests.
+/// Standard TON currency collection used by plugin fund requests.
 struct WalletV4r1CurrencyCollection {
     /// GRAM amount in nanograms.
     grams: coins

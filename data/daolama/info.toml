@@ -1,7 +1,7 @@
 [project]
 name = "daolama"
 category = "lending"
-description = "DAOLama GRAM liquidity vault and TON-DLP jetton master"
+description = "DAOLama TON Vault and TON-DLP jetton master for GRAM liquidity"
 website = "https://daolama.co"
 docs = "https://docs.daolama.co/daolama/daolama-en"
 telegram = "https://t.me/daolama"

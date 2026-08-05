@@ -14,7 +14,7 @@ contract TonstakersPool {
 
 /// Signed coin value encoded by Tonstakers as `Coins` magnitude followed by a one-bit sign.
 struct TonstakersPoolSignedCoins {
-    /// Absolute nanograms value.
+    /// Absolute value in nanograms.
     amount: coins
     /// True when the signed value is negative.
     negative: bool

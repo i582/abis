@@ -156,7 +156,7 @@ struct (0xc0ffee36) OmnistonWrappedNativeFeeDistribution {
     payload: Cell<OmnistonNativeFeePayload>
 }
 
-/// pTON GRAM transfer body accepted when native GRAM is forwarded through a pTON wallet.
+/// pTON `ton_transfer` body accepted when native GRAM is forwarded through a pTON wallet.
 struct (0x01f3835d) OmnistonPtonTonTransfer {
     /// Query id copied into outgoing GRAM fee notifications and result callbacks.
     queryId: uint64

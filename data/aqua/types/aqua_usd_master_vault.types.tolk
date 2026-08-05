@@ -1,4 +1,4 @@
-/// Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, deposit/withdraw commands, and standard GRAM asset messages.
+/// Aqua Protocol USD master vault with jetton-minter getters, asset dictionaries, deposit/withdraw commands, and standard TON asset messages.
 contract AquaUsdMasterVault {
     author: "Aqua Protocol"
     version: "1.0"

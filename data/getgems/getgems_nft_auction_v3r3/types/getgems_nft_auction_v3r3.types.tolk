@@ -130,7 +130,7 @@ struct (0x5fcc3d14) GetgemsNftAuctionV3R3NftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Zero on cancellation and one nanograms on successful completion.
+    /// Zero on cancellation and one nanogram on successful completion.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
