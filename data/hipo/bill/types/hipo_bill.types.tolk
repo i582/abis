@@ -2,7 +2,7 @@
 contract HipoBill {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Bill Item is a non-transferable withdrawal NFT showing a user's pending hTON unstake claim until the round can pay out."
+    description: "Hipo Bill Item is a non-transferable withdrawal NFT showing a user's pending hGRAM unstake claim until the round can pay out."
     storage: HipoBillStorage
     incomingMessages: HipoBillIncomingMessage
     outgoingMessages: HipoBillOutgoingMessage
@@ -23,7 +23,7 @@ struct HipoBillStorage {
     owner: address?
     /// True for withdrawal/unstake bills; false for deposit/mint bills.
     unstake: bool
-    /// Bill amount in nanotons or hTON nano-units depending on `unstake`.
+    /// Bill amount in nanotons or hGRAM nano-units depending on `unstake`.
     amount: coins
 }
 
