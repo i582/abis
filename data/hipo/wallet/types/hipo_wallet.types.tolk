@@ -1,8 +1,8 @@
-/// Hipo Finance hTON wallet interface for Jetton wallet flows, Hipo staking/unstaking callbacks, storage, getters, and exit codes.
+/// Hipo Finance hGRAM wallet interface for Jetton wallet flows, Hipo staking/unstaking callbacks, storage, getters, and exit codes.
 contract HipoWallet {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo hTON Wallet is a user's jetton wallet holding transferable hTON and connecting token transfers to Hipo staking and unstaking."
+    description: "Hipo hGRAM Wallet is a user's jetton wallet holding transferable hGRAM and connecting token transfers to Hipo staking and unstaking."
     storage: HipoWalletStorage
     incomingMessages: HipoWalletIncomingMessage
     outgoingMessages: HipoWalletOutgoingMessage
@@ -12,15 +12,15 @@ contract HipoWallet {
 
 /// Persistent Hipo wallet state stored in the root data cell.
 struct HipoWalletStorage {
-    /// Wallet owner authorized to transfer hTON, unstake, upgrade, withdraw surplus, and withdraw child Jettons.
+    /// Wallet owner authorized to transfer hGRAM, unstake, upgrade, withdraw surplus, and withdraw child Jettons.
     owner: address
     /// Hipo parent Jetton master address authorized for mint/burn/save/merge callbacks.
     parent: address
-    /// hTON balance encoded as TL-B `Coins`.
+    /// hGRAM balance encoded as TL-B `Coins`.
     tokens: coins
-    /// Pending staking TON by `round_since`, encoded as `HashmapE 32 Coins`; empty map means no active staking entries.
+    /// Pending staking GRAM by `round_since`, encoded as `HashmapE 32 Coins`; empty map means no active staking entries.
     staking: map<uint32, coins>
-    /// hTON amount currently reserved for unstaking.
+    /// hGRAM amount currently reserved for unstaking.
     unstaking: coins
 }
 
@@ -28,7 +28,7 @@ struct HipoWalletStorage {
 struct (0x0f8a7ea5) HipoWalletSendTokens {
     /// Caller-selected query id copied into the outgoing internal transfer.
     queryId: uint64
-    /// hTON amount debited from this wallet.
+    /// hGRAM amount debited from this wallet.
     tokens: coins
     /// Destination owner whose deterministic Hipo wallet receives the transfer.
     recipient: address
@@ -46,7 +46,7 @@ struct (0x0f8a7ea5) HipoWalletSendTokens {
 struct (0x178d4519) HipoWalletReceiveTokens {
     /// Query id copied from the originating transfer.
     queryId: uint64
-    /// hTON amount credited to the recipient wallet.
+    /// hGRAM amount credited to the recipient wallet.
     tokens: coins
     /// Original owner address reported by the sending wallet.
     sender: address
@@ -58,13 +58,13 @@ struct (0x178d4519) HipoWalletReceiveTokens {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Parent-originated mint callback that credits hTON and may reduce a staking round entry.
+/// Parent-originated mint callback that credits hGRAM and may reduce a staking round entry.
 struct (0x5445efee) HipoWalletTokensMinted {
     /// Query id copied into the owner transfer notification.
     queryId: uint64
-    /// hTON amount minted to this wallet.
+    /// hGRAM amount minted to this wallet.
     tokens: coins
-    /// TON amount represented by the minted hTON, used to reduce the staking dictionary entry.
+    /// GRAM amount represented by the minted hGRAM, used to reduce the staking dictionary entry.
     coins: coins
     /// Owner address field carried by the parent callback; source skips it after parsing.
     owner: address
@@ -72,15 +72,15 @@ struct (0x5445efee) HipoWalletTokensMinted {
     roundSince: uint32
 }
 
-/// Parent-originated callback that records pending staking TON for a round.
+/// Parent-originated callback that records pending staking GRAM for a round.
 struct (0x4cce0e74) HipoWalletSaveCoins {
     /// Query id carried for traceability.
     queryId: uint64
-    /// TON amount added to the pending staking dictionary entry.
+    /// GRAM amount added to the pending staking dictionary entry.
     coins: coins
     /// Owner address field carried by the parent callback; source skips it after parsing.
     owner: address
-    /// Staking round key where the TON amount is accumulated.
+    /// Staking round key where the GRAM amount is accumulated.
     roundSince: uint32
 }
 
@@ -88,7 +88,7 @@ struct (0x4cce0e74) HipoWalletSaveCoins {
 struct HipoWalletUnstakeCustomPayload {
     /// Unstake mode: 0 auto, 1 instant, or 2 best.
     mode: uint4
-    /// TON amount forwarded for ownership assignment in bill/payout flows.
+    /// GRAM amount forwarded for ownership assignment in bill/payout flows.
     ownershipAssignedAmount: coins
 }
 
@@ -96,7 +96,7 @@ struct HipoWalletUnstakeCustomPayload {
 struct (0x595f07bc) HipoWalletUnstakeTokens {
     /// Caller-selected query id copied to the parent reserve request.
     queryId: uint64
-    /// hTON amount to burn/reserve for unstaking.
+    /// hGRAM amount to burn/reserve for unstaking.
     tokens: coins
     /// Optional excess-refund address; source accepts owner or `addr_none`.
     returnExcess: address?
@@ -104,25 +104,25 @@ struct (0x595f07bc) HipoWalletUnstakeTokens {
     customPayload: Cell<HipoWalletUnstakeCustomPayload>?
 }
 
-/// Parent-originated rollback that restores hTON after a failed unstake reserve.
+/// Parent-originated rollback that restores hGRAM after a failed unstake reserve.
 struct (0x1b77fd1a) HipoWalletRollbackUnstake {
     /// Query id copied into the owner excess response.
     queryId: uint64
-    /// hTON amount restored from `unstaking` back to spendable balance.
+    /// hGRAM amount restored from `unstaking` back to spendable balance.
     tokens: coins
 }
 
-/// Parent-originated burn completion that reduces `unstaking` and notifies the owner about withdrawn TON.
+/// Parent-originated burn completion that reduces `unstaking` and notifies the owner about withdrawn GRAM.
 struct (0x5b512e25) HipoWalletTokensBurned {
     /// Query id copied into the withdrawal notification.
     queryId: uint64
-    /// hTON amount removed from the `unstaking` balance.
+    /// hGRAM amount removed from the `unstaking` balance.
     tokens: coins
-    /// TON amount sent to the owner in the withdrawal notification.
+    /// GRAM amount sent to the owner in the withdrawal notification.
     coins: coins
 }
 
-/// Parent or owner request that converts the whole spendable hTON balance into an unstake request to self.
+/// Parent or owner request that converts the whole spendable hGRAM balance into an unstake request to self.
 struct (0x5ae30148) HipoWalletUnstakeAll {
     /// Query id copied into the self-sent `unstake_tokens` body.
     queryId: uint64
@@ -134,15 +134,15 @@ struct (0x01d9ae1c) HipoWalletUpgradeWallet {
     queryId: uint64
 }
 
-/// Parent-originated merge callback that credits migrated hTON into this wallet.
+/// Parent-originated merge callback that credits migrated hGRAM into this wallet.
 struct (0x63d3a76c) HipoWalletMergeWallet {
     /// Query id copied into the owner excess response.
     queryId: uint64
-    /// Migrated hTON amount credited to this wallet.
+    /// Migrated hGRAM amount credited to this wallet.
     newTokens: coins
 }
 
-/// Owner request to withdraw surplus TON while preserving the wallet storage reserve.
+/// Owner request to withdraw surplus GRAM while preserving the wallet storage reserve.
 struct (0x23355ffb) HipoWalletWithdrawSurplus {
     /// Query id copied into the gas excess response.
     queryId: uint64
@@ -178,7 +178,7 @@ struct (0x00000000) HipoWalletTextUnstakeAll {
 struct (0x7362d09c) HipoWalletTransferNotification {
     /// Query id copied from the incoming mint/internal-transfer body.
     queryId: uint64
-    /// hTON amount reported to the owner.
+    /// hGRAM amount reported to the owner.
     tokens: coins
     /// Sender address reported to the owner; mints use the owner address as sender.
     sender: address
@@ -196,13 +196,13 @@ struct (0xd53276db) HipoWalletGasExcess {
 struct (0x688b0213) HipoWalletProxyReserveTokens {
     /// Query id copied from the unstake request.
     queryId: uint64
-    /// hTON amount reserved for unstaking.
+    /// hGRAM amount reserved for unstaking.
     tokens: coins
     /// Wallet owner address forwarded to the parent.
     owner: address
     /// Hipo unstake mode: 0 auto, 1 instant, or 2 best.
     mode: uint4
-    /// TON amount forwarded for ownership assignment in payout flows.
+    /// GRAM amount forwarded for ownership assignment in payout flows.
     ownershipAssignedAmount: coins
 }
 
@@ -210,9 +210,9 @@ struct (0x688b0213) HipoWalletProxyReserveTokens {
 struct (0x0cb246bb) HipoWalletProxyMigrateWallet {
     /// Query id copied from the upgrade request.
     queryId: uint64
-    /// hTON balance migrated out of this wallet.
+    /// hGRAM balance migrated out of this wallet.
     tokens: coins
-    /// Wallet owner whose new wallet should receive the migrated hTON.
+    /// Wallet owner whose new wallet should receive the migrated hGRAM.
     owner: address
 }
 
@@ -220,9 +220,9 @@ struct (0x0cb246bb) HipoWalletProxyMigrateWallet {
 struct (0xf0fa223b) HipoWalletWithdrawalNotification {
     /// Query id copied from the parent burn completion.
     queryId: uint64
-    /// hTON amount burned from unstaking.
+    /// hGRAM amount burned from unstaking.
     tokens: coins
-    /// TON amount withdrawn to the owner.
+    /// GRAM amount withdrawn to the owner.
     coins: coins
 }
 
@@ -266,7 +266,7 @@ type HipoWalletOutgoingMessage =
 
 /// Structured result returned by `get_wallet_data`.
 struct HipoWalletDataReply {
-    /// hTON balance returned as a TVM stack integer.
+    /// hGRAM balance returned as a TVM stack integer.
     tokens: int
     /// Stored owner address.
     owner: address
@@ -278,21 +278,21 @@ struct HipoWalletDataReply {
 
 /// Structured result returned by `get_wallet_state`.
 struct HipoWalletStateReply {
-    /// hTON balance returned as a TVM stack integer.
+    /// hGRAM balance returned as a TVM stack integer.
     tokens: int
-    /// Pending staking TON dictionary keyed by uint32 round.
+    /// Pending staking GRAM dictionary keyed by uint32 round.
     staking: map<uint32, coins>
-    /// hTON amount currently reserved for unstaking.
+    /// hGRAM amount currently reserved for unstaking.
     unstaking: int
 }
 
 /// Structured fee tuple returned by `get_wallet_fees`.
 struct HipoWalletFeesReply {
-    /// Required TON for owner `send_tokens`, including one forward-fee estimate.
+    /// Required GRAM for owner `send_tokens`, including one forward-fee estimate.
     sendTokensFee: int
-    /// Required TON for `unstake_tokens` before optional ownership assignment amount.
+    /// Required GRAM for `unstake_tokens` before optional ownership assignment amount.
     unstakeTokensFee: int
-    /// Required TON for `upgrade_wallet`.
+    /// Required GRAM for `upgrade_wallet`.
     upgradeWalletFee: int
     /// Wallet storage reserve maintained by the contract.
     walletStorageFee: int
@@ -300,9 +300,9 @@ struct HipoWalletFeesReply {
 
 /// Hipo wallet exit-code catalog used by source throw sites.
 enum Errors {
-    /// Incoming TON is lower than the required operation fee.
+    /// Incoming GRAM is lower than the required operation fee.
     InsufficientFee = 101
-    /// Requested hTON amount is zero or larger than the available balance.
+    /// Requested hGRAM amount is zero or larger than the available balance.
     InsufficientFunds = 102
     /// Sender is not the owner, parent, authenticated peer wallet, or self address required by the operation.
     AccessDenied = 103

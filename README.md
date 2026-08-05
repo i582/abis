@@ -57,7 +57,7 @@ Each curated project group normally includes:
 | --- | --- | --- |
 | Tonstakers | Staking pool, validator controller, tsTON jetton minter/wallet, and payout NFT collection/item. | `TonstakersPool`, `TonstakersValidatorController`, `TsTonMinter`, `TsTonWallet`, `TonstakersPayoutCollection`, `TonstakersPayoutItem` |
 | Stakee | Staking pool, validator controller, STAKEED jetton minter/wallet, and payout NFT collection/item. | `StakeePool`, `StakeeValidatorController`, `StakeedMinter`, `StakeedWallet`, `StakeePayoutCollection`, `StakeePayoutItem` |
-| Hipo Finance | hTON treasury, parent, wallet, bill collection/item, loan, and librarian. | `HipoTreasury`, `HipoParent`, `HipoWallet`, `HipoCollection`, `HipoBill`, `HipoLoan`, `HipoLibrarian` |
+| Hipo Finance | hGRAM treasury, parent, wallet, bill collection/item, loan, and librarian. | `HipoTreasury`, `HipoParent`, `HipoWallet`, `HipoCollection`, `HipoBill`, `HipoLoan`, `HipoLibrarian` |
 | Bemo | Bemo v2 financial jetton master and unstake request contracts. | `BemoFinancial`, `BemoUnstakeRequest` |
 | Ton Whales | Nominator pool and proxy contracts, plus the standalone liquid-staking pool ABI. | `WhalesPool`, `WhalesProxy`, `WhalesLiquidStaking` |
 | TON Validators Nominator Pool | Validator-managed TON nominator pool. | `NominatorPool` |

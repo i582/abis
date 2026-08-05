@@ -1,8 +1,8 @@
-/// Hipo Finance Parent jetton master for hTON supply accounting, wallet discovery, and treasury/wallet proxy messages.
+/// Hipo Finance Parent jetton master for hGRAM supply accounting, wallet discovery, and treasury/wallet proxy messages.
 contract HipoParent {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo hTON Parent is the jetton master that mints hTON and routes user wallet interactions with the Hipo Treasury."
+    description: "Hipo hGRAM Parent is the jetton master that mints hGRAM and routes user wallet interactions with the Hipo Treasury."
     storage: HipoParentStorage
     incomingMessages: HipoParentIncomingMessage
     outgoingMessages: HipoParentOutgoingMessage
@@ -11,7 +11,7 @@ contract HipoParent {
 
 /// Runtime persistent Parent state stored in the root data cell.
 struct HipoParentStorage {
-    /// Total hTON supply encoded as TL-B `Coins`.
+    /// Total hGRAM supply encoded as TL-B `Coins`.
     totalTokens: coins
     /// Treasury contract address authorized for treasury-originated proxy/admin messages.
     treasury: address
@@ -25,9 +25,9 @@ struct HipoParentStorage {
 struct (0x5be57626) HipoParentProxyTokensMinted {
     /// Query id copied into the outgoing wallet message.
     queryId: uint64
-    /// hTON amount minted in base units.
+    /// hGRAM amount minted in base units.
     tokens: coins
-    /// TON amount associated with the mint.
+    /// GRAM amount associated with the mint.
     coins: coins
     /// Owner whose deterministic wallet receives the minted tokens.
     owner: address
@@ -39,7 +39,7 @@ struct (0x5be57626) HipoParentProxyTokensMinted {
 struct (0x47daa10f) HipoParentProxySaveCoins {
     /// Query id copied into the outgoing wallet message.
     queryId: uint64
-    /// TON amount saved for the owner.
+    /// GRAM amount saved for the owner.
     coins: coins
     /// Owner whose deterministic wallet receives the save notification.
     owner: address
@@ -51,13 +51,13 @@ struct (0x47daa10f) HipoParentProxySaveCoins {
 struct (0x688b0213) HipoParentProxyReserveTokens {
     /// Query id copied into the outgoing Treasury `reserve_tokens` message.
     queryId: uint64
-    /// hTON amount reserved in base units.
+    /// hGRAM amount reserved in base units.
     tokens: coins
     /// Owner used to authenticate the deterministic source wallet and forwarded to Treasury.
     owner: address
     /// Four-bit unstake mode from the source wallet.
     mode: uint4
-    /// TON amount assigned for ownership notification handling.
+    /// GRAM amount assigned for ownership notification handling.
     ownershipAssignedAmount: coins
 }
 
@@ -65,7 +65,7 @@ struct (0x688b0213) HipoParentProxyReserveTokens {
 struct (0x32b67194) HipoParentProxyRollbackUnstake {
     /// Query id copied into the outgoing wallet message.
     queryId: uint64
-    /// hTON amount to roll back in the wallet.
+    /// hGRAM amount to roll back in the wallet.
     tokens: coins
     /// Owner whose deterministic wallet receives the rollback.
     owner: address
@@ -75,9 +75,9 @@ struct (0x32b67194) HipoParentProxyRollbackUnstake {
 struct (0x4476fde0) HipoParentProxyTokensBurned {
     /// Query id copied into the outgoing wallet message.
     queryId: uint64
-    /// hTON amount burned in base units.
+    /// hGRAM amount burned in base units.
     tokens: coins
-    /// TON amount associated with the burn.
+    /// GRAM amount associated with the burn.
     coins: coins
     /// Owner whose deterministic wallet receives the burn result.
     owner: address
@@ -103,7 +103,7 @@ struct (0x4664bc68) HipoParentProxyUpgradeWallet {
 struct (0x0cb246bb) HipoParentProxyMigrateWallet {
     /// Query id copied into the outgoing Treasury migration message.
     queryId: uint64
-    /// hTON amount removed from Parent supply for migration.
+    /// hGRAM amount removed from Parent supply for migration.
     tokens: coins
     /// Owner used to authenticate the deterministic source wallet and forwarded to Treasury.
     owner: address
@@ -113,7 +113,7 @@ struct (0x0cb246bb) HipoParentProxyMigrateWallet {
 struct (0x6833d7d0) HipoParentProxyMergeWallet {
     /// Query id copied into the outgoing wallet merge message.
     queryId: uint64
-    /// hTON amount merged into the owner wallet.
+    /// hGRAM amount merged into the owner wallet.
     tokens: coins
     /// Owner whose deterministic wallet receives the merge.
     owner: address
@@ -139,7 +139,7 @@ struct (0x04dc78b7) HipoParentSetContent {
     newContent: cell
 }
 
-/// Treasury-only request that reserves storage fee and returns surplus TON.
+/// Treasury-only request that reserves storage fee and returns surplus GRAM.
 struct (0x23355ffb) HipoParentWithdrawSurplus {
     /// Query id copied into the outgoing `gas_excess` response.
     queryId: uint64
@@ -169,9 +169,9 @@ struct (0x5372158c) HipoParentTopUp {
 struct (0x5445efee) HipoParentTokensMinted {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// hTON amount minted in base units.
+    /// hGRAM amount minted in base units.
     tokens: coins
-    /// TON amount associated with the mint.
+    /// GRAM amount associated with the mint.
     coins: coins
     /// Owner copied into the wallet body for bounced-message diagnostics.
     owner: address
@@ -183,7 +183,7 @@ struct (0x5445efee) HipoParentTokensMinted {
 struct (0x4cce0e74) HipoParentSaveCoins {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// TON amount saved for the owner.
+    /// GRAM amount saved for the owner.
     coins: coins
     /// Owner copied into the wallet body for bounced-message diagnostics.
     owner: address
@@ -195,13 +195,13 @@ struct (0x4cce0e74) HipoParentSaveCoins {
 struct (0x386a358b) HipoParentReserveTokens {
     /// Query id copied from the wallet proxy request.
     queryId: uint64
-    /// hTON amount reserved in base units.
+    /// hGRAM amount reserved in base units.
     tokens: coins
     /// Owner forwarded to Treasury.
     owner: address
     /// Four-bit unstake mode forwarded to Treasury.
     mode: uint4
-    /// TON amount assigned for ownership notification handling.
+    /// GRAM amount assigned for ownership notification handling.
     ownershipAssignedAmount: coins
 }
 
@@ -209,7 +209,7 @@ struct (0x386a358b) HipoParentReserveTokens {
 struct (0x1b77fd1a) HipoParentRollbackUnstake {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// hTON amount to roll back in the wallet.
+    /// hGRAM amount to roll back in the wallet.
     tokens: coins
 }
 
@@ -217,9 +217,9 @@ struct (0x1b77fd1a) HipoParentRollbackUnstake {
 struct (0x5b512e25) HipoParentTokensBurned {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// hTON amount burned in base units.
+    /// hGRAM amount burned in base units.
     tokens: coins
-    /// TON amount associated with the burn.
+    /// GRAM amount associated with the burn.
     coins: coins
 }
 
@@ -239,7 +239,7 @@ struct (0x01d9ae1c) HipoParentUpgradeWallet {
 struct (0x325aacfa) HipoParentMigrateWallet {
     /// Query id copied from the wallet proxy request.
     queryId: uint64
-    /// hTON amount removed from Parent supply for migration.
+    /// hGRAM amount removed from Parent supply for migration.
     tokens: coins
     /// Owner forwarded to Treasury.
     owner: address
@@ -249,7 +249,7 @@ struct (0x325aacfa) HipoParentMigrateWallet {
 struct (0x63d3a76c) HipoParentMergeWallet {
     /// Query id copied from the proxy request.
     queryId: uint64
-    /// hTON amount merged into the owner wallet.
+    /// hGRAM amount merged into the owner wallet.
     tokens: coins
 }
 
@@ -302,7 +302,7 @@ type HipoParentOutgoingMessage =
 
 /// Structured result returned by `get_jetton_data`.
 struct HipoParentJettonDataReply {
-    /// Total issued hTON returned as a TVM stack integer.
+    /// Total issued hGRAM returned as a TVM stack integer.
     totalTokens: int
     /// Source returns true for the mintable flag because Treasury can mint through proxy flow.
     mintable: bool

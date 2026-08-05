@@ -2,7 +2,7 @@
 contract HipoTreasury {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Treasury is the main liquid staking contract where users' TON is pooled, lent to validators, and accounted for hTON staking."
+    description: "Hipo Treasury is the main liquid staking contract where users' GRAM is pooled, lent to validators, and accounted for hGRAM staking."
     storage: HipoTreasuryStorage
     incomingMessages: HipoTreasuryIncomingMessage
     incomingExternal: HipoTreasuryIncomingExternalMessage
@@ -53,13 +53,13 @@ struct HipoTreasuryExtension {
 
 /// Persistent root storage cell saved by `save_data` in `treasury.fc`.
 struct HipoTreasuryStorage {
-    /// Total TON coins backing minted hTON tokens, in nanotons.
+    /// Total GRAM coins backing minted hGRAM tokens, in nanotons.
     totalCoins: coins
-    /// Total hTON token supply tracked by the treasury.
+    /// Total hGRAM token supply tracked by the treasury.
     totalTokens: coins
-    /// TON queued for minting after active participation rounds.
+    /// GRAM queued for minting after active participation rounds.
     totalStaking: coins
-    /// hTON queued for delayed unstake after active participation rounds.
+    /// hGRAM queued for delayed unstake after active participation rounds.
     totalUnstaking: coins
     /// Borrower stake currently locked in loan requests and active loans.
     totalBorrowersStake: coins
@@ -99,7 +99,7 @@ struct HipoTreasuryLoanRequest {
     minPayment: coins
     /// Borrower reward share encoded over 255.
     borrowerRewardShare: uint8
-    /// TON loan principal requested from the treasury.
+    /// GRAM loan principal requested from the treasury.
     loanAmount: coins
     /// Extra allocated amount added by distribution.
     accrueAmount: coins
@@ -129,9 +129,9 @@ struct HipoTreasuryParticipation {
     staked: map<uint256, HipoTreasuryLoanRequest>
     /// Requests being recovered from loan contracts, keyed by borrower address hash.
     recovering: map<uint256, HipoTreasuryLoanRequest>
-    /// Total TON staked for this round, or a temporary available amount during distribution.
+    /// Total GRAM staked for this round, or a temporary available amount during distribution.
     totalStaked: coins
-    /// Total TON recovered for this round, or a temporary allocated amount during distribution.
+    /// Total GRAM recovered for this round, or a temporary allocated amount during distribution.
     totalRecovered: coins
     /// Hash of the validator-set config cell used to detect vset changes.
     currentVsetHash: uint256
@@ -147,7 +147,7 @@ struct (0x3d3761a6) HipoTreasuryDepositCoins {
     queryId: uint64
     /// Deposit owner, or `addr_none` to use the message sender.
     owner: address?
-    /// TON amount to deposit; zero means use the maximum value after fees.
+    /// GRAM amount to deposit; zero means use the maximum value after fees.
     coins: coins
     /// Nanotons forwarded to ownership-assigned notifications downstream.
     ownershipAssignedAmount: coins
@@ -161,11 +161,11 @@ struct (0x45baeda9) HipoTreasurySendUnstakeAll {
     queryId: uint64
 }
 
-/// Parent-to-treasury request to reserve or burn hTON tokens.
+/// Parent-to-treasury request to reserve or burn hGRAM tokens.
 struct (0x386a358b) HipoTreasuryReserveTokens {
     /// Query id copied into rollback, burn, or bill-mint messages.
     queryId: uint64
-    /// hTON amount requested for unstake.
+    /// hGRAM amount requested for unstake.
     tokens: coins
     /// Token owner whose wallet initiated the unstake.
     owner: address
@@ -175,11 +175,11 @@ struct (0x386a358b) HipoTreasuryReserveTokens {
     ownershipAssignedAmount: coins
 }
 
-/// Collection-to-treasury callback that turns delayed staking TON into hTON tokens.
+/// Collection-to-treasury callback that turns delayed staking GRAM into hGRAM tokens.
 struct (0x42684479) HipoTreasuryMintTokens {
     /// Query id copied into proxy_tokens_minted.
     queryId: uint64
-    /// TON amount represented by the bill.
+    /// GRAM amount represented by the bill.
     coins: coins
     /// Owner receiving minted tokens through the fixed parent.
     owner: address
@@ -193,9 +193,9 @@ struct (0x42684479) HipoTreasuryMintTokens {
 struct (0x7cffe1ee) HipoTreasuryBurnTokens {
     /// Query id copied into proxy_tokens_burned or a replacement bill.
     queryId: uint64
-    /// hTON amount represented by the bill.
+    /// hGRAM amount represented by the bill.
     tokens: coins
-    /// Owner receiving burned TON through the fixed parent.
+    /// Owner receiving burned GRAM through the fixed parent.
     owner: address
     /// Parent address fixed at bill creation time.
     parent: address
@@ -209,7 +209,7 @@ struct (0x36335da9) HipoTreasuryRequestLoan {
     queryId: uint64
     /// Expected next validator round.
     roundSince: uint32
-    /// TON principal requested from the treasury.
+    /// GRAM principal requested from the treasury.
     loanAmount: coins
     /// Minimum treasury payment required from borrower rewards or stake.
     minPayment: coins
@@ -375,7 +375,7 @@ struct (0x654de488) HipoTreasuryRetryMintBill {
     queryId: uint64
     /// Validator round for the bill collection.
     roundSince: uint32
-    /// TON or hTON amount represented by the bill.
+    /// GRAM or hGRAM amount represented by the bill.
     amount: coins
     /// One-bit flag: true for unstake bill, false for staking bill.
     unstake: bool
@@ -415,7 +415,7 @@ struct (0x2b1c8e37) HipoTreasuryProxySetContent {
     newContent: cell
 }
 
-/// Governor-only message that withdraws surplus TON to a response address.
+/// Governor-only message that withdraws surplus GRAM to a response address.
 struct (0x23355ffb) HipoTreasuryWithdrawSurplus {
     /// Query id copied into gas_excess.
     queryId: uint64
@@ -495,11 +495,11 @@ struct (0x747bf3a2) HipoTreasuryProxyRemoveLibrary {
     codeHash: uint256
 }
 
-/// Message that gifts TON to the treasury accounting when tokens exist.
+/// Message that gifts GRAM to the treasury accounting when tokens exist.
 struct (0x3496db80) HipoTreasuryGiftCoins {
     /// Query id copied into gas_excess.
     queryId: uint64
-    /// TON amount intended for totalCoins accounting.
+    /// GRAM amount intended for totalCoins accounting.
     coins: coins
 }
 
@@ -519,9 +519,9 @@ struct (0x00000000) HipoTreasuryTextCommand {
 struct (0x5be57626) HipoTreasuryProxyTokensMinted {
     /// Query id copied from the deposit or bill mint.
     queryId: uint64
-    /// hTON tokens minted.
+    /// hGRAM tokens minted.
     tokens: coins
-    /// TON coins deposited or finalized.
+    /// GRAM coins deposited or finalized.
     coins: coins
     /// Owner receiving minted tokens.
     owner: address
@@ -529,11 +529,11 @@ struct (0x5be57626) HipoTreasuryProxyTokensMinted {
     roundSince: uint32
 }
 
-/// Treasury-to-parent request to save delayed staking TON.
+/// Treasury-to-parent request to save delayed staking GRAM.
 struct (0x47daa10f) HipoTreasuryProxySaveCoins {
     /// Query id copied from the deposit.
     queryId: uint64
-    /// TON coins to save.
+    /// GRAM coins to save.
     coins: coins
     /// Deposit owner.
     owner: address
@@ -545,21 +545,21 @@ struct (0x47daa10f) HipoTreasuryProxySaveCoins {
 struct (0x32b67194) HipoTreasuryProxyRollbackUnstake {
     /// Query id copied from reserve_tokens.
     queryId: uint64
-    /// hTON tokens to roll back.
+    /// hGRAM tokens to roll back.
     tokens: coins
     /// Owner whose wallet should be restored.
     owner: address
 }
 
-/// Treasury-to-parent notification that tokens were burned for TON.
+/// Treasury-to-parent notification that tokens were burned for GRAM.
 struct (0x4476fde0) HipoTreasuryProxyTokensBurned {
     /// Query id copied from reserve or bill burn.
     queryId: uint64
-    /// hTON tokens burned.
+    /// hGRAM tokens burned.
     tokens: coins
-    /// TON coins released.
+    /// GRAM coins released.
     coins: coins
-    /// Owner receiving released TON.
+    /// Owner receiving released GRAM.
     owner: address
 }
 
@@ -587,7 +587,7 @@ struct (0x0a420458) HipoTreasuryTakeCurrentQuote {
 struct (0x4b2d7871) HipoTreasuryMintBill {
     /// Query id copied from the source operation.
     queryId: uint64
-    /// TON or hTON amount represented by the bill.
+    /// GRAM or hGRAM amount represented by the bill.
     amount: coins
     /// One-bit flag: true for unstake bill, false for staking bill.
     unstake: bool
@@ -751,9 +751,9 @@ struct HipoTreasuryRepaymentLog {
 struct HipoTreasuryFinishLog {
     /// Validator round that finished.
     roundSince: uint32
-    /// Total TON staked in the round.
+    /// Total GRAM staked in the round.
     totalStaked: coins
-    /// Total TON recovered in the round.
+    /// Total GRAM recovered in the round.
     totalRecovered: coins
     /// Treasury totalCoins after finalization.
     totalCoins: coins
@@ -769,9 +769,9 @@ struct HipoTreasuryFailedBurningTokensLog {
     totalCoins: coins
     /// Treasury totalTokens at failure time.
     totalTokens: coins
-    /// TON coins that could not be released.
+    /// GRAM coins that could not be released.
     coins: coins
-    /// hTON tokens that could not be burned.
+    /// hGRAM tokens that could not be burned.
     tokens: coins
     /// Owner affected by the failed burn.
     owner: address
@@ -854,13 +854,13 @@ type HipoTreasuryOutgoingMessage =
 
 /// Stack reply returned by `get_treasury_state`.
 struct HipoTreasuryStateReply {
-    /// Total TON coins backing minted hTON tokens, in nanotons.
+    /// Total GRAM coins backing minted hGRAM tokens, in nanotons.
     totalCoins: coins
-    /// Total hTON token supply tracked by the treasury.
+    /// Total hGRAM token supply tracked by the treasury.
     totalTokens: coins
-    /// TON queued for delayed minting.
+    /// GRAM queued for delayed minting.
     totalStaking: coins
-    /// hTON queued for delayed unstake.
+    /// hGRAM queued for delayed unstake.
     totalUnstaking: coins
     /// Borrower stake currently locked by loan flows.
     totalBorrowersStake: coins
@@ -962,7 +962,7 @@ struct HipoTreasuryAddressReply {
 
 /// Source-level exit-code catalog from `imports/constants.fc`.
 enum Errors {
-    /// Attached TON is below the required fee.
+    /// Attached GRAM is below the required fee.
     InsufficientFee = 101
     /// Available funds are below the requested amount.
     InsufficientFunds = 102
@@ -1035,12 +1035,12 @@ get fun get_times(): HipoTreasuryTimesReply {
     throw 0;
 }
 
-/// Return the currently burnable hTON amount based on balance and reserves.
+/// Return the currently burnable hGRAM amount based on balance and reserves.
 get fun get_max_burnable_tokens(): coins {
     throw 0;
 }
 
-/// Return TON surplus above the source-calculated minimum reserve.
+/// Return GRAM surplus above the source-calculated minimum reserve.
 get fun get_surplus(): int {
     throw 0;
 }

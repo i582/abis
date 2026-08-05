@@ -1048,13 +1048,13 @@ types = "data/hipo/treasury/types/hipo_treasury.types.tolk"
 depends = []
 
 [contracts.HipoParent]
-display-name = "Hipo Finance hTON Parent"
+display-name = "Hipo Finance hGRAM Parent"
 src = "data/hipo/parent/testdata/HipoParent.boc"
 types = "data/hipo/parent/types/hipo_parent.types.tolk"
 depends = []
 
 [contracts.HipoWallet]
-display-name = "Hipo Finance hTON Wallet"
+display-name = "Hipo Finance hGRAM Wallet"
 src = "data/hipo/wallet/testdata/HipoWallet.boc"
 types = "data/hipo/wallet/types/hipo_wallet.types.tolk"
 depends = []
