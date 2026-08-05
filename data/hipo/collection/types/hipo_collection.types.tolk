@@ -2,7 +2,7 @@
 contract HipoCollection {
     author: "Hipo Finance"
     version: "1.0"
-    description: "Hipo Bill Collection groups non-transferable withdrawal bill NFTs created for delayed hTON unstaking rounds."
+    description: "Hipo Bill Collection groups non-transferable withdrawal bill NFTs created for delayed hGRAM unstaking rounds."
     storage: HipoCollectionStorage
     incomingMessages: HipoCollectionIncomingMessage
     outgoingMessages: HipoCollectionOutgoingMessage
@@ -31,7 +31,7 @@ struct (0x4b2d7871) HipoCollectionMintBill {
     unstake: bool
     /// User owner address passed through to the bill and later treasury token message.
     owner: address
-    /// Parent hTON address passed through to bill and treasury token accounting.
+    /// Parent hGRAM address passed through to bill and treasury token accounting.
     parent: address
     /// Nanograms forwarded for NFT ownership assignment handling.
     ownershipAssignedAmount: coins
@@ -47,7 +47,7 @@ struct (0x840f6369) HipoCollectionBillBurned {
     unstake: bool
     /// User owner address forwarded to the treasury token accounting message.
     owner: address
-    /// Parent hTON address forwarded to the treasury token accounting message.
+    /// Parent hGRAM address forwarded to the treasury token accounting message.
     parent: address
     /// Burned bill item index used to validate the sender and continue the burn loop.
     index: uint64
@@ -71,7 +71,7 @@ struct (0x3275dfc2) HipoCollectionAssignBill {
     unstake: bool
     /// User owner address stored/assigned by the bill item.
     owner: address
-    /// Parent hTON address stored/assigned by the bill item.
+    /// Parent hGRAM address stored/assigned by the bill item.
     parent: address
     /// Nanograms carried for the bill ownership assignment flow.
     ownershipAssignedAmount: coins
@@ -99,7 +99,7 @@ struct (0x42684479) HipoCollectionMintTokens {
     coins: coins
     /// User owner address that receives minted token accounting.
     owner: address
-    /// Parent hTON address associated with the owner.
+    /// Parent hGRAM address associated with the owner.
     parent: address
     /// Validation round start Unix timestamp stored by this collection.
     roundSince: uint32
@@ -113,7 +113,7 @@ struct (0x7cffe1ee) HipoCollectionBurnTokens {
     tokens: coins
     /// User owner address whose tokens are burned.
     owner: address
-    /// Parent hTON address associated with the owner.
+    /// Parent hGRAM address associated with the owner.
     parent: address
     /// Validation round start Unix timestamp stored by this collection.
     roundSince: uint32

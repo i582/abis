@@ -1,7 +1,7 @@
 [project]
 name = "hipo"
 category = "TON liquid staking contracts"
-description = "Hipo Finance hTON liquid-staking Treasury, Parent, Wallet, Loan, Bill, Collection, and Librarian contracts"
+description = "Hipo Finance hGRAM liquid-staking Treasury, Parent, Wallet, Loan, Bill, Collection, and Librarian contracts"
 
 [sources]
 hipo_contract_repo = "https://github.com/HipoFinance/contract"
@@ -38,7 +38,7 @@ address = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"
 
 [contracts.HipoParent]
-display_name = "Hipo Finance hTON Parent"
+display_name = "Hipo Finance hGRAM Parent"
 types = "parent/types/hipo_parent.types.tolk"
 hashes = ["44377ca68af877b8f26f47f153d6a2d2de134f120348d10d016cf51c00aaf019"]
 known_addresses = ["EQDPdq8xjAhytYqfGSX8KcFWIReCufsB9Wdg0pLlYSO_h76w"]
@@ -49,7 +49,7 @@ treasury = "EQCLyZHP4Xe8fpchQz76O-_RmUhaVc_9BAoGyJrwJrcbz2eZ"
 network = "mainnet"
 
 [contracts.HipoWallet]
-display_name = "Hipo Finance hTON Wallet"
+display_name = "Hipo Finance hGRAM Wallet"
 types = "wallet/types/hipo_wallet.types.tolk"
 hashes = ["50b917d9fd5b95760993287677d04812a15aa55e6b71d0f9226ecd7c20c3d82a"]
 known_addresses = ["EQBwh1XGDsEongigw0iz-s-3pkkeMrpIKioELjbmGB9BDMbo"]
