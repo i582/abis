@@ -17,7 +17,7 @@ struct CronStorage {
     rootAddress0: address
     /// Second root address field.
     rootAddress1: address
-    /// Root-level TON amount.
+    /// Root-level GRAM amount.
     rootAmount: coins
     /// Referenced runtime parameters cell parsed by helper methods.
     runtime: Cell<CronRuntimeParameters>
@@ -39,7 +39,7 @@ struct CronRuntimeParameters {
     runtimeAddress2: address
     /// Small unsigned runtime parameter stored after the three addresses.
     runtimeUint16: uint16
-    /// Runtime TON amount stored after `runtimeUint16`.
+    /// Runtime GRAM amount stored after `runtimeUint16`.
     runtimeAmount: coins
     /// One-bit runtime flag.
     runtimeFlag: bool
@@ -53,7 +53,7 @@ struct CronScheduleState {
     scheduleAddress0: address
     /// Optional 256-bit value controlled by an inline Maybe bit.
     optionalValue: uint256?
-    /// Schedule TON amount.
+    /// Schedule GRAM amount.
     scheduleAmount: coins
     /// 64-bit schedule value.
     scheduleUint64: uint64
@@ -76,7 +76,7 @@ type CronIncomingExternalMessage = CronTrigger
 struct GetCronInfoReply {
     /// Next planned cron call Unix time.
     nextCallTime: uint32
-    /// Reward paid to the trigger caller in nanotons.
+    /// Reward paid to the trigger caller in nanograms.
     reward: coins
     /// Contract balance minus reserved amounts, as signed 64-bit value.
     balanceMinusAmounts: int64

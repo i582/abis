@@ -32,13 +32,13 @@ struct StonksPumpVirtualMinterStorage {
 struct StonksPumpVirtualMinterBondingState {
     /// True while buys and sells use the virtual presale curve.
     presaleOpen: bool
-    /// TON collection target that triggers DEX migration, in nanotons.
+    /// GRAM collection target that triggers DEX migration, in nanograms.
     migrationTonTarget: coins
-    /// Net TON collected through presale buys minus sells, in nanotons.
+    /// Net GRAM collected through presale buys minus sells, in nanograms.
     tonsCollected: coins
     /// Initial Jetton-side component of the cumulative virtual reserve.
     baseJettonReserve: coins
-    /// Additional TON-side component included in the cumulative virtual reserve.
+    /// Additional GRAM-side component included in the cumulative virtual reserve.
     additionalTonReserve: coins
     /// Additional Jetton-side component included in the cumulative virtual reserve.
     additionalJettonReserve: coins
@@ -54,7 +54,7 @@ struct StonksPumpVirtualMinterBondingState {
 
 /// Optional developer purchase appended as the second referenced initialization payload.
 struct StonksPumpVirtualDevBuy {
-    /// TON amount reserved for the developer's initial virtual-presale buy.
+    /// GRAM amount reserved for the developer's initial virtual-presale buy.
     tonAmount: coins
     /// Wallet that receives Jettons bought during initialization.
     recipient: address
@@ -68,7 +68,7 @@ struct (0x00000015) StonksPumpJettonMint {
     queryId: uint64
     /// Owner address whose deterministic wallet receives the minted Jettons.
     recipient: address
-    /// Nanotons attached to wallet deployment and delivery.
+    /// Nanograms attached to wallet deployment and delivery.
     forwardTonAmount: coins
     /// Referenced Jetton internal-transfer body sent to the wallet.
     internalTransfer: cell
@@ -82,7 +82,7 @@ struct (0x7bdd97de) StonksPumpJettonBurnNotification {
     amount: coins
     /// Owner whose deterministic wallet burned the Jettons.
     owner: address
-    /// Optional address that receives excess TON.
+    /// Optional address that receives excess GRAM.
     responseAddress: address?
 }
 
@@ -118,13 +118,13 @@ struct (0xcc1a9802) StonksPumpVirtualMinterInit {
     queryId: uint64
     /// Initial virtual-presale availability flag.
     presaleOpen: bool
-    /// TON collection target that triggers DEX migration.
+    /// GRAM collection target that triggers DEX migration.
     migrationTonTarget: coins
-    /// Initial collected TON amount.
+    /// Initial collected GRAM amount.
     tonsCollected: coins
     /// Initial Jetton-side component of the cumulative virtual reserve.
     baseJettonReserve: coins
-    /// Initial additional TON-side virtual-reserve component.
+    /// Initial additional GRAM-side virtual-reserve component.
     additionalTonReserve: coins
     /// Initial additional Jetton-side virtual-reserve component.
     additionalJettonReserve: coins
@@ -132,7 +132,7 @@ struct (0xcc1a9802) StonksPumpVirtualMinterInit {
     maxBuyPercent: uint16
     /// Referenced DEX-specific launch and migration configuration.
     migrationConfig: cell
-    /// Referenced optional developer-buy request; zero TON means no developer buy.
+    /// Referenced optional developer-buy request; zero GRAM means no developer buy.
     devBuy: Cell<StonksPumpVirtualDevBuy>
 }
 
@@ -140,7 +140,7 @@ struct (0xcc1a9802) StonksPumpVirtualMinterInit {
 struct (0xcc1a97ae) StonksPumpBuyFromPresale {
     /// Caller-selected correlation id.
     queryId: uint64
-    /// TON-side swap input before protocol fee and curve clipping.
+    /// GRAM-side swap input before protocol fee and curve clipping.
     tonAmount: coins
     /// Minimum Jetton output accepted by the buyer.
     minJettonsOut: coins
@@ -154,9 +154,9 @@ struct (0xcc1a97b0) StonksPumpPresaleSellNotificationForMinter {
     jettonAmount: coins
     /// Owner that initiated the sell through a Jetton wallet.
     sellInitiator: address
-    /// Optional account receiving the TON proceeds.
+    /// Optional account receiving the GRAM proceeds.
     tonsRecipient: address?
-    /// Minimum TON output accepted by the seller.
+    /// Minimum GRAM output accepted by the seller.
     minTonOut: coins
 }
 
@@ -166,9 +166,9 @@ struct (0xcc1a97af) StonksPumpAskToPresaleSell {
     queryId: uint64
     /// Jetton amount sold in base token units.
     jettonAmount: coins
-    /// Optional account receiving the TON proceeds.
+    /// Optional account receiving the GRAM proceeds.
     tonsRecipient: address?
-    /// Minimum TON output accepted by the seller.
+    /// Minimum GRAM output accepted by the seller.
     minTonOut: coins
 }
 
@@ -182,7 +182,7 @@ struct (0x178d4519) StonksPumpJettonInternalTransfer {
     fromAddress: address?
     /// Optional excess-value response destination.
     responseAddress: address?
-    /// Nanotons forwarded with the wallet notification.
+    /// Nanograms forwarded with the wallet notification.
     forwardTonAmount: coins
     /// Raw standard Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -210,13 +210,13 @@ struct (0xcc1a97b3) StonksPumpPresaleTradeEvent {
     queryId: uint64
     /// True for a buy and false for a sell.
     isBuy: bool
-    /// TON input for buys or Jetton input for sells.
+    /// GRAM input for buys or Jetton input for sells.
     amountIn: coins
-    /// Jetton output for buys or TON output for sells.
+    /// Jetton output for buys or GRAM output for sells.
     amountOut: coins
     /// Account receiving the swap output.
     recipient: address
-    /// Unused TON input returned after curve or max-buy clipping.
+    /// Unused GRAM input returned after curve or max-buy clipping.
     leftover: coins
 }
 
@@ -241,13 +241,13 @@ type StonksPumpVirtualMinterOutgoingMessage =
 struct StonksPumpBondingData {
     /// Migration progress in basis points.
     progressBps: int
-    /// TON collection target that triggers migration.
+    /// GRAM collection target that triggers migration.
     migrationTonTarget: int
-    /// Total TON-side virtual reserve.
+    /// Total GRAM-side virtual reserve.
     cumulativeTonReserve: int
     /// Total Jetton-side virtual reserve.
     cumulativeJettonReserve: int
-    /// Net TON collected by presale buys minus sells.
+    /// Net GRAM collected by presale buys minus sells.
     tonsCollected: int
     /// Per-buy cap as a percentage of total supply.
     maxBuyPercent: int
@@ -283,7 +283,7 @@ enum StonksPumpVirtualMinterErrors {
     InsufficientWalletDiscoveryValue = 75
     /// DEX migration callback does not match the pending migration state.
     InvalidMigrationCallback = 708
-    /// Attached TON value is below the operation's gas and forwarding budget.
+    /// Attached GRAM value is below the operation's gas and forwarding budget.
     InsufficientValue = 709
     /// Sell notification sender is not the expected deterministic wallet.
     InvalidSellSender = 710

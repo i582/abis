@@ -21,7 +21,7 @@ struct StorageProviderStorage {
     publicKey: uint256
     /// Whether the provider accepts new storage contract offers.
     acceptNewContracts: bool
-    /// Storage price in nanotons per MiB per day.
+    /// Storage price in nanograms per MiB per day.
     ratePerMbDay: coins
     /// Maximum allowed span between proofs, in seconds.
     maxSpan: uint32
@@ -69,7 +69,7 @@ struct (0x107c49ef) StorageProviderOfferStorageContract {
     info: Cell<TorrentInfo>
     /// Merkle root hash expected by the resulting storage contract.
     merkleHash: uint256
-    /// Price expected by the client, in nanotons per MiB per day.
+    /// Price expected by the client, in nanograms per MiB per day.
     expectedRate: coins
     /// Maximum proof span expected by the client, in seconds.
     expectedMaxSpan: uint32
@@ -97,7 +97,7 @@ struct (0x54cbf19b) StorageProviderUpdateStorageParams {
     queryId: uint64
     /// Whether future offers are accepted.
     acceptNewContracts: bool
-    /// New storage price in nanotons per MiB per day.
+    /// New storage price in nanograms per MiB per day.
     ratePerMbDay: coins
     /// New maximum proof span, in seconds.
     maxSpan: uint32
@@ -155,7 +155,7 @@ struct StorageProviderWalletParamsReply {
 struct StorageProviderStorageParamsReply {
     /// Whether the provider currently accepts new offers.
     acceptNewContracts: bool
-    /// Current storage price in nanotons per MiB per day.
+    /// Current storage price in nanograms per MiB per day.
     ratePerMbDay: coins
     /// Current maximum proof span, in seconds.
     maxSpan: uint32

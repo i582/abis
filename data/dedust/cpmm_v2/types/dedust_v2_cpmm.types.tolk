@@ -67,9 +67,9 @@ struct DedustV2CpmmPoolDataReply {
     depositActive: bool
     /// Swap gate flag.
     swapActive: bool
-    /// Asset X address; native TON is represented by `addr_none`.
+    /// Asset X address; native GRAM is represented by `addr_none`.
     assetX: address?
-    /// Asset Y address; native TON is represented by `addr_none`.
+    /// Asset Y address; native GRAM is represented by `addr_none`.
     assetY: address?
     /// Optional dictionary cell keyed by asset-address hashes.
     walletsByAssets: cell?
@@ -185,7 +185,7 @@ enum DedustV2CpmmFeeIn: uint2 {
     AssetY = 0b10
 }
 
-/// Asset identifier used by CPMM v2; `addr_none` denotes native TON.
+/// Asset identifier used by CPMM v2; `addr_none` denotes native GRAM.
 struct DedustV2CpmmAsset {
     /// Jetton root address, or `addr_none` for the native asset.
     value: address?
@@ -361,7 +361,7 @@ struct DedustV2CpmmPayoutOptions {
 struct (0xa5a7cbf8) DedustV2CpmmPayNative {
     /// Query id copied through the swap flow.
     queryId: uint64
-    /// Native TON amount routed into the pool.
+    /// Native GRAM amount routed into the pool.
     amount: coins
     /// Operation-specific payment payload.
     paymentPayload: cell
@@ -622,7 +622,7 @@ struct (0x855afcbd) DedustV2CpmmCreditLiquidity {
     liquidity: coins
     /// Share of the credited liquidity that remains locked.
     lockedLiquidityShare: uint16
-    /// Extra TON attached to the position notification.
+    /// Extra GRAM attached to the position notification.
     notifyExtraGas: coins
     /// Optional notification payload.
     notifyPayload: cell?

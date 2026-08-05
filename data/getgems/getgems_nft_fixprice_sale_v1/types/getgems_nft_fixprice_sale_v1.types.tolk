@@ -2,7 +2,7 @@
 contract GetgemsNftFixpriceSaleV1 {
     author: "Getgems"
     version: "1"
-    description: "Getgems fixed-price sale V1 is a marketplace escrow that lists one NFT for a set TON price and transfers it to the buyer."
+    description: "Getgems fixed-price sale V1 is a marketplace escrow that lists one NFT for a set GRAM price and transfers it to the buyer."
     storage: GetgemsNftFixpriceSaleV1Storage
     storageAtDeployment: GetgemsNftFixpriceSaleV1DeploymentStorage
     incomingMessages: GetgemsNftFixpriceSaleV1IncomingMessage
@@ -18,7 +18,7 @@ struct GetgemsNftFixpriceSaleV1DeploymentStorage {
     nftAddress: address
     /// Null before `ownership_assigned`; later set to the previous NFT owner.
     nftOwnerAddress: address?
-    /// Required sale price in nanotons, encoded as TL-B `Coins`.
+    /// Required sale price in nanograms, encoded as TL-B `Coins`.
     fullPrice: coins
     /// Referenced fee and royalty configuration cell.
     fees: Cell<GetgemsNftFixpriceSaleV1Fees>
@@ -32,7 +32,7 @@ struct GetgemsNftFixpriceSaleV1Storage {
     nftAddress: address
     /// Previous NFT owner that receives proceeds or the NFT on cancellation.
     nftOwnerAddress: address
-    /// Required sale price in nanotons, encoded as TL-B `Coins`.
+    /// Required sale price in nanograms, encoded as TL-B `Coins`.
     fullPrice: coins
     /// Referenced fee and royalty configuration cell.
     fees: Cell<GetgemsNftFixpriceSaleV1Fees>
@@ -40,13 +40,13 @@ struct GetgemsNftFixpriceSaleV1Storage {
 
 /// Referenced fee cell stored from the deployment config.
 struct GetgemsNftFixpriceSaleV1Fees {
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Address receiving the marketplace fee payout.
     marketplaceFeeAddress: address
     /// Royalty recipient address.
     royaltyAddress: address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -60,7 +60,7 @@ struct (0x05138d91) GetgemsNftFixpriceSaleV1OwnershipAssigned {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Initialized sale command that only accepts attached nanotons.
+/// Initialized sale command that only accepts attached nanograms.
 struct (0x00000001) GetgemsNftFixpriceSaleV1AcceptCoins {
     /// Caller-selected id parsed and then ignored by this command.
     queryId: uint64
@@ -88,7 +88,7 @@ struct (0x5fcc3d14) GetgemsNftFixpriceSaleV1NftTransfer {
     responseAddress: address
     /// Optional custom payload; V1 always sends `none`.
     customPayload: cell?
-    /// Forwarded nanotons to the new owner; V1 always sends zero.
+    /// Forwarded nanograms to the new owner; V1 always sends zero.
     forwardTonAmount: coins
     /// Raw TEP-62 forward payload tail; V1 sends an empty inline tail.
     forwardPayload: RemainingBitsAndRefs
@@ -126,13 +126,13 @@ struct GetgemsNftFixpriceSaleV1SaleDataReply {
 
 /// Exit-code catalog proven by the V1 FunC throw sites.
 enum Errors {
-    /// Buy value is below `full_price + 1 TON`.
+    /// Buy value is below `full_price + 1 GRAM`.
     NotEnoughTonsForSale = 450
     /// Uninitialized sale was not called by the stored NFT address.
     UnauthorizedInitiation = 500
     /// Initialization body opcode is not `ownership_assigned`.
     InvalidOpExpectedOwnershipAssigned = 501
-    /// Cancel value is below `1 TON`.
+    /// Cancel value is below `1 GRAM`.
     NotEnoughTonsForCancellation = 457
     /// Initialized sale received an unsupported opcode.
     UnknownOperation = 65535

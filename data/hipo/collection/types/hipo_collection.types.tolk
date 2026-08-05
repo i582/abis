@@ -33,7 +33,7 @@ struct (0x4b2d7871) HipoCollectionMintBill {
     owner: address
     /// Parent hGRAM address passed through to bill and treasury token accounting.
     parent: address
-    /// Nanotons forwarded for NFT ownership assignment handling.
+    /// Nanograms forwarded for NFT ownership assignment handling.
     ownershipAssignedAmount: coins
 }
 
@@ -73,7 +73,7 @@ struct (0x3275dfc2) HipoCollectionAssignBill {
     owner: address
     /// Parent hGRAM address stored/assigned by the bill item.
     parent: address
-    /// Nanotons carried for the bill ownership assignment flow.
+    /// Nanograms carried for the bill ownership assignment flow.
     ownershipAssignedAmount: coins
 }
 

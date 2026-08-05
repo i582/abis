@@ -2,7 +2,7 @@
 contract StormProxySender {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade Proxy Sender lets an owner-controlled account execute a prepared batch of TON actions through one proxy contract."
+    description: "Storm Trade Proxy Sender lets an owner-controlled account execute a prepared batch of GRAM actions through one proxy contract."
     storage: StormProxySenderStorage
     incomingMessages: StormProxySenderIncomingMessage
     outgoingMessages: StormProxySenderOutgoingMessage

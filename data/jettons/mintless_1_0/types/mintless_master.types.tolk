@@ -35,7 +35,7 @@ struct (0x178d4519) MintlessJettonMasterInternalTransfer {
     from: address?
     /// Optional response address for wallet `Excesses`.
     responseAddress: address?
-    /// Nanotons forwarded to the recipient owner's notification.
+    /// Nanograms forwarded to the recipient owner's notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -47,7 +47,7 @@ struct (0x642b7d07) MintlessJettonMasterMint {
     queryId: uint64
     /// Jetton owner address whose deterministic salted wallet receives the mint transfer.
     toAddress: address
-    /// Nanotons attached to the wallet deployment/internal-transfer message.
+    /// Nanograms attached to the wallet deployment/internal-transfer message.
     tonAmount: coins
     /// Referenced internal transfer body validated and forwarded to the recipient wallet.
     masterMsg: Cell<MintlessJettonMasterInternalTransfer>

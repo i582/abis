@@ -51,7 +51,7 @@ struct NftV1CollectionItemInit {
 
 /// Value stored in the batch deploy dictionary.
 struct NftV1CollectionBatchDeployItem {
-    /// Nanotons attached to the item deployment message.
+    /// Nanograms attached to the item deployment message.
     attachTonAmount: coins
     /// Referenced item initialization body.
     initParams: Cell<NftV1CollectionItemInit>
@@ -69,7 +69,7 @@ struct (0x00000001) NftV1DeployItem {
     queryId: uint64
     /// Item index to deploy; must not be greater than `nextItemIndex`.
     itemIndex: uint64
-    /// Nanotons attached to the item deployment message.
+    /// Nanograms attached to the item deployment message.
     attachTonAmount: coins
     /// Referenced item initialization body.
     initParams: Cell<NftV1CollectionItemInit>

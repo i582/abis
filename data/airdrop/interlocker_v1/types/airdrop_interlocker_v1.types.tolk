@@ -19,7 +19,7 @@ struct AirdropInterlockerV1Storage {
     receiver: address
     /// Distributor address receiving the outgoing claimed amount message.
     distributor: address
-    /// Minimum incoming TON value required to cover claim commission.
+    /// Minimum incoming GRAM value required to cover claim commission.
     minCommission: coins
 }
 

@@ -51,7 +51,7 @@ struct (0x5fcc3d14) NftV1EditableTransfer {
     responseDestination: address?
     /// Optional referenced custom payload parsed for TEP-62 layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -73,7 +73,7 @@ struct (0x1c04412a) NftV1EditableTransferEditorship {
     responseDestination: address?
     /// Optional referenced custom payload parsed for layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new editor notification.
+    /// Nanograms forwarded to the new editor notification.
     forwardTonAmount: coins
     /// Raw `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

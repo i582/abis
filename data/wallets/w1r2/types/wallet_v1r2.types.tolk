@@ -2,7 +2,7 @@
 contract WalletV1r2 {
     author: "TON Core"
     version: "1.2"
-    description: "Wallet V1 R2 is a TON wallet for holding TON and sending signed transfers; compared with R1, it adds seqno visibility."
+    description: "Wallet V1 R2 is a TON wallet for holding GRAM and sending signed transfers; compared with R1, it adds seqno visibility."
     storage: WalletV1r2Storage
     incomingExternal: WalletV1r2IncomingExternalMessage
     thrownErrors: Errors

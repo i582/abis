@@ -62,11 +62,11 @@ struct (0x5fcc3d14) FfVaultPositionTransfer {
     queryId: uint64
     /// Account that becomes the new position owner.
     newOwnerAddress: address
-    /// Optional destination that receives remaining TON after the transfer.
+    /// Optional destination that receives remaining GRAM after the transfer.
     responseDestination: address?
     /// Optional custom payload accepted for TEP-62 compatibility.
     customPayload: cell?
-    /// TON amount forwarded to the new owner with ownership assignment.
+    /// GRAM amount forwarded to the new owner with ownership assignment.
     forwardTonAmount: coins
     /// Raw `Either Cell ^Cell` payload forwarded to the new owner.
     forwardPayload: RemainingBitsAndRefs
@@ -100,7 +100,7 @@ struct (0xd1029c99) FfVaultPositionUnstakeExecute {
 struct (0x0b30393c) FfVaultPositionUnstakeCancel {
     /// Correlation id returned in the excesses response.
     queryId: uint64
-    /// Account that receives unused TON after cancellation.
+    /// Account that receives unused GRAM after cancellation.
     excessReceiver: address
     /// Asset-token amount restored to locked and pending balances.
     amountToRestore: coins
@@ -150,7 +150,7 @@ struct (0x61755200) FfVaultPositionUnstakeCallback {
     positionData: Cell<FfVaultPositionCallbackData>
 }
 
-/// Standard response returning unused TON after a completed operation.
+/// Standard response returning unused GRAM after a completed operation.
 struct (0xd53276db) FfVaultPositionExcesses {
     /// Query id copied from the completed operation.
     queryId: uint64
@@ -218,7 +218,7 @@ enum FfVaultPositionErrors {
     UnsupportedWorkchain = 333
     /// The sender is not the current position owner.
     UnauthorizedOwner = 401
-    /// Attached TON cannot cover NFT transfer forwarding and fees.
+    /// Attached GRAM cannot cover NFT transfer forwarding and fees.
     InsufficientTransferValue = 402
     /// Initialization or an unstake update was not sent by the Vault collection.
     UnauthorizedCollection = 405

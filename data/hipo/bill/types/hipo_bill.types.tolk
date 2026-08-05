@@ -39,7 +39,7 @@ struct (0x3275dfc2) HipoBillAssign {
     owner: address?
     /// Parent address stored by the bill; source accepts a raw MsgAddress, so `addr_none` is representable.
     parent: address?
-    /// Nanotons sent to the owner as an `ownership_assigned` notification; zero suppresses the send.
+    /// Nanograms sent to the owner as an `ownership_assigned` notification; zero suppresses the send.
     notify: coins
 }
 

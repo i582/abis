@@ -2,7 +2,7 @@
 contract Locker {
     author: "TON Core"
     version: "1.0"
-    description: "TON Locker is the official vesting contract for holding locked TON and releasing it to a recipient according to a schedule."
+    description: "TON Locker is the official vesting contract for holding locked GRAM and releasing it to a recipient according to a schedule."
     storage: LockerStorage
     incomingMessages: LockerIncomingMessage
     outgoingMessages: LockerOutgoingMessage
@@ -11,9 +11,9 @@ contract Locker {
 
 /// Persistent locker campaign state stored in the root data cell.
 struct LockerStorage {
-    /// Total user deposit principal currently locked by the campaign, in nanotons.
+    /// Total user deposit principal currently locked by the campaign, in nanograms.
     totalCoinsLocked: coins
-    /// Total reward pool accumulated for depositors, in nanotons.
+    /// Total reward pool accumulated for depositors, in nanograms.
     totalReward: coins
     /// Unix timestamp after which deposits and reward top-ups are rejected.
     depositsEndTime: uint32
@@ -31,7 +31,7 @@ struct LockerStorage {
 struct (0xd6416bfe) LockerWithdrawFromBill {
     /// User address whose deterministic bill sent the request.
     userAddress: address
-    /// User deposit principal tracked by the bill, in nanotons.
+    /// User deposit principal tracked by the bill, in nanograms.
     totalUserDeposit: coins
     /// Previous bill withdrawal timestamp used to subtract already unlocked funds.
     lastWithdrawTime: uint32
@@ -47,7 +47,7 @@ struct (0x00000000) LockerTextCommand {
 
 /// Internal deposit notification emitted by Locker to a deterministic LockerBill.
 struct (0x8ad026be) LockerDepositToBill {
-    /// Deposit principal credited to the bill, in nanotons.
+    /// Deposit principal credited to the bill, in nanograms.
     amount: coins
 }
 
@@ -63,9 +63,9 @@ type LockerOutgoingMessage =
 
 /// Structured result returned by `get_locker_data`.
 struct GetLockerDataReply {
-    /// Total user deposit principal currently locked by the campaign, in nanotons.
+    /// Total user deposit principal currently locked by the campaign, in nanograms.
     totalCoinsLocked: coins
-    /// Total reward pool accumulated for depositors, in nanotons.
+    /// Total reward pool accumulated for depositors, in nanograms.
     totalReward: coins
     /// Unix timestamp after which deposits and reward top-ups are rejected.
     depositsEndTime: uint32
@@ -79,7 +79,7 @@ struct GetLockerDataReply {
 
 /// Locker exit-code catalog from the official FunC source.
 enum LockerErrors {
-    /// User withdraw command carries less than 1 TON.
+    /// User withdraw command carries less than 1 GRAM.
     MsgValueAtLeastOneTon = 60
     /// Internal body is not a zero-op text comment when a text command is expected.
     OnlyTextCommentsSupported = 61

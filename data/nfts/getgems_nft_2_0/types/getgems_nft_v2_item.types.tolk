@@ -36,7 +36,7 @@ type GetgemsNftItemV2MintForwardPayload = RemainingBitsAndRefs
 
 /// Optional tail layout after mint init body when source emits initial ownership_assigned.
 struct GetgemsNftItemV2MintForwardTail {
-    /// Nanotons forwarded to the initial owner notification; absent when the raw tail is empty.
+    /// Nanograms forwarded to the initial owner notification; absent when the raw tail is empty.
     forwardTonAmount: coins
     /// Raw remaining payload copied into the initial ownership_assigned message.
     forwardPayload: GetgemsNftItemV2MintForwardPayload
@@ -62,7 +62,7 @@ struct (0x5fcc3d14) GetgemsNftItemV2Transfer {
     responseDestination: address?
     /// Optional referenced custom payload parsed for TEP-62 layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

@@ -184,7 +184,7 @@ struct (0x0f8a7ea5) MegatonExchangeLpTransferCallback {
     recipientAddress: address
     /// Response destination used by the resulting LP-wallet transfer.
     responseDestination: address?
-    /// Nanotons forwarded to the recipient LP wallet.
+    /// Nanograms forwarded to the recipient LP wallet.
     forwardTonAmount: coins
     /// Referenced original-owner address used to authenticate the sending LP wallet.
     originalOwner: Cell<address>
@@ -308,7 +308,7 @@ struct (0x4bc288a4) MegatonExchangeSetOperationFee {
     queryId: uint64
     /// Operation opcode used as the fee-dictionary key.
     operation: uint32
-    /// Required attached nanotons for the operation.
+    /// Required attached nanograms for the operation.
     amount: coins
 }
 
@@ -359,7 +359,7 @@ struct (0x0f8a7ea5) MegatonExchangeJettonTransfer {
     responseDestination: address?
     /// Optional custom payload; Exchange sends no payload.
     customPayload: cell?
-    /// Nanotons forwarded with the transfer notification.
+    /// Nanograms forwarded with the transfer notification.
     forwardTonAmount: coins
     /// Forward payload encoded inline or by reference.
     forwardPayload: RemainingBitsAndRefs
@@ -375,7 +375,7 @@ struct (0x178d4519) MegatonExchangeLpInternalTransfer {
     fromAddress: address
     /// Address receiving remaining wallet value.
     responseDestination: address?
-    /// Nanotons forwarded with the wallet notification.
+    /// Nanograms forwarded with the wallet notification.
     forwardTonAmount: coins
     /// Remaining branch-specific payload.
     forwardPayload: RemainingBitsAndRefs

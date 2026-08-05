@@ -55,7 +55,7 @@ struct (0x5fcc3d14) SbtV1ItemTransfer {
     responseDestination: address?
     /// Optional custom payload from the inherited NFT transfer layout.
     customPayload: cell?
-    /// Nanotons from the inherited NFT transfer layout.
+    /// Nanograms from the inherited NFT transfer layout.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

@@ -2,7 +2,7 @@
 contract GetgemsNftAuctionV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Getgems NFT Auction V2 is a marketplace escrow for selling one NFT by timed TON bids and settling the winner after the auction."
+    description: "Getgems NFT Auction V2 is a marketplace escrow for selling one NFT by timed GRAM bids and settling the winner after the auction."
     storage: GetgemsNftAuctionV2Storage
     incomingMessages: GetgemsNftAuctionV2IncomingMessage
     incomingExternal: GetgemsNftAuctionV2IncomingExternalMessage
@@ -29,15 +29,15 @@ struct GetgemsNftAuctionV2Fees {
 
 /// Referenced immutable auction configuration cell.
 struct GetgemsNftAuctionV2Constants {
-    /// Nanotons subtracted from an outbid refund for bid-processing gas.
+    /// Nanograms subtracted from an outbid refund for bid-processing gas.
     subGasPriceFromBid: int32
     /// Marketplace address authorized for deploy acceptance and ended-auction recovery commands.
     marketplace: address
-    /// Minimum first bid amount in nanotons.
+    /// Minimum first bid amount in nanograms.
     minBid: coins
-    /// Buy-now bid threshold in nanotons; zero disables the max-bid shortcut.
+    /// Buy-now bid threshold in nanograms; zero disables the max-bid shortcut.
     maxBid: coins
-    /// Minimum absolute increment over the previous bid in nanotons.
+    /// Minimum absolute increment over the previous bid in nanograms.
     minStep: coins
     /// Seconds added to end time when a valid bid arrives near the end.
     stepTime: uint32
@@ -57,7 +57,7 @@ struct GetgemsNftAuctionV2Storage {
     isCanceled: bool
     /// Current highest bidder; `addr_none` before the first bid.
     lastMember: address?
-    /// Current highest bid amount in nanotons.
+    /// Current highest bid amount in nanograms.
     lastBid: coins
     /// Timestamp of the current highest bid.
     lastBidAt: uint32
@@ -111,7 +111,7 @@ struct (0x5fcc3d14) GetgemsNftAuctionV2NftTransfer {
     responseDestination: address
     /// Optional custom payload; V2 always emits `null`.
     customPayload: cell?
-    /// Nanotons forwarded to the NFT recipient notification.
+    /// Nanograms forwarded to the NFT recipient notification.
     forwardTonAmount: coins
     /// Raw TEP-62 forward payload tail; V2 emits the empty inline variant.
     forwardPayload: RemainingBitsAndRefs
@@ -150,11 +150,11 @@ struct GetgemsNftAuctionV2SaleDataReply {
     nft: address
     /// NFT owner address; null before ownership assignment.
     owner: address?
-    /// Current highest bid amount in nanotons.
+    /// Current highest bid amount in nanograms.
     lastBid: coins
     /// Current highest bidder; null before first bid.
     lastMember: address?
-    /// Minimum absolute increment over the previous bid in nanotons.
+    /// Minimum absolute increment over the previous bid in nanograms.
     minStep: coins
     /// Address receiving marketplace fee.
     marketFeeAddress: address
@@ -168,9 +168,9 @@ struct GetgemsNftAuctionV2SaleDataReply {
     royaltyFeeFactor: uint32
     /// Royalty fee denominator.
     royaltyFeeBase: uint32
-    /// Buy-now bid threshold in nanotons; zero disables the shortcut.
+    /// Buy-now bid threshold in nanograms; zero disables the shortcut.
     maxBid: coins
-    /// Minimum first bid amount in nanotons.
+    /// Minimum first bid amount in nanograms.
     minBid: coins
     /// Auction creation timestamp.
     createdAt: uint32
@@ -194,7 +194,7 @@ enum Errors {
     AlreadyExecuted = 1005
     /// External activation was attempted after activation.
     AlreadyActivated = 1006
-    /// Cancel or stop command attached less than one TON.
+    /// Cancel or stop command attached less than one GRAM.
     NotEnoughTons = 1008
 }
 

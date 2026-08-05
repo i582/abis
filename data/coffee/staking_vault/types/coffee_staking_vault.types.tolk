@@ -146,7 +146,7 @@ struct (0x0f8a7ea5) CoffeeStakingVaultJettonRefund {
     responseDestination: address
     /// Optional custom payload.
     customPayload: cell?
-    /// Forward TON amount.
+    /// Forward GRAM amount.
     forwardTonAmount: coins
     /// Optional forward payload.
     forwardPayload: cell?

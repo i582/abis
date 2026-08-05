@@ -149,7 +149,7 @@ struct (0x3d3761a6) HipoTreasuryDepositCoins {
     owner: address?
     /// GRAM amount to deposit; zero means use the maximum value after fees.
     coins: coins
-    /// Nanotons forwarded to ownership-assigned notifications downstream.
+    /// Nanograms forwarded to ownership-assigned notifications downstream.
     ownershipAssignedAmount: coins
     /// Referrer marker address stored only on-chain by the source.
     referrer: address?
@@ -171,7 +171,7 @@ struct (0x386a358b) HipoTreasuryReserveTokens {
     owner: address
     /// Four-bit unstake mode: auto=0, instant=1, best=2.
     mode: uint4
-    /// Nanotons forwarded to ownership-assigned notifications downstream.
+    /// Nanograms forwarded to ownership-assigned notifications downstream.
     ownershipAssignedAmount: coins
 }
 
@@ -383,7 +383,7 @@ struct (0x654de488) HipoTreasuryRetryMintBill {
     owner: address
     /// Parent address fixed for downstream wallet operations.
     parent: address
-    /// Nanotons forwarded to ownership-assigned notifications.
+    /// Nanograms forwarded to ownership-assigned notifications.
     ownershipAssignedAmount: coins
 }
 
@@ -595,7 +595,7 @@ struct (0x4b2d7871) HipoTreasuryMintBill {
     owner: address
     /// Parent address fixed for downstream wallet operations.
     parent: address
-    /// Nanotons forwarded to ownership-assigned notifications.
+    /// Nanograms forwarded to ownership-assigned notifications.
     ownershipAssignedAmount: coins
 }
 

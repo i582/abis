@@ -13,7 +13,7 @@ struct FrtGramAdapterCoordinatorStorage {
     primaryAddress: address
     /// Second fixed address used as the fallback when no override is set.
     secondaryAddress: address
-    /// Stored amount in nanotons.
+    /// Stored amount in nanograms.
     balance: coins
     /// Primary one-bit state flag.
     enabled: bool
@@ -49,7 +49,7 @@ struct (0x9a1f0c0a) FrtGramCoordinatorDispatch {
     action: uint8
     /// Destination encoded in the forwarded request.
     destination: address
-    /// Forwarded amount in nanotons.
+    /// Forwarded amount in nanograms.
     amount: coins
     /// Second address encoded in the forwarded request.
     responseAddress: address
@@ -63,7 +63,7 @@ struct (0x9a1f0c0a) FrtGramCoordinatorDispatch {
 struct (0x9a1f0c0d) FrtGramCoordinatorCallback {
     /// Completion status.
     success: bool
-    /// Reported amount in nanotons.
+    /// Reported amount in nanograms.
     amount: coins
 }
 
@@ -120,7 +120,7 @@ get fun get_method_104385_cqlp(routeIndex: int): int {
     throw 0;
 }
 
-/// Return the contract balance above the fixed 0.03 TON reserve.
+/// Return the contract balance above the fixed 0.03 GRAM reserve.
 get fun get_method_111560_eomx(): coins {
     throw 0;
 }

@@ -33,9 +33,9 @@ struct (0x3f2b92d2) FragmentMarketappProxyJettonBuy {
 
 /// Request cell signed by the proxy public key.
 struct FragmentMarketappProxyJettonSignedBuyRequest {
-    /// Destination that receives the primary routed TON transfer.
+    /// Destination that receives the primary routed GRAM transfer.
     destination: address
-    /// Nanotons sent with the primary routed transfer.
+    /// Nanograms sent with the primary routed transfer.
     amount: coins
     /// Body attached to the primary routed transfer.
     forwardPayload: cell
@@ -77,13 +77,13 @@ struct FragmentMarketappProxyJettonForwardPayload {
 struct FragmentMarketappProxyJettonSignedTransferPayload {
     /// Address inserted as the recipient in the outgoing Jetton transfer.
     responseDestination: address
-    /// Nanotons attached to the outgoing message envelope.
+    /// Nanograms attached to the outgoing message envelope.
     messageValue: coins
     /// Jetton amount forwarded in the outgoing Jetton transfer body.
     jettonAmount: coins
     /// Query id written into the outgoing Jetton transfer body.
     queryId: uint64
-    /// Forward TON amount written into the outgoing Jetton transfer body.
+    /// Forward GRAM amount written into the outgoing Jetton transfer body.
     forwardTonAmount: coins
     /// Forward payload referenced by the outgoing Jetton transfer body.
     forwardPayload: cell
@@ -117,7 +117,7 @@ struct (0x0f8a7ea5) FragmentMarketappProxyJettonTransfer {
     responseDestination: address
     /// No custom payload is emitted by the observed send site.
     customPayload: uint1
-    /// Nanotons forwarded with Jetton transfer notification.
+    /// Nanograms forwarded with Jetton transfer notification.
     forwardTonAmount: coins
     /// One-bit selector indicating the forward payload is stored by reference.
     forwardPayloadAsRef: uint1
@@ -140,7 +140,7 @@ enum Errors {
     InvalidSignature = 403
     /// Admin relay send mode uses a forbidden flag.
     InvalidSendMode = 400
-    /// Incoming TON value is not greater than the primary routed amount.
+    /// Incoming GRAM value is not greater than the primary routed amount.
     InsufficientMessageValue = 1001
     /// Jetton notification amount is not greater than the signed forwarded Jetton amount.
     InsufficientJettonAmount = 1002

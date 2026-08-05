@@ -1,8 +1,8 @@
-/// Stakee liquid-staking Pool contract that accepts TON deposits, burns STAKEED withdrawals, and lends TON to validator controllers.
+/// Stakee liquid-staking Pool contract that accepts GRAM deposits, burns STAKEED withdrawals, and lends GRAM to validator controllers.
 contract StakeePool {
     author: "Stakee"
     version: "1.0"
-    description: "Stakee Pool is the liquid staking pool where users deposit TON and receive STAKEED while validator controllers use pooled funds for staking."
+    description: "Stakee Pool is the liquid staking pool where users deposit GRAM and receive STAKEED while validator controllers use pooled funds for staking."
     storage: StakeePoolStorage
     incomingMessages: StakeePoolIncomingMessage
     outgoingMessages: StakeePoolOutgoingMessage
@@ -12,7 +12,7 @@ contract StakeePool {
 
 /// Signed coin value encoded by Stakee as `Coins` magnitude followed by a one-bit sign.
 struct StakeePoolSignedCoins {
-    /// Absolute nanotons value.
+    /// Absolute value in nanograms.
     amount: coins
     /// True when the signed value is negative.
     negative: bool
@@ -22,7 +22,7 @@ struct StakeePoolSignedCoins {
 struct StakeePoolPayoutData {
     /// Deposit or withdrawal payout minter address.
     payoutAddress: address
-    /// Amount requested for this payout minter, in nanotons or STAKEED base units depending on context.
+    /// Amount requested for this payout minter, in nanograms or STAKEED base units depending on context.
     requestedAmount: coins
 }
 
@@ -56,7 +56,7 @@ struct StakeePoolMintersData {
     jettonMinter: address
     /// Total STAKEED supply tracked by the Pool.
     supply: coins
-    /// Optional deposit payout minter and requested TON amount.
+    /// Optional deposit payout minter and requested GRAM amount.
     depositPayout: StakeePoolMaybePayout
     /// Optional withdrawal payout minter and requested STAKEED amount.
     withdrawalPayout: StakeePoolMaybePayout
@@ -136,7 +136,7 @@ struct StakeePoolStorage {
     state: uint8
     /// True when privileged halt logic prevents normal operation.
     halted: bool
-    /// Total TON balance tracked by the Pool, in nanotons.
+    /// Total GRAM balance tracked by the Pool, in nanograms.
     totalBalance: coins
     /// Referenced jetton minter and pending payout accounting.
     mintersData: Cell<StakeePoolMintersData>
@@ -150,9 +150,9 @@ struct StakeePoolStorage {
     savedValidatorSetHash: uint256
     /// Referenced current and previous round data.
     rounds: Cell<StakeePoolRoundsData>
-    /// Minimum loan per validator, in nanotons.
+    /// Minimum loan per validator, in nanograms.
     minLoanPerValidator: coins
-    /// Maximum loan per validator, in nanotons.
+    /// Maximum loan per validator, in nanograms.
     maxLoanPerValidator: coins
     /// Governance fee share encoded as 24 bits.
     governanceFee: uint24
@@ -198,7 +198,7 @@ struct StakeePoolControllerData {
     roles: Cell<StakeePoolControllerRoles>
 }
 
-/// User TON deposit request; live bodies may carry an ignored trailing partner-code tail.
+/// User GRAM deposit request; live bodies may carry an ignored trailing partner-code tail.
 struct (0x47d54391) StakeePoolDeposit {
     /// User-selected query id copied into mint/payout messages.
     queryId: uint64
@@ -212,7 +212,7 @@ struct (0x319b0cdc) StakeePoolWithdraw {
     queryId: uint64
     /// Burned STAKEED amount.
     jettonAmount: coins
-    /// Owner address that should receive TON or withdrawal payout tokens.
+    /// Owner address that should receive GRAM or withdrawal payout tokens.
     fromAddress: address
     /// Response address parsed by the Pool and intentionally ignored.
     responseAddress: address
@@ -359,7 +359,7 @@ struct (0xc9f04485) StakeePoolSetInterest {
     interestRate: uint24
 }
 
-/// Direct TON withdrawal body sent to the withdrawing user when optimistic withdrawal succeeds.
+/// Direct GRAM withdrawal body sent to the withdrawing user when optimistic withdrawal succeeds.
 struct (0x0a77535c) StakeePoolWithdrawal {
     /// Query id copied from the incoming withdrawal request.
     queryId: uint64
@@ -373,9 +373,9 @@ struct (0x1674b0a0) StakeePayoutMint {
     destination: address
     /// Token amount to mint.
     amount: coins
-    /// Nanotons attached to the owner transfer notification.
+    /// Nanograms attached to the owner transfer notification.
     notificationTon: coins
-    /// Nanotons forwarded with the minted transfer payload.
+    /// Nanograms forwarded with the minted transfer payload.
     forwardTon: coins
 }
 
@@ -403,7 +403,7 @@ struct (0xd53276db) StakeeJettonExcesses {
 struct StakeePoolPayoutInitData {
     /// True once payout distribution has started.
     distributionStarted: bool
-    /// True for pool-jetton payout minters and false for TON withdrawal payout minters.
+    /// True for pool-jetton payout minters and false for GRAM withdrawal payout minters.
     jettonPayout: bool
     /// Amount already distributed by the payout minter.
     distributedAmount: coins
@@ -419,7 +419,7 @@ struct (0xf5aa8943) StakeePayoutInit {
     initData: Cell<StakeePoolPayoutInitData>
 }
 
-/// Payout minter command that starts TON distribution for a withdrawal payout round.
+/// Payout minter command that starts GRAM distribution for a withdrawal payout round.
 struct (0x1140a64f) StakeePayoutsStartDistribution {
     /// Query id emitted as current logical time by the Pool branch.
     queryId: uint64
@@ -575,7 +575,7 @@ struct StakeePoolFullDataReply {
     state: int
     /// True when the Pool is halted.
     halted: bool
-    /// Total TON balance tracked by the Pool.
+    /// Total GRAM balance tracked by the Pool.
     totalBalance: int
     /// Current interest share.
     interestRate: int
@@ -627,7 +627,7 @@ struct StakeePoolFullDataReply {
     poolJettonWalletCode: cell
     /// Payout minter code cell.
     payoutMinterCode: cell
-    /// Projected TON balance after previous-round profit and fee accounting.
+    /// Projected GRAM balance after previous-round profit and fee accounting.
     projectedBalance: int
     /// Projected STAKEED supply after previous-round accounting.
     projectedSupply: int
@@ -683,13 +683,13 @@ enum PoolErrors {
     TotalCreditTooHigh = 0xf103
     /// Controller requested borrowing after the current round was closed.
     BorrowingRequestInClosedRound = 0xf104
-    /// Attached TON deposit amount is below the deposit fee.
+    /// Attached GRAM deposit amount is below the deposit fee.
     DepositAmountTooLow = 0xf200
     /// Deposits are closed.
     DepositsAreClosed = 0xf201
     /// Deposit or withdrawal conversion would produce a zero output amount.
     OutputAmountIsZero = 0xf202
-    /// Attached TON value is insufficient for withdrawal processing budget.
+    /// Attached GRAM value is insufficient for withdrawal processing budget.
     NotEnoughTonToProcess = 0xf300
     /// Derived controller address is not in the expected workchain.
     ControllerInWrongWorkchain = 0xf400

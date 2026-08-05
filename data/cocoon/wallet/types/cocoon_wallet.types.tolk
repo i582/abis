@@ -115,7 +115,7 @@ enum CocoonWalletErrors {
     InvalidSubwalletId = 1033
     /// External request has an invalid Ed25519 signature.
     InvalidSignature = 1034
-    /// Wallet balance is below the two-TON execution threshold.
+    /// Wallet balance is below the two-GRAM execution threshold.
     LowWalletBalance = 1035
     /// Internal command sender is not the configured owner.
     ExpectedOwner = 1040

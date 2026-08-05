@@ -43,7 +43,7 @@ struct (0xcc1a9801) StonksPumpCreateVirtualLiquidityJetton {
     queryId: uint64
     /// Referenced TEP-64 metadata content stored by the new Jetton minter.
     content: cell
-    /// TON amount used for an optional developer purchase during initialization.
+    /// GRAM amount used for an optional developer purchase during initialization.
     devBuyTonAmount: coins
     /// Maximum percentage of total supply accepted by one virtual-presale buy.
     maxBuyPercent: uint16
@@ -51,11 +51,11 @@ struct (0xcc1a9801) StonksPumpCreateVirtualLiquidityJetton {
     devWallet: address
 }
 
-/// Authenticated request to transfer TON from the factory to the protocol controller.
+/// Authenticated request to transfer GRAM from the factory to the protocol controller.
 struct (0xcc1a9804) StonksPumpVirtualFactoryWithdrawTon {
     /// Controller-selected correlation id.
     queryId: uint64
-    /// TON amount transferred from the factory balance, in nanotons.
+    /// GRAM amount transferred from the factory balance, in nanograms.
     amount: coins
 }
 
@@ -69,7 +69,7 @@ struct (0xcc1a9805) StonksPumpVirtualFactorySetDisabled {
 
 /// Optional developer purchase embedded in the emitted virtual-minter initialization.
 struct StonksPumpVirtualFactoryDevBuy {
-    /// TON amount reserved for the developer's initial virtual-presale buy.
+    /// GRAM amount reserved for the developer's initial virtual-presale buy.
     tonAmount: coins
     /// Wallet that receives Jettons bought during initialization.
     recipient: address
@@ -83,13 +83,13 @@ struct (0xcc1a9802) StonksPumpVirtualMinterFactoryInit {
     queryId: uint64
     /// Initial virtual-presale availability flag.
     presaleOpen: bool
-    /// TON collection target that triggers DEX migration.
+    /// GRAM collection target that triggers DEX migration.
     migrationTonTarget: coins
-    /// Initial collected TON amount.
+    /// Initial collected GRAM amount.
     tonsCollected: coins
     /// Initial Jetton-side component of the cumulative virtual reserve.
     baseJettonReserve: coins
-    /// Initial additional TON-side virtual-reserve component.
+    /// Initial additional GRAM-side virtual-reserve component.
     additionalTonReserve: coins
     /// Initial additional Jetton-side virtual-reserve component.
     additionalJettonReserve: coins
@@ -97,7 +97,7 @@ struct (0xcc1a9802) StonksPumpVirtualMinterFactoryInit {
     maxBuyPercent: uint16
     /// Referenced DEX-specific launch and migration configuration.
     migrationConfig: cell
-    /// Referenced optional developer-buy request; zero TON means no developer buy.
+    /// Referenced optional developer-buy request; zero GRAM means no developer buy.
     devBuy: Cell<StonksPumpVirtualFactoryDevBuy>
 }
 

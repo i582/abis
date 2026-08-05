@@ -51,11 +51,11 @@ struct (0x0f8a7ea5) FrtGramExecutorJettonTransfer {
     amount: coins
     /// Destination owner address.
     destination: address
-    /// Address receiving excess TON.
+    /// Address receiving excess GRAM.
     responseDestination: address
     /// Optional custom payload reference.
     customPayload: cell?
-    /// TON amount forwarded with the transfer notification.
+    /// GRAM amount forwarded with the transfer notification.
     forwardTonAmount: coins
     /// Forwarded payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -69,13 +69,13 @@ struct (0x26df39fc) FrtGramExecutorPoolDataRequest {
 
 /// Execution result sent back to the dispatcher.
 struct (0x9a1f0d08) FrtGramExecutorDispatcherResult {
-    /// TON amount reported by execution.
+    /// GRAM amount reported by execution.
     amount: coins
     /// Destination that receives the result callback.
     responseDestination: address
     /// One-bit execution status.
     success: bool
-    /// Second TON amount reported by execution.
+    /// Second GRAM amount reported by execution.
     secondaryAmount: coins
 }
 
@@ -177,7 +177,7 @@ get fun get_method_126826_bcbn(): uint16 {
     throw 0;
 }
 
-/// Return a TON amount from the nested record.
+/// Return a GRAM amount from the nested record.
 get fun get_method_130008_aqds(): coins {
     throw 0;
 }

@@ -1,8 +1,8 @@
-/// DeDust Protocol v2 Native Vault interface for TON-native asset routing.
+/// DeDust Protocol v2 Native Vault interface for GRAM-native asset routing.
 contract DedustVaultNativeV2 {
     author: "DeDust"
     version: "2.0"
-    description: "DeDust Native Vault V2 is the TON vault for swaps, liquidity deposits, and native payouts through DeDust v2."
+    description: "DeDust Native Vault V2 is the GRAM vault for swaps, liquidity deposits, and native payouts through DeDust v2."
     storage: DedustVaultNativeV2Storage
     incomingMessages: DedustVaultNativeV2IncomingMessage
     outgoingMessages: DedustVaultNativeV2OutgoingMessage
@@ -20,7 +20,7 @@ struct DedustVaultNativeV2Storage {
     blankCode: cell
     /// Code/interface version returned by `get_version`.
     version: uint16
-    /// Native TON balance tracked by the vault for routed deposits and payouts.
+    /// Native GRAM balance tracked by the vault for routed deposits and payouts.
     nativeBalance: coins
 }
 
@@ -134,11 +134,11 @@ struct DedustVaultNativeV2InlineDepositLiquidityCandidate {
     asset1TargetBalance: coins
 }
 
-/// User-originated native TON swap accepted by the live Native Vault code.
+/// User-originated native GRAM swap accepted by the live Native Vault code.
 struct (0xea06185d) DedustVaultNativeV2Swap {
     /// Query id copied into Pool routing messages.
     queryId: uint64
-    /// Native TON amount credited into the vault's internal accounting.
+    /// Native GRAM amount credited into the vault's internal accounting.
     amount: coins
     /// First swap step, stored inline after amount.
     step: DedustSwapStep
@@ -146,11 +146,11 @@ struct (0xea06185d) DedustVaultNativeV2Swap {
     swapParams: Cell<DedustSwapParams>
 }
 
-/// User-originated native TON liquidity deposit using the ref-backed params cell.
+/// User-originated native GRAM liquidity deposit using the ref-backed params cell.
 struct (0xd55e4686) DedustVaultNativeV2DepositLiquidity {
     /// Query id copied into the Factory liquidity-deposit deployment request.
     queryId: uint64
-    /// Native TON amount credited into the vault's internal accounting.
+    /// Native GRAM amount credited into the vault's internal accounting.
     amount: coins
     /// Pool parameters used to derive or create the Liquidity Deposit contract.
     poolParams: DedustPoolParams
@@ -168,7 +168,7 @@ struct (0xad4eb6f5) DedustVaultNativeV2PayOutFromPool {
     queryId: uint64
     /// Raw Pool proof reference checked before payout.
     proof: cell
-    /// Native TON amount released from vault accounting.
+    /// Native GRAM amount released from vault accounting.
     amount: coins
     /// Final recipient address for the outgoing payout.
     recipientAddr: address?
@@ -182,7 +182,7 @@ struct (0x6b0b787f) DedustVaultNativeV2PayOutFromDeposit {
     queryId: uint64
     /// Raw Liquidity Deposit proof reference checked before payout.
     proof: cell
-    /// Native TON amount released from vault accounting.
+    /// Native GRAM amount released from vault accounting.
     amount: coins
     /// Optional payload attached to the outgoing payout.
     payload: cell?
@@ -208,7 +208,7 @@ struct (0x61ee542d) DedustVaultNativeV2SwapExternal {
     queryId: uint64
     /// Raw Vault proof reference proving the sender vault.
     proof: cell
-    /// Native TON amount routed into the Pool.
+    /// Native GRAM amount routed into the Pool.
     amount: coins
     /// Original user sender address from the inbound internal message envelope.
     senderAddr: address
@@ -244,7 +244,7 @@ struct DedustCreateLiquidityDepositParams {
     asset1TargetBalance: coins
     /// Deposit asset; native vault sends the native asset tag.
     depositAsset: DedustAsset
-    /// Native TON amount deposited through this vault.
+    /// Native GRAM amount deposited through this vault.
     depositAmount: coins
     /// Minimum acceptable LP amount.
     minLpAmount: coins

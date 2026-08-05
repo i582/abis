@@ -37,7 +37,7 @@ struct JVaultStakingWalletState {
     isActive: bool
     /// Commission rate for an instant unstake, in protocol basis points.
     unstakeCommission: uint16
-    /// Fixed TON fee charged for an instant unstake.
+    /// Fixed GRAM fee charged for an instant unstake.
     unstakeFee: coins
     /// Minimum accepted staking deposit.
     minDeposit: coins
@@ -93,7 +93,7 @@ struct JVaultStakingWalletStorageData {
     isActive: bool
     /// Instant-unstake commission in protocol basis points.
     unstakeCommission: int
-    /// Fixed TON fee for instant unstaking.
+    /// Fixed GRAM fee for instant unstaking.
     unstakeFee: int
     /// Minimum accepted deposit.
     minDeposit: int
@@ -107,9 +107,9 @@ struct JVaultStakingWalletStorageData {
 
 /// Referenced transfer context appended when stake moves between deterministic wallets.
 struct JVaultStakingWalletForwardedReceiveContext {
-    /// Address receiving excess TON after the transfer completes.
+    /// Address receiving excess GRAM after the transfer completes.
     responseAddress: address
-    /// TON forwarded to the new owner's transfer notification.
+    /// GRAM forwarded to the new owner's transfer notification.
     forwardAmount: coins
     /// Source wallet balance used for ordered reward-accounting updates.
     senderBalance: coins
@@ -137,7 +137,7 @@ struct (0xd68a4ac1) JVaultStakingWalletReceiveJettons {
     maxDeposit: coins
     /// Instant-unstake commission in protocol basis points.
     unstakeCommission: uint16
-    /// Fixed TON fee charged for an instant unstake.
+    /// Fixed GRAM fee charged for an instant unstake.
     unstakeFee: coins
     /// Pool whitelist copied into the receiving wallet.
     whitelist: map<address, bool>
@@ -169,7 +169,7 @@ struct (0xae9307ce) JVaultStakingWalletUpdateRewards {
     queryId: uint64
     /// Updated reward accounting keyed by reward Jetton wallet.
     rewards: map<address, JVaultStakingWalletRewardInfo>
-    /// Address receiving any excess TON.
+    /// Address receiving any excess GRAM.
     responseAddress: address
 }
 
@@ -241,11 +241,11 @@ struct (0x0f8a7ea5) JVaultStakingWalletTransferJettons {
     amount: coins
     /// New owner of the transferred staking position.
     destination: address
-    /// Address receiving excess TON, or `addr_none` when omitted.
+    /// Address receiving excess GRAM, or `addr_none` when omitted.
     responseDestination: address?
     /// Optional custom payload accepted for TEP-74 compatibility and ignored.
     customPayload: cell?
-    /// TON forwarded with the recipient notification.
+    /// GRAM forwarded with the recipient notification.
     forwardTonAmount: coins
     /// TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -362,7 +362,7 @@ type JVaultStakingWalletOutgoingMessage =
 
 /// Exit codes thrown explicitly by the pinned staking-wallet implementation.
 enum JVaultStakingWalletErrors {
-    /// Attached TON does not cover compute and downstream message fees.
+    /// Attached GRAM does not cover compute and downstream message fees.
     OutOfGas = 13
     /// Transferred stake is below the configured minimum deposit.
     LessThanMinimumDeposit = 41

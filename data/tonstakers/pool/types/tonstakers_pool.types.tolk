@@ -1,8 +1,8 @@
-/// Tonstakers liquid-staking Pool contract that accepts TON deposits, burns tsTON withdrawals, and lends TON to validator controllers.
+/// Tonstakers liquid-staking Pool contract that accepts GRAM deposits, burns tsTON withdrawals, and lends GRAM to validator controllers.
 contract TonstakersPool {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers Pool is the liquid staking pool where users deposit TON and receive tsTON while the protocol stakes funds with validators."
+    description: "Tonstakers Pool is the liquid staking pool where users deposit GRAM and receive tsTON while the protocol stakes funds with validators."
     storage: TonstakersPoolStorage
     incomingMessages: TonstakersPoolIncomingMessage
     outgoingMessages: TonstakersPoolOutgoingMessage
@@ -14,7 +14,7 @@ contract TonstakersPool {
 
 /// Signed coin value encoded by Tonstakers as `Coins` magnitude followed by a one-bit sign.
 struct TonstakersPoolSignedCoins {
-    /// Absolute nanotons value.
+    /// Absolute value in nanograms.
     amount: coins
     /// True when the signed value is negative.
     negative: bool
@@ -24,7 +24,7 @@ struct TonstakersPoolSignedCoins {
 struct TonstakersPoolPayoutData {
     /// Deposit or withdrawal payout minter address.
     payoutAddress: address
-    /// Amount requested for this payout minter, in nanotons or tsTON base units depending on context.
+    /// Amount requested for this payout minter, in nanograms or tsTON base units depending on context.
     requestedAmount: coins
 }
 
@@ -58,7 +58,7 @@ struct TonstakersPoolMintersData {
     jettonMinter: address
     /// Total tsTON supply tracked by the Pool.
     supply: coins
-    /// Optional deposit payout minter and requested TON amount.
+    /// Optional deposit payout minter and requested GRAM amount.
     depositPayout: TonstakersPoolMaybePayout
     /// Optional withdrawal payout minter and requested tsTON amount.
     withdrawalPayout: TonstakersPoolMaybePayout
@@ -138,7 +138,7 @@ struct TonstakersPoolStorage {
     state: uint8
     /// True when privileged halt logic prevents normal operation.
     halted: bool
-    /// Total TON balance tracked by the Pool, in nanotons.
+    /// Total GRAM balance tracked by the Pool, in nanograms.
     totalBalance: coins
     /// Referenced jetton minter and pending payout accounting.
     mintersData: Cell<TonstakersPoolMintersData>
@@ -152,9 +152,9 @@ struct TonstakersPoolStorage {
     savedValidatorSetHash: uint256
     /// Referenced current and previous round data.
     rounds: Cell<TonstakersPoolRoundsData>
-    /// Minimum loan per validator, in nanotons.
+    /// Minimum loan per validator, in nanograms.
     minLoanPerValidator: coins
-    /// Maximum loan per validator, in nanotons.
+    /// Maximum loan per validator, in nanograms.
     maxLoanPerValidator: coins
     /// Governance fee share encoded as 24 bits.
     governanceFee: uint24
@@ -200,7 +200,7 @@ struct TonstakersPoolControllerData {
     roles: Cell<TonstakersPoolControllerRoles>
 }
 
-/// User TON deposit request with query id and Tonstakers partner code.
+/// User GRAM deposit request with query id and Tonstakers partner code.
 struct (0x47d54391) TonstakersPoolDeposit {
     /// User-selected query id copied into mint/payout messages.
     queryId: uint64
@@ -214,7 +214,7 @@ struct (0x319b0cdc) TonstakersPoolWithdraw {
     queryId: uint64
     /// Burned tsTON amount.
     jettonAmount: coins
-    /// Owner address that should receive TON or withdrawal payout tokens.
+    /// Owner address that should receive GRAM or withdrawal payout tokens.
     fromAddress: address
     /// Response address parsed by the Pool and intentionally ignored.
     responseAddress: address
@@ -361,7 +361,7 @@ struct (0xc9f04485) TonstakersPoolSetInterest {
     interestRate: uint24
 }
 
-/// Direct TON withdrawal body sent to the withdrawing user when optimistic withdrawal succeeds.
+/// Direct GRAM withdrawal body sent to the withdrawing user when optimistic withdrawal succeeds.
 struct (0x0a77535c) TonstakersPoolWithdrawal {
     /// Query id copied from the incoming withdrawal request.
     queryId: uint64
@@ -375,9 +375,9 @@ struct (0x1674b0a0) TonstakersPayoutMint {
     destination: address
     /// Token amount to mint.
     amount: coins
-    /// Nanotons attached to the owner transfer notification.
+    /// Nanograms attached to the owner transfer notification.
     notificationTon: coins
-    /// Nanotons forwarded with the minted transfer payload.
+    /// Nanograms forwarded with the minted transfer payload.
     forwardTon: coins
 }
 
@@ -405,7 +405,7 @@ struct (0xd53276db) TonstakersJettonExcesses {
 struct TonstakersPoolPayoutInitData {
     /// True once payout distribution has started.
     distributionStarted: bool
-    /// True for pool-jetton payout minters and false for TON withdrawal payout minters.
+    /// True for pool-jetton payout minters and false for GRAM withdrawal payout minters.
     jettonPayout: bool
     /// Amount already distributed by the payout minter.
     distributedAmount: coins
@@ -421,7 +421,7 @@ struct (0xf5aa8943) TonstakersPayoutInit {
     initData: Cell<TonstakersPoolPayoutInitData>
 }
 
-/// Payout minter command that starts TON distribution for a withdrawal payout round.
+/// Payout minter command that starts GRAM distribution for a withdrawal payout round.
 struct (0x1140a64f) TonstakersPayoutsStartDistribution {
     /// Query id emitted as current logical time by the Pool branch.
     queryId: uint64
@@ -577,7 +577,7 @@ struct TonstakersPoolFullDataReply {
     state: int
     /// True when the Pool is halted.
     halted: bool
-    /// Total TON balance tracked by the Pool.
+    /// Total GRAM balance tracked by the Pool.
     totalBalance: int
     /// Current interest share.
     interestRate: int
@@ -629,7 +629,7 @@ struct TonstakersPoolFullDataReply {
     poolJettonWalletCode: cell
     /// Payout minter code cell.
     payoutMinterCode: cell
-    /// Projected TON balance after previous-round profit and fee accounting.
+    /// Projected GRAM balance after previous-round profit and fee accounting.
     projectedBalance: int
     /// Projected tsTON supply after previous-round accounting.
     projectedSupply: int
@@ -685,13 +685,13 @@ enum Errors {
     TotalCreditTooHigh = 0xf103
     /// Controller requested borrowing after the current round was closed.
     BorrowingRequestInClosedRound = 0xf104
-    /// Attached TON deposit amount is below the deposit fee.
+    /// Attached GRAM deposit amount is below the deposit fee.
     DepositAmountTooLow = 0xf200
     /// Deposits are closed.
     DepositsAreClosed = 0xf201
     /// Deposit or withdrawal conversion would produce a zero output amount.
     OutputAmountIsZero = 0xf202
-    /// Attached TON value is insufficient for withdrawal processing budget.
+    /// Attached GRAM value is insufficient for withdrawal processing budget.
     NotEnoughTonToProcess = 0xf300
     /// Derived controller address is not in the expected workchain.
     ControllerInWrongWorkchain = 0xf400

@@ -2,7 +2,7 @@
 contract TsTonMinter {
     author: "Tonstakers"
     version: "1.0"
-    description: "Tonstakers tsTON Minter is the jetton master that issues tsTON, the liquid staking token representing a user's share of pooled TON."
+    description: "Tonstakers tsTON Minter is the jetton master that issues tsTON, the liquid staking token representing a user's share of pooled GRAM."
     storage: TsTonMinterStorage
     incomingMessages: TsTonMinterIncomingMessage
     outgoingMessages: TsTonMinterOutgoingMessage
@@ -31,9 +31,9 @@ struct (0x1674b0a0) TsTonMinterMint {
     toAddress: address
     /// Jetton amount minted to the destination wallet, in base units.
     jettonAmount: coins
-    /// Nanotons forwarded from the wallet to the owner notification.
+    /// Nanograms forwarded from the wallet to the owner notification.
     forwardTonAmount: coins
-    /// Nanotons attached to the wallet deployment/internal-transfer message; zero means carry remaining value.
+    /// Nanograms attached to the wallet deployment/internal-transfer message; zero means carry remaining value.
     totalTonAmount: coins
 }
 
@@ -149,7 +149,7 @@ struct (0x178d4519) TsTonMinterJettonInternalTransfer {
     fromAddress: address?
     /// Response address copied from the mint destination owner.
     responseAddress: address?
-    /// Nanotons forwarded by the wallet to the owner notification.
+    /// Nanograms forwarded by the wallet to the owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

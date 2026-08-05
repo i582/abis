@@ -34,7 +34,7 @@ struct (0x0f8a7ea5) StonfiLpWalletV1Transfer {
     responseAddress: address?
     /// Optional referenced custom payload parsed for Jetton layout compatibility.
     customPayload: cell?
-    /// Nanotons forwarded to the destination owner notification.
+    /// Nanograms forwarded to the destination owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -50,7 +50,7 @@ struct (0x178d4519) StonfiLpWalletV1InternalTransfer {
     fromAddress: address
     /// Optional response address for an `excesses` refund after processing.
     responseAddress: address?
-    /// Nanotons forwarded to the owner notification.
+    /// Nanograms forwarded to the owner notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -66,7 +66,7 @@ struct (0x595f07bc) StonfiLpWalletV1Burn {
     responseAddress: address?
 }
 
-/// Standard Jetton owner notification emitted when an incoming LP transfer carries forwarded TON.
+/// Standard Jetton owner notification emitted when an incoming LP transfer carries forwarded GRAM.
 struct (0x7362d09c) StonfiLpWalletV1TransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64

@@ -75,7 +75,7 @@ struct CoffeeStakingPositionData {
 
 /// Optional Jetton transfer forward payload used by reward claims.
 struct CoffeeStakingForwardData {
-    /// TON amount forwarded with the Jetton transfer notification.
+    /// GRAM amount forwarded with the Jetton transfer notification.
     gas: coins
     /// Payload cell forwarded with the Jetton transfer notification.
     payload: cell

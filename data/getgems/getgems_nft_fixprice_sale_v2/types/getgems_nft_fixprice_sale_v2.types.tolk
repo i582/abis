@@ -1,8 +1,8 @@
-/// Getgems fixed-price NFT sale v2 interface for TON-only listings.
+/// Getgems fixed-price NFT sale v2 interface for GRAM-only listings.
 contract GetgemsNftFixpriceSaleV2 {
     author: "Getgems"
     version: "2.0"
-    description: "Getgems fixed-price sale V2 is a marketplace escrow that lists one NFT for a set TON price and transfers it to the buyer."
+    description: "Getgems fixed-price sale V2 is a marketplace escrow that lists one NFT for a set GRAM price and transfers it to the buyer."
     storage: GetgemsNftFixpriceSaleV2Storage
     incomingMessages: GetgemsNftFixpriceSaleV2IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV2OutgoingMessage
@@ -14,11 +14,11 @@ contract GetgemsNftFixpriceSaleV2 {
 struct GetgemsNftFixpriceSaleV2Fees {
     /// Marketplace fee payout address used by every successful purchase.
     marketplaceFeeAddress: address
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Royalty payout address; source skips royalty transfer when this is `addr_none`.
     royaltyAddress: address?
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -34,7 +34,7 @@ struct GetgemsNftFixpriceSaleV2Storage {
     nftAddress: address
     /// Current NFT owner before purchase; null until the NFT callback initializes the sale.
     nftOwnerAddress: address?
-    /// Full sale price in nanotons, excluding the required one-ton gas reserve.
+    /// Full sale price in nanograms, excluding the required one-GRAM gas reserve.
     fullPrice: coins
     /// Referenced fee and royalty amounts paid during successful purchase.
     fees: Cell<GetgemsNftFixpriceSaleV2Fees>
@@ -59,7 +59,7 @@ struct (0x00000001) GetgemsNftFixpriceSaleV2AcceptCoins {
     queryId: uint64
 }
 
-/// Internal command that purchases the NFT when enough nanotons are attached.
+/// Internal command that purchases the NFT when enough nanograms are attached.
 struct (0x00000002) GetgemsNftFixpriceSaleV2Buy {
     /// Query id copied into the outgoing NFT transfer body.
     queryId: uint64
@@ -81,7 +81,7 @@ struct (0x5fcc3d14) GetgemsNftFixpriceSaleV2NftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Always zero; the sale does not forward nanotons to the new owner notification.
+    /// Always zero; the sale does not forward nanograms to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -111,15 +111,15 @@ struct GetgemsNftFixpriceSaleV2SaleDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the sale.
     nftOwnerAddress: any_address
-    /// Full sale price in nanotons.
+    /// Full sale price in nanograms.
     fullPrice: coins
     /// Marketplace fee payout address.
     marketplaceFeeAddress: address
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Royalty payout stack address, or `addr_none` when no royalty transfer should be sent.
     royaltyAddress: any_address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -131,9 +131,9 @@ enum Errors {
     UnauthorizedInitiation = 500
     /// Initialization body opcode was not `ownership_assigned`.
     InvalidOpExpectedOwnershipAssigned = 501
-    /// Purchase did not attach `fullPrice + 1 TON`.
+    /// Purchase did not attach `fullPrice + 1 GRAM`.
     NotEnoughTonsForSale = 450
-    /// Cancellation did not attach the required one-ton gas reserve.
+    /// Cancellation did not attach the required one-GRAM gas reserve.
     NotEnoughTonsForCancellation = 457
     /// Cancellation sender was neither seller nor marketplace.
     UnauthorizedCancellation = 458

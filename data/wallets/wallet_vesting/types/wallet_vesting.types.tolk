@@ -34,7 +34,7 @@ struct WalletVestingParameters {
     unlockPeriod: uint32
     /// Initial cliff period in seconds.
     cliffDuration: uint32
-    /// Total locked Toncoin amount in nanotons.
+    /// Total locked GRAM amount in nanograms.
     vestingTotalAmount: coins
     /// Sender address that can top up, receive locked funds back, and append whitelist entries.
     vestingSenderAddress: address
@@ -109,7 +109,7 @@ struct GetVestingDataReply {
     unlockPeriod: uint32
     /// Initial cliff period in seconds.
     cliffDuration: uint32
-    /// Total locked Toncoin amount in nanotons.
+    /// Total locked GRAM amount in nanograms.
     vestingTotalAmount: coins
     /// Sender address that can top up, receive locked funds back, and append whitelist entries.
     vestingSenderAddress: address
@@ -179,7 +179,7 @@ get fun get_whitelist(): lisp_list<WalletVestingWhitelistEntry> {
     throw 0;
 }
 
-/// Return the amount, in nanotons, still locked at `atTime`.
+/// Return the amount, in nanograms, still locked at `atTime`.
 get fun get_locked_amount(atTime: int): coins {
     throw 0;
 }

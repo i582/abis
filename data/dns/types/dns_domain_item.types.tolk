@@ -49,7 +49,7 @@ struct DnsDomainItemContent {
 struct DnsDomainAuction {
     /// Current highest bidder.
     maxBidAddress: address
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     maxBidAmount: coins
     /// Unix timestamp when the active auction ends.
     auctionEndTime: uint64
@@ -119,7 +119,7 @@ struct (0x5fcc3d14) DnsDomainItemTransfer {
     responseDestination: address?
     /// Optional custom payload from the inherited NFT transfer layout.
     customPayload: cell?
-    /// Nanotons forwarded to the new owner notification.
+    /// Nanograms forwarded to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -235,7 +235,7 @@ struct DnsDomainItemDataReply {
 struct DnsDomainAuctionInfoReply {
     /// Highest bidder address, or `addr_none` when no auction is active.
     maxBidAddress: any_address
-    /// Highest bid amount in nanotons.
+    /// Highest bid amount in nanograms.
     maxBidAmount: coins
     /// Unix timestamp when the active auction ends, or zero when absent.
     auctionEndTime: uint64

@@ -55,7 +55,7 @@ struct TsusdeVaultStorage {
     assetWalletHash: uint256
     /// Basechain address hash of the tsUSDe Jetton minter.
     shareMinterHash: uint256
-    /// Fixed-width TON amount attached to share-mint calls.
+    /// Fixed-width GRAM amount attached to share-mint calls.
     mintNanos: uint128
     /// Referenced ownership and initialization state stored at root ref 0.
     baseStorage: Cell<TsusdeVaultBaseStorage>
@@ -75,7 +75,7 @@ struct TsusdeVaultAddressPayload {
     addressHash: uint256
 }
 
-/// Exact classlib object carrying a fixed-width nanotons amount.
+/// Exact classlib object carrying a fixed-width amount in nanograms.
 struct TsusdeVaultCoinsPayload {
     /// Raw 350-bit classlib descriptor for the single-field `coins` class.
     classlibHeader: bits350
@@ -115,7 +115,7 @@ struct TsusdeVaultInitializationPayload {
     classlibHeader: bits350
     /// Compact address-list cell containing asset wallet, share minter, and rewarder hashes in order.
     addressList: cell
-    /// Referenced classlib amount used as the initial share-mint TON attachment.
+    /// Referenced classlib amount used as the initial share-mint GRAM attachment.
     mintNanos: Cell<TsusdeVaultCoinsPayload>
 }
 
@@ -126,11 +126,11 @@ struct TsusdeVaultEmptyBody {}
 struct (0xf65ce988) TsusdeVaultInitialize {
     /// Correlation id propagated by LayerZero message helpers.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing initialization.
+    /// GRAM deliberately retained by the vault while processing initialization.
     donationNanos: coins
     /// Owner origin used by the LayerZero authorization context.
     origin: address
-    /// Referenced classlib payload containing addresses and the mint TON amount.
+    /// Referenced classlib payload containing addresses and the mint GRAM amount.
     payload: Cell<TsusdeVaultInitializationPayload>
 }
 
@@ -147,11 +147,11 @@ struct (0x7362d09c) TsusdeVaultTransferNotification {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Owner-only request to replace the TON amount attached to share-mint calls.
+/// Owner-only request to replace the GRAM amount attached to share-mint calls.
 struct (0xb58f5cc0) TsusdeVaultSetMintNanos {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -163,7 +163,7 @@ struct (0xb58f5cc0) TsusdeVaultSetMintNanos {
 struct (0x95fd1707) TsusdeVaultSetRewarderAddress {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -175,7 +175,7 @@ struct (0x95fd1707) TsusdeVaultSetRewarderAddress {
 struct (0xa67308c8) TsusdeVaultClaimOwnership {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash must match the pending owner.
     origin: address
@@ -187,7 +187,7 @@ struct (0xa67308c8) TsusdeVaultClaimOwnership {
 struct (0xb721bed0) TsusdeVaultTransferOwnership {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -199,7 +199,7 @@ struct (0xb721bed0) TsusdeVaultTransferOwnership {
 struct (0x9d511912) TsusdeVaultUpgradeCode {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -211,7 +211,7 @@ struct (0x9d511912) TsusdeVaultUpgradeCode {
 struct (0xc1b1b3d6) TsusdeVaultSetAssetWalletAddress {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -223,7 +223,7 @@ struct (0xc1b1b3d6) TsusdeVaultSetAssetWalletAddress {
 struct (0x2f6a98c0) TsusdeVaultSetShareMinterAddress {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -235,7 +235,7 @@ struct (0x2f6a98c0) TsusdeVaultSetShareMinterAddress {
 struct (0x1630aa78) TsusdeVaultSetCooldownDuration {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -247,7 +247,7 @@ struct (0x1630aa78) TsusdeVaultSetCooldownDuration {
 struct (0x54615baf) TsusdeVaultSetVestingDuration {
     /// Correlation id propagated by LayerZero helpers and event messages.
     queryId: uint64
-    /// TON deliberately retained by the vault while processing the request.
+    /// GRAM deliberately retained by the vault while processing the request.
     donationNanos: coins
     /// Logical origin whose basechain hash is used for refunds and authorization context.
     origin: address
@@ -265,9 +265,9 @@ struct (0x178d4519) TsusdeVaultInternalTransfer {
     timelockLimit: uint64
     /// Logical sender address; vault-generated mint payloads encode `addr_none`.
     from: address?
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     responseAddress: address?
-    /// TON forwarded with a transfer notification.
+    /// GRAM forwarded with a transfer notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -279,7 +279,7 @@ struct (0x642b7d07) TsusdeVaultMintShares {
     queryId: uint64
     /// Owner address whose deterministic wallet receives the minted amount.
     destination: address
-    /// TON amount attached to the minter call.
+    /// GRAM amount attached to the minter call.
     forwardTonAmount: coins
     /// Referenced extended internal-transfer body processed by the minter.
     internalTransfer: Cell<TsusdeVaultInternalTransfer>
@@ -293,11 +293,11 @@ struct (0x0f8a7ea5) TsusdeVaultJettonTransfer {
     amount: coins
     /// Recipient owner address.
     destination: address
-    /// Address that receives excess TON after processing.
+    /// Address that receives excess GRAM after processing.
     responseDestination: address
     /// Optional custom payload; vault-generated messages leave it absent.
     customPayload: cell?
-    /// TON forwarded with a transfer notification; vault-generated messages use zero.
+    /// GRAM forwarded with a transfer notification; vault-generated messages use zero.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -319,7 +319,7 @@ struct TsusdeVaultEvent {
 struct (0xe33b9873) TsusdeVaultEventMessage {
     /// Query id copied from the triggering request.
     queryId: uint64
-    /// TON retained by the event sink; emitted events use zero.
+    /// GRAM retained by the event sink; emitted events use zero.
     donationNanos: coins
     /// Logical deposit or management origin propagated from the triggering request.
     origin: address
@@ -352,7 +352,7 @@ type TsusdeVaultOutgoingMessage =
 
 /// Exit-code catalog derived from the exact verified vault and LayerZero framework sources.
 enum TsusdeVaultErrors {
-    /// Reserved-balance calculation found that the requested outflow exceeds available TON.
+    /// Reserved-balance calculation found that the requested outflow exceeds available GRAM.
     InsufficientTonForActions = 37
     /// Incoming amount failed a vault-specific validation.
     InvalidAmount = 317
@@ -392,7 +392,7 @@ enum TsusdeVaultErrors {
     BaseInvalidEventSource = 264
 }
 
-/// Return the fixed TON amount attached to share-mint calls.
+/// Return the fixed GRAM amount attached to share-mint calls.
 get fun getMintNanos(): int {
     throw 0;
 }

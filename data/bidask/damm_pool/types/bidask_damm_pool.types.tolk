@@ -46,7 +46,7 @@ struct BidaskDammPoolConfig {
     adminAddress: address
     /// Pool wallet for token X; this getter value is also returned by `get_pool_info`.
     tokenXPoolWallet: address
-    /// Pool wallet for token Y, or the native-TON sentinel for TON-paired pools.
+    /// Pool wallet for token Y, or the native-GRAM sentinel for GRAM-paired pools.
     tokenYPoolWallet: address
     /// Unix timestamp before which swaps are rejected.
     startTradeTime: uint64
@@ -152,7 +152,7 @@ struct (0x7362d09c) BidaskDammPoolJettonTransferNotification {
 struct (0xdd79732c) BidaskDammSwapNative {
     /// Query id chosen by the caller.
     queryId: uint64
-    /// Native TON amount participating in the swap.
+    /// Native GRAM amount participating in the swap.
     nativeAmount: coins
     /// Receiver of the swap output or account credit.
     toAddress: address
@@ -174,7 +174,7 @@ struct (0xdd79732c) BidaskDammSwapNative {
 struct (0x729c04c8) BidaskDammProvideOneSideNative {
     /// Query id chosen by the caller.
     queryId: uint64
-    /// Native TON amount supplied as one side of liquidity.
+    /// Native GRAM amount supplied as one side of liquidity.
     nativeAmount: coins
     /// Receiver of minted LP tokens or account credit.
     receiver: address
@@ -190,7 +190,7 @@ struct (0x729c04c8) BidaskDammProvideOneSideNative {
 struct (0xd8e04bf6) BidaskDammDepositOnAccountNative {
     /// Query id chosen by the caller.
     queryId: uint64
-    /// Native TON amount credited to the trade account flow.
+    /// Native GRAM amount credited to the trade account flow.
     nativeAmount: coins
     /// Owner address for the deterministic trade account.
     userAddress: address
@@ -206,7 +206,7 @@ struct (0xd8e04bf6) BidaskDammDepositOnAccountNative {
 struct (0x4b58a6c7) BidaskDammDirectDepositOnAccountNative {
     /// Query id chosen by the caller.
     queryId: uint64
-    /// Native TON amount credited to the trade account.
+    /// Native GRAM amount credited to the trade account.
     nativeAmount: coins
     /// Trade account address that receives the pool notification.
     tradeAccountAddress: address
@@ -218,7 +218,7 @@ struct (0x4b58a6c7) BidaskDammDirectDepositOnAccountNative {
 struct (0xbe761948) BidaskDammStartFarmingNative {
     /// Query id chosen by the caller.
     queryId: uint64
-    /// Native TON amount deposited as farming rewards.
+    /// Native GRAM amount deposited as farming rewards.
     nativeAmount: coins
     /// Additional native-side emission rate per second.
     farmingPerSecond: coins
@@ -462,7 +462,7 @@ struct (0x729c04c8) BidaskDammProvideOneSideForwardPayload {
 
 /// Jetton-forward payload for mixed jetton/native two-sided provision.
 struct (0xa8904134) BidaskDammProvideBothForwardPayload {
-    /// Native TON amount paired with the received Jetton amount.
+    /// Native GRAM amount paired with the received Jetton amount.
     nativeAmount: coins
     /// Receiver of minted LP tokens or account credit.
     receiver: address
@@ -524,23 +524,23 @@ struct (0x0f8a7ea5) BidaskDammJettonTransfer {
     jettonAmount: coins
     /// Destination owner address for the receiving Jetton wallet.
     destination: address
-    /// Optional response destination for excess TON.
+    /// Optional response destination for excess GRAM.
     responseDestination: address?
     /// Optional custom payload.
     customPayload: cell?
-    /// Nanotons forwarded with the Jetton transfer notification.
+    /// Nanograms forwarded with the Jetton transfer notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Native-token notification emitted by the pool for TON-side payouts.
+/// Native-token notification emitted by the pool for GRAM-side payouts.
 struct (0x6edd65f0) BidaskNativeTransferNotification {
     /// Query id copied from the originating operation.
     queryId: uint64
     /// Notification flag stored as one bit by the pool.
     notificationBit: bool
-    /// Native TON amount carried by the notification.
+    /// Native GRAM amount carried by the notification.
     nativeAmount: coins
     /// Optional payload forwarded with the notification.
     forwardPayload: cell?
@@ -621,7 +621,7 @@ struct GetBidaskDammProtocolFeesReply {
 struct GetBidaskDammPoolInfoReply {
     /// Pool wallet address for token X.
     tokenXPoolWallet: address
-    /// Pool wallet address for token Y, or native-TON sentinel for native pairs.
+    /// Pool wallet address for token Y, or native-GRAM sentinel for native pairs.
     tokenYPoolWallet: address
     /// Base LP fee configured for the pool.
     baseFee: int
@@ -631,7 +631,7 @@ struct GetBidaskDammPoolInfoReply {
 struct GetBidaskDammPoolTokensReply {
     /// Pool wallet address for token X.
     tokenXPoolWallet: address
-    /// Pool wallet address for token Y, or native-TON sentinel for native pairs.
+    /// Pool wallet address for token Y, or native-GRAM sentinel for native pairs.
     tokenYPoolWallet: address
 }
 

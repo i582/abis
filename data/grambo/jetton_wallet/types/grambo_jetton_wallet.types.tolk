@@ -18,7 +18,7 @@ struct (0x178d4519) GramboJettonWalletInternalTransfer {
     from: address?
     /// Optional address for excess-value responses.
     responseAddress: address?
-    /// TON forwarded with the transfer.
+    /// GRAM forwarded with the transfer.
     forwardTonAmount: coins
     /// Inline or referenced forward payload.
     forwardPayload: RemainingBitsAndRefs
@@ -36,7 +36,7 @@ struct (0x0f8a7ea5) GramboJettonWalletTransfer {
     responseDestination: address?
     /// Optional referenced application payload.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// TON forwarded to the destination wallet.
+    /// GRAM forwarded to the destination wallet.
     forwardTonAmount: coins
     /// Inline or referenced forward payload.
     forwardPayload: RemainingBitsAndRefs
@@ -67,7 +67,7 @@ type GramboJettonWalletIncomingMessage =
     | GramboJettonWalletBurn
     | GramboJettonWalletActivate
 
-/// Standard Jetton transfer-notification emitted when forwarding TON.
+/// Standard Jetton transfer-notification emitted when forwarding GRAM.
 struct (0x7362d09c) GramboJettonWalletTransferNotification {
     /// Transfer request identifier.
     queryId: uint64
@@ -146,7 +146,7 @@ enum GramboJettonWalletErrors {
     InvalidMessage = 63
     /// Sender is neither the master nor the deterministic peer wallet.
     UnauthorizedSender = 74
-    /// Attached TON does not cover execution and forwarding.
+    /// Attached GRAM does not cover execution and forwarding.
     InsufficientValue = 48
     /// The requested Jetton amount exceeds wallet balance.
     InsufficientBalance = 47

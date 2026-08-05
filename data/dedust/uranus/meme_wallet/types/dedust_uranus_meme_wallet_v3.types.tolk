@@ -43,11 +43,11 @@ struct (0x0f8a7ea5) DedustUranusJettonTransfer {
     amount: coins
     /// Destination owner address.
     destination: address
-    /// Optional response address for excess TON.
+    /// Optional response address for excess GRAM.
     responseDestination: address?
     /// Optional custom payload.
     customPayload: cell?
-    /// TON amount forwarded to the destination owner.
+    /// GRAM amount forwarded to the destination owner.
     forwardTonAmount: coins
     /// Raw TEP-74 forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -61,9 +61,9 @@ struct (0x178d4519) DedustUranusJettonInternalTransfer {
     amount: coins
     /// Source owner address.
     from: address
-    /// Optional response address for excess TON.
+    /// Optional response address for excess GRAM.
     responseAddress: address?
-    /// TON amount forwarded to the owner notification.
+    /// GRAM amount forwarded to the owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 forward payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -75,7 +75,7 @@ struct (0x595f07bc) DedustUranusJettonBurn {
     queryId: uint64
     /// Token amount to burn.
     amount: coins
-    /// Optional response address for excess TON.
+    /// Optional response address for excess GRAM.
     responseDestination: address?
     /// Optional custom payload.
     customPayload: cell?
@@ -87,7 +87,7 @@ struct (0xb7459e2c) DedustUranusSellTokensMessage {
     queryId: uint64
     /// Token amount to sell.
     amount: coins
-    /// Minimum acceptable TON output.
+    /// Minimum acceptable GRAM output.
     minimalAmountOut: coins
     /// Optional excess receiver.
     excessesTo: address?
@@ -103,7 +103,7 @@ struct (0x646ad424) DedustUranusSellMessage {
     queryId: uint64
     /// Token amount sold into the curve.
     amount: coins
-    /// Minimum acceptable TON output.
+    /// Minimum acceptable GRAM output.
     minimalAmountOut: coins
     /// Owner address that initiated the sell.
     from: address
@@ -123,11 +123,11 @@ struct (0x7bdd97de) DedustUranusBurnNotification {
     amount: coins
     /// Wallet owner address.
     sender: address
-    /// Optional response address for excess TON.
+    /// Optional response address for excess GRAM.
     responseDestination: address?
 }
 
-/// Owner notification emitted when an incoming transfer forwards TON.
+/// Owner notification emitted when an incoming transfer forwards GRAM.
 struct (0x7362d09c) DedustUranusTransferNotification {
     /// Query id copied from the internal transfer.
     queryId: uint64
@@ -180,7 +180,7 @@ enum Errors {
     SlippageExceeded = 21
     /// Selected meme preset does not exist.
     PresetNotExist = 22
-    /// Attached TON value is not enough for the requested operation.
+    /// Attached GRAM value is not enough for the requested operation.
     MessageValueTooLow = 23
     /// Meme state was already initialized.
     AlreadyInitialized = 24

@@ -16,7 +16,7 @@ struct GetgemsNftMarketplaceV1Storage {
 
 /// Owner-only command that deploys a referenced contract in workchain 0.
 struct (0x00000001) GetgemsNftMarketplaceV1DeployContract {
-    /// Nanotons loaded from the body and sent to the derived contract address.
+    /// Nanograms loaded from the body and sent to the derived contract address.
     amount: coins
 }
 

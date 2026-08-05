@@ -2,7 +2,7 @@
 contract WalletV2r1 {
     author: "TON Core"
     version: "2.1"
-    description: "Wallet V2 R1 is a TON wallet for holding TON and sending signed transfers; compared with V1, requests expire after a deadline."
+    description: "Wallet V2 R1 is a TON wallet for holding GRAM and sending signed transfers; compared with V1, requests expire after a deadline."
     storage: WalletV2r1Storage
     incomingExternal: WalletV2r1IncomingExternalMessage
     thrownErrors: Errors

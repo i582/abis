@@ -2,7 +2,7 @@
 contract LockerBill {
     author: "TON Core"
     version: "1.0"
-    description: "TON Locker Bill is a per-user helper contract that tracks an individual locker allocation and its claimable TON."
+    description: "TON Locker Bill is a per-user helper contract that tracks an individual locker allocation and its claimable GRAM."
     storage: LockerBillStorage
     incomingMessages: LockerBillIncomingMessage
     outgoingMessages: LockerBillOutgoingMessage
@@ -13,7 +13,7 @@ contract LockerBill {
 struct LockerBillStorage {
     /// Parent Locker address allowed to credit deposits and trigger withdraw requests.
     lockerAddress: address
-    /// User deposit principal tracked by this bill, in nanotons.
+    /// User deposit principal tracked by this bill, in nanograms.
     totalCoinsDeposit: coins
     /// User address allowed to recover accidental direct transfers to the bill.
     userAddress: address
@@ -23,7 +23,7 @@ struct LockerBillStorage {
 
 /// Internal deposit notification accepted only from the parent Locker.
 struct (0x8ad026be) LockerBillDepositToBill {
-    /// Deposit principal added to this bill, in nanotons.
+    /// Deposit principal added to this bill, in nanograms.
     amount: coins
 }
 
@@ -37,7 +37,7 @@ struct (0x00000000) LockerBillTextCommand {
 struct (0xd6416bfe) LockerBillWithdrawFromBill {
     /// User address stored by this bill.
     userAddress: address
-    /// User deposit principal tracked by this bill, in nanotons.
+    /// User deposit principal tracked by this bill, in nanograms.
     totalCoinsDeposit: coins
     /// Previous withdrawal timestamp stored before this request.
     lastWithdrawTime: uint32
@@ -57,7 +57,7 @@ type LockerBillOutgoingMessage = LockerBillWithdrawFromBill
 struct GetLockerBillDataReply {
     /// Parent Locker address allowed to send control messages to this bill.
     lockerAddress: address
-    /// User deposit principal tracked by this bill, in nanotons.
+    /// User deposit principal tracked by this bill, in nanograms.
     totalCoinsDeposit: coins
     /// User address associated with this deterministic bill.
     userAddress: address

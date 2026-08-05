@@ -21,7 +21,7 @@ struct XtrMasterStarPrice {
     signature: bits512
     /// Unix timestamp used as the quote deadline; requests are accepted while `now <= timestamp`.
     timestamp: uint32
-    /// TON-denominated price authorized by the quote signer.
+    /// GRAM-denominated price authorized by the quote signer.
     starPrice: coins
 }
 
@@ -140,7 +140,7 @@ struct (0xe2628539) XtrMasterUpdateContractAndProcessMessage {
     updateData: Cell<XtrMasterUpdateData>
     /// Original sender copied from the request received by the master.
     fromAddress: address
-    /// TON value copied from the request received by the master.
+    /// GRAM value copied from the request received by the master.
     fromAmount: coins
     /// Original referenced payload passed to the child contract.
     payload: Cell<RemainingBitsAndRefs>
@@ -154,11 +154,11 @@ struct (0x0f8a7ea5) XtrMasterJettonTransfer {
     amount: coins
     /// Destination owner whose deterministic wallet receives the transfer.
     destination: address
-    /// Optional address that receives excess TON.
+    /// Optional address that receives excess GRAM.
     responseDestination: address?
     /// Optional application payload passed to the destination wallet.
     customPayload: Cell<RemainingBitsAndRefs>?
-    /// TON amount forwarded by the destination wallet.
+    /// GRAM amount forwarded by the destination wallet.
     forwardTonAmount: coins
     /// Inline or referenced payload forwarded by the destination wallet.
     forwardPayload: RemainingBitsAndRefs
@@ -219,7 +219,7 @@ struct (0xfbef68d0) XtrMasterChildRoutePayload {}
 struct (0x57057b6b) XtrMasterSignedTransferPayload {
     /// Jetton amount reported by the transfer notification.
     amount: coins
-    /// TON-denominated price accepted from the signed payload.
+    /// GRAM-denominated price accepted from the signed payload.
     starPrice: coins
 }
 
@@ -319,7 +319,7 @@ enum XtrMasterErrors {
     InvalidJettonWallet = 74
     /// The sender, nested address, or signed payload does not match the expected value.
     Unauthorized = 1000
-    /// Attached TON is below the minimum required by the selected operation.
+    /// Attached GRAM is below the minimum required by the selected operation.
     InsufficientValue = 1003
     /// The Ed25519 Stars price signature is invalid.
     InvalidPriceSignature = 1005

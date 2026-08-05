@@ -25,9 +25,9 @@ struct VerifierSourceContent {
 
 /// Complete persistent state of the Sources Registry.
 struct VerifierSourcesRegistryStorage {
-    /// Minimum TON value accepted for deploying a Source Item, in nanotons.
+    /// Minimum GRAM value accepted for deploying a Source Item, in nanograms.
     minGram: coins
-    /// Maximum TON value accepted for deploying a Source Item, in nanotons.
+    /// Maximum GRAM value accepted for deploying a Source Item, in nanograms.
     maxGram: coins
     /// Administrator allowed to replace code and configuration.
     adminAddress: address
@@ -95,13 +95,13 @@ struct (0x0000138e) VerifierSourcesRegistrySetCode {
     newCode: cell
 }
 
-/// Update the accepted TON range for Source Item deployment.
+/// Update the accepted GRAM range for Source Item deployment.
 struct (0x00001777) VerifierSourcesRegistrySetDeploymentCosts {
     /// Correlation identifier supplied by the administrator.
     queryId: uint64
-    /// New minimum accepted deployment value, in nanotons.
+    /// New minimum accepted deployment value, in nanograms.
     newMinGram: coins
-    /// New maximum accepted deployment value, in nanotons.
+    /// New maximum accepted deployment value, in nanograms.
     newMaxGram: coins
 }
 
@@ -114,11 +114,11 @@ type VerifierSourcesRegistryIncomingMessage =
     | VerifierSourcesRegistrySetCode
     | VerifierSourcesRegistrySetDeploymentCosts
 
-/// Minimum and maximum TON accepted for a Source Item deployment.
+/// Minimum and maximum GRAM accepted for a Source Item deployment.
 struct VerifierSourcesRegistryDeploymentCosts {
-    /// Minimum deployment value, in nanotons.
+    /// Minimum deployment value, in nanograms.
     minGram: coins
-    /// Maximum deployment value, in nanotons.
+    /// Maximum deployment value, in nanograms.
     maxGram: coins
 }
 
@@ -148,9 +148,9 @@ enum VerifierSourcesRegistryErrors {
     AccessDenied = 401
     /// Payload verifier identifier differs from the authenticated forwarded identifier.
     VerifierIdMismatch = 402
-    /// Attached TON value is below the configured or protocol minimum.
+    /// Attached GRAM value is below the configured or protocol minimum.
     NotEnoughValue = 900
-    /// Attached TON value exceeds the configured maximum.
+    /// Attached GRAM value exceeds the configured maximum.
     TooMuchValue = 901
     /// Replacement code cell is empty.
     InvalidCellCode = 902

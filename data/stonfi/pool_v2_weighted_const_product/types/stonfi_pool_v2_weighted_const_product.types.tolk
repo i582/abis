@@ -55,11 +55,11 @@ struct StonfiPoolV2WeightedConstProductSwapBody {
     minOut: coins
     /// Address where tokens are sent after swap; `addr_none` means use the original user address.
     receiver: address?
-    /// TON used to forward `transfer_notification` after swap when `customPayload` is present.
+    /// GRAM used to forward `transfer_notification` after swap when `customPayload` is present.
     fwdGas: coins
     /// Optional payload sent in `transfer_notification` after a successful swap.
     customPayload: cell?
-    /// TON used to forward `transfer_notification` if the swap refunds and `refundPayload` is present.
+    /// GRAM used to forward `transfer_notification` if the swap refunds and `refundPayload` is present.
     refundFwdGas: coins
     /// Optional payload sent in `transfer_notification` if the swap refunds.
     refundPayload: cell?
@@ -77,7 +77,7 @@ struct StonfiPoolV2WeightedConstProductSwapDexPayload {
     tokenWallet1: address
     /// Address where a refund is sent if the swap fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Unix deadline checked by the pool before executing the swap.
     txDeadline: uint64
@@ -93,7 +93,7 @@ struct StonfiPoolV2WeightedConstProductProvideLpBody {
     toAddress: address
     /// Trigger liquidity deposit only if both token amounts are non-zero.
     bothPositive: uint1
-    /// TON used to forward `transfer_notification` after LP mint when `customPayload` is present.
+    /// GRAM used to forward `transfer_notification` after LP mint when `customPayload` is present.
     fwdAmount: coins
     /// Optional payload sent in `transfer_notification` after LP mint.
     customPayload: cell?
@@ -107,7 +107,7 @@ struct StonfiPoolV2WeightedConstProductProvideLpDexPayload {
     tokenWallet1: address
     /// Address where a refund is sent if liquidity provision fails.
     refundAddress: address
-    /// Address where TON excesses are sent.
+    /// Address where GRAM excesses are sent.
     excessesAddress: address
     /// Unix deadline checked by the pool before creating/updating the LP account.
     txDeadline: uint64
@@ -121,7 +121,7 @@ struct StonfiPoolV2WeightedConstProductCbAddLiquidityAdditionalFields {
     toUserAddress: address
     /// Destination used when pool-side liquidity validation refunds the deposit.
     refundAddress: address
-    /// Destination for excess TON after the liquidity operation.
+    /// Destination for excess GRAM after the liquidity operation.
     excessAddress: address
 }
 
@@ -129,13 +129,13 @@ struct StonfiPoolV2WeightedConstProductCbAddLiquidityAdditionalFields {
 struct StonfiPoolV2WeightedConstProductAddLiquidityAdditionalFields {
     /// Destination used when the LP Account later requests a refund path.
     refundAddress: address?
-    /// Destination for excess TON after the LP Account step.
+    /// Destination for excess GRAM after the LP Account step.
     excessAddress: address
 }
 
 /// Referenced token payout information carried by pool-to-router `pay_to`.
 struct StonfiPoolV2WeightedConstProductPayToAdditionalInfo {
-    /// Nanotons forwarded by the router to the final recipient.
+    /// Nanograms forwarded by the router to the final recipient.
     fwdTonAmount: coins
     /// Token0 amount paid or refunded through the router.
     amount0Out: coins
@@ -213,7 +213,7 @@ struct (0x06ecd527) StonfiPoolV2WeightedConstProductCbAddLiquidity {
     userAddress: address
     /// Minimum LP tokens expected by the user.
     minLpOut: coins
-    /// Nanotons forwarded by the eventual LP wallet mint notification.
+    /// Nanograms forwarded by the eventual LP wallet mint notification.
     fwdAmount: coins
     /// Optional custom payload forwarded to the LP wallet mint path.
     customPayloadCs: cell?
@@ -247,11 +247,11 @@ struct (0x1ee4911e) StonfiPoolV2WeightedConstProductCollectFees {
     maybePayload1: cell?
 }
 
-/// Pool-specific reset-gas command that keeps pool storage TON and sends the remainder to `excessesRecipient`.
+/// Pool-specific reset-gas command that keeps pool storage GRAM and sends the remainder to `excessesRecipient`.
 struct (0x29d22935) StonfiPoolV2WeightedConstProductResetGas {
     /// Query id carried by the STON.fi message builder.
     queryId: uint64
-    /// Recipient for excess TON after reserving pool storage rent.
+    /// Recipient for excess GRAM after reserving pool storage rent.
     excessesRecipient: address
 }
 
@@ -265,7 +265,7 @@ struct (0x75930d63) StonfiPoolV2WeightedConstProductInternalSetFees {
     newProtocolFee: uint16
     /// New protocol fee recipient.
     newProtocolFeeAddress: address
-    /// Recipient for excess TON after applying the update.
+    /// Recipient for excess GRAM after applying the update.
     excessesAddress: address
 }
 
@@ -273,7 +273,7 @@ struct (0x75930d63) StonfiPoolV2WeightedConstProductInternalSetFees {
 struct (0x62752512) StonfiPoolV2WeightedConstProductInternalUpdateStatus {
     /// Query id carried by the STON.fi message builder.
     queryId: uint64
-    /// Recipient for excess TON after toggling the lock flag.
+    /// Recipient for excess GRAM after toggling the lock flag.
     excessesRecipient: address
 }
 
@@ -289,7 +289,7 @@ struct (0x355d097e) StonfiPoolV2WeightedConstProductInternalUpdatePoolCode {
 struct (0xf163444a) StonfiPoolV2WeightedConstProductInternalSetParams {
     /// Query id carried by the STON.fi message builder.
     queryId: uint64
-    /// Recipient for excess TON after applying the parameter update.
+    /// Recipient for excess GRAM after applying the parameter update.
     excessesAddress: address
     /// Token wallet side whose requested weight is supplied by `newW`.
     sideWallet: address
@@ -327,7 +327,7 @@ struct (0x657b54f5) StonfiPoolV2WeightedConstProductPayTo {
     queryId: uint64
     /// Final token owner recipient for the router payout.
     toAddress: address
-    /// Excess TON recipient.
+    /// Excess GRAM recipient.
     excessesAddress: address
     /// Original user/caller address used by router accounting.
     originalCaller: address
@@ -345,7 +345,7 @@ struct (0x63381632) StonfiPoolV2WeightedConstProductPayVault {
     queryId: uint64
     /// Referral owner whose vault receives the fee.
     owner: address
-    /// Excess TON recipient.
+    /// Excess GRAM recipient.
     excessesAddress: address
     /// Referenced token amounts and wallet addresses for vault deposits.
     additionalInfo: Cell<StonfiPoolV2WeightedConstProductPayVaultAdditionalInfo>
@@ -361,7 +361,7 @@ struct (0x50c6a654) StonfiPoolV2WeightedConstProductAddLiquidity {
     newAmount1: coins
     /// Minimum LP tokens expected; zero can keep funds pending or force a refund path.
     minLpOut: coins
-    /// Nanotons forwarded by the eventual LP wallet mint notification.
+    /// Nanograms forwarded by the eventual LP wallet mint notification.
     fwdAmount: coins
     /// One-bit flag requiring both token balances to be positive before minting.
     bothPositive: uint1
@@ -383,7 +383,7 @@ struct (0x178d4519) StonfiPoolV2WeightedConstProductJettonInternalTransfer {
     fromAddress: address
     /// Optional response address for LP wallet excesses.
     responseAddress: address?
-    /// Nanotons forwarded to the LP token owner notification.
+    /// Nanograms forwarded to the LP token owner notification.
     forwardTonAmount: coins
     /// Raw Jetton forward-payload tail; pool source writes it with `store_maybe_ref`.
     forwardPayload: RemainingBitsAndRefs
@@ -522,7 +522,7 @@ enum Errors {
     ZeroOutput = 81
     /// Sender was not the deterministic router, LP account, LP wallet, or protocol-fee address expected by a branch.
     InvalidCaller = 82
-    /// Attached TON value cannot cover the required forward/storage/gas budget.
+    /// Attached GRAM value cannot cover the required forward/storage/gas budget.
     InsufficientGas = 83
     /// Address workchain does not match the configured basechain.
     WrongWorkchain = 85

@@ -21,7 +21,7 @@ struct GramboJettonMasterTradeFees {
 
 /// Sell constraints carried by a Jetton transfer notification.
 struct GramboJettonMasterSellParams {
-    /// Minimum TON amount accepted for the sale.
+    /// Minimum GRAM amount accepted for the sale.
     minTonOut: coins
     /// Optional fee-referrer address encoded inline.
     referrer: address?
@@ -35,11 +35,11 @@ struct (0x372f1ae3) GramboJettonMasterLaunch {
     queryId: uint64
     /// Creator that receives the initial purchase.
     buyer: address
-    /// Virtual TON reserve used by the curve.
+    /// Virtual GRAM reserve used by the curve.
     virtualTonReserve: coins
-    /// TON target that triggers graduation.
+    /// GRAM target that triggers graduation.
     tonTarget: coins
-    /// Creator's initial TON purchase amount.
+    /// Creator's initial GRAM purchase amount.
     prebuyAmount: coins
 }
 
@@ -47,7 +47,7 @@ struct (0x372f1ae3) GramboJettonMasterLaunch {
 struct (0x2f54494e) GramboJettonMasterBuy {
     /// Caller-selected request identifier.
     queryId: uint64
-    /// TON offered to the curve before fees.
+    /// GRAM offered to the curve before fees.
     tonAmount: coins
     /// Recipient of minted Jettons.
     recipient: address
@@ -91,11 +91,11 @@ struct (0x7966410f) GramboJettonMasterUnlockWallet {
     owner: address
 }
 
-/// Withdraws TON held by the curve to its factory.
+/// Withdraws GRAM held by the curve to its factory.
 struct (0x43e84bb5) GramboJettonMasterWithdraw {
     /// Caller-selected request identifier.
     queryId: uint64
-    /// TON amount requested for withdrawal.
+    /// GRAM amount requested for withdrawal.
     amount: coins
 }
 
@@ -118,7 +118,7 @@ struct (0x178d4519) GramboJettonMasterInternalTransfer {
     from: address?
     /// Address used for excess-value responses.
     responseAddress: address?
-    /// TON forwarded with the transfer.
+    /// GRAM forwarded with the transfer.
     forwardTonAmount: coins
     /// Empty inline payload or a referenced payload under the Jetton standard.
     forwardPayload: RemainingBitsAndRefs
@@ -159,9 +159,9 @@ struct (0x5025398e) GramboJettonMasterSwapEvent {
     recipient: address?
     /// True for a buy and false for a sell.
     isBuy: bool
-    /// Total TON collected by the curve after this trade.
+    /// Total GRAM collected by the curve after this trade.
     newCollectedTon: coins
-    /// TON amount used for the trade before fee distribution.
+    /// GRAM amount used for the trade before fee distribution.
     tonAmount: coins
     /// Jetton amount bought or sold.
     tokenAmount: coins
@@ -173,11 +173,11 @@ struct (0x5025398e) GramboJettonMasterSwapEvent {
     customPayload: Cell<RemainingBitsAndRefs>?
 }
 
-/// Emits graduation amounts when the curve reaches its TON target.
+/// Emits graduation amounts when the curve reaches its GRAM target.
 struct (0x0ab3d75c) GramboJettonMasterGraduateEvent {
     /// Trade request identifier that caused graduation.
     queryId: uint64
-    /// TON amount forwarded to DEX liquidity.
+    /// GRAM amount forwarded to DEX liquidity.
     tonToDex: coins
     /// Jetton amount forwarded to DEX liquidity.
     tokensToDex: coins
@@ -190,7 +190,7 @@ type GramboJettonMasterEvent =
 
 /// Mutable curve counters and fee recipients kept in a referenced cell.
 struct GramboJettonMasterCurveState {
-    /// TON amount currently collected by the curve.
+    /// GRAM amount currently collected by the curve.
     collectedTon: coins
     /// Jetton amount sold by the curve.
     tokensSold: coins
@@ -212,9 +212,9 @@ struct GramboJettonMasterDexConfig {
 
 /// Persistent bonding-curve and Jetton-master storage.
 struct GramboJettonMasterStorage {
-    /// Virtual TON reserve used in the curve equation.
+    /// Virtual GRAM reserve used in the curve equation.
     virtualTonReserve: coins
-    /// TON target that triggers graduation.
+    /// GRAM target that triggers graduation.
     tonTarget: coins
     /// Factory authorized to launch and withdraw.
     factory: address
@@ -234,11 +234,11 @@ struct GramboJettonMasterStorage {
 
 /// Return tuple of `get_curve_state`.
 struct GramboJettonMasterCurveStateResult {
-    /// Virtual TON reserve used in the curve equation.
+    /// Virtual GRAM reserve used in the curve equation.
     virtualTonReserve: coins
-    /// TON target that triggers graduation.
+    /// GRAM target that triggers graduation.
     tonTarget: coins
-    /// TON amount collected by the curve.
+    /// GRAM amount collected by the curve.
     collectedTon: coins
     /// Jetton amount sold by the curve.
     tokensSold: coins
@@ -251,12 +251,12 @@ get fun get_curve_state(): GramboJettonMasterCurveStateResult {
     throw 0;
 }
 
-/// Quotes Jetton output for a supplied TON input before executing a buy.
+/// Quotes Jetton output for a supplied GRAM input before executing a buy.
 get fun get_amount_out(tonIn: coins): int {
     throw 0;
 }
 
-/// Quotes TON output for a supplied Jetton input before executing a sell.
+/// Quotes GRAM output for a supplied Jetton input before executing a sell.
 get fun get_ton_out(tokensIn: int): coins {
     throw 0;
 }
@@ -295,7 +295,7 @@ enum GramboJettonMasterErrors {
     SlippageExceeded = 65344
     /// The sender is not authorized for the requested operation.
     Unauthorized = 65347
-    /// Attached or retained TON is insufficient.
+    /// Attached or retained GRAM is insufficient.
     InsufficientValue = 65360
     /// The wallet has already been activated.
     WalletAlreadyActivated = 65397

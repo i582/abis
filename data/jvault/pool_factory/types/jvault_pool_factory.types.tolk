@@ -35,7 +35,7 @@ struct JVaultPoolFactoryStorage {
     collectionContent: cell?
     /// Minimum allowed commission for pool reward deposits.
     minRewardsCommission: uint16
-    /// Fixed TON fee charged for an instant unstake.
+    /// Fixed GRAM fee charged for an instant unstake.
     unstakeFee: coins
     /// Factory-owned JVT Jetton wallet receiving pool-creation fees.
     feesWalletAddress: address
@@ -57,7 +57,7 @@ struct JVaultPoolFactoryStorageData {
     collectionContent: cell?
     /// Minimum allowed reward commission.
     minRewardsCommission: int
-    /// Fixed TON fee for instant unstaking.
+    /// Fixed GRAM fee for instant unstaking.
     unstakeFee: int
     /// Factory-owned JVT Jetton wallet.
     feesWalletAddress: address
@@ -129,7 +129,7 @@ struct (0x7362d09c) JVaultPoolFactoryTransferNotification {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Administrator request to withdraw all TON not needed for the reserve.
+/// Administrator request to withdraw all GRAM not needed for the reserve.
 struct (0x37726bdb) JVaultPoolFactoryWithdrawTon {
     /// Correlation identifier accepted by the management envelope.
     queryId: uint64
@@ -147,7 +147,7 @@ struct (0x11c09682) JVaultPoolFactoryWithdrawJetton {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Administrator request forwarded to one pool as a TON withdrawal command.
+/// Administrator request forwarded to one pool as a GRAM withdrawal command.
 struct (0xe5b8268f) JVaultPoolFactorySendWithdrawTon {
     /// Correlation identifier forwarded to the pool.
     queryId: uint64
@@ -237,11 +237,11 @@ struct (0x0f8a7ea5) JVaultPoolFactoryJettonTransfer {
     amount: coins
     /// Logical Jetton recipient.
     destination: address
-    /// Address receiving any excess TON, or `addr_none` when omitted.
+    /// Address receiving any excess GRAM, or `addr_none` when omitted.
     responseDestination: address?
     /// Optional custom payload; JVault emits no custom payload in these flows.
     customPayload: cell?
-    /// TON forwarded with the Jetton notification.
+    /// GRAM forwarded with the Jetton notification.
     forwardTonAmount: coins
     /// Optional referenced comment or application payload.
     forwardPayload: Cell<RemainingBitsAndRefs>?
@@ -253,13 +253,13 @@ struct (0xd53276db) JVaultPoolFactoryExcesses {
     queryId: uint64
 }
 
-/// TON-withdrawal command forwarded to a selected staking pool.
+/// GRAM-withdrawal command forwarded to a selected staking pool.
 struct (0x37726bdb) JVaultPoolFactoryForwardWithdrawTon {
     /// Correlation identifier copied from the administrator request.
     queryId: uint64
 }
 
-/// UTF-8 comment body emitted for fee, content, code, and TON notices.
+/// UTF-8 comment body emitted for fee, content, code, and GRAM notices.
 struct (0x00000000) JVaultPoolFactoryTextComment {
     /// Remaining UTF-8 comment bytes after the zero opcode.
     text: RemainingBitsAndRefs
@@ -290,7 +290,7 @@ type JVaultPoolFactoryOutgoingMessage =
 
 /// Exit codes thrown by the pinned factory implementation.
 enum JVaultPoolFactoryErrors {
-    /// Attached TON does not cover pool/minter deployment and compute fees.
+    /// Attached GRAM does not cover pool/minter deployment and compute fees.
     OutOfGas = 13
     /// Maximum deposit is lower than the minimum deposit.
     MoreThanMaximumDeposit = 42

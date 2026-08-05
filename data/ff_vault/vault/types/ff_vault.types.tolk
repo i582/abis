@@ -223,7 +223,7 @@ struct (0xd1029c99) FfVaultPositionUnstakeExecute {
 struct (0x0b30393c) FfVaultPositionUnstakeCancel {
     /// Correlation id propagated through the unstake flow.
     queryId: uint64
-    /// Vault account that receives any excess TON from the position.
+    /// Vault account that receives any excess GRAM from the position.
     excessReceiver: address
     /// Asset amount restored to the position after cancellation.
     amountToRestore: coins
@@ -241,13 +241,13 @@ struct (0x0f8a7ea5) FfVaultJettonInternalTransfer {
     responseAddress: address
     /// Optional custom payload retained by the Jetton wallet.
     customPayload: cell?
-    /// TON value forwarded with a transfer notification.
+    /// GRAM value forwarded with a transfer notification.
     forwardTonAmount: coins
     /// `Either Cell ^Cell` forward payload for the recipient.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Standard response that returns unused TON to a correlated recipient.
+/// Standard response that returns unused GRAM to a correlated recipient.
 struct (0xd53276db) FfVaultExcesses {
     /// Query id copied from the completed operation.
     queryId: uint64
@@ -330,7 +330,7 @@ get fun get_balance(): FfVaultBalance {
 enum FfVaultErrors {
     /// Stable rewards cannot be distributed while no asset is staked.
     InvalidDistributionState = 47
-    /// Attached TON cannot cover the oracle and operation flow.
+    /// Attached GRAM cannot cover the oracle and operation flow.
     InsufficientAttachedValue = 48
     /// A Jetton transfer notification reports a zero deposit amount.
     ZeroDeposit = 49

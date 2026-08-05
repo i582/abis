@@ -1,8 +1,8 @@
-/// Getgems fixed-price NFT sale V3R3 interface for TON-only listings.
+/// Getgems fixed-price NFT sale V3R3 interface for GRAM-only listings.
 contract GetgemsNftFixpriceSaleV3R3 {
     author: "Getgems"
     version: "3.3"
-    description: "Getgems fixed-price sale V3 R3 is a marketplace escrow for buying one listed NFT at a fixed TON price."
+    description: "Getgems fixed-price sale V3 R3 is a marketplace escrow for buying one listed NFT at a fixed GRAM price."
     storage: GetgemsNftFixpriceSaleV3R3Storage
     incomingMessages: GetgemsNftFixpriceSaleV3R3IncomingMessage
     outgoingMessages: GetgemsNftFixpriceSaleV3R3OutgoingMessage
@@ -14,11 +14,11 @@ contract GetgemsNftFixpriceSaleV3R3 {
 struct GetgemsNftFixpriceSaleV3R3Fees {
     /// Marketplace fee payout address preserved when the seller changes price.
     marketplaceFeeAddress: address
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Royalty payout address; source skips royalty transfer when this is `addr_none`.
     royaltyAddress: address?
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -35,7 +35,7 @@ struct GetgemsNftFixpriceSaleV3R3Storage {
     nftAddress: address
     /// Current NFT owner before purchase; null until the NFT callback initializes the sale.
     nftOwnerAddress: address?
-    /// Full sale price in nanotons, excluding the required 0.1 TON gas reserve.
+    /// Full sale price in nanograms, excluding the required 0.1 GRAM gas reserve.
     fullPrice: coins
     /// Referenced fee and royalty amounts paid during successful purchase.
     fees: Cell<GetgemsNftFixpriceSaleV3R3Fees>
@@ -70,7 +70,7 @@ struct (0x00000001) GetgemsNftFixpriceSaleV3R3AcceptCoins {
     queryId: uint64
 }
 
-/// Internal command that purchases the NFT when enough nanotons are attached.
+/// Internal command that purchases the NFT when enough nanograms are attached.
 struct (0x00000002) GetgemsNftFixpriceSaleV3R3Buy {
     /// Query id copied into the outgoing NFT transfer and persisted as the sale query id.
     queryId: uint64
@@ -86,11 +86,11 @@ struct (0x00000003) GetgemsNftFixpriceSaleV3R3CancelSale {
 struct (0x6c6c2080) GetgemsNftFixpriceSaleV3R3ChangePrice {
     /// Parsed before the price fields but otherwise unused by the source.
     queryId: uint64
-    /// New full sale price in nanotons.
+    /// New full sale price in nanograms.
     newFullPrice: coins
-    /// New marketplace fee amount in nanotons.
+    /// New marketplace fee amount in nanograms.
     newMarketplaceFee: coins
-    /// New royalty amount in nanotons.
+    /// New royalty amount in nanograms.
     newRoyaltyAmount: coins
 }
 
@@ -120,7 +120,7 @@ struct (0x5fcc3d14) GetgemsNftFixpriceSaleV3R3NftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Zero on cancellation, or 0.03 TON on purchase.
+    /// Zero on cancellation, or 0.03 GRAM on purchase.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -153,15 +153,15 @@ struct GetgemsNftFixpriceSaleV3R3SaleDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the sale.
     nftOwnerAddress: any_address
-    /// Full sale price in nanotons.
+    /// Full sale price in nanograms.
     fullPrice: coins
     /// Marketplace fee payout address.
     marketplaceFeeAddress: address
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Royalty payout stack address, or `addr_none` when no royalty transfer should be sent.
     royaltyAddress: any_address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -177,15 +177,15 @@ struct GetgemsNftFixpriceSaleV3R3FixPriceDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the sale.
     nftOwnerAddress: any_address
-    /// Full sale price in nanotons.
+    /// Full sale price in nanograms.
     fullPrice: coins
     /// Marketplace fee payout address.
     marketplaceFeeAddress: address
-    /// Marketplace fee amount in nanotons.
+    /// Marketplace fee amount in nanograms.
     marketplaceFee: coins
     /// Royalty payout stack address, or `addr_none` when no royalty transfer should be sent.
     royaltyAddress: any_address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
     /// Unix timestamp of successful purchase, or zero before purchase and after cancel/change-price.
     soldAt: uint32
@@ -201,15 +201,15 @@ enum Errors {
     Mode32NotAllowed = 405
     /// Marketplace raw resend attempted during the ten-minute sold-at window.
     CannotExecuteCommandAtThisTime = 406
-    /// Price change would make seller proceeds less than one nanotons.
+    /// Price change would make seller proceeds less than one nanogram.
     InconsistentPriceAndFeesOnChangePrice = 408
     /// Legacy sale-data getter detected non-positive seller proceeds.
     InconsistentPriceAndFeesOnSaleData = 409
     /// V3R3 fix-price getter detected non-positive seller proceeds.
     InconsistentPriceAndFeesOnFixPriceData = 410
-    /// Purchase did not attach `fullPrice + 0.1 TON`.
+    /// Purchase did not attach `fullPrice + 0.1 GRAM`.
     NotEnoughTonsForSale = 450
-    /// Cancellation did not attach the required 0.1 TON gas reserve.
+    /// Cancellation did not attach the required 0.1 GRAM gas reserve.
     NotEnoughTonsForCancellation = 457
     /// Cancellation sender was neither seller nor marketplace.
     UnauthorizedCancellation = 458

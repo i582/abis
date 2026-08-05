@@ -210,15 +210,15 @@ struct SmartAccountFactoryDataReply {
 
 /// Minimum fee tuple returned by `get_min_fees`.
 struct SmartAccountFactoryMinFeesReply {
-    /// Minimum native-asset deposit fee in nanotons.
+    /// Minimum native-asset deposit fee in nanograms.
     depositMinFeeNative: coins
-    /// Minimum jetton deposit fee in nanotons.
+    /// Minimum jetton deposit fee in nanograms.
     depositMinFeeJetton: coins
-    /// Minimum native-asset deposit-with-deploy fee in nanotons.
+    /// Minimum native-asset deposit-with-deploy fee in nanograms.
     depositWithDeployMinFeeNative: coins
-    /// Minimum jetton deposit-with-deploy fee in nanotons.
+    /// Minimum jetton deposit-with-deploy fee in nanograms.
     depositWithDeployMinFeeJetton: coins
-    /// Minimum withdrawal fee in nanotons.
+    /// Minimum withdrawal fee in nanograms.
     withdrawMinFee: coins
     /// One-year storage fee estimate for an ordinary SmartAccount.
     ordinarySaStorageFee: coins

@@ -64,7 +64,7 @@ struct Tonkeeper2faDelegationStateActive {
     recoveryBlockedUntil: uint64
     /// StateInit for the replacement extension.
     newStateInit: Cell<StateInit>
-    /// Nanotons forwarded to the replacement extension deployment.
+    /// Nanograms forwarded to the replacement extension deployment.
     forwardAmount: coins
 }
 
@@ -115,7 +115,7 @@ struct (0x23d9c15c) Tonkeeper2faDelegation {
     validUntil: uint64
     /// StateInit for the replacement extension.
     newStateInit: Cell<StateInit>
-    /// Nanotons forwarded to the replacement extension deployment.
+    /// Nanograms forwarded to the replacement extension deployment.
     forwardAmount: coins
 }
 
@@ -311,7 +311,7 @@ get fun get_delegation_state(): Tonkeeper2faDelegationStateReply {
     throw 0;
 }
 
-/// Estimate nanotons needed for a wallet request with the supplied forwarded message and action counts.
+/// Estimate nanograms needed for a wallet request with the supplied forwarded message and action counts.
 get fun get_estimated_attached_value(
     forwardMsg: cell,
     msgActions: int,

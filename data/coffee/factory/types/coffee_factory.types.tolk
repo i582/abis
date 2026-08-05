@@ -46,7 +46,7 @@ struct CoffeeFactoryCodeDictionaries {
     poolCodeByAmm: map<uint3, cell>
 }
 
-/// Native TON asset tag.
+/// Native GRAM asset tag.
 struct (0b00) CoffeeFactoryNativeAsset {}
 
 /// Jetton asset tag with workchain id and address hash.
@@ -466,7 +466,7 @@ struct (0xc0ffee2a) CoffeeFactoryCreateVaultInternal {
 struct (0xc0ffee2b) CoffeeFactoryUpdatePoolInternal {
     /// Query id copied from `update_pool`.
     queryId: uint64
-    /// Admin sender address that receives excess TON.
+    /// Admin sender address that receives excess GRAM.
     excessesReceiver: address
     /// Referenced Pool update parameters.
     params: Cell<CoffeeFactoryPoolUpdateParams>
@@ -496,13 +496,13 @@ struct (0xc0ffee2d) CoffeeFactoryWithdrawInternal {
 struct (0xc0ffee2e) CoffeeFactoryUpdateContractInternal {
     /// Query id copied from `update_contract`.
     queryId: uint64
-    /// Admin sender address that receives excess TON.
+    /// Admin sender address that receives excess GRAM.
     excessesReceiver: address
     /// Optional replacement code/data.
     update: CoffeeFactoryContractUpdate
 }
 
-/// Standard TON excesses response emitted after successful local admin updates.
+/// Standard excess-value response emitted after successful local admin updates.
 struct (0xd53276db) CoffeeFactoryExcesses {
     /// Query id copied from the admin request.
     queryId: uint64

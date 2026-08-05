@@ -15,7 +15,7 @@ struct ToncoPoolFactoryStorage {
     adminAddress: address
     /// TONCO Router address that receives create-pool callbacks.
     routerAddress: address
-    /// TON price parameter stored by the factory; live mainnet currently returns zero.
+    /// GRAM price parameter stored by the factory; live mainnet currently returns zero.
     tonPrice: coins
     /// Order child contract code used for deterministic pool-order addresses.
     orderCode: cell
@@ -49,7 +49,7 @@ struct ToncoPoolFactoryDataReply {
     adminAddress: address
     /// Router address paired with this factory.
     routerAddress: address
-    /// Factory TON price parameter.
+    /// Factory GRAM price parameter.
     tonPrice: int
     /// Default NFT collection metadata content.
     nftv3Content: cell
@@ -151,7 +151,7 @@ struct (0xaa0db3d7) ToncoPoolFactoryChangeParams {
     nftv3itemContent: cell
 }
 
-/// Admin message that returns excess TON after preserving factory storage reserve.
+/// Admin message that returns excess GRAM after preserving factory storage reserve.
 struct (0x42a0fb43) ToncoPoolFactoryResetGas {
     /// Query id for tracing the reset-gas command.
     queryId: uint64
@@ -235,7 +235,7 @@ type ToncoPoolFactoryOutgoingMessage =
     | ToncoPoolFactoryOrderInit
     | Routerv3CreatePool
 
-/// Return PoolFactory admin, Router, TON price, and default NFT content cells.
+/// Return PoolFactory admin, Router, GRAM price, and default NFT content cells.
 get fun getPoolFactoryData(): ToncoPoolFactoryDataReply {
     throw 0;
 }

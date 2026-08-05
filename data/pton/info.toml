@@ -1,7 +1,7 @@
 [project]
 name = "pton"
 category = "TON fungible token contracts"
-description = "pTON v2.1 proxy TON minter and wallet contracts"
+description = "pTON v2.1 minter and wallet contracts for tokenized GRAM"
 
 [sources]
 pton_contracts = "https://github.com/ston-fi/pton-contracts"

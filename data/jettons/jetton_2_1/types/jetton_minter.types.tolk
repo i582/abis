@@ -34,9 +34,9 @@ struct (0x178d4519) InternalTransferStep {
     jettonAmount: coins
     /// Owner address that initiated the transfer, or null for mint-originated transfers.
     transferInitiator: address?
-    /// Optional address that receives excess TON after processing.
+    /// Optional address that receives excess GRAM after processing.
     sendExcessesTo: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// TEP-74 Either payload tail used by recipient notification logic.
     @abi.clientType(PayloadInline | PayloadInRef)
@@ -57,7 +57,7 @@ struct (0x7bdd97de) BurnNotificationForMinter {
     jettonAmount: coins
     /// Owner address whose wallet burned jettons.
     burnInitiator: address
-    /// Optional address that receives remaining TON after burn accounting.
+    /// Optional address that receives remaining GRAM after burn accounting.
     sendExcessesTo: address?
 }
 
@@ -87,7 +87,7 @@ struct (0x642b7d07) MintNewJettons {
     queryId: uint64
     /// Jetton owner address that receives the minted amount.
     mintRecipient: address
-    /// Nanotons attached to the wallet deployment or credit message.
+    /// Nanograms attached to the wallet deployment or credit message.
     tonAmount: coins
     /// Referenced InternalTransferStep forwarded to the recipient wallet.
     internalTransferMsg: Cell<InternalTransferStep>
@@ -188,7 +188,7 @@ struct (0x00) OnchainMetadataReply {
 enum Errors {
     /// Wallet balance would become negative.
     BalanceError = 47
-    /// Attached TON value is below the required gas budget.
+    /// Attached GRAM value is below the required gas budget.
     NotEnoughGas = 48
     /// Message payload shape or forward payload Either layout is invalid.
     InvalidMessage = 49

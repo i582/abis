@@ -2,7 +2,7 @@
 name = "megatonfi-wton"
 project = "Megaton Finance"
 category = "DEX and wrapped native token contracts"
-description = "Megaton Finance router, exchange, wrapped TON minter, and deterministic jetton wallet contracts"
+description = "Megaton Finance router, exchange, Wrapped TON minter, and deterministic jetton wallet contracts"
 website = "https://wton.dev"
 docs = "https://github.com/ozys-io/wrapped-ton"
 

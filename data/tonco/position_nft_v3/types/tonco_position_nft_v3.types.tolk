@@ -104,7 +104,7 @@ struct (0x5fcc3d14) ToncoPositionNftV3Transfer {
     responseDestination: address?
     /// Optional custom payload reference.
     customPayload: cell?
-    /// TON amount forwarded to the new owner.
+    /// GRAM amount forwarded to the new owner.
     forwardTonAmount: coins
     /// Remaining forward payload bits/refs copied into the ownership callback.
     forwardPayload: RemainingBitsAndRefs

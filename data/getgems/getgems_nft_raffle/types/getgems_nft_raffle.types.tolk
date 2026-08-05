@@ -47,13 +47,13 @@ struct GetgemsNftRaffleAddresses {
 
 /// Commission accounting stored in the third storage ref.
 struct GetgemsNftRaffleCommissions {
-    /// Required left-side commission in nanotons.
+    /// Required left-side commission in nanograms.
     leftCommission: coins
-    /// Required right-side commission in nanotons.
+    /// Required right-side commission in nanograms.
     rightCommission: coins
-    /// Extra nanotons received from the left side, after operation and NFT-transfer fees.
+    /// Extra nanograms received from the left side, after operation and NFT-transfer fees.
     leftCoinsGot: coins
-    /// Extra nanotons received from the right side, after operation and NFT-transfer fees.
+    /// Extra nanograms received from the right side, after operation and NFT-transfer fees.
     rightCoinsGot: coins
     /// Per-NFT outbound transfer amount used when returning or raffling NFTs.
     nftTransferFee: coins
@@ -80,7 +80,7 @@ struct (0x05138d91) GetgemsNftRaffleOwnershipAssigned {
 /// Participant or super-user command that cancels an active raffle before all conditions are met.
 struct (0x000007d1) GetgemsNftRaffleCancel {}
 
-/// Left/right participant command that contributes additional commission nanotons.
+/// Left/right participant command that contributes additional commission nanograms.
 struct (0x000007d2) GetgemsNftRaffleAddCoins {}
 
 /// Super-user command that relays a raw message after the raffle is canceled or completed.
@@ -147,13 +147,13 @@ struct GetgemsNftRaffleStateReply {
     rightUser: address
     /// Super-user address authorized for maintenance raw sends.
     superUser: address
-    /// Required left-side commission in nanotons.
+    /// Required left-side commission in nanograms.
     leftCommission: coins
-    /// Required right-side commission in nanotons.
+    /// Required right-side commission in nanograms.
     rightCommission: coins
-    /// Extra nanotons received from the left side.
+    /// Extra nanograms received from the left side.
     leftCoinsGot: coins
-    /// Extra nanotons received from the right side.
+    /// Extra nanograms received from the right side.
     rightCoinsGot: coins
     /// Per-NFT transfer amount used by outbound NFT transfers.
     nftTransferFee: coins
@@ -171,7 +171,7 @@ enum Errors {
     InvalidState = 1001
     /// Sender is not authorized for the requested operation.
     WrongAddress = 1002
-    /// Attached nanotons are below the required operation or resend amount.
+    /// Attached nanograms are below the required operation or resend amount.
     NotEnoughCoins = 1003
     /// Internal message opcode is not supported.
     UnknownOperation = 65535

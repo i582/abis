@@ -55,7 +55,7 @@ struct DedustPoolV2Config {
     quoteProviderData: cell?
 }
 
-/// Native TON asset tag used in Pool assets and proofs.
+/// Native GRAM asset tag used in Pool assets and proofs.
 struct (0b0000) DedustPoolV2NativeAsset {}
 
 /// Jetton asset tag with minter workchain and account hash.
@@ -368,7 +368,7 @@ struct (0x178d4519) DedustPoolV2JettonInternalTransfer {
     fromAddress: address
     /// Response address for LP wallet excesses.
     responseAddress: address?
-    /// Nanotons forwarded to the LP wallet owner.
+    /// Nanograms forwarded to the LP wallet owner.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

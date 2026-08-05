@@ -10,15 +10,15 @@ contract WhalesLiquidStaking {
     thrownErrors: WhalesLiquidStakingErrors
 }
 
-/// Pool TON balances stored in their runtime accounting cell.
+/// Pool GRAM balances stored in their runtime accounting cell.
 struct WhalesLiquidStakingBalances {
-    /// Total pool-owned TON balance in nanotons.
+    /// Total pool-owned GRAM balance in nanograms.
     balance: coins
-    /// TON currently sent to validator proxies in nanotons.
+    /// GRAM currently sent to validator proxies in nanograms.
     balanceSent: coins
-    /// TON reserved for completed withdrawal payouts in nanotons.
+    /// GRAM reserved for completed withdrawal payouts in nanograms.
     balanceWithdraw: coins
-    /// TON pending withdrawal processing in nanotons.
+    /// GRAM pending withdrawal processing in nanograms.
     balancePendingWithdraw: coins
 }
 
@@ -38,13 +38,13 @@ struct WhalesLiquidStakingProxyState {
     stakeAt: uint32
     /// Raw end timestamp of the validation lock.
     stakeUntil: uint32
-    /// TON sent through this proxy to Elector in nanotons.
+    /// GRAM sent through this proxy to Elector in nanograms.
     stakeSent: coins
     /// Active Elector request query id, or zero when no request is pending.
     storedQueryId: uint64
     /// Active Elector request opcode, or zero when no request is pending.
     storedQueryOp: uint32
-    /// TON associated with the active Elector request in nanotons.
+    /// GRAM associated with the active Elector request in nanograms.
     storedQueryStake: coins
     /// Optional fields appended by later proxy-state revisions.
     tail: RemainingBitsAndRefs
@@ -76,15 +76,15 @@ struct WhalesLiquidStakingParams {
     enabled: bool
     /// True when owner-controlled parameter and code updates are enabled.
     updatesEnabled: bool
-    /// Minimum accepted deposit in nanotons.
+    /// Minimum accepted deposit in nanograms.
     minStake: coins
-    /// Deposit processing fee in nanotons.
+    /// Deposit processing fee in nanograms.
     depositFee: coins
-    /// Withdrawal processing fee in nanotons.
+    /// Withdrawal processing fee in nanograms.
     withdrawFee: coins
     /// Pool fee measured in protocol fee units.
     poolFee: coins
-    /// TON reserved for an operation receipt in nanotons.
+    /// GRAM reserved for an operation receipt in nanograms.
     receiptPrice: coins
 }
 
@@ -100,7 +100,7 @@ struct WhalesLiquidStakingStorage {
     roundId: uint32
     /// Previous-round per-coin profit accumulator.
     previousRoundProfitPerCoin: coins
-    /// Referenced pool TON balances.
+    /// Referenced pool GRAM balances.
     balances: Cell<WhalesLiquidStakingBalances>
     /// Referenced wsTON Jetton-minter state.
     minter: Cell<WhalesLiquidStakingMinter>
@@ -116,15 +116,15 @@ struct (0x00000000) WhalesLiquidStakingTextCommand {
     text: RemainingBitsAndRefs
 }
 
-/// Public TON deposit that mints wsTON to a selected owner.
+/// Public GRAM deposit that mints wsTON to a selected owner.
 struct (0x7bcd1fef) WhalesLiquidStakingDeposit {
     /// Caller-selected identifier copied to the wsTON internal transfer.
     queryId: uint64
-    /// TON principal credited to the pool in nanotons.
+    /// GRAM principal credited to the pool in nanograms.
     amount: coins
     /// Owner whose deterministic wsTON wallet receives the minted tokens.
     responseAddress: address?
-    /// Nanotons forwarded by the receiving wsTON wallet.
+    /// Nanograms forwarded by the receiving wsTON wallet.
     forwardTonAmount: coins
     /// Raw optional notification payload forwarded to the wsTON owner.
     forwardPayload: RemainingBitsAndRefs
@@ -136,11 +136,11 @@ struct (0xda803efd) WhalesLiquidStakingWithdraw {
     queryId: uint64
     /// wsTON amount to burn in token nanounits.
     jettonAmount: coins
-    /// Address that receives withdrawal receipts and the final TON payout.
+    /// Address that receives withdrawal receipts and the final GRAM payout.
     responseAddress: address?
 }
 
-/// Public request to collect TON prepared for an earlier withdrawal round.
+/// Public request to collect GRAM prepared for an earlier withdrawal round.
 struct (0x4a10e022) WhalesLiquidStakingCollect {
     /// Caller-selected identifier copied to the wallet debt request.
     queryId: uint64
@@ -152,11 +152,11 @@ struct (0x4a10e022) WhalesLiquidStakingCollect {
 struct (0x9797f0fb) WhalesLiquidStakingWalletWithdrawal {
     /// Wallet-selected identifier copied to the pool receipt.
     queryId: uint64
-    /// TON amount released by the wallet in nanotons.
+    /// GRAM amount released by the wallet in nanograms.
     amount: coins
     /// Pool round whose debt was resolved.
     roundId: uint32
-    /// Address that receives the released TON.
+    /// Address that receives the released GRAM.
     responseAddress: address
 }
 
@@ -168,7 +168,7 @@ struct (0x7bdd97de) WhalesLiquidStakingBurnNotification {
     jettonAmount: coins
     /// Owner address used to authenticate the notifying wallet.
     ownerAddress: address
-    /// Address recorded for the later TON withdrawal payout.
+    /// Address recorded for the later GRAM withdrawal payout.
     responseAddress: address
 }
 
@@ -182,7 +182,7 @@ struct (0x2c76b973) WhalesLiquidStakingProvideWalletAddress {
     includeOwnerAddress: bool
 }
 
-/// Request for current pool TON and wsTON supplies.
+/// Request for current pool GRAM and wsTON supplies.
 struct (0xad83913f) WhalesLiquidStakingProvideCurrentQuote {
     /// Caller-selected identifier copied to the quote response.
     queryId: uint64
@@ -198,7 +198,7 @@ struct (0xa2065f2c) WhalesLiquidStakingStakeSend {
     gasLimit: coins
     /// Validator proxy slot: false for zero, true for one.
     proxyId: bool
-    /// TON stake value sent to Elector.
+    /// GRAM stake value sent to Elector.
     stake: coins
     /// Validator public key forwarded to Elector.
     validatorPubkey: bits256
@@ -232,7 +232,7 @@ struct (0x1596920c) WhalesLiquidStakingStakeLockFinalize {
     proxyId: bool
 }
 
-/// Controller or owner command that withdraws TON not owned by wsTON holders.
+/// Controller or owner command that withdraws GRAM not owned by wsTON holders.
 struct (0x251d6a98) WhalesLiquidStakingWithdrawUnowned {
     /// Authorized sender's identifier copied to the response.
     queryId: uint64
@@ -268,7 +268,7 @@ struct (0x023cd52c) WhalesLiquidStakingUpdateParams {
     params: Cell<WhalesLiquidStakingParams>
 }
 
-/// Owner command that distributes attached TON as pool profit.
+/// Owner command that distributes attached GRAM as pool profit.
 struct (0x47bbe425) WhalesLiquidStakingAirdrop {
     /// Owner-selected request identifier.
     queryId: uint64
@@ -354,9 +354,9 @@ struct (0x178d4519) WhalesLiquidStakingInternalTransfer {
     jettonAmount: coins
     /// Pool address reported as the transfer source.
     from: address
-    /// Address that receives excess TON, or `addr_none` for accounting mints.
+    /// Address that receives excess GRAM, or `addr_none` for accounting mints.
     responseAddress: address?
-    /// Nanotons forwarded to the receiving owner.
+    /// Nanograms forwarded to the receiving owner.
     forwardTonAmount: coins
     /// Optional raw forward payload; exact no-payload branches leave this tail empty.
     forwardPayload: RemainingBitsAndRefs
@@ -390,7 +390,7 @@ struct (0x595f07bc) WhalesLiquidStakingJettonBurn {
     queryId: uint64
     /// wsTON amount to burn in token nanounits.
     jettonAmount: coins
-    /// Address that receives the burn notification and final TON payout.
+    /// Address that receives the burn notification and final GRAM payout.
     responseAddress: address?
 }
 
@@ -402,25 +402,25 @@ struct (0x9006210c) WhalesLiquidStakingProvideDebt {
     roundId: uint32
 }
 
-/// Pool acknowledgement that records TON debt after a wsTON burn.
+/// Pool acknowledgement that records GRAM debt after a wsTON burn.
 struct (0x2334e467) WhalesLiquidStakingBurnResponse {
     /// Identifier copied from the burn notification.
     queryId: uint64
     /// Pool round in which the withdrawal was recorded.
     roundId: uint32
-    /// TON amount assigned to the withdrawal in nanotons.
+    /// GRAM amount assigned to the withdrawal in nanograms.
     withdrawalAmount: coins
-    /// Address that receives the later TON payout.
+    /// Address that receives the later GRAM payout.
     responseAddress: address
 }
 
-/// Delayed-withdrawal receipt emitted when TON is not ready for collection.
+/// Delayed-withdrawal receipt emitted when GRAM is not ready for collection.
 struct (0x74bb3427) WhalesLiquidStakingWithdrawalDelayed {
     /// Identifier copied from the withdrawal or collect request.
     queryId: uint64
 }
 
-/// Completed-withdrawal receipt emitted with the released TON.
+/// Completed-withdrawal receipt emitted with the released GRAM.
 struct (0x23d421e1) WhalesLiquidStakingWithdrawalCompleted {
     /// Identifier copied from the wallet callback.
     queryId: uint64
@@ -436,11 +436,11 @@ struct (0xd1735400) WhalesLiquidStakingTakeWalletAddress {
     ownerAddress: Cell<address>?
 }
 
-/// Current TON and wsTON supply quote emitted to a requester.
+/// Current GRAM and wsTON supply quote emitted to a requester.
 struct (0x0a420458) WhalesLiquidStakingTakeCurrentQuote {
     /// Identifier copied from the quote request.
     queryId: uint64
-    /// TON available to back wsTON, encoded as an unsigned 128-bit integer.
+    /// GRAM available to back wsTON, encoded as an unsigned 128-bit integer.
     tonTotalSupply: uint128
     /// Current wsTON supply encoded as an unsigned 128-bit integer.
     jettonTotalSupply: uint128
@@ -540,9 +540,9 @@ struct WhalesLiquidStakingJettonDataReply {
 
 /// Current deposit and withdrawal exchange rates.
 struct WhalesLiquidStakingRatesReply {
-    /// Projected wsTON minted per one TON deposit, scaled by `1e9`.
+    /// Projected wsTON minted per one GRAM deposit, scaled by `1e9`.
     depositRate: int
-    /// TON returned per one wsTON withdrawal, scaled by `1e9`.
+    /// GRAM returned per one wsTON withdrawal, scaled by `1e9`.
     withdrawRate: int
 }
 
@@ -560,15 +560,15 @@ struct WhalesLiquidStakingParamsReply {
     enabled: bool
     /// True when owner parameter and code updates are enabled.
     updatesEnabled: bool
-    /// Minimum accepted deposit in nanotons.
+    /// Minimum accepted deposit in nanograms.
     minStake: coins
-    /// Deposit processing fee in nanotons.
+    /// Deposit processing fee in nanograms.
     depositFee: coins
-    /// Withdrawal processing fee in nanotons.
+    /// Withdrawal processing fee in nanograms.
     withdrawFee: coins
     /// Pool fee measured in protocol fee units.
     poolFee: coins
-    /// TON reserved for an operation receipt in nanotons.
+    /// GRAM reserved for an operation receipt in nanograms.
     receiptPrice: coins
 }
 
@@ -578,7 +578,7 @@ struct WhalesLiquidStakingStatusReply {
     stakeAt: uint32
     /// Timestamp after which the active stake can be recovered.
     stakeUntil: uint32
-    /// TON sent through the selected proxy in nanotons.
+    /// GRAM sent through the selected proxy in nanograms.
     stakeSent: coins
     /// True while an Elector query is pending.
     querySent: bool
@@ -600,13 +600,13 @@ enum WhalesLiquidStakingErrors {
     InvalidBurnNotificationSender = 74
     /// Wallet discovery request did not attach enough value for its response.
     WalletDiscoveryValueTooLow = 75
-    /// Attached TON value is below the required operation budget.
+    /// Attached GRAM value is below the required operation budget.
     TooLowValue = 76
     /// Requested validator stake is larger than the available pool balance.
     InvalidStakeValue = 77
     /// Opcode-zero text command is not recognized.
     UnknownTextCommand = 78
-    /// Wallet withdrawal callback exceeds the pool's prepared TON balance.
+    /// Wallet withdrawal callback exceeds the pool's prepared GRAM balance.
     InvalidWithdrawalAmount = 79
     /// A deterministic address was requested outside workchain zero.
     InvalidWorkchain = 333
@@ -616,9 +616,9 @@ enum WhalesLiquidStakingErrors {
 
 /// Complete stack reply returned by `get_pool_status`.
 struct WhalesLiquidStakingPoolStatusReply {
-    /// Projected wsTON minted per one TON deposit, scaled by `1e9`.
+    /// Projected wsTON minted per one GRAM deposit, scaled by `1e9`.
     depositRate: int
-    /// TON returned per one wsTON withdrawal, scaled by `1e9`.
+    /// GRAM returned per one wsTON withdrawal, scaled by `1e9`.
     withdrawRate: int
     /// Current pool accounting round id.
     roundId: int
@@ -626,25 +626,25 @@ struct WhalesLiquidStakingPoolStatusReply {
     enabled: bool
     /// True when owner-controlled parameter and code updates are enabled.
     updatesEnabled: bool
-    /// Minimum accepted deposit in nanotons.
+    /// Minimum accepted deposit in nanograms.
     minStake: int
-    /// Deposit processing fee in nanotons.
+    /// Deposit processing fee in nanograms.
     depositFee: int
-    /// Withdrawal processing fee in nanotons.
+    /// Withdrawal processing fee in nanograms.
     withdrawFee: int
-    /// TON reserved for an operation receipt in nanotons.
+    /// GRAM reserved for an operation receipt in nanograms.
     receiptPrice: int
     /// Pool fee measured in protocol fee units.
     poolFee: int
     /// Total wsTON supply in token nanounits.
     minterTotalSupply: int
-    /// Total pool-owned TON balance in nanotons.
+    /// Total pool-owned GRAM balance in nanograms.
     balance: int
-    /// TON currently sent to validator proxies in nanotons.
+    /// GRAM currently sent to validator proxies in nanograms.
     balanceSent: int
-    /// TON pending withdrawal processing in nanotons.
+    /// GRAM pending withdrawal processing in nanograms.
     balancePendingWithdraw: int
-    /// TON reserved for completed withdrawal payouts in nanotons.
+    /// GRAM reserved for completed withdrawal payouts in nanograms.
     balanceWithdraw: int
 }
 
@@ -658,12 +658,12 @@ get fun get_owner(): address {
     throw 0;
 }
 
-/// Return pool TON currently available for validator staking.
+/// Return pool GRAM currently available for validator staking.
 get fun get_available(): coins {
     throw 0;
 }
 
-/// Return TON held by the account but not owned by wsTON holders.
+/// Return GRAM held by the account but not owned by wsTON holders.
 get fun get_unowned(): coins {
     throw 0;
 }
@@ -673,7 +673,7 @@ get fun get_wallet_address(ownerAddress: address): address {
     throw 0;
 }
 
-/// Convert a wsTON amount into its current TON backing value.
+/// Convert a wsTON amount into its current GRAM backing value.
 get fun get_ton_balance(jettonAmount: coins): coins {
     throw 0;
 }

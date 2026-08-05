@@ -2,7 +2,7 @@
 contract GetgemsNftOfferV1R3 {
     author: "Getgems"
     version: "1r3"
-    description: "Getgems NFT Offer V1 R3 is a buy-offer escrow where a bidder locks TON until the NFT owner accepts or the offer closes."
+    description: "Getgems NFT Offer V1 R3 is a buy-offer escrow where a bidder locks GRAM until the NFT owner accepts or the offer closes."
     storage: GetgemsNftOfferV1R3Storage
     incomingMessages: GetgemsNftOfferV1R3IncomingMessage
     incomingExternal: GetgemsNftOfferV1R3IncomingExternalMessage
@@ -45,7 +45,7 @@ struct GetgemsNftOfferV1R3Storage {
     nftAddress: address
     /// Offer creator address that receives the NFT when the offer is accepted.
     offerOwnerAddress: address
-    /// Current offer amount in nanotons, encoded as TL-B `Coins`.
+    /// Current offer amount in nanograms, encoded as TL-B `Coins`.
     fullPrice: coins
     /// Referenced fee and royalty configuration.
     fees: Cell<GetgemsNftOfferV1R3Fees>
@@ -69,7 +69,7 @@ struct (0x00000000) GetgemsNftOfferV1R3TextCommand {
 struct (0x05138d91) GetgemsNftOfferV1R3OwnershipAssigned {
     /// Query id copied into outgoing NFT transfer bodies.
     queryId: uint64
-    /// Previous NFT owner that receives the TON payout or the returned NFT.
+    /// Previous NFT owner that receives the GRAM payout or the returned NFT.
     previousOwnerAddress: address
     /// Raw standard ownership-assigned tail ignored by this source.
     forwardPayload: RemainingBitsAndRefs
@@ -97,7 +97,7 @@ struct (0x00000003) GetgemsNftOfferV1R3CancelOffer {
 
 /// Tail parsed after opcode three when the sender is the marketplace.
 struct GetgemsNftOfferV1R3MarketplaceCancelPayload {
-    /// Marketplace cancellation fee capped by source at 0.5 TON.
+    /// Marketplace cancellation fee capped by source at 0.5 GRAM.
     cancelFee: coins
     /// Referenced body forwarded to the offer owner.
     ownerPayload: cell
@@ -119,7 +119,7 @@ struct (0x5fcc3d14) GetgemsNftOfferV1R3NftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// `0.01 TON` on successful swap, zero on NFT return.
+    /// `0.01 GRAM` on successful swap, zero on NFT return.
     forwardTonAmount: coins
     /// Raw TEP-62 forward payload tail; source writes an empty inline payload.
     forwardPayload: RemainingBitsAndRefs
@@ -162,7 +162,7 @@ struct GetgemsNftOfferV1R3OfferDataReply {
     nftAddress: address
     /// Offer creator address that receives the NFT on acceptance.
     offerOwnerAddress: address
-    /// Current offer amount in nanotons.
+    /// Current offer amount in nanograms.
     fullPrice: coins
     /// Marketplace fee recipient address.
     marketplaceFeeAddress: address
@@ -198,7 +198,7 @@ struct GetgemsNftOfferV1R3OfferDataV2Reply {
     nftAddress: address
     /// Offer creator address that receives the NFT on acceptance.
     offerOwnerAddress: address
-    /// Current offer amount in nanotons.
+    /// Current offer amount in nanograms.
     fullPrice: coins
     /// Marketplace fee recipient address.
     marketplaceFeeAddress: address
@@ -224,11 +224,11 @@ enum Errors {
     EmergencyProxyMode32NotAllowed = 405
     /// Emergency relay is too close to `swapAt`.
     EmergencyProxySwapWindowBlocked = 406
-    /// Deployment funding would leave profit below 0.005 TON.
+    /// Deployment funding would leave profit below 0.005 GRAM.
     ProfitTooLowOnDeploy = 407
     /// Getter called before deployment funding is finalized.
     GetterBeforeDeployFinalized = 408
-    /// Getter profit calculation is below 0.005 TON.
+    /// Getter profit calculation is below 0.005 GRAM.
     ProfitTooLow = 409
     /// Cancellation sender is neither offer owner nor marketplace.
     UnauthorizedCancellation = 458

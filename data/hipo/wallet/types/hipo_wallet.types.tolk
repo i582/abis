@@ -36,7 +36,7 @@ struct (0x0f8a7ea5) HipoWalletSendTokens {
     returnExcess: address?
     /// Optional custom payload ignored by this wallet but preserved in the standard transfer layout.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail forwarded into the peer wallet.
     forwardPayload: RemainingBitsAndRefs
@@ -52,7 +52,7 @@ struct (0x178d4519) HipoWalletReceiveTokens {
     sender: address
     /// Excess-refund address used after processing the internal transfer.
     returnExcess: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail copied to the owner notification.
     forwardPayload: RemainingBitsAndRefs

@@ -99,11 +99,11 @@ struct (0x984d8449) TgUsdProvideCurrentQuote {
     customPayload: cell?
 }
 
-/// Administrator request to return excess TON while retaining the minimum storage balance.
+/// Administrator request to return excess GRAM while retaining the minimum storage balance.
 struct (0x53a9192c) TgUsdResetGas {
     /// Administrator-selected request identifier.
     queryId: uint64
-    /// TON recipient, or `addr_none` to use the administrator.
+    /// GRAM recipient, or `addr_none` to use the administrator.
     recipient: address?
 }
 
@@ -171,7 +171,7 @@ struct (0xadc0579b) TgUsdCallToJettonMaster {
     queryId: uint64
     /// Destination requested from the Jetton master.
     to: address
-    /// Nanotons attached by the Jetton master to the destination call.
+    /// Nanograms attached by the Jetton master to the destination call.
     tonAmount: coins
     /// Referenced opaque message body forwarded by the Jetton master.
     masterMessage: cell
@@ -284,11 +284,11 @@ struct (0x0f8a7ea5) TgUsdJettonTransfer {
     jettonAmount: coins
     /// New tgUSD owner.
     destination: address
-    /// Address that receives excess TON.
+    /// Address that receives excess GRAM.
     responseDestination: address
     /// Optional custom payload; staking sends encode this as absent.
     customPayload: cell?
-    /// Nanotons forwarded to the destination's notification handler.
+    /// Nanograms forwarded to the destination's notification handler.
     forwardTonAmount: coins
     /// Optional referenced notification payload or comment.
     forwardPayload: cell?
@@ -302,9 +302,9 @@ struct (0x178d4519) TgUsdJettonInternalTransfer {
     jettonAmount: coins
     /// Staking contract recorded as the mint origin.
     senderAddress: address
-    /// Address that receives excess TON from the Jetton wallet.
+    /// Address that receives excess GRAM from the Jetton wallet.
     responseAddress: address
-    /// Nanotons forwarded by the receiving stgUSD wallet.
+    /// Nanograms forwarded by the receiving stgUSD wallet.
     forwardTonAmount: coins
     /// Optional referenced recipient notification payload.
     forwardPayload: cell?
@@ -316,7 +316,7 @@ struct (0x642b7d07) TgUsdJettonMint {
     queryId: uint64
     /// Owner whose stgUSD wallet receives the minted shares.
     recipient: address
-    /// Nanotons supplied to the stgUSD wallet deployment/transfer flow.
+    /// Nanograms supplied to the stgUSD wallet deployment/transfer flow.
     walletTonAmount: coins
     /// Referenced internal-transfer body containing share amount and notification data.
     internalTransfer: Cell<TgUsdJettonInternalTransfer>
@@ -386,7 +386,7 @@ struct (0x235caf52) TgUsdCallTo {
     queryId: uint64
     /// Final call destination.
     to: address
-    /// Nanotons attached to the final call.
+    /// Nanograms attached to the final call.
     tonAmount: coins
     /// Referenced opaque final-call body.
     masterMessage: cell
@@ -727,7 +727,7 @@ enum TgUsdLiquidStakingErrors {
     ContractHalted = 1007
     /// A required custom payload is absent.
     CustomPayloadNull = 1013
-    /// The attached TON value does not cover the required fees.
+    /// The attached GRAM value does not cover the required fees.
     NotEnoughFee = 1027
     /// Share conversion produced a non-positive amount.
     InvalidShare = 1028

@@ -1,4 +1,4 @@
-/// Getgems NFT auction V3R2 interface for TON-denominated auctions.
+/// Getgems NFT auction V3R2 interface for GRAM-denominated auctions.
 contract GetgemsNftAuctionV3R2 {
     author: "Getgems"
     version: "3.2"
@@ -31,11 +31,11 @@ struct GetgemsNftAuctionV3R2Fees {
 
 /// Constant deployment parameters referenced from the auction root storage.
 struct GetgemsNftAuctionV3R2Constants {
-    /// Nanotons subtracted from a returned bid before refunding the previous bidder.
+    /// Nanograms subtracted from a returned bid before refunding the previous bidder.
     subGasPriceFromBid: int32
     /// Marketplace address allowed to deploy, cancel, stop, repeat ending, and relay emergency messages.
     marketplaceAddress: address
-    /// Minimum first bid, serialized with the TON `Coins` varuint layout.
+    /// Minimum first bid, serialized with the GRAM `Coins` varuint layout.
     minBid: coins
     /// Buy-now bid threshold; zero disables immediate auction finalization.
     maxBid: coins
@@ -59,7 +59,7 @@ struct GetgemsNftAuctionV3R2Storage {
     isCanceled: bool
     /// Last bidder address, or null before the first bid.
     lastMember: address?
-    /// Last bid amount in nanotons, or zero before the first bid.
+    /// Last bid amount in nanograms, or zero before the first bid.
     lastBid: coins
     /// Unix timestamp of the last accepted bid, or zero before the first bid.
     lastBidAt: uint32
@@ -73,7 +73,7 @@ struct GetgemsNftAuctionV3R2Storage {
     constants: Cell<GetgemsNftAuctionV3R2Constants>
 }
 
-/// Unstructured bid body; bid amount is the attached TON value and source does not parse the body.
+/// Unstructured bid body; bid amount is the attached GRAM value and source does not parse the body.
 struct GetgemsNftAuctionV3R2Bid {
     /// Raw body bits and refs for non-command bid messages; often empty.
     payload: RemainingBitsAndRefs
@@ -119,13 +119,13 @@ struct (0x5fcc3d14) GetgemsNftAuctionV3R2NftTransfer {
     responseDestination: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Zero on cancellation, or 0.01 TON when transferring to the winning bidder.
+    /// Zero on cancellation, or 0.01 GRAM when transferring to the winning bidder.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Zero-op text notification emitted with TON refunds, fee payouts, royalty payouts, and seller profit.
+/// Zero-op text notification emitted with GRAM refunds, fee payouts, royalty payouts, and seller profit.
 struct (0x00000000) GetgemsNftAuctionV3R2TextNotification {
     /// Raw text-comment tail, for example `Marketplace fee`, `Royalty`, `Profit`, or outbid/cancel text.
     text: RemainingBitsAndRefs
@@ -158,7 +158,7 @@ struct GetgemsNftAuctionV3R2SaleDataReply {
     nft: address
     /// NFT owner/seller stack address, or `addr_none` before initialization.
     owner: any_address
-    /// Last bid amount in nanotons.
+    /// Last bid amount in nanograms.
     lastBid: coins
     /// Last bidder stack address, or `addr_none` before the first bid.
     lastMember: any_address
@@ -176,9 +176,9 @@ struct GetgemsNftAuctionV3R2SaleDataReply {
     royaltyFeeFactor: uint32
     /// Royalty fee denominator.
     royaltyFeeBase: uint32
-    /// Buy-now bid threshold in nanotons; zero disables immediate settlement.
+    /// Buy-now bid threshold in nanograms; zero disables immediate settlement.
     maxBid: coins
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
     /// Deployment timestamp stored in constants.
     createdAt: uint32
@@ -200,7 +200,7 @@ enum Errors {
     InvalidOpExpectedOwnershipAssigned = 1002
     /// Auction was already cancelled/ended or cannot accept more bids.
     AlreadyExecuted = 1005
-    /// Attached or available TON is below the required one-ton reserve.
+    /// Attached or available GRAM is below the required one-GRAM reserve.
     NotEnoughTons = 1008
     /// Cancellation is forbidden after a bid has been accepted.
     AlreadyHasBid = 1009

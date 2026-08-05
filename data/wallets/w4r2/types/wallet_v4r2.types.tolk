@@ -2,7 +2,7 @@
 contract WalletV4r2 {
     author: "TON Core"
     version: "4.2"
-    description: "Wallet V4 R2 is a TON wallet for holding TON with app plugins; it is the common V4 revision for app-triggered payments."
+    description: "Wallet V4 R2 is a TON wallet for holding GRAM with app plugins; it is the common V4 revision for app-triggered payments."
     storage: WalletV4r2Storage
     incomingMessages: WalletV4r2IncomingMessage
     incomingExternal: WalletV4r2IncomingExternalMessage
@@ -25,7 +25,7 @@ struct WalletV4r2Storage {
 
 /// Standard TON currency collection used by plugin fund requests.
 struct WalletV4r2CurrencyCollection {
-    /// Toncoin amount in nanotons.
+    /// GRAM amount in nanograms.
     grams: coins
     /// Extra-currency amounts keyed by 32-bit currency id.
     other: ExtraCurrenciesMap
@@ -41,7 +41,7 @@ struct (0x00) WalletV4r2SimpleSend {
 struct (0x01) WalletV4r2DeployAndInstallPlugin {
     /// Workchain where the plugin address is calculated.
     pluginWorkchain: int8
-    /// Toncoin amount sent to the plugin deployment message.
+    /// GRAM amount sent to the plugin deployment message.
     pluginBalance: coins
     /// Plugin StateInit cell used to derive the plugin address.
     stateInit: Cell<StateInit>
@@ -55,7 +55,7 @@ struct (0x02) WalletV4r2InstallPlugin {
     pluginWorkchain: int8
     /// Plugin address hash stored after the workchain in the plugin dictionary key.
     pluginAddress: bits256
-    /// Toncoin amount sent to the plugin notification message.
+    /// GRAM amount sent to the plugin notification message.
     amount: coins
     /// Caller-selected query id included in the plugin notification.
     queryId: uint64
@@ -67,7 +67,7 @@ struct (0x03) WalletV4r2RemovePlugin {
     pluginWorkchain: int8
     /// Plugin address hash stored after the workchain in the plugin dictionary key.
     pluginAddress: bits256
-    /// Toncoin amount sent to the plugin destruct message.
+    /// GRAM amount sent to the plugin destruct message.
     amount: coins
     /// Caller-selected query id included in the plugin destruct message.
     queryId: uint64
@@ -90,7 +90,7 @@ struct (0x64737472) WalletV4r2PluginDestruct {
 struct (0x706c7567) WalletV4r2PaymentRequest {
     /// Plugin-selected query id echoed in the payment confirmation.
     queryId: uint64
-    /// Toncoin and extra-currency amount requested by the plugin.
+    /// GRAM and extra-currency amount requested by the plugin.
     amount: WalletV4r2CurrencyCollection
 }
 

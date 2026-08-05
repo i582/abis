@@ -96,7 +96,7 @@ type Direction =
 struct (0x186b2edf) StormDepositNotify {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Original sender address encoded in the message body.
     senderAddress: address
@@ -110,7 +110,7 @@ struct (0x4fedc82b) StormReferralFees {
     queryId: uint64
     /// Referral smart-account address that receives referral accounting.
     referralSaAddress: address
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Jetton minter address identifying the asset for this amount.
     jettonMinterAddress: address
@@ -132,7 +132,7 @@ struct (0x18a092f7) StormDepositNotifyWithDeploy {
     queryId: uint64
     /// Vault contract address referenced by the deposit or withdrawal flow.
     vaultAddress: address
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Original sender address encoded in the message body.
     senderAddress: address
@@ -144,7 +144,7 @@ struct (0x18a092f7) StormDepositNotifyWithDeploy {
 struct (0x5b27f9c5) StormDepositRevert {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Original sender address encoded in the message body.
     senderAddress: address

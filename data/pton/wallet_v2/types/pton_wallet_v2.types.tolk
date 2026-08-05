@@ -2,7 +2,7 @@
 contract PtonWalletV2 {
     author: "STON.fi"
     version: "2.1"
-    description: "pTON v2.1 Wallet is a user's wrapped TON account, holding proxy TON balance and unwrapping it back into native TON when needed."
+    description: "pTON v2.1 Wallet is a user's pTON account, holding tokenized GRAM and unwrapping it back into native GRAM when needed."
     storage: PtonWalletV2Storage
     incomingMessages: PtonWalletV2IncomingMessage
     outgoingMessages: PtonWalletV2OutgoingMessage
@@ -11,7 +11,7 @@ contract PtonWalletV2 {
 
 /// Persistent pTON wallet state stored in the root data cell.
 struct PtonWalletV2Storage {
-    /// Amount of tokenized TON tracked by this wallet.
+    /// Amount of tokenized GRAM tracked by this wallet.
     balance: coins
     /// Owner authorized to detokenize pTON through Jetton `transfer` and `reset_gas`.
     ownerAddress: address
@@ -19,11 +19,11 @@ struct PtonWalletV2Storage {
     minterAddress: address
 }
 
-/// User or pTON-wallet request to tokenize TON and notify this wallet owner.
+/// User or pTON-wallet request to tokenize GRAM and notify this wallet owner.
 struct (0x01f3835d) PtonWalletV2TonTransfer {
     /// Query id copied into downstream notification or refund flows.
     queryId: uint64
-    /// Amount of TON to tokenize.
+    /// Amount of GRAM to tokenize.
     tonAmount: coins
     /// Standard address receiving `ton_refund` if tokenization fails.
     refundAddress: address
@@ -31,7 +31,7 @@ struct (0x01f3835d) PtonWalletV2TonTransfer {
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Minter-originated deployment message that lets the new wallet return excess TON.
+/// Minter-originated deployment message that lets the new wallet return excess GRAM.
 struct (0x6540cf85) PtonWalletV2InternalDeploy {
     /// Query id copied from the upstream deploy request.
     queryId: uint64
@@ -43,21 +43,21 @@ struct (0x6540cf85) PtonWalletV2InternalDeploy {
 struct (0x0f8a7ea5) PtonWalletV2Transfer {
     /// Caller-selected query id copied into the outgoing `ton_transfer`.
     queryId: uint64
-    /// Amount of tokenized TON to debit.
+    /// Amount of tokenized GRAM to debit.
     amount: coins
-    /// Destination address that receives TON or another pTON `ton_transfer`.
+    /// Destination address that receives GRAM or another pTON `ton_transfer`.
     destination: address
     /// Optional response address; if present and different from destination, excesses are sent there.
     responseDestination: address?
     /// Optional referenced custom payload; source skips it.
     customPayload: cell?
-    /// Additional TON sent with the non-bounce destination transfer.
+    /// Additional GRAM sent with the non-bounce destination transfer.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward payload tail forwarded into the pTON `ton_transfer`.
     forwardPayload: RemainingBitsAndRefs
 }
 
-/// Owner-originated request to leave exactly tokenized TON balance plus storage reserve on the wallet.
+/// Owner-originated request to leave exactly tokenized GRAM balance plus storage reserve on the wallet.
 struct (0x29d22935) PtonWalletV2ResetGas {
     /// Query id carried for traceability.
     queryId: uint64
@@ -73,7 +73,7 @@ struct (0xae25d79e) PtonWalletV2TonRefund {
 struct (0x7362d09c) PtonWalletV2TransferNotification {
     /// Query id copied from `ton_transfer`.
     queryId: uint64
-    /// Tokenized TON amount.
+    /// Tokenized GRAM amount.
     amount: coins
     /// Sender of the `ton_transfer` request.
     sender: address
@@ -103,7 +103,7 @@ type PtonWalletV2OutgoingMessage =
 
 /// Structured result returned by `get_wallet_data`.
 struct PtonWalletV2WalletDataReply {
-    /// Tokenized TON balance returned as a TVM stack integer.
+    /// Tokenized GRAM balance returned as a TVM stack integer.
     balance: int
     /// pTON wallet owner.
     ownerAddress: address
@@ -123,7 +123,7 @@ enum Errors {
     WrongWorkchain = 85
     /// `ton_transfer` amount is zero.
     LowAmount = 87
-    /// Owner transfer would make tokenized TON balance negative.
+    /// Owner transfer would make tokenized GRAM balance negative.
     LowBalance = 88
     /// Parsed body has an invalid or missing forward payload tail.
     InvalidBody = 90

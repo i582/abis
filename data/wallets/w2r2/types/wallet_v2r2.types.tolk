@@ -2,7 +2,7 @@
 contract WalletV2r2 {
     author: "TON Core"
     version: "2.2"
-    description: "Wallet V2 R2 is a TON wallet for holding TON with expiring requests; compared with R1, it adds public-key visibility."
+    description: "Wallet V2 R2 is a TON wallet for holding GRAM with expiring requests; compared with R1, it adds public-key visibility."
     storage: WalletV2r2Storage
     incomingExternal: WalletV2r2IncomingExternalMessage
     thrownErrors: Errors

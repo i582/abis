@@ -1,8 +1,8 @@
-/// Storm Trade CoinM VAMM interface for TON-settled markets.
+/// Storm Trade CoinM VAMM interface for GRAM-settled markets.
 contract StormVammCoinm {
     author: "Storm Trade"
     version: "1.0"
-    description: "Storm Trade Coin-margined vAMM is a perpetual market contract where TON collateral backs and settles TON-denominated trades."
+    description: "Storm Trade Coin-margined vAMM is a perpetual market contract where GRAM collateral backs and settles GRAM-denominated trades."
     storage: StormVammCoinmStorage
     incomingMessages: StormVammCoinmIncomingMessage
     outgoingMessages: StormVammCoinmOutgoingMessage

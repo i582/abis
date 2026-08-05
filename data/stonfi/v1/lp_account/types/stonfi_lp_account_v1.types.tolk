@@ -50,7 +50,7 @@ struct (0x4cf82803) StonfiLpAccountV1DirectAddLiquidity {
     minLpOut: coins
 }
 
-/// User-originated `reset_gas` command that reserves account storage TON and returns the rest to the owner.
+/// User-originated `reset_gas` command that reserves account storage GRAM and returns the rest to the owner.
 struct (0x42a0fb43) StonfiLpAccountV1ResetGas {
     /// Query id for the gas reset command.
     queryId: uint64

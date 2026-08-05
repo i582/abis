@@ -322,7 +322,7 @@ struct (0x178d4519) StonfiPoolV1LpWalletInternalTransfer {
     fromAddress: address
     /// Address receiving LP wallet excesses, or `addr_none` when no response is requested.
     responseAddress: address?
-    /// Nanotons forwarded with the LP wallet notification.
+    /// Nanograms forwarded with the LP wallet notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail.
     forwardPayload: RemainingBitsAndRefs

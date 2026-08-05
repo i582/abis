@@ -438,7 +438,7 @@ struct (0x0) StopLossOrder {
     expiration: uint32
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Trigger price threshold encoded as contract coin precision.
     triggerPrice: coins
@@ -450,7 +450,7 @@ struct (0x1) TakeProfitOrder {
     expiration: uint32
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Trigger price threshold encoded as contract coin precision.
     triggerPrice: coins
@@ -466,7 +466,7 @@ struct LimitMarketOrder {
 struct (0x4) AddMargin {
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
 }
 
@@ -474,7 +474,7 @@ struct (0x4) AddMargin {
 struct (0x5) RemoveMargin {
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
 }
 
@@ -552,7 +552,7 @@ struct (0x2) LimitOrder {
     expiration: uint32
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Order leverage value encoded as uint64.
     leverage: uint64
@@ -572,7 +572,7 @@ struct (0x3) MarketOrder {
     expiration: uint32
     /// Position direction union tag: long or short.
     direction: Direction
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Order leverage value encoded as uint64.
     leverage: uint64
@@ -694,7 +694,7 @@ struct (0x1ca43d2f) StormNotifyUpdatePosition {
 struct (0x186b2edf) StormDepositNotify {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Original sender address encoded in the message body.
     senderAddress: address
@@ -708,7 +708,7 @@ struct (0x6eec039d) StormWithdrawRequestUser {
     queryId: uint64
     /// Vault contract address referenced by the deposit or withdrawal flow.
     vaultAddress: address
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
 }
 
@@ -736,7 +736,7 @@ struct (0x4fedc82b) StormReferralFees {
     queryId: uint64
     /// Referral smart-account address that receives referral accounting.
     referralSaAddress: address
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Jetton minter address identifying the asset for this amount.
     jettonMinterAddress: address
@@ -778,7 +778,7 @@ struct (0x644794b8) StormRemoveAllKeysExceptCurrent {
     publicKey: uint256
 }
 
-/// Storm Deposit Ton layout used by SmartAccount.
+/// Storm `DepositTon` message layout used by SmartAccount.
 struct (0x5a091c43) StormDepositTon {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
@@ -820,7 +820,7 @@ struct (0x1bea50f1) TakePositionV22 {
 struct (0x5b27f9c5) StormDepositRevert {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Original sender address encoded in the message body.
     senderAddress: address
@@ -832,7 +832,7 @@ struct (0x5b27f9c5) StormDepositRevert {
 struct (0x512cbd25) StormWithdrawRequest {
     /// Message query id used to correlate this ABI message with the triggering transaction.
     queryId: uint64
-    /// Coin amount encoded in TON/jetton nanounits.
+    /// Coin amount encoded in GRAM/jetton nanounits.
     amount: coins
     /// Owner address encoded in storage or revert payload.
     ownerAddress: address

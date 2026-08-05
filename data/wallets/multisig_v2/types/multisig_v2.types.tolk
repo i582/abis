@@ -162,7 +162,7 @@ get fun get_multisig_data(): GetMultisigV2DataReply {
     throw 0;
 }
 
-/// Return estimated nanotons required to create, store, approve, and execute an order until expiration.
+/// Return estimated nanograms required to create, store, approve, and execute an order until expiration.
 get fun get_order_estimate(order: cell, expirationDate: int): int {
     throw 0;
 }

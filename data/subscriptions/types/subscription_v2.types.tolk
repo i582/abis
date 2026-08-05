@@ -2,7 +2,7 @@
 contract SubscriptionV2 {
     author: "Tonkeeper"
     version: "2.0"
-    description: "Tonkeeper Subscription V2 is a native wallet extension for recurring TON payments approved by the wallet owner."
+    description: "Tonkeeper Subscription V2 is a native wallet extension for recurring GRAM payments approved by the wallet owner."
     storage: SubscriptionV2Storage
     storageAtDeployment: SubscriptionV2DeploymentStorage
     incomingMessages: SubscriptionV2IncomingMessage
@@ -13,7 +13,7 @@ contract SubscriptionV2 {
 
 /// Precompiled wallet request cached in subscription storage.
 struct SubscriptionV2Precompiled {
-    /// Nanotons required for the cached wallet request.
+    /// Nanograms required for the cached wallet request.
     forwardAmount: coins
     /// Raw Wallet V5 action register cell.
     requestPaymentC5: cell
@@ -49,7 +49,7 @@ struct SubscriptionV2Storage {
     precompiled: Cell<SubscriptionV2Precompiled>
     /// Payment grace period in seconds.
     gracePeriod: uint32
-    /// Caller reward in nanotons.
+    /// Caller reward in nanograms.
     callerFee: coins
     /// Wallet that owns the subscription extension.
     wallet: address
@@ -59,7 +59,7 @@ struct SubscriptionV2Storage {
     beneficiary: address
     /// Project-local subscription identifier.
     subscriptionId: uint32
-    /// Nanotons paid per period.
+    /// Nanograms paid per period.
     paymentPerPeriod: coins
     /// Billing period in seconds.
     period: uint32
@@ -119,7 +119,7 @@ struct (0x64737472) SubscriptionV2Destruct {
 struct (0x508238ec) SubscriptionV2ReducePayment {
     /// Request identifier.
     queryId: int64
-    /// New nanotons paid per period.
+    /// New nanograms paid per period.
     newPaymentPerPeriod: coins
 }
 
@@ -129,13 +129,13 @@ struct (0xf71783cb) SubscriptionV2Deploy {
     queryId: uint64
     /// First charge Unix time, or zero for immediate first payment.
     firstChargeDate: uint32
-    /// Nanotons paid per period.
+    /// Nanograms paid per period.
     paymentPerPeriod: coins
     /// Billing period in seconds.
     period: uint32
     /// Payment grace period in seconds.
     gracePeriod: uint32
-    /// Caller reward in nanotons.
+    /// Caller reward in nanograms.
     callerFee: coins
     /// Destination that receives collected funds.
     withdrawAddress: address
@@ -198,7 +198,7 @@ type SubscriptionV2WalletExtendedAction = SubscriptionV2WalletDeleteExtension
 struct (0x706c7567) SubscriptionV2WalletV4FundsRequest {
     /// Query identifier emitted by the extension.
     queryId: uint64
-    /// Nanotons requested from the wallet.
+    /// Nanograms requested from the wallet.
     amount: coins
     /// Extra-currency dictionary.
     extra: dict
@@ -238,7 +238,7 @@ struct SubscriptionV2SubscriptionInfoReply {
 struct SubscriptionV2PaymentInfoReply {
     /// Subscription state: not initialized, active, or cancelled.
     subscriptionState: uint2
-    /// Nanotons paid per period.
+    /// Nanograms paid per period.
     paymentPerPeriod: coins
     /// Billing period in seconds.
     period: uint32
@@ -248,7 +248,7 @@ struct SubscriptionV2PaymentInfoReply {
     gracePeriod: uint32
     /// Last external cron request Unix time.
     lastRequestTime: uint32
-    /// Caller reward in nanotons.
+    /// Caller reward in nanograms.
     callerFee: coins
 }
 
@@ -256,7 +256,7 @@ struct SubscriptionV2PaymentInfoReply {
 struct SubscriptionV2CronInfoReply {
     /// Next planned cron call Unix time.
     nextCallTime: uint32
-    /// Reward paid to the trigger caller in nanotons.
+    /// Reward paid to the trigger caller in nanograms.
     reward: coins
     /// Contract balance minus reserved amounts.
     balanceMinusAmounts: int
@@ -306,7 +306,7 @@ get fun get_payment_info(): SubscriptionV2PaymentInfoReply {
     throw 0;
 }
 
-/// Return nanotons reserved for storage and caller reward.
+/// Return nanograms reserved for storage and caller reward.
 get fun get_reserved_amount(): coins {
     throw 0;
 }

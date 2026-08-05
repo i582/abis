@@ -2,7 +2,7 @@
 contract PtonMinterV2 {
     author: "STON.fi"
     version: "2.1"
-    description: "pTON v2.1 Minter is the jetton master for wrapped TON, issuing proxy TON wallets used by DEX apps to treat native TON like a token."
+    description: "pTON v2.1 Minter is the jetton master for tokenized GRAM, issuing pTON wallets used by DEX apps to treat native GRAM like a token."
     storage: PtonMinterV2Storage
     incomingMessages: PtonMinterV2IncomingMessage
     outgoingMessages: PtonMinterV2OutgoingMessage
@@ -25,7 +25,7 @@ struct (0x4f5f4313) PtonMinterV2DeployWallet {
     queryId: uint64
     /// Owner whose deterministic pTON wallet should be deployed.
     ownerAddress: address
-    /// Address receiving excess TON after wallet deployment.
+    /// Address receiving excess GRAM after wallet deployment.
     excessesAddress: address
 }
 
@@ -69,7 +69,7 @@ type PtonMinterV2OutgoingMessage =
 
 /// Structured result returned by `get_jetton_data`.
 struct PtonMinterV2JettonDataReply {
-    /// Always zero in source because total tokenized TON is tracked by wallets.
+    /// Always zero in source because total tokenized GRAM is tracked by wallets.
     totalSupply: int
     /// Source returns true for Jetton compatibility.
     mintable: bool

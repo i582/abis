@@ -263,7 +263,7 @@ struct (0x0f8a7ea5) DedustVaultJettonV2JettonTransfer {
     responseDestination: address?
     /// Optional custom payload; payout paths store `null`.
     customPayload: cell?
-    /// Forward TON amount attached to the recipient notification.
+    /// Forward GRAM amount attached to the recipient notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

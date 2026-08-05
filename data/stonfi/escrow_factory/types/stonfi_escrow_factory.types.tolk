@@ -33,9 +33,9 @@ struct StonfiEscrowFactoryStorage {
     vaultCode: cell
 }
 
-/// TON value and success/rejection bodies forwarded by an escrow action.
+/// GRAM value and success/rejection bodies forwarded by an escrow action.
 struct StonfiEscrowFactoryForwardParams {
-    /// TON value attached to the forwarded message.
+    /// GRAM value attached to the forwarded message.
     value: coins
     /// Optional body used when the action succeeds.
     successPayload: cell?
@@ -135,9 +135,9 @@ struct StonfiEscrowFactoryUserPaymentData {
     userDepositViaVault: bool
     /// Optional forwarding parameters for the user payment.
     userForwardParams: Cell<StonfiEscrowFactoryForwardParams>?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     userExcesses: address?
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     userSafeDepositAndForwardValue: uint64
 }
 
@@ -146,9 +146,9 @@ struct StonfiEscrowFactoryUserPaymentData {
 struct StonfiEscrowFactoryRefundRequestExtraFields {
     /// Optional Jetton wallet from which assets are refunded.
     jettonWallet: address?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// Nanotons forwarded with a Jetton transfer notification.
+    /// Nanograms forwarded with a Jetton transfer notification.
     forwardTonAmount: coins
     /// Optional Jetton forward payload.
     forwardPayload: cell?
@@ -182,9 +182,9 @@ struct StonfiEscrowFactoryInternalLockExtra {
     refFee: address?
     /// Referral fee tier in protocol basis points.
     refFeeTier: uint16
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: coins
     /// Whether rejected bid assets are refunded through a Vault.
     refundToVault: bool
@@ -264,9 +264,9 @@ struct (0x3e246684) StonfiEscrowFactoryLockPayload {
     refFee: address?
     /// Referral fee tier in protocol basis points.
     refFeeTier: uint16
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// TON value reserved as the safe deposit.
+    /// GRAM value reserved as the safe deposit.
     tonSafeDeposit: coins
     /// Whether the user's fill is delivered through a Vault.
     userFillToVault: bool
@@ -282,7 +282,7 @@ struct (0x3e246684) StonfiEscrowFactoryLockPayload {
 struct (0x6a58f85c) StonfiEscrowFactoryUnlockPayload {
     /// Quote identifier of the derived position.
     quoteId: uint256
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Referenced recipient and Vault-routing flags.
     extraFields: Cell<StonfiEscrowFactoryUnlockPayloadExtra>
@@ -294,7 +294,7 @@ struct (0x6a58f85c) StonfiEscrowFactoryUnlockPayload {
 
 /// Deposit notified Jettons into the sender's deterministic Escrow Vault.
 struct (0x702b4dc8) StonfiEscrowFactoryDepositVaultPayload {
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Optional forwarding parameters for the Vault deposit.
     forwardParams: Cell<StonfiEscrowFactoryForwardParams>?
@@ -324,7 +324,7 @@ struct (0x4716dd16) StonfiEscrowFactoryInitTransfer {
     refFee: address?
     /// Referral fee tier in protocol basis points.
     refFeeTier: uint16
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Referenced bid-side payment information.
     bidPaymentData: Cell<StonfiEscrowFactoryBidPaymentData>
@@ -382,7 +382,7 @@ struct (0x30fe22ab) StonfiEscrowFactoryInternalUnlock {
     jettonWallet: address?
     /// Ask asset amount supplied in basic token units.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Referenced quote, recipient, condition, and forwarding metadata.
     additionalData: Cell<StonfiEscrowFactoryUnlockAdditionalData>
@@ -398,7 +398,7 @@ struct (0x2c3b4692) StonfiEscrowFactoryInternalWithdrawTokens {
     collectedFees: coins
     /// Optional owner that receives the withdrawn assets.
     owner: address?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Optional forwarding parameters for the Jetton transfer.
     forwardParams: Cell<StonfiEscrowFactoryForwardParams>?
@@ -410,7 +410,7 @@ struct (0x5df8fa35) StonfiEscrowFactoryGiveProtocolOwnership {
     queryId: uint64
     /// Proposed protocol owner.
     newProtocolAddress: address?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
 }
 
@@ -420,7 +420,7 @@ struct (0xde34aedc) StonfiEscrowFactoryUpdateProtocolTier {
     queryId: uint64
     /// New protocol fee tier in basis points.
     newTier: uint16
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
 }
 
@@ -428,7 +428,7 @@ struct (0xde34aedc) StonfiEscrowFactoryUpdateProtocolTier {
 struct (0x88124614) StonfiEscrowFactoryTakeProtocolOwnership {
     /// Correlation identifier copied to the acknowledgement.
     queryId: uint64
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
 }
 
@@ -436,15 +436,15 @@ struct (0x88124614) StonfiEscrowFactoryTakeProtocolOwnership {
 struct (0x07f886e6) StonfiEscrowFactoryCancelNextProtocolOwner {
     /// Correlation identifier copied to the acknowledgement.
     queryId: uint64
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
 }
 
-/// Reserve the Factory storage balance and return excess TON.
+/// Reserve the Factory storage balance and return excess GRAM.
 struct (0xfe16529e) StonfiEscrowFactoryResetGas {
     /// Correlation identifier copied to the acknowledgement.
     queryId: uint64
-    /// Optional recipient of excess TON; none selects the sender.
+    /// Optional recipient of excess GRAM; none selects the sender.
     recipient: address?
 }
 
@@ -466,7 +466,7 @@ struct StonfiEscrowFactoryPositionLockMetadata {
     refFee: address?
     /// Referral fee tier in protocol basis points.
     refFeeTier: uint16
-    /// TON value reserved for safe deposit and forwarding.
+    /// GRAM value reserved for safe deposit and forwarding.
     safeDepositAndForwardValue: coins
     /// Whether the user's fill is delivered through a Vault.
     userFillToVault: bool
@@ -486,7 +486,7 @@ struct StonfiEscrowFactoryPositionUnlockExtra {
     recipient: address?
     /// Optional recipient of refunded ask assets.
     refundTo: address?
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
 }
 
@@ -498,7 +498,7 @@ struct (0x7ab06181) StonfiEscrowFactoryPositionInternalLock {
     tokenAddress: address?
     /// Bid asset amount deposited into the Position.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
     /// Whether rejected bid assets are refunded through a Vault.
     refundToVault: bool
@@ -538,9 +538,9 @@ struct (0x555edf4b) StonfiEscrowFactoryVaultDepositTokens {
     queryId: uint64
     /// Jetton amount deposited in basic token units.
     amount: coins
-    /// Optional account that receives excess TON.
+    /// Optional account that receives excess GRAM.
     excesses: address?
-    /// Nanotons forwarded by the Vault after the deposit.
+    /// Nanograms forwarded by the Vault after the deposit.
     forwardTonAmount: coins
     /// Optional body forwarded by the Vault after the deposit.
     forwardPayload: cell?
@@ -562,11 +562,11 @@ struct (0x0f8a7ea5) StonfiEscrowFactoryJettonTransfer {
     amount: coins
     /// Owner account that receives the Jettons.
     destination: address
-    /// Account that receives excess TON from the Jetton wallet.
+    /// Account that receives excess GRAM from the Jetton wallet.
     responseDestination: address
     /// Optional custom payload attached to the transfer.
     customPayload: cell?
-    /// Nanotons forwarded with the destination notification.
+    /// Nanograms forwarded with the destination notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs
@@ -659,7 +659,7 @@ enum StonfiEscrowFactoryErrors {
     InsufficientGas = 33565
     /// A supplied Jetton amount is zero or otherwise invalid.
     InvalidAmount = 34643
-    /// The supplied TON safe deposit is below the required minimum.
+    /// The supplied GRAM safe deposit is below the required minimum.
     InsufficientSafeDeposit = 34650
     /// A configured forward value is below the required minimum.
     InsufficientForwardValue = 34651

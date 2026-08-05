@@ -1,8 +1,8 @@
-/// Getgems NFT auction v1 interface for TON-only English auctions.
+/// Getgems NFT auction v1 interface for GRAM-only English auctions.
 contract GetgemsNftAuctionV1 {
     author: "Getgems"
     version: "1.0"
-    description: "Getgems NFT Auction V1 is a TON-only marketplace escrow where bidders compete for one NFT and the seller settles the winning bid."
+    description: "Getgems NFT Auction V1 is a GRAM-only marketplace escrow where bidders compete for one NFT and the seller settles the winning bid."
     storage: GetgemsNftAuctionV1Storage
     incomingMessages: GetgemsNftAuctionV1IncomingMessage
     incomingExternal: GetgemsNftAuctionV1IncomingExternalMessage
@@ -29,15 +29,15 @@ struct GetgemsNftAuctionV1Fees {
 
 /// Bid state cell referenced from the auction root storage.
 struct GetgemsNftAuctionV1BidState {
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
-    /// Instant-finish bid in nanotons, or zero when disabled.
+    /// Instant-finish bid in nanograms, or zero when disabled.
     maxBid: coins
-    /// Minimum increase over the previous bid in nanotons.
+    /// Minimum increase over the previous bid in nanograms.
     minStep: coins
     /// Current highest bidder, or `addr_none` before the first bid.
     lastMemberAddress: address?
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Unix timestamp of the current highest bid, or zero before the first bid.
     lastBidAt: uint32
@@ -77,7 +77,7 @@ struct GetgemsNftAuctionV1Storage {
     nft: Cell<GetgemsNftAuctionV1NftState>
 }
 
-/// Empty internal body used for plain TON bids; bid amount is the attached message value.
+/// Empty internal body used for plain GRAM bids; bid amount is the attached message value.
 struct GetgemsNftAuctionV1EmptyBid {}
 
 /// NFT ownership callback accepted only from the configured NFT address before initialization.
@@ -120,7 +120,7 @@ struct (0x5fcc3d14) GetgemsNftAuctionV1NftTransfer {
     responseDestination: address?
     /// Always absent in this source.
     customPayload: cell?
-    /// Forwarded nanotons: zero when returning to seller, 0.03 TON when transferring to winner.
+    /// Forwarded nanograms: zero when returning to seller, 0.03 GRAM when transferring to winner.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -167,13 +167,13 @@ struct GetgemsNftAuctionV1FeesInfoReply {
 
 /// Bid summary returned by `get_bid_info`.
 struct GetgemsNftAuctionV1BidInfoReply {
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
-    /// Instant-finish bid in nanotons, or zero when disabled.
+    /// Instant-finish bid in nanograms, or zero when disabled.
     maxBid: coins
-    /// Minimum increase over the previous bid in nanotons.
+    /// Minimum increase over the previous bid in nanograms.
     minStep: coins
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Unix timestamp when bidding ends.
     endTime: uint32
@@ -193,11 +193,11 @@ struct GetgemsNftAuctionV1SaleDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before ownership callback initialization.
     nftOwnerAddress: any_address
-    /// Current highest bid in nanotons.
+    /// Current highest bid in nanograms.
     lastBid: coins
     /// Current highest bidder, or `addr_none` before the first bid.
     lastMemberAddress: any_address
-    /// Minimum increase over the previous bid in nanotons.
+    /// Minimum increase over the previous bid in nanograms.
     minStep: coins
     /// Marketplace fee payout address.
     marketplaceFeeAddress: address
@@ -211,9 +211,9 @@ struct GetgemsNftAuctionV1SaleDataReply {
     royaltyFeeFactor: uint32
     /// Royalty fee denominator.
     royaltyFeeBase: uint32
-    /// Instant-finish bid in nanotons, or zero when disabled.
+    /// Instant-finish bid in nanograms, or zero when disabled.
     maxBid: coins
-    /// Minimum first bid in nanotons.
+    /// Minimum first bid in nanograms.
     minBid: coins
     /// Deployment timestamp stored as uint32.
     createdAt: uint32

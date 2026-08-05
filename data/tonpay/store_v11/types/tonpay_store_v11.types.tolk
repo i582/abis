@@ -57,7 +57,7 @@ struct (0x4b4e70b0) TonpayStoreV11IssueInvoice {
     invoiceId: Cell<TonpayStoreV11Text>
     /// Referenced merchant metadata text.
     metadata: Cell<TonpayStoreV11Text>
-    /// Requested payment amount in nanotons.
+    /// Requested payment amount in nanograms.
     amount: uint64
 }
 
@@ -69,7 +69,7 @@ struct (0x36b795b5) TonpayStoreV11RequestPurchase {
     invoiceId: Cell<TonpayStoreV11Text>
     /// Referenced merchant metadata text.
     metadata: Cell<TonpayStoreV11Text>
-    /// Requested payment amount in nanotons.
+    /// Requested payment amount in nanograms.
     amount: uint64
 }
 

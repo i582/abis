@@ -25,7 +25,7 @@ struct GramboFactoryDeployConfig {
     bondingCurveCode: cell
     /// Jetton wallet code embedded in each deployed master.
     jettonWalletCode: cell
-    /// TON amount paid to the configured fee collector for each deployment.
+    /// GRAM amount paid to the configured fee collector for each deployment.
     deployFee: coins
     /// Account that receives the deployment fee.
     feeCollector: address
@@ -41,9 +41,9 @@ struct (0x0d4295e0) GramboFactoryDeploy {
     queryId: uint64
     /// Referenced Jetton metadata content stored by the launched master.
     metadata: cell
-    /// TON reserve threshold at which the bonding curve graduates.
+    /// GRAM reserve threshold at which the bonding curve graduates.
     tonTarget: coins
-    /// TON amount spent for the creator's initial token purchase.
+    /// GRAM amount spent for the creator's initial token purchase.
     prebuyAmount: coins
 }
 
@@ -82,11 +82,11 @@ struct (0x372f1ae3) GramboFactoryLaunch {
     queryId: uint64
     /// Account that requested and initially buys the token.
     buyer: address
-    /// Initial virtual TON reserve used by the bonding curve.
+    /// Initial virtual GRAM reserve used by the bonding curve.
     virtualTonReserve: coins
-    /// TON reserve threshold at which the token graduates.
+    /// GRAM reserve threshold at which the token graduates.
     tonTarget: coins
-    /// TON amount spent on the creator's initial purchase.
+    /// GRAM amount spent on the creator's initial purchase.
     prebuyAmount: coins
 }
 
@@ -95,7 +95,7 @@ type GramboFactoryOutgoingMessage = GramboFactoryLaunch
 
 /// Return tuple of `get_deploy_config`.
 struct GramboFactoryDeployConfigResult {
-    /// TON amount paid to the fee collector for a deployment.
+    /// GRAM amount paid to the fee collector for a deployment.
     deployFee: coins
     /// Account that receives the deployment fee.
     feeCollector: address
@@ -116,7 +116,7 @@ enum GramboFactoryErrors {
     InvalidCurveParameters = 65299
     /// The sender is not the configured Registry administrator.
     Unauthorized = 65347
-    /// Attached TON does not cover deployment, forwarding, and fee requirements.
+    /// Attached GRAM does not cover deployment, forwarding, and fee requirements.
     InsufficientMessageValue = 65360
     /// The non-empty message body has an unsupported opcode.
     UnsupportedOpcode = 65535

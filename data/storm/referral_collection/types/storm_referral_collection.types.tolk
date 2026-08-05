@@ -210,13 +210,13 @@ struct GetDefaultReferralFeesReply {
 enum Errors {
     /// Sender is not the stored admin address.
     NotAnOwner = 301
-    /// Provide-vaults request attached less than 0.01 TON.
+    /// Provide-vaults request attached less than 0.01 GRAM.
     ProvideVaultsMinValue = 302
     /// Vault address is not in basechain workchain 0.
     WrongVaultWc = 303
     /// Vault address hash already exists in whitelist.
     VaultAlreadyAdded = 304
-    /// Mint request attached less than 0.1 TON.
+    /// Mint request attached less than 0.1 GRAM.
     MinReferralMintValue = 305
     /// Referral type is greater than 2.
     WrongRefType = 306

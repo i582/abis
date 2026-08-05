@@ -2,7 +2,7 @@
 contract NominatorPool {
     author: "TON Validators"
     version: "1.0"
-    description: "TON Validators Nominator Pool lets multiple nominators pool TON behind one validator and share validation rewards and withdrawals."
+    description: "TON Validators Nominator Pool lets multiple nominators pool GRAM behind one validator and share validation rewards and withdrawals."
     storage: NominatorPoolStorage
     incomingMessages: NominatorPoolIncomingMessage
     outgoingMessages: NominatorPoolOutgoingMessage
@@ -215,7 +215,7 @@ struct (0xfffffffe) NominatorPoolRecoverStakeError {
     tail: RemainingBitsAndRefs
 }
 
-/// Empty body emitted for plain TON withdrawals and excess transfers.
+/// Empty body emitted for plain GRAM withdrawals and excess transfers.
 struct NominatorPoolEmptyBody {}
 
 /// Internal message bodies accepted by the Pool.

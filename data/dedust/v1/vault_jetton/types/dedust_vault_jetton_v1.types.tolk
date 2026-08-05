@@ -38,7 +38,7 @@ struct DedustVaultJettonV1ProofData {
     asset: DedustVaultJettonV1Asset
 }
 
-/// Native TON asset tag used by common DeDust pool parameters.
+/// Native GRAM asset tag used by common DeDust pool parameters.
 struct (0b0000) DedustVaultJettonV1NativeAsset {}
 
 /// Jetton asset tag used by this Jetton Vault family.
@@ -273,7 +273,7 @@ struct (0x0f8a7ea5) DedustVaultJettonV1JettonTransfer {
     responseDestination: address?
     /// Optional custom payload; payout paths store `null`.
     customPayload: cell?
-    /// Forward TON amount attached to the recipient notification.
+    /// Forward GRAM amount attached to the recipient notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail.
     forwardPayload: RemainingBitsAndRefs

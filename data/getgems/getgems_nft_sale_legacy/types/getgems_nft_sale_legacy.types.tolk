@@ -1,8 +1,8 @@
-/// Legacy Getgems TON-only NFT sale interface from `packages/contracts/sources/nft-sale.fc`.
+/// Legacy Getgems GRAM-only NFT sale interface from `packages/contracts/sources/nft-sale.fc`.
 contract GetgemsNftSaleLegacy {
     author: "Getgems"
     version: "1.0-legacy"
-    description: "Getgems legacy NFT sale is an older marketplace escrow that sells one NFT for TON and distributes the sale proceeds."
+    description: "Getgems legacy NFT sale is an older marketplace escrow that sells one NFT for GRAM and distributes the sale proceeds."
     storage: GetgemsNftSaleLegacyStorage
     incomingMessages: GetgemsNftSaleLegacyIncomingMessage
     outgoingMessages: GetgemsNftSaleLegacyOutgoingMessage
@@ -12,11 +12,11 @@ contract GetgemsNftSaleLegacy {
 
 /// Fee distribution cell referenced from the root legacy sale storage.
 struct GetgemsNftSaleLegacyFees {
-    /// Marketplace fee amount in nanotons; legacy source pays this to `marketplaceAddress`.
+    /// Marketplace fee amount in nanograms; legacy source pays this to `marketplaceAddress`.
     marketplaceFee: coins
     /// Royalty payout address used by every successful purchase.
     royaltyAddress: address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
@@ -28,7 +28,7 @@ struct GetgemsNftSaleLegacyStorage {
     nftAddress: address
     /// Current NFT owner before purchase; null until the NFT callback initializes the sale.
     nftOwnerAddress: address?
-    /// Full sale price in nanotons, excluding the required one-ton gas reserve.
+    /// Full sale price in nanograms, excluding the required one-GRAM gas reserve.
     fullPrice: coins
     /// Referenced legacy fee and royalty amounts paid during successful purchase.
     fees: Cell<GetgemsNftSaleLegacyFees>
@@ -55,7 +55,7 @@ struct (0x00000001) GetgemsNftSaleLegacyAcceptCoins {
     ignoredTail: RemainingBitsAndRefs
 }
 
-/// Internal command that purchases the NFT when enough nanotons are attached.
+/// Internal command that purchases the NFT when enough nanograms are attached.
 struct (0x00000002) GetgemsNftSaleLegacyBuy {
     /// Query id copied into the outgoing NFT transfer body.
     queryId: uint64
@@ -81,7 +81,7 @@ struct (0x5fcc3d14) GetgemsNftSaleLegacyNftTransfer {
     responseAddress: address
     /// Always absent in this source.
     customPayload: cell?
-    /// Always zero; the sale does not forward nanotons to the new owner notification.
+    /// Always zero; the sale does not forward nanograms to the new owner notification.
     forwardTonAmount: coins
     /// Raw TEP-62 `Either Cell ^Cell` forward payload tail; source emits the empty left-cell tag.
     forwardPayload: RemainingBitsAndRefs
@@ -105,25 +105,25 @@ struct GetgemsNftSaleLegacySaleDataReply {
     nftAddress: address
     /// Seller address, or `addr_none` before the NFT ownership callback initializes the sale.
     nftOwnerAddress: any_address
-    /// Full sale price in nanotons.
+    /// Full sale price in nanograms.
     fullPrice: coins
-    /// Marketplace fee amount in nanotons, paid to `marketplaceAddress` in this legacy source.
+    /// Marketplace fee amount in nanograms, paid to `marketplaceAddress` in this legacy source.
     marketplaceFee: coins
     /// Royalty payout address returned from the referenced fee cell.
     royaltyAddress: address
-    /// Royalty amount in nanotons.
+    /// Royalty amount in nanograms.
     royaltyAmount: coins
 }
 
 /// Source-level exit-code catalog for Getgems legacy NFT sale.
 enum Errors {
-    /// Purchase did not attach `fullPrice + 1 TON`.
+    /// Purchase did not attach `fullPrice + 1 GRAM`.
     NotEnoughTonsForSale = 450
     /// Uninitialized sale was messaged by an address other than marketplace or NFT.
     UnauthorizedInitiation = 500
     /// Initialization body opcode was not `ownership_assigned`.
     InvalidOpExpectedOwnershipAssigned = 501
-    /// Cancellation did not attach the required one-ton gas reserve.
+    /// Cancellation did not attach the required one-GRAM gas reserve.
     NotEnoughTonsForCancellation = 457
     /// Cancellation sender was neither seller nor marketplace.
     UnauthorizedCancellation = 458

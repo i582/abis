@@ -2,7 +2,7 @@
 contract BemoUnstakeRequest {
     author: "Bemo"
     version: "2.0"
-    description: "Bemo v2 Unstake Request is a per-user withdrawal contract that waits for unlock time and releases TON after bmTON is burned."
+    description: "Bemo v2 Unstake Request is a per-user withdrawal contract that waits for unlock time and releases GRAM after bmTON is burned."
     storage: BemoUnstakeRequestStorage
     incomingMessages: BemoUnstakeRequestIncomingMessage
     outgoingMessages: BemoUnstakeRequestOutgoingMessage
@@ -15,9 +15,9 @@ struct BemoUnstakeRequestStorage {
     index: uint64
     /// Financial contract address authorized to update or return this request.
     financial: address
-    /// User address that receives unstaked TON.
+    /// User address that receives unstaked GRAM.
     owner: address
-    /// TON amount withdrawable after the lockup, in nanotons.
+    /// GRAM amount withdrawable after the lockup, in nanograms.
     tonAmount: coins
     /// Burned bmTON amount associated with the request.
     jettonAmount: coins
@@ -31,7 +31,7 @@ struct BemoUnstakeRequestStorage {
 struct (0x10a1ce75) BemoUnstakeRequestDeploy {
     /// User address stored as the request owner.
     ownerAddress: address
-    /// TON amount withdrawable after lockup.
+    /// GRAM amount withdrawable after lockup.
     withdrawTonAmount: coins
     /// Burned bmTON amount associated with the request.
     withdrawJettonAmount: coins
@@ -51,9 +51,9 @@ struct (0x38633538) BemoUnstakeRequestReturn {
 struct (0x492ab1b3) BemoUnstakeRequestUnstake {
     /// Sequential request index stored in this contract.
     index: uint64
-    /// User address that should receive unstaked TON.
+    /// User address that should receive unstaked GRAM.
     owner: address
-    /// TON amount requested for withdrawal, in nanotons.
+    /// GRAM amount requested for withdrawal, in nanograms.
     tonAmount: coins
     /// Burned bmTON amount associated with the request.
     jettonAmount: coins
@@ -75,9 +75,9 @@ struct BemoUnstakeRequestDataReply {
     index: uint64
     /// Financial contract address authorized for updates.
     financial: address
-    /// User address that receives unstaked TON.
+    /// User address that receives unstaked GRAM.
     owner: address
-    /// TON amount withdrawable after lockup.
+    /// GRAM amount withdrawable after lockup.
     tonAmount: coins
     /// Burned bmTON amount associated with the request.
     jettonAmount: coins
@@ -99,7 +99,7 @@ enum Errors {
     NotEnoughValue = 48
 }
 
-/// Return request index, Financial address, owner, TON amount, bmTON amount, unlock timestamp, and payload.
+/// Return request index, Financial address, owner, GRAM amount, bmTON amount, unlock timestamp, and payload.
 get fun get_unstake_data(): BemoUnstakeRequestDataReply {
     throw 0;
 }

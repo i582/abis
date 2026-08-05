@@ -157,7 +157,7 @@ struct StormExecutorCollectionDataReply {
 enum Errors {
     /// Sender is not the stored admin address.
     NotAnOwner = 351
-    /// Provide-vaults request attached less than 0.01 TON.
+    /// Provide-vaults request attached less than 0.01 GRAM.
     ProvideVaultsMinValue = 352
     /// Batch continuation was not sent by admin or self.
     UnauthorizedBatchRequest = 353
@@ -165,7 +165,7 @@ enum Errors {
     WrongVaultWc = 354
     /// Vault address hash already exists in whitelist.
     VaultAlreadyAdded = 355
-    /// Mint request attached less than 0.1 TON.
+    /// Mint request attached less than 0.1 GRAM.
     MinExecutorMintValue = 356
     /// Incoming internal message opcode is not supported.
     WrongOperation = 65535

@@ -45,7 +45,7 @@ struct DedustFactoryV2Config {
     lpWalletCode: cell
 }
 
-/// Native TON asset tag accepted by the live factory asset parser.
+/// Native GRAM asset tag accepted by the live factory asset parser.
 struct (0b0000) DedustFactoryV2NativeAsset {}
 
 /// Jetton asset tag accepted by the live factory asset parser.

@@ -1,4 +1,4 @@
-/// Storm Trade base VAMM interface for TON/USD-style markets.
+/// Storm Trade base VAMM interface for GRAM/USD-style markets.
 contract StormVamm {
     author: "Storm Trade"
     version: "1.0"

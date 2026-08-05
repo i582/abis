@@ -53,11 +53,11 @@ struct StonfiPoolV2ConstProductSwapBody {
     minOut: coins
     /// Address receiving output tokens after swap, or `addr_none` to use `fromUser`.
     receiver: address?
-    /// Nanotons used to forward a transfer notification after swap when customPayload is present.
+    /// Nanograms used to forward a transfer notification after swap when customPayload is present.
     fwdGas: coins
     /// Optional payload sent in the transfer notification after a successful swap.
     customPayload: cell?
-    /// Nanotons used to forward a transfer notification when the swap fails and is refunded.
+    /// Nanograms used to forward a transfer notification when the swap fails and is refunded.
     refundFwdGas: coins
     /// Optional payload sent in the transfer notification if the swap is refunded.
     refundPayload: cell?
@@ -75,7 +75,7 @@ struct StonfiPoolV2ConstProductSwapDexPayload {
     tokenWallet1: address
     /// Address receiving Jettons if the swap is refunded.
     refundAddress: address
-    /// Address receiving TON excesses from downstream Router and Jetton-wallet transfers.
+    /// Address receiving GRAM excesses from downstream Router and Jetton-wallet transfers.
     excessesAddress: address
     /// Unix deadline checked by Pool before applying the swap.
     txDeadline: uint64
@@ -91,7 +91,7 @@ struct StonfiPoolV2ConstProductProvideLpBody {
     toAddress: address
     /// One-bit flag requiring both deposited token amounts to be non-zero before minting.
     bothPositive: uint1
-    /// Nanotons forwarded with the eventual LP wallet transfer notification.
+    /// Nanograms forwarded with the eventual LP wallet transfer notification.
     fwdAmount: coins
     /// Optional payload sent in the transfer notification after LP minting.
     customPayload: cell?
@@ -105,7 +105,7 @@ struct StonfiPoolV2ConstProductProvideLpDexPayload {
     tokenWallet1: address
     /// Address receiving Jettons if liquidity provision is refunded.
     refundAddress: address
-    /// Address receiving excess TON from downstream transfers.
+    /// Address receiving excess GRAM from downstream transfers.
     excessesAddress: address
     /// Unix deadline checked by Pool before sending `add_liquidity` to the user's LP Account.
     txDeadline: uint64
@@ -119,7 +119,7 @@ struct StonfiPoolV2ConstProductCbAddLiquidityAdditionalFields {
     toUserAddress: address
     /// Address whose LP Account receives a forced refund if liquidity minting is unsuccessful.
     refundAddress: address
-    /// Address where all TON excesses are sent after mint or refund handling.
+    /// Address where all GRAM excesses are sent after mint or refund handling.
     excessAddress: address
 }
 
@@ -127,13 +127,13 @@ struct StonfiPoolV2ConstProductCbAddLiquidityAdditionalFields {
 struct StonfiPoolV2ConstProductAddLiquidityAdditionalFields {
     /// Address used by LP Account if liquidity is later refunded through Pool.
     refundAddress: address?
-    /// Address where TON excesses are sent after LP Account processing.
+    /// Address where GRAM excesses are sent after LP Account processing.
     excessAddress: address
 }
 
 /// Referenced payout data carried by Pool-to-Router `pay_to` messages.
 struct StonfiPoolV2ConstProductPayToAdditionalInfo {
-    /// Nanotons forwarded by Router's outgoing Jetton transfer.
+    /// Nanograms forwarded by Router's outgoing Jetton transfer.
     fwdTonAmount: coins
     /// Amount of the first token to transfer, in basic token units.
     amount0Out: coins
@@ -273,15 +273,15 @@ struct (0x75930d63) StonfiPoolV2ConstProductInternalSetFees {
     newProtocolFee: uint16
     /// Replacement protocol fee collection address.
     newProtocolFeeAddress: address
-    /// Address receiving excess TON after the update.
+    /// Address receiving excess GRAM after the update.
     excessesAddress: address
 }
 
-/// Router internal admin command that reserves `storage_fee::pool` nanotons on the Pool and returns remaining TON.
+/// Router internal admin command that reserves `storage_fee::pool` nanograms on the Pool and returns remaining GRAM.
 struct (0x29d22935) StonfiPoolV2ConstProductResetGas {
     /// Router-selected query id carried by the admin message.
     queryId: uint64
-    /// Address receiving excess TON after storage reserve; present in source Pool handler although the common opcode string omits it.
+    /// Address receiving excess GRAM after storage reserve; present in source Pool handler although the common opcode string omits it.
     excessesRecipient: address
 }
 
@@ -289,7 +289,7 @@ struct (0x29d22935) StonfiPoolV2ConstProductResetGas {
 struct (0x62752512) StonfiPoolV2ConstProductInternalUpdateStatus {
     /// Router-selected query id carried by the admin message.
     queryId: uint64
-    /// Address receiving excess TON after the status update.
+    /// Address receiving excess GRAM after the status update.
     excessesRecipient: address
 }
 
@@ -389,7 +389,7 @@ struct (0x657b54f5) StonfiPoolV2ConstProductPayTo {
     queryId: uint64
     /// Final user, protocol-fee recipient, or refund address receiving the token transfer.
     toAddress: address
-    /// Address receiving TON excesses from Router and Jetton-wallet transfers.
+    /// Address receiving GRAM excesses from Router and Jetton-wallet transfers.
     excessesAddress: address
     /// Original user or caller associated with the payout.
     originalCaller: address
@@ -407,7 +407,7 @@ struct (0x63381632) StonfiPoolV2ConstProductPayVault {
     queryId: uint64
     /// Referral owner whose deterministic Vault receives the fee.
     owner: address
-    /// Address receiving excess TON after vault deposit.
+    /// Address receiving excess GRAM after vault deposit.
     excessesAddress: address
     /// Referenced referral-fee amounts and token wallet addresses.
     additionalInfo: Cell<StonfiPoolV2ConstProductPayVaultAdditionalInfo>
@@ -423,7 +423,7 @@ struct (0x178d4519) StonfiPoolV2ConstProductLpWalletInternalTransfer {
     fromAddress: address
     /// Optional response address for LP wallet excesses.
     responseAddress: address?
-    /// Nanotons forwarded to the LP wallet owner's transfer notification.
+    /// Nanograms forwarded to the LP wallet owner's transfer notification.
     forwardTonAmount: coins
     /// Raw Jetton `Either Cell ^Cell` forward payload tail emitted by Pool's mint builder.
     forwardPayload: RemainingBitsAndRefs

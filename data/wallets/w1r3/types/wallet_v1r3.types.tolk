@@ -2,7 +2,7 @@
 contract WalletV1r3 {
     author: "TON Core"
     version: "1.3"
-    description: "Wallet V1 R3 is a TON wallet for holding TON and sending signed transfers; compared with R2, it adds public-key visibility."
+    description: "Wallet V1 R3 is a TON wallet for holding GRAM and sending signed transfers; compared with R2, it adds public-key visibility."
     storage: WalletV1r3Storage
     incomingExternal: WalletV1r3IncomingExternalMessage
     thrownErrors: Errors

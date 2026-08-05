@@ -38,7 +38,7 @@ struct (0x0f8a7ea5) StakeedWalletTransfer {
     responseDestination: address?
     /// Optional standard Jetton custom payload parsed and ignored by the live wallet.
     customPayload: cell?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail copied to the peer wallet.
     forwardPayload: RemainingBitsAndRefs
@@ -54,7 +54,7 @@ struct (0x178d4519) StakeedWalletInternalTransfer {
     fromAddress: address
     /// Optional excess-refund address used after recipient processing.
     responseAddress: address?
-    /// Nanotons forwarded to the recipient owner notification.
+    /// Nanograms forwarded to the recipient owner notification.
     forwardTonAmount: coins
     /// Raw TEP-74 `Either Cell ^Cell` forward-payload tail copied to the owner notification.
     forwardPayload: RemainingBitsAndRefs
@@ -144,7 +144,7 @@ struct (0x7bdd97de) StakeedWalletBurnNotification {
     customPayload: cell?
 }
 
-/// Standard Jetton transfer notification emitted to the owner when an internal transfer forwards TON.
+/// Standard Jetton transfer notification emitted to the owner when an internal transfer forwards GRAM.
 struct (0x7362d09c) StakeedWalletTransferNotification {
     /// Query id copied from the accepted internal transfer.
     queryId: uint64

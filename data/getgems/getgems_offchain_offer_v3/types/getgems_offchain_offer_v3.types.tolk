@@ -2,7 +2,7 @@
 contract GetgemsOffchainOfferV3 {
     author: "Getgems"
     version: "3"
-    description: "Getgems Offchain Offer V3 escrows TON for signed off-chain NFT purchases against a collection or a single NFT."
+    description: "Getgems Offchain Offer V3 escrows GRAM for signed off-chain NFT purchases against a collection or a single NFT."
     storage: GetgemsOffchainOfferV3Storage
     incomingMessages: GetgemsOffchainOfferV3IncomingMessage
     incomingExternal: GetgemsOffchainOfferV3IncomingExternalMessage
@@ -64,7 +64,7 @@ struct GetgemsOffchainOfferV3Storage {
     ownerAddress: address
     /// True after cancellation, signed closure, expiration closure, or the final purchase.
     isComplete: bool
-    /// Required price per NFT in nanotons.
+    /// Required price per NFT in nanograms.
     nftPrice: coins
     /// Maximum number of NFTs funded by this offer.
     maxCount: uint20
@@ -95,7 +95,7 @@ struct (0x9e548f0a) GetgemsOffchainOfferV3Cancel {
 struct (0x5cd0fa66) GetgemsOffchainOfferV3ChangePrice {
     /// Caller-selected request identifier.
     queryId: uint64
-    /// Replacement per-NFT price in nanotons.
+    /// Replacement per-NFT price in nanograms.
     newPrice: coins
 }
 
@@ -193,7 +193,7 @@ struct GetgemsOffchainOfferV3DataReply {
     finishAt: uint32
     /// Ed25519 public key used by signed external requests.
     publicKey: uint256
-    /// Required price per NFT in nanotons.
+    /// Required price per NFT in nanograms.
     nftPrice: coins
     /// Maximum number of funded purchases.
     maxCount: uint20

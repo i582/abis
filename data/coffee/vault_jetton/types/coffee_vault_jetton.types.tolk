@@ -43,7 +43,7 @@ struct CoffeeVaultInitData {
     asset: CoffeeAsset
 }
 
-/// Native TON asset tag.
+/// Native GRAM asset tag.
 struct (0b00) CoffeeNativeAsset {}
 
 /// Jetton asset tag with workchain byte and account hash.
@@ -171,7 +171,7 @@ struct CoffeePoolCreationParams {
 struct CoffeeNotificationDataSingle {
     /// Notification receiver; `addr_none` means the payout recipient.
     receiver: address?
-    /// TON value attached when sending a separate notification message.
+    /// GRAM value attached when sending a separate notification message.
     fwdGas: coins
     /// Referenced notification payload.
     payload: cell
@@ -403,7 +403,7 @@ struct (0x0f8a7ea5) CoffeeJettonTransfer {
     responseDestination: address
     /// Optional custom payload; Coffee vault stores `none`.
     customPayload: cell?
-    /// TON amount attached to the recipient notification.
+    /// GRAM amount attached to the recipient notification.
     forwardTonAmount: coins
     /// Raw TEP-74 forward-payload tail for empty or notification-ref forms.
     forwardPayload: RemainingBitsAndRefs
@@ -448,7 +448,7 @@ type CoffeeVaultJettonOutgoingMessage =
 enum Errors {
     /// Incoming internal message opcode is unsupported.
     UnknownOpcode = 6
-    /// Attached TON fails the gas requirement.
+    /// Attached GRAM fails the gas requirement.
     NotEnoughGas = 40
     /// Internal parser or activation invariant failed.
     Unexpected = 250
